@@ -39,7 +39,11 @@
             <img style = "width:50px;" src = "iconsymbols/tree.svg"/>
         </a>
 
+        <div id = "imgurlbox">
+        Image url:
+        </div>
         <input id = "srcinput"/>
+        
         <form id = "uploadform" style = "margin-top:10px" action="upload.php" method="post" enctype="multipart/form-data">
                 Select image to upload:
                     <input type="file" name="fileToUpload" id="fileToUpload">
@@ -173,6 +177,11 @@ httpc.send();
             }
             #srcinput{
                 display:block;
+            }
+            #imgurlbox{
+                display:block;
+                font-family:courier;
+                font-size:28px;
             }
             @media only screen and (max-width: 1000px) {
                 #maintextarea{
