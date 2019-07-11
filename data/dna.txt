@@ -14,6 +14,7 @@
     ],
     "php": [
         "deletebranch.txt",
+        "deletefile.txt",
         "dir.txt",
         "dnagenerator.txt",
         "editor.txt",
@@ -22,6 +23,7 @@
         "mkdir.txt",
         "pagelist.txt",
         "replicator.txt",
-        "text2php.txt"
+        "text2php.txt",
+        "upload.txt"
     ]
 }

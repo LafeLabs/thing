@@ -5,18 +5,6 @@
         <td>new page name:</td>
         <td><input/></td>
     </tr>
-    <tr>
-        <td>new map factory name:</td>
-        <td><input/></td>
-    </tr>
-    <tr>
-        <td>new symbol factory name:</td>
-        <td><input/></td>
-    </tr>
-    <tr>
-        <td>new technical paper name:</td>
-        <td><input/></td>
-    </tr>
 </table>
 
 <ul id = "mainlist">
@@ -28,7 +16,7 @@
 $files = scandir(getcwd());
 
 foreach($files as $value){
-    if($value{0} != "." && is_dir($value) && $value != "php" && $value != "jscode" && $value != "data" && $value != "html" && $value != "symbols" && $value != "fonts" && $value != "icons" && $value != "iconsymbols" && $value != "uploadimages"){
+    if($value{0} != "." && is_dir($value) && $value != "php" && $value != "data" && $value != "iconsymbols" && $value != "uploadimages"){
                 
         echo "\n<li><a href = \"".$value."/\">".$value."/</a><img class = \"button\" style = \"width:30px\" src = \"iconsymbols/deletebutton.svg\"></li>\n";
         
@@ -48,29 +36,7 @@ inputs[0].onchange = function() {
     this.parentNode.appendChild(newa);
 }
     
-inputs[1].onchange = function() {
-    var newa = document.createElement("A");
-    newa.innerHTML = "mkmap.php?dir=" + this.value;
-    newa.href = "mkmap.php?dir=" + this.value;
-    this.parentNode.appendChild(newa);
-}
-
-inputs[2].onchange = function() {
-    var newa = document.createElement("A");
-    newa.innerHTML = "mksymbol.php?dir=" + this.value;
-    newa.href = "mksymbol.php?dir=" + this.value;
-    this.parentNode.appendChild(newa);
-}
-
-
-inputs[3].onchange = function() {
-    var newa = document.createElement("A");
-    newa.innerHTML = "mkpaper.php?dir=" + this.value;
-    newa.href = "mkpaper.php?dir=" + this.value;
-    this.parentNode.appendChild(newa);
-}
-    
-    deletebuttons = document.getElementById("mainlist").getElementsByTagName("IMG");
+deletebuttons = document.getElementById("mainlist").getElementsByTagName("IMG");
 
 for(var index = 0;index < deletebuttons.length;index++){
     deletebuttons[index].onclick = function() {
