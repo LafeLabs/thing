@@ -1,0 +1,27 @@
+{
+    "html": [
+        "README.md",
+        "index.html",
+        "pageeditor.html"
+    ],
+    "iconsymbols": [
+        "deletebutton.svg",
+        "editor.svg",
+        "tree.svg"
+    ],
+    "data": [
+        "dna.txt"
+    ],
+    "php": [
+        "deletebranch.txt",
+        "dir.txt",
+        "dnagenerator.txt",
+        "editor.txt",
+        "fileloader.txt",
+        "filesaver.txt",
+        "mkdir.txt",
+        "pagelist.txt",
+        "replicator.txt",
+        "text2php.txt"
+    ]
+}
