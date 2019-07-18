@@ -10,6 +10,9 @@ mkdir("iconsymbols");
 mkdir("data");
 mkdir("php");
 mkdir("uploadimages");
+mkdir("symbol");
+    
+copy($baseurl."https://raw.githubusercontent.com/LafeLabs/geometron5/master/php/replicator.txt","symbol/replicator.php");
 
 $oldscrollexists = false;
 if(file_exists("README.md")){

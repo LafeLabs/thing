@@ -20,7 +20,7 @@
 $files = scandir(getcwd());
 
 foreach($files as $value){
-    if($value{0} != "." && is_dir($value) && $value != "php" && $value != "data" && $value != "iconsymbols" && $value != "uploadimages"){
+    if($value{0} != "." && is_dir($value) && $value != "php" && $value != "symbol" && $value != "data" && $value != "iconsymbols" && $value != "uploadimages"){
                 
         echo "\n<li><a href = \"".$value."/\">".$value."/</a><img class = \"button\" style = \"width:30px\" src = \"iconsymbols/deletebutton.svg\"></li>\n";
         
