@@ -5,6 +5,10 @@
         <td>new page name:</td>
         <td><input/></td>
     </tr>
+    <tr>    
+        <td>new map name:</td>
+        <td><input/></td>
+    </tr>
 </table>
 
 <ul id = "mainlist">
@@ -36,6 +40,13 @@ inputs[0].onchange = function() {
     this.parentNode.appendChild(newa);
 }
     
+inputs[1].onchange = function() {
+    var newa = document.createElement("A");
+    newa.innerHTML = "mkmap.php?dir=" + this.value;
+    newa.href = "mkmap.php?dir=" + this.value;
+    this.parentNode.appendChild(newa);
+}
+
 deletebuttons = document.getElementById("mainlist").getElementsByTagName("IMG");
 
 for(var index = 0;index < deletebuttons.length;index++){
