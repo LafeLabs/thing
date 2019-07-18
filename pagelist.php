@@ -1,5 +1,6 @@
 <a href = "index.html">back to main</a>
 
+
 <table id = "newtable">
     <tr>
         <td>new page name:</td>
@@ -30,6 +31,9 @@ foreach($files as $value){
 
 ?>
 </ul>
+<br/>
+<a href = "symbol/"><img style = "width:50px" src = "iconsymbols/symbolicon.svg"/></a>
+
 <script>
 inputs = document.getElementById("newtable").getElementsByTagName("input");    
 

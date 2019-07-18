@@ -7,6 +7,7 @@
     "iconsymbols": [
         "deletebutton.svg",
         "editor.svg",
+        "symbolicon.svg",
         "tree.svg"
     ],
     "data": [
