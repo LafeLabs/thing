@@ -2,11 +2,14 @@
     "html": [
         "README.md",
         "index.html",
+        "list.html",
         "pageeditor.html"
     ],
     "iconsymbols": [
+        "bigarrow.svg",
         "deletebutton.svg",
         "editor.svg",
+        "smallarrow.svg",
         "symbolicon.svg",
         "tree.svg"
     ],

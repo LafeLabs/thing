@@ -1,13 +1,12 @@
 <a href = "index.html">back to main</a>
 
-
 <table id = "newtable">
     <tr>
         <td>new page name:</td>
         <td><input/></td>
     </tr>
-    <tr>    
-        <td>new map name:</td>
+    <tr>
+        <td>new map factory name:</td>
         <td><input/></td>
     </tr>
 </table>
@@ -21,36 +20,34 @@
 $files = scandir(getcwd());
 
 foreach($files as $value){
-    if($value{0} != "." && is_dir($value) && $value != "php" && $value != "symbol" && $value != "data" && $value != "iconsymbols" && $value != "uploadimages"){
+    if($value{0} != "." && is_dir($value) && $value != "php" && $value != "jscode" && $value != "data" && $value != "html" && $value != "symbols" && $value != "symbol" && $value != "fonts" && $value != "icons" && $value != "iconsymbols" && $value != "uploadimages"){
                 
         echo "\n<li><a href = \"".$value."/\">".$value."/</a><img class = \"button\" style = \"width:30px\" src = \"iconsymbols/deletebutton.svg\"></li>\n";
         
     }
-}   
+}
 
 
 ?>
 </ul>
-<br/>
-<a href = "symbol/"><img style = "width:50px" src = "iconsymbols/symbolicon.svg"/></a>
-
 <script>
 inputs = document.getElementById("newtable").getElementsByTagName("input");    
 
 inputs[0].onchange = function() {
     var newa = document.createElement("A");
-    newa.innerHTML = "mkdir.php?dir=" + this.value;
-    newa.href = "mkdir.php?dir=" + this.value;
+    newa.innerHTML = "mkpage.php?dir=" + this.value;
+    newa.href = "mkpage.php?dir=" + this.value;
     this.parentNode.appendChild(newa);
 }
     
 inputs[1].onchange = function() {
     var newa = document.createElement("A");
-    newa.innerHTML = "mkmap.php?dir=" + this.value;
-    newa.href = "mkmap.php?dir=" + this.value;
+    newa.innerHTML = "mkdir.php?dir=" + this.value;
+    newa.href = "mkdir.php?dir=" + this.value;
     this.parentNode.appendChild(newa);
 }
 
+    
 deletebuttons = document.getElementById("mainlist").getElementsByTagName("IMG");
 
 for(var index = 0;index < deletebuttons.length;index++){
@@ -83,5 +80,4 @@ for(var index = 0;index < deletebuttons.length;index++){
     .button:active{
         background-color:yellow;
     }
-
 </style>
