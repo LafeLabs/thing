@@ -26,7 +26,6 @@ EGO DEATH:
     <a href = "index.html">index.html</a>
     <a href = "pageeditor.html">pageeditor.html</a>
     <a href = "list.html">list.html</a>
-    <a href = "pagelist.php">pagelist.php</a>
     <a href = "dnagenerator.php">dnagenerator.php</a>
 </div>
 <div id = "namediv"></div>

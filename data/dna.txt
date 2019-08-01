@@ -26,7 +26,6 @@
         "filesaver.txt",
         "mkdir.txt",
         "mkmap.txt",
-        "pagelist.txt",
         "replicator.txt",
         "text2php.txt",
         "upload.txt"
