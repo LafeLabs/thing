@@ -28,6 +28,7 @@ EGO DEATH:
     <a href = "map.html">map.html</a>
     <a href = "list.html">list.html</a>
     <a href = "dnagenerator.php">dnagenerator.php</a>
+    <a href = "treebranchgenerator.php">treebranchgenerator.php</a>
 </div>
 <div id = "namediv"></div>
 <div id="maineditor" contenteditable="true" spellcheck="false"></div>

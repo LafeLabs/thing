@@ -49,7 +49,8 @@
     ],
     "data": [
         "currentMap.txt",
-        "dna.txt"
+        "dna.txt",
+        "treebranches.txt"
     ],
     "php": [
         "deletebranch.txt",
@@ -63,6 +64,7 @@
         "mkmap.txt",
         "replicator.txt",
         "text2php.txt",
+        "treebranchgenerator.txt",
         "upload.txt"
     ]
 }
