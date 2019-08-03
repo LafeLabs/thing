@@ -65,6 +65,7 @@
         "replicator.txt",
         "text2php.txt",
         "treebranchgenerator.txt",
+        "treereplicator.txt",
         "upload.txt"
     ]
 }
