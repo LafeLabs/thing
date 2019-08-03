@@ -3,17 +3,52 @@
         "README.md",
         "index.html",
         "list.html",
-        "pageeditor.html"
+        "map.html",
+        "pageeditor.html",
+        "scroll.html"
+    ],
+    "javascript": [
+        "mapfactory.js"
     ],
     "iconsymbols": [
         "bigarrow.svg",
+        "createicon.svg",
         "deletebutton.svg",
         "editor.svg",
+        "littlerotatelefticon.svg",
+        "littlerotaterighticon.svg",
+        "littlezoominicon.svg",
+        "littlezoomouticon.svg",
+        "mapicon.svg",
+        "memeicon.svg",
+        "movedownbutton.svg",
+        "moveupbutton.svg",
+        "navigator.svg",
+        "newbutton.svg",
+        "nextbutton.svg",
+        "prevbutton.svg",
+        "rotatelefticon.svg",
+        "rotaterighticon.svg",
+        "rotateslider.svg",
+        "savebutton.svg",
+        "scaleslider.svg",
+        "scrollicon.svg",
         "smallarrow.svg",
         "symbolicon.svg",
-        "tree.svg"
+        "tree.svg",
+        "uplinkicon.svg",
+        "zoominicon.svg",
+        "zoomouticon.svg"
+    ],
+    "symbols": [
+        "circle.svg",
+        "longarrow.svg",
+        "longthinarrow.svg",
+        "shortarrow.svg",
+        "x.svg"
     ],
     "data": [
+        "currentMap.txt",
         "dna.txt"
     ],
     "php": [

@@ -1,6 +1,7 @@
 <?php
 
 
+
 $dnaurl = "https://raw.githubusercontent.com/LafeLabs/thing/master/data/dna.txt";
 $baseurl = explode("data/",$dnaurl)[0];
 $dnaraw = file_get_contents($dnaurl);
@@ -9,10 +10,19 @@ $dna = json_decode($dnaraw);
 mkdir("iconsymbols");
 mkdir("data");
 mkdir("php");
+mkdir("jscode");
 mkdir("uploadimages");
 mkdir("symbol");
+mkdir("symbols");
+    
     
 copy($baseurl."https://raw.githubusercontent.com/LafeLabs/geometron5/master/php/replicator.txt","symbol/replicator.php");
+
+$oldmapexists = false;
+if(file_exists("data/currentMap.txt")){
+    $currentMap = file_get_contents("data/currentMap.txt");
+    $oldmapexists = true;
+}
 
 $oldscrollexists = false;
 if(file_exists("README.md")){
@@ -22,6 +32,14 @@ if(file_exists("README.md")){
 
 foreach($dna->html as $value){
     copy($baseurl.$value,$value);
+}
+
+foreach($dna->javascript as $value){
+    copy($baseurl."jscode/".$value,"jscode/".$value);
+}
+
+foreach($dna->symbols as $value){
+    copy($baseurl."symbols/".$value,"symbols/".$value);
 }
 
 
@@ -46,6 +64,16 @@ foreach($dna->php as $value){
 if($oldscrollexists){
     file_put_contents("README.md",$README);
 }
+
+
+if(isset($_GET["type"])){ //replicator.php?type=map, otherwise, scroll
+    $type = $_GET["type"];
+    $files = scandir(getcwd()."/".$filename);
+    if($type == "map"){
+        copy("map.html","index.html");    
+    }
+}
+
 
 ?>
 <a href = "index.html">CLICK TO GO TO PAGE</a>

@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <!--
+
+        EVERYTHING IS PHYSICAL 
+        EVERYTHING IS FRACTAL
+        EVERYTHING IS RECURSIVE
+        NO MONEY 
+        MO MINING 
+        NO PROPERTY
+        LOOK AT THE INSECTS
+        LOOK AT THE FUNGI
+        LANGUAGE IS HOW THE MIND PARSES REALITY
+
+    -->
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+    <script src="jscode/mapfactory.js"></script>
+
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"></script>
+
+<!--un-comment to add math: -->
+<!-- 
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>
+            MathJax.Hub.Config({
+                tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                processEscapes: true,
+                processClass: "mathjax",
+                ignoreClass: "no-mathjax"
+                }
+            });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
+        </script>
+        
+-->
+
+<script>    
+</script>
+</head>
+<body>    
+<!--<datadiv/>-->
+    <div id = "mainmap"></div>
+    <div id = "hammerxy">
+        <!--this covers the map exactly, sits at higher z index, and is turned off when NOT editing xy-->
+    </div>
+
+    <div id = "box1">
+        <img id = "editmapbutton" class = "button" style = "width:50px;" src = "iconsymbols/editor.svg"/>
+        <a href = "scroll.html">
+            <img id = "scrollbutton" class = "button" style = "width:50px;" src = "iconsymbols/scrollicon.svg"/>
+        </a>
+        <a href = "list.html">
+            <img class = "button" style = "width:50px;" src = "iconsymbols/tree.svg"/>
+        </a>
+        
+
+        <div id = "linkeditstuff">
+            <table id = "linkedittable">
+                <tr>
+                    <td>
+                        <img id = "prevbutton" src = "iconsymbols/prevbutton.svg" class = "button" style = "width:50px"/>
+                    </td>
+                    <td>
+                        <img id = "nextbutton" src = "iconsymbols/nextbutton.svg" class = "button" style = "width:50px"/>
+                    </td>
+                    <td>
+                        <img id = "movedownbutton" src = "iconsymbols/movedownbutton.svg" class = "button" style = "width:50px"/>
+                    </td>
+                    <td>
+                        <img id = "moveupbutton" src = "iconsymbols/moveupbutton.svg" class = "button" style = "width:50px"/>    
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img id = "savebutton" src = "iconsymbols/savebutton.svg" class = "button" style = "width:50px"/>
+                    </td>
+                    <td>
+                        <img id = "deletebutton" src = "iconsymbols/deletebutton.svg" class = "button" style = "width:50px"/>
+                    </td>
+                    <td>
+                        <img id = "newbutton" src = "iconsymbols/newbutton.svg" class = "button" style = "width:50px"/>                    
+                    </td>
+                </tr>
+                <tr><td>text:</td><td  colspan="3"><input id = "textinput"/></td></tr>
+                <tr><td>src:</td><td colspan="3"><input id = "srcinput"/></td></tr>
+                <tr><td>href:</td><td colspan="3"><input id = "hrefinput"/></td></tr>
+            </table>
+        </div>
+
+    </div>
+    <div id = "box2">
+  
+        <div id = "feedscroll">
+            <form id = "uploadform" style = "margin-top:10px" action="upload.php" method="post" enctype="multipart/form-data">
+                Select image to upload:
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <input type="submit" value="Upload Image" name="submit">
+             </form>
+             <!--
+                put the links here, also put the images here 
+             -->
+        </div>
+
+    </div>
+    <div id = "box3">
+
+        <div id = "rotatezoombox">
+            <table id = "rotatezoomtable">
+                <tr>
+                    <td>
+                        <img id = "zoomoutbutton" src= "iconsymbols/zoomouticon.svg" class = "button" /> 
+                    </td>
+                    <td>
+                        <img id = "littlezoomoutbutton" src= "iconsymbols/littlezoomouticon.svg" class = "button"/> 
+                    </td>
+                    <td>
+                        <img id = "littlezoominbutton" src= "iconsymbols/littlezoominicon.svg" class = "button" /> 
+                    </td>
+                    <td>
+                        <img id = "zoominbutton" src= "iconsymbols/zoominicon.svg" class = "button"/> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img id = "rotateleftbutton" src= "iconsymbols/rotatelefticon.svg" class = "button" /> 
+                    </td>
+                    <td>
+                        <img id = "littlerotateleftbutton" src= "iconsymbols/littlerotatelefticon.svg" class = "button"/> 
+                    </td>
+                    <td>
+                        <img id = "littlerotaterightbutton" src= "iconsymbols/littlerotaterighticon.svg" class = "button"/> 
+                    </td>
+                    <td>
+                        <img id = "rotaterightbutton" src= "iconsymbols/rotaterighticon.svg" class = "button" /> 
+                    </td>
+                </tr>
+            </table>
+        
+                <img src = "iconsymbols/scaleslider.svg" id = "scalebar"/>
+                <img src = "iconsymbols/rotateslider.svg" id = "rotatebar"/>
+
+        </div>
+    </div>
+            
+
+<script>
+
+landscape = false;
+if(innerWidth > innerHeight){
+
+    squareWidth = innerHeight;
+    marginWidth = innerWidth - squareWidth;
+    landscape = true;
+
+}
+else{
+    
+    squareWidth = innerWidth;
+    marginWidth = innerHeight - squareWidth;
+
+}
+
+document.getElementById("hammerxy").style.width = (squareWidth).toString() + "px";
+document.getElementById("hammerxy").style.height = (squareWidth).toString() + "px";
+
+mainmap = new Map(squareWidth,squareWidth,document.getElementById("mainmap"));
+
+
+var httpc2 = new XMLHttpRequest();
+    httpc2.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+
+        mainmap.array = JSON.parse(this.responseText);
+        mainmap.draw();
+        //un comment for math
+        //MathJax.Hub.Typeset();
+
+    }
+};
+httpc2.open("GET", "fileloader.php?filename=data/currentMap.txt", true);
+httpc2.send();
+
+
+linkindex  = 0;
+mainmap.linkindex = 0;
+pageindex = 0;
+
+document.getElementById("savebutton").onclick = function() {
+    
+    mainmap.array[mainmap.linkindex].x = parseInt(mainmap.linkArray[mainmap.linkindex].style.left.substring(0,mainmap.linkArray[mainmap.linkindex].style.left.length-2))/mainmap.w;
+    mainmap.array[mainmap.linkindex].y = parseInt(mainmap.linkArray[mainmap.linkindex].style.top.substring(0,mainmap.linkArray[mainmap.linkindex].style.top.length-2))/mainmap.w;
+    mainmap.array[mainmap.linkindex].w = parseInt(mainmap.linkArray[mainmap.linkindex].style.width.substring(0,mainmap.linkArray[mainmap.linkindex].style.width.length-2))/mainmap.w;
+    mainmap.array[mainmap.linkindex].angle = parseInt(mainmap.linkArray[mainmap.linkindex].style.transform.substring(7,mainmap.linkArray[mainmap.linkindex].style.transform.length - 4));
+
+
+    var url = "filesaver.php";        
+    var httpc2 = new XMLHttpRequest();
+    httpc2.open("POST", url, true);
+    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc2.send("data="+encodeURIComponent(JSON.stringify(mainmap.array,null,"    "))+"&filename=data/currentMap.txt");//send text to filesaver.php
+
+}
+
+document.getElementById("nextbutton").onclick = function() {
+
+    mainmap.nextlink();
+    tableupdate();
+
+}
+
+document.getElementById("prevbutton").onclick = function() {
+
+    mainmap.prevlink();
+    tableupdate();
+
+}
+
+document.getElementById("newbutton").onclick = function() {
+
+    mainmap.newlink();
+    tableupdate();
+
+}
+
+
+function tableupdate() {
+    if(mainmap.array.length > 0){
+        document.getElementById("textinput").value = mainmap.array[mainmap.linkindex].text;   
+        document.getElementById("srcinput").value = mainmap.array[mainmap.linkindex].src;   
+        document.getElementById("hrefinput").value = mainmap.array[mainmap.linkindex].href;   
+
+    }
+    //un comment for math
+    //MathJax.Hub.Typeset();
+}
+
+document.getElementById("deletebutton").onclick = function() {
+
+    mainmap.deletelink();
+    tableupdate();
+
+}
+
+document.getElementById("moveupbutton").onclick  = function() {
+
+    mainmap.movelinkup();
+
+}
+document.getElementById("movedownbutton").onclick  = function() {
+
+    mainmap.movelinkdown();
+
+}
+
+document.getElementById("textinput").onchange = function() {
+    mainmap.array[mainmap.linkindex].text = this.value;
+    mainmap.draw();
+    //un comment for math
+    //MathJax.Hub.Typeset();
+
+}
+
+document.getElementById("srcinput").onchange = function() {
+
+    mainmap.array[mainmap.linkindex].src = this.value;
+    mainmap.draw();
+
+}
+
+document.getElementById("hrefinput").onchange = function() {
+
+    mainmap.array[mainmap.linkindex].href = this.value;
+    mainmap.linkArray[mainmap.linkindex].href = this.value;
+
+}
+
+mc = new Hammer(document.getElementById("hammerxy"));
+mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+mc.on("panleft panright panup pandown tap press rotate", function(ev) {
+
+    mainmap.linkArray[mainmap.linkindex].style.left = (ev.deltaX + mainmap.array[mainmap.linkindex].x*mainmap.w).toString() +  "px";
+    mainmap.linkArray[mainmap.linkindex].style.top = (ev.deltaY + mainmap.array[mainmap.linkindex].y*mainmap.w).toString() +  "px";
+
+});    
+
+
+
+mczoom = new Hammer(document.getElementById("scalebar"));
+mczoom.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+mczoom.on("panleft panright panup pandown tap press", function(ev) {
+
+    mainmap.linkArray[mainmap.linkindex].style.width = (Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w + 2*ev.deltaX)).toString() +  "px";
+    mainmap.linkArray[mainmap.linkindex].style.fontSize = (0.1*Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w + 2*ev.deltaX)).toString() + "px"; 
+
+});    
+
+document.getElementById("zoomoutbutton").onclick = function() {
+    mainmap.array[mainmap.linkindex].w /= 1.25;
+    mainmap.linkArray[mainmap.linkindex].style.width = (Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w)).toString() +  "px";
+    mainmap.linkArray[mainmap.linkindex].style.fontSize = (0.1*Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w)).toString() + "px"; 
+
+}
+document.getElementById("zoominbutton").onclick = function() {
+    mainmap.array[mainmap.linkindex].w *= 1.25;
+    mainmap.linkArray[mainmap.linkindex].style.width = (Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w)).toString() +  "px";
+    mainmap.linkArray[mainmap.linkindex].style.fontSize = (0.1*Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w)).toString() + "px"; 
+
+}
+document.getElementById("littlezoomoutbutton").onclick = function() {
+    mainmap.array[mainmap.linkindex].w /= 1.01;
+    mainmap.linkArray[mainmap.linkindex].style.width = (Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w)).toString() +  "px";
+    mainmap.linkArray[mainmap.linkindex].style.fontSize = (0.1*Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w)).toString() + "px"; 
+
+}
+document.getElementById("littlezoominbutton").onclick = function() {
+    mainmap.array[mainmap.linkindex].w *= 1.01;
+    mainmap.linkArray[mainmap.linkindex].style.width = (Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w)).toString() +  "px";
+    mainmap.linkArray[mainmap.linkindex].style.fontSize = (0.1*Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w)).toString() + "px"; 
+
+}
+
+document.getElementById("rotateleftbutton").onclick = function() {
+    mainmap.array[mainmap.linkindex].angle -= 5;
+    mainmap.linkArray[mainmap.linkindex].style.transform = "rotate(" + (mainmap.array[mainmap.linkindex].angle).toString() + "deg)";
+
+}
+document.getElementById("rotaterightbutton").onclick = function() {
+    mainmap.array[mainmap.linkindex].angle += 5;
+    mainmap.linkArray[mainmap.linkindex].style.transform = "rotate(" + (mainmap.array[mainmap.linkindex].angle).toString() + "deg)";
+}
+document.getElementById("littlerotateleftbutton").onclick = function() {
+    mainmap.array[mainmap.linkindex].angle -= 0.5;
+    mainmap.linkArray[mainmap.linkindex].style.transform = "rotate(" + (mainmap.array[mainmap.linkindex].angle).toString() + "deg)";
+}
+document.getElementById("littlerotaterightbutton").onclick = function() {
+    mainmap.array[mainmap.linkindex].angle += 0.5;
+    mainmap.linkArray[mainmap.linkindex].style.transform = "rotate(" + (mainmap.array[mainmap.linkindex].angle).toString() + "deg)";
+}
+
+
+mcrotate = new Hammer(document.getElementById("rotatebar"));
+mcrotate.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+mcrotate.on("panleft panright panup pandown tap press", function(ev) {
+
+    mainmap.linkArray[mainmap.linkindex].style.transform = "rotate(" + (mainmap.array[mainmap.linkindex].angle + ev.deltaX*Math.PI/5).toString() + "deg)";
+
+//mainmap.linkArray[linkindex].style.transform = "rotate(" + (mainmap.array[linkindex].angle + ev.deltaX*Math.PI/5).toString() + "deg)";
+
+});    
+
+
+editMode = false;
+
+document.getElementById("editmapbutton").onclick = function() {
+    
+    editMode = !editMode;
+    if(editMode) {
+        document.getElementById("hammerxy").style.display = "block";
+        document.getElementById("linkedittable").style.display = "block";
+        document.getElementById("feedscroll").style.display = "block";
+        mainmap.linkArray[mainmap.linkindex].style.border = "solid";
+        mainmap.linkArray[mainmap.linkindex].style.borderWidth = "0.1px";
+        document.getElementById("rotatezoombox").style.display = "block";
+        tableupdate();
+    }
+    else {
+        document.getElementById("hammerxy").style.display = "none";
+        mainmap.linkArray[mainmap.linkindex].style.border = "none";
+        document.getElementById("linkedittable").style.display = "none";
+        document.getElementById("feedscroll").style.display = "none";
+        document.getElementById("rotatezoombox").style.display = "none";
+
+    }
+
+}
+
+
+document.getElementById("linkedittable").style.display = "none";
+document.getElementById("hammerxy").style.display = "none";
+document.getElementById("feedscroll").style.display = "none";
+document.getElementById("rotatezoombox").style.display = "none";
+
+
+uploadImages = [];
+var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        uploadImages = JSON.parse(this.responseText);
+        for(var index = 0;index < uploadImages.length;index++) {
+            var newuploadbox = document.createElement("DIV");
+            newuploadbox.classList.add("uploadbox");
+            var newimg = document.createElement("IMG");
+            newimg.src = "uploadimages/" + uploadImages[index];
+            newimg.classList.add("uploadimage");
+            newimg.classList.add("button");
+            newuploadbox.appendChild(newimg);
+            document.getElementById("feedscroll").appendChild(newuploadbox);
+            newimg.onclick = function() {
+                document.getElementById("srcinput").value = this.src;
+                mainmap.array[mainmap.linkindex].src = this.src;
+                mainmap.draw();
+            }
+            var newimg = document.createElement("IMG");
+            newimg.src = "iconsymbols/deletebutton.svg";
+            newuploadbox.appendChild(newimg);
+            newimg.classList.add("button");
+            newimg.classList.add("deletebutton");
+            newimg.onclick = function(){
+                var imageurl =this.parentElement.getElementsByClassName("uploadimage")[0].src; 
+                var imagename = "uploadimages/" + imageurl.split("uploadimages/")[1];
+                var httpc = new XMLHttpRequest();
+                var url = "deletefile.php";         
+                httpc.open("POST", url, true);
+                httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+                httpc.send("filename=" + imagename);//send text to deletefile.php
+                this.parentElement.parentElement.removeChild(this.parentElement);
+            }
+        }
+    }
+};
+
+httpc.open("GET", "dir.php?filename=uploadimages", true);
+httpc.send();
+
+symbols = [];
+var httpc4 = new XMLHttpRequest();
+httpc4.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        symbols = JSON.parse(this.responseText);
+        for(var index = 0;index < symbols.length;index++) {
+            var newuploadbox = document.createElement("DIV");
+            newuploadbox.classList.add("uploadbox");
+            var newimg = document.createElement("IMG");
+            newimg.src = "symbols/" + symbols[index];
+            newimg.classList.add("uploadimage");
+            newimg.classList.add("button");
+            newuploadbox.appendChild(newimg);
+            document.getElementById("feedscroll").appendChild(newuploadbox);
+            newimg.onclick = function() {
+                document.getElementById("srcinput").value = this.src;
+                mainmap.array[mainmap.linkindex].src = this.src;
+                mainmap.draw();
+            }
+
+        }
+    }
+};
+
+httpc4.open("GET", "dir.php?filename=symbols", true);
+httpc4.send();
+
+
+</script>
+<style>
+body{
+    overflow:hidden;
+}
+input,table,select{
+    font-family:courier;
+    font-size:16px;
+}
+#mainmap{
+    position:absolute;
+    left:0px;
+    top:0px;
+    overflow:hidden;
+}
+#mainmap a{
+    font-family:Helvetica;
+    border-width:0.1px;
+}
+#hammerxy{
+    position:absolute;
+    left:0px;
+    top:0px;
+    z-index:1;
+    overflow:hidden;
+}
+.button{
+    cursor:pointer;
+}
+.button:hover{
+    background-color:#50ff50;
+}
+.button:active{
+    background-color:yellow;
+}
+#scalebar{
+    position:absolute;
+    left:0px;
+    right:0px;
+    bottom:25%;
+    height:25%;
+    z-index:2;
+    width:100%;
+}
+#rotatebar{
+    position:absolute;
+    left:0px;
+    right:0px;    
+    height:25%;
+    bottom:0px;
+    z-index:20;
+    width:100%;
+}
+#scalebarimage{
+    position:absolute;
+    left:0px;
+    right:0px;
+    top:0px;
+    height:100%;
+    z-index:-2;
+    width:100%;
+
+}
+#rotatebarimage{
+    position:absolute;
+    left:0px;
+    right:0px;
+    top:0px;
+    bottom:0px;
+    z-index:-2;
+    width:100%;
+}
+
+#navbutton{
+    display:block;
+}
+#linkedittable{
+    position:absolute;
+    left:0px;
+    bottom:0%;
+}
+#feedscroll{
+    width:80%;
+    height:100%;
+    position:absolute;
+    right:0px;
+    top:0px;
+    overflow:scroll;
+}
+
+.uploadimage{
+    max-width:50%;
+    display:block;
+    margin:auto;
+}
+
+.deletebutton{
+    width:50px;
+}
+.uploadbox{
+    border:solid;
+    border-width:0.5px;
+    border-radius:10px;
+    margin-top:1em;
+}
+@media only screen and (orientation: portrait) {
+    #box1{
+        width:33%;
+        position:absolute;
+        left:0px;
+        bottom:0px;
+        height:15em;
+        overflow:hidden;
+    }
+    #box2{
+        width:33%;
+        position:absolute;
+        left:33%;
+        bottom:0px;
+        height:15em;
+        overflow:hidden;
+
+    }
+    #box3{
+        width:33%;
+        position:absolute;
+        right:0px;
+        bottom:0px;
+        height:15em;
+        overflow:hidden;
+    }
+    #mainmap{
+        border-bottom:solid;
+        border-width:0.1px;
+    }
+}
+@media only screen and (orientation: landscape) {
+    #box1{
+        width:25em;
+        position:absolute;
+        right:0px;
+        top:0px;
+        height:33%;
+        overflow:hidden;
+    }
+    #box2{
+        width:25em;
+        position:absolute;
+        right:0px;
+        top:33%;
+        height:33%;
+        overflow:hidden;
+
+    }
+    #box3{
+        width:25em;
+        position:absolute;
+        right:0px;
+        bottom:0px;
+        height:33%;
+        overflow:hidden;
+        
+    }
+    #mainmap{
+        border-right:solid;
+        border-width:0.1px;
+    }
+
+}
+#rotatezoombox{
+    position:absolute;
+    left:0px;
+    right:0px;
+    top:0px;
+    bottom:0px;
+    overflow:hidden;
+    border:solid;
+}
+#rotatezoomtable tr{
+    width:80%;
+    margin:auto;
+}
+#rotatezoomtable td{
+    width:5%;
+}
+#rotatezoomtable img{
+    width:50%;
+}
+
+</style>
+</body>
+</html>

@@ -1,0 +1,3 @@
+<svg width="250" height="250" viewbox = "0 0 250 250"  xmlns="http://www.w3.org/2000/svg">
+	<path d = "M200 200 L200 100 L100 100 L100 200 L200 200 Z" stroke = "black" stroke-width = "1" fill = "none" />  <path d="M125.00000000000003 150           A25 25 0 0 1 175.00000000000003 150" fill = "none" stroke = "black" stroke-width = "6" />
+	<path d = "M125 150 L138 150 L131 161 L125 172 L119 161 L113 150 L125 150 Z" stroke = "black" stroke-width = "1" fill = "black" />	<path d = "M225 225 L225 25 L25 25 L25 225 L225 225 Z" stroke = "black" stroke-width = "1" fill = "none" /></svg>

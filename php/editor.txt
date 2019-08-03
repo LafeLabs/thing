@@ -25,6 +25,7 @@ EGO DEATH:
     <a href = "text2php.php">text2php.php</a>
     <a href = "index.html">index.html</a>
     <a href = "pageeditor.html">pageeditor.html</a>
+    <a href = "map.html">map.html</a>
     <a href = "list.html">list.html</a>
     <a href = "dnagenerator.php">dnagenerator.php</a>
 </div>
@@ -34,6 +35,8 @@ EGO DEATH:
 
     <div class = "html file">index.html</div>
     <div class = "html file">pageeditor.html</div>
+    <div class = "html file">map.html</div>
+    <div class = "html file">scroll.html</div>
     <div class = "html file">list.html</div>
 
     <div class = "markdown file">README.md</div>

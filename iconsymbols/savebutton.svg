@@ -1,0 +1,5 @@
+<svg width="100" height="100" viewbox = "0 0 100 100"  xmlns="http://www.w3.org/2000/svg">
+	<path d = "M98 98 L98 2 L2 2 L2 98 L98 98 Z" stroke = "black" stroke-width = "1" fill = "none" />    <line x1="50" y1="92" x2="50" y2="50" style="stroke:black;stroke-width:3" />
+    <line x1="50" y1="92" x2="65" y2="77" style="stroke:black;stroke-width:3" />
+    <line x1="50" y1="92" x2="35" y2="77" style="stroke:black;stroke-width:3" />
+	<path d = "M60 71 L81 71 L81 50 L81 29 L81 8 L60 8 L40 8 L19 8 L19 29 L19 50 L19 71 L40 71 " stroke = "black" stroke-width = "3" fill = "none" /></svg>
