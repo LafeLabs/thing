@@ -30,6 +30,12 @@ if(file_exists("README.md")){
     $oldscrollexists = true;
 }
 
+$oldindexexists = false;
+if(file_exists("index.html")){
+    $indexhtml = file_get_contents("index.html");
+    $oldindexexists = true;
+}
+
 foreach($dna->html as $value){
     copy($baseurl.$value,$value);
 }
@@ -63,6 +69,14 @@ foreach($dna->php as $value){
 
 if($oldscrollexists){
     file_put_contents("README.md",$README);
+}
+
+if($oldmapexists){
+    file_put_contents("data/currentMap.txt",$currentMap);
+}
+
+if($oldindexexists){
+    file_put_contents("index.html",$indexhtml);
 }
 
 

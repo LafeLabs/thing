@@ -7,7 +7,11 @@ treedna.txt is a json formatted file which points to all the files in this syste
 <pre>
 <?php
 
+    $treedna = json_decode("{}");
+
     $dirs = scandir(getcwd());
+    
+    $symbolslist = scandir(getcwd()."/symbols");
     
     $branches = [];
     foreach($dirs as $value){
@@ -15,11 +19,26 @@ treedna.txt is a json formatted file which points to all the files in this syste
             array_push($branches,$value);
         }
     }
+    
+    $treedna->branches = $branches;
+    
+    $symbols = [];
+    foreach($symbolslist as $value){
+        if(substr($value,-4) == ".svg"){
+            array_push($symbols,$value);
+        }
+    }
+    $treedna->symbols = $symbols;
 
-    echo json_encode($branches,JSON_PRETTY_PRINT);
+//    echo json_encode($branches,JSON_PRETTY_PRINT);
+  //  echo json_encode($symbols,JSON_PRETTY_PRINT);
+    echo json_encode($treedna,JSON_PRETTY_PRINT);
 
     $file = fopen("data/treebranches.txt","w");// create new file with this name
     fwrite($file,json_encode($branches,JSON_PRETTY_PRINT)); //write data to file
+    fclose($file);  //close file
+    $file = fopen("data/symbols.txt","w");// create new file with this name
+    fwrite($file,json_encode($symbols,JSON_PRETTY_PRINT)); //write data to file
     fclose($file);  //close file
 
 ?>
