@@ -13,13 +13,25 @@
 
 //self replicating trees of things
 
+
+//need to se this up with the proper inputs: 
+//location of treebranches.txt
+//name of thingd
+
 if(isset($_GET["seed"])){ 
     $seed = $_GET["seed"];
     $branchurl = $seed."/data/treebranches.txt";
 }
-else{
+else{  
     $seed = "https://raw.githubusercontent.com/LafeLabs/thing/master";
     $branchurl = "https://raw.githubusercontent.com/LafeLabs/thing/master/data/treebranches.txt";    
+}
+
+if(isset($_GET["thingname"])){
+    $thingname = $_GET["thingname"];
+}
+else{
+    $thingname = "newthing";
 }
 
 $baseurl = explode("data/",$branchurl)[0];
@@ -29,7 +41,6 @@ $symbolsraw = file_get_contents($baseurl."data/symbols.txt");
 $symbols = json_decode($branchesraw);
 
 //first create branch with correct name of "thing"
-$thingname = "newthing";
 mkdir($thingname);
 mkdir($thingname."/data");
 mkdir($thingname."/symbols");

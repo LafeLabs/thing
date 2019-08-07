@@ -5,7 +5,8 @@
         "list.html",
         "map.html",
         "pageeditor.html",
-        "scroll.html"
+        "scroll.html",
+        "treemaker.html"
     ],
     "javascript": [
         "mapfactory.js"
@@ -50,6 +51,7 @@
     "data": [
         "currentMap.txt",
         "dna.txt",
+        "symbols.txt",
         "treebranches.txt"
     ],
     "php": [
