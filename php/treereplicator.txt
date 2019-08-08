@@ -18,13 +18,12 @@
 //location of treebranches.txt
 //name of thingd
 
-if(isset($_GET["seed"])){ 
-    $seed = $_GET["seed"];
-    $branchurl = $seed."/data/treebranches.txt";
+//treereplicator.php?treebranches=[url of thing]&thingname=[thingname]
+if(isset($_GET["treebranches"])){ 
+    $treebranches = $_GET["treebranches"];
 }
 else{  
-    $seed = "https://raw.githubusercontent.com/LafeLabs/thing/master";
-    $branchurl = "https://raw.githubusercontent.com/LafeLabs/thing/master/data/treebranches.txt";    
+    $treebranches = "https://raw.githubusercontent.com/LafeLabs/thing/master/data/treebranches.txt";    
 }
 
 if(isset($_GET["thingname"])){
@@ -34,8 +33,8 @@ else{
     $thingname = "newthing";
 }
 
-$baseurl = explode("data/",$branchurl)[0];
-$branchesraw = file_get_contents($branchurl);
+$baseurl = explode("data/",$treebranches)[0];
+$branchesraw = file_get_contents($treebranches);
 $branches = json_decode($branchesraw);
 $symbolsraw = file_get_contents($baseurl."data/symbols.txt");
 $symbols = json_decode($branchesraw);

@@ -22,22 +22,35 @@ LANGUGE IS HOW THE MIND PARSES REALITY
 
 <table id = "newtable">
     <tr>
-        <td>name of new thing:</td>
+        <td>This thing here:</td>
+        <td>
+            <a href = "data/treebranches.txt">treebranches.txt</a>
+        </td>
+    </tr>
+    <tr>
+        <td>Name of new thing:</td>
         <td><input id = "thingname"/></td>
     </tr>
     <tr>
-        <td>location of thing(address of index.html):</td>
-        <td><input id = "thingaddress"/></td>
+        <td>Location of remote tree branches:</td>
+        <td><input id = "treebranches"/></td>
     </tr>
     <tr>
-        <td class= "button" id = "getbutton">GETTHING</td>
-        <td><input id = "thingput"></td>
+        <td class= "button" id = "getbutton">GET THING</td>
+        <td><a id = "treereplicator"></a></td>
     </tr>
 </table>
 
 <script>
 
 document.getElementById("getbutton").onclick = function() {
+    treebranches = document.getElementById("treebranches").value;
+    thingname = document.getElementById("thingname").value;
+    treereplicator = "treereplicator.php?thingname=";
+    treereplicator += thingname;
+    treereplicator += "&treebranches=" + treebranches;
+    document.getElementById("treereplicator").href = treereplicator;
+    document.getElementById("treereplicator").innerHTML = treereplicator;
     
 }
 
