@@ -53,7 +53,7 @@ foreach($branches as $value){
     mkdir($thingname."/".$value."/data");
     copy($baseurl.$value."/README.md",$thingname."/".$value."/README.md");
     copy($baseurl.$value."/data/currentMap.txt",$thingname."/".$value."/data/currentMap.txt");
-    copy($baseurl.$value."/index.html",$thingname."/".$value."/index.htlm");
+    copy($baseurl.$value."/index.html",$thingname."/".$value."/index.html");
     copy("https://raw.githubusercontent.com/LafeLabs/thing/master/php/replicator.txt",$thingname."/".$value."/replicator.php");
 }
 
