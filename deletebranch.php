@@ -11,6 +11,7 @@ $iconsymbols = scandir(getcwd()."/".$branchname."/iconsymbols");
 $symbols = scandir(getcwd()."/".$branchname."/symbols");
 
 unlink(getcwd()."/".$branchname."/symbol/replicator.php");
+rmdir($branchname."/symbol");
 
 foreach($phpfiles as $value){
     unlink($branchname."/php/".$value);
