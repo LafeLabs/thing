@@ -1,6 +1,6 @@
 <?php
 
-
+$makesymbol = false;
 
 $dnaurl = "https://raw.githubusercontent.com/LafeLabs/thing/master/data/dna.txt";
 $baseurl = explode("data/",$dnaurl)[0];
@@ -12,11 +12,15 @@ mkdir("data");
 mkdir("php");
 mkdir("jscode");
 mkdir("uploadimages");
-mkdir("symbol");
 mkdir("symbols");
+
+if($makesymbol){
+    mkdir("symbol");
+    copy($baseurl."https://raw.githubusercontent.com/LafeLabs/geometron5/master/php/replicator.txt","symbol/replicator.php");    
+}
     
     
-copy($baseurl."https://raw.githubusercontent.com/LafeLabs/geometron5/master/php/replicator.txt","symbol/replicator.php");
+
 
 $oldmapexists = false;
 if(file_exists("data/currentMap.txt")){
