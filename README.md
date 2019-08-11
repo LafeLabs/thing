@@ -1,15 +1,13 @@
-# Thing
-
-What is a thing?
-
-This is a thing.  Things can be *destroyed*. They can be copied.  They have addresses, they can contain other things, they can link to things.  Things are that which symbols and words refer to.  
-
-- list
-- of 
-- items
+# Self Replicating Web Page
 
 ## smaller heading
 
-link up a level: [../](../)
+To edit, click on the edit button, type and edit at will, then click on it again.  No logins, no passwords, no databases.  You just edit and share and replicate.  This is the free web.  Edit icon looks like this:
+
+![](http://localhost:8000/iconsymbols/editor.svg)
+
+What you see here is "markdown", which is a simple way to publishing things on the web. Hit return twice to get a paragraph break.  Copy the syntax you see here to get links and images and headings. You can look up markdown for more syntax.  Also embedding <span style = "color:red;font-family:courier;">HTML</span> works if you know that.  
+
+[link up a level../](../)
 
 [editor.php](editor.php)

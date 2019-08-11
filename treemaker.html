@@ -49,8 +49,16 @@ document.getElementById("getbutton").onclick = function() {
     treereplicator = "treereplicator.php?thingname=";
     treereplicator += thingname;
     treereplicator += "&treebranches=" + treebranches;
-    document.getElementById("treereplicator").href = treereplicator;
-    document.getElementById("treereplicator").innerHTML = treereplicator;
+    
+    if(thingname == "" && treebranches == ""){
+        document.getElementById("treereplicator").href = "treereplicator.php";
+        document.getElementById("treereplicator").innerHTML = "treereplicator.php";
+    }
+    else{
+        document.getElementById("treereplicator").innerHTML = treereplicator;       
+        document.getElementById("treereplicator").href = treereplicator;
+    }
+
     
 }
 
