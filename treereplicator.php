@@ -24,8 +24,13 @@ if(isset($_GET["treebranches"])){
     $baseurl = explode("data/",$treebranches)[0];
 }
 else{  
-    $treebranches = "data/treebranches.txt";    
-    $baseurl = "";
+//    $treebranches = "data/treebranches.txt";    
+  //  $baseurl = "";
+    $treebranches = "https://raw.githubusercontent.com/LafeLabs/thing/master/data/treebranches.txt";
+//    $treebranches = "https://raw.githubusercontent.com/LafeLabs/maplelawndotnet/master/data/treebranches.txt";
+    
+    $baseurl = explode("data/",$treebranches)[0];
+
 }
 
 $thingnameset = false;
