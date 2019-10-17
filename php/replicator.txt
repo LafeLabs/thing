@@ -1,6 +1,6 @@
 <?php
 
-$makesymbol = false;
+$makesymbol = true;
 
 $dnaurl = "https://raw.githubusercontent.com/LafeLabs/thing/master/data/dna.txt";
 $baseurl = explode("data/",$dnaurl)[0];
@@ -16,7 +16,7 @@ mkdir("symbols");
 
 if($makesymbol){
     mkdir("symbol");
-    copy($baseurl."https://raw.githubusercontent.com/LafeLabs/geometron5/master/php/replicator.txt","symbol/replicator.php");    
+    copy("https://raw.githubusercontent.com/LafeLabs/geometron5/master/php/replicator.txt","symbol/replicator.php");    
 }
     
     
