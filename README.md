@@ -12,6 +12,8 @@ To fork down a level and make a new page, click on the tree icon:
 
 [![](iconsymbols/tree.svg)](list.html)
 
+To replicate this to a new web server copy the code [here](php/replicator.txt) into a file called replicator.php on the new server, then point a browser to [your new web site domain]/replicator.php to run the replicator.
+
 [link up a level../](../)
 
 [editor.php](editor.php)
