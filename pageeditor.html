@@ -162,6 +162,30 @@ var httpc2 = new XMLHttpRequest();
 httpc2.open("GET", "dir.php?filename=../symbols", true);
 httpc2.send();
 
+symbol = [];
+var httpc3 = new XMLHttpRequest();
+    httpc3.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        symbol = JSON.parse(this.responseText);
+        for(var index = 0;index < symbol.length;index++) {
+
+            var newimg = document.createElement("IMG");
+            newimg.src = "symbol/symbolfeed/" + symbol[index];
+            newimg.classList.add("uploadimage");
+            newimg.classList.add("button");
+
+            document.getElementById("feedscroll").appendChild(newimg);
+            newimg.onclick = function() {
+                document.getElementById("srcinput").value = "![](" + this.src + ")";
+                document.getElementById("srcinput").select();
+            }
+            
+        }
+    }
+};
+
+httpc3.open("GET", "dir.php?filename=symbol/symbolfeed", true);
+httpc3.send();
 
 document.getElementById("reloadbar").onclick = function() {
 //     location.reload(); 
