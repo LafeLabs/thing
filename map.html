@@ -455,6 +455,59 @@ httpc4.open("GET", "dir.php?filename=symbols", true);
 httpc4.send();
 
 
+symbol = [];
+var httpc3 = new XMLHttpRequest();
+    httpc3.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        symbol = JSON.parse(this.responseText);
+        for(var index = 0;index < symbol.length;index++) {
+
+            var newimg = document.createElement("IMG");
+            newimg.src = "../symbol/symbolfeed/" + symbol[index];
+            newimg.classList.add("uploadimage");
+            newimg.classList.add("button");
+
+            document.getElementById("feedscroll").appendChild(newimg);
+            newimg.onclick = function() {
+                document.getElementById("srcinput").value = this.src;
+                mainmap.array[mainmap.linkindex].src = this.src;
+                mainmap.draw();
+            }
+            
+        }
+    }
+};
+
+httpc3.open("GET", "dir.php?filename=../symbol/symbolfeed", true);
+httpc3.send();
+
+
+symbolhere = [];
+var httpc5 = new XMLHttpRequest();
+    httpc3.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        symbolhere = JSON.parse(this.responseText);
+        for(var index = 0;index < symbolhere.length;index++) {
+
+            var newimg = document.createElement("IMG");
+            newimg.src = "symbol/symbolfeed/" + symbolhere[index];
+            newimg.classList.add("uploadimage");
+            newimg.classList.add("button");
+
+            document.getElementById("feedscroll").appendChild(newimg);
+            newimg.onclick = function() {
+                document.getElementById("srcinput").value = this.src;
+                mainmap.array[mainmap.linkindex].src = this.src;
+                mainmap.draw();
+            }
+            
+        }
+    }
+};
+
+httpc5.open("GET", "dir.php?filename=symbol/symbolfeed", true);
+httpc5.send();
+
 </script>
 <style>
 body{

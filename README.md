@@ -2,7 +2,7 @@
 
 ## smaller heading
 
-To edit, click on the edit button, type and edit at will, then click on it again.  No logins, no passwords, no databases.  You just edit and share and replicate.  This is the free web.  Edit icon looks like this:
+To edit, click on the edit button, type and edit at will, then click on it again.  No logins, no usernames, no passwords, no databases.  You just edit and share and replicate.  This is the free web.  Edit icon looks like this:
 
 [![](../iconsymbols/editor.svg)](pageeditor.html)
 
@@ -12,7 +12,9 @@ To fork down a level and make a new page, click on the tree icon:
 
 [![](iconsymbols/tree.svg)](list.html)
 
-To replicate this to a new web server copy the code [here](php/replicator.txt) into a file called replicator.php on the new server, then point a browser to [your new web site domain]/replicator.php to run the replicator.
+Enter the name of the new page you want to create and click through the links to get to a new page one level down from this one.  Repeat this in the "new map" field to make a new map, which is a stack of images, symbols, words and links in a general web page layout.  
+
+To replicate this to a new web server copy the code [here (php/replicator.txt)](php/replicator.txt) into a file called replicator.php on the new server, then point a browser to [your new web site domain]/replicator.php to run the replicator.
 
 [link up a level../](../)
 
