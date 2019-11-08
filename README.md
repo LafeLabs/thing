@@ -19,3 +19,13 @@ To replicate this to a new web server copy the code [here (php/replicator.txt)](
 [link up a level../](../)
 
 [editor.php](editor.php)
+
+- everything replicates 
+- everything evolves
+- everything dies
+- everything describes its own replication
+- everything is tied to something in the physical world
+
+*language is how the mind parses reality*
+
+*from each according to their desire, to each according to their desire*
