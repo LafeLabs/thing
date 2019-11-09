@@ -19,6 +19,7 @@ LANGUGE IS HOW THE MIND PARSES REALITY
 </head>
 <body>
 <a href = "index.html">back to main</a>
+<div id = "deleteonbutton">DELETE ON</div>
 
 <table id = "newtable">
     <tr>
@@ -111,6 +112,11 @@ function addDeleteButtons(){
 
 }
 
+document.getElementById("deleteonbutton").onclick = function(){
+    addDeleteButtons();
+    this.style.display  = "none";
+}
+
 </script>
 <style>
     body{
@@ -128,6 +134,10 @@ function addDeleteButtons(){
     .button:active{
         background-color:yellow;
     }
+        #deleteonbutton{
+        cursor:pointer;
+    }
+
 </style>
 </body>
 </html>
