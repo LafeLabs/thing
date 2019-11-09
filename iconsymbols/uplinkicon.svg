@@ -1,4 +1,0 @@
-<svg width="150" height="150" viewbox = "0 0 150 150"  xmlns="http://www.w3.org/2000/svg">
-<path d = "M147 147 L147 3 L3 3 L3 147 L147 147 Z" stroke = "#000000" stroke-width = "4" fill = "none" />    <circle cx="75" cy = "39" r = "9" stroke = "#000000" stroke-width = "1" fill = "#000000" />
-    <circle cx="75" cy = "111" r = "7.86628844007878" stroke = "#000000" stroke-width = "1" fill = "#000000" />
-	<path d = "M75 111 L75 103 L75 95 L75 87 L75 80 L75 72 L75 64 Z" stroke = "#000000" stroke-width = "1" fill = "#000000" />	<path d = "M75 64 L67 64 L71 57 L75 50 L79 57 L83 64 L75 64 Z" stroke = "#000000" stroke-width = "1" fill = "#000000" /></svg>

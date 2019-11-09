@@ -28,9 +28,7 @@ EGO DEATH:
     <a href = "pageeditor.html">pageeditor.html</a>
     <a href = "map.html">map.html</a>
     <a href = "list.html">list.html</a>
-    <a href = "treemaker.html">treemaker.html</a>
     <a href = "dnagenerator.php">dnagenerator.php</a>
-    <a href = "treebranchgenerator.php">treebranchgenerator.php</a>
 </div>
 <div id = "namediv"></div>
 <div id="maineditor" contenteditable="true" spellcheck="false"></div>
@@ -41,11 +39,11 @@ EGO DEATH:
     <div class = "html file">pageeditor.html</div>
     <div class = "html file">map.html</div>
     <div class = "html file">scroll.html</div>
-    <div class = "html file">treemaker.html</div>
     <div class = "html file">list.html</div>
 
     <div class = "markdown file">README.md</div>
 
+    <div class = "javascript file">jscode/mapfactory.js</div>
 
 
 <?php 

@@ -12,7 +12,6 @@ mkdir("data");
 mkdir("php");
 mkdir("jscode");
 mkdir("uploadimages");
-mkdir("symbols");
 
 if($makesymbol){
     mkdir("symbol");
@@ -46,10 +45,6 @@ foreach($dna->html as $value){
 
 foreach($dna->javascript as $value){
     copy($baseurl."jscode/".$value,"jscode/".$value);
-}
-
-foreach($dna->symbols as $value){
-    copy($baseurl."symbols/".$value,"symbols/".$value);
 }
 
 

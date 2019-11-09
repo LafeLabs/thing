@@ -1,7 +1,0 @@
-[
-    "circle.svg",
-    "longarrow.svg",
-    "longthinarrow.svg",
-    "shortarrow.svg",
-    "x.svg"
-]

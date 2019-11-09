@@ -24,8 +24,11 @@ else{
 
 
 ?>
+<!--<p style = "font-size:5em">
+    <a href = "pageeditor.html">PAGE EDITOR</a>
+</p>-->
 <p style = "font-size:5em">
-    <a href = "pageeditor.html">BACK</a>
+    <a href = "index.html">BACK TO PAGE</a>
 </p>
 
 

@@ -6,54 +6,43 @@
         "map.html",
         "pageeditor.html",
         "print.html",
-        "scroll.html",
-        "treemaker.html"
+        "scroll.html"
     ],
     "javascript": [
         "mapfactory.js"
     ],
     "iconsymbols": [
-        "bigarrow.svg",
-        "createicon.svg",
-        "deletebutton.svg",
-        "editor.svg",
-        "littlerotatelefticon.svg",
-        "littlerotaterighticon.svg",
-        "littlezoominicon.svg",
-        "littlezoomouticon.svg",
-        "mapicon.svg",
-        "memeicon.svg",
-        "movedownbutton.svg",
-        "moveupbutton.svg",
-        "navigator.svg",
-        "newbutton.svg",
-        "nextbutton.svg",
-        "prevbutton.svg",
-        "rotatelefticon.svg",
-        "rotaterighticon.svg",
-        "rotateslider.svg",
-        "savebutton.svg",
-        "scaleslider.svg",
-        "scrollicon.svg",
-        "smallarrow.svg",
-        "symbolicon.svg",
-        "tree.svg",
-        "uplinkicon.svg",
-        "zoominicon.svg",
-        "zoomouticon.svg"
-    ],
-    "symbols": [
-        "circle.svg",
-        "longarrow.svg",
-        "longthinarrow.svg",
-        "shortarrow.svg",
-        "x.svg"
+        "add.svg",
+        "arrow.svg",
+        "bullseye.svg",
+        "delete.svg",
+        "downelement.svg",
+        "edit.svg",
+        "elementdown.svg",
+        "elementup.svg",
+        "expand.svg",
+        "expandsmall.svg",
+        "fork.svg",
+        "goldenspiral.svg",
+        "hexagon.svg",
+        "iconset.svg",
+        "left.svg",
+        "leftsmall.svg",
+        "map.svg",
+        "pentagram.svg",
+        "right.svg",
+        "rightsmall.svg",
+        "rotate.svg",
+        "save.svg",
+        "scale.svg",
+        "scroll.svg",
+        "shrink.svg",
+        "shrinksmall.svg",
+        "upelement.svg"
     ],
     "data": [
         "currentMap.txt",
-        "dna.txt",
-        "symbols.txt",
-        "treebranches.txt"
+        "dna.txt"
     ],
     "php": [
         "deletebranch.txt",
@@ -67,8 +56,6 @@
         "mkmap.txt",
         "replicator.txt",
         "text2php.txt",
-        "treebranchgenerator.txt",
-        "treereplicator.txt",
         "upload.txt"
     ]
 }

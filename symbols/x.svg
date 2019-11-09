@@ -1,4 +1,0 @@
-<svg width="250" height="250" viewbox = "0 0 250 250"  xmlns="http://www.w3.org/2000/svg">
-    <line x1="4" y1="246" x2="246" y2="4" style="stroke:black;stroke-width:3" />
-    <line x1="246" y1="246" x2="4" y2="4" style="stroke:black;stroke-width:3" />
-</svg>
