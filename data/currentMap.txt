@@ -6,7 +6,7 @@
         "angle": 0,
         "text": "Name of Map",
         "href": "",
-        "src": "http://localhost:8000/iconsymbols/iconset.svg"
+        "src": "iconsymbols/iconset.svg"
     },
     {
         "x": 0.19471153846153846,
