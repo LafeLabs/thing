@@ -1,6 +1,6 @@
 # Self Replicating Web Page
 
-## smaller heading
+## The Geometron Network
 
 To edit, click on the edit button, type and edit at will, then click on it again.  No logins, no usernames, no passwords, no databases.  You just edit and share and replicate.  This is the free web.  Edit icon looks like this:
 
@@ -16,15 +16,23 @@ Enter the name of the new page you want to create and click through the links to
 
 To replicate this to a new web server copy the code [here (php/replicator.txt)](php/replicator.txt) into a file called replicator.php on the new server, then point a browser to [your new web site domain]/replicator.php to run the replicator.
 
+To start a new Geometron web server get free web hosting at [000webhost](https://www.000webhost.com/) or buy a domain and get paid hosting at [bluehost](https://www.bluehost.com/) or [dreamhost](https://www.dreamhost.com/), or get a Raspberry Pi, install Apache and php on it and repeat. 
+
 [link up a level../](../)
+
+Edit code using this program:
 
 [editor.php](editor.php)
 
-- everything replicates 
-- everything evolves
-- everything dies
+## Some General Principles of the Geometron Network:
+
+- everything replicates(all things copy themselves, anyone can copy them)
+- everything evolves(anyone can edit any file)
+- everything dies(anyone can delete any file)
 - everything describes its own replication
 - everything is connected to something in the physical world
+
+Our physical world is defined by the Watershed we are in(who water flows through our physical space) and the Street(how we are connected to physical transport of people and goods around us), the Replicators(how things are replicated in the world of information and things we care about), and the Network, or how we are linked to other places, things and people.  All these things our our Universe that we understand in our minds are linked to both physical media and digital media in this format.  
 
 *language is how the mind parses reality*
 

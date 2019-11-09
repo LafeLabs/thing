@@ -19,8 +19,6 @@ LANGUGE IS HOW THE MIND PARSES REALITY
 </head>
 <body>
 <a href = "index.html">back to main</a>
-<div id = "deleteonbutton">DELETE ON</div>
-
 <table id = "newtable">
     <tr>
         <td>new page name:</td>
@@ -31,9 +29,11 @@ LANGUGE IS HOW THE MIND PARSES REALITY
         <td><input/></td>
     </tr>
 </table>
+
 <ul id = "mainlist">
 
 </ul>
+<div id = "deleteonbutton">DELETE MODE ON</div>
 <script>
 
 deleteprotect = true;//set to false to enable deletion of directories
@@ -89,7 +89,7 @@ function addDeleteButtons(){
     dirlist = document.getElementById("mainlist").getElementsByTagName("LI");
     for(var index = 0;index < dirlist.length;index++){
         var newimg = document.createElement("IMG");
-        newimg.src = "iconsymbols/deletebutton.svg";
+        newimg.src = "iconsymbols/delete.svg";
         newimg.className = "button";
         newimg.style.width = "30px";
         dirlist[index].appendChild(newimg);
@@ -134,8 +134,12 @@ document.getElementById("deleteonbutton").onclick = function(){
     .button:active{
         background-color:yellow;
     }
-        #deleteonbutton{
+    #deleteonbutton{
         cursor:pointer;
+        font-family:arial;
+        border:solid;
+        border-radius:0.3em;
+        width:10em;
     }
 
 </style>
