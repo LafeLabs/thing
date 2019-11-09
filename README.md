@@ -32,7 +32,7 @@ Edit code using this program:
 - everything describes its own replication
 - everything is connected to something in the physical world
 
-Our physical world is defined by the Watershed we are in(who water flows through our physical space) and the Street(how we are connected to physical transport of people and goods around us), the Replicators(how things are replicated in the world of information and things we care about), and the Network, or how we are linked to other places, things and people.  All these things our our Universe that we understand in our minds are linked to both physical media and digital media in this format.  
+Our physical world is defined by the Watershed we are in(what water flows through our physical space), the Street(how we are connected to physical transport of people and goods around us), the Replicators/Factories(how things are replicated in the world of information and things we care about), and the Network, or how we are linked to other places, things and people.  All these things our our Universe that we understand in our minds are linked to both physical media and digital media in this format.  
 
 *language is how the mind parses reality*
 
