@@ -13,7 +13,7 @@
         "y": 0.025240384615384616,
         "w": 1.0697115384615385,
         "angle": 0,
-        "text": "Map Factory",
+        "text": "Map Factorys",
         "href": "",
         "src": ""
     },

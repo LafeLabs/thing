@@ -87,9 +87,9 @@
                         <img id = "newbutton" src = "iconsymbols/add.svg" class = "button" style = "width:50px"/>                    
                     </td>
                 </tr>
-                <tr><td>text:</td><td  colspan="3"><input id = "textinput"/></td></tr>
-                <tr><td>src:</td><td colspan="3"><input id = "srcinput"/></td></tr>
-                <tr><td>href:</td><td colspan="3"><input id = "hrefinput"/></td></tr>
+                <tr><td>text:</td><td  colspan="3"><input id = "textinput"/></td><td><img id = "littlesavebutton" src = "iconsymbols/save.svg" class = "button" style = "width:1em"/></td></tr>
+                <tr><td>src:</td><td colspan="3"><input id = "srcinput"/></td><td><img id = "littleeditmapbutton" class = "button" style = "width:1em;" src = "iconsymbols/edit.svg"/></td></tr>
+                <tr><td>href:</td><td colspan="3"><input id = "hrefinput"/></td><td></td></tr>
             </table>
         </div>
 
@@ -205,6 +205,14 @@ document.getElementById("savebutton").onclick = function() {
     httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc2.send("data="+encodeURIComponent(JSON.stringify(mainmap.array,null,"    "))+"&filename=data/currentMap.txt");//send text to filesaver.php
 
+}
+
+document.getElementById("littleeditmapbutton").onclick = function(){
+    document.getElementById("editmapbutton").click();
+}
+
+document.getElementById("littlesavebutton").onclick = function(){
+    document.getElementById("savebutton").click();
 }
 
 document.getElementById("nextbutton").onclick = function() {
