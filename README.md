@@ -42,6 +42,8 @@ Edit code using this program:
 - everything describes its own replication
 - everything is connected to something in the physical world
 
+Media which has these properties is called *organic media* because it behaves like living matter.  We call this particular network of organic media the Geometron Network because the Geometron language of building symbols is used to make all the symbols and icons and diagrams which are used here, and the construction of these domain specific languages is so fundamental to the creation of the network that it goes into the name.
+
 Our physical world is defined by the Watershed we are in(what water flows through our physical space), the Street(how we are connected to physical transport of people and goods around us), the Replicators/Factories(how things are replicated in the world of information and things we care about), and the Network, or how we are linked to other places, things and people.  All these things our our Universe that we understand in our minds are linked to both physical media and digital media in this format.  
 
 *language is how the mind parses reality*
