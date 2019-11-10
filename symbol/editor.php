@@ -51,23 +51,19 @@ EGO DEATH:
 
     <div class = "javascript file">jscode/geometron.js</div>
 
-    <div class = "php file">php/editor.txt</div>
-    <div class = "php file">php/dir.txt</div>
-    <div class = "php file">php/upload.txt</div>
-    <div class = "php file">php/uploadsymbol.txt</div>
-    <div class = "php file">php/replicator.txt</div>
-    <div class = "php file">php/deckreplicator.txt</div>
-    <div class = "php file">php/newbranch.txt</div>
-    <div class = "php file">php/deletebranch.txt</div>
-    <div class = "php file">php/metareplicator.txt</div>
-    <div class = "php file">php/filesaver.txt</div>
-    <div class = "php file">php/pngsave.txt</div>
-    <div class = "php file">php/fileloader.txt</div>
-    <div class = "php file">php/text2php.txt</div>
-    <div class = "php file">php/dnagenerator.txt</div>
-    <div class = "php file">php/deletefile.txt</div>
 
 <?php 
+
+    $phpfiles = scandir(getcwd()."/php");
+
+    foreach($phpfiles as $value){
+        if($value{0} != "."){
+            echo "<div class = \"php file\">php/";
+            echo $value;
+            echo "</div>\n";
+        }
+    }
+
 
     $datafiles = scandir(getcwd()."/data");
 
