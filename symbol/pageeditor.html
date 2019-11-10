@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+    <head>
+
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADf+wAA3/sAAAfgAACv9QAAoAUAAK/1AACv9QAAqBUAAK/1AACoFQAAr/UAAKAFAACv9QAAB+AAAN/7AADf+wAA" rel="icon" type="image/x-icon" />
+            <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+
+<!--       un comment to use math
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>
+            MathJax.Hub.Config({
+                tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                processEscapes: true,
+                processClass: "mathjax",
+                ignoreClass: "no-mathjax"
+                }
+            });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
+        </script>
+    -->
+
+
+
+    </head>
+<body>
+    
+
+    <textarea id = "maintextarea"></textarea>
+
+
+
+    <div id = "feedscroll">
+        <a href = "scroll.html">
+            <img style = "width:50px;" src = "iconsymbols/edit.svg"/>
+        </a>
+        <a href = "index.html">
+            <img style = "width:50px;" src = "iconsymbols/geometron.svg"/>
+        </a>
+
+        <div id = "imgurlbox">
+        Image url:
+        </div>
+        <input id = "srcinput"/>
+        
+        <form id = "uploadform" style = "margin-top:10px" action="upload.php" method="post" enctype="multipart/form-data">
+                Select image to upload:
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <input type="submit" value="Upload Image" name="submit">
+        </form>
+             <!--
+                put the links here, also put the images here 
+             -->
+    </div>
+        
+<div id = "reloadbar">
+    R
+    <BR/>
+    E
+    <BR/>
+    L
+    <BR/>
+    O
+    <BR/>
+    A
+    <BR/>
+    D
+
+</div>
+
+<script>
+
+
+    //get readme.md, convert to html and display
+
+    readme_md = "";
+    rawhtml = "";
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            readme_md = this.responseText;
+            document.getElementById("maintextarea").value = readme_md;                 
+        }
+    };
+    httpc.open("GET", "fileloader.php?filename=README.md", true);
+    httpc.send();
+
+    document.getElementById("maintextarea").onkeyup = function() {
+        readme_md = this.value;
+        data = encodeURIComponent(this.value);
+        var httpc = new XMLHttpRequest();
+        var url = "filesaver.php";        
+        httpc.open("POST", url, true);
+        httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+        httpc.send("data="+data+"&filename=README.md");//send text to filesaver.php
+    }
+
+
+uploadImages = [];
+var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        uploadImages = JSON.parse(this.responseText);
+        for(var index = 0;index < uploadImages.length;index++) {
+            var newuploadbox = document.createElement("DIV");
+            newuploadbox.classList.add("uploadbox");
+            var newimg = document.createElement("IMG");
+            newimg.src = "uploadimages/" + uploadImages[index];
+            newimg.classList.add("uploadimage");
+            newimg.classList.add("button");
+            newuploadbox.appendChild(newimg);
+            document.getElementById("feedscroll").appendChild(newuploadbox);
+            newimg.onclick = function() {
+                document.getElementById("srcinput").value = "![](" + this.src + ")";
+                document.getElementById("srcinput").select();
+            }
+            var newimg = document.createElement("IMG");
+            newimg.src = "iconsymbols/delete.svg";
+            newuploadbox.appendChild(newimg);
+            newimg.classList.add("button");
+            newimg.classList.add("deletebutton");
+            newimg.onclick = function(){
+                var imageurl =this.parentElement.getElementsByClassName("uploadimage")[0].src; 
+                var imagename = "uploadimages/" + imageurl.split("uploadimages/")[1];
+                var httpc = new XMLHttpRequest();
+                var url = "deletefile.php";         
+                httpc.open("POST", url, true);
+                httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+                httpc.send("filename=" + imagename);//send text to deletefile.php
+                this.parentElement.parentElement.removeChild(this.parentElement);
+            }
+        }
+    }
+};
+
+httpc.open("GET", "dir.php?filename=uploadimages", true);
+httpc.send();
+
+symbols = [];
+var httpc2 = new XMLHttpRequest();
+    httpc2.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        symbols = JSON.parse(this.responseText);
+        for(var index = 0;index < symbols.length;index++) {
+
+            var newimg = document.createElement("IMG");
+            newimg.src = "../symbols/" + symbols[index];
+            newimg.classList.add("uploadimage");
+            newimg.classList.add("button");
+
+            document.getElementById("feedscroll").appendChild(newimg);
+            newimg.onclick = function() {
+                document.getElementById("srcinput").value = "![](" + this.src + ")";
+                document.getElementById("srcinput").select();
+            }
+            
+        }
+    }
+};
+
+httpc2.open("GET", "dir.php?filename=../symbols", true);
+httpc2.send();
+
+symbol = [];
+var httpc3 = new XMLHttpRequest();
+    httpc3.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        symbol = JSON.parse(this.responseText);
+        for(var index = 0;index < symbol.length;index++) {
+
+            var newimg = document.createElement("IMG");
+            newimg.src = "symbol/symbolfeed/" + symbol[index];
+            newimg.classList.add("uploadimage");
+            newimg.classList.add("button");
+
+            document.getElementById("feedscroll").appendChild(newimg);
+            newimg.onclick = function() {
+                document.getElementById("srcinput").value = "![](" + this.src + ")";
+                document.getElementById("srcinput").select();
+            }
+            
+        }
+    }
+};
+
+httpc3.open("GET", "dir.php?filename=symbol/symbolfeed", true);
+httpc3.send();
+
+upsymbol = [];
+var httpc5 = new XMLHttpRequest();
+    httpc5.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        upsymbol = JSON.parse(this.responseText);
+        for(var index = 0;index < upsymbol.length;index++) {
+
+            var newimg = document.createElement("IMG");
+            newimg.src = "../symbol/symbolfeed/" + upsymbol[index];
+            newimg.classList.add("uploadimage");
+            newimg.classList.add("button");
+
+            document.getElementById("feedscroll").appendChild(newimg);
+            newimg.onclick = function() {
+                document.getElementById("srcinput").value = "![](" + this.src + ")";
+                document.getElementById("srcinput").select();
+            }
+            
+        }
+    }
+};
+
+httpc5.open("GET", "dir.php?filename=../symbol/symbolfeed", true);
+httpc5.send();
+
+
+icons = [];
+var httpc6 = new XMLHttpRequest();
+httpc6.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        icons = JSON.parse(this.responseText);
+        for(var index = 0;index < icons.length;index++) {
+
+            var newimg = document.createElement("IMG");
+            newimg.src = "iconsymbols/" + icons[index];
+            newimg.classList.add("uploadimage");
+            newimg.classList.add("button");
+
+            document.getElementById("feedscroll").appendChild(newimg);
+            newimg.onclick = function() {
+                document.getElementById("srcinput").value = "![](" + this.src + ")";
+                document.getElementById("srcinput").select();
+            }
+            
+        }
+    }
+};
+
+httpc6.open("GET", "dir.php?filename=iconsymbols", true);
+httpc6.send();
+
+
+document.getElementById("reloadbar").onclick = function() {
+//     location.reload(); 
+     window.location.href = "index.html";
+     
+}
+
+        </script>
+        <style>
+            body{
+                overflow:hidden;
+            }
+            #reloadbar{
+                position:absolute;
+                left:0px;
+                top:0px;
+                height:100%;
+                width:50px;
+                font-size:36px;
+                font-family:courier;
+                color:red;
+                background-color:white;
+                z-index:20;
+                overflow:hidden;
+                cursor:pointer;
+            }
+            #maintextarea{
+                position:absolute;
+                left:5%;
+                top:0px;
+                width:65%;
+                height:100%;
+                padding-left:1em;
+                padding-top:1em;
+                background-color:black;
+                color:#00ff00;
+                font-family:courier;
+                font-size:1em;
+                overflow:scroll;
+            }
+            #feedscroll{
+                position:absolute;
+                right:0px;
+                bottom:0px;
+                top:0px;
+                width:27%;
+                overflow:scroll;
+            }
+            .uploadimage{
+                max-width:50%;
+                display:block;
+                margin:auto;
+            }
+
+            .deletebutton{
+                width:50px;
+            }
+            .uploadbox{
+                border:solid;
+                border-width:0.5px;
+                border-radius:10px;
+                margin-top:1em;
+            }
+            .button{
+                cursor:pointer;
+            }
+            .button:hover{
+                background-color:#50ff50;
+            }
+            .button:active{
+                background-color:yellow;
+            }
+            #srcinput{
+                display:block;
+            }
+            #imgurlbox{
+                display:block;
+                font-family:courier;
+                font-size:28px;
+            }
+            @media only screen and (max-width: 1000px) {
+                #maintextarea{
+                    position:absolute;
+                    left:5%;
+                    top:30%;
+                    width:95%;
+                    bottom:10px;
+                    padding-left:1em;
+                    padding-top:1em;
+                    background-color:black;
+                    color:#00ff00;
+                    font-family:courier;
+                    font-size:1em;
+                    overflow:scroll;
+                }
+                #feedscroll{
+                    position:absolute;
+                    top:0px;
+                    left:50px;
+                    right:0px;
+                    width:100%;
+                    bottom:73%;
+                    overflow:scroll;
+                }
+
+            }
+
+        </style>
+    </body>
+</html>

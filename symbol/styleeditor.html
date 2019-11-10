@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+            <script src="jscode/geometron.js"></script>
+
+    <title>Style Editor</title>
+    <a href = "index.html">
+        <img style = "width:50px;" src = "iconsymbols/geometron.svg"/>
+    </a>
+    <table id = "styletable">
+        <tr>
+            <th>Layer</th>
+            <th>Color</th>
+            <th>Fill</th>
+            <th>Linewidth</th>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td><input/></td>
+            <td><input/></td>
+            <td><input/></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td><input/></td>
+            <td><input/></td>
+            <td><input/></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td><input/></td>
+            <td><input/></td>
+            <td><input/></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td><input/></td>
+            <td><input/></td>
+            <td><input/></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td><input/></td>
+            <td><input/></td>
+            <td><input/></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td><input/></td>
+            <td><input/></td>
+            <td><input/></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td><input/></td>
+            <td><input/></td>
+            <td><input/></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td><input/></td>
+            <td><input/></td>
+            <td><input/></td>
+        </tr>
+
+    </table>
+    
+    <canvas id = "outputcanvas"></canvas>
+<script>    
+
+inputs = document.getElementById("styletable").getElementsByTagName("input");
+
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        currentjson = JSON.parse(this.responseText);
+        currentstyle = currentjson.style;
+        inputs[0].value = currentstyle.color0;
+        inputs[1].value = currentstyle.fill0;
+        inputs[2].value = currentstyle.line0;
+        inputs[3].value = currentstyle.color1;
+        inputs[4].value = currentstyle.fill1;
+        inputs[5].value = currentstyle.line1;
+        inputs[6].value = currentstyle.color2;
+        inputs[7].value = currentstyle.fill2;
+        inputs[8].value = currentstyle.line2;
+        inputs[9].value = currentstyle.color3;
+        inputs[10].value = currentstyle.fill3;
+        inputs[11].value = currentstyle.line3;
+        inputs[12].value = currentstyle.color4;
+        inputs[13].value = currentstyle.fill4;
+        inputs[14].value = currentstyle.line4;
+        inputs[15].value = currentstyle.color5;
+        inputs[16].value = currentstyle.fill5;
+        inputs[17].value = currentstyle.line5;
+        inputs[18].value = currentstyle.color6;
+        inputs[19].value = currentstyle.fill6;
+        inputs[20].value = currentstyle.line6;
+        inputs[21].value = currentstyle.color7;
+        inputs[22].value = currentstyle.fill7;
+        inputs[23].value = currentstyle.line7;
+    }
+};
+httpc.open("GET", "fileloader.php?filename=data/currentjson.txt", true);
+httpc.send();    
+
+inputs[0].onchange = function() {
+    currentstyle.color0 = this.value;
+    savestyle();
+}
+inputs[1].onchange = function() {
+    currentstyle.fill0 = this.value;
+    savestyle();
+}
+inputs[2].onchange = function() {
+    currentstyle.line0 = parseFloat(this.value);
+    savestyle();
+}
+inputs[3].onchange = function() {
+    currentstyle.color1 = this.value;
+    savestyle();
+}
+inputs[4].onchange = function() {
+    currentstyle.fill1 = this.value;
+    savestyle();
+}
+inputs[5].onchange = function() {
+    currentstyle.line1 = parseFloat(this.value);
+    savestyle();
+}
+inputs[6].onchange = function() {
+    currentstyle.color2 = this.value;
+    savestyle();
+}
+inputs[7].onchange = function() {
+    currentstyle.fill2 = this.value;
+    savestyle();
+}
+inputs[8].onchange = function() {
+    currentstyle.line2 = parseFloat(this.value);
+    savestyle();
+}
+inputs[9].onchange = function() {
+    currentstyle.color3 = this.value;
+    savestyle();
+}
+inputs[10].onchange = function() {
+    currentstyle.fill3 = this.value;
+    savestyle();
+}
+inputs[11].onchange = function() {
+    currentstyle.line3 = parseFloat(this.value);
+    savestyle();
+}
+
+inputs[12].onchange = function() {
+    currentstyle.color4 = this.value;
+    savestyle();
+}
+inputs[13].onchange = function() {
+    currentstyle.fill4 = this.value;
+    savestyle();
+}
+inputs[14].onchange = function() {
+    currentstyle.line4 = parseFloat(this.value);
+    savestyle();
+}
+inputs[15].onchange = function() {
+    currentstyle.color5 = this.value;
+    savestyle();
+}
+inputs[16].onchange = function() {
+    currentstyle.fill5 = this.value;
+    savestyle();
+}
+inputs[17].onchange = function() {
+    currentstyle.line5 = parseFloat(this.value);
+    savestyle();
+}
+inputs[18].onchange = function() {
+    currentstyle.color6 = this.value;
+    savestyle();
+}
+inputs[19].onchange = function() {
+    currentstyle.fill6 = this.value;
+    savestyle();
+}
+inputs[20].onchange = function() {
+    currentstyle.line6 = parseFloat(this.value);
+    savestyle();
+}
+inputs[21].onchange = function() {
+    currentstyle.color7 = this.value;
+    savestyle();
+}
+inputs[22].onchange = function() {
+    currentstyle.fill7 = this.value;
+    savestyle();
+}
+inputs[23].onchange = function() {
+    currentstyle.line7 = parseFloat(this.value);
+    savestyle();
+}
+
+function savestyle(){
+
+    currentjson.style = currentstyle;
+    var url = "filesaver.php";        
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(JSON.stringify(currentjson,null,"    "))+"&filename=data/currentjson.txt");//send text to filesaver.php
+
+    redraw();
+}
+
+
+newcan = document.getElementById("outputcanvas");
+newg = new GVM(10,420,50,-Math.PI/2,newcan,80,440,hypercube);
+
+ctxlocal = newg.canvas2d.getContext("2d");
+ctxlocal.clearRect(0,0,newg.width,newg.height);
+ctxlocal.strokeStyle = newg.style.color0;
+ctxlocal.fillStyle = newg.style.fill0;
+ctxlocal.lineWidth = newg.style.line0;
+newg.actionSequence("0300,01327,0330,0332,01326,0330,0332,01325,0330,0332,01324,0330,0332,01323,0330,0332,01322,0330,0332,01321,0330,0332,01320,");
+
+
+function redraw(){
+
+    ctxlocal.clearRect(0,0,newg.width,newg.height);
+    ctxlocal.strokeStyle = currentstyle.color0;
+    ctxlocal.fillStyle = currentstyle.fill0;
+    ctxlocal.lineWidth = currentstyle.line0;
+    newg.style = currentstyle;
+    newg.actionSequence("0300,01327,0330,0332,01326,0330,0332,01325,0330,0332,01324,0330,0332,01323,0330,0332,01322,0330,0332,01321,0330,0332,01320,");
+    
+}
+
+</script>
+</head>
+<body>    
+
+<script>
+
+
+</script>
+<style>
+#outputcanvas{
+    position:absolute;
+    right:0px;
+    top:0px;
+    border:solid;
+    z-index:2;
+}
+</style>
+</body>
+</html>

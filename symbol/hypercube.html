@@ -1,0 +1,509 @@
+<html>
+<head>
+    <!--
+
+        EVERYTHING IS PHYSICAL 
+        EVERYTHING IS FRACTAL
+        EVERYTHING IS RECURSIVE
+        NO MONEY 
+        MO MINING 
+        NO PROPERTY
+        LOOK AT THE INSECTS
+        LOOK AT THE FUNGI
+        LANGUAGE IS HOW THE MIND PARSES REALITY
+
+    -->
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+    <script src="jscode/geometron.js"></script>
+    <script src="data/font.js"></script>
+    <script src="data/keyboard.js"></script>
+    <script src="data/symbols013xx.js"></script>
+    <script src="data/symbols010xx.js"></script>
+    <script src="data/shapetable.js"></script>
+    <script src="data/shapetablesymbols.js"></script>
+    <script src="data/controlbuttons.js"></script>
+
+    <!--    <script src="https://pastebin.com/raw/7fvF1seM"></script>-->
+</head>
+<body> 
+
+    <!--
+        hypercube.html:
+
+        this is where the custom language of symbol.html is built
+        
+        shape table
+        key pad elements
+        font editor
+        keyboard mapping
+        style editor
+        image size and shape, map-to image size and shape
+        svg or png
+
+        hypercube export and import
+        
+    -->
+
+<div id = "square">
+    <canvas id = "maincanvas"></canvas>
+    <input id = "spellinput"/>
+    <div id = "spellscroll">
+        <canvas id = "spellcanvas"></canvas>
+    </div>
+</div>
+<div id = "margin">
+    <div id = "marginsquare1">
+        <a href = "index.html">
+            <img style = "width:50px;" src = "iconsymbols/symbolicon.svg"/>
+        </a>
+        <a href = "keyboardeditor.html">
+                <img style = "width:100px;" src = "symbolfeed/keyboard.svg"/>
+            </a>
+     
+        <img id = "savebutton" class = "button" style = "width:50px;" src = "iconsymbols/savebutton.svg"/>
+        
+        <textarea id = "textout"></textarea>
+        <table>
+            <tr>
+                <td>Action:</td>
+                <td><input id = "actioninput"/></td>
+            </tr>
+            <tr>
+                <td>Print:</td>
+                <td><input id = "printinput"/></td>
+            </tr>
+            <tr>
+                <td>Stack:</td>
+                <td><input id = "stackinput"/></td>
+            </tr>        
+            <tr>
+                <td>Table Name:</td>
+                <td><input id = "tablenameinput"/></td>
+            </tr>
+            <tr>
+                <td>Current address:</td>
+                <td><input id = "addressinput"/></td>
+            </tr>        
+            <tr>
+                <td>Start address:</td>
+                <td><input id = "startinput"/></td>
+            </tr>
+            <tr>
+                <td>End address:</td>
+                <td><input id = "endinput"/></td>
+            </tr>    
+        </table>
+    </div>
+    <div id = "marginsquare2">
+        <!--this is where the various keys and symbols go which are used to select what is edited-->
+        <div id = "sourcesymbols"></div>
+        <div id = "controlsymbols"></div>
+    </div>
+</div>
+
+
+<script>
+landscape = false;
+if(innerWidth > innerHeight){
+
+    squareWidth = innerHeight;
+    document.getElementById("margin").style.width = (innerWidth - squareWidth).toString() + "px";
+    document.getElementById("margin").style.height = (innerHeight).toString() + "px";
+    marginWidth = innerWidth - squareWidth;
+    landscape = true;
+    document.getElementById("marginsquare2").style.width = marginWidth.toString() + "px";
+    document.getElementById("marginsquare2").style.height = (0.5*squareWidth).toString() + "px";
+    document.getElementById("marginsquare1").style.width = marginWidth.toString() + "px";
+    document.getElementById("marginsquare1").style.height = (0.5*squareWidth).toString() + "px";
+
+}
+else{
+    
+    squareWidth = innerWidth;
+    document.getElementById("margin").style.height = (innerHeight - squareWidth).toString() + "px";
+    document.getElementById("margin").style.width = (innerHeight).toString() + "px";
+    marginWidth = squareWidth - innerWidth;
+    document.getElementById("marginsquare2").style.width = (0.5*squareWidth).toString() + "px";
+    document.getElementById("marginsquare2").style.height = marginWidth.toString() + "px";
+    document.getElementById("marginsquare1").style.width = (0.5*squareWidth).toString() + "px";
+    document.getElementById("marginsquare1").style.height = marginWidth.toString() + "px";
+
+}
+document.getElementById("square").style.width = (squareWidth).toString() + "px";
+document.getElementById("square").style.height = (squareWidth).toString() + "px";
+
+//GVM2d(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
+
+var newGVM = new GVM(0.4*squareWidth,0.4*squareWidth,0.2*squareWidth,-Math.PI/2,document.getElementById("maincanvas"),0.8*squareWidth,0.8*squareWidth,hypercube);
+
+newGVM.importbytecode(shapetable);
+newGVM.importbytecode(font);
+newGVM.importbytecode(shapetablesymbols);
+
+hypercube = [];
+for(var index = 0;index < 01377;index++){
+    if(newGVM.hypercube[index].length  > 0 ){
+        hypercube.push( "0" + index.toString(8) +  ":" + newGVM.hypercube[index]);
+    }
+}
+
+//newGVM.drawGlyph("0200,0333,0341,0350,0335,0101,0103,0101,0102,0365,0207,",newGVM);
+
+startAddress = 0220;
+endAddress = 0247;
+
+newGVM.address = 0220;
+newGVM.glyph = newGVM.hypercube[newGVM.address] + "0207,";
+newGVM.drawGlyph(newGVM.glyph);
+
+
+var spellGVM = new GVM(10,100,50,-Math.PI/2,document.getElementById("spellcanvas"),200,200,hypercube);
+
+spellGVM.spellGlyph(newGVM.glyph);
+
+//document.getElementById("textout").value = newGVM.bytecode(0220,0247);
+
+document.getElementById("actioninput").onkeydown = function(a) {
+    var charCode = a.keyCode || a.which;
+
+    if(charCode == 010) {
+        newGVM.cursorAction(010);   
+    }
+    if(charCode == 045){
+        newGVM.cursorAction(020);             
+    }
+    if(charCode == 047){
+        newGVM.cursorAction(021);   
+    }
+    if(charCode == 046){
+        //up arrow: next
+        newGVM.address++;
+        newGVM.glyph = newGVM.hypercube[newGVM.address] + "0207,";
+        newGVM.drawGlyph(newGVM.glyph);
+    }
+    if(charCode == 050){
+        //down arrow: prev address
+        newGVM.address--;
+        newGVM.glyph = newGVM.hypercube[newGVM.address] + "0207,";
+        newGVM.drawGlyph(newGVM.glyph);
+
+    }
+
+    spellGVM.spellGlyph(newGVM.glyph);    
+    document.getElementById("addressinput").value = "0" + newGVM.address.toString(8);
+
+    document.getElementById("spellinput").value = newGVM.hypercube[newGVM.address];
+}
+
+document.getElementById("printinput").onkeydown = function(a) {
+    var charCode = a.keyCode || a.which;
+
+    if(charCode == 010) {
+        newGVM.cursorAction(010);   
+    }
+    if(charCode == 045){
+        newGVM.cursorAction(020);             
+    }
+    if(charCode == 047){
+        newGVM.cursorAction(021);   
+    }
+    if(charCode == 046){
+        //up arrow: next
+        newGVM.address++;
+        newGVM.glyph = newGVM.hypercube[newGVM.address] + "0207,";
+        newGVM.drawGlyph(newGVM.glyph);
+    }
+    if(charCode == 050){
+        //down arrow: prev address
+        newGVM.address--;
+        newGVM.glyph = newGVM.hypercube[newGVM.address] + "0207,";
+        newGVM.drawGlyph(newGVM.glyph);
+
+    }
+
+    spellGVM.spellGlyph(newGVM.glyph);    
+    document.getElementById("addressinput").value = "0" + newGVM.address.toString(8);
+
+    document.getElementById("spellinput").value = newGVM.hypercube[newGVM.address];
+}
+
+tableName = "shapestemp";
+document.getElementById("tablenameinput").value = tableName;
+document.getElementById("addressinput").value = "0" + newGVM.address.toString(8);
+document.getElementById("startinput").value = "0" + startAddress.toString(8);
+document.getElementById("endinput").value = "0" + endAddress.toString(8);
+
+
+document.getElementById("addressinput").onchange = function() {
+    newGVM.address = parseInt(this.value,8);
+    newGVM.glyph = newGVM.hypercube[newGVM.address] + "0207,";
+    newGVM.drawGlyph(newGVM.glyph);
+    spellGVM.hypercube = newGVM.hypercube;
+    spellGVM.spellGlyph(newGVM.glyph);    
+
+}
+
+
+
+document.getElementById("actioninput").onkeypress = function(a) {
+    var charCode = a.keyCode || a.which;
+    var localCursorAction = parseInt(newGVM.hypercube[charCode],8);     
+    newGVM.cursorAction(localCursorAction);   
+    spellGVM.spellGlyph(newGVM.glyph);    
+    this.value = "";
+    newGVM.saveGlyph();
+}
+
+
+document.getElementById("stackinput").onkeypress = function(a) {
+    var charCode = a.keyCode || a.which;
+    var localCursorAction = charCode;     
+    newGVM.cursorAction(localCursorAction);   
+    spellGVM.spellGlyph(newGVM.glyph);    
+    this.value = "";
+    newGVM.saveGlyph();
+}
+
+document.getElementById("printinput").onkeypress = function(a) {
+    var charCode = a.keyCode || a.which;
+    var localCursorAction = charCode + 01000;     
+    newGVM.cursorAction(localCursorAction);   
+    spellGVM.spellGlyph(newGVM.glyph);    
+    this.value = "";
+    newGVM.saveGlyph();
+}
+
+
+document.getElementById("actioninput").select();
+
+document.getElementById("savebutton").onclick = function() {
+
+    if(newGVM.address >= 01040 && newGVM.address <= 01176) {
+        savebytecode(newGVM,01040,01176,"font");
+    }
+    if(newGVM.address >= 01220 && newGVM.address <= 01247) {
+        savebytecode(newGVM,01220,01247,"shapetablesymbols");
+    }
+    if(newGVM.address >= 0220 && newGVM.address <= 0247) {
+        savebytecode(newGVM,0220,0247,"shapetable");
+    }
+
+//   savebytecode(newGVM,startAddress,endAddress,document.getElementById("tablenameinput").value);
+}
+
+function savebytecode(sourcegvm,start,end,filename){
+    var bytecodeout = [];
+    for(var index = start;index <= end;index++){
+        bytecodeout.push("0" + index.toString(8) + ":" + sourcegvm.hypercube[index]);
+    }
+    var bytecodejson = encodeURIComponent(filename +  " = " + JSON.stringify(bytecodeout,null,"    ") + ";");
+    var url = "filesaver.php";        
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data=" + bytecodejson +"&filename=data/" + filename + ".js");//send text to filesaver.php
+}
+
+
+function loadbytecode(destinationGVM,filename) {
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var jsraw = this.responseText;
+            var newbytecode = JSON.parse(jsraw.split("=")[1].split(";")[0]);
+            for(var index = 0;index < newbytecode.length;index++) {
+                var localAddress = parseInt(newbytecode[index].split(":")[0],8);
+                destinationGVM.hypercube[localAddress] = newbytecode[index].split(":")[1];
+            }
+        }
+    };
+    httpc.open("GET", "fileloader.php?filename=javascript/" + filename + ".js", true);
+    httpc.send();    
+}
+document.getElementById("spellinput").value = newGVM.hypercube[newGVM.address];
+
+
+buttonSize = 30;
+
+for(var index = 0;index< controlbuttons.length;index++) {
+  
+    var newcan = document.createElement("canvas");
+    document.getElementById("controlsymbols").appendChild(newcan);
+    newcan.classList.add("button");
+    newcan.classList.add("sourcebutton");
+    //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
+    var newg = new GVM(1,buttonSize - 1,buttonSize-2,-Math.PI/2,newcan,buttonSize,buttonSize,hypercube);
+
+    newg.drawGlyph("0300,0" + (controlbuttons[index] + 01000).toString(8) + ",");
+    newcan.id = "control0" + controlbuttons[index].toString(8);
+
+    newcan.onclick = function() {
+        var thiscommand = parseInt(this.id.substring(7),8);
+        var newarray = [];
+        for(var index = 0;index < controlbuttons.length;index++) {
+           if(controlbuttons[index] != thiscommand){
+               newarray.push(controlbuttons[index]);
+           } 
+        }
+        controlbuttons = newarray;
+        this.parentElement.removeChild(this);
+        savecontrolbuttons();
+    }
+}
+
+for(var index = 0;index < 0377;index++) {
+    
+    if(newGVM.hypercube[index + 01000].length  > 1) {
+
+        var newcan = document.createElement("canvas");
+        document.getElementById("sourcesymbols").appendChild(newcan);
+        newcan.classList.add("button");
+        newcan.classList.add("sourcebutton");
+        //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
+        var newg = new GVM(1,buttonSize - 1,buttonSize-2,-Math.PI/2,newcan,buttonSize,buttonSize,hypercube);
+
+        newg.drawGlyph("0300,0" + (index + 01000).toString(8) + ",");
+        newcan.id = "source0" + index.toString(8);
+
+        newcan.onclick = function(){
+
+            var newcan = document.createElement("canvas");
+            document.getElementById("controlsymbols").appendChild(newcan);
+            newcan.classList.add("button");
+            newcan.classList.add("sourcebutton");
+            newcan.id = "control" + this.id.substring(6);
+            //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
+            var newg = new GVM(1,buttonSize - 1,buttonSize-2,-Math.PI/2,newcan,buttonSize,buttonSize,hypercube);
+            
+            newg.drawGlyph("0300,0" + (01000 + parseInt(this.id.substring(6),8)).toString(8) + ",");
+            controlbuttons.push( parseInt(this.id.substring(6) , 8) );
+
+            newcan.onclick = function() {
+                var thiscommand = parseInt(this.id.substring(7),8);
+                var newarray = [];
+                for(var index = 0;index < controlbuttons.length;index++) {
+                    if(controlbuttons[index] != thiscommand){
+                        newarray.push(controlbuttons[index]);
+                    } 
+                }
+                controlbuttons = newarray;
+                this.parentElement.removeChild(this);
+                savecontrolbuttons();
+            }
+            savecontrolbuttons();
+        }
+    }
+}
+
+function savecontrolbuttons() {
+
+    var data = encodeURIComponent("controlbuttons = " + JSON.stringify(controlbuttons,null," ") + ";");
+    var url = "filesaver.php";        
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data=" + data +"&filename=data/controlbuttons.js");//send text to filesaver.php
+
+}
+
+</script>
+<style>
+body{
+    overflow:hidden;
+    font-family:courier;
+    font-size:16px
+
+}
+#square{
+    position:absolute;
+    left:0px;
+    top:0px;
+    overflow:hidden;
+}
+#margin{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+}
+#marginsquare1{
+    position:absolute;
+    right:0px;
+    top:0px;
+    overflow:hidden;
+}
+#marginsquare2{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    overflow:scroll;
+}
+
+#maincanvas{
+    border:solid;
+}
+
+#spellcanvas{
+    border:solid;
+}
+#actioninput{
+    width:1em;
+}
+input,textarea{
+    font-family:courier;
+    font-size:16px
+
+}
+#spellscroll{
+    position:absolute;
+    overflow:scroll;
+    bottom:0px;
+    right:0px;
+    left:0px;
+    height:10%;
+}
+#printinput{
+    width:1em;
+}
+#stackinput{
+    width:1em;
+}
+#spellinput{
+    width:100%;
+}
+.button{
+    cursor:pointer;
+}
+.button:hover{
+    background-color: green;
+}
+.button:active{
+    background-color:yellow;
+}
+#sourcesymbols{
+    position:absolute;
+    left:0px;
+    top:0px;
+    bottom:0px;
+    right:50%;
+    border:solid;
+    overflow:scroll;
+}
+#controlsymbols{
+    position:absolute;
+    right:0px;
+    top:0px;
+    bottom:0px;
+    left:50%;
+    border:solid;
+    overflow:scroll;
+}
+.sourcebutton{
+    margin: 10px 10px 10px 10px;
+    border:solid;
+    border-width:0.5px;
+}
+
+</style>
+</body>
+</html>

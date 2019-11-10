@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+    <head>
+<!--
+NO MONEY
+NO MINING
+NO PROPERTY
+EVERYTHING IS PHYSICAL
+EVERYTHING IS RECURSIVE
+EVERYTHING IS FRACTAL
+LOOK AT THE INSECTS
+LOOK AT THE FUNGI
+LANGUGE IS HOW THE MIND PARSES REALITY
+
+-->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADf+wAA3/sAAAfgAACv9QAAoAUAAK/1AACv9QAAqBUAAK/1AACoFQAAr/UAAKAFAACv9QAAB+AAAN/7AADf+wAA" rel="icon" type="image/x-icon" />
+            <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+
+<!--       un comment to use math
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>
+            MathJax.Hub.Config({
+                tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                processEscapes: true,
+                processClass: "mathjax",
+                ignoreClass: "no-mathjax"
+                }
+            });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
+        </script>
+    -->
+
+<!-- 
+
+showdown is a javascript library which converts markdown to html.
+it lives here on the internet:
+http://showdownjs.com/
+
+Markdown is a lightweight language for creating formatted text on a computer, see the wikipedia entry here
+
+https://en.wikipedia.org/wiki/Markdown
+
+bootstrap is whole big thing that does lots of things, but what we use it for here is just to make things look good on a mobile device. 
+
+-->
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    </head>
+<body>
+    
+<div class = "mainscrollarea" id = "scrollscroll"></div>
+
+<script>
+
+    
+    //get readme.md, convert to html and display
+    var converter = new showdown.Converter();
+    // for more on options see here:
+    // https://github.com/showdownjs/showdown/wiki/Showdown-Options
+    converter.setOption('literalMidWordUnderscores', 'true');
+    converter.setOption('tables', 'true');
+
+
+    readme_md = "";
+    rawhtml = "";
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            readme_md = this.responseText;
+            rawhtml = converter.makeHtml(readme_md);
+            document.getElementById("scrollscroll").innerHTML = rawhtml;
+        }
+    };
+    httpc.open("GET", "fileloader.php?filename=README.md", true);
+    httpc.send();
+
+</script>
+<style>
+    .mainscrollarea{
+        position:absolute;
+        left:0px;
+        right:0px;
+        top:0px;
+        bottom:0px;
+        font-size:1.6em;
+        text-align:justify;
+    }
+
+    #scrollscroll img{
+        max-width:50%;
+        display:block;
+        margin:auto;
+    }
+    #scrollscroll h1,h2,h3,h4{
+        margin:auto;
+        text-align:center;
+    }
+
+
+</style>
+</body>
+</html>
