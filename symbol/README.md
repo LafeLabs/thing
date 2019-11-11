@@ -117,9 +117,9 @@ and edit the symbol.
 
 This scroll represents a brief and terse introduction to the Geometron language and metalanguage for constructing custom vector graphics on the web freely(free like freedom, free like beer, and free like degrees of freedom).  While you can create any graphics with this system, modify it for any purpose etc, the primary purpose if the system is to create symbols which are used in the Geometron Organic Media network, the pages of which this symbol/ directory is just a part.  To see how this works, go up a level from here by going to the main symbol edit page and clicking the link up a level here:
 
-![](iconsymbols/uplink.svg)]
+![](iconsymbols/uplink.svg)
 
-And then create a map one level down from that following the directions to create a new map.  Then edit that map and you'll see whatever symbols you've made here in your scroll menu of symbols and images you can use.  Since you can upload any image you want, you can quickly make annotations with specialized vector symbols to any image.  Just upload an image, put it into a map, create new map elements, and scroll through to the symbol you want to use, click on it, move it, etc.  The same can be done for scrolls.  
+And then create a map one level down from that following the directions to create a new map.  Then edit that map and you'll see whatever symbols you've made here in your scroll menu of symbols and images you can use.  Since you can upload any image you want, you can quickly make annotations with specialized vector symbols to any image.  Just upload an image, put it into a map, create new map elements, and scroll through to the symbol you want to use, click on it, move it, etc.  The same can be done for scrolls, including the one you're reading right now which you can edit, delete, expand on, using whatever symbols you create.
 
 To improve on this code, you can use the code editor to edit all parts of it here:
 
