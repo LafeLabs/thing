@@ -119,7 +119,9 @@ This scroll represents a brief and terse introduction to the Geometron language 
 
 ![](iconsymbols/uplink.svg)]
 
-And then create a map one level down from that following the directions to create a new map.  Then edit that map and you'll see whatever symbols you've made here in your scroll menu of symbols and images you can use.  Since you can upload any image you want, you can quickly make annotations with specialized vector symbols to any image.  Just upload an image, put it into a map, create new map elements, and click 
+And then create a map one level down from that following the directions to create a new map.  Then edit that map and you'll see whatever symbols you've made here in your scroll menu of symbols and images you can use.  Since you can upload any image you want, you can quickly make annotations with specialized vector symbols to any image.  Just upload an image, put it into a map, create new map elements, and scroll through to the symbol you want to use, click on it, move it, etc.  The same can be done for scrolls.  
+
+To improve on this code, you can use the code editor to edit all parts of it here:
 
 Edit code using: [editor.php](editor.php)
 
