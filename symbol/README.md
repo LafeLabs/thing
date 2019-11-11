@@ -2,38 +2,54 @@
 
 ## [editor.php](editor.php)
 
-![](iconsymbols/font.svg)
-
-![](iconsymbols/action-tablet.svg)
+![](iconsymbols/uplink.svg)
 
 ![](iconsymbols/keyboard.svg)
 
+![](iconsymbols/cursormovements.svg)
 
-## Link to Scroll
+![](iconsymbols/arrowdeletesymbols.svg)
 
-![](iconsymbols/scrollicon.svg)
+![](iconsymbols/drawingsymbols.svg)
 
-## Link back up to parent directory
+![](iconsymbols/colorlayers.svg)
 
-![](iconsymbols/uplinkicon.svg)
+![](iconsymbols/symmetrysymbols.svg)
 
-## edit style(line width, colors)
+![](iconsymbols/scalesymbols.svg)
 
-![](iconsymbols/styleeditor.svg)
+![](iconsymbols/beziersymbols.svg)
 
-##  Link to Symbol feed
+![](iconsymbols/abcfontsymbol.svg)
 
-![](iconsymbols/symbolfeed.svg)
+![](iconsymbols/panzoom.svg)
 
-## App setup
+![](iconsymbols/pathsymbols.svg)
+
+![](iconsymbols/minorzoomsymbols.svg)
+
+![](iconsymbols/flagsymbols.svg)
+
+![](iconsymbols/abcstack.svg)
+
+![](iconsymbols/abcfont.svg)
+
+![](iconsymbols/cursor.svg)
+
+![](iconsymbols/feed.svg)
+
+![](iconsymbols/geometron.svg)
+
+![](iconsymbols/fonteditor.svg)
+
+![](iconsymbols/keyboardicon.svg)
 
 ![](iconsymbols/setup.svg)
 
-## Mode select(action, font, write)
+![](iconsymbols/style.svg)
 
-![](iconsymbols/actionmode.svg)
+![](iconsymbols/symbolmode.svg)
 
-## Save this svg
+![](iconsymbols/table.svg)
 
-![](iconsymbols/savebutton.svg)
 
