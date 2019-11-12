@@ -6,6 +6,8 @@ In order to learn the Geometron language  you should have a Geometron keyboard, 
 
 To buy a cheap and small USB keyboard to decorate try [this one from Amazon](https://www.amazon.com/gp/product/B01IQL2VCE/).  I recommend Sharpie paint pens, which can also be [bought on Amazon](https://www.amazon.com/Sharpie-37371PP-Oil-Based-Markers-Assorted/dp/B000GOYAPQ/).  Most keyboards and black, so white or yellow are the best choices for contrast.  Just add symbols as you learn them as you go through this tutorial, so your keyboard does not get too cluttered right away.  
 
+![](https://i.imgur.com/TZL7RmL.jpg)
+
 To start learning Geometron click on the Geometron icon from this page which looks like this:
 
 [![](iconsymbols/geometron.svg)](index.html)
