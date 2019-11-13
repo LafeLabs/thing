@@ -2,6 +2,7 @@
 
 ## The Geometron Network
 
+
 To edit, click on the edit button, type and edit at will, then click on it again.  No logins, no usernames, no passwords, no databases.  You just edit and share and replicate.  This is the free web.  Edit icon looks like this:
 
 [![](iconsymbols/edit.svg)](pageeditor.html)
