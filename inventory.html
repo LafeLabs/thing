@@ -180,6 +180,23 @@ document.getElementById("newbutton").onclick = function(){
     save();
 }
 
+document.getElementById("deletebutton").onclick = function(){
+    rows[inventory.row].style.backgroundColor = "white";
+    var temparray = [];
+    for(var index = 0;index < inventory.row;index++){
+        temparray.push(inventory.data[index]);
+    }
+    for(var index = inventory.row + 1;index < inventory.data.length;index++){
+        temparray.push(inventory.data[index]);
+    }
+    inventory.data = temparray;
+    document.getElementById("maintable").innerHTML = "";
+    inventory.row = 0;
+    initinventory();
+    save();
+    //rows[inventory.row].style.backgroundColor = "#a0ffa0";
+
+}
 
 inputs[0].onchange = function(){
     inventory.data[inventory.row].name = this.value;
