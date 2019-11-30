@@ -2,6 +2,7 @@
     "html": [
         "README.md",
         "index.html",
+        "inventory.html",
         "list.html",
         "map.html",
         "pageeditor.html",
@@ -26,6 +27,7 @@
         "goldenspiral.svg",
         "hexagon.svg",
         "iconset.svg",
+        "inventory.svg",
         "left.svg",
         "leftsmall.svg",
         "map.svg",
@@ -42,7 +44,8 @@
     ],
     "data": [
         "currentMap.txt",
-        "dna.txt"
+        "dna.txt",
+        "inventory.txt"
     ],
     "php": [
         "deletebranch.txt",

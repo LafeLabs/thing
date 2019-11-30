@@ -15,7 +15,7 @@ mkdir("uploadimages");
 
 if($makesymbol){
     mkdir("symbol");
-    copy("https://raw.githubusercontent.com/LafeLabs/geometron5/master/php/replicator.txt","symbol/replicator.php");    
+    copy("https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/php/replicator.txt","symbol/replicator.php");    
 }
     
     
