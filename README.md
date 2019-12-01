@@ -8,15 +8,14 @@
 - no passwords
 - no databases
 - no patents
-- no copyrights
+- no copyright
 - no corporate structure
 - no employees
 - no permanent domain names
 - no land ownership
 - no central servers
-- no code that cannot be edited live on the server
-- the Watershed is the primary geography
-- everything self-replicates
+- Watershed is the primary geography
+- everything self-replicates(you replicate it *yourself*)
 - everything can be edited
 - everything can be deleted
 - everything is physical
@@ -43,7 +42,7 @@ To get to web directory, copy replicator.php, run it, change permissions, and ge
 <pre>
 cd /var/www/html
 sudo rm index.html
-curl -o replicator.php http://www.maplelawn.net/php/replicator.txt
+sudo curl -o replicator.php http://www.maplelawn.net/php/replicator.txt
 php replicator.php
 sudo chmod -R 0777 *
 hostname -I
