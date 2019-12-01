@@ -2,21 +2,15 @@
 
 ## The Geometron Network
 
-### Self-replicating web page(organic media)
-
-*language is how the mind parses reality*
+### *language is how the mind parses reality*
 
 - no usernames
-- no logins
 - no passwords
 - no databases
 - no patents
 - no copyrights
-- no trademarks
 - no corporate structure
 - no employees
-- no equity
-- no debt
 - no permanent domain names
 - no land ownership
 - no central servers
@@ -38,7 +32,7 @@ To fork down a level and make a new page, click on the tree icon:
 
 [![](iconsymbols/fork.svg)](list.html)
 
-Enter the name of the new page you want to create and click through the links to get to a new page one level down from this one.  Repeat this in the "new map" field to make a new map, which is a stack of images, symbols, words and links in a general web page layout.  
+Enter the name of the new page you want to create and click through the links to get to a new page one level down from this one.  Repeat this in the "new map" field to make a new map, which is a stack of images, symbols, words and links in a general web page layout.  Each Geometron page has a scroll and a map, as well as an inventory.  The "main" page can be either a scroll or map.  To see the map, click on its symbol, and to edit it click the edit icon from the map screen. The default map shows what the symbols mean that are used for editing.  To see the current map value go to [data/currentmap.txt](data/currentmap.txt).  Also, this JSON file can be edited directly using editor.php(see link below).  Inventory is used to track inventory at a given factory or page.  
 
 To replicate this to a new web server copy the code [here (php/replicator.txt)](php/replicator.txt) into a file called replicator.php on the new server, then point a browser to [your new web site domain]/replicator.php to run the replicator.
 
@@ -77,6 +71,24 @@ Factories in Trash Magic are self-replicating information structures which produ
 To build a symbol factory, click one level down from this to the subdirectory [symbol/](symbol/), and click on replicator.php there to replicate the symbol factory software.  This can be repeated below any Geometron page.
 
 Our physical world is defined by the Watershed we are in(what water flows through our physical space), the Street(how we are connected to physical transport of people and goods around us), the Replicators/Factories(how things are replicated in the world of information and things we care about), and the Network, or how we are linked to other places, things and people.  All these things our our Universe that we understand in our minds are linked to both physical media and digital media in this format.  
+
+Nodes on the network are generally factories or structures for producing feeds of value.  A node can have be identified by an address rolled up from 6 sided dice(12 of them) to represent 6 alphanumeric characters.  These can be tracked without any fixed property by using hashtags on Twitter with throwaway accounts. Physical materials in the Trash Magic Feed are stored in repositories in publicly accessible spaces which are located in space using map media(see above).  
+
+Some other Trash Magic/Geometron factories are:
+
+- skeletron
+- art box
+- server/client raspberry pi node with keyboard
+- custom keyboards
+- trash robot: xyz manipulator, mechanical oscillator, blinking light stick, sensor, coil winder
+- value tokens(painted trash with node addresses, web addresses, actions etc on them which carry value)
+- markers
+- books, hand bound and hand written
+- custom maps for geographic marketing
+- custom symbolic languages for patrons who are willing to not lock down property
+
+
+
 
 
 
