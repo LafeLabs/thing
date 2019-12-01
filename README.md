@@ -33,9 +33,18 @@ To fork down a level and make a new page, click on the tree icon:
 
 Enter the name of the new page you want to create and click through the links to get to a new page one level down from this one.  Repeat this in the "new map" field to make a new map, which is a stack of images, symbols, words and links in a general web page layout.  Each Geometron page has a scroll and a map, as well as an inventory.  The "main" page can be either a scroll or map.  To see the map, click on its symbol, and to edit it click the edit icon from the map screen. The default map shows what the symbols mean that are used for editing.  To see the current map value go to [data/currentmap.txt](data/currentmap.txt).  Also, this JSON file can be edited directly using editor.php(see link below).  Inventory is used to track inventory at a given factory or page.  
 
+This is the symbol for map, as a link to the map:
+
+[![](iconsymbols/map.svg)](map.html)
+
+This is the symbol for inventory, as a link to the inventory:
+
+[![](iconsymbols/inventory.svg)](inventory.html)
+
+
 To replicate this to a new web server copy the code [here (php/replicator.txt)](php/replicator.txt) into a file called replicator.php on the new server, then point a browser to [your new web site domain]/replicator.php to run the replicator.
 
-To start a new Geometron web server get free web hosting at [000webhost](https://www.000webhost.com/) or buy a domain and get paid hosting at [bluehost](https://www.bluehost.com/) or [dreamhost](https://www.dreamhost.com/), or get a Raspberry Pi, install [Apache](https://www.raspberrypi.org/documentation/remote-access/web-server/apache.md) and php on it and do the same copying of replicator.php.  Build a Raspberry Pi terminal with a screen([Amazon link](https://www.amazon.com/gp/product/B01J51CXU4/)), keyboard, mouse and power supply, put it on a local WiFi network, figure out the IP address of it, and link to that from local networks to make physically local Geometron Page only available on local wifi. 
+To start a new Geometron web server get free web hosting at [000webhost](https://www.000webhost.com/) or buy a domain and get paid hosting at [bluehost](https://www.bluehost.com/) or [dreamhost](https://www.dreamhost.com/), or get a [Raspberry Pi](https://www.raspberrypi.org/), install [Apache](https://www.raspberrypi.org/documentation/remote-access/web-server/apache.md) and php on it and do the same copying of replicator.php.  Build a Raspberry Pi terminal with a screen, keyboard, mouse and power supply(this can be bought as a kit or built up from a pi motherboard and found components from other systems), put it on a local WiFi network, figure out the IP address of it, and link to that from local networks to make physically local Geometron Page only available on local wifi. 
 
 
 To get to web directory, copy replicator.php, run it, change permissions, and get your local IP address use the following commands from the terminal:
@@ -75,16 +84,17 @@ Nodes on the network are generally factories or structures for producing feeds o
 
 Some other Trash Magic/Geometron factories are:
 
-- skeletron
-- art box
-- server/client raspberry pi node with keyboard
-- custom keyboards
-- trash robot: xyz manipulator, mechanical oscillator, blinking light stick, sensor, coil winder
-- value tokens(painted trash with node addresses, web addresses, actions etc on them which carry value)
-- markers
-- books, hand bound and hand written
-- custom maps for geographic marketing
-- custom symbolic languages for patrons who are willing to not lock down property
+- skeletron(modular structures from sticks)
+- art box(modular cardboard carrying case for tools and supplies)
+- server/client raspberry pi node with keyboard(see above)
+- custom keyboards with Geometron symbols
+- trash robot: xyz manipulator, mechanical oscillator, blinking light stick, sensor, coil winder(useful components for fabrication technology built from Arduino's, custom circuit boards and trash)
+- value tokens(painted trash with node addresses, web addresses, actions etc on them which carry value) These replace money in the Trash Magic value system
+- markers(used to mark physical locations of note)
+- books, hand bound and hand written(Book of Geometron, Trash magic, and Action Geometry, This Place)
+- treasure map and repository(storage of free things in free space in city)
+- custom symbolic languages, icons and fonts([symbol/](symbol/))
+- code fork
 
 
 
