@@ -31,6 +31,7 @@ EGO DEATH:
     <a href = "hypercube.html">hypercube.html</a>
     <a href = "voxel.html">voxel.html</a>
     <a href = "tablet.html">tablet.html</a>
+    <a href = "geometronprinter.php">geometronprinter.php</a>
     <a href = "keyboardeditor.html">keyboardeditor.html</a>
     <a href = "dnagenerator.php">dnagenerator.php</a>
 </div>
