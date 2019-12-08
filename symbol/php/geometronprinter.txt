@@ -1,0 +1,78 @@
+<html>
+ <head>
+ <meta name="viewport" content="width=device-width" />
+ <title>LED Control</title>
+ </head>
+    <body>
+         LED Pulse(s):
+         <form method="get" action="directdrive.php">
+            <input type="submit" value="REDLEFT" name="REDLEFT">
+            <input type="submit" value="REDRIGHT" name="REDRIGHT">
+            <input type="submit" value="BLUELEFT" name="BLUELEFT">
+            <input type="submit" value="BLUERIGHT" name="BLUERIGHT">
+            <input type="submit" value="YELLOWLEFT" name="YELLOWLEFT">
+            <input type="submit" value="YELLOWRIGHT" name="YELLOWRIGHT">
+         </form>
+    <?php
+        $setmode17 = shell_exec("gpio -g mode 2 out");
+        $setmode17 = shell_exec("gpio -g mode 3 out");
+        $setmode17 = shell_exec("gpio -g mode 14 out");
+        $setmode17 = shell_exec("gpio -g mode 15 out");
+        $setmode17 = shell_exec("gpio -g mode 17 out");
+        $setmode17 = shell_exec("gpio -g mode 18 out");
+
+
+        $pulsetime = 0.2;
+        if(isset($_GET['REDLEFT'])){
+            $gpio_on = shell_exec("gpio -g write 2 0");
+            usleep(1000000*$pulsetime);
+            $gpio_on = shell_exec("gpio -g write 2 1");
+            usleep(1000000*$pulsetime);
+        }
+        if(isset($_GET['REDRIGHT'])){
+            $gpio_on = shell_exec("gpio -g write 3 0");
+            usleep(1000000*$pulsetime);
+            $gpio_on = shell_exec("gpio -g write 3 1");
+            usleep(1000000*$pulsetime);
+        }        
+        if(isset($_GET['BLUELEFT'])){
+            $gpio_on = shell_exec("gpio -g write 14 0");
+            usleep(1000000*$pulsetime);
+            $gpio_on = shell_exec("gpio -g write 14 1");
+            usleep(1000000*$pulsetime);
+        }
+        if(isset($_GET['BLUERIGHT'])){
+            $gpio_on = shell_exec("gpio -g write 15 0");
+            usleep(1000000*$pulsetime);
+            $gpio_on = shell_exec("gpio -g write 15 1");
+            usleep(1000000*$pulsetime);
+        }        
+        if(isset($_GET['YELLOWLEFT'])){
+            $gpio_on = shell_exec("gpio -g write 17 0");
+            usleep(1000000*$pulsetime);
+            $gpio_on = shell_exec("gpio -g write 17 1");
+            usleep(1000000*$pulsetime);
+        }
+        if(isset($_GET['YELLOWRIGHT'])){
+            $gpio_on = shell_exec("gpio -g write 18 0");
+            usleep(1000000*$pulsetime);
+            $gpio_on = shell_exec("gpio -g write 18 1");
+            usleep(1000000*$pulsetime);
+        }        
+
+        $gpio_on = shell_exec("gpio -g write 3 1");
+        $gpio_on = shell_exec("gpio -g write 2 1");
+        $gpio_on = shell_exec("gpio -g write 14 1");
+        $gpio_on = shell_exec("gpio -g write 15 1");
+        $gpio_on = shell_exec("gpio -g write 17 1");
+        $gpio_on = shell_exec("gpio -g write 18 1");
+
+    ?>
+    <p>
+        <a href = "index.html">index.html</a>
+    </p>
+    <p>
+        <a href = "editor.php">editor.php</a>
+    </p>
+   </body>
+</html>

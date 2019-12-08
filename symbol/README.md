@@ -1,7 +1,7 @@
-# Geometron 5
+# Geometron Symbol Factory
 
 
-In order to learn the Geometron language  you should have a Geometron keyboard, decorated with a subset of the following symbols:
+In order to learn the Geometron language you should have a Geometron keyboard, decorated with a subset of the following symbols:
 ![](iconsymbols/keyboard.svg)
 
 To buy a cheap and small USB keyboard to decorate try [this one from Amazon](https://www.amazon.com/gp/product/B01IQL2VCE/).  I recommend Sharpie paint pens, which can also be [bought on Amazon](https://www.amazon.com/Sharpie-37371PP-Oil-Based-Markers-Assorted/dp/B000GOYAPQ/).  Most keyboards and black, so white or yellow are the best choices for contrast.  Just add symbols as you learn them as you go through this tutorial, so your keyboard does not get too cluttered right away.  
@@ -126,6 +126,11 @@ This scroll represents a brief and terse introduction to the Geometron language 
 And then create a map one level down from that following the directions to create a new map.  Then edit that map and you'll see whatever symbols you've made here in your scroll menu of symbols and images you can use.  Since you can upload any image you want, you can quickly make annotations with specialized vector symbols to any image.  Just upload an image, put it into a map, create new map elements, and scroll through to the symbol you want to use, click on it, move it, etc.  The same can be done for scrolls, including the one you're reading right now which you can edit, delete, expand on, using whatever symbols you create.
 
 To improve on this code, you can use the code editor to edit all parts of it here:
+
+Printers are robots that can imprint data into physical objects using Geometron.  The symbol for a geomtron printer is:
+
+![](http://localhost:8000/symbol/iconsymbols/printer.svg)
+
 
 Edit code using: [editor.php](editor.php)
 
