@@ -27,12 +27,10 @@ A Geometron is a geometric virtual machine which has two 8x8x8 cubes of operatio
          0207: cursor, which has special properties which affect editign of glyphs
          0300-0377: 2d geometric actions
 
-         0400-0477: unused
-         0500-0577: unused
-         unused space can be JSON structures, urls of links and images, links to other addresses in the hypercube, physicsl robotic actions
-
-         0600-0677: 3d shapes, bytecode which references 3d actions
-         0700-0777: 3d geometric actions, combined with actions on geometric variables of quantum states in higher dimensions
+         0400-0477: direct control of stepper motor stages
+         0500-0577: symbols which refernce 04xx 
+         0600-0677: shape table which refernces voxel actions
+         0700-0777: voxel construction in 3d format
 
     The symbol cube has a "font" stored in 01040[space] to 01176[tilde], which corresponds to the printable ASCII
 
@@ -374,11 +372,12 @@ function GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode) {
             this.word += String.fromCharCode(address);
         }
 
-        //02xx
-        if( (address >= 0200 && address <= 0277) || (address >= 01000 && address <= 01777) ){
+        //02xx,05xx,06xx
+        if( (address >= 0200 && address <= 0277) || (address >= 01000 && address <= 01777) || (address >= 0500 && address <= 0677)){
             this.actionSequence(this.hypercube[address]);
 
         }
+        
         //03xx
         if(address == 0300) {
             this.x = this.x0;
