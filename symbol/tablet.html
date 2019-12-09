@@ -55,7 +55,6 @@
     <table id = "controltable">
         <tr><td>Start address:</td><td><input id = "startinput"/></td></tr>
         <tr><td>End address:</td><td><input id = "stopinput"/></td></tr>
-        <tr><td>Number of columns:</td><td><input id = "columnsinput"/></td></tr>
         <tr><td>Glyph Size[px]:</td><td><input id = "sideinput"/></td></tr>
         <tr><td>Tablet Width[px]:</td><td><input id = "widthinput"/></td></tr>
         <tr><td>Tablet Height[px]:</td><td><input id = "heightinput"/></td></tr>
@@ -66,7 +65,7 @@
 <script>
 
 startaddress = 0220;
-endaddress = 0232;
+endaddress = 0227;
 numcols = 10;
 glyphsize = 28;
 tabletwidth = 800;
@@ -76,10 +75,31 @@ controlinputs = document.getElementById("controltable").getElementsByTagName("in
 
 controlinputs[0].value = "0" + startaddress.toString(8);
 controlinputs[1].value = "0" + endaddress.toString(8);
-controlinputs[2].value = numcols.toString();
-controlinputs[3].value = glyphsize.toString();
-controlinputs[4].value = tabletwidth.toString();
-controlinputs[5].value = tabletheight.toString();
+controlinputs[2].value = glyphsize.toString();
+controlinputs[3].value = tabletwidth.toString();
+controlinputs[4].value = tabletheight.toString();
+
+controlinputs[0].onchange = function(){
+    startaddress = parseInt(this.value,8);
+    drawtablet();
+}
+controlinputs[1].onchange = function(){
+    endaddress = parseInt(this.value,8);
+    drawtablet();
+}
+controlinputs[2].onchange = function(){
+    glyphsize = parseFloat(this.value);
+    drawtablet();
+}
+controlinputs[3].onchange = function(){
+    tabletwidth = parseFloat(this.value);
+    drawtablet();
+}
+controlinputs[4].onchange = function(){
+    tabletheight = parseFloat(this.value);
+    drawtablet();
+    
+}
 
 
 landscape = false;
@@ -128,24 +148,10 @@ httpc.onreadystatechange = function() {
         currentjson = JSON.parse(this.responseText);
         currentstyle = currentjson.style;
         newGVM.style = currentstyle;
-
-        newGVM.x0 = 2*glyphsize;
-        newGVM.y0 = 2*glyphsize;    
-        newGVM.unit = glyphsize;    
-        newGVM.theta0 = currentjson.theta0;
-        newGVM.glyph = currentjson.glyph + ",0207,";  
         newGVM.importbytecode(currentjson.shapes);
         invisibleGVM.importbytecode(currentjson.shapes);
 
-        newGVM.action(0300);
-        for(var index = startaddress;index <= endaddress;index++){
-            newGVM.action(01000 + index);
-            newGVM.action(01000 + 072);
-            spellGlyph(newGVM.hypercube[index]);
-            newGVM.action(01000 + 056);
-            newGVM.x = 2*glyphsize;
-            newGVM.y += 2*glyphsize;
-        }
+        drawtablet();
 
     }
 };
@@ -171,6 +177,47 @@ function spellGlyph(glyph){
     }
 }
 
+function drawtablet(){
+    newGVM.canvas2d.width = tabletwidth;
+    newGVM.width = tabletwidth;    
+    newGVM.canvas2d.height = tabletheight;
+    newGVM.width = tabletheight;    
+    invisibleGVM.canvas2d.width = newGVM.width;
+    invisibleGVM.canvas2d.height = newGVM.height;
+    invisibleGVM.width = newGVM.width;
+    invisibleGVM.height = newGVM.height;
+    invisibleGVM.x0 = newGVM.x0;
+    invisibleGVM.y0 = newGVM.y0;
+    invisibleGVM.theta0 = newGVM.theta0;
+    invisibleGVM.unit = newGVM.unit;
+    invisibleGVM.hypercube = newGVM.hypercube;
+    invisibleGVM.style = newGVM.style;
+    newGVM.x0 = 2*glyphsize;
+    newGVM.y0 = 2*glyphsize;    
+    newGVM.unit = glyphsize;    
+    newGVM.theta0 = currentjson.theta0;
+    newGVM.glyph = currentjson.glyph + ",0207,";  
+    
+    newGVM.ctx.clearRect(0,0,newGVM.width,newGVM.height);
+
+    newGVM.action(0300);
+    for(var index = startaddress;index <= endaddress;index++){
+        if(index < 01000){
+            newGVM.action(01000 + index);
+        }
+        else{
+            newGVM.action(index);
+        }
+        newGVM.action(01000 + 072);
+        spellGlyph(newGVM.hypercube[index]);
+        newGVM.action(01000 + 056);
+        newGVM.x = 2*glyphsize;
+        newGVM.y += 2*glyphsize;
+    }
+    
+}
+
+
 </script>
 <style>
 body{
@@ -183,7 +230,7 @@ body{
     border:solid;
     border-width:0.1px;
     border-color:blue;
-    overflow:hidden;
+    overflow:scroll;
 }
 #margin{
     position:absolute;
