@@ -50,7 +50,9 @@
         </a>
         <a href = "index.html">
             <img style = "width:50px;" src = "iconsymbols/geometron.svg"/>
-        </a>               
+        </a>  
+        <img id = "savebutton" class = "button" style = "width:50px;" src = "iconsymbols/save.svg"/>
+        
     </div>    
     <table id = "controltable">
         <tr><td>Start address:</td><td><input id = "startinput"/></td></tr>
@@ -135,12 +137,6 @@ newGVM.importbytecode(keyboard);
 newGVM.importbytecode(symbols3d);
 
 
-invisibleWidth = 200;
-var invisibleGVM = new GVM(0.98*invisibleWidth,0.98*invisibleWidth,0.96*invisibleWidth,-Math.PI/2,document.getElementById("invisiblecanvas"),invisibleWidth,invisibleWidth,hypercube);
-invisibleGVM.importbytecode(font);
-invisibleGVM.importbytecode(keyboard);
-invisibleGVM.importbytecode(symbols3d);
-
 
 var httpc = new XMLHttpRequest();
 httpc.onreadystatechange = function() {
@@ -149,7 +145,6 @@ httpc.onreadystatechange = function() {
         currentstyle = currentjson.style;
         newGVM.style = currentstyle;
         newGVM.importbytecode(currentjson.shapes);
-        invisibleGVM.importbytecode(currentjson.shapes);
 
         drawtablet();
 
@@ -182,22 +177,11 @@ function drawtablet(){
     newGVM.width = tabletwidth;    
     newGVM.canvas2d.height = tabletheight;
     newGVM.width = tabletheight;    
-    invisibleGVM.canvas2d.width = newGVM.width;
-    invisibleGVM.canvas2d.height = newGVM.height;
-    invisibleGVM.width = newGVM.width;
-    invisibleGVM.height = newGVM.height;
-    invisibleGVM.x0 = newGVM.x0;
-    invisibleGVM.y0 = newGVM.y0;
-    invisibleGVM.theta0 = newGVM.theta0;
-    invisibleGVM.unit = newGVM.unit;
-    invisibleGVM.hypercube = newGVM.hypercube;
-    invisibleGVM.style = newGVM.style;
     newGVM.x0 = 2*glyphsize;
     newGVM.y0 = 2*glyphsize;    
     newGVM.unit = glyphsize;    
     newGVM.theta0 = currentjson.theta0;
     newGVM.glyph = currentjson.glyph + ",0207,";  
-    
     newGVM.ctx.clearRect(0,0,newGVM.width,newGVM.height);
 
     newGVM.action(0300);
@@ -214,6 +198,12 @@ function drawtablet(){
         newGVM.x = 2*glyphsize;
         newGVM.y += 2*glyphsize;
     }
+}
+
+
+document.getElementById("savebutton").onclick = function(){
+    
+
     
 }
 
