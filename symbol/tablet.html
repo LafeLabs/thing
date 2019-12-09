@@ -207,7 +207,19 @@ function drawtablet(){
 
 document.getElementById("savebutton").onclick = function(){
     
-
+    var timestamp = Math.round((new Date().getTime())/1000).toString();
+    newGVM.svgString += "</svg>";
+    var httpc4 = new XMLHttpRequest();
+    httpc4.open("POST","filesaver.php", true);
+    httpc4.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc4.send("data="+encodeURIComponent(newGVM.svgString) +"&filename=symbolfeed/tablet" + timestamp +  ".svg");//send text to filesaver.php
+    
+    var httpc = new XMLHttpRequest();
+    var url = "pngsave.php";        
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(newGVM.pngcode(newGVM).substring(22))+"&filename=symbolfeed/tablet" + timestamp +  ".png");//send text to filesaver.php
+    
     
 }
 
