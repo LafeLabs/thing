@@ -173,22 +173,38 @@ function redraw(){
     newGVM.canvas2d.width = tabletwidth;
     newGVM.width = tabletwidth;    
     glyphlength = newGVM.glyph.split(",").length;
-    tabletheight = 4*glyphsize + glyphsize*(glyphlength*(3+1.5*glyphsize)/tabletwidth);
+    tabletheight = 10*glyphsize + 4*glyphsize + glyphsize*(glyphlength*(3+1.5*glyphsize)/tabletwidth);
     newGVM.canvas2d.height = tabletheight;
     newGVM.width = tabletheight;    
     newGVM.x0 = 2*glyphsize;
-    newGVM.y0 = 2*glyphsize;    
+    newGVM.y0 = 10*glyphsize + 2*glyphsize;    
     newGVM.unit = glyphsize;    
     newGVM.theta0 = currentjson.theta0;
     newGVM.ctx.clearRect(0,0,newGVM.width,newGVM.height);
+
     newGVM.action(0300);
-    
+    if(newGVM.address < 01000){
+        newGVM.x = glyphsize;
+        newGVM.side = 8*glyphsize;
+        newGVM.y = 9*glyphsize;
+        newGVM.action(01000 + newGVM.address);
+    }
+    else{
+        newGVM.x = glyphsize;
+        newGVM.side = 8*glyphsize;
+        newGVM.y = 9*glyphsize;
+        newGVM.actionSequence(newGVM.glyph);
+    }
+
+
+    newGVM.action(0300);
     if(newGVM.address < 01000){
         newGVM.action(01000 + newGVM.address);
     }
     else{
         newGVM.action(newGVM.address);
     }
+
     newGVM.action(01000 + 072);
     spellGlyph(newGVM.glyph);
     newGVM.action(01000 + 056);
@@ -324,7 +340,7 @@ document.getElementById("savebutton").onclick = function(){
     httpc2.open("POST","filesaver.php", true);
     httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     
-    httpc2.send("data="+encodeURIComponent("hypercube = " + JSON.stringify(hypercube,null,"  ") +  ";")+"&filename=data/hypercubetemp.js");//send text to filesaver.php
+    httpc2.send("data="+encodeURIComponent("hypercube = " + JSON.stringify(hypercube,null,"  ") +  ";")+"&filename=data/hypercube.js");//send text to filesaver.php
     
     
 }
