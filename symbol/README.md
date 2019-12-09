@@ -129,7 +129,7 @@ To improve on this code, you can use the code editor to edit all parts of it her
 
 Printers are robots that can imprint data into physical objects using Geometron.  The symbol for a geomtron printer is:
 
-![](http://localhost:8000/symbol/iconsymbols/printer.svg)
+![](iconsymbols/printer.svg)
 
 
 Edit code using: [editor.php](editor.php)
