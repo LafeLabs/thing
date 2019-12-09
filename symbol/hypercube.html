@@ -311,11 +311,22 @@ document.getElementById("inputbutton").onclick = function(){
 
 document.getElementById("savebutton").onclick = function(){
     //save hypercube.js
+
+    hypercube = [];
+    for(var index = 0;index < 01777;index++){
+        if(newGVM.hypercube[index].length>1){
+            hypercube.push("0" + index.toString(8) + ":" + newGVM.hypercube[index]);            
+        }
+
+    }
+    
     var httpc2 = new XMLHttpRequest();
     httpc2.open("POST","filesaver.php", true);
     httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     
-    httpc2.send("data="+encodeURIComponent("hypercube = " + JSON.stringify(newGVM.hypercube,null,"  ") +  ";")+"&filename=data/hypercube.js");//send text to filesaver.php
+    httpc2.send("data="+encodeURIComponent("hypercube = " + JSON.stringify(hypercube,null,"  ") +  ";")+"&filename=data/hypercubetemp.js");//send text to filesaver.php
+    
+    
 }
 
 
