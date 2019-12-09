@@ -29,6 +29,7 @@ EGO DEATH:
     <a href = "keyboardeditor.html">keyboardeditor.html</a>
     <a href = "symbolfeed.html">symbolfeed.html</a>
     <a href = "hypercube.html">hypercube.html</a>
+    <a href = "shapetableeditor.html">shapetableeditor.html</a>
     <a href = "voxel.html">voxel.html</a>
     <a href = "tablet.html">tablet.html</a>
     <a href = "geometronprinter.php">geometronprinter.php</a>

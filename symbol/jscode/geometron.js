@@ -216,6 +216,7 @@ function GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode) {
         
     }
 
+    
     this.cursorAction = function(action) {           
         //2d cursor is at address 0207, glyph cursor is therefore at 01207
         var currentGlyph = this.glyph;
