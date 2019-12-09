@@ -187,17 +187,20 @@ function drawtablet(){
 
     newGVM.action(0300);
     for(var index = startaddress;index <= endaddress;index++){
-        if(index < 01000){
-            newGVM.action(01000 + index);
+        if(newGVM.hypercube[index].length>1){
+                    if(index < 01000){
+                newGVM.action(01000 + index);
+            }
+            else{
+                newGVM.action(index);
+            }
+            newGVM.action(01000 + 072);
+            spellGlyph(newGVM.hypercube[index]);
+            newGVM.action(01000 + 056);
+            newGVM.x = 2*glyphsize;
+            newGVM.y += 2*glyphsize;
+    
         }
-        else{
-            newGVM.action(index);
-        }
-        newGVM.action(01000 + 072);
-        spellGlyph(newGVM.hypercube[index]);
-        newGVM.action(01000 + 056);
-        newGVM.x = 2*glyphsize;
-        newGVM.y += 2*glyphsize;
     }
 }
 
