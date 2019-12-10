@@ -24,6 +24,8 @@ EGO DEATH:
 <div id = "linkscroll">
     <a href = "text2php.php">text2php.php</a>
     <a href = "index.html">index.html</a>
+    <a href = "map.html">map.html</a>
+    <a href = "scroll.html">scroll.html</a>
     <a href = "fonteditor.html">fonteditor.html</a>
     <a href = "setup.html">setup.html</a>
     <a href = "keyboardeditor.html">keyboardeditor.html</a>
@@ -45,6 +47,7 @@ EGO DEATH:
     <div class = "html file">voxel.html</div>
     <div class = "html file">tablet.html</div>
     <div class = "html file">scroll.html</div>
+    <div class = "html file">map.html</div>
     <div class = "html file">fonteditor.html</div>
     <div class = "html file">keyboardeditor.html</div>
     <div class = "html file">pageeditor.html</div>
@@ -56,6 +59,7 @@ EGO DEATH:
     <div class = "markdown file">README.md</div>
 
     <div class = "javascript file">jscode/geometron.js</div>
+    <div class = "javascript file">jscode/mapfactory.js</div>
 
 
 <?php 

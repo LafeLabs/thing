@@ -55,6 +55,10 @@
         <a href = "scroll.html">
             <img style = "width:50px;" src = "iconsymbols/scroll.svg"/>
         </a>
+        <a href = "map.html">
+            <img style = "width:50px;" src = "../iconsymbols/map.svg"/>
+        </a>
+
         <a href = "../">
             <img style = "width:50px;" src = "iconsymbols/uplink.svg"/>
         </a>
@@ -195,8 +199,9 @@ document.getElementById("actioninput").onkeydown = function(a) {
 
     spellGVM.spellGlyph(newGVM.glyph,spellGVM);    
     savejson();
-    document.getElementById("spellinput").value = currentjson.glyph;
-    document.getElementById("spellinput").style.width = 0.8*currentjson.glyph.length.toString() + "em";
+    document.getElementById("spellinput").value = spellGVM.hypercube[spellGVM.address];
+    document.getElementById("spellinput").style.width = 0.8*spellGVM.hypercube[spellGVM.address].length.toString() + "em";
+    
     redraw3d();
 
 }
@@ -480,8 +485,8 @@ editbuttons[0].onclick = function(){
     spellGVM.saveGlyph();
     spellGVM.spellGlyph(newGVM.glyph,spellGVM);    
     savejson();
-    document.getElementById("spellinput").value = currentjson.glyph;
-    document.getElementById("spellinput").style.width = 0.8*currentjson.glyph.length.toString() + "em";
+    document.getElementById("spellinput").value = spellGVM.hypercube[spellGVM.address];
+    document.getElementById("spellinput").style.width = 0.8*spellGVM.hypercube[spellGVM.address].length.toString() + "em";
     redraw3d();
 
 }
@@ -501,8 +506,10 @@ editbuttons[1].onclick = function(){
     spellGVM.saveGlyph();
         spellGVM.spellGlyph(newGVM.glyph,spellGVM);    
     savejson();
-    document.getElementById("spellinput").value = currentjson.glyph;
-    document.getElementById("spellinput").style.width = 0.8*currentjson.glyph.length.toString() + "em";
+
+    document.getElementById("spellinput").value = spellGVM.hypercube[spellGVM.address];
+    document.getElementById("spellinput").style.width = 0.8*spellGVM.hypercube[spellGVM.address].length.toString() + "em";
+    
     redraw3d();
 
 }
@@ -522,8 +529,10 @@ editbuttons[2].onclick = function(){
     spellGVM.saveGlyph();
     spellGVM.spellGlyph(newGVM.glyph,spellGVM);    
     savejson();
-    document.getElementById("spellinput").value = currentjson.glyph;
-    document.getElementById("spellinput").style.width = 0.8*currentjson.glyph.length.toString() + "em";
+    
+    document.getElementById("spellinput").value = spellGVM.hypercube[spellGVM.address];
+    document.getElementById("spellinput").style.width = 0.8*spellGVM.hypercube[spellGVM.address].length.toString() + "em";
+
     redraw3d();
 
 }
@@ -543,8 +552,10 @@ editbuttons[3].onclick = function(){
     spellGVM.saveGlyph();
     spellGVM.spellGlyph(newGVM.glyph,spellGVM);    
     savejson();
-    document.getElementById("spellinput").value = currentjson.glyph;
-    document.getElementById("spellinput").style.width = 0.8*currentjson.glyph.length.toString() + "em";
+
+    document.getElementById("spellinput").value = spellGVM.hypercube[spellGVM.address];
+    document.getElementById("spellinput").style.width = 0.8*spellGVM.hypercube[spellGVM.address].length.toString() + "em";
+
     redraw3d();
 
 }
@@ -564,8 +575,10 @@ editbuttons[4].onclick = function(){
     spellGVM.saveGlyph();
     spellGVM.spellGlyph(newGVM.glyph,spellGVM);    
     savejson();
-    document.getElementById("spellinput").value = currentjson.glyph;
-    document.getElementById("spellinput").style.width = 0.8*currentjson.glyph.length.toString() + "em";
+
+    document.getElementById("spellinput").value = spellGVM.hypercube[spellGVM.address];
+    document.getElementById("spellinput").style.width = 0.8*spellGVM.hypercube[spellGVM.address].length.toString() + "em";
+
     redraw3d();
 
 }
@@ -585,8 +598,10 @@ editbuttons[5].onclick = function(){
     spellGVM.saveGlyph();
     spellGVM.spellGlyph(newGVM.glyph,spellGVM);    
     savejson();
-    document.getElementById("spellinput").value = currentjson.glyph;
-    document.getElementById("spellinput").style.width = 0.8*currentjson.glyph.length.toString() + "em";
+    
+    document.getElementById("spellinput").value = spellGVM.hypercube[spellGVM.address];
+    document.getElementById("spellinput").style.width = 0.8*spellGVM.hypercube[spellGVM.address].length.toString() + "em";
+    
     redraw3d();
 
 }
@@ -606,8 +621,8 @@ editbuttons[6].onclick = function(){
     spellGVM.saveGlyph();
     spellGVM.spellGlyph(newGVM.glyph,spellGVM);    
     savejson();
-    document.getElementById("spellinput").value = currentjson.glyph;
-    document.getElementById("spellinput").style.width = 0.8*currentjson.glyph.length.toString() + "em";
+    document.getElementById("spellinput").value = spellGVM.hypercube[spellGVM.address];
+    document.getElementById("spellinput").style.width = 0.8*spellGVM.hypercube[spellGVM.address].length.toString() + "em";
     redraw3d();
 
 }
@@ -628,8 +643,10 @@ editbuttons[7].onclick = function(){
     
     spellGVM.spellGlyph(newGVM.glyph,spellGVM);    
     savejson();
-    document.getElementById("spellinput").value = currentjson.glyph;
-    document.getElementById("spellinput").style.width = 0.8*currentjson.glyph.length.toString() + "em";
+    
+    document.getElementById("spellinput").value = spellGVM.hypercube[spellGVM.address];
+    document.getElementById("spellinput").style.width = 0.8*spellGVM.hypercube[spellGVM.address].length.toString() + "em";
+    
     redraw3d();
     
 }
