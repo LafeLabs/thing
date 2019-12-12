@@ -6,7 +6,7 @@
         "angle": 0,
         "text": "",
         "href": "index.html",
-        "src": "http://localhost:8000/symbol/iconsymbols/geometron.svg"
+        "src": "iconsymbols/geometron.svg"
     },
     {
         "x": 0.1658711217183771,
@@ -59,7 +59,7 @@
         "w": 0.09069212410501193,
         "angle": 0,
         "text": "",
-        "href": "styleditor.html",
+        "href": "styleeditor.html",
         "src": "iconsymbols/style.svg"
     },
     {
