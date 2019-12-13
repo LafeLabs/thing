@@ -1,19 +1,11 @@
 ### [link up a level../](../)
 
-## The Geometron Network
+## Geometron: Geometric Meta-Language
 
 ### *language is how the mind parses reality*
 
-- no usernames
-- no passwords
-- no copyright
-- no permanent domain names
-- no central servers
 - everything self-replicates(you replicate it *yourself*)
 - everything evolves (it can be edited)
-- everything can be deleted
-- everything is physical
-- everything is fractal
 
 To edit this or any page, click on the edit button, type and edit at will, then click on it again to get back to this screen:
 
@@ -38,7 +30,7 @@ This is the symbol for inventory, as a link to the inventory:
 
 To replicate this to a new web server copy the code [here (php/replicator.txt)](php/replicator.txt) into a file called replicator.php on the new server, then point a browser to [your new web site domain]/replicator.php to run the replicator.
 
-To start a new Geometron web server get free web hosting at [000webhost](https://www.000webhost.com/) or buy a domain and get paid hosting at [bluehost](https://www.bluehost.com/) or [dreamhost](https://www.dreamhost.com/), or get a [Raspberry Pi](https://www.raspberrypi.org/), install [Apache](https://www.raspberrypi.org/documentation/remote-access/web-server/apache.md) and php on it and do the same copying of replicator.php.  Build a Raspberry Pi terminal with a screen, keyboard, mouse and power supply(this can be bought as a kit or built up from a pi motherboard and found components from other systems), put it on a local WiFi network, figure out the IP address of it, and link to that from local networks to make physically local Geometron Page only available on local wifi. 
+To start a new Geometron web server get free web hosting at [000webhost](https://www.000webhost.com/) or buy a domain and get paid hosting at a company like [dreamhost](https://www.dreamhost.com/), or get a [Raspberry Pi](https://www.raspberrypi.org/), install [Apache and php](https://www.raspberrypi.org/documentation/remote-access/web-server/apache.md) on it and do the same copying of replicator.php.  Build a Raspberry Pi terminal with a screen, keyboard, mouse and power supply(this can be bought as a kit or built up from a pi motherboard and found components from other systems), put it on a local WiFi network, figure out the IP address of it, and link to that from local networks to make physically local Geometron Page only available on local wifi. 
 
 
 To get to web directory, copy replicator.php, run it, change permissions, and get your local IP address use the following commands from the terminal:
@@ -61,34 +53,16 @@ php -S localhost:8000
 
  and navigate your browser to localhost:8000, then edit using editor.php, change references in replicator.php to your new repo address, and replicate from the new fork by changing the code in replicator.php.  Note that php code needs to be made live by cliking on txt2php.php from editor.php.  This will work on macos or linux with very minimal effort, and requires adding the Ubuntu command line to work on Windows 10.  
 
-
 Edit code using this program:
 
 [editor.php](editor.php)
 
-Trash Magic is a system for technology development, an artistic movement, a world view, and a way of life.  Trash Magic is a system of creating free(free of any form of property relations) self-replicating value.  Geometron is a language which is used as the medium to transmit Trash Magic. This language consists of the software documented here, including creating and using symbols and symbolic languages, making "maps", scrolls and memes.  The Geometron symbolic language is based on Action Geometry, a method for practical geometric constructions using tools of symmetry and scale.
+Note that everything in the Geometron system is designed to replicate and also to create a stream of newly replicated things, and that this type of self replicating structure is called a "factory".  So this page is a "scroll factory", the map editing pages are called "map factories" and the pages that let you build symbols are called "symbol factories".
 
-Factories in Trash Magic are self-replicating information structures which produce something of value.  This can be information, like a scroll factory(this is a scroll factory), or map factory or symbol factory, or media like the Book Factory, or something much more complex, like one of the various Trash Robot machines which can be used to create complex artifacts from a feed of trash using transformative manufacturing.
+To build a symbol factory, click one level down from this to the subdirectory [symbol/](symbol/), and click on replicator.php there to replicate the symbol factory software.  This can be repeated below any Geometron page.  When you create symbols using the symbol factory, they can be imported into any scroll(a document like this) or any map(the meme editing software linked to all Geometron pages).  Documentation for geometron symbol factories can be found in the scroll for that, linked from the main symbol page.
 
-To build a symbol factory, click one level down from this to the subdirectory [symbol/](symbol/), and click on replicator.php there to replicate the symbol factory software.  This can be repeated below any Geometron page.
 
-Our physical world is defined by the Watershed we are in(what water flows through our physical space), the Street(how we are connected to physical transport of people and goods around us), the Replicators/Factories(how things are replicated in the world of information and things we care about), and the Network, or how we are linked to other places, things and people.  All these things our our Universe that we understand in our minds are linked to both physical media and digital media in this format.  
 
-Nodes on the network are generally factories or structures for producing feeds of value.  A node can have be identified by an address rolled up from 6 sided dice(12 of them) to represent 6 alphanumeric characters.  These can be tracked without any fixed property by using hashtags on Twitter with throwaway accounts. Physical materials in the Trash Magic Feed are stored in repositories in publicly accessible spaces which are located in space using map media(see above).  
-
-Some other Trash Magic/Geometron factories are:
-
-- skeletron(modular structures from sticks)
-- art box(modular cardboard carrying case for tools and supplies)
-- server/client raspberry pi node with keyboard(see above)
-- custom keyboards with Geometron symbols
-- trash robot: xyz manipulator, mechanical oscillator, blinking light stick, sensor, coil winder(useful components for fabrication technology built from Arduino's, custom circuit boards and trash)
-- value tokens(painted trash with node addresses, web addresses, actions etc on them which carry value) These replace money in the Trash Magic value system
-- markers(used to mark physical locations of note)
-- books, hand bound and hand written(Book of Geometron, Trash magic, and Action Geometry, This Place)
-- treasure map and repository(storage of free things in free space in city)
-- custom symbolic languages, icons and fonts([symbol/](symbol/))
-- code fork
 
 
 
