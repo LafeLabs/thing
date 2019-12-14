@@ -4,8 +4,9 @@
 
 ### *language is how the mind parses reality*
 
-- everything self-replicates(you replicate it *yourself*)
-- everything evolves (it can be edited)
+To go directly to the Geometron symbol editor click on the following icon or [this link](symbol/)
+
+[![](iconsymbols/geometron.svg)](symbol/)
 
 To edit this or any page, click on the edit button, type and edit at will, then click on it again to get back to this screen:
 
@@ -27,6 +28,7 @@ This is the symbol for inventory, as a link to the inventory:
 
 [![](iconsymbols/inventory.svg)](inventory.html)
 
+Inventory is a little page that tracks things which are useful to buy or find in order to run a Geometron network node--essentially art supplies and computer parts.  It can also be used to scale collaborative manufacturing out of a Geometron node as the network grows.
 
 To replicate this to a new web server copy the code [here (php/replicator.txt)](php/replicator.txt) into a file called replicator.php on the new server, then point a browser to [your new web site domain]/replicator.php to run the replicator.
 
@@ -37,23 +39,24 @@ To get to web directory, copy replicator.php, run it, change permissions, and ge
 <pre>
 cd /var/www/html
 sudo rm index.html
-sudo curl -o replicator.php http://www.maplelawn.net/php/replicator.txt
+sudo curl -o replicator.php https://raw.githubusercontent.com/LafeLabs/thing/master/php/replicator.txt
 php replicator.php
 sudo chmod -R 0777 *
 hostname -I
 </pre>
 
 
-To fork the code, go to a UNIX command line with PHP installed, go into a new directory which is linked to a new github repository, copy replicator.php into that directory and type from the command line:
+To fork the code, go to a UNIX command line with PHP installed, go into a new directory which is linked to a new github repository, copy replicator.php into that directory, run the program, then start php's built in web server as follows and type from the command line:
 
 <pre>
+curl -o replicator.php https://raw.githubusercontent.com/LafeLabs/thing/master/php/replicator.txt
 php replicator.php
 php -S localhost:8000
 </pre>
 
- and navigate your browser to localhost:8000, then edit using editor.php, change references in replicator.php to your new repo address, and replicate from the new fork by changing the code in replicator.php.  Note that php code needs to be made live by cliking on txt2php.php from editor.php.  This will work on macos or linux with very minimal effort, and requires adding the Ubuntu command line to work on Windows 10.  
+ and navigate your browser to localhost:8000, then edit using editor.php, change references in replicator.php to your new repo address, and replicate from the new fork by changing the code in replicator.php.  Note that php code needs to be made live by cliking on txt2php.php from editor.php.  This will work on macos or linux with very minimal effort, and requires adding the Ubuntu command line or installation of [MAMP](https://www.mamp.info/en/) to work on Windows 10.  
 
-Edit code using this program:
+Edit the code using this program:
 
 [editor.php](editor.php)
 

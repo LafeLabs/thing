@@ -24,6 +24,7 @@
         "expand.svg",
         "expandsmall.svg",
         "fork.svg",
+        "geometron.svg",
         "goldenspiral.svg",
         "hexagon.svg",
         "iconset.svg",
