@@ -60,7 +60,17 @@ function GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode) {
     this.thetaStep = Math.PI/2;
     this.word = "";
     this.font = "Arial";
-
+    this.unicodemode = false;
+    this.unicodemap = [
+        {
+            "ascii":"s",
+            "character":"下"
+        },
+        {
+            "ascii":"a",
+            "character":"上"
+        }
+        ];
     this.cpy1 = y0;
     this.cpx2 = x0;
     this.cpy2 = y0;
@@ -677,6 +687,23 @@ function GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode) {
             this.svgString += "\""+ " stroke = \"" + this.ctx.strokeStyle + "\" stroke-width = \"" + (this.ctx.lineWidth).toString() + "\" fill = \"" + "none" + "\" "+"/>";
         }
         if(address == 0365) {
+            if(this.unicodemode){
+                var tempword = "";
+                for(var index = 0;index < this.word.length;index++){
+                    var hasreplacement = false;
+                    for(var uindex = 0;uindex < this.unicodemap.length;uindex++){
+                        if(this.unicodemap[uindex].ascii == this.word[index]){
+                            hasreplacement = true;
+                            tempword += this.unicodemap[uindex].character;
+                        }
+                    }
+                    if(!hasreplacement){
+                        tempword += this.word[index];
+                    }
+                    console.log(index);
+                }
+                this.word = tempword;
+            }
             this.ctx.translate(this.x, this.y);
             this.ctx.rotate(-this.theta0 + this.theta);
             this.ctx.translate(-this.x, -this.y);

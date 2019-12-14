@@ -110,6 +110,9 @@ else{
 
 var newGVM = new GVM(0.98*squareWidth,0.98*squareWidth,0.96*squareWidth,-Math.PI/2,document.getElementById("maincanvas"),squareWidth,squareWidth,hypercube);
 
+newGVM.unicodemode = false;
+//newGVM.unicodemode = true;
+
 for(var index = 0;index < 01377;index++){
     if(newGVM.hypercube[index].length  > 0 ){
         hypercube.push( "0" + index.toString(8) +  ":" + newGVM.hypercube[index]);
