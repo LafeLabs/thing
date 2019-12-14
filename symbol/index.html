@@ -22,7 +22,7 @@
     <META NAME="robots" CONTENT="noindex,nofollow">
 
     <script src="jscode/geometron.js"></script>
-    <script src="jscode/unicodemap.js"></script>
+    <script src="data/unicodemap.js"></script>
     <script src="data/font.js"></script>
     <script src="data/keyboard.js"></script>
     <script src="data/hypercube.js"></script>
@@ -115,6 +115,7 @@ newGVM.unicodemode = false;
 //newGVM.unicodemode = true;
 
 if(newGVM.unicodemode){
+    newGVM.unicodemap = [];
     for(var index = 0;index < unicodemap.length;index++){
         newGVM.unicodemap.push(unicodemap[index]);
     }
