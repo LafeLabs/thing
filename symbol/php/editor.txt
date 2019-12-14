@@ -1,6 +1,8 @@
  <!doctype html>
 <html>
 <head>
+    <meta charset="utf-8"/>
+
  <!-- 
 PUBLIC DOMAIN, NO COPYRIGHTS, NO PATENTS.
 
@@ -24,6 +26,7 @@ EGO DEATH:
 <div id = "linkscroll">
     <a href = "text2php.php">text2php.php</a>
     <a href = "index.html">index.html</a>
+    <a href = "bytecodeconverter.html">bytecodeconverter.html</a>
     <a href = "map.html">map.html</a>
     <a href = "scroll.html">scroll.html</a>
     <a href = "fonteditor.html">fonteditor.html</a>
@@ -43,6 +46,7 @@ EGO DEATH:
 <div id = "filescroll">
 
     <div class = "html file">index.html</div>
+    <div class = "html file">bytecodeconverter.html</div>
     <div class = "html file">hypercube.html</div>
     <div class = "html file">voxel.html</div>
     <div class = "html file">tablet.html</div>

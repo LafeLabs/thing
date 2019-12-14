@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">    
+<head>
+    <!--
+
+        LANGUAGE IS HOW THE MIND PARSES REALITY
+
+    -->
+
+    <!--Stop Google:-->
+
+    <META NAME="robots" CONTENT="noindex,nofollow">
+
+
+
+</head>
+<body> 
+<table>
+    <tr>
+        <td><a href = "editor.php">editor.php</a></td>
+        <td><button id = "button" onclick = "convert();">CONVERT</button></td>
+    </tr>
+    <tr>
+        <td>INPUT raw Bytecode:</td>
+        <td>OUTPUT JSON bytecode:</td>
+    </tr>
+    <tr>
+        <td>
+            <textarea id = "inputtext"></textarea>
+        </td>
+        <td>
+            <textarea id = "outputtext"></textarea>
+        </td>
+    </tr>
+</table>
+
+<script>
+
+function convert(){
+    input = document.getElementById("inputtext").value;
+    inputArray = input.split("\n");
+    document.getElementById("outputtext").value = JSON.stringify(inputArray,null,"   ");
+}
+
+
+</script>
+<style>
+
+textarea{
+    width:500px;
+    height:500px;
+    font-family:courier;
+    font-size:1em;
+    background-color:black;
+    color:#00ff00;
+}
+</style>
+</body>
+</html>
