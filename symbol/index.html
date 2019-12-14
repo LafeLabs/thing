@@ -22,6 +22,7 @@
     <META NAME="robots" CONTENT="noindex,nofollow">
 
     <script src="jscode/geometron.js"></script>
+    <script src="jscode/unicodemap.js"></script>
     <script src="data/font.js"></script>
     <script src="data/keyboard.js"></script>
     <script src="data/hypercube.js"></script>
@@ -112,6 +113,12 @@ var newGVM = new GVM(0.98*squareWidth,0.98*squareWidth,0.96*squareWidth,-Math.PI
 
 newGVM.unicodemode = false;
 //newGVM.unicodemode = true;
+
+if(newGVM.unicodemode){
+    for(var index = 0;index < unicodemap.length;index++){
+        newGVM.unicodemap.push(unicodemap[index]);
+    }
+}
 
 for(var index = 0;index < 01377;index++){
     if(newGVM.hypercube[index].length  > 0 ){
