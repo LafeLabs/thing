@@ -125,7 +125,12 @@ This scroll represents a brief and terse introduction to the Geometron language 
 
 And then create a map one level down from that following the directions to create a new map.  Then edit that map and you'll see whatever symbols you've made here in your scroll menu of symbols and images you can use.  Since you can upload any image you want, you can quickly make annotations with specialized vector symbols to any image.  Just upload an image, put it into a map, create new map elements, and scroll through to the symbol you want to use, click on it, move it, etc.  The same can be done for scrolls, including the one you're reading right now which you can edit, delete, expand on, using whatever symbols you create.
 
-To improve on this code, you can use the code editor to edit all parts of it here:
+[To improve on this code, you can use the code editor to edit all parts of it here:](editor.php)
+
+The files to create a symbol factory instance based on the Golden Ratio use the following two files:
+
+- [currentjson.txt](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/phi/currentjson.txt)
+- [keyboard.js](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/phi/keyboard.js)
 
 Printers are robots that can imprint data into physical objects using Geometron.  The symbol for a geomtron printer is:
 
