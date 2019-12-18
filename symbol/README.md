@@ -127,10 +127,27 @@ And then create a map one level down from that following the directions to creat
 
 [To improve on this code, you can use the code editor to edit all parts of it here:](editor.php)
 
-The files to create a symbol factory instance based on the Golden Ratio use the following two files:
+
+## Symbol factory instances
+
+### The files to create a symbol factory instance based on the *Golden Ratio* use the following two files:
 
 - [currentjson.txt](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/phi/currentjson.txt)
 - [keyboard.js](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/phi/keyboard.js)
+
+### The files to create *quantum circuit diagrams* are:
+ 
+ - [currentjson.txt](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/quantumcircuits/currentjson.txt)
+ - [keyboard.js](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/quantumcircuits/keyboard.js)
+
+### Quantum gates
+
+ - [currentjson.txt](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/quantumgates/currentjson.txt)
+ - [keyboard.js](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/quantumgates/keyboard.js)
+
+
+
+## Printers
 
 Printers are robots that can imprint data into physical objects using Geometron.  The symbol for a geomtron printer is:
 
