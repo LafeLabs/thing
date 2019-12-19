@@ -5,7 +5,7 @@ Geometron is a language for building symbolic languages.  It is mostly written i
 In order to learn the Geometron language you should have a Geometron keyboard, decorated with a subset of the following symbols:
 ![](iconsymbols/keyboard.svg)
 
-To buy a cheap and small USB keyboard to decorate try [this one from Amazon](https://www.amazon.com/gp/product/B01IQL2VCE/).  I recommend Sharpie paint pens, which can also be [bought on Amazon](https://www.amazon.com/Sharpie-37371PP-Oil-Based-Markers-Assorted/dp/B000GOYAPQ/).  Most keyboards and black, so white or yellow are the best choices for contrast.  Just add symbols as you learn them as you go through this tutorial, so your keyboard does not get too cluttered right away.  
+To buy a cheap and small USB keyboard to decorate try [this one from Amazon](https://www.amazon.com/gp/product/B01IQL2VCE/).  I recommend Sharpie paint pens, which can also be [bought on Amazon](https://www.amazon.com/Sharpie-37371PP-Oil-Based-Markers-Assorted/dp/B000GOYAPQ/).  Most keyboards and black, so white or yellow are the best choices for contrast.  Just add symbols as you learn them as you go through this tutorial, so your keyboard does not get too cluttered right away.  A company that makes custom keyboard covers is here: [https://www.speedskin.com/](https://www.speedskin.com/).
 
 ![](https://i.imgur.com/TZL7RmL.jpg)
 
