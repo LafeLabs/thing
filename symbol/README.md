@@ -160,6 +160,11 @@ And then create a map one level down from that following the directions to creat
  - [hypercube.js](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/hebrew/hypercube.js)
 
 
+### Action Geometry
+
+ - [currentjson.txt](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/actiongeometry/currentjson.txt)
+
+
 ## Printers
 
 Printers are robots that can imprint data into physical objects using Geometron.  The symbol for a geomtron printer is:
