@@ -146,6 +146,12 @@ And then create a map one level down from that following the directions to creat
  - [keyboard.js](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/quantumgates/keyboard.js)
 
 
+### Hebrew Font
+
+ - [currentjson.txt](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/hewbrew/currentjson.txt)
+ - [keyboard.js](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/hebrew/keyboard.js)
+ - [hypercube.js](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/hebrew/hypercube.js)
+
 
 ## Printers
 
