@@ -177,6 +177,9 @@ And then create a map one level down from that following the directions to creat
 
  - [currentjson.txt](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/actiongeometry/currentjson.txt)
 
+### Hypercube
+
+ - [currentjson.txt](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/hypercube/currentjson.txt)
 
 ## Printers
 
