@@ -1,0 +1,27 @@
+<svg width="600" height="600" viewbox = "0 0 600 600"  xmlns="http://www.w3.org/2000/svg">
+<path d = "M557 557 L557 33 L33 557 L557 557 Z" stroke = "#000000" stroke-width = "2" fill = "none" />    <line x1="557" y1="557" x2="295" y2="295" style="stroke:#000000;stroke-width:2" />
+    <line x1="295" y1="295" x2="295" y2="557" style="stroke:#000000;stroke-width:2" />
+    <line x1="295" y1="557" x2="164" y2="426" style="stroke:#000000;stroke-width:2" />
+    <line x1="164" y1="426" x2="164" y2="557" style="stroke:#000000;stroke-width:2" />
+    <line x1="164" y1="557" x2="98" y2="491" style="stroke:#000000;stroke-width:2" />
+    <line x1="98" y1="491" x2="98" y2="557" style="stroke:#000000;stroke-width:2" />
+    <line x1="98" y1="557" x2="65" y2="524" style="stroke:#000000;stroke-width:2" />
+    <line x1="65" y1="524" x2="65" y2="557" style="stroke:#000000;stroke-width:2" />
+    <line x1="65" y1="557" x2="49" y2="541" style="stroke:#000000;stroke-width:2" />
+    <line x1="49" y1="541" x2="49" y2="557" style="stroke:#000000;stroke-width:2" />
+	<path d = "M446 328 L446 242 L360 242 L360 328 L446 328 Z" stroke = "#000000" stroke-width = "2" fill = "none" /><circle cx="403" cy = "285" r = "42.90460521132631" stroke = "#000000" stroke-width = "2" fill = "none" />
+    <line x1="403" y1="285" x2="403" y2="242" style="stroke:#000000;stroke-width:2" />
+    <line x1="403" y1="285" x2="446" y2="285" style="stroke:#000000;stroke-width:2" />
+    <line x1="403" y1="285" x2="403" y2="328" style="stroke:#000000;stroke-width:2" />
+    <line x1="403" y1="285" x2="360" y2="285" style="stroke:#000000;stroke-width:2" />
+<circle cx="388" cy = "270" r = "10.726151302831578" stroke = "#000000" stroke-width = "2" fill = "none" />
+<circle cx="418" cy = "270" r = "10.726151302831578" stroke = "#000000" stroke-width = "2" fill = "none" />
+<circle cx="418" cy = "300" r = "10.726151302831578" stroke = "#000000" stroke-width = "2" fill = "none" />
+<circle cx="388" cy = "300" r = "10.726151302831578" stroke = "#000000" stroke-width = "2" fill = "none" />
+	<path d = "M532 328 L532 242 L446 242 L446 328 L532 328 Z" stroke = "#000000" stroke-width = "2" fill = "none" />	<path d = "M519 254 L489 285 L519 315 " stroke = "#000000" stroke-width = "2" fill = "none" />    <line x1="489" y1="285" x2="500" y2="285" style="stroke:#000000;stroke-width:2" />
+    <line x1="511" y1="285" x2="521" y2="285" style="stroke:#000000;stroke-width:2" />
+	<path d = "M403 499 L403 413 L317 413 L317 499 L403 499 Z" stroke = "#000000" stroke-width = "2" fill = "none" />    <line x1="360" y1="499" x2="403" y2="456" style="stroke:#000000;stroke-width:2" />
+    <line x1="403" y1="456" x2="360" y2="413" style="stroke:#000000;stroke-width:2" />
+    <line x1="360" y1="413" x2="317" y2="456" style="stroke:#000000;stroke-width:2" />
+    <line x1="317" y1="456" x2="360" y2="499" style="stroke:#000000;stroke-width:2" />
+</svg>

@@ -150,12 +150,12 @@ And then create a map one level down from that following the directions to creat
 
 ## Symbol factory instances
 
-### The files to create a symbol factory instance based on the *Golden Ratio* use the following two files:
+### *Golden Ratio*:
 
 - [currentjson.txt](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/phi/currentjson.txt)
 - [keyboard.js](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/phi/keyboard.js)
 
-### The files to create *quantum circuit diagrams* are:
+### Quantum circuit diagrams:
  
  - [currentjson.txt](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/quantumcircuits/currentjson.txt)
  - [keyboard.js](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/quantumcircuits/keyboard.js)
@@ -172,7 +172,6 @@ And then create a map one level down from that following the directions to creat
  - [keyboard.js](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/hebrew/keyboard.js)
  - [hypercube.js](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/hebrew/hypercube.js)
 
-
 ### Action Geometry
 
  - [currentjson.txt](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/actiongeometry/currentjson.txt)
@@ -180,6 +179,16 @@ And then create a map one level down from that following the directions to creat
 ### Hypercube
 
  - [currentjson.txt](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/hypercube/currentjson.txt)
+
+### Signal Flags
+
+ - [font.js](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/signalflags/font.js)
+
+### Metro Map and Font
+
+ - [font.js](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/metro/font.js)
+ - [currentjson.txt](https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/instances/metro/currentjson.txt)
+
 
 ## Printers
 
