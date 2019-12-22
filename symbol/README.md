@@ -17,6 +17,9 @@ Geometron is a language for building symbolic languages.  It is mostly written i
 
 As with the Geometron Art Factory, the symbol generator documented here is *instanced* by creating a collection of specific elements.  The core elements for a specific instance that differentiate it from other instances are some files which contain information about the specific symbolic language used, the graphical styles used, the user interface(what they keyboard does and what touch buttons on the screen do) and some code that describes the inner workings of Geometron.  These files are [currentjson.txt](data/currentjson.txt), [keyboard.js](data/keyboard.js) and [hypercube.js](data/hypercube.js).   They can be pasted from one instance to another using the [main code editor for Geometron, editor.php](editor.php).
 
+There are three main concepts that make up Geometron.  First there is the "Geometron Virtual Machine" which acts like the "Turtle" in old drawing languages like Logo.  A GVM can move a cursor  around and draw using some simple geometric actions.  The information the GVM acts on is the "Geometron Hypercube", and the way of thinking about geometry used for all this is called "Action Geometry".  
+
+The Geometron Hypercube consists of two cubes, one for symbols and one for actions(some of which are also symbols).
 
 In order to learn the Geometron language you should have a physical Geometron keyboard, decorated with a subset of the following symbols:
 ![](iconsymbols/keyboard.svg)
@@ -24,6 +27,10 @@ In order to learn the Geometron language you should have a physical Geometron ke
 To buy a cheap and small USB keyboard to decorate try [this one from Amazon](https://www.amazon.com/gp/product/B01IQL2VCE/).  I recommend Sharpie paint pens, which can also be [bought on Amazon](https://www.amazon.com/Sharpie-37371PP-Oil-Based-Markers-Assorted/dp/B000GOYAPQ/).  Most keyboards and black, so white or yellow are the best choices for contrast.  Just add symbols as you learn them as you go through this tutorial, so your keyboard does not get too cluttered right away.  A company that makes custom keyboard covers is here: [https://www.speedskin.com/](https://www.speedskin.com/).
 
 ![](https://i.imgur.com/TZL7RmL.jpg)
+
+## Action tablet (03yx)
+
+![](iconsymbols/actiontablet.svg)
 
 ## Quick Start Guide
 
