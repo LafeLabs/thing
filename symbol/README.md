@@ -21,6 +21,16 @@ There are three main concepts that make up Geometron.  First there is the "Geome
 
 The Geometron Hypercube consists of two cubes, one for symbols and one for actions(some of which are also symbols).
 
+![](iconsymbols/hypercube.svg)
+
+![](iconsymbols/cubes.svg)
+
+![](iconsymbols/xyzcube.svg)
+
+![](iconsymbols/addressstack.svg)
+
+![](iconsymbols/actiontablet.svg)
+
 In order to learn the Geometron language you should have a physical Geometron keyboard, decorated with a subset of the following symbols:
 ![](iconsymbols/keyboard.svg)
 
@@ -28,9 +38,8 @@ To buy a cheap and small USB keyboard to decorate try [this one from Amazon](htt
 
 ![](https://i.imgur.com/TZL7RmL.jpg)
 
-## Action tablet (03yx)
 
-![](iconsymbols/actiontablet.svg)
+
 
 ## Quick Start Guide
 
