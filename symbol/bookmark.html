@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">    
+<head>
+     <meta charset="utf-8"/>
+
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+
+    <script src="jscode/geometron.js"></script>
+    <script src="data/hypercube.js"></script>
+    <script src="data/keyboard.js"></script>
+    <script src="data/font.js"></script>
+
+<!--
+    this is how shape table editor should be, totally focused on 3 rows, with symbols in a tablet that is automatically saved
+-->
+</head>
+<body> 
+<div id = "keyboardbox"></div>
+<table>
+    <tr>
+        <td>
+            <input id = "key"/>
+        </td>
+        <td>
+            <input id = "action"/>
+        </td>
+        <td>
+            <canvas id = "symbol"></canvas>
+        </td>
+    </tr>
+</table>
+<img style = "width:100px;" class = "button" id = "savebutton" src = "iconsymbols/save.svg"/>
+
+<a style = "width:100px;" href = "index.html">
+    <img src = "iconsymbols/geometron.svg"/>
+</a>
+<a href = "map.html">
+    <img style = "width:50px;" src = "../iconsymbols/map.svg"/>
+</a>
+
+<script>
+
+lc = "`1234567890-=qwertyuiop[]\\asdfghjkl;\'zxcvbnm,./";
+uc = "~!@#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:\"ZXCVBNM<>?";
+
+keyboardglypharray = [
+    "0314,0336,0336,0333,0337,0337,0333,0200,0332,0336,0336,0330,0333,0337,",
+    ",0365,0333,0336,0333,0337,0313,",
+    ",0314,0330,0332,0332,0336,0330,0332,0337,",
+    ",0365,0333,0336,0333,0337,0313,",
+    ",0314,0330,0336,0330,0333,0337,0337,0331,"
+    ];
+
+keywidth = 34;
+document.getElementById("savebutton").style.width = keywidth + "px";
+
+var newcan = document.createElement("canvas");
+document.getElementById("keyboardbox").appendChild(newcan);
+
+//GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode) {
+
+var newg = new GVM(120,40,keywidth,-Math.PI/2,newcan,800,200,hypercube);
+
+newg.importbytecode(font);
+newg.importbytecode(keyboard);
+
+function redraw() {
+
+    var ctxlocal = newg.canvas2d.getContext("2d");
+    ctxlocal.clearRect(0,0,newg.width,newg.height);
+    ctxlocal.strokeStyle = newg.style.color0;
+    ctxlocal.fillStyle = newg.style.fill0;
+    ctxlocal.lineWidth = newg.style.line0;
+    newg.svgString = "<svg width=\"" + newg.width.toString() + "\" height=\"" + newg.height.toString() + "\" viewbox = \"0 0 " + newg.width.toString() + " " + newg.height.toString() + "\"  xmlns=\"http://www.w3.org/2000/svg\">\n";
+    newg.action(0300);
+
+    for(var index = 0;index < 13;index++) {
+        newg.actionSequence("0300,");
+        for(var subindex = 0;subindex< index;subindex++){
+            newg.actionSequence("0333,0336,0336,0336,0333,0337,0337,0337,");
+        }
+        newg.actionSequence(keyboardglypharray[0]);
+        newg.actionSequence( (lc.charCodeAt(index)).toString(8) + keyboardglypharray[1]);
+        newg.actionSequence("0" + (01000 + parseInt(newg.hypercube[lc.charCodeAt(index)],8)).toString(8) + keyboardglypharray[2]);
+        newg.actionSequence( (uc.charCodeAt(index)).toString(8) +  keyboardglypharray[3]);
+        newg.actionSequence("0" + (01000 +parseInt(newg.hypercube[uc.charCodeAt(index)],8)).toString(8) + keyboardglypharray[4]);
+    }
+
+    for(var index = 13;index < 26;index++) {
+        newg.actionSequence("0300,0331,0336,0336,0336,0331,0337,0333,0333,0337,0337,0333,");
+        for(var subindex = 13;subindex< index;subindex++){
+            newg.actionSequence("0333,0336,0336,0336,0333,0337,0337,0337,");
+        }
+        newg.actionSequence(keyboardglypharray[0]);
+        newg.actionSequence( (lc.charCodeAt(index)).toString(8) + keyboardglypharray[1]);
+        newg.actionSequence("0" + (01000 + parseInt(newg.hypercube[lc.charCodeAt(index)],8)).toString(8) + keyboardglypharray[2]);
+        newg.actionSequence( (uc.charCodeAt(index)).toString(8) +  keyboardglypharray[3]);
+        newg.actionSequence("0" + (01000 +parseInt(newg.hypercube[uc.charCodeAt(index)],8)).toString(8) + keyboardglypharray[4]);
+    }
+
+    for(var index = 26;index < 37;index++) {
+        newg.actionSequence("0300,0331,0331,0336,0336,0336,0331,0331,0337,0333,0333,0337,0333,0337,0333,");
+        for(var subindex = 26;subindex< index;subindex++){
+            newg.actionSequence("0333,0336,0336,0336,0333,0337,0337,0337,");
+        }
+        newg.actionSequence(keyboardglypharray[0]);
+        newg.actionSequence( (lc.charCodeAt(index)).toString(8) + keyboardglypharray[1]);
+        newg.actionSequence("0" + (01000 + parseInt(newg.hypercube[lc.charCodeAt(index)],8)).toString(8) + keyboardglypharray[2]);
+        newg.actionSequence( (uc.charCodeAt(index)).toString(8) +  keyboardglypharray[3]);
+        newg.actionSequence("0" + (01000 +parseInt(newg.hypercube[uc.charCodeAt(index)],8)).toString(8) + keyboardglypharray[4]);
+    }
+
+
+    for(var index = 37;index < 47;index++) {
+        newg.actionSequence("0300,0331,0331,0331,0336,0336,0336,0331,0331,0331,0337,0333,0333,0337,0333,0333,0337,0333,");
+        for(var subindex = 37;subindex< index;subindex++){
+            newg.actionSequence("0333,0336,0336,0336,0333,0337,0337,0337,");
+        }
+        newg.actionSequence(keyboardglypharray[0]);
+        newg.actionSequence( (lc.charCodeAt(index)).toString(8) + keyboardglypharray[1]);
+        newg.actionSequence("0" + (01000 + parseInt(newg.hypercube[lc.charCodeAt(index)],8)).toString(8) + keyboardglypharray[2]);
+        newg.actionSequence( (uc.charCodeAt(index)).toString(8) +  keyboardglypharray[3]);
+        newg.actionSequence("0" + (01000 +parseInt(newg.hypercube[uc.charCodeAt(index)],8)).toString(8) + keyboardglypharray[4]);
+    }
+
+    newg.actionSequence("0300,0332,0336,0331,0337,0331,0331,237,0337,0331,0333,0336,0336,0167,0167,0167,056,0150,0141,0155,0155,0157,0156,0144,0142,0162,0141,0156,0143,0150,056,0157,0162,0147,0365,");
+
+    newg.svgString += "</svg>";
+}
+
+
+function drawkeyboard(newg){
+    
+    var ctxlocal = newg.canvas2d.getContext("2d");
+    ctxlocal.clearRect(0,0,newg.width,newg.height);
+    ctxlocal.strokeStyle = newg.style.color0;
+    ctxlocal.fillStyle = newg.style.fill0;
+    ctxlocal.lineWidth = newg.style.line0;
+    newg.svgString = "<svg width=\"" + newg.width.toString() + "\" height=\"" + newg.height.toString() + "\" viewbox = \"0 0 " + newg.width.toString() + " " + newg.height.toString() + "\"  xmlns=\"http://www.w3.org/2000/svg\">\n";
+    newg.action(0300);
+
+    for(var index = 0;index < 13;index++) {
+        newg.actionSequence("0300,");
+        for(var subindex = 0;subindex< index;subindex++){
+            newg.actionSequence("0333,0336,0336,0336,0333,0337,0337,0337,");
+        }
+        newg.actionSequence(keyboardglypharray[0]);
+        newg.actionSequence( (lc.charCodeAt(index)).toString(8) + keyboardglypharray[1]);
+        newg.actionSequence("0" + (01000 + parseInt(newg.hypercube[lc.charCodeAt(index)],8)).toString(8) + keyboardglypharray[2]);
+        newg.actionSequence( (uc.charCodeAt(index)).toString(8) +  keyboardglypharray[3]);
+        newg.actionSequence("0" + (01000 +parseInt(newg.hypercube[uc.charCodeAt(index)],8)).toString(8) + keyboardglypharray[4]);
+    }
+
+    for(var index = 13;index < 26;index++) {
+        newg.actionSequence("0300,0331,0336,0336,0336,0331,0337,0333,0333,0337,0337,0333,");
+        for(var subindex = 13;subindex< index;subindex++){
+            newg.actionSequence("0333,0336,0336,0336,0333,0337,0337,0337,");
+        }
+        newg.actionSequence(keyboardglypharray[0]);
+        newg.actionSequence( (lc.charCodeAt(index)).toString(8) + keyboardglypharray[1]);
+        newg.actionSequence("0" + (01000 + parseInt(newg.hypercube[lc.charCodeAt(index)],8)).toString(8) + keyboardglypharray[2]);
+        newg.actionSequence( (uc.charCodeAt(index)).toString(8) +  keyboardglypharray[3]);
+        newg.actionSequence("0" + (01000 +parseInt(newg.hypercube[uc.charCodeAt(index)],8)).toString(8) + keyboardglypharray[4]);
+    }
+
+    for(var index = 26;index < 37;index++) {
+        newg.actionSequence("0300,0331,0331,0336,0336,0336,0331,0331,0337,0333,0333,0337,0333,0337,0333,");
+        for(var subindex = 26;subindex< index;subindex++){
+            newg.actionSequence("0333,0336,0336,0336,0333,0337,0337,0337,");
+        }
+        newg.actionSequence(keyboardglypharray[0]);
+        newg.actionSequence( (lc.charCodeAt(index)).toString(8) + keyboardglypharray[1]);
+        newg.actionSequence("0" + (01000 + parseInt(newg.hypercube[lc.charCodeAt(index)],8)).toString(8) + keyboardglypharray[2]);
+        newg.actionSequence( (uc.charCodeAt(index)).toString(8) +  keyboardglypharray[3]);
+        newg.actionSequence("0" + (01000 +parseInt(newg.hypercube[uc.charCodeAt(index)],8)).toString(8) + keyboardglypharray[4]);
+    }
+
+
+    for(var index = 37;index < 47;index++) {
+        newg.actionSequence("0300,0331,0331,0331,0336,0336,0336,0331,0331,0331,0337,0333,0333,0337,0333,0333,0337,0333,");
+        for(var subindex = 37;subindex< index;subindex++){
+            newg.actionSequence("0333,0336,0336,0336,0333,0337,0337,0337,");
+        }
+        newg.actionSequence(keyboardglypharray[0]);
+        newg.actionSequence( (lc.charCodeAt(index)).toString(8) + keyboardglypharray[1]);
+        newg.actionSequence("0" + (01000 + parseInt(newg.hypercube[lc.charCodeAt(index)],8)).toString(8) + keyboardglypharray[2]);
+        newg.actionSequence( (uc.charCodeAt(index)).toString(8) +  keyboardglypharray[3]);
+        newg.actionSequence("0" + (01000 +parseInt(newg.hypercube[uc.charCodeAt(index)],8)).toString(8) + keyboardglypharray[4]);
+    }
+
+    newg.actionSequence("0300,0332,0336,0331,0337,0331,0331,237,0337,0331,0333,0336,0336,0167,0167,0167,056,0150,0141,0155,0155,0157,0156,0144,0142,0162,0141,0156,0143,0150,056,0157,0162,0147,0365,");
+
+}
+
+
+document.getElementById("savebutton").onclick = function() {
+    redraw();
+
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST","filesaver.php", true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(newg.svgString) +"&filename=iconsymbols/keyboard.svg");//send text to filesaver.php
+
+    var httpc2 = new XMLHttpRequest();
+    httpc2.open("POST","filesaver.php", true);
+    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    
+    keyboard = [];
+    for(var index = 040;index < 0177;index++){
+        keyboard.push("0" + index.toString(8) + ":" + newg.hypercube[index]);
+    }
+
+    httpc2.send("data="+encodeURIComponent("keyboard = " + JSON.stringify(keyboard,null,"  ") +  ";")+"&filename=data/keyboard.js");//send text to filesaver.php
+
+}
+
+
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        currentjson = JSON.parse(this.responseText);
+        newg.importbytecode(currentjson.shapes);
+        newg.style.line0 = 1;
+        redraw();
+
+    }
+};
+httpc.open("GET", "fileloader.php?filename=data/currentjson.txt", true);
+httpc.send();   
+
+
+</script>
+<style>
+
+.button{
+    cursor:pointer;
+}
+.button:hover{
+    background-color: green;
+}
+.button:active{
+    background-color: yellow;
+}
+canvas{
+    border:solid;
+}
+table,input,span{
+    font-family:courier;
+    font-size:2em;
+}
+#key{
+    width:0.5em;
+}
+#action{
+    width:4em;
+}
+</style>
+</body>
+</html>

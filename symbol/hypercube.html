@@ -194,14 +194,21 @@ function redraw(){
         newGVM.side = 8*glyphsize;
         newGVM.y = 9*glyphsize;
         newGVM.action(01000 + newGVM.address);
+
+        newGVM.x += 6*glyphsize;
+        newGVM.action(newGVM.address);
+        
     }
     else{
         newGVM.x = glyphsize;
         newGVM.side = 8*glyphsize;
         newGVM.y = 9*glyphsize;
         newGVM.actionSequence(newGVM.glyph);
-    }
+        newGVM.x += 8*glyphsize;
+        newGVM.side = 4*glyphsize;
+        newGVM.action(newGVM.address - 01000);
 
+    }
 
     newGVM.action(0300);
     if(newGVM.address < 01000){

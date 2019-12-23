@@ -1,6 +1,6 @@
 # Geometron: Geometric Meta-Language
 
-<span style = "font-size:3em;font-family:times">
+<div style = "font-size:3em;font-family:times;text-align:center;width:100%">
     <span style = "color:red">&#x0393;</span>
     <span style = "color:orange">&#x03b5;</span>
     <span style = "color:yellow">&#x03c9;</span>
@@ -10,7 +10,7 @@
     <span style = "color:red">&#x03c1;</span>
     <span style = "color:orange">&#x03bf;</span>
     <span style = "color:yellow">&#x03bd;</span>
-</span>
+</div>
 
 
 Geometron is a language for building symbolic languages.  It is mostly written in itself, that is, the symbols by which we interact with Geometron are made up of symbols which are also drawn with Geometron.  Geometron is a little bit like some of the "teaching" languages like Logo or "art" languages like Processing, but unlike other computer languages for constructing art, Geometron does not work with "code" written in English or some other human language or numbers which drive most computer language.  Geometron works directly with geometric actions and combinations of them, without direct reference to numbers.  Rather than numbers, Geometron works with scales like the Golden Ratio and symmetries like "four fold", "five fold" and "six fold" symmetry.
