@@ -80,7 +80,7 @@ To learn the skills needed to hack the code to your purposes, you need to learn 
 
 ### Process to create an instance of the Geometron Art Factory
 
-0. Fill out the questionnaire and express intent to build an instance to someone who can guide you through the process.
+0. Fill out the questionnaire and express intent to build an instance to someone who can guide you through the process.  To get the questionnaire sign up for the mailing list at [lafelabs.org](http://www.lafelabs.org/).
 1. Roll a Channel Address on dice, convert to letters and numbers, follow the hashtags on instagram and twitter
 2. Set up a web instance of the /thing/ on the system you chose in the *method* section of your questionairre.
 3. Learn to edit the scroll and map, then edit them to be relevant to your instance, add description, links to relevant pages, channel address
