@@ -94,3 +94,20 @@ Some other elements of the Art Factory are:
 *Street.* and *Watershed.*  The *Street* and *Watershed* are the concepts which locate an art factory in physical space.  These are physical things: the *Street* is the means by which people and goods flow in and out of wherever you are or you Factory instance is.  The *Watershed* is the means by which water flows through your physical space.  This is relevant because it is how domain names are chosen(or accounts on free web hosting sites).  Rather than focusing on people, companies, organizations or governments, we define instances by these physical spaces.  Rather than choose an "easy" domain like commercial companies do, we choose something not too hard to remember but also not intended for mass adoption, typically the name of a local stream, creek, pond, portage, bridge or confluence and then some non-standard top level domain like ".net", ".org", or even ".xyz".  Or it can be a physical street location based on a neighborhood, like an informal name of a neighborhood, the name of a shopping center, or the name of a *section* of some longer street.  In a decentralized network, geography matters.  One of the purposes of *maps* is to help navigate local geography, which can include making links to sub-instances in a place as well as local entities like shops or clubs. 
 
 *Skeletron.*  *Skeletron* is a system of building modular structures out of sticks with holes drilled in the ends, tied together with string or rope.  In some cases, an Art Factory instance will be built in a place exposed to the elements.  In those cases a shelter will need to be built, and this is a modular and free way to build such shelters and share the components of them from one instance to another.
+
+
+### Process to create an instance of the Geometron Art Factory
+
+1. Roll a Channel Address on dice, convert to letters and numbers, follow the hashtags on instagram and twitter
+2. Decide on a "place" to define the instance based on local Street and/or Watershed.  
+3. Choose a web server system to use: fork of an existing server, paid hosing and purchased domain, free web server, local wifi server for physically local network, or machine-local server running on one computer.
+4. Choose what symbolic languages, fonts and styles to load, what the user interface will be, add math if that's appropriate, add non English characters if appropriate
+5. Replicate the system, learn how to edit the scroll and map, replicate the symbol factory, customize it with your choices.
+6. Create an annotated keyboard or printed keyboard reference to use to get started learning geometron
+7. Hello, World in Geometron: go through the Action Geometry forms: square, equilateral triangles, golden triangle, golden gnomon, pentagram, fractal David star, print shapes and laminate, use to do on paper action Geometry
+8. Create some symbols, art, icons, share to scrolls and  maps, share the url, post to social media under the Channel Address hashtag
+9. Create bookmark with local symbols, local url, print, laminate, order bulk printing on cardstock, produce 1000 and distribute to libraries, bookstores, academic and artistic spaces and coffee shops
+10. Find people to join, teach them the system, refer them back to the List to get detailed instructions
+11. Build a printer which can encode information in soft clay, which then hardens and prints into thermoplastic, fabricate and imprint plastic shapes, get them manufactured in bulk and distribute
+12. Fork the project: learn the code structure, fork it and build your own to replicate across the Web
+
