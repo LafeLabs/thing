@@ -135,6 +135,9 @@ httpc.onreadystatechange = function() {
         cssbox.style.width = currentjson.width.toString() + "px";
         cssbox.style.height = currentjson.height.toString() + "px";
         csstext.value = document.getElementById("classes").innerHTML;
+        csstext.value += "#cssbox{\n";
+        csstext.value += "  width:"+currentjson.width.toString() + "px;\n";
+        csstext.value += "  height:"+currentjson.height.toString() + "px;\n}\n";
         htmltext.value = "<div id = \"cssbox\" class = \"outerbox\">\n";
         newGVM.action(0320);
         drawcssglyph(newGVM);
@@ -195,7 +198,7 @@ function cssaction(address,localGVM){
         newcircle.style.borderWidth = localGVM.ctx.lineWidth.toString() + "px";
         newcircle.style.borderColor = localGVM.ctx.strokeStyle;
         cssbox.appendChild(newcircle);
-        htmltext.value += "  <div id = \"circle" + circleindex.toString() + "\" class = \"circle\">\n";
+        htmltext.value += "  <div id = \"circle" + circleindex.toString() + "\" class = \"circle\"></div>\n";
         csstext.value += "#circle" + circleindex.toString() + "{\n";
         csstext.value += "  left:" + (localGVM.x - localGVM.ctx.lineWidth - localGVM.side).toString() + "px;\n";
         csstext.value += "  top:" + (localGVM.y - localGVM.ctx.lineWidth - localGVM.side).toString() + "px;\n";        
@@ -218,6 +221,25 @@ function cssaction(address,localGVM){
         newsegment.style.borderColor = localGVM.ctx.strokeStyle;
         cssbox.appendChild(newsegment);
 
+
+        htmltext.value += "  <div id = \"segment" + segmentindex.toString() + "\" class = \"segment\"></div>\n";
+        csstext.value += "#segment" + segmentindex.toString() + "{\n";
+        csstext.value += "  left:" + (localGVM.x - localGVM.ctx.lineWidth).toString() + "px;\n";
+        csstext.value += "  top:" + (localGVM.y - localGVM.ctx.lineWidth).toString() + "px;\n";        
+        csstext.value += "  width:" + (localGVM.side - localGVM.ctx.lineWidth).toString() + "px;\n";
+        csstext.value += "  transform:translateX(";
+        csstext.value += (-0.5*localGVM.side).toString();
+        csstext.value += "px) rotate(";
+        csstext.value += (localGVM.theta).toString();
+        csstext.value += "rad) translateX(";
+        csstext.value += (0.5*localGVM.side).toString();
+        csstext.value += "px);\n";
+ 
+        csstext.value += "  border-color:" + localGVM.ctx.strokeStyle + ";\n"; 
+        csstext.value += "  border-width:" + localGVM.ctx.lineWidth.toString() + "px;\n";
+        csstext.value += "}\n";
+        segmentindex++;
+        
         //document.getElementById("seg1").style.transform = "translateX(" + (-0.5*side).toString() + "px) rotate(" + (theta).toString() + "rad) translateX(" + (0.5*side).toString() +"px)";
 
     }
