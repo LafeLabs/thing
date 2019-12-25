@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">    
+<head>
+     <meta charset="utf-8"/>
+
+    <!--
+
+        EVERYTHING IS PHYSICAL 
+        EVERYTHING IS FRACTAL
+        EVERYTHING IS RECURSIVE
+        NO MONEY 
+        MO MINING 
+        NO PROPERTY
+        LOOK AT THE INSECTS
+        LOOK AT THE FUNGI
+        LANGUAGE IS HOW THE MIND PARSES REALITY
+
+    -->
+
+    <!--Stop Google:-->
+
+    <META NAME="robots" CONTENT="noindex,nofollow">
+
+    <script src="jscode/geometron.js"></script>
+    <script src="data/unicodemap.js"></script>
+    <script src="data/font.js"></script>
+    <script src="data/keyboard.js"></script>
+    <script src="data/hypercube.js"></script>
+    
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/wAAAAD//wAA/wAAAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMzMzQREREAAzMzRBEREQAAMzNEQREQAAAzNERBERAAAAM0REQRAAAAAEREREAAAAAAREREQAAAAAACIiIAAAAAAAIiIgAAAAAAACIgAAAAAAAAIiAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAQAAwAEAAOADAADgAwAA8AcAAPgPAAD4DwAA/B8AAPwfAAD+PwAA/j8AAP9/AAD//wAA" rel="icon" type="image/x-icon" />
+</head>
+<body> 
+
+    <!--
+        symbol.html:
+
+        this is a custom language, specific to this node in the Universe of Things.  Hypercube BUILDS languages. This is apure implementation of 
+        ONE language, with absolute minimum number of actions, cleaned up glyphs, large and simple buttons, just a few.
+    
+    -->
+
+<div id = "square">
+    <canvas id = "invisiblecanvas"></canvas>
+    <div id = "cssbox" class = "outerbox"></div>
+</div>
+
+<div id = "margin">            
+    <div id = "linkdiv">
+        <a href = "scroll.html">
+            <img style = "width:50px;" src = "iconsymbols/scroll.svg"/>
+        </a>
+        <a href = "map.html">
+            <img style = "width:50px;" src = "../iconsymbols/map.svg"/>
+        </a>
+        <a href = "index.html">
+            <img style = "width:50px;" src = "iconsymbols/geometron.svg"/>
+        </a>
+        <a href = "editor.php">
+            <img style = "width:50px;" src = "iconsymbols/edit.svg"/>
+        </a>               
+    </div>          
+    <div id = "controldiv">
+        <textarea id = "csstext"></textarea>
+        <textarea id = "htmltext"></textarea>
+    </div>        
+</div>
+
+<script>
+cssbox = document.getElementById("cssbox");
+csstext = document.getElementById("csstext");
+htmltext = document.getElementById("htmltext");
+
+landscape = false;
+
+if(innerWidth > innerHeight){
+    squareWidth = innerHeight;
+    document.getElementById("margin").style.width = (innerWidth - squareWidth).toString() + "px";
+    document.getElementById("margin").style.height = innerHeight.toString() + "px";
+    document.getElementById("square").style.width = squareWidth.toString() + "px";
+    document.getElementById("square").style.height = squareWidth.toString() + "px";
+    marginWidth = innerWidth - squareWidth;
+    landscape = true;
+}
+else{
+    squareWidth = innerWidth;
+    document.getElementById("margin").style.height = (innerHeight - squareWidth).toString() + "px";
+    document.getElementById("margin").style.width = (innerWidth).toString() + "px";
+    document.getElementById("square").style.height = squareWidth.toString() + "px";
+    document.getElementById("square").style.width = squareWidth.toString() + "px";
+    marginWidth = innerHeight - squareWidth;
+}
+
+//GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
+
+var newGVM = new GVM(0.98*squareWidth,0.98*squareWidth,0.96*squareWidth,-Math.PI/2,document.getElementById("invisiblecanvas"),squareWidth,squareWidth,hypercube);
+
+newGVM.unicodemode = false;
+//newGVM.unicodemode = true;
+
+if(newGVM.unicodemode){
+    newGVM.unicodemap = [];
+    for(var index = 0;index < unicodemap.length;index++){
+        newGVM.unicodemap.push(unicodemap[index]);
+    }
+}
+
+for(var index = 0;index < 01377;index++){
+    if(newGVM.hypercube[index].length  > 0 ){
+        hypercube.push( "0" + index.toString(8) +  ":" + newGVM.hypercube[index]);
+    }
+}
+
+newGVM.importbytecode(font);
+newGVM.importbytecode(keyboard);
+
+
+
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        currentjson = JSON.parse(this.responseText);
+        currentstyle = currentjson.style;
+        newGVM.style = currentstyle;
+        newGVM.canvas2d.width = currentjson.width;
+        newGVM.canvas2d.height = currentjson.height;
+        newGVM.width = currentjson.width;
+        newGVM.height = currentjson.height;
+        newGVM.x0 = currentjson.x0rel*newGVM.width;
+        newGVM.y0 = currentjson.y0rel*newGVM.height;    
+        newGVM.unit = currentjson.unitrel*newGVM.width;    
+        newGVM.theta0 = currentjson.theta0;
+        newGVM.glyph = currentjson.glyph;    
+        newGVM.importbytecode(currentjson.shapes);
+        newGVM.action(0300);
+        cssbox.style.width = currentjson.width.toString() + "px";
+        cssbox.style.height = currentjson.height.toString() + "px";
+        csstext.value = document.getElementById("classes").innerHTML;
+        htmltext.value = "<div id = \"cssbox\" class = \"outerbox\">\n";
+        newGVM.action(0320);
+        drawcssglyph(newGVM);
+        htmltext.value += "</div>\n";
+    }
+};
+httpc.open("GET", "fileloader.php?filename=data/currentjson.txt", true);
+httpc.send();    
+
+circleindex = 0;
+dotindex = 0;
+segmentindex = 0;
+
+function drawcssglyph(localGVM){
+    var glyphArray = localGVM.glyph.split(",");
+    var actionSequence = [];
+    for(var index = 0;index < glyphArray.length;index++){
+        if(glyphArray[index].length > 1){
+            actionSequence.push(parseInt(glyphArray[index],8));
+        }
+    }
+    for(var index = 0;index < actionSequence.length;index++){
+        cssaction(actionSequence[index],localGVM);
+    }
+}
+
+function cssaction(address,localGVM){
+            //02xx,05xx,06xx
+    if( (address > 0200 && address <= 0277) || (address >= 01000 && address <= 01777) || (address >= 0500 && address <= 0677)){
+            localGVM.glyph = localGVM.hypercube[address];
+            drawcssglyph(localGVM);
+    }
+    if(address == 0200){
+        //draw square
+    }
+    if(address >= 0300 && address <= 0337){
+        localGVM.action(address);
+    }
+    if(address >= 0350 && address <= 0353){
+        localGVM.action(address);
+    }
+    if(address == 0340){
+        //draw a dot
+        var newdot = document.createElement("DIV");
+        newdot.className = "dot";
+        newdot.style.left = (localGVM.x - 2).toString() + "px";
+        newdot.style.top = (localGVM.y - 2).toString() + "px";
+        cssbox.appendChild(newdot);
+    }
+    if(address == 0341){
+        //draw a circle
+        var newcircle = document.createElement("DIV");
+        newcircle.className = "circle";
+        newcircle.style.left = (localGVM.x - localGVM.ctx.lineWidth - localGVM.side).toString() + "px";
+        newcircle.style.top = (localGVM.y - localGVM.ctx.lineWidth - localGVM.side).toString() + "px";
+        newcircle.style.width = (2*localGVM.side - localGVM.ctx.lineWidth).toString() + "px";
+        newcircle.style.height = (2*localGVM.side - localGVM.ctx.lineWidth).toString() + "px";
+        newcircle.style.borderWidth = localGVM.ctx.lineWidth.toString() + "px";
+        newcircle.style.borderColor = localGVM.ctx.strokeStyle;
+        cssbox.appendChild(newcircle);
+        htmltext.value += "  <div id = \"circle" + circleindex.toString() + "\" class = \"circle\">\n";
+        csstext.value += "#circle" + circleindex.toString() + "{\n";
+        csstext.value += "  left:" + (localGVM.x - localGVM.ctx.lineWidth - localGVM.side).toString() + "px;\n";
+        csstext.value += "  top:" + (localGVM.y - localGVM.ctx.lineWidth - localGVM.side).toString() + "px;\n";        
+        csstext.value += "  width:" + (2*localGVM.side - localGVM.ctx.lineWidth).toString() + "px;\n";
+        csstext.value += "  height:" + (2*localGVM.side - localGVM.ctx.lineWidth).toString() + "px;\n";                
+        csstext.value += "  border-color:" + localGVM.ctx.strokeStyle + ";\n"; 
+        csstext.value += "  border-width:" + localGVM.ctx.lineWidth.toString() + "px;\n";
+        csstext.value += "}\n";
+        circleindex++;
+    }
+    if(address == 0342){
+        //draw a line segment
+        var newsegment = document.createElement("DIV");
+        newsegment.className = "segment";
+        newsegment.style.left = (localGVM.x - localGVM.ctx.lineWidth).toString() + "px";
+        newsegment.style.top = (localGVM.y - localGVM.ctx.lineWidth).toString() + "px";
+        newsegment.style.width = (localGVM.side - localGVM.ctx.lineWidth).toString() + "px";
+        newsegment.style.transform = "translateX(" + (-0.5*localGVM.side).toString() + "px) rotate(" + (localGVM.theta).toString() + "rad) translateX(" + (0.5*localGVM.side).toString() +"px)";
+        newsegment.style.borderWidth = (0.5*localGVM.ctx.lineWidth).toString() + "px";
+        newsegment.style.borderColor = localGVM.ctx.strokeStyle;
+        cssbox.appendChild(newsegment);
+
+        //document.getElementById("seg1").style.transform = "translateX(" + (-0.5*side).toString() + "px) rotate(" + (theta).toString() + "rad) translateX(" + (0.5*side).toString() +"px)";
+
+    }
+
+}
+
+</script>
+<style id = "mainstyle">
+body{
+    overflow:hidden;
+}
+#square{
+    position:absolute;
+    left:0px;
+    top:0px;
+    border:solid;
+    border-width:0.1px;
+    border-color:blue;
+    overflow:hidden;
+}
+#margin{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    border:solid;
+    border-width:0.1px;
+    border-color:red;
+}
+#controldiv{
+    position:absolute;
+    bottom:1em;
+    left:0px;
+    right:0px;
+    top:200px;
+}
+#linkdiv{
+    width:100%;
+    height:80px;
+    overflow:scroll;
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
+}
+.button{
+    cursor:pointer;
+}
+#invisiblecanvas{
+    display:none;
+}
+#csstext{
+    width:98%;
+    height:20em;
+    font-family:courier;
+    background-color:#FFFFE0;
+}
+#htmltext{
+    width:98%;
+    height:20em;
+    font-family:courier;
+    background-color:#ADD8E6;
+}
+</style>
+<style id = "classes">
+.outerbox{
+    position:absolute;
+    left:0px;
+    top:0px;
+    background-color:#f0f0ff;
+    width:800px;
+    height:800px;
+}
+.circle {
+  border-radius: 50%;
+  border:solid;
+  border-width:2px;
+  position:absolute;
+}
+.dot{
+  border-radius: 50%;
+  border:solid;
+  border-width:2px;
+  border-color:#00ff00;
+  position:absolute;
+  background-color:#00ff00;
+  width:4px;
+  height:4px;
+}
+.segment{
+  position:absolute;
+  height:0px;
+  border:solid;
+  border-width:1px;
+  border-color:#00ff00;
+  width:100px;
+}
+.square{
+  position:absolute;
+  border:solid;
+  border-width:1px;
+  border-color:#00ff00;
+  width:100px; 
+  height:100px;
+}
+
+</style>
+</body>
+</html>

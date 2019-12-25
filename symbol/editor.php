@@ -37,6 +37,7 @@ EGO DEATH:
     <a href = "hypercube.html">hypercube.html</a>
     <a href = "shapetableeditor.html">shapetableeditor.html</a>
     <a href = "voxel.html">voxel.html</a>
+    <a href = "geometroncss.html">geometroncss.html</a>
     <a href = "tablet.html">tablet.html</a>
     <a href = "geometronprinter.php">geometronprinter.php</a>
     <a href = "keyboardeditor.html">keyboardeditor.html</a>
@@ -50,6 +51,7 @@ EGO DEATH:
     <div class = "html file">bytecodeconverter.html</div>
     <div class = "html file">hypercube.html</div>
     <div class = "html file">voxel.html</div>
+    <div class = "html file">geometroncss.html</div>
     <div class = "html file">tablet.html</div>
     <div class = "html file">scroll.html</div>
     <div class = "html file">map.html</div>
