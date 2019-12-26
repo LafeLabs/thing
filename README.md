@@ -1,48 +1,62 @@
 ### [link up a level../](../)
 
-# The Geometron Art Factory
+# The Geometron Art Seed
 
 ### *language is how the mind parses reality*
 
-A *factory* is a collection of things which, taken together, produce something of value.  This page represents part of a global system of production of symbols called the Geometron Art Factory.  An Art Factory *instance* consists of some subset of the various things listed in this document. 
+## Replication process:
 
-The first thing an Art Factory instance contains is a scroll, which this document is an example of.  Scrolls are symbolized by this:
+1. Create a channel to track the new Seed
+2. Create a Geometron Web Page connected to a physical place(psychogeography)
+3. Learn and share the learning of how to edit Scrolls, Maps and Symbols
+4. Create Shapes of Action Geometry using the Geometron language
+5. Use shapes to create self-replicating book Action Geometry, add call number(in the 516's in Dewey Decimal), place in library, book store or coffee shop
+6. Create a bookmark with Geometron advertising your channel address and web address, print and distribute in physical area you want to network.  [Bookmark printing company](https://www.uprinting.com/bookmark-printing.html).
+7. Use Geometron Printer to create physical Art Seeds from the Trash Feed, spread them in your local physical environment, construct Treasure Maps to make Quests to find them, invite new people to learn and spread the Art Seeds, and to replicate and evolve the System.  Art Seeds may be used as an alternative to numerical bank-debt currency.
 
-![](iconsymbols/scroll.svg)
+To replicate the system ask someone who already has how to do it and they'll show you.  If you're starting from scratch and don't know anyone to show you how, sign up for the mailing list of the architect of this system and I'll walk you through the whole thing by email.  Mailing list signup is at [lafelabs.org](http://www.lafelabs.org).  When you sign up for the mailing list you'll get some basic instructions for the next step and there will be an exchange of emails as you find your party/team, decide on your place, and build up your customized Art Seed for your own personal Art Quest. 
 
-To edit this or any page, click on the edit button, type and edit at will, then click on it again to get back to this screen:
+### Scroll(this page)
+
+[![](iconsymbols/scroll.svg)](scroll.html)
+
+### Edit Scroll:
 
 [![](iconsymbols/edit.svg)](pageeditor.html)
 
 What you see in the edit screen(after clicking the edit icon) here is "markdown", which is language which allows people to publish things on the web without learning more complex languages. Hit return twice to get a paragraph break.  Copy the syntax you see here to get links and images and headings. You can look up markdown ([cheat sheet](https://www.markdownguide.org/cheat-sheet/), [detailed guide](https://daringfireball.net/projects/markdown/syntax), [wikipedia entry](https://en.wikipedia.org/wiki/Markdown)) for more syntax.  Also embedding <span style = "color:red;font-family:courier;">HTML</span> works if you know that.  
 
-To go directly to the Geometron symbol editor click on the following icon or [this link](symbol/)
+[Geometron Symbols](symbol/): 
 
 [![](iconsymbols/geometron.svg)](symbol/)
 
-The Art Factory system is fractal: one can always fork down to a lower level and make another instance, and that is done by clicking the following icon:
+[Create a fork](list.html):
 
 [![](iconsymbols/fork.svg)](list.html)
 
 Enter the name of the new page you want to create and click through the links to get to a new page one level down from this one.  Repeat this in the "new map" field to make a new map, which is a stack of images, symbols, words and links in a general web page layout.  Each Geometron page has a scroll and a map, as well as an inventory.  The "main" page can be either a scroll or map.  To see the map, click on its symbol, and to edit it click the edit icon from the map screen. The default map shows what the symbols mean that are used for editing.  To see the current map value go to [data/currentmap.txt](data/currentmap.txt).  Also, this JSON file can be edited directly using editor.php(see link below).  Inventory is used to track inventory at a given factory or page.  
 
-This is the symbol for map, as a link to the map:
+[Map](map.html):
 
 [![](iconsymbols/map.svg)](map.html)
 
 Maps are a stack of web elements(images, symbols, words, links) arranged geometrically on a page.  The Map page contains an editor for adding and deleting elements, moving them around, rotating them, changing their images, symbols, words and links and changing the order in which they are stacked.  Click the edit button in the map page to edit it. Most pages in the Geometron Art Factory system have links to a map and also a scroll.  Some pages default to a map and others to a scroll, but in general all pages have both.
 
-This is the symbol for inventory, as a link to the inventory:
+Pages like this need to be *hosted* on some kind of *web server*.  This can be on a free web hosting service, on a purchased domain with paid hosting, on a local wifi network only other people on that network can see, run locally on a single machine, or run on server clusters in decentralized Internet infrastructure as the network starts to scale up.
 
-[![](iconsymbols/inventory.svg)](inventory.html)
+A word of warning: all Geometron servers are world-writeable and world-readable by default, with no user or login or password control.  Put nothing on any Geometron server which is private, personal or proprietary.  Do not integrate these pages into existing pages where you care about security.  The risks of a totally world-writeable and world-readable network go away if we put no money or property or personal information on the Network. And that is precisely how this Network is built: as a self-replicating shared art resource on which people can co-create art and instantly publish it both to the Web(both the centralized Web and the Geometron network).
 
-Inventory is a little page that tracks things which are useful to buy or find in order to run a Geometron network node--essentially art supplies and computer parts.  It can also be used to scale collaborative manufacturing out of a Geometron node as the network grows.
+What follows are some of the technical details of how to actually replicate this.  This part will be overly technical for people not used to working with the internals of Internet stuff.  If you ask around you can probably find someone who knows how to follow these instructions, though, and work together with them to build an instance of the Geometron Art Seed without digging into the very technical stuff yourself. 
 
-Pages like this need to be *hosted* on some kind of *web server*.  This can be a free web hosting service, a paid hosting with a purchased domain name, a Raspberry pi on your local wifi network(to create a factory only used by people in your physical vicinity), or a web host run locally on your computer only visible to you.  Each new instance of the Art Factory is created by copying a single small program, called the Replicator, which copies all the rest of the files needed.  The replicator is hosted on a *repository*, generally hosted by [Github](https://github.com/), but it could be anywhere, including an existing Art Factory instance.  The name of the repository that created this is 
+<h3 style = "background-color:#ffbfbf">Technical Details Below This Line</h3>
+
+All instances are replicated with a program called replicator.php, which uses a file called dna.txt to fetch all the files needed to run an instance.  These are a collection of html, javascript and php programs as well as some Geometron data which make up a copy of this whole webpage.  The entire system when copied is between 1 and 2 megabytes, and will run on any server with php installed, which is most servers.
+
+The Github repository from all this is generated is:
 
 [https://github.com/lafelabs/thing/](https://github.com/lafelabs/thing/)
 
-To replicate this to a new web server copy the code [here (php/replicator.txt)](php/replicator.txt) into a file called replicator.php on the new server, then point a browser to [your new web site domain]/replicator.php to run the replicator.
+To run the replicator, copy the code in [this file](https://raw.githubusercontent.com/LafeLabs/thing/master/php/replicator.txt) or use the [local copy of the file here](php/replicator.txt) to a file called replicator.php in whatever directory on the server you want to copy Geometron.  Run that file by pointing your browser to [your server url]/replicator.php, then click on the link you see.  After that you can click on the "fork" icon and navigate down to "symbol/" and click on that replicator as well to replicate the Geometron symbol creation page.
 
 To start a new Geometron web server get free web hosting at [infinityfree.net](https://infinityfree.net/) or [000webhost](https://www.000webhost.com/) or buy a domain and get paid hosting at a company like [dreamhost](https://www.dreamhost.com/), or get a [Raspberry Pi](https://www.raspberrypi.org/), install [Apache and php](https://www.raspberrypi.org/documentation/remote-access/web-server/apache.md) on it and do the same copying of replicator.php.  Build a Raspberry Pi terminal with a screen, keyboard, mouse and power supply(this can be bought as a kit or built up from a pi motherboard and found components from other systems), put it on a local WiFi network, figure out the IP address of it, and link to that from local networks to make physically local Geometron Page only available on local wifi. 
 
@@ -55,7 +69,6 @@ php replicator.php
 sudo chmod -R 0777 *
 hostname -I
 </pre>
-
 
 Once you have a IP address of a local server, put a link to that address on some global server so that without remembering the IP address or putting it in manually you can go to an existing server and just click to get to the local one.  If this is in a public place and you wish to share, you can then paint some physical thing with the address of the global page (www.yournewdomain.xyz), and edit the main top level scroll of that page to have the link to the local server be at the top, with some clear description or image(a picture of the physical server is not a bad idea).  
 
@@ -75,17 +88,8 @@ Edit the code for any page in the Art Factory using the *editor*, another thing 
 
 [editor.php](editor.php)
 
-To learn the skills needed to hack the code to your purposes, you need to learn JavaScript, HTML, and some PHP, all of which are best learned from [https://www.w3schools.com/](https://www.w3schools.com/).
+When you have created your own modifications of the code, push that to your own Github repository and change the links in replicator.php to links to the global link to the raw text for your own dna.txt file and symbol/php/replicator.txt in your new repository and all future instances will be generated from your code instead of this instance.  Any php files you edit using editor must be converted from .txt to .php by running text2php.php by clicking on the link to that program from the Editor.  If you add new files, you can add them to dna.txt by clicking dnagenerator.php.  Note that *all* files in the system can be edited. 
 
+To learn the skills needed to [hack](https://en.wikipedia.org/wiki/Hacker_culture) the code to your purposes, you need to learn JavaScript, HTML, and some PHP, all of which are best learned from [https://www.w3schools.com/](https://www.w3schools.com/).
 
-### Process to create an instance of the Geometron Art Factory
-
-0. Fill out the questionnaire and express intent to build an instance to someone who can guide you through the process.  To get the questionnaire sign up for the mailing list at [lafelabs.org](http://www.lafelabs.org/).
-1. Roll a Channel Address on dice, convert to letters and numbers, follow the hashtags on instagram and twitter
-2. Set up a web instance of the /thing/ on the system you chose in the *method* section of your questionairre.
-3. Learn to edit the scroll and map, then edit them to be relevant to your instance, add description, links to relevant pages, channel address
-4. Action Geometry: Learn the basic motions of Geometron, use to create the shapes of action geometry, print them, laminate them, and use them to replicate the Book of Geometron
-5. Create bookmark: build local symbol language, load bookmark templates, modify for specific instance, print up bookmarks and distribute in libraries, coffee shops, bookstores, art spaces.
-6. (Optional) Build printer: mechanical devices that prints shapes into soft clay which when baked can be used to imprint shapes into plastic trash, producing free physical art which carries imprinting from Geometron printer.
-7. (Optional) Fork the system.  Find someone who understands code, learn how the system works, start a new fork, spread your new fork of the whole project.
 
