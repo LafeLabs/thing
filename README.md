@@ -1,20 +1,22 @@
 ### [link up a level../](../)
 
-# The Geometron Art Seed
+# The Geometron Seed
 
 ### *language is how the mind parses reality*
 
 ## Replication process:
 
-1. Create a channel to track the new Seed
-2. Create a Geometron Web Page connected to a physical place(psychogeography)
-3. Learn and share the learning of how to edit Scrolls, Maps and Symbols
-4. Create Shapes of Action Geometry using the Geometron language
-5. Use shapes to create self-replicating book Action Geometry, add call number(in the 516's in Dewey Decimal), place in library, book store or coffee shop
-6. Create a bookmark with Geometron advertising your channel address and web address, print and distribute in physical area you want to network.  [Bookmark printing company](https://www.uprinting.com/bookmark-printing.html).
-7. Use Geometron Printer to create physical Art Seeds from the Trash Feed, spread them in your local physical environment, construct Treasure Maps to make Quests to find them, invite new people to learn and spread the Art Seeds, and to replicate and evolve the System.  Art Seeds may be used as an alternative to numerical bank-debt currency.
+1. Create a Geometron Web Page connected to a physical place(psychogeography)
+2. Learn and share the learning of how to edit Scrolls, Maps and Symbols
+3. Create Shapes of Action Geometry using the Geometron language
+4. Use shapes to create self-replicating book Action Geometry, add call number(in the 516's in Dewey Decimal), place in library, book store or coffee shop
+5. Create a symbol for this Geometron Seed instance, and use it to create a bookmark with Geometron advertising your channel address and web address, print and distribute in physical area you want to network.  [Bookmark printing company](https://www.uprinting.com/bookmark-printing.html).
+6. Create a channel number which can be followed as a hashtag(use dice for random numbers).  Any pair of 6 sided dice can make a 2 digit base 6 number, which can be used to choose alphanumeric characters between A-Z and 0-9.
+7. Use the Geometron Printer to create physical Seeds from the Trash Feed, spread them in your local physical environment, construct Treasure Maps to make Quests to find them, invite new people to learn and spread the Art Seeds, and to replicate and evolve the System.  This "printer" is an abstraction, can can be just an action taken by an artist to make things.  Geometron seeds carry with them channel numbers which allow one to track their trajectory by people using Twitter and Instagram to communicate on that address as a hashtag.  Geometron Seeds may be used as an alternative to numerical bank-debt currency.  Or in the beginning as a medium of commerce *in* bank debt currency. By creating a constant stream of new channel numbers and using them as open hashtags connected to one another, we can create a *real* sharing economy, in which all commerce is facilitated by shared open communication channels without any interaction centralized companies.
 
-To replicate the system ask someone who already has how to do it and they'll show you.  If you're starting from scratch and don't know anyone to show you how, sign up for the mailing list of the architect of this system and I'll walk you through the whole thing by email.  Mailing list signup is at [lafelabs.org](http://www.lafelabs.org).  When you sign up for the mailing list you'll get some basic instructions for the next step and there will be an exchange of emails as you find your party/team, decide on your place, and build up your customized Art Seed for your own personal Art Quest. 
+As the system grows we will put a hard copy Action Geometry book and a few bookmarks into every public library, every university library, every little free library, every bookstore, every art gallery and every coffee shop in the world.  The book starts with the basic Shapes of AG and Geometron glyphs to describe their symmetries and scales, and follows with symbols specific to a given artistic movement, faith, or cosmology. "Seeds", or pieces of physical information imprinted into trash will also grow in number and power over time, until they can be used to engage in free economics by anyone anywhere in the world.  
+
+To replicate the system ask someone who already has how to do it and we'll show you.  If you're starting from scratch and don't know anyone to show you how, sign up for the mailing list of the architect of this system and I'll walk you through the whole thing by email.  Mailing list signup is at [lafelabs.org](http://www.lafelabs.org).  When you sign up for the mailing list you'll get some basic instructions for the next step and there will be an exchange of emails as you find your party/team, decide on your place, and build up your customized Art Seed for your own personal Art Quest. 
 
 ### Scroll(this page)
 
@@ -44,9 +46,9 @@ Maps are a stack of web elements(images, symbols, words, links) arranged geometr
 
 Pages like this need to be *hosted* on some kind of *web server*.  This can be on a free web hosting service, on a purchased domain with paid hosting, on a local wifi network only other people on that network can see, run locally on a single machine, or run on server clusters in decentralized Internet infrastructure as the network starts to scale up.
 
-A word of warning: all Geometron servers are world-writeable and world-readable by default, with no user or login or password control.  Put nothing on any Geometron server which is private, personal or proprietary.  Do not integrate these pages into existing pages where you care about security.  The risks of a totally world-writeable and world-readable network go away if we put no money or property or personal information on the Network. And that is precisely how this Network is built: as a self-replicating shared art resource on which people can co-create art and instantly publish it both to the Web(both the centralized Web and the Geometron network).
+A word of warning: all Geometron servers are world-writeable and world-readable by default, with no user or login or password control.  Put nothing on any Geometron server which is private, personal or proprietary.  Do not integrate these pages into existing pages where you care about security.  The risks of a totally world-writeable and world-readable network go away if we put no money or property or personal information on the Network. And that is precisely how this Network is built: as a self-replicating shared art resource on which people can co-create art and instantly publish it both to the Web(both the centralized Web and the Geometron network).  If you want something to survive over time without being changed or deleted, copy it to places that won't get deleted like a local private hard drive, a Github repository or a pastebin paste.
 
-What follows are some of the technical details of how to actually replicate this.  This part will be overly technical for people not used to working with the internals of Internet stuff.  If you ask around you can probably find someone who knows how to follow these instructions, though, and work together with them to build an instance of the Geometron Art Seed without digging into the very technical stuff yourself. 
+What follows are some of the technical details of how to actually replicate this.  This part will be overly technical for people not used to working with the internals of Internet stuff.  If you ask around you can probably find someone who knows how to follow these instructions, though, and work together with them to build an instance of the Geometron Art Seed without digging into the very technical stuff yourself. Find someone into web things, sign both of you up for the mailing list and we'll get you set up with the more obscure details of making a new instance work.
 
 <h3 style = "background-color:#ffbfbf">Technical Details Below This Line</h3>
 
