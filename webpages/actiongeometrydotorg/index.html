@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+<script>    
+</script>
+</head>
+<body>    
+
+
+<div id="mc_embed_signup">
+<form action="https://lafelabs.us4.list-manage.com/subscribe/post?u=26be5b2f3b9768b1be3b4b32f&amp;id=d36c8739a2" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+<div class="mc-field-group">
+	<label for="mce-EMAIL">Enter email Address to help Geometron to grow:
+</label>
+	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+</div>
+
+<div id="mce-responses" class="clear">
+		<div class="response" id="mce-error-response" style="display:none"></div>
+		<div class="response" id="mce-success-response" style="display:none"></div>
+	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_26be5b2f3b9768b1be3b4b32f_d36c8739a2" tabindex="-1" value=""></div>
+    <div class="clear button"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+<!--End mc_embed_signup-->
+
+
+<div id = "symbolscroll">
+</div>
+
+<script>
+
+symbols = [];
+var httpc4 = new XMLHttpRequest();
+httpc4.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        symbols = JSON.parse(this.responseText);
+        for(var index = symbols.length - 1;index >= 0;index--) {
+            var newp = document.createElement("P");
+            var newimg = document.createElement("IMG");
+            newimg.src = "symbolfeed/" + symbols[index];
+            document.getElementById("symbolscroll").appendChild(newp);
+            newp.appendChild(newimg);
+
+
+        }
+    }
+};
+
+httpc4.open("GET", "dir.php?filename=symbolfeed", true);
+httpc4.send();
+
+
+</script>
+<style>
+
+body{
+    background-color:black;
+    font-family:courier;
+    color:#00ff00;
+    font-size:1em;
+}
+#symbolscroll{
+    position:absolute;
+    bottom:0px;
+    top:4em;
+    left:0px;
+    right:0px;
+    overflow:scroll;
+    background-color:white;
+}
+#symbolscroll img{
+    max-width:80%;
+    display:block;
+    margin:auto;
+}
+p img{
+    max-width:80%;
+    display:block;
+    margin:auto;
+}
+input{
+    width:30em;
+    background-color:black;
+    font-family:courier;
+    font-size:1em;
+    color:#00ff00;
+    border-color:#00ff00;
+}
+.button{
+    cursor:pointer;
+    width:10em;
+}
+.button:hover{
+    background-color:#004000;
+}
+</style>
+</body>
+</html>
