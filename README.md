@@ -1,20 +1,20 @@
 ### [link up a level../](../)
 
-# The Geometron Seed
+# Geometron
 
 ### *language is how the mind parses reality*
 
-## Replication process:
+## Geometron Instance Elements:
 
-1. Create a Geometron Web Page connected to a physical place(psychogeography)
-2. Learn and share the learning of how to edit Scrolls, Maps and Symbols
-3. Create Shapes of Action Geometry using the Geometron language
-4. Use shapes to create self-replicating book Action Geometry, add call number(in the 516's in Dewey Decimal), place in library, book store or coffee shop
-5. Create a logo for this Geometron Seed instance, and use it to create a bookmark with Geometron advertising your channel address and web address, print and distribute in physical area you want to network.  [Bookmark printing company](https://www.uprinting.com/bookmark-printing.html). Create custom icons for links in local network as needed.
-6. Create a channel number which can be followed as a hashtag(use dice for random numbers).  A pair of 6 sided dice can make a 2 digit base 6 number, which can be used to choose alphanumeric characters between A-Z and 0-9.  A 12 digit string will have the chances of doubling up on addresses infinitesimal for the forseeable future, but 6 digits is probably fine to begin with.
-7. Use the Geometron Printer to create physical Seeds from the Trash Feed, spread them in your local physical environment, construct Treasure Maps to make Quests to find them, invite new people to learn and spread the Art Seeds, and to replicate and evolve the System.  This "printer" is an abstraction, can can be just an action taken by an artist to make things.  Geometron seeds carry with them channel numbers which allow one to track their trajectory by people using Twitter and Instagram to communicate on that address as a hashtag.  Geometron Seeds may be used as an alternative to numerical bank-debt currency.  Or in the beginning as a medium of commerce *in* bank debt currency. By creating a constant stream of new channel numbers and using them as open hashtags connected to one another, we can create a *real* sharing economy, in which all commerce is facilitated by shared open communication channels without any interaction centralized companies.
+- Psychogeography.  Geometron is always connected to a place in the physical world, but "place" is defined by how we relate to the world around us, not literal addresses.
+- Community.  The party/team/crew who share the creation, maintenance and growth of a Geometron instance
+- A Web Host.  This can be paid with a custom domain(it's cheaper and easier than you think), a free webhost account, or a local computer running on a wifi network that can only be used by others on that network.  The Web Host runs the Geometron software which is used to create both digital and physical media for sharing.
+- A Channel Address.  Each Geometron instance has a string of random letters and numbers that can be used to track the information stream using hashtags on commercial platforms like Twitter and Instagram without fixed centralized accounts.
+- Symbology. Symbols/fonts/glyphs/sigils/logos/brands local to the instance. These are used to create instant recognition both locally and on the open Web of the instance.
+- Physical media.  Bookmarks will be printed in bulk and distributed anywhere appropriate.  Action Geometry books will be replicated by hand and placed in the geometry section of every library and bookstore in the world.  Physical Action Geometry shapes are made from laminated paper, cardboard, plastic or metal and can be used to create the Action Geometry book and other works of geometric art, while spreading the Geometron system.  Other art pieces can transmit information in the Network using upcycled materials, namely plastic trash imprinted with data printed on a Geometron Trash Printer.  Bits of trash converted to Geometron information streams are called "Seeds".
 
-As the system grows we will put a hard copy Action Geometry book and a few bookmarks into every public library, every university library, every little free library, every bookstore, every art gallery and every coffee shop in the world.  The book starts with the basic Shapes of AG and Geometron glyphs to describe their symmetries and scales, and follows with symbols specific to a given artistic movement, faith, or cosmology. "Seeds", or pieces of physical information imprinted into trash will also grow in number and power over time, until they can be used to engage in free economics by anyone anywhere in the world.  
+
+As the system grows we will put a hard copy Action Geometry book and a few bookmarks into every public library, every university library, every little free library, every bookstore, every hotel room, every art gallery and every coffee shop in the world.  The book starts with the basic Shapes of AG and Geometron glyphs to describe their symmetries and scales, and follows with symbols specific to a given artistic movement, faith, or cosmology. "Seeds", or pieces of physical information imprinted into trash will also grow in number and power over time, until they can be used to engage in free economics by anyone anywhere in the world.  
 
 To replicate the system ask someone who already has how to do it and we'll show you.  If you're starting from scratch and don't know anyone to show you how, sign up for the mailing list of the architect of this system and I'll walk you through the whole thing by email.  Mailing list signup is at [actiongeometry.org](https://actiongeometry.org/).  When you sign up for the mailing list you'll get some basic instructions for the next step and there will be an exchange of emails as you find your party/team, decide on your place, and build up your customized Art Seed for your own personal Art Quest. 
 
