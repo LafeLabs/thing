@@ -207,27 +207,30 @@ function modeswitch(){
 
 
 document.getElementById("actioninput").onkeypress = function(a) {
-
     var charCode = a.keyCode || a.which;
 
-    if(mode == 0){
-        localCursorAction = parseInt(newGVM.hypercube[charCode],8);     
-    }    
-    if(mode == 1){
-        localCursorAction = charCode + 01000;     
-    }    
-    if(mode == 2){
-        localCursorAction = charCode;     
-    }    
 
-    newGVM.cursorAction(localCursorAction);   
-    spellGVM.spellGlyph(newGVM.glyph);    
-    this.value = "";
-    newGVM.saveGlyph();
+    if(charCode != 015){
+        if(mode == 0){
+            localCursorAction = parseInt(newGVM.hypercube[charCode],8);    
+        }    
+        if(mode == 1){
+            localCursorAction = charCode + 01000;     
+        }    
+        if(mode == 2){
+            localCursorAction = charCode;     
+        }    
 
-    savejson();
-    document.getElementById("spellinput").value = currentjson.glyph;
-    document.getElementById("spellinput").style.width = 0.8*currentjson.glyph.length.toString() + "em";
+        newGVM.cursorAction(localCursorAction);   
+        spellGVM.spellGlyph(newGVM.glyph);    
+        this.value = "";
+        newGVM.saveGlyph();
+
+        savejson();
+        document.getElementById("spellinput").value = currentjson.glyph;
+        document.getElementById("spellinput").style.width = 0.8*currentjson.glyph.length.toString() + "em";    
+    }
+
 
 }
 
