@@ -424,6 +424,9 @@ function GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode) {
         if(address == 0314) {
             this.scaleFactor = 3;
         }
+        if(address == 0315) {
+            this.scaleFactor = 1.1755705;
+        }
         if(address == 0316) {
             this.scaleFactor = 5;
         }
