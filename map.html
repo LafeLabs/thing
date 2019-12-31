@@ -400,7 +400,7 @@ var httpc = new XMLHttpRequest();
     httpc.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         uploadImages = JSON.parse(this.responseText);
-        for(var index = 0;index < uploadImages.length;index++) {
+        for(var index = uploadImages.length - 1;index >= 0;index--) {
             var newuploadbox = document.createElement("DIV");
             newuploadbox.classList.add("uploadbox");
             var newimg = document.createElement("IMG");
@@ -436,12 +436,13 @@ var httpc = new XMLHttpRequest();
 httpc.open("GET", "dir.php?filename=uploadimages", true);
 httpc.send();
 
+
 symbol = [];
 var httpc3 = new XMLHttpRequest();
     httpc3.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         symbol = JSON.parse(this.responseText);
-        for(var index = 0;index < symbol.length;index++) {
+        for(var index = symbol.length - 1;index >= 0;index--) {
 
             var newimg = document.createElement("IMG");
             newimg.src = "../symbol/symbolfeed/" + symbol[index];
@@ -463,12 +464,14 @@ httpc3.open("GET", "dir.php?filename=../symbol/symbolfeed", true);
 httpc3.send();
 
 
+//for(var index = symbols.length - 1;index >= 0;index--) {
+
 symbolhere = [];
 var httpc5 = new XMLHttpRequest();
 httpc5.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         symbolhere = JSON.parse(this.responseText);
-        for(var index = 0;index < symbolhere.length;index++) {
+        for(var index = symbolhere.length - 1;index >= 0;index--) {
 
             var newimg = document.createElement("IMG");
             newimg.src = "symbol/symbolfeed/" + symbolhere[index];

@@ -1,10 +1,10 @@
 [
     {
-        "x": 0.2064439140811456,
-        "y": 0.04892601431980907,
+        "x": 0.4116945107398568,
+        "y": 0.02386634844868735,
         "w": 0.986873508353222,
         "angle": 0,
-        "text": "Map Factory",
+        "text": "Map",
         "href": "",
         "src": ""
     },
@@ -42,7 +42,7 @@
         "angle": 0,
         "text": "",
         "href": "scroll.html",
-        "src": "http://localhost:8000/iconsymbols/scroll.svg"
+        "src": "iconsymbols/scroll.svg"
     },
     {
         "x": 0.6431980906921241,
@@ -51,15 +51,6 @@
         "angle": 0,
         "text": "Map Factory",
         "href": "",
-        "src": "http://localhost:8000/iconsymbols/iconset.svg"
-    },
-    {
-        "x": 0.3711217183770883,
-        "y": 0.002386634844868735,
-        "w": 0.373508353221957,
-        "angle": 0,
-        "text": "lafelabs.org link",
-        "href": "http://lafelabs.org/",
-        "src": ""
+        "src": "iconsymbols/iconset.svg"
     }
 ]
