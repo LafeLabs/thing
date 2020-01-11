@@ -33,40 +33,10 @@ textfeed = {};
 var httpc = new XMLHttpRequest();
     httpc.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-
         textfeed = JSON.parse(this.responseText);
-
-        text = textfeed.text;
-        src = textfeed.src;
-        href = textfeed.href;
-        
-        for(var index = 0;index < text.length;index++){
-            var newbox = document.createElement("div");
-            newbox.className = "box";
-            newbox.innerHTML = text[index];
-            var newbutton = document.createElement("IMG");
-            newbutton.src = "iconsymbols/delete.svg";
-            newbutton.className = "deletebutton";
-            newbutton.id = "text" + index.toString();
-            newbutton.onclick = function(){
-                //alert(this.id.substring(4));
-                var thisindex = this.id.substring(4);
-                var localtext = textfeed.text;
-                textfeed.text = [];
-                for(var textindex = 0;textindex < localtext.length;textindex++){
-                    if(textindex != thisindex){
-                        textfeed.text.push(localtext[textindex]);
-                    }
-                }
-                redrawtext();
-                savejson();
-            }
-            newbox.appendChild(newbutton);
-            document.getElementById("textscroll").appendChild(newbox);
-        }
-        //un comment for math
-        //MathJax.Hub.Typeset();
-
+        redrawtext();
+        redrawsrc();
+        redrawhref();        
     }
 };
 httpc.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
@@ -75,18 +45,17 @@ httpc.send();
 
 document.getElementById("textinput").onchange = function(){
     textfeed.text.push(this.value);
-    var newbox = document.createElement("div");
-    newbox.className = "box";
-    newbox.innerHTML = this.value;
-    var newbutton = document.createElement("IMG");
-    newbutton.src = "iconsymbols/delete.svg";
-    newbutton.className = "deletebutton";
-    newbutton.id = "text" + (textfeed.text.length - 1).toString();
-    newbutton.onclick = function(){
-        alert(this.id.substring(4));
-    }
-    newbox.appendChild(newbutton);
-    document.getElementById("textscroll").appendChild(newbox);
+    redrawtext();
+    savejson();
+}
+document.getElementById("srcinput").onchange = function(){
+    textfeed.src.push(this.value);
+    redrawsrc();
+    savejson();
+}
+document.getElementById("hrefinput").onchange = function(){
+    textfeed.href.push(this.value);
+    redrawhref();
     savejson();
 }
 
@@ -122,6 +91,7 @@ function redrawtext(){
                 }
             }
             redrawtext();
+            savejson();
         }
         newbox.appendChild(newbutton);
         document.getElementById("textscroll").appendChild(newbox);
@@ -129,13 +99,73 @@ function redrawtext(){
     //un comment for math
     //MathJax.Hub.Typeset();
 
-    
 }
 
 function redrawsrc(){
+    document.getElementById("srcscroll").innerHTML = "";
+    var src = textfeed.src;
+    for(var index = 0;index < src.length;index++){
+        var newbox = document.createElement("div");
+        newbox.className = "box";
+        
+        var newimg = document.createElement("img");
+        newimg.src = src[index];
+        newbox.appendChild(newimg);
+        
+        var newbutton = document.createElement("IMG");
+        newbutton.src = "iconsymbols/delete.svg";
+        newbutton.className = "deletebutton";
+        newbutton.id = "src" + index.toString();
+        newbutton.onclick = function(){
+            //alert(this.id.substring(4));
+            var thisindex = this.id.substring(3);
+            var localsrc = textfeed.src;
+            textfeed.src = [];
+            for(var srcindex = 0;srcindex < localsrc.length;srcindex++){
+                if(srcindex != thisindex){
+                    textfeed.src.push(localsrc[srcindex]);
+                }
+            }
+            redrawsrc();
+            savejson();
+        }
+        newbox.appendChild(newbutton);
+        document.getElementById("srcscroll").appendChild(newbox);
+    }
     
 }
 function redrawhref(){
+    document.getElementById("hrefscroll").innerHTML = "";
+    var href = textfeed.href;
+    for(var index = 0;index < href.length;index++){
+        var newbox = document.createElement("div");
+        newbox.className = "box";
+        
+        var newa = document.createElement("A");
+        newa.href = href[index];
+        newa.innerHTML = href[index];
+        newbox.appendChild(newa);
+        
+        var newbutton = document.createElement("IMG");
+        newbutton.src = "iconsymbols/delete.svg";
+        newbutton.className = "deletebutton";
+        newbutton.id = "href" + index.toString();
+        newbutton.onclick = function(){
+            //alert(this.id.substring(4));
+            var thisindex = this.id.substring(4);
+            var localhref = textfeed.href;
+            textfeed.href = [];
+            for(var hrefindex = 0;hrefindex < localhref.length;hrefindex++){
+                if(hrefindex != thisindex){
+                    textfeed.href.push(localhref[hrefindex]);
+                }
+            }
+            redrawhref();
+            savejson();
+        }
+        newbox.appendChild(newbutton);
+        document.getElementById("hrefscroll").appendChild(newbox);
+    }
     
 }
 </script>
@@ -197,6 +227,9 @@ body,input{
 }
 .deletebutton:hover{
     background-color:#afffaf;
+}
+#srcscroll img{
+    width:100px;
 }
 </style>
 </body>
