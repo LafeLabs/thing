@@ -16,6 +16,7 @@
         "arrow.svg",
         "bullseye.svg",
         "delete.svg",
+        "deleteimage.svg",
         "downelement.svg",
         "edit.svg",
         "elementdown.svg",
