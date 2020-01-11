@@ -1,7 +1,5 @@
 {
     "text": [
-        "editor.php",
-        "index.html",
         "some text",
         "zeep",
         "foo",

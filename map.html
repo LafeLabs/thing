@@ -51,62 +51,36 @@
     </div>
 <div id = "margin">
     <div id = "inputbox">
-        <img id = "editmapbutton" class = "button" style = "width:50px;" src = "iconsymbols/edit.svg"/>
-        <a href = "scroll.html">
-            <img id = "scrollbutton" class = "button" style = "width:50px;" src = "iconsymbols/scroll.svg"/>
-        </a>
         <a href = "index.html">
             <img id = "scrollbutton" class = "button" style = "width:50px;" src = "iconsymbols/geometronthing.svg"/>
-        </a>
-        <a href = "fork.html">
-            <img class = "button" style = "width:50px;" src = "iconsymbols/fork.svg"/>
         </a>
         <a href = "textfeed.html">
             <img class = "button" style = "width:50px;" src = "iconsymbols/feed.svg"/>
         </a>
-        <span id = "editbox">
-            <table id = "linkedittable">
-                <tr>
-                    <td>
-                        <img id = "prevbutton" src = "iconsymbols/upelement.svg" class = "button" style = "width:50px"/>
-                    </td>
-                    <td>
-                        <img id = "nextbutton" src = "iconsymbols/downelement.svg" class = "button" style = "width:50px"/>
-                    </td>
-                    <td>
-                        <img id = "movedownbutton" src = "iconsymbols/elementdown.svg" class = "button" style = "width:50px"/>
-                    </td>
-                    <td>
-                        <img id = "moveupbutton" src = "iconsymbols/elementup.svg" class = "button" style = "width:50px"/>    
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img id = "savebutton" src = "iconsymbols/save.svg" class = "button" style = "width:50px"/>
-                    </td>
-                    <td>
-                        <img id = "deletebutton" src = "iconsymbols/delete.svg" class = "button" style = "width:50px"/>
-                    </td>
-                    <td>
-                        <img id = "newbutton" src = "iconsymbols/add.svg" class = "button" style = "width:50px"/>                    
-                    </td>
-                </tr>
-                <tr><td>text:</td><td  colspan="3"><input id = "textinput"/></td><td><img id = "littlesavebutton" src = "iconsymbols/save.svg" class = "button" style = "width:1em"/></td></tr>
-                <tr><td>src:</td><td colspan="3"><input id = "srcinput"/></td><td><img id = "littleeditmapbutton" class = "button" style = "width:1em;" src = "iconsymbols/edit.svg"/></td></tr>
-                <tr><td>href:</td><td colspan="3"><input id = "hrefinput"/></td><td></td></tr>
-            </table>
-        </span>
+        <img id = "prevbutton" src = "iconsymbols/upelement.svg" class = "button" style = "width:50px"/>
+        <img id = "nextbutton" src = "iconsymbols/downelement.svg" class = "button" style = "width:50px"/>
+        <img id = "movedownbutton" src = "iconsymbols/elementdown.svg" class = "button" style = "width:50px"/>
+        <img id = "moveupbutton" src = "iconsymbols/elementup.svg" class = "button" style = "width:50px"/>    
+        <img id = "savebutton" src = "iconsymbols/save.svg" class = "button" style = "width:50px"/>
+        <img id = "deletebutton" src = "iconsymbols/delete.svg" class = "button" style = "width:50px"/>
+        <img id = "newbutton" src = "iconsymbols/add.svg" class = "button" style = "width:50px"/>
+        
+        <img id = "textbutton" src = "iconsymbols/text.svg" class = "button" style = "width:50px"/>
+        <img id = "imagebutton" src = "iconsymbols/image.svg" class = "button" style = "width:50px"/>                
+        <img id = "linkbutton" src = "iconsymbols/link.svg" class = "button" style = "width:50px"/>                
     </div>
     <div id = "feedscroll">
-                         <form id = "uploadform" style = "margin-top:10px" action="upload.php" method="post" enctype="multipart/form-data">
+        <form id = "uploadform" style = "margin-top:10px" action="upload.php" method="post" enctype="multipart/form-data">
                 Select image to upload:
-                    <input type="file" name="fileToUpload" id="fileToUpload">
-                    <input type="submit" value="Upload Image" name="submit">
-             </form>
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <input type="submit" value="Upload Image" name="submit">
+        </form>
              <!--
                 images and symbols 
              -->
     </div>
+    <div id = "textscroll"></div>
+    <div id = "linkscroll"></div>
     <div id = "rotatezoombox">
         <table id = "rotatezoomtable">
             <tr>
@@ -181,6 +155,9 @@ var httpc2 = new XMLHttpRequest();
 
         mainmap.array = JSON.parse(this.responseText);
         mainmap.draw();
+        mainmap.linkArray[mainmap.linkindex].style.border = "solid";
+        mainmap.linkArray[mainmap.linkindex].style.borderWidth = "0.1px";
+
         //un comment for math
         //MathJax.Hub.Typeset();
 
@@ -210,51 +187,29 @@ document.getElementById("savebutton").onclick = function() {
 
 }
 
-document.getElementById("littleeditmapbutton").onclick = function(){
-    document.getElementById("editmapbutton").click();
-}
-
-document.getElementById("littlesavebutton").onclick = function(){
-    document.getElementById("savebutton").click();
-}
 
 document.getElementById("nextbutton").onclick = function() {
 
     mainmap.nextlink();
-    tableupdate();
 
 }
 
 document.getElementById("prevbutton").onclick = function() {
 
     mainmap.prevlink();
-    tableupdate();
 
 }
 
 document.getElementById("newbutton").onclick = function() {
 
     mainmap.newlink();
-    tableupdate();
 
 }
 
-
-function tableupdate() {
-    if(mainmap.array.length > 0){
-        document.getElementById("textinput").value = mainmap.array[mainmap.linkindex].text;   
-        document.getElementById("srcinput").value = mainmap.array[mainmap.linkindex].src;   
-        document.getElementById("hrefinput").value = mainmap.array[mainmap.linkindex].href;   
-
-    }
-    //un comment for math
-    //MathJax.Hub.Typeset();
-}
 
 document.getElementById("deletebutton").onclick = function() {
 
     mainmap.deletelink();
-    tableupdate();
 
 }
 
@@ -269,27 +224,6 @@ document.getElementById("movedownbutton").onclick  = function() {
 
 }
 
-document.getElementById("textinput").onchange = function() {
-    mainmap.array[mainmap.linkindex].text = this.value;
-    mainmap.draw();
-    //un comment for math
-    //MathJax.Hub.Typeset();
-
-}
-
-document.getElementById("srcinput").onchange = function() {
-
-    mainmap.array[mainmap.linkindex].src = this.value;
-    mainmap.draw();
-
-}
-
-document.getElementById("hrefinput").onchange = function() {
-
-    mainmap.array[mainmap.linkindex].href = this.value;
-    mainmap.linkArray[mainmap.linkindex].href = this.value;
-
-}
 
 mc = new Hammer(document.getElementById("hammerxy"));
 mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
@@ -365,38 +299,7 @@ mcrotate.on("panleft panright panup pandown tap press", function(ev) {
 
 });    
 
-
-editMode = false;
-
-document.getElementById("editmapbutton").onclick = function() {
-    
-    editMode = !editMode;
-    if(editMode) {
-        document.getElementById("hammerxy").style.display = "block";
-        document.getElementById("editbox").style.display = "block";
-        document.getElementById("feedscroll").style.display = "block";
-        mainmap.linkArray[mainmap.linkindex].style.border = "solid";
-        mainmap.linkArray[mainmap.linkindex].style.borderWidth = "0.1px";
-        document.getElementById("rotatezoombox").style.display = "block";
-        tableupdate();
-    }
-    else {
-        document.getElementById("hammerxy").style.display = "none";
-        mainmap.linkArray[mainmap.linkindex].style.border = "none";
-        document.getElementById("editbox").style.display = "none";
-        document.getElementById("feedscroll").style.display = "none";
-        document.getElementById("rotatezoombox").style.display = "none";
-
-    }
-
-}
-
-
-document.getElementById("editbox").style.display = "none";
-document.getElementById("hammerxy").style.display = "none";
-document.getElementById("feedscroll").style.display = "none";
-document.getElementById("rotatezoombox").style.display = "none";
-
+        
 
 uploadImages = [];
 var httpc = new XMLHttpRequest();
@@ -413,7 +316,6 @@ var httpc = new XMLHttpRequest();
             newuploadbox.appendChild(newimg);
             document.getElementById("feedscroll").appendChild(newuploadbox);
             newimg.onclick = function() {
-                document.getElementById("srcinput").value = this.src;
                 mainmap.array[mainmap.linkindex].src = this.src;
                 mainmap.draw();
             }
@@ -454,7 +356,6 @@ var httpc9 = new XMLHttpRequest();
             newuploadbox.appendChild(newimg);
             document.getElementById("feedscroll").appendChild(newuploadbox);
             newimg.onclick = function() {
-                document.getElementById("srcinput").value = this.src;
                 mainmap.array[mainmap.linkindex].src = this.src;
                 mainmap.draw();
             }
@@ -495,7 +396,6 @@ var httpc3 = new XMLHttpRequest();
 
             document.getElementById("feedscroll").appendChild(newimg);
             newimg.onclick = function() {
-                document.getElementById("srcinput").value = this.src;
                 mainmap.array[mainmap.linkindex].src = this.src;
                 mainmap.draw();
             }
@@ -524,7 +424,6 @@ httpc5.onreadystatechange = function() {
 
             document.getElementById("feedscroll").appendChild(newimg);
             newimg.onclick = function() {
-                document.getElementById("srcinput").value = this.src;
                 mainmap.array[mainmap.linkindex].src = this.src;
                 mainmap.draw();
             }
@@ -550,7 +449,6 @@ httpc6.onreadystatechange = function() {
 
             document.getElementById("feedscroll").appendChild(newimg);
             newimg.onclick = function() {
-                document.getElementById("srcinput").value = this.src;
                 mainmap.array[mainmap.linkindex].src = this.src;
                 mainmap.draw();
             }
@@ -561,6 +459,85 @@ httpc6.onreadystatechange = function() {
 
 httpc6.open("GET", "dir.php?filename=iconsymbols", true);
 httpc6.send();
+
+
+textfeed = {};
+var httpc10 = new XMLHttpRequest();
+    httpc10.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+
+        textfeed = JSON.parse(this.responseText);
+        loadtextfeed();
+        //un comment for math
+        //MathJax.Hub.Typeset();
+        loadlinkfeed();
+        for(var index = 0;index < textfeed.src.length;index++) {
+
+            var newimg = document.createElement("IMG");
+            newimg.src = textfeed.src[index];
+            newimg.classList.add("uploadimage");
+            newimg.classList.add("button");
+            document.getElementById("feedscroll").appendChild(newimg);
+            newimg.onclick = function() {
+                mainmap.array[mainmap.linkindex].src = this.src;
+                mainmap.draw();
+            }
+            
+        }
+
+    }
+};
+httpc10.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
+httpc10.send();
+
+
+function loadtextfeed(){
+    text = textfeed.text;
+    for(var index = 0;index < text.length;index++){
+        var newbox = document.createElement("div");
+        newbox.className = "button";
+        newbox.innerHTML = text[index];
+        newbox.onclick = function(){
+            //replace current text with this text and update map
+            mainmap.array[mainmap.linkindex].text = this.innerHTML;
+            mainmap.draw();
+        }
+        document.getElementById("textscroll").appendChild(newbox);
+    }
+}
+
+function loadlinkfeed(){
+    href = textfeed.href;
+    for(var index = 0;index < href.length;index++){
+        var newbox = document.createElement("div");
+        newbox.className = "button";
+        newbox.innerHTML = href[index];
+        newbox.onclick = function(){
+            //replace current href with this href and update map
+            mainmap.array[mainmap.linkindex].href = this.innerHTML;
+            mainmap.draw();
+
+        }
+        document.getElementById("linkscroll").appendChild(newbox);
+    }
+}
+
+
+document.getElementById("textbutton").onclick = function(){
+    document.getElementById("feedscroll").style.display = "none";
+    document.getElementById("linkscroll").style.display = "none";
+    document.getElementById("textscroll").style.display = "block";
+}
+document.getElementById("imagebutton").onclick = function(){
+    document.getElementById("feedscroll").style.display = "block";
+    document.getElementById("linkscroll").style.display = "none";
+    document.getElementById("textscroll").style.display = "none";
+}
+document.getElementById("linkbutton").onclick = function(){
+    document.getElementById("feedscroll").style.display = "none";
+    document.getElementById("linkscroll").style.display = "block";
+    document.getElementById("textscroll").style.display = "none";
+}
 
 </script>
 <style>
@@ -650,6 +627,25 @@ input,table,select{
         bottom:0px;
         overflow:scroll;
     }
+    #linkscroll{
+        display:none; 
+        width:32%;
+        height:98%;
+        position:absolute;
+        left:33%;
+        bottom:0px;
+        overflow:scroll;
+        color:blue;
+    }
+    #textscroll{
+        display:none; 
+        width:32%;
+        height:98%;
+        position:absolute;
+        left:33%;
+        bottom:0px;
+        overflow:scroll;
+    }
     #inputbox{
         position:absolute;
         overflow:scroll;
@@ -679,6 +675,26 @@ input,table,select{
         bottom:33%;
         overflow:scroll;
     }
+    #textscroll{
+        width:98%;
+        height:32%;
+        position:absolute;
+        right:0px;
+        bottom:33%;
+        overflow:scroll;
+        display:none;
+    }
+    #linkscroll{
+        display:none;
+        width:98%;
+        height:32%;
+        position:absolute;
+        right:0px;
+        bottom:33%;
+        overflow:scroll;
+        color:blue;
+    }
+
     #inputbox{
         position:absolute;
         overflow:scroll;
