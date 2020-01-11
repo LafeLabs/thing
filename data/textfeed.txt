@@ -1,9 +1,6 @@
 {
     "text": [
         "some text",
-        "zeep",
-        "foo",
-        "bar",
         "☕ "
     ],
     "src": [
@@ -14,6 +11,7 @@
     "href": [
         "../",
         "https://en.wikipedia.org/wiki/Tensegrity",
-        "editor.php"
+        "editor.php",
+        "map.html"
     ]
 }

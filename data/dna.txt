@@ -3,7 +3,6 @@
         "README.md",
         "fork.html",
         "index.html",
-        "list.html",
         "map.html",
         "pageeditor.html",
         "scroll.html",
