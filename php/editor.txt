@@ -24,11 +24,11 @@ EGO DEATH:
 <div id = "linkscroll">
     <a href = "text2php.php">text2php.php</a>
     <a href = "index.html">index.html</a>
-    <a href = "print.html">print.html</a>
+    <a href = "scroll.html">scroll.html</a>
     <a href = "pageeditor.html">pageeditor.html</a>
     <a href = "map.html">map.html</a>
-    <a href = "inventory.html">inventory.html</a>
-    <a href = "list.html">list.html</a>
+    <a href = "fork.html">fork.html</a>
+    <a href = "textfeed.html">textfeed.html</a>
     <a href = "dnagenerator.php">dnagenerator.php</a>
 </div>
 <div id = "namediv"></div>
@@ -36,12 +36,11 @@ EGO DEATH:
 <div id = "filescroll">
 
     <div class = "html file">index.html</div>
-    <div class = "html file">print.html</div>
     <div class = "html file">pageeditor.html</div>
     <div class = "html file">map.html</div>
     <div class = "html file">scroll.html</div>
-    <div class = "html file">inventory.html</div>
-    <div class = "html file">list.html</div>
+    <div class = "html file">textfeed.html</div>
+    <div class = "html file">fork.html</div>
 
     <div class = "markdown file">README.md</div>
 

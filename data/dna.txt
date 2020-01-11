@@ -1,13 +1,13 @@
 {
     "html": [
         "README.md",
+        "fork.html",
         "index.html",
-        "inventory.html",
         "list.html",
         "map.html",
         "pageeditor.html",
-        "print.html",
-        "scroll.html"
+        "scroll.html",
+        "textfeed.html"
     ],
     "javascript": [
         "mapfactory.js"
@@ -25,10 +25,10 @@
         "expandsmall.svg",
         "fork.svg",
         "geometron.svg",
+        "geometronthing.svg",
         "goldenspiral.svg",
         "hexagon.svg",
         "iconset.svg",
-        "inventory.svg",
         "left.svg",
         "leftsmall.svg",
         "map.svg",
@@ -46,7 +46,7 @@
     "data": [
         "currentMap.txt",
         "dna.txt",
-        "inventory.txt"
+        "textfeed.txt"
     ],
     "php": [
         "deletebranch.txt",
@@ -57,7 +57,6 @@
         "fileloader.txt",
         "filesaver.txt",
         "mkdir.txt",
-        "mkmap.txt",
         "replicator.txt",
         "text2php.txt",
         "upload.txt"

@@ -1,27 +1,15 @@
 ### [link up a level../](../)
 
-# Geometron
+# Geometron Thing
 
-### *language is how the mind parses reality*
+[![](iconsymbols/geometronthing.svg)](index.html)
 
-## Geometron Instance Elements:
 
-- [Psychogeography](https://en.wikipedia.org/wiki/Psychogeography).  Geometron is always connected to a place in the physical world, but "place" is defined by how we relate to the world around us, not literal addresses.
-- Community.  The party/team/crew/neighborhood/family/organization/house who share the creation, maintenance and growth of a Geometron instance.
-- A Web Host.  This can be paid with a custom domain(it's cheaper and easier than you think), a free webhost account, or a local computer running on a wifi network that can only be used by others on that network.  The Web Host runs the Geometron software which is used to create both digital and physical media for sharing.
-- A Channel Address.  Each Geometron instance has a hashtag used to track the information stream on commercial platforms like Twitter and Instagram without fixed centralized accounts.  It can be based on the name of the web page or not.
-- Symbology. Symbols/fonts/glyphs/sigils/logos/brands local to the instance. These are used to create instant recognition both locally and on the open Web of the instance.
-- Physical media.  Bookmarks will be printed in bulk and distributed anywhere appropriate.  Action Geometry books will be replicated by hand and placed in the geometry section of every library and bookstore in the world.  Physical Action Geometry shapes are made from laminated paper, cardboard, plastic or metal and can be used to create the Action Geometry book and other works of geometric art, while spreading the Geometron system.  Other art pieces can transmit information in the Network using upcycled materials, namely plastic trash imprinted with data printed on a Geometron Trash Printer.  Bits of trash converted to Geometron information streams are called "Seeds".  Physical media can also include crafted items like custom sweat pants with the patches of the main Shapes of Action Geometry sewn on.  The creation of such media is part of what will make the Geometron network financially sustaining.  We sell the media as the network grows.
-
-As the system grows we will put a hard copy Action Geometry book and a few bookmarks into every public library, every university library, every little free library, every bookstore, every hotel room, every art gallery and every coffee shop in the world.  The book starts with the basic Shapes of AG and Geometron glyphs to describe their symmetries and scales, and follows with symbols specific to a given artistic movement, faith, or cosmology. "Seeds", or pieces of physical information imprinted into trash will also grow in number and power over time, until they can be used to engage in free economics by anyone anywhere in the world.  
-
-To replicate the system ask someone who already has how to do it and we'll show you.  If you're starting from scratch and don't know anyone to show you how, sign up for the mailing list of the architect of this system and I'll walk you through the whole thing by email.  Mailing list signup is at [actiongeometry.org](https://actiongeometry.org/).  When you sign up for the mailing list you'll get some basic instructions for the next step and there will be an exchange of emails as you find your party/team, decide on your place, and build up your customized Art Seed for your own personal Art Quest. 
-
-### Scroll(this page)
+### [Scroll:](scroll.html)
 
 [![](iconsymbols/scroll.svg)](scroll.html)
 
-### Edit Scroll:
+### [Edit Scroll:](pageeditor.html)
 
 [![](iconsymbols/edit.svg)](pageeditor.html)
 
@@ -31,11 +19,11 @@ What you see in the edit screen(after clicking the edit icon) here is "markdown"
 
 [![](iconsymbols/geometron.svg)](symbol/)
 
-[Create a fork](list.html):
+[Create a fork](fork.html):
 
-[![](iconsymbols/fork.svg)](list.html)
+[![](iconsymbols/fork.svg)](fork.html)
 
-Enter the name of the new page you want to create and click through the links to get to a new page one level down from this one.  Repeat this in the "new map" field to make a new map, which is a stack of images, symbols, words and links in a general web page layout.  Each Geometron page has a scroll and a map, as well as an inventory.  The "main" page can be either a scroll or map.  To see the map, click on its symbol, and to edit it click the edit icon from the map screen. The default map shows what the symbols mean that are used for editing.  To see the current map value go to [data/currentmap.txt](data/currentmap.txt).  Also, this JSON file can be edited directly using editor.php(see link below).  Inventory is used to track inventory at a given factory or page.  
+Enter the name of the new page you want to create and click through the links to get to a new page one level down from this one.  Repeat this in the "new map" field to make a new map, which is a stack of images, symbols, words and links in a general web page layout.  Each Geometron page has a scroll and a map.  The "main" page can be either a scroll or map.  To see the map, click on its symbol, and to edit it click the edit icon from the map screen. The default map shows what the symbols mean that are used for editing.  To see the current map value go to [data/currentmap.txt](data/currentmap.txt).  Also, this JSON file can be edited directly using editor.php(see link below).  Inventory is used to track inventory at a given factory or page.  
 
 [Map](map.html):
 
@@ -50,6 +38,8 @@ A word of warning: all Geometron servers are world-writeable and world-readable 
 What follows are some of the technical details of how to actually replicate this.  This part will be overly technical for people not used to working with the internals of Internet stuff.  If you ask around you can probably find someone who knows how to follow these instructions, though, and work together with them to build an instance of the Geometron Art Seed without digging into the very technical stuff yourself. Find someone into web things, sign both of you up for the mailing list and we'll get you set up with the more obscure details of making a new instance work.
 
 <h3 style = "background-color:#ffbfbf">Technical Details Below This Line</h3>
+
+[edit code with editor.php](editor.php)
 
 All instances are replicated with a program called replicator.php, which uses a file called dna.txt to fetch all the files needed to run an instance.  These are a collection of html, javascript and php programs as well as some Geometron data which make up a copy of this whole webpage.  The entire system when copied is between 1 and 2 megabytes, and will run on any server with php installed, which is most servers.
 
