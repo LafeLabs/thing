@@ -5,7 +5,8 @@
         "some text",
         "zeep",
         "foo",
-        "bar"
+        "bar",
+        "☕ "
     ],
     "src": [
         "iconsymbols/geometronthing.svg",
