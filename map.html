@@ -64,7 +64,8 @@
         <img id = "savebutton" src = "iconsymbols/save.svg" class = "button" style = "width:50px"/>
         <img id = "deletebutton" src = "iconsymbols/delete.svg" class = "button" style = "width:50px"/>
         <img id = "newbutton" src = "iconsymbols/add.svg" class = "button" style = "width:50px"/>
-        <img id = "deleteimagebutton" src = "iconsymbols/deleteimage.svg" class = "button" style = "width:50px"/>        
+        <img id = "deleteimagebutton" src = "iconsymbols/deleteimage.svg" class = "button" style = "width:50px"/>
+        <img id = "deletelinkbutton" src = "iconsymbols/deletelink.svg" class = "button" style = "width:50px"/>
         <img id = "textbutton" src = "iconsymbols/text.svg" class = "button" style = "width:50px"/>
         <img id = "imagebutton" src = "iconsymbols/image.svg" class = "button" style = "width:50px"/>                
         <img id = "linkbutton" src = "iconsymbols/link.svg" class = "button" style = "width:50px"/>                
@@ -542,7 +543,11 @@ document.getElementById("linkbutton").onclick = function(){
 document.getElementById("deleteimagebutton").onclick = function(){
     mainmap.array[mainmap.linkindex].src = "";
     mainmap.draw();
+}
 
+document.getElementById("deletelinkbutton").onclick = function(){
+    mainmap.array[mainmap.linkindex].href = "";
+    mainmap.draw();
 }
 
 </script>

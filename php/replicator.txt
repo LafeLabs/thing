@@ -27,6 +27,12 @@ if(file_exists("data/currentMap.txt")){
     $oldmapexists = true;
 }
 
+$oldtextfeedexists = false;
+if(file_exists("data/textfeed.txt")){
+    $textfeed = file_get_contents("data/textfeed.txt");
+    $oldtextfeedexists = true;
+}
+
 $oldscrollexists = false;
 if(file_exists("README.md")){
     $README = file_get_contents("README.md");
@@ -73,6 +79,12 @@ if($oldscrollexists){
 if($oldmapexists){
     file_put_contents("data/currentMap.txt",$currentMap);
 }
+
+if($oldtextfeedexists){
+    file_put_contents("data/textfeed.txt",$textfeed);
+}
+
+
 
 if($oldindexexists){
     file_put_contents("index.html",$indexhtml);
