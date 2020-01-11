@@ -108,6 +108,8 @@ httpc.onreadystatechange = function() {
         rawhtml = converter.makeHtml(readme_md);
         document.getElementById("margin").innerHTML = rawhtml;
         }
+        //un-commment for math mode:
+        //MathJax.Hub.Typeset();//tell Mathjax to update the math
 };
 httpc.open("GET", "fileloader.php?filename=README.md", true);
 httpc.send();
