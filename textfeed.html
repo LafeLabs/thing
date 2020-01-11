@@ -11,20 +11,24 @@
         <img src = "iconsymbols/map.svg"/>
     </a>
 </div>
-<div id = "textscroll" class = "scroll">
-    <h3>Text:</h3>
+<div id = "column1" class = "column">
+    Text:
     <input id = "textinput"/>
+<div id  = "textscroll" class = "scroll"></div>
 </div>
-<div id = "srcscroll" class = "scroll">
-    <h3>Image URL:</h3>
+<div id = "column2" class = "column">
+    Image URL:
     <input id = "srcinput"/>
+    <div id  = "srcscroll" class = "scroll"></div>
 </div>
-<div id = "hrefscroll" class = "scroll">
-    <h3>Links:</h3>
+<div id = "column3" class = "column">
+    Links:
     <input id = "hrefinput"/>
+    <div id  = "hrefscroll" class = "scroll"></div>
 </div>
 <script>
 
+textfeed = {};
 
 var httpc = new XMLHttpRequest();
     httpc.onreadystatechange = function() {
@@ -40,6 +44,24 @@ var httpc = new XMLHttpRequest();
             var newbox = document.createElement("div");
             newbox.className = "box";
             newbox.innerHTML = text[index];
+            var newbutton = document.createElement("IMG");
+            newbutton.src = "iconsymbols/delete.svg";
+            newbutton.className = "deletebutton";
+            newbutton.id = "text" + index.toString();
+            newbutton.onclick = function(){
+                //alert(this.id.substring(4));
+                var thisindex = this.id.substring(4);
+                var localtext = textfeed.text;
+                textfeed.text = [];
+                for(var textindex = 0;textindex < localtext.length;textindex++){
+                    if(textindex != thisindex){
+                        textfeed.text.push(localtext[textindex]);
+                    }
+                }
+                redrawtext();
+                savejson();
+            }
+            newbox.appendChild(newbutton);
             document.getElementById("textscroll").appendChild(newbox);
         }
         //un comment for math
@@ -51,10 +73,77 @@ httpc.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
 httpc.send();
 
 
+document.getElementById("textinput").onchange = function(){
+    textfeed.text.push(this.value);
+    var newbox = document.createElement("div");
+    newbox.className = "box";
+    newbox.innerHTML = this.value;
+    var newbutton = document.createElement("IMG");
+    newbutton.src = "iconsymbols/delete.svg";
+    newbutton.className = "deletebutton";
+    newbutton.id = "text" + (textfeed.text.length - 1).toString();
+    newbutton.onclick = function(){
+        alert(this.id.substring(4));
+    }
+    newbox.appendChild(newbutton);
+    document.getElementById("textscroll").appendChild(newbox);
+    savejson();
+}
 
 
+function savejson(){
+    var url = "filesaver.php";        
+    var httpc2 = new XMLHttpRequest();
+    httpc2.open("POST", url, true);
+    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc2.send("data="+encodeURIComponent(JSON.stringify(textfeed,null,"    "))+"&filename=data/textfeed.txt");//send text to filesaver.php
+}
+
+function redrawtext(){
+    
+    document.getElementById("textscroll").innerHTML = "";
+    text = textfeed.text;
+    for(var index = 0;index < text.length;index++){
+        var newbox = document.createElement("div");
+        newbox.className = "box";
+        newbox.innerHTML = text[index];
+        var newbutton = document.createElement("IMG");
+        newbutton.src = "iconsymbols/delete.svg";
+        newbutton.className = "deletebutton";
+        newbutton.id = "text" + index.toString();
+        newbutton.onclick = function(){
+            //alert(this.id.substring(4));
+            var thisindex = this.id.substring(4);
+            var localtext = textfeed.text;
+            textfeed.text = [];
+            for(var textindex = 0;textindex < localtext.length;textindex++){
+                if(textindex != thisindex){
+                    textfeed.text.push(localtext[textindex]);
+                }
+            }
+            redrawtext();
+        }
+        newbox.appendChild(newbutton);
+        document.getElementById("textscroll").appendChild(newbox);
+    }
+    //un comment for math
+    //MathJax.Hub.Typeset();
+
+    
+}
+
+function redrawsrc(){
+    
+}
+function redrawhref(){
+    
+}
 </script>
 <style>
+body,input{
+    font-family:courier;
+    font-size:16px;
+}
 #header{
     position:absolute;
     padding-left:1em;
@@ -68,26 +157,46 @@ httpc.send();
 #header img{
     width:100px;
 }
-.scroll{
+.column{
     position:absolute;
     top:120px;
     width:32%;
     bottom:0px;
-    overflow:scroll;
 }
-.scroll input{
-    font-family:courier;
-    font-size:16px;
+.column input{
     width:97%;
 }
-#textscroll{
+#column1{
     left:0px;
 }
-#srcscroll{
+#column2{
     left:33%;
 }
-#hrefscroll{
+#column3{
     right:0px;
+}
+.box{
+    margin:1em;
+    padding:0.5em;
+    border:solid;
+    border-radius:0.5em;
+    font-size:16px;
+    font-family:courier;
+}
+.scroll{
+    position:absolute;
+    top:60px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    overflow:scroll;
+}
+.deletebutton{
+    width:20px;
+    cursor:pointer;
+}
+.deletebutton:hover{
+    background-color:#afffaf;
 }
 </style>
 </body>

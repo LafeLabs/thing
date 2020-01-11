@@ -1,16 +1,14 @@
 {
-    "text":
-    [
+    "text": [
         "editor.php",
         "index.html",
-        "some text"
+        "some text",
+        "zeep"
     ],
-    "src":
-    [
+    "src": [
         "iconsymbols/geometronthing.svg"
     ],
-    "href":
-    [
+    "href": [
         "editor.php",
         "../"
     ]
