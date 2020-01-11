@@ -3,6 +3,7 @@
     [
         "editor.php",
         "index.html",
+        "some text"
     ],
     "src":
     [

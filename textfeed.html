@@ -6,10 +6,89 @@
 <META NAME="robots" CONTENT="noindex,nofollow">
 </head>
 <body>
-      
+<div id = "header">
+    <a href = "map.html">
+        <img src = "iconsymbols/map.svg"/>
+    </a>
+</div>
+<div id = "textscroll" class = "scroll">
+    <h3>Text:</h3>
+    <input id = "textinput"/>
+</div>
+<div id = "srcscroll" class = "scroll">
+    <h3>Image URL:</h3>
+    <input id = "srcinput"/>
+</div>
+<div id = "hrefscroll" class = "scroll">
+    <h3>Links:</h3>
+    <input id = "hrefinput"/>
+</div>
 <script>
+
+
+var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+
+        textfeed = JSON.parse(this.responseText);
+
+        text = textfeed.text;
+        src = textfeed.src;
+        href = textfeed.href;
+        
+        for(var index = 0;index < text.length;index++){
+            var newbox = document.createElement("div");
+            newbox.className = "box";
+            newbox.innerHTML = text[index];
+            document.getElementById("textscroll").appendChild(newbox);
+        }
+        //un comment for math
+        //MathJax.Hub.Typeset();
+
+    }
+};
+httpc.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
+httpc.send();
+
+
+
+
 </script>
 <style>
+#header{
+    position:absolute;
+    padding-left:1em;
+    padding-top:0.5em;
+    left:0px;
+    right:0px;
+    top:0px;
+    height:110px;
+    background-color:#ffe5e5;
+}
+#header img{
+    width:100px;
+}
+.scroll{
+    position:absolute;
+    top:120px;
+    width:32%;
+    bottom:0px;
+    overflow:scroll;
+}
+.scroll input{
+    font-family:courier;
+    font-size:16px;
+    width:97%;
+}
+#textscroll{
+    left:0px;
+}
+#srcscroll{
+    left:33%;
+}
+#hrefscroll{
+    right:0px;
+}
 </style>
 </body>
 </html>
