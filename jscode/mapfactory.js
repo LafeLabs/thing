@@ -65,6 +65,9 @@ function Map(w,h,div) {
         if(this.linkindex < 0){
             this.linkindex = 0;
         }    
+        this.linkArray[this.linkindex].style.border = "solid";
+        this.linkArray[this.linkindex].style.borderWidth = "0.1px";
+
     }
 
     this.newlink = function() {
@@ -136,6 +139,9 @@ function Map(w,h,div) {
             this.array = localArray;
             this.linkindex++;
             this.draw();
+            this.linkArray[this.linkindex].style.border = "solid";
+            this.linkArray[this.linkindex].style.borderWidth = "0.1px";
+
         }
     }
 
@@ -156,6 +162,9 @@ function Map(w,h,div) {
             this.array = localArray;
             this.linkindex--;
             this.draw();
+            this.linkArray[this.linkindex].style.border = "solid";
+            this.linkArray[this.linkindex].style.borderWidth = "0.1px";
+
         }
     }
 
