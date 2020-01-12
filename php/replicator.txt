@@ -22,7 +22,7 @@ if($makesymbol){
 
 $upoldmapexists = false;
 if(file_exists("../data/currentMap.txt")){
-    $upcurrentMap = file_get_contents("data/currentMap.txt");
+    $upcurrentMap = file_get_contents("../data/currentMap.txt");
     $upoldmapexists = true;
 }
 
@@ -40,7 +40,7 @@ if(file_exists("data/textfeed.txt")){
 
 $upoldtextfeedexists = false;
 if(file_exists("../data/textfeed.txt")){
-    $uptextfeed = file_get_contents("data/textfeed.txt");
+    $uptextfeed = file_get_contents("../data/textfeed.txt");
     $upoldtextfeedexists = true;
 }
 
