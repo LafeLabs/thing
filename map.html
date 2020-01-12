@@ -81,7 +81,9 @@
              -->
     </div>
     <div id = "textscroll"></div>
-    <div id = "linkscroll"></div>
+    <div id = "linkscroll">
+        <h3 id = "linkbox"></h3>
+    </div>
     <div id = "rotatezoombox">
         <table id = "rotatezoomtable">
             <tr>
@@ -159,6 +161,7 @@ var httpc2 = new XMLHttpRequest();
         mainmap.linkArray[mainmap.linkindex].style.border = "solid";
         mainmap.linkArray[mainmap.linkindex].style.borderWidth = "0.1px";
 
+        document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
         //un comment for math
         //MathJax.Hub.Typeset();
 
@@ -192,13 +195,13 @@ document.getElementById("savebutton").onclick = function() {
 document.getElementById("nextbutton").onclick = function() {
 
     mainmap.nextlink();
-
+    document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
 }
 
 document.getElementById("prevbutton").onclick = function() {
 
     mainmap.prevlink();
-
+    document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
 }
 
 document.getElementById("newbutton").onclick = function() {
@@ -211,7 +214,7 @@ document.getElementById("newbutton").onclick = function() {
 document.getElementById("deletebutton").onclick = function() {
 
     mainmap.deletelink();
-
+    document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
 }
 
 document.getElementById("moveupbutton").onclick  = function() {
@@ -502,6 +505,7 @@ function loadtextfeed(){
             //replace current text with this text and update map
             mainmap.array[mainmap.linkindex].text = this.innerHTML;
             mainmap.draw();
+            
         }
         document.getElementById("textscroll").appendChild(newbox);
     }
@@ -517,6 +521,7 @@ function loadlinkfeed(){
             //replace current href with this href and update map
             mainmap.array[mainmap.linkindex].href = this.innerHTML;
             mainmap.draw();
+            document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
 
         }
         document.getElementById("linkscroll").appendChild(newbox);
@@ -548,6 +553,7 @@ document.getElementById("deleteimagebutton").onclick = function(){
 document.getElementById("deletelinkbutton").onclick = function(){
     mainmap.array[mainmap.linkindex].href = "";
     mainmap.draw();
+    document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
 }
 
 </script>
