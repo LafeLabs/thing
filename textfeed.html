@@ -30,7 +30,7 @@
 </div>
 <div id = "column1" class = "column">
     Text:
-    <input id = "textinput"/>
+    <input id = "textinput" class = "no-mathjax"/>
 <div id  = "textscroll" class = "scroll"></div>
 </div>
 <div id = "column2" class = "column">
@@ -65,6 +65,41 @@ document.getElementById("textinput").onchange = function(){
     redrawtext();
     savejson();
 }
+
+textfieldindex = 0;
+document.getElementById("textinput").onkeydown = function(a) {
+    var charCode = a.keyCode || a.which;
+
+    if(charCode == 046){
+        //up arrow: next
+        textfieldindex++;
+        if(textfieldindex >= textfeed.text.length){
+            textfieldindex = -1;
+        }
+        if(textfieldindex != -1){
+            this.value = textfeed.text[textfieldindex];
+        }
+        else{
+            this.value = "";
+        }
+    }
+    if(charCode == 050){
+        //down arrow: prev
+        textfieldindex--;
+        if(textfieldindex < -1){
+            textfieldindex = textfeed.text.length - 1;
+        }
+        if(textfieldindex != -1){
+            this.value = textfeed.text[textfieldindex];
+        }
+        else{
+            this.value = "";
+        }
+    }
+}
+
+
+
 document.getElementById("srcinput").onchange = function(){
     textfeed.src.push(this.value);
     redrawsrc();
