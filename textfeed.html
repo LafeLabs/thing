@@ -105,10 +105,75 @@ document.getElementById("srcinput").onchange = function(){
     redrawsrc();
     savejson();
 }
+
+srcfieldindex = 0;
+document.getElementById("srcinput").onkeydown = function(a) {
+    var charCode = a.keyCode || a.which;
+
+    if(charCode == 046){
+        //up arrow: next
+        srcfieldindex++;
+        if(srcfieldindex >= textfeed.src.length){
+            srcfieldindex = -1;
+        }
+        if(srcfieldindex != -1){
+            this.value = textfeed.src[srcfieldindex];
+        }
+        else{
+            this.value = "";
+        }
+    }
+    if(charCode == 050){
+        //down arrow: prev
+        srcfieldindex--;
+        if(srcfieldindex < -1){
+            srcfieldindex = textfeed.src.length - 1;
+        }
+        if(srcfieldindex != -1){
+            this.value = textfeed.src[srcfieldindex];
+        }
+        else{
+            this.value = "";
+        }
+    }
+}
+
 document.getElementById("hrefinput").onchange = function(){
     textfeed.href.push(this.value);
     redrawhref();
     savejson();
+}
+
+hreffieldindex = 0;
+document.getElementById("hrefinput").onkeydown = function(a) {
+    var charCode = a.keyCode || a.which;
+
+    if(charCode == 046){
+        //up arrow: next
+        hreffieldindex++;
+        if(hreffieldindex >= textfeed.href.length){
+            hreffieldindex = -1;
+        }
+        if(hreffieldindex != -1){
+            this.value = textfeed.href[hreffieldindex];
+        }
+        else{
+            this.value = "";
+        }
+    }
+    if(charCode == 050){
+        //down arrow: prev
+        hreffieldindex--;
+        if(hreffieldindex < -1){
+            hreffieldindex = textfeed.href.length - 1;
+        }
+        if(hreffieldindex != -1){
+            this.value = textfeed.href[hreffieldindex];
+        }
+        else{
+            this.value = "";
+        }
+    }
 }
 
 
