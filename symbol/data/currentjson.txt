@@ -54,8 +54,8 @@
   "y0rel": 0.5,
   "unitrel": 0.1,
   "theta0": -1.570796,
-  "width": 500,
-  "height": 500,
+  "width": 800,
+  "height": 800,
   "scale": 1,
   "backgroundimage": "",
   "style": {
