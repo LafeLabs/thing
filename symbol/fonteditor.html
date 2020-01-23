@@ -95,7 +95,7 @@ function redrawtable() {
     newg.svgString = "<svg width=\"" + newg.width.toString() + "\" height=\"" + newg.height.toString() + "\" viewbox = \"0 0 " + newg.width.toString() + " " + newg.height.toString() + "\"  xmlns=\"http://www.w3.org/2000/svg\">\n";
     newg.action(0300);
 
-    for(var index = 01040 ;index < 01176;index++) {
+    for(var index = 01040 ;index <= 01176;index++) {
         newg.action(0300);
         newg.x = 2 + symbolsize*(index%8);
         newg.y = 2 + symbolsize*((index>>3)%8) + 8*symbolsize*((index>>6)%8) - 3*symbolsize;
@@ -198,7 +198,7 @@ document.getElementById("savebutton").onclick = function(){
     httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     
     font = [];
-    for(var index = 01040;index < 01176;index++){
+    for(var index = 01040;index <= 01176;index++){
         font.push("0" + index.toString(8) + ":" + spellGVM.hypercube[index]);
     }
 
