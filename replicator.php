@@ -20,12 +20,30 @@ if($makesymbol){
     
     
 
+$upoldmapexists = false;
+if(file_exists("../data/currentMap.txt")){
+    $upcurrentMap = file_get_contents("../data/currentMap.txt");
+    $upoldmapexists = true;
+}
 
 $oldmapexists = false;
 if(file_exists("data/currentMap.txt")){
     $currentMap = file_get_contents("data/currentMap.txt");
     $oldmapexists = true;
 }
+
+$oldtextfeedexists = false;
+if(file_exists("data/textfeed.txt")){
+    $textfeed = file_get_contents("data/textfeed.txt");
+    $oldtextfeedexists = true;
+}
+
+$upoldtextfeedexists = false;
+if(file_exists("../data/textfeed.txt")){
+    $uptextfeed = file_get_contents("../data/textfeed.txt");
+    $upoldtextfeedexists = true;
+}
+
 
 $oldscrollexists = false;
 if(file_exists("README.md")){
@@ -70,9 +88,22 @@ if($oldscrollexists){
     file_put_contents("README.md",$README);
 }
 
+if($upoldmapexists){
+    file_put_contents("data/currentMap.txt",$upcurrentMap);
+}
+
 if($oldmapexists){
     file_put_contents("data/currentMap.txt",$currentMap);
 }
+
+if($oldtextfeedexists){
+    file_put_contents("data/textfeed.txt",$textfeed);
+}
+
+if($upoldtextfeedexists){
+    file_put_contents("data/textfeed.txt",$uptextfeed);
+}
+
 
 if($oldindexexists){
     file_put_contents("index.html",$indexhtml);

@@ -62,6 +62,7 @@
         "fileloader.txt",
         "filesaver.txt",
         "mkdir.txt",
+        "pi.txt",
         "replicator.txt",
         "text2php.txt",
         "upload.txt"

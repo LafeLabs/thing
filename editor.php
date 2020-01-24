@@ -28,6 +28,7 @@ EGO DEATH:
     <a href = "pageeditor.html">pageeditor.html</a>
     <a href = "map.html">map.html</a>
     <a href = "fork.html">fork.html</a>
+    <a href = "pi.php">pi.php</a>
     <a href = "textfeed.html">textfeed.html</a>
     <a href = "dnagenerator.php">dnagenerator.php</a>
 </div>
