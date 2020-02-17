@@ -522,7 +522,7 @@ var httpc12 = new XMLHttpRequest();
         for(var index = 0;index < directories2.length;index++){
             var newbox = document.createElement("div");
             newbox.className = "button";
-            newbox.innerHTML = directories2[index] + "/";
+            newbox.innerHTML = "../" + directories2[index] + "/";
             newbox.onclick = function(){
                 //replace current href with this href and update map
                 mainmap.array[mainmap.linkindex].href = this.innerHTML;
