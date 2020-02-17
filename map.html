@@ -490,6 +490,31 @@ httpc10.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
 httpc10.send();
 
 
+directories = [];
+var httpc11 = new XMLHttpRequest();
+    httpc11.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        directories = JSON.parse(this.responseText);
+        for(var index = 0;index < directories.length;index++){
+            var newbox = document.createElement("div");
+            newbox.className = "button";
+            newbox.innerHTML = directories[index] + "/";
+            newbox.onclick = function(){
+                //replace current href with this href and update map
+                mainmap.array[mainmap.linkindex].href = this.innerHTML;
+                mainmap.draw();
+                document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
+            }
+            document.getElementById("linkscroll").appendChild(newbox);
+        }
+    
+    }
+};
+
+httpc11.open("GET", "dir.php?type=dir", true);
+httpc11.send();
+
+
 function loadtextfeed(){
     text = textfeed.text;
     for(var index = 0;index < text.length;index++){
