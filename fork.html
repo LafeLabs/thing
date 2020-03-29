@@ -89,23 +89,24 @@ inputs[1].onchange = function(){
 }
 
 
+
 function addDeleteButtons(){
     dirlist = document.getElementById("mainlist").getElementsByTagName("LI");
     for(var index = 0;index < dirlist.length;index++){
-        var newimg = document.createElement("IMG");
-        newimg.src = "iconsymbols/delete.svg";
-        newimg.className = "button";
-        newimg.style.width = "30px";
-        dirlist[index].appendChild(newimg);
+
+        var newdeletebutton = document.createElement("span");
+        newdeletebutton.innerHTML = "DELETE";
+        newdeletebutton.className = "button";
+        dirlist[index].appendChild(newdeletebutton);
     }
     
-    deletebuttons = document.getElementById("mainlist").getElementsByTagName("IMG");
+    deletebuttons = document.getElementById("mainlist").getElementsByClassName("button");
 
     for(var index = 0;index < deletebuttons.length;index++){
         deletebuttons[index].onclick = function() {
             thisdir = this.parentNode.getElementsByTagName("A")[0].innerHTML;
             var httpc = new XMLHttpRequest();
-            var url = "deletebranch.php";         
+            var url = "rdelete.php";         
             httpc.open("POST", url, true);
             httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
             httpc.send("filename=" + thisdir);//send text to deletefile.php
@@ -137,6 +138,13 @@ document.getElementById("deleteonbutton").onclick = function(){
     }
     .button:active{
         background-color:yellow;
+    }
+    
+    .button{
+        cursor:pointer;
+        color:red;
+        font-family:courier;
+        font-size:1.5em;
     }
     #deleteonbutton{
         cursor:pointer;
