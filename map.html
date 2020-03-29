@@ -315,7 +315,8 @@ var httpc = new XMLHttpRequest();
             newuploadbox.appendChild(newimg);
             document.getElementById("feedscroll").appendChild(newuploadbox);
             newimg.onclick = function() {
-                mainmap.array[mainmap.linkindex].src = this.src;
+                var localurl = "uploadimages" + this.src.split("uploadimages")[1];
+                mainmap.array[mainmap.linkindex].src = localurl;
                 mainmap.draw();
             }
             var newimg = document.createElement("IMG");
@@ -355,7 +356,8 @@ var httpc9 = new XMLHttpRequest();
             newuploadbox.appendChild(newimg);
             document.getElementById("feedscroll").appendChild(newuploadbox);
             newimg.onclick = function() {
-                mainmap.array[mainmap.linkindex].src = this.src;
+                var localurl = "uploadimages" + this.src.split("../uploadimages")[1];
+                mainmap.array[mainmap.linkindex].src = localurl;
                 mainmap.draw();
             }
             var newimg = document.createElement("IMG");
@@ -395,7 +397,8 @@ var httpc3 = new XMLHttpRequest();
 
             document.getElementById("feedscroll").appendChild(newimg);
             newimg.onclick = function() {
-                mainmap.array[mainmap.linkindex].src = this.src;
+                var localurl = "../symbol/symbolfeed/" + this.src.split("symbolfeed/")[1];
+                mainmap.array[mainmap.linkindex].src = localurl;
                 mainmap.draw();
             }
             
@@ -423,7 +426,8 @@ httpc5.onreadystatechange = function() {
 
             document.getElementById("feedscroll").appendChild(newimg);
             newimg.onclick = function() {
-                mainmap.array[mainmap.linkindex].src = this.src;
+                var localurl = "symbol/symbolfeed/" + this.src.split("symbolfeed/")[1];
+                mainmap.array[mainmap.linkindex].src = localurl;
                 mainmap.draw();
             }
             
@@ -448,7 +452,8 @@ httpc6.onreadystatechange = function() {
 
             document.getElementById("feedscroll").appendChild(newimg);
             newimg.onclick = function() {
-                mainmap.array[mainmap.linkindex].src = this.src;
+                var localurl = "iconsymbols/" + this.src.split("iconsymbols/")[1];
+                mainmap.array[mainmap.linkindex].src = localurl;
                 mainmap.draw();
             }
             
