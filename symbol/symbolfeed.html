@@ -52,7 +52,8 @@ httpc4.onreadystatechange = function() {
             document.getElementById("symbolscroll").appendChild(newp);
             newp.appendChild(newimg);
             newimg.onclick = function() {
-                document.getElementById("urlinput").value = this.src;
+                var localurl = "symbolfeed" + this.src.split("symbolfeed")[1];
+                document.getElementById("urlinput").value = localurl;
             }
             var delimg = document.createElement("IMG");
             delimg.src = "iconsymbols/delete.svg";
