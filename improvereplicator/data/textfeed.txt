@@ -1,0 +1,17 @@
+{
+    "text": [
+        "some text",
+        "☕ "
+    ],
+    "src": [
+        "iconsymbols/geometronthing.svg",
+        "https://upload.wikimedia.org/wikipedia/commons/3/3b/BuckminsterFuller1.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Preserved_R_Buckminster_Fuller_and_Anne_Hewlitt_Dome_Home.jpg/440px-Preserved_R_Buckminster_Fuller_and_Anne_Hewlitt_Dome_Home.jpg"
+    ],
+    "href": [
+        "../",
+        "https://en.wikipedia.org/wiki/Tensegrity",
+        "editor.php",
+        "map.html"
+    ]
+}
