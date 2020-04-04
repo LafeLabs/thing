@@ -22,33 +22,42 @@ EGO DEATH:
 </head>
 <body>
 <div id = "linkscroll">
-    <a href = "text2php.php">text2php.php</a>
-    <a href = "index.html">index.html</a>
-    <a href = "scroll.html">scroll.html</a>
-    <a href = "pageeditor.html">pageeditor.html</a>
-    <a href = "map.html">map.html</a>
-    <a href = "fork.html">fork.html</a>
-    <a href = "pi.php">pi.php</a>
-    <a href = "textfeed.html">textfeed.html</a>
-    <a href = "dnagenerator.php">dnagenerator.php</a>
+<?php
+    $topfiles = scandir(getcwd());
+
+    foreach($topfiles as $value){
+        if(!is_dir($value)){
+            echo "\n<a href = \"".$value."\">".$value."</a>\n";
+        }
+    }
+
+?>
 </div>
 <div id = "namediv"></div>
 <div id="maineditor" contenteditable="true" spellcheck="false"></div>
 <div id = "filescroll">
 
-    <div class = "html file">index.html</div>
-    <div class = "html file">pageeditor.html</div>
-    <div class = "html file">map.html</div>
-    <div class = "html file">scroll.html</div>
-    <div class = "html file">textfeed.html</div>
-    <div class = "html file">fork.html</div>
+<div class = "markdown file">README.md</div>
 
-    <div class = "markdown file">README.md</div>
+<?php
+    $topfiles = scandir(getcwd());
 
-    <div class = "javascript file">jscode/mapfactory.js</div>
+    foreach($topfiles as $value){
+        if(substr($value,-5) == ".html"){
+            echo "\n<div class = \"html file\">".$value."</div>\n";
+        }
+    }
 
+    $jsfiles = scandir(getcwd()."/jscode");
 
-<?php 
+    foreach($jsfiles as $value){
+        if($value{0} != "."){
+            echo "<div class = \"javascript file\">jscode/";
+            echo $value;
+            echo "</div>\n";
+        }
+    }
+
 
     $phpfiles = scandir(getcwd()."/php");
 
@@ -70,6 +79,32 @@ EGO DEATH:
             echo "</div>\n";
         }
     }
+
+    if(isset($_GET["newfile"])){
+        $newfile = $_GET["newfile"];
+        if(substr($newfile,-5) == ".html"){
+            echo "<div class = \"html file\">";
+            echo $newfile;
+            echo "</div>\n";
+        }
+        if(substr($newfile,4) == "php/"){
+            echo "<div class = \"php file\">";
+            echo $newfile;
+            echo "</div>\n";
+        }
+        if(substr($newfile,7) == "jscode/"){
+            echo "<div class = \"javascript file\">";
+            echo $newfile;
+            echo "</div>\n";
+        }
+        if(substr($newfile,5) == "data/"){
+            echo "<div class = \"javascript file\">";
+            echo $newfile;
+            echo "</div>\n";
+        }
+
+    }
+
 
 ?>
 
