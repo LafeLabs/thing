@@ -409,6 +409,32 @@ var httpc3 = new XMLHttpRequest();
 httpc3.open("GET", "dir.php?filename=../symbol/symbolfeed", true);
 httpc3.send();
 
+upupsymbol = [];
+var httpcupup = new XMLHttpRequest();
+    httpcupup.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        symbol = JSON.parse(this.responseText);
+        for(var index = symbol.length - 1;index >= 0;index--) {
+
+            var newimg = document.createElement("IMG");
+            newimg.src = "../../symbol/symbolfeed/" + symbol[index];
+            newimg.classList.add("uploadimage");
+            newimg.classList.add("button");
+
+            document.getElementById("feedscroll").appendChild(newimg);
+            newimg.onclick = function() {
+                var localurl = "../../symbol/symbolfeed/" + this.src.split("symbolfeed/")[1];
+                mainmap.array[mainmap.linkindex].src = localurl;
+                mainmap.draw();
+            }
+            
+        }
+    }
+};
+
+httpcupup.open("GET", "dir.php?filename=../../symbol/symbolfeed", true);
+httpcupup.send();
+
 
 //for(var index = symbols.length - 1;index >= 0;index--) {
 
