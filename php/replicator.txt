@@ -21,6 +21,7 @@ mkdir("data");
 mkdir("php");
 mkdir("jscode");
 mkdir("uploadimages");
+mkdir("symbolfeed");
 
 foreach($dna->html as $value){
     
