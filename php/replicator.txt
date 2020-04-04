@@ -1,297 +1,66 @@
- <!doctype html>
-<html>
-<head>
- <!-- 
-PUBLIC DOMAIN, NO COPYRIGHTS, NO PATENTS.
-
-EVERYTHING IS PHYSICAL
-EVERYTHING IS FRACTAL
-EVERYTHING IS RECURSIVE
-NO MONEY
-NO PROPERTY
-NO MINING
-EGO DEATH:
-    LOOK TO THE INSECTS
-    LOOK TO THE FUNGI
-    LANGUAGE IS HOW THE MIND PARSES REALITY
--->
-<!--Stop Google:-->
-<META NAME="robots" CONTENT="noindex,nofollow">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js" type="text/javascript" charset="utf-8"></script>
-<title>PHP Editor replicator</title>
-</head>
-<body>
-<div id = "linkscroll">
 <?php
-    $topfiles = scandir(getcwd());
 
-    foreach($topfiles as $value){
-        if(!is_dir($value)){
-            echo "\n<a href = \"".$value."\">".$value."</a>\n";
-        }
-    }
+$dnaurl = "https://raw.githubusercontent.com/LafeLabs/thing/master/data/dna.txt";
 
-?>
-</div>
-<div id = "namediv"></div>
-<div id="maineditor" contenteditable="true" spellcheck="false"></div>
-<div id = "filescroll">
-
-<div class = "markdown file">README.md</div>
-
-<?php
-    $topfiles = scandir(getcwd());
-
-    foreach($topfiles as $value){
-        if(substr($value,-5) == ".html"){
-            echo "\n<div class = \"html file\">".$value."</div>\n";
-        }
-    }
-
-?>
-
-<!--
-    <div class = "html file">index.html</div>
-    <div class = "html file">pageeditor.html</div>
-    <div class = "html file">map.html</div>
-    <div class = "html file">scroll.html</div>
-    <div class = "html file">textfeed.html</div>
-    <div class = "html file">fork.html</div>
-
-
-    <div class = "javascript file">jscode/mapfactory.js</div>
--->
-
-<?php 
-
-    $jsfiles = scandir(getcwd()."/jscode");
-
-    foreach($jsfiles as $value){
-        if($value{0} != "."){
-            echo "<div class = \"javascript file\">jscode/";
-            echo $value;
-            echo "</div>\n";
-        }
-    }
-
-
-    $phpfiles = scandir(getcwd()."/php");
-
-    foreach($phpfiles as $value){
-        if($value{0} != "."){
-            echo "<div class = \"php file\">php/";
-            echo $value;
-            echo "</div>\n";
-        }
-    }
-
-
-    $datafiles = scandir(getcwd()."/data");
-
-    foreach($datafiles as $value){
-        if($value{0} != "."){
-            echo "<div class = \"javascript file\">data/";
-            echo $value;
-            echo "</div>\n";
-        }
-    }
-
-?>
-
-</div>
-
-<script>
-currentFile = "index.html";
-var httpc = new XMLHttpRequest();
-httpc.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        filedata = this.responseText;
-        editor.setValue(filedata);
-    }
-};
-httpc.open("GET", "fileloader.php?filename=" + currentFile, true);
-httpc.send();
-files = document.getElementById("filescroll").getElementsByClassName("file");
-for(var index = 0;index < files.length;index++){
-    files[index].onclick = function(){
-        currentFile = this.innerHTML;
-        //use php script to load current file;
-        var httpc = new XMLHttpRequest();
-        httpc.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                filedata = this.responseText;
-                editor.setValue(filedata);
-                var fileType = currentFile.split("/")[0]; 
-                var fileName = currentFile.split("/")[1];
-              
-            }
-        };
-        httpc.open("GET", "fileloader.php?filename=" + currentFile, true);
-        httpc.send();
-        if(this.classList[0] == "css"){
-            editor.getSession().setMode("ace/mode/css");
-            document.getElementById("namediv").style.color = "yellow";
-            document.getElementById("namediv").style.borderColor = "yellow";
-        }
-        if(this.classList[0] == "html"){
-            editor.getSession().setMode("ace/mode/html");
-            document.getElementById("namediv").style.color = "#0000ff";
-            document.getElementById("namediv").style.borderColor = "#0000ff";
-        }
-        if(this.classList[0] == "scrolls"){
-            editor.getSession().setMode("ace/mode/html");
-            document.getElementById("namediv").style.color = "#87CEEB";
-            document.getElementById("namediv").style.borderColor = "#87CEEB";
-        }
-        if(this.classList[0] == "javascript"){
-            editor.getSession().setMode("ace/mode/javascript");
-            document.getElementById("namediv").style.color = "#ff0000";
-            document.getElementById("namediv").style.borderColor = "#ff0000";
-        }
-        if(this.classList[0] == "bytecode"){
-            editor.getSession().setMode("ace/mode/text");
-            document.getElementById("namediv").style.color = "#654321";
-            document.getElementById("namediv").style.borderColor = "#654321";
-        }
-        if(this.classList[0] == "php"){
-            editor.getSession().setMode("ace/mode/php");
-            document.getElementById("namediv").style.color = "#800080";
-            document.getElementById("namediv").style.borderColor = "#800080";
-        }
-        if(this.classList[0] == "json"){
-            editor.getSession().setMode("ace/mode/json");
-            document.getElementById("namediv").style.color = "orange";
-            document.getElementById("namediv").style.borderColor = "orange";
-        }
-        if(this.classList[0] == "markdown"){
-            editor.getSession().setMode("ace/mode/markdown");
-            document.getElementById("namediv").style.color = "aqua";
-            document.getElementById("namediv").style.borderColor = "aqua";
-        }
-
-        document.getElementById("namediv").innerHTML = currentFile;
-    }
-}
-document.getElementById("namediv").innerHTML = currentFile;
-document.getElementById("namediv").style.color = "#0000ff";
-document.getElementById("namediv").style.borderColor = "#0000ff";
-
-editor = ace.edit("maineditor");
-editor.setTheme("ace/theme/cobalt");
-editor.getSession().setMode("ace/mode/html");
-editor.getSession().setUseWrapMode(true);
-editor.$blockScrolling = Infinity;
-
-document.getElementById("maineditor").onkeyup = function(){
-    data = encodeURIComponent(editor.getSession().getValue());
-    var httpc = new XMLHttpRequest();
-    var url = "filesaver.php";        
-    httpc.open("POST", url, true);
-    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
-    httpc.send("data="+data+"&filename="+currentFile);//send text to filesaver.php
-    var fileType = currentFile.split("/")[0]; 
-    var fileName = currentFile.split("/")[1];
+if(isset($_GET["dna"])){
+    $dnaurl = $_GET["dna"];
 }
 
-</script>
+$makesymbol = true;
+if($makesymbol){
+    mkdir("symbol");
+    copy("https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/php/replicator.txt","symbol/replicator.php");    
+}
+
+$baseurl = explode("data/",$dnaurl)[0];
+$dnaraw = file_get_contents($dnaurl);
+$dna = json_decode($dnaraw);
+
+mkdir("iconsymbols");
+mkdir("data");
+mkdir("php");
+mkdir("jscode");
+mkdir("uploadimages");
+
+foreach($dna->html as $value){
+    
+    copy($baseurl.$value,$value);
+
+    
+}
+
+foreach($dna->javascript as $value){
+    
+    copy($baseurl."jscode/".$value,"jscode/".$value);
+
+    
+}
+
+foreach($dna->iconsymbols as $value){
+    
+    copy($baseurl."iconsymbols/".$value,"iconsymbols/".$value);
+
+    
+}
+
+foreach($dna->data as $value){
+    
+    copy($baseurl."data/".$value,"data/".$value);
+    
+}
+
+foreach($dna->php as $value){
+ 
+    copy($baseurl."php/".$value,"php/".$value);
+    copy($baseurl."php/".$value,explode(".",$value)[0].".php");
+
+}
+
+
+?>
+<a href = "index.html">CLICK TO GO TO PAGE</a>
 <style>
-#namediv{
-    position:absolute;
-    top:5px;
-    left:20%;
-    font-family:courier;
-    padding:0.5em 0.5em 0.5em 0.5em;
-    border:solid;
-    background-color:#101010;
-
-}
 a{
-    color:white;
-    display:block;
-    margin-bottom:0.5em;
-    margin-left:0.5em;
+    font-size:3em;
 }
-body{
-    background-color:#404040;
-}
-.html{
-    color:#0000ff;
-}
-.css{
-    color:yellow;
-}
-.php{
-    color:#800080;
-}
-.javascript{
-    color:#ff0000;
-}
-.bytecode{
-    color:#654321;
-}
-.json{
-    color:orange;
-}
-.scrolls{
-    color:#87ceeb;
-}
-.markdown{
-    color:aqua;
-}
-
-.file{
-    cursor:pointer;
-    border-radius:0.25em;
-    border:solid;
-    padding:0.25em 0.25em 0.25em 0.25em;
-}
-.files:hover{
-    background-color:green;
-}
-.files:active{
-    background-color:yellow;
-}
-#filescroll{
-    position:absolute;
-    overflow:scroll;
-    top:60%;
-    bottom:0%;
-    right:0%;
-    left:75%;
-    border:solid;
-    border-radius:5px;
-    border-width:3px;
-    background-color:#101010;
-    font-family:courier;
-    font-size:22px;
-    z-index:99999999;
-}
-#linkscroll{
-    position:absolute;
-    overflow:scroll;
-    top:5em;
-    bottom:50%;
-    right:0px;
-    left:75%;
-    border:solid;
-    border-radius:5px;
-    border-width:3px;
-    background-color:#101010;
-    font-family:courier;
-    font-size:22px;
-}
-#maineditor{
-    position:absolute;
-    left:0%;
-    top:5em;
-    bottom:1em;
-    right:30%;
-    font-size:22px;
-}
-
-
-
 </style>
-
-</body>
-</html>

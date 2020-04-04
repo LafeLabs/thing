@@ -9,7 +9,7 @@ if(isset($_GET["replicator"])){
     copy($replicator,$dirname."/replicator.php");
 }
 else{
-    copy("https://raw.githubusercontent.com/LafeLabs/thing/master/php/replicator.txt",$dirname."/replicator.php");    
+    copy("php/replicator.txt",$dirname."/replicator.php");    
 }
 
 
