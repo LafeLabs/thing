@@ -1,8 +1,6 @@
  <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-
  <!-- 
 PUBLIC DOMAIN, NO COPYRIGHTS, NO PATENTS.
 
@@ -24,53 +22,45 @@ EGO DEATH:
 </head>
 <body>
 <div id = "linkscroll">
-    <a href = "text2php.php">text2php.php</a>
-    <a href = "index.html">index.html</a>
-    <a href = "bytecodeconverter.html">bytecodeconverter.html</a>
-    <a href = "map.html">map.html</a>
-    <a href = "scroll.html">scroll.html</a>
-    <a href = "fonteditor.html">fonteditor.html</a>
-    <a href = "setup.html">setup.html</a>
-    <a href = "keyboardeditor.html">keyboardeditor.html</a>
-    <a href = "bookmark.html">bookmark.html</a>
-    <a href = "symbolfeed.html">symbolfeed.html</a>
-    <a href = "hypercube.html">hypercube.html</a>
-    <a href = "shapetableeditor.html">shapetableeditor.html</a>
-    <a href = "voxel.html">voxel.html</a>
-    <a href = "geometroncss.html">geometroncss.html</a>
-    <a href = "tablet.html">tablet.html</a>
-    <a href = "geometronprinter.php">geometronprinter.php</a>
-    <a href = "keyboardeditor.html">keyboardeditor.html</a>
-    <a href = "dnagenerator.php">dnagenerator.php</a>
+<a href = "text2php.php">text2php.php</a>
+<a href = "dnagenerator.php">dnagenerator.php</a>
+
+<?php
+    $topfiles = scandir(getcwd());
+
+    foreach($topfiles as $value){
+        if(substr($value,-5) == ".html"){
+            echo "\n<a href = \"".$value."\">".$value."</a>\n";
+        }
+    }
+
+?>
 </div>
 <div id = "namediv"></div>
 <div id="maineditor" contenteditable="true" spellcheck="false"></div>
 <div id = "filescroll">
 
-    <div class = "html file">index.html</div>
-    <div class = "html file">bytecodeconverter.html</div>
-    <div class = "html file">hypercube.html</div>
-    <div class = "html file">voxel.html</div>
-    <div class = "html file">geometroncss.html</div>
-    <div class = "html file">tablet.html</div>
-    <div class = "html file">scroll.html</div>
-    <div class = "html file">map.html</div>
-    <div class = "html file">fonteditor.html</div>
-    <div class = "html file">keyboardeditor.html</div>
-    <div class = "html file">bookmark.html</div>
-    <div class = "html file">pageeditor.html</div>
-    <div class = "html file">setup.html</div>
-    <div class = "html file">shapetableeditor.html</div>
-    <div class = "html file">styleeditor.html</div>
-    <div class = "html file">symbolfeed.html</div>
+<div class = "markdown file">README.md</div>
 
-    <div class = "markdown file">README.md</div>
+<?php
+    $topfiles = scandir(getcwd());
 
-    <div class = "javascript file">jscode/geometron.js</div>
-    <div class = "javascript file">jscode/mapfactory.js</div>
+    foreach($topfiles as $value){
+        if(substr($value,-5) == ".html"){
+            echo "\n<div class = \"html file\">".$value."</div>\n";
+        }
+    }
 
+    $jsfiles = scandir(getcwd()."/jscode");
 
-<?php 
+    foreach($jsfiles as $value){
+        if($value{0} != "."){
+            echo "<div class = \"javascript file\">jscode/";
+            echo $value;
+            echo "</div>\n";
+        }
+    }
+
 
     $phpfiles = scandir(getcwd()."/php");
 
@@ -92,6 +82,32 @@ EGO DEATH:
             echo "</div>\n";
         }
     }
+
+    if(isset($_GET["newfile"])){
+        $newfile = $_GET["newfile"];
+        if(substr($newfile,-5) == ".html"){
+            echo "<div class = \"html file\">";
+            echo $newfile;
+            echo "</div>\n";
+        }
+        if(substr($newfile,4) == "php/"){
+            echo "<div class = \"php file\">";
+            echo $newfile;
+            echo "</div>\n";
+        }
+        if(substr($newfile,7) == "jscode/"){
+            echo "<div class = \"javascript file\">";
+            echo $newfile;
+            echo "</div>\n";
+        }
+        if(substr($newfile,5) == "data/"){
+            echo "<div class = \"javascript file\">";
+            echo $newfile;
+            echo "</div>\n";
+        }
+
+    }
+
 
 ?>
 

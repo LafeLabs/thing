@@ -22,11 +22,14 @@ EGO DEATH:
 </head>
 <body>
 <div id = "linkscroll">
+<a href = "text2php.php">text2php.php</a>
+<a href = "dnagenerator.php">dnagenerator.php</a>
+
 <?php
     $topfiles = scandir(getcwd());
 
     foreach($topfiles as $value){
-        if(!is_dir($value)){
+        if(substr($value,-5) == ".html"){
             echo "\n<a href = \"".$value."\">".$value."</a>\n";
         }
     }

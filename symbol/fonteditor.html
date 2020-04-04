@@ -7,9 +7,9 @@
     <META NAME="robots" CONTENT="noindex,nofollow">
 
     <script src="jscode/geometron.js"></script>
-    <script src="data/font.js"></script>
-    <script src="data/hypercube.js"></script>
-    <script src="data/keyboard.js"></script>
+    <script src="jscode/font.js"></script>
+    <script src="jscode/hypercube.js"></script>
+    <script src="jscode/keyboard.js"></script>
 
 </head>
 
@@ -202,7 +202,7 @@ document.getElementById("savebutton").onclick = function(){
         font.push("0" + index.toString(8) + ":" + spellGVM.hypercube[index]);
     }
 
-    httpc2.send("data="+encodeURIComponent("font = " + JSON.stringify(font,null,"  ") +  ";")+"&filename=data/font.js");//send text to filesaver.php
+    httpc2.send("data="+encodeURIComponent("font = " + JSON.stringify(font,null,"  ") +  ";")+"&filename=jscode/font.js");//send text to filesaver.php
 
 
     var httpc3 = new XMLHttpRequest();

@@ -53,7 +53,7 @@
     echo json_encode($dna,JSON_PRETTY_PRINT);
 
     $file = fopen("data/dna.txt","w");// create new file with this name
-    fwrite($file,json_encode($dna)); //write data to file
+    fwrite($file,json_encode($dna,JSON_PRETTY_PRINT)); //write data to file
     fclose($file);  //close file
 
 ?>
