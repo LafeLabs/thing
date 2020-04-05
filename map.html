@@ -252,6 +252,7 @@ document.getElementById("slidedownbutton").onclick = function(){
         document.getElementById("slideindex").value = (slideIndex + 1).toString();
     }
 }
+
 document.getElementById("addslidebutton").onclick = function(){
     //add a slide after current slide
     var tempArray = [];
@@ -279,6 +280,28 @@ document.getElementById("addslidebutton").onclick = function(){
     document.getElementById("slideindex").value = (slideIndex + 1).toString();
 }
 
+document.getElementById("deleteslidebutton").onclick = function(){
+    //add a slide after current slide
+    var tempArray = [];
+    for(var index = 0;index < slideIndex;index++){
+        tempArray.push(deck[index]);
+    }   
+    for(var index = slideIndex + 1;index < deck.length;index++){
+        tempArray.push(deck[index]);
+    }
+    deck = tempArray;
+
+    mainmap.array = deck[slideIndex];
+    mainmap.draw();
+    mainmap.linkindex = 0;
+    mainmap.linkArray[mainmap.linkindex].style.border = "solid";
+    mainmap.linkArray[mainmap.linkindex].style.borderWidth = "0.1px";
+    //un comment for math
+    //MathJax.Hub.Typeset();
+    document.getElementById("numslides").innerHTML = deck.length.toString();
+    document.getElementById("slideindex").value = (slideIndex + 1).toString();
+    
+}
 
 
 /*
