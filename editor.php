@@ -90,17 +90,17 @@ EGO DEATH:
             echo $newfile;
             echo "</div>\n";
         }
-        if(substr($newfile,4) == "php/"){
+        if(substr($newfile,0,3) == "php"){
             echo "<div class = \"php file\">";
             echo $newfile;
             echo "</div>\n";
         }
-        if(substr($newfile,7) == "jscode/"){
+        if(substr($newfile,0,7) == "jscode/"){
             echo "<div class = \"javascript file\">";
             echo $newfile;
             echo "</div>\n";
         }
-        if(substr($newfile,5) == "data/"){
+        if(substr($newfile,0,5) == "data/"){
             echo "<div class = \"javascript file\">";
             echo $newfile;
             echo "</div>\n";

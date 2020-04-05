@@ -63,7 +63,14 @@
         <img id = "deletelinkbutton" src = "iconsymbols/deletelink.svg" class = "button" style = "width:50px"/>
         <img id = "textbutton" src = "iconsymbols/text.svg" class = "button" style = "width:50px"/>
         <img id = "imagebutton" src = "iconsymbols/image.svg" class = "button" style = "width:50px"/>                
-        <img id = "linkbutton" src = "iconsymbols/link.svg" class = "button" style = "width:50px"/>                
+        <img id = "linkbutton" src = "iconsymbols/link.svg" class = "button" style = "width:50px"/>              
+        <img id = "prevslidebutton" src = "iconsymbols/prevslide.svg" class = "button" style = "width:50px"/>              
+        <img id = "nextslidebutton" src = "iconsymbols/nextslide.svg" class = "button" style = "width:50px"/>              
+        <img id = "slideupbutton" src = "iconsymbols/slideup.svg" class = "button" style = "width:50px"/>              
+        <img id = "slidedownbutton" src = "iconsymbols/slidedown.svg" class = "button" style = "width:50px"/>              
+        <img id = "addslidebutton" src = "iconsymbols/addslide.svg" class = "button" style = "width:50px"/>              
+        <img id = "deleteslidebutton" src = "iconsymbols/deleteslide.svg" class = "button" style = "width:50px"/>              
+        
     </div>
     <div id = "feedscroll">
         <form id = "uploadform" style = "margin-top:10px" action="upload.php" method="post" enctype="multipart/form-data">
@@ -286,6 +293,7 @@ document.getElementById("littlerotaterightbutton").onclick = function() {
     mainmap.array[mainmap.linkindex].angle += 0.5;
     mainmap.linkArray[mainmap.linkindex].style.transform = "rotate(" + (mainmap.array[mainmap.linkindex].angle).toString() + "deg)";
 }
+
 
 
 mcrotate = new Hammer(document.getElementById("rotatebar"));

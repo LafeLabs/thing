@@ -6,11 +6,6 @@ if(isset($_GET["dna"])){
     $dnaurl = $_GET["dna"];
 }
 
-$makesymbol = true;
-if($makesymbol){
-    mkdir("symbol");
-    copy("https://raw.githubusercontent.com/LafeLabs/thing/master/symbol/php/replicator.txt","symbol/replicator.php");    
-}
 
 $baseurl = explode("data/",$dnaurl)[0];
 $dnaraw = file_get_contents($dnaurl);

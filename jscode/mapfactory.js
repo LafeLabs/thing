@@ -1,5 +1,4 @@
 
-
 function Map(w,h,div) {
 
     this.w = w;//width of div element map will be drawn in
