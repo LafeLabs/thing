@@ -76,7 +76,8 @@ else{
     squareWidth = innerWidth;
     marginWidth = innerHeight - squareWidth;
     document.getElementById("margin").style.width = innerWidth.toString() + "px";
-    document.getElementById("margin").style.height = marginWidth.toString() + "px";    
+    document.getElementById("margin").style.height = (marginWidth-16).toString() + "px";    
+    document.getElementById("decktable").style.display = "none";    
     
 }
 
@@ -207,7 +208,6 @@ body{
     position:absolute;
     right:0px;
     bottom:0px;
-    top:3em;
     overflow:scroll;
     padding-left:1em;
     padding-right:1em;
@@ -227,6 +227,8 @@ body{
     #margin{
         border-left:solid;
         border-width:0.1px;
+        top:3em;
+
     }
 }
 @media only screen and (orientation: portrait) {

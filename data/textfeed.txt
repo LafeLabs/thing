@@ -4,7 +4,8 @@
         "☕ ",
         "slide 2",
         "slide 3",
-        "slide 4"
+        "slide 4",
+        "deck.html"
     ],
     "src": [
         "iconsymbols/geometronthing.svg",
@@ -16,6 +17,7 @@
         "https://en.wikipedia.org/wiki/Tensegrity",
         "editor.php",
         "map.html",
-        "foo/"
+        "foo/",
+        "deck.html"
     ]
 }

@@ -35,6 +35,15 @@
             "text": "Map Factory",
             "href": "map.html",
             "src": "iconsymbols/map.svg"
+        },
+        {
+            "x": 0.032219570405727926,
+            "y": 0.7923627684964201,
+            "w": 0.986873508353222,
+            "angle": 0,
+            "text": "deck.html",
+            "href": "deck.html",
+            "src": ""
         }
     ],
     [
