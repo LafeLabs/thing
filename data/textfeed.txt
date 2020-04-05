@@ -1,7 +1,10 @@
 {
     "text": [
         "some text",
-        "☕ "
+        "☕ ",
+        "slide 2",
+        "slide 3",
+        "slide 4"
     ],
     "src": [
         "iconsymbols/geometronthing.svg",

@@ -1,6 +1,7 @@
 {
     "html": [
         "README.md",
+        "deck.html",
         "fonteditor.html",
         "fork.html",
         "hypercube.html",
