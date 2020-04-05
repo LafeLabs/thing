@@ -391,13 +391,13 @@ var httpc3 = new XMLHttpRequest();
         for(var index = symbol.length - 1;index >= 0;index--) {
 
             var newimg = document.createElement("IMG");
-            newimg.src = "../symbolfeed/" + symbol[index];
+            newimg.src = "../symbol/symbolfeed/" + symbol[index];
             newimg.classList.add("uploadimage");
             newimg.classList.add("button");
 
             document.getElementById("feedscroll").appendChild(newimg);
             newimg.onclick = function() {
-                var localurl = "../symbolfeed/" + this.src.split("symbolfeed/")[1];
+                var localurl = "../symbol/symbolfeed/" + this.src.split("symbolfeed/")[1];
                 mainmap.array[mainmap.linkindex].src = localurl;
                 mainmap.draw();
             }
@@ -406,7 +406,7 @@ var httpc3 = new XMLHttpRequest();
     }
 };
 
-httpc3.open("GET", "dir.php?filename=../symbolfeed", true);
+httpc3.open("GET", "dir.php?filename=../symbol/symbolfeed", true);
 httpc3.send();
 
 upupsymbol = [];
@@ -417,13 +417,13 @@ var httpcupup = new XMLHttpRequest();
         for(var index = symbol.length - 1;index >= 0;index--) {
 
             var newimg = document.createElement("IMG");
-            newimg.src = "../../symbolfeed/" + symbol[index];
+            newimg.src = "../../symbol/symbolfeed/" + symbol[index];
             newimg.classList.add("uploadimage");
             newimg.classList.add("button");
 
             document.getElementById("feedscroll").appendChild(newimg);
             newimg.onclick = function() {
-                var localurl = "../../symbolfeed/" + this.src.split("symbolfeed/")[1];
+                var localurl = "../../symbol/symbolfeed/" + this.src.split("symbolfeed/")[1];
                 mainmap.array[mainmap.linkindex].src = localurl;
                 mainmap.draw();
             }
@@ -432,7 +432,7 @@ var httpcupup = new XMLHttpRequest();
     }
 };
 
-httpcupup.open("GET", "dir.php?filename=../../symbolfeed", true);
+httpcupup.open("GET", "dir.php?filename=../../symbol/symbolfeed", true);
 httpcupup.send();
 
 
@@ -446,13 +446,13 @@ httpc5.onreadystatechange = function() {
         for(var index = symbolhere.length - 1;index >= 0;index--) {
 
             var newimg = document.createElement("IMG");
-            newimg.src = "symbolfeed/" + symbolhere[index];
+            newimg.src = "symbol/symbolfeed/" + symbolhere[index];
             newimg.classList.add("uploadimage");
             newimg.classList.add("button");
 
             document.getElementById("feedscroll").appendChild(newimg);
             newimg.onclick = function() {
-                var localurl = "symbolfeed/" + this.src.split("symbolfeed/")[1];
+                var localurl = "symbol/symbolfeed/" + this.src.split("symbolfeed/")[1];
                 mainmap.array[mainmap.linkindex].src = localurl;
                 mainmap.draw();
             }
@@ -461,10 +461,8 @@ httpc5.onreadystatechange = function() {
     }
 };
 
-httpc5.open("GET", "dir.php?filename=symbolfeed", true);
+httpc5.open("GET", "dir.php?filename=symbol/symbolfeed", true);
 httpc5.send();
-
-
 
 icons = [];
 var httpc6 = new XMLHttpRequest();

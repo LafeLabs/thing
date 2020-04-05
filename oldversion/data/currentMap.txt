@@ -23,7 +23,7 @@
         "w": 0.12410501193317422,
         "angle": 0,
         "text": "",
-        "href": "symbol.html",
+        "href": "symbol/",
         "src": "iconsymbols/geometron.svg"
     },
     {

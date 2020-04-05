@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <!--
+
+        EVERYTHING IS PHYSICAL 
+        EVERYTHING IS FRACTAL
+        EVERYTHING IS RECURSIVE
+        NO MONEY 
+        MO MINING 
+        NO PROPERTY
+        LOOK AT THE INSECTS
+        LOOK AT THE FUNGI
+        LANGUAGE IS HOW THE MIND PARSES REALITY
+
+    -->
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/wAAAAD//wAA/wAAAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMzMzQREREAAzMzRBEREQAAMzNEQREQAAAzNERBERAAAAM0REQRAAAAAEREREAAAAAAREREQAAAAAACIiIAAAAAAAIiIgAAAAAAACIgAAAAAAAAIiAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAQAAwAEAAOADAADgAwAA8AcAAPgPAAD4DwAA/B8AAPwfAAD+PwAA/j8AAP9/AAD//wAA" rel="icon" type="image/x-icon" />
+
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+    <script src="jscode/mapfactory.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+
+<!--un-comment to add math: -->
+<!-- 
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>
+            MathJax.Hub.Config({
+                tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                processEscapes: true,
+                processClass: "mathjax",
+                ignoreClass: "no-mathjax"
+                }
+            });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
+        </script>
+        
+-->
+
+</head>
+<body>    
+<!--<datadiv/>-->
+<div id = "mainmap"></div>
+<div id = "margin">
+
+</div>
+
+<script>
+
+landscape = false;
+if(innerWidth > innerHeight){
+
+    squareWidth = innerHeight;
+    marginWidth = innerWidth - squareWidth;
+    landscape = true;
+    document.getElementById("margin").style.width = marginWidth.toString() + "px";
+    document.getElementById("margin").style.height = innerHeight.toString() + "px";    
+    
+}
+else{
+    
+    squareWidth = innerWidth;
+    marginWidth = innerHeight - squareWidth;
+    document.getElementById("margin").style.width = innerWidth.toString() + "px";
+    document.getElementById("margin").style.height = marginWidth.toString() + "px";    
+    
+}
+
+
+mainmap = new Map(squareWidth,squareWidth,document.getElementById("mainmap"));
+
+
+var httpc2 = new XMLHttpRequest();
+    httpc2.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+
+        mainmap.array = JSON.parse(this.responseText);
+        mainmap.draw();
+        //un comment for math
+        //MathJax.Hub.Typeset();
+
+    }
+};
+httpc2.open("GET", "fileloader.php?filename=data/currentMap.txt", true);
+httpc2.send();
+
+
+//get readme.md, convert to html and display
+var converter = new showdown.Converter();
+// for more on options see here:
+// https://github.com/showdownjs/showdown/wiki/Showdown-Options
+converter.setOption('literalMidWordUnderscores', 'true');
+converter.setOption('tables', 'true');
+
+
+readme_md = "";
+rawhtml = "";
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        readme_md = this.responseText;
+        rawhtml = converter.makeHtml(readme_md);
+        document.getElementById("margin").innerHTML = rawhtml;
+        }
+        //un-commment for math mode:
+        //MathJax.Hub.Typeset();//tell Mathjax to update the math
+};
+httpc.open("GET", "fileloader.php?filename=README.md", true);
+httpc.send();
+
+
+</script>
+<style>
+body{
+    overflow:hidden;
+}
+#mainmap{
+    position:absolute;
+    left:0px;
+    top:0px;
+    overflow:hidden;
+}
+#mainmap a{
+    font-family:Helvetica;
+    border-width:0.1px;
+}
+#margin{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    overflow:scroll;
+    padding-left:1em;
+    padding-right:1em;
+    padding-bottom:5em;
+}
+#margin img{
+    max-width:80%;
+    display:block;
+    margin:auto;
+}
+#margin h1,h2,h3,h4{
+    margin:auto;
+    text-align:center;
+}
+    
+@media only screen and (orientation: landscape) {
+    #margin{
+        border-left:solid;
+        border-width:0.1px;
+    }
+}
+@media only screen and (orientation: portrait) {
+    #margin{
+        border-top:solid;
+        border-width:0.1px;
+    }
+    h1{
+        font-size:1.5em;
+    }
+    h2{
+        font-size:1.25em;
+    }
+    h3{
+        font-size:1em;
+    }
+    h4{
+        font-size:0.8em;
+    }
+}
+
+</style>
+</body>
+</html>

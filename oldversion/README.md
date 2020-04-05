@@ -17,7 +17,7 @@ What you see in the edit screen(after clicking the edit icon) here is "markdown"
 
 [Geometron Symbols](symbol/): 
 
-[![](iconsymbols/geometron.svg)](symbol.html)
+[![](iconsymbols/geometron.svg)](symbol/)
 
 [Create a fork](fork.html):
 
