@@ -47,6 +47,14 @@
 <body>    
 <!--<datadiv/>-->
 <div id = "mainmap"></div>
+<table id = "decktable">
+    <tr>
+        <td id = "prevbutton" class = "button">PREV</td>
+        <td id = "nextbutton" class = "button">NEXT</td>
+        <td>slide<input id = "slideindex"/>of</td>
+        <td id = "numslides"></td>
+    </tr>
+</table>
 <div id = "margin">
 
 </div>
@@ -75,7 +83,46 @@ else{
 
 mainmap = new Map(squareWidth,squareWidth,document.getElementById("mainmap"));
 
+slideIndex = 0;
+deck = [];
 
+var httpc2 = new XMLHttpRequest();
+    httpc2.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        deck = JSON.parse(this.responseText);
+        mainmap.array = deck[slideIndex];
+        mainmap.draw();
+        document.getElementById("numslides").innerHTML = deck.length.toString();
+        document.getElementById("slideindex").value = (slideIndex + 1).toString();
+        //un comment for math
+        //MathJax.Hub.Typeset();
+
+    }
+};
+httpc2.open("GET", "fileloader.php?filename=data/currentDeck.txt", true);
+httpc2.send();
+
+document.getElementById("prevbutton").onclick = function(){
+    slideIndex--;
+    if(slideIndex < 0){
+        slideIndex = deck.length-1;
+    }
+    mainmap.array = deck[slideIndex];
+    mainmap.draw();
+    document.getElementById("slideindex").value = (slideIndex + 1).toString();
+}
+document.getElementById("nextbutton").onclick = function(){
+    slideIndex++;
+    if(slideIndex > deck.length - 1){
+        slideIndex = 0;
+    }
+    mainmap.array = deck[slideIndex];
+    mainmap.draw();
+    document.getElementById("slideindex").value = (slideIndex + 1).toString();
+}
+
+
+/*
 var httpc2 = new XMLHttpRequest();
     httpc2.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -89,6 +136,7 @@ var httpc2 = new XMLHttpRequest();
 };
 httpc2.open("GET", "fileloader.php?filename=data/currentMap.txt", true);
 httpc2.send();
+*/
 
 
 //get readme.md, convert to html and display
@@ -117,6 +165,31 @@ httpc.send();
 
 </script>
 <style>
+#decktable{
+    position:absolute;
+    right:0px;
+    top:0px;
+}
+.button{
+    width:5em;
+    border:solid;
+    border-radius:10px;
+    text-align:center;
+    cursor:pointer;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
+}
+#slideindex{
+    width:3em;
+}
+#numslides{
+    width:3em;
+    text-align:right;
+}
 body{
     overflow:hidden;
 }
@@ -134,6 +207,7 @@ body{
     position:absolute;
     right:0px;
     bottom:0px;
+    top:3em;
     overflow:scroll;
     padding-left:1em;
     padding-right:1em;

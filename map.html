@@ -71,6 +71,14 @@
         <img id = "addslidebutton" src = "iconsymbols/addslide.svg" class = "button" style = "width:50px"/>              
         <img id = "deleteslidebutton" src = "iconsymbols/deleteslide.svg" class = "button" style = "width:50px"/>              
         
+        <table id = "decktable">
+    <tr>
+        <td>slide<input id = "slideindex"/>of</td>
+        <td id = "numslides"></td>
+    </tr>
+    </table>
+
+        
     </div>
     <div id = "feedscroll">
         <form id = "uploadform" style = "margin-top:10px" action="upload.php" method="post" enctype="multipart/form-data">
@@ -153,7 +161,127 @@ document.getElementById("hammerxy").style.height = (squareWidth).toString() + "p
 
 mainmap = new Map(squareWidth,squareWidth,document.getElementById("mainmap"));
 
+slideIndex = 0;
+deck = [];
 
+var httpc2 = new XMLHttpRequest();
+    httpc2.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        deck = JSON.parse(this.responseText);
+        mainmap.array = deck[slideIndex];
+        mainmap.draw();
+        mainmap.linkArray[mainmap.linkindex].style.border = "solid";
+        mainmap.linkArray[mainmap.linkindex].style.borderWidth = "0.1px";
+        document.getElementById("numslides").innerHTML = deck.length.toString();
+        document.getElementById("slideindex").value = (slideIndex + 1).toString();
+        
+        document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
+        //un comment for math
+        //MathJax.Hub.Typeset();
+
+    }
+};
+httpc2.open("GET", "fileloader.php?filename=data/currentDeck.txt", true);
+httpc2.send();
+
+document.getElementById("prevslidebutton").onclick = function(){
+    deck[slideIndex] = mainmap.array;
+    slideIndex--;
+    if(slideIndex < 0){
+        slideIndex = deck.length-1;
+    }
+    document.getElementById("slideindex").value = (slideIndex + 1).toString();
+    
+    mainmap.array = deck[slideIndex];
+    mainmap.draw();
+    mainmap.linkindex = 0;
+    mainmap.linkArray[mainmap.linkindex].style.border = "solid";
+    mainmap.linkArray[mainmap.linkindex].style.borderWidth = "0.1px";
+    //un comment for math
+    //MathJax.Hub.Typeset();
+
+}
+
+document.getElementById("nextslidebutton").onclick = function(){
+    deck[slideIndex] = mainmap.array;
+    slideIndex++;
+    if(slideIndex > deck.length - 1){
+        slideIndex = 0;
+    }
+    document.getElementById("slideindex").value = (slideIndex + 1).toString();
+    
+    mainmap.array = deck[slideIndex];
+    mainmap.draw();
+    mainmap.linkindex = 0;
+    mainmap.linkArray[mainmap.linkindex].style.border = "solid";
+    mainmap.linkArray[mainmap.linkindex].style.borderWidth = "0.1px";
+    //un comment for math
+    //MathJax.Hub.Typeset();
+}
+
+document.getElementById("slideupbutton").onclick = function(){
+    //move slide one notch closer to beginning of deck, reduce its index by 1
+    if(slideIndex != 0){
+        var tempArray = [];
+        for(var index = 0;index < slideIndex - 1;index++){
+            tempArray.push(deck[index]);
+        }       
+        tempArray.push(deck[slideIndex]);
+        for(var index = slideIndex - 1;index < deck.length;index++){
+            tempArray.push(deck[index]);
+        }
+        deck = tempArray;
+        slideIndex--;
+        document.getElementById("slideindex").value = (slideIndex + 1).toString();
+    }
+}
+document.getElementById("slidedownbutton").onclick = function(){
+    //move slide one notch closer to end of deck, increase its index by 1
+    if(slideIndex != deck.length - 1){//do nothing if at end
+        var tempArray = [];
+        for(var index = 0;index < slideIndex;index++){
+            tempArray.push(deck[index]);
+        }   
+        tempArray.push(deck[slideIndex + 1]);
+        tempArray.push(deck[slideIndex]);
+        for(var index = slideIndex + 2;index < deck.length;index++){
+            tempArray.push(deck[index]);
+        }
+        deck = tempArray;
+        slideIndex++;
+        document.getElementById("slideindex").value = (slideIndex + 1).toString();
+    }
+}
+document.getElementById("addslidebutton").onclick = function(){
+    //add a slide after current slide
+    var tempArray = [];
+    var tempSlide = [];
+    tempSlide.push(deck[slideIndex][0]);
+    
+    for(var index = 0;index <= slideIndex;index++){
+        tempArray.push(deck[index]);
+    }   
+    tempArray.push(tempSlide);
+    for(var index = slideIndex + 1;index < deck.length;index++){
+        tempArray.push(deck[index]);
+    }
+    deck = tempArray;
+    slideIndex++;
+    
+    mainmap.array = deck[slideIndex];
+    mainmap.draw();
+    mainmap.linkindex = 0;
+    mainmap.linkArray[mainmap.linkindex].style.border = "solid";
+    mainmap.linkArray[mainmap.linkindex].style.borderWidth = "0.1px";
+    //un comment for math
+    //MathJax.Hub.Typeset();
+    document.getElementById("numslides").innerHTML = deck.length.toString();
+    document.getElementById("slideindex").value = (slideIndex + 1).toString();
+}
+
+
+
+/*
 var httpc2 = new XMLHttpRequest();
     httpc2.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -172,6 +300,7 @@ var httpc2 = new XMLHttpRequest();
 httpc2.open("GET", "fileloader.php?filename=data/currentMap.txt", true);
 httpc2.send();
 
+*/
 
 linkindex  = 0;
 mainmap.linkindex = 0;
@@ -184,12 +313,20 @@ document.getElementById("savebutton").onclick = function() {
     mainmap.array[mainmap.linkindex].w = parseInt(mainmap.linkArray[mainmap.linkindex].style.width.substring(0,mainmap.linkArray[mainmap.linkindex].style.width.length-2))/mainmap.w;
     mainmap.array[mainmap.linkindex].angle = parseInt(mainmap.linkArray[mainmap.linkindex].style.transform.substring(7,mainmap.linkArray[mainmap.linkindex].style.transform.length - 4));
 
-
+    deck[slideIndex] = mainmap.array;
+    var url = "filesaver.php";        
+    var httpc2 = new XMLHttpRequest();
+    httpc2.open("POST", url, true);
+    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc2.send("data="+encodeURIComponent(JSON.stringify(deck,null,"    "))+"&filename=data/currentDeck.txt");//send text to filesaver.php
+    
+/*    
     var url = "filesaver.php";        
     var httpc2 = new XMLHttpRequest();
     httpc2.open("POST", url, true);
     httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc2.send("data="+encodeURIComponent(JSON.stringify(mainmap.array,null,"    "))+"&filename=data/currentMap.txt");//send text to filesaver.php
+  */  
 
 }
 
@@ -643,6 +780,14 @@ document.getElementById("deletelinkbutton").onclick = function(){
 
 </script>
 <style>
+#slideindex{
+    width:3em;
+}
+#numslides{
+    width:3em;
+    text-align:right;
+}
+
 #margin{
     position:absolute;
     right:0px;
