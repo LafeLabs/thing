@@ -5,7 +5,7 @@
 // local ip address of raspberry pi inside the wifi is 10.0.0.27.
 
 
-copy("10.0.0.27/fultonmddotnet/sidamo/README.md","README.md");
+copy("http://10.0.0.27/fultonmddotnet/sidamo/README.md","README.md");
 
 ?>
 <a href = "index.html">CLICK TO GO TO PAGE</a>
