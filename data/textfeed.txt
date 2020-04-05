@@ -12,6 +12,7 @@
         "../",
         "https://en.wikipedia.org/wiki/Tensegrity",
         "editor.php",
-        "map.html"
+        "map.html",
+        "foo/"
     ]
 }

@@ -598,7 +598,7 @@ function loadlinkfeed(){
             //replace current href with this href and update map
             mainmap.array[mainmap.linkindex].href = this.innerHTML;
             mainmap.draw();
-            document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
+            document.getElementById("linkbox").innerHTML = this.innerHTML;
 
         }
         document.getElementById("linkscroll").appendChild(newbox);
