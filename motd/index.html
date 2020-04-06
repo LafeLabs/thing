@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+    <head>
+     <meta charset="utf-8"/>
+
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADf+wAA3/sAAAfgAACv9QAAoAUAAK/1AACv9QAAqBUAAK/1AACoFQAAr/UAAKAFAACv9QAAB+AAAN/7AADf+wAA" rel="icon" type="image/x-icon" />
+            <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+
+<!--       un comment to use math
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>
+            MathJax.Hub.Config({
+                tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                processEscapes: true,
+                processClass: "mathjax",
+                ignoreClass: "no-mathjax"
+                }
+            });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
+        </script>
+    -->
+
+
+
+    </head>
+<body>
+    
+
+    <textarea id = "maintextarea"></textarea>
+
+
+
+    <div id = "feedscroll">
+        <a href = "../">
+            <img style = "width:50px;" src = "iconsymbols/uplink.svg"/>
+        </a>
+             <!--
+                put the links here, also put the images here 
+             -->
+    </div>
+        
+<div id = "reloadbar">
+    R
+    <BR/>
+    E
+    <BR/>
+    L
+    <BR/>
+    O
+    <BR/>
+    A
+    <BR/>
+    D
+
+</div>
+
+<script>
+
+
+    //get readme.md, convert to html and display
+
+    readme_md = "";
+    rawhtml = "";
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            readme_md = this.responseText;
+            document.getElementById("maintextarea").value = readme_md;                 
+        }
+    };
+    httpc.open("GET", "fileloader.php?filename=README.md", true);
+    httpc.send();
+
+    document.getElementById("maintextarea").onkeyup = function() {
+        readme_md = this.value;
+        data = encodeURIComponent(this.value);
+        var httpc = new XMLHttpRequest();
+        var url = "filesaver.php";        
+        httpc.open("POST", url, true);
+        httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+        httpc.send("data="+data+"&filename=README.md");//send text to filesaver.php
+    }
+
+
+document.getElementById("reloadbar").onclick = function() {
+//     location.reload(); 
+     window.location.href = "index.html";
+     
+}
+
+        </script>
+        <style>
+            body{
+                overflow:hidden;
+            }
+            #reloadbar{
+                position:absolute;
+                left:0px;
+                top:0px;
+                height:100%;
+                width:50px;
+                font-size:36px;
+                font-family:courier;
+                color:red;
+                background-color:white;
+                z-index:20;
+                overflow:hidden;
+                cursor:pointer;
+            }
+            #maintextarea{
+                position:absolute;
+                left:5%;
+                top:0px;
+                width:80%;
+                height:100%;
+                padding-left:1em;
+                padding-top:1em;
+                background-color:black;
+                color:#00ff00;
+                font-family:courier;
+                font-size:1em;
+                overflow:scroll;
+            }
+            #feedscroll{
+                position:absolute;
+                right:0px;
+                bottom:0px;
+                top:0px;
+                width:10%;
+                overflow:scroll;
+            }
+            .button{
+                cursor:pointer;
+            }
+            .button:hover{
+                background-color:#50ff50;
+            }
+            .button:active{
+                background-color:yellow;
+            }
+
+        </style>
+    </body>
+</html>
