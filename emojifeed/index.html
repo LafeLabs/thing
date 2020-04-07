@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8"/>
+<!--Stop Google:-->
+<META NAME="robots" CONTENT="noindex,nofollow">
+<!--un-comment to add math: -->
+<!-- 
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>
+            MathJax.Hub.Config({
+                tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                processEscapes: true,
+                processClass: "mathjax",
+                ignoreClass: "no-mathjax"
+                }
+            });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
+        </script>
+        
+-->
+
+</head>
+<body>
+<div id = "header">
+    <a href = "../">
+        <img src = "iconsymbols/uplink.svg"/>
+    </a>
+    <a href = "editor.php">
+        <img src = "iconsymbols/edit.svg"/>
+    </a>
+
+    <span class = "button" id = "reloadbutton">RELOAD</span>
+    TEXT:<input id = "textinput" class = "no-mathjax"/>
+</div>
+<div id = "emojiboard">
+    
+</div>
+<div id  = "textscroll" class = "scroll"></div>
+
+<script>
+
+textfeed = {};
+
+var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        textfeed = JSON.parse(this.responseText);
+        redrawtext();
+    }
+};
+httpc.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
+httpc.send();
+
+
+document.getElementById("textinput").onchange = function(){
+    textfeed.push(this.value);
+    redrawtext();
+    savejson();
+}
+
+textfieldindex = 0;
+document.getElementById("textinput").onkeydown = function(a) {
+    var charCode = a.keyCode || a.which;
+
+    if(charCode == 046){
+        //up arrow: next
+        textfieldindex++;
+        if(textfieldindex >= textfeed.length){
+            textfieldindex = -1;
+        }
+        if(textfieldindex != -1){
+            this.value = textfeed[textfieldindex];
+        }
+        else{
+            this.value = "";
+        }
+    }
+    if(charCode == 050){
+        //down arrow: prev
+        textfieldindex--;
+        if(textfieldindex < -1){
+            textfieldindex = textfeed.length - 1;
+        }
+        if(textfieldindex != -1){
+            this.value = textfeed[textfieldindex];
+        }
+        else{
+            this.value = "";
+        }
+    }
+}
+
+
+function savejson(){
+    var url = "filesaver.php";        
+    var httpc2 = new XMLHttpRequest();
+    httpc2.open("POST", url, true);
+    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc2.send("data="+encodeURIComponent(JSON.stringify(textfeed,null,"    "))+"&filename=data/textfeed.txt");//send text to filesaver.php
+}
+
+function redrawtext(){
+    
+    document.getElementById("textscroll").innerHTML = "";
+    for(var index = 0;index < textfeed.length;index++){
+        var newbox = document.createElement("div");
+        newbox.className = "box";
+        newbox.innerHTML = textfeed[index];
+        var newbutton = document.createElement("IMG");
+        newbutton.src = "iconsymbols/delete.svg";
+        newbutton.className = "deletebutton";
+        newbutton.id = "text" + index.toString();
+        newbutton.onclick = function(){
+            //alert(this.id.substring(4));
+            var thisindex = this.id.substring(4);
+            var localtext = textfeed;
+            textfeed = [];
+            for(var textindex = 0;textindex < localtext.length;textindex++){
+                if(textindex != thisindex){
+                    textfeed.push(localtext[textindex]);
+                }
+            }
+            redrawtext();
+            savejson();
+        }
+        newbox.appendChild(newbutton);
+
+        document.getElementById("textscroll").appendChild(newbox);
+    }
+    //un comment for math
+    //MathJax.Hub.Typeset();
+
+}
+
+document.getElementById("reloadbutton").onclick = function(){
+         window.location.href = "index.html";
+}
+
+
+
+for(var index = 127752;index < 127952;index++){
+    var newsymbol = "&#" + index.toString() + ";";
+    var newbutton = document.createElement("SPAN");
+    newbutton.className = "button";
+    newbutton.innerHTML = newsymbol;
+    newbutton.onclick = function(){
+        document.getElementById("textinput").value += this.innerHTML;
+    }
+    document.getElementById("emojiboard").appendChild(newbutton);
+}
+
+for(var index = 129409;index < 129541;index++){
+    var newsymbol = "&#" + index.toString() + ";";
+    var newbutton = document.createElement("SPAN");
+    newbutton.className = "button";
+    newbutton.innerHTML = newsymbol;
+    newbutton.onclick = function(){
+        document.getElementById("textinput").value += this.innerHTML;
+    }
+    document.getElementById("emojiboard").appendChild(newbutton);
+}
+
+</script>
+<style>
+body,input{
+    font-family:courier;
+    font-size:16px;
+}
+#header{
+    position:absolute;
+    left:0px;
+    right:0px;
+    top:0px;
+    height:70px;
+    float:right;
+}
+#header img{
+    width:50px;
+}
+#emojiboard{
+    position:absolute;
+    bottom:50%;
+    top:90px;
+    overflow:scroll;
+    left:0px;
+    right:0px;
+}
+#reloadbutton{
+    position:absolute;
+    right:0px;
+    top:0px;
+    font-size:16px;
+}
+#textinput{
+    width:40em;
+    font-family:courier;
+    font-size:20px;
+}
+.box{
+    margin:1em;
+    padding:0.5em;
+    border:solid;
+    border-radius:0.5em;
+    font-size:16px;
+    font-family:courier;
+}
+.scroll{
+    border-top:solid;
+    position:absolute;
+    top:50%;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    overflow:scroll;
+}
+.deletebutton{
+    width:20px;
+    cursor:pointer;
+}
+.deletebutton:hover{
+    background-color:#afffaf;
+}
+.button{
+    border:solid;
+    cursor:pointer;
+    width:5em;
+    text-align:center;
+    font-family:courier;
+    border-radius:5px;
+    font-size:40px;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
+}
+</style>
+</body>
+</html>
