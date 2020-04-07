@@ -55,7 +55,14 @@ httpc.send();
 
 
 document.getElementById("textinput").onchange = function(){
+    
+    var tempfeed = textfeed;
+    textfeed = [];
     textfeed.push(this.value);
+    for(var index = 0;index < tempfeed.length;index++){
+        textfeed.push(tempfeed[index]);
+    }
+
     redrawtext();
     savejson();
 }

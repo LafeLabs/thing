@@ -1,0 +1,22 @@
+[
+    [
+        {
+            "x": 0,
+            "y": 0,
+            "w": 1,
+            "angle": 0,
+            "text": "",
+            "href": "",
+            "src": "https://upload.wikimedia.org/wikipedia/commons/6/61/SandstoneUSGOV.jpg"
+        },
+        {
+            "x": 0.3997613365155131,
+            "y": 0.38663484486873506,
+            "w": 0.6431980906921241,
+            "angle": 21,
+            "text": "$E=mc^2$",
+            "href": "",
+            "src": ""
+        }
+    ]
+]
