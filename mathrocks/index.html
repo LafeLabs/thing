@@ -26,7 +26,7 @@
  -->
    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"></script>
 
 <!--un-comment to add math: -->
 
@@ -55,6 +55,9 @@
     </div>
 </div>
 <div id = "mainmap"></div>
+<div id = "hammerxy">
+        <!--this covers the map exactly, sits at higher z index, and is turned off when NOT editing xy-->
+</div>
 <div id = "rockbox">
     <h2>Rocks</h2>
     <div id  = "rockinputbox">
@@ -73,6 +76,7 @@ if(innerWidth > innerHeight){
     marginWidth = 0.5*(innerWidth - squareWidth);
     landscape = true;
     document.getElementById("mainmap").style.left = marginWidth.toString() + "px";
+    document.getElementById("hammerxy").style.left = marginWidth.toString() + "px";
     document.getElementById("mathbox").style.width = marginWidth.toString() + "px";
     document.getElementById("rockbox").style.width = marginWidth.toString() + "px";
     document.getElementById("mathbox").style.height = innerHeight.toString() + "px";    
@@ -81,10 +85,21 @@ if(innerWidth > innerHeight){
 else{
     
     squareWidth = innerWidth;
-    marginWidth = innerHeight - squareWidth;
-
+    marginWidth = 0.5*(innerHeight - squareWidth);
+    document.getElementById("mainmap").style.top = marginWidth.toString() + "px";
+    document.getElementById("hammerxy").style.top = marginWidth.toString() + "px";    
+    document.getElementById("mathbox").style.height = marginWidth.toString() + "px";
+    document.getElementById("rockbox").style.height = marginWidth.toString() + "px";
+    document.getElementById("mathbox").style.width = innerWidth.toString() + "px";    
+    document.getElementById("rockbox").style.width = innerWidth.toString() + "px";        
+    
 }
 
+document.getElementById("hammerxy").style.width = (squareWidth).toString() + "px";
+document.getElementById("hammerxy").style.height = (squareWidth).toString() + "px";
+
+document.getElementById("rockinput").value = "";
+document.getElementById("mathinput").value = "";
 
 mainmap = new Map(squareWidth,squareWidth,document.getElementById("mainmap"));
 
@@ -92,8 +107,38 @@ document.getElementById("mathinput").onchange = function(){
     textfeed.text.push(this.value);
     redrawtext();
     savejson();
-    MathJax.Hub.Typeset();
-    
+}
+
+textfieldindex = 0;
+document.getElementById("mathinput").onkeydown = function(a) {
+    var charCode = a.keyCode || a.which;
+
+    if(charCode == 046){
+        //up arrow: next
+        textfieldindex++;
+        if(textfieldindex >= textfeed.text.length){
+            textfieldindex = -1;
+        }
+        if(textfieldindex != -1){
+            this.value = textfeed.text[textfieldindex];
+        }
+        else{
+            this.value = "";
+        }
+    }
+    if(charCode == 050){
+        //down arrow: prev
+        textfieldindex--;
+        if(textfieldindex < -1){
+            textfieldindex = textfeed.text.length - 1;
+        }
+        if(textfieldindex != -1){
+            this.value = textfeed.text[textfieldindex];
+        }
+        else{
+            this.value = "";
+        }
+    }
 }
 
 var httpc = new XMLHttpRequest();
@@ -127,7 +172,16 @@ function redrawtext(){
     for(var index = 0;index < text.length;index++){
         var newbox = document.createElement("div");
         newbox.className = "box";
-        newbox.innerHTML = text[index];
+        var newspan = document.createElement("span");
+        newspan.innerHTML = text[index];
+        newspan.className = "mathspan";
+        newbox.appendChild(newspan);
+//        newbox.innerHTML = text[index];
+        newspan.onclick = function(){
+            mainmap.array[1].text = this.innerHTML;
+            mainmap.draw();
+         //   MathJax.Hub.Typeset();//tell Mathjax to update the math
+        }
         var newbutton = document.createElement("IMG");
         newbutton.src = "iconsymbols/delete.svg";
         newbutton.className = "deletebutton";
@@ -201,6 +255,17 @@ function savejson(){
     httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc2.send("data="+encodeURIComponent(JSON.stringify(textfeed,null,"    "))+"&filename=data/textfeed.txt");//send text to filesaver.php
 }
+
+mc = new Hammer(document.getElementById("hammerxy"));
+mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+mc.on("panleft panright panup pandown tap press rotate", function(ev) {
+
+    mainmap.linkArray[1].style.left = (ev.deltaX + mainmap.array[1].x*mainmap.w).toString() +  "px";
+    mainmap.linkArray[1].style.top = (ev.deltaY + mainmap.array[1].y*mainmap.w).toString() +  "px";
+
+});   
+
+
 </script>
 <style>
 h2{
@@ -215,6 +280,14 @@ input{
     top:0px;
     overflow:hidden;
 }
+#hammerxy{
+    position:absolute;
+    left:0px;
+    top:0px;
+    z-index:1;
+    overflow:hidden;
+}
+
 #mainmap a{
     font-family:Helvetica;
     color:black;
@@ -284,7 +357,9 @@ body{
     font-size:16px;
     font-family:courier;
 }
-
+.mathspan{
+    cursor:pointer;
+}
 </style>
 </body>
 </html>

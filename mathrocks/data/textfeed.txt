@@ -3,7 +3,10 @@
         "$E=mc^2$",
         "$\\frac{\\partial^2F}{\\partial t^2} = c^2\\frac{\\partial^2F}{\\partial x^2}$",
         "$E\\Psi = H\\Psi$",
-        "$E\\Psi = H\\Psi$"
+        "$E\\Psi = H\\Psi$",
+        "$e^{\\pi i}=-1$",
+        "$d = 2\\pi r$",
+        "$E=mc^2 $"
     ],
     "src": [
         "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/GabbroRockCreek1.jpg/440px-GabbroRockCreek1.jpg",
