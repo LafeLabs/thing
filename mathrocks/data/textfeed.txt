@@ -1,23 +1,14 @@
 {
     "text": [
-        "some text",
-        "☕ ",
-        "slide 2",
-        "slide 3",
-        "slide 4",
-        "deck.html"
+        "$E=mc^2$",
+        "$\\frac{\\partial^2F}{\\partial t^2} = c^2\\frac{\\partial^2F}{\\partial x^2}$"
     ],
     "src": [
-        "iconsymbols/geometronthing.svg",
-        "https://upload.wikimedia.org/wikipedia/commons/3/3b/BuckminsterFuller1.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Preserved_R_Buckminster_Fuller_and_Anne_Hewlitt_Dome_Home.jpg/440px-Preserved_R_Buckminster_Fuller_and_Anne_Hewlitt_Dome_Home.jpg"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/GabbroRockCreek1.jpg/440px-GabbroRockCreek1.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/%22This_means_something._This_is_important%22_%2819967592275%29.jpg/2560px-%22This_means_something._This_is_important%22_%2819967592275%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Ametrin_from_Bolivia.jpg/266px-Ametrin_from_Bolivia.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/ArideGranite1.jpg/440px-ArideGranite1.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Stonehenge2007_07_30.jpg/440px-Stonehenge2007_07_30.jpg"
     ],
-    "href": [
-        "../",
-        "https://en.wikipedia.org/wiki/Tensegrity",
-        "editor.php",
-        "map.html",
-        "foo/",
-        "deck.html"
-    ]
+    "href": []
 }

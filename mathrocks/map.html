@@ -50,25 +50,16 @@
         <a href = "textfeed.html">
             <img class = "button" style = "width:50px;" src = "iconsymbols/feed.svg"/>
         </a>
-        <img id = "prevbutton" src = "iconsymbols/upelement.svg" class = "button" style = "width:50px"/>
-        <img id = "nextbutton" src = "iconsymbols/downelement.svg" class = "button" style = "width:50px"/>
-        <img id = "movedownbutton" src = "iconsymbols/elementdown.svg" class = "button" style = "width:50px"/>
-        <img id = "moveupbutton" src = "iconsymbols/elementup.svg" class = "button" style = "width:50px"/>    
         <img id = "savebutton" src = "iconsymbols/save.svg" class = "button" style = "width:50px"/>
-        <img id = "deletebutton" src = "iconsymbols/delete.svg" class = "button" style = "width:50px"/>
-        <img id = "newbutton" src = "iconsymbols/add.svg" class = "button" style = "width:50px"/>
-        <img id = "deleteimagebutton" src = "iconsymbols/deleteimage.svg" class = "button" style = "width:50px"/>
-        <img id = "deletelinkbutton" src = "iconsymbols/deletelink.svg" class = "button" style = "width:50px"/>
-        <img id = "textbutton" src = "iconsymbols/text.svg" class = "button" style = "width:50px"/>
-        <img id = "imagebutton" src = "iconsymbols/image.svg" class = "button" style = "width:50px"/>                
-        <img id = "linkbutton" src = "iconsymbols/link.svg" class = "button" style = "width:50px"/>              
+        
         <img id = "prevslidebutton" src = "iconsymbols/prevslide.svg" class = "button" style = "width:50px"/>              
         <img id = "nextslidebutton" src = "iconsymbols/nextslide.svg" class = "button" style = "width:50px"/>              
-        <img id = "slideupbutton" src = "iconsymbols/slideup.svg" class = "button" style = "width:50px"/>              
-        <img id = "slidedownbutton" src = "iconsymbols/slidedown.svg" class = "button" style = "width:50px"/>              
+
         <img id = "addslidebutton" src = "iconsymbols/addslide.svg" class = "button" style = "width:50px"/>              
         <img id = "deleteslidebutton" src = "iconsymbols/deleteslide.svg" class = "button" style = "width:50px"/>              
-        
+            <img id = "textbutton" src = "iconsymbols/text.svg" class = "button" style = "width:50px"/>
+        <img id = "imagebutton" src = "iconsymbols/image.svg" class = "button" style = "width:50px"/>                
+        color:<input id = "color"/>
         <table id = "decktable">
     <tr>
         <td>slide<input id = "slideindex"/>of</td>
@@ -212,45 +203,13 @@ document.getElementById("nextslidebutton").onclick = function(){
     MathJax.Hub.Typeset();
 }
 
-document.getElementById("slideupbutton").onclick = function(){
-    //move slide one notch closer to beginning of deck, reduce its index by 1
-    if(slideIndex != 0){
-        var tempArray = [];
-        for(var index = 0;index < slideIndex - 1;index++){
-            tempArray.push(deck[index]);
-        }       
-        tempArray.push(deck[slideIndex]);
-        for(var index = slideIndex - 1;index < deck.length;index++){
-            tempArray.push(deck[index]);
-        }
-        deck = tempArray;
-        slideIndex--;
-        document.getElementById("slideindex").value = (slideIndex + 1).toString();
-    }
-}
-document.getElementById("slidedownbutton").onclick = function(){
-    //move slide one notch closer to end of deck, increase its index by 1
-    if(slideIndex != deck.length - 1){//do nothing if at end
-        var tempArray = [];
-        for(var index = 0;index < slideIndex;index++){
-            tempArray.push(deck[index]);
-        }   
-        tempArray.push(deck[slideIndex + 1]);
-        tempArray.push(deck[slideIndex]);
-        for(var index = slideIndex + 2;index < deck.length;index++){
-            tempArray.push(deck[index]);
-        }
-        deck = tempArray;
-        slideIndex++;
-        document.getElementById("slideindex").value = (slideIndex + 1).toString();
-    }
-}
 
 document.getElementById("addslidebutton").onclick = function(){
     //add a slide after current slide
     var tempArray = [];
     var tempSlide = [];
     tempSlide.push(deck[slideIndex][0]);
+    tempSlide.push(deck[slideIndex][1]);
     
     for(var index = 0;index <= slideIndex;index++){
         tempArray.push(deck[index]);
@@ -297,8 +256,8 @@ document.getElementById("deleteslidebutton").onclick = function(){
 }
 
 
-linkindex  = 0;
-mainmap.linkindex = 0;
+linkindex  = 1;
+mainmap.linkindex = 1;
 pageindex = 0;
 
 document.getElementById("savebutton").onclick = function() {
@@ -315,52 +274,10 @@ document.getElementById("savebutton").onclick = function() {
     httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc2.send("data="+encodeURIComponent(JSON.stringify(deck,null,"    "))+"&filename=data/currentDeck.txt");//send text to filesaver.php
     
-/*    
-    var url = "filesaver.php";        
-    var httpc2 = new XMLHttpRequest();
-    httpc2.open("POST", url, true);
-    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc2.send("data="+encodeURIComponent(JSON.stringify(mainmap.array,null,"    "))+"&filename=data/currentMap.txt");//send text to filesaver.php
-  */  
+
 
 }
 
-
-document.getElementById("nextbutton").onclick = function() {
-
-    mainmap.nextlink();
-    document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
-}
-
-document.getElementById("prevbutton").onclick = function() {
-
-    mainmap.prevlink();
-    document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
-}
-
-document.getElementById("newbutton").onclick = function() {
-
-    mainmap.newlink();
-
-}
-
-
-document.getElementById("deletebutton").onclick = function() {
-
-    mainmap.deletelink();
-    document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
-}
-
-document.getElementById("moveupbutton").onclick  = function() {
-
-    mainmap.movelinkup();
-
-}
-document.getElementById("movedownbutton").onclick  = function() {
-
-    mainmap.movelinkdown();
-
-}
 
 
 mc = new Hammer(document.getElementById("hammerxy"));
@@ -459,8 +376,10 @@ var httpc10 = new XMLHttpRequest();
             newimg.classList.add("button");
             document.getElementById("feedscroll").appendChild(newimg);
             newimg.onclick = function() {
-                mainmap.array[mainmap.linkindex].src = this.src;
+                mainmap.array[0].src = this.src;
                 mainmap.draw();
+                MathJax.Hub.Typeset();//tell Mathjax to update the math
+
             }
             
         }
@@ -482,7 +401,7 @@ function loadtextfeed(){
             //replace current text with this text and update map
             mainmap.array[mainmap.linkindex].text = this.innerHTML;
             mainmap.draw();
-            
+            MathJax.Hub.Typeset();//tell Mathjax to update the math
         }
         document.getElementById("textscroll").appendChild(newbox);
     }
@@ -505,7 +424,6 @@ function loadlinkfeed(){
     }
 }
 
-
 document.getElementById("textbutton").onclick = function(){
     document.getElementById("feedscroll").style.display = "none";
     document.getElementById("linkscroll").style.display = "none";
@@ -516,22 +434,7 @@ document.getElementById("imagebutton").onclick = function(){
     document.getElementById("linkscroll").style.display = "none";
     document.getElementById("textscroll").style.display = "none";
 }
-document.getElementById("linkbutton").onclick = function(){
-    document.getElementById("feedscroll").style.display = "none";
-    document.getElementById("linkscroll").style.display = "block";
-    document.getElementById("textscroll").style.display = "none";
-}
 
-document.getElementById("deleteimagebutton").onclick = function(){
-    mainmap.array[mainmap.linkindex].src = "";
-    mainmap.draw();
-}
-
-document.getElementById("deletelinkbutton").onclick = function(){
-    mainmap.array[mainmap.linkindex].href = "";
-    mainmap.draw();
-    document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
-}
 
 </script>
 <style>
@@ -734,7 +637,6 @@ input,table,select{
 #rotatezoomtable img{
     width:47px;
 }
-
 </style>
 </body>
 </html>

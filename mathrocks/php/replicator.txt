@@ -2,6 +2,16 @@
 
 $dnaurl = "https://raw.githubusercontent.com/LafeLabs/thing/master/mathrocks/data/dna.txt";
 
+/*
+modified files:
+
+index.html
+replicator.php
+deck.html
+map.html
+
+*/
+
 if(isset($_GET["dna"])){
     $dnaurl = $_GET["dna"];
 }

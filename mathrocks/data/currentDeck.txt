@@ -7,14 +7,14 @@
             "angle": 0,
             "text": "",
             "href": "",
-            "src": "https://upload.wikimedia.org/wikipedia/commons/6/61/SandstoneUSGOV.jpg"
+            "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/ArideGranite1.jpg/440px-ArideGranite1.jpg"
         },
         {
-            "x": 0.3997613365155131,
-            "y": 0.38663484486873506,
+            "x": 0.00954653937947494,
+            "y": 0.1730310262529833,
             "w": 0.6431980906921241,
-            "angle": 21,
-            "text": "$E=mc^2$",
+            "angle": -23,
+            "text": "$\\frac{\\partial^2F}{\\partial t^2} = c^2\\frac{\\partial^2F}{\\partial x^2}$",
             "href": "",
             "src": ""
         }
