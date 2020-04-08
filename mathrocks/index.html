@@ -21,8 +21,10 @@
     <!--Stop Google:-->
     <META NAME="robots" CONTENT="noindex,nofollow">
     <script src="jscode/mapfactory.js"></script>
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>
-    
+
+<!--    <script src = "https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>
+ -->
+   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
 
@@ -44,17 +46,22 @@
 </head>
 <body>    
 <!--<datadiv/>-->
+<div id = "mathbox">
+    <h2>Math</h2>
+    <div id  = "mathinputbox">
+        Math In $\LaTeX$:<input id = "mathinput"/>
+    </div>
+    <div id = "mathscroll" class = "scrollbox">
+    </div>
+</div>
 <div id = "mainmap"></div>
-<table id = "decktable">
-    <tr>
-        <td id = "prevbutton" class = "button">PREV</td>
-        <td id = "nextbutton" class = "button">NEXT</td>
-        <td>slide<input id = "slideindex"/>of</td>
-        <td id = "numslides"></td>
-    </tr>
-</table>
-<div id = "margin">
-
+<div id = "rockbox">
+    <h2>Rocks</h2>
+    <div id  = "rockinputbox">
+        Rock Image URL:<input id = "rockinput"/>
+    </div>
+    <div id = "rockscroll" class = "scrollbox">
+    </div>
 </div>
 
 <script>
@@ -63,114 +70,191 @@ landscape = false;
 if(innerWidth > innerHeight){
 
     squareWidth = innerHeight;
-    marginWidth = innerWidth - squareWidth;
+    marginWidth = 0.5*(innerWidth - squareWidth);
     landscape = true;
-    document.getElementById("margin").style.width = marginWidth.toString() + "px";
-    document.getElementById("margin").style.height = innerHeight.toString() + "px";    
-    
+    document.getElementById("mainmap").style.left = marginWidth.toString() + "px";
+    document.getElementById("mathbox").style.width = marginWidth.toString() + "px";
+    document.getElementById("rockbox").style.width = marginWidth.toString() + "px";
+    document.getElementById("mathbox").style.height = innerHeight.toString() + "px";    
+    document.getElementById("rockbox").style.height = innerHeight.toString() + "px";        
 }
 else{
     
     squareWidth = innerWidth;
     marginWidth = innerHeight - squareWidth;
-    document.getElementById("margin").style.width = innerWidth.toString() + "px";
-    document.getElementById("margin").style.height = (marginWidth-16).toString() + "px";    
-    document.getElementById("decktable").style.display = "none";    
-    
+
 }
 
 
 mainmap = new Map(squareWidth,squareWidth,document.getElementById("mainmap"));
 
-slideIndex = 0;
-deck = [];
+document.getElementById("mathinput").onchange = function(){
+    textfeed.text.push(this.value);
+    redrawtext();
+    savejson();
+    MathJax.Hub.Typeset();
+    
+}
 
-var httpc2 = new XMLHttpRequest();
-    httpc2.onreadystatechange = function() {
+var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        deck = JSON.parse(this.responseText);
-        mainmap.array = deck[slideIndex];
-        mainmap.draw();
-        document.getElementById("numslides").innerHTML = deck.length.toString();
-        document.getElementById("slideindex").value = (slideIndex + 1).toString();
-        //un comment for math
-        MathJax.Hub.Typeset();
-
+        textfeed = JSON.parse(this.responseText);
+        redrawtext();
+        redrawsrc();
     }
 };
-httpc2.open("GET", "fileloader.php?filename=data/currentDeck.txt", true);
-httpc2.send();
-
-document.getElementById("prevbutton").onclick = function(){
-    slideIndex--;
-    if(slideIndex < 0){
-        slideIndex = deck.length-1;
-    }
-    mainmap.array = deck[slideIndex];
-    mainmap.draw();
-    document.getElementById("slideindex").value = (slideIndex + 1).toString();
-}
-document.getElementById("nextbutton").onclick = function(){
-    slideIndex++;
-    if(slideIndex > deck.length - 1){
-        slideIndex = 0;
-    }
-    mainmap.array = deck[slideIndex];
-    mainmap.draw();
-    document.getElementById("slideindex").value = (slideIndex + 1).toString();
-}
+httpc.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
+httpc.send();
 
 
-/*
 var httpc2 = new XMLHttpRequest();
     httpc2.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-
         mainmap.array = JSON.parse(this.responseText);
         mainmap.draw();
-        //un comment for math
-        //MathJax.Hub.Typeset();
+        MathJax.Hub.Typeset();
 
     }
 };
 httpc2.open("GET", "fileloader.php?filename=data/currentMap.txt", true);
 httpc2.send();
-*/
 
-
-//get readme.md, convert to html and display
-var converter = new showdown.Converter();
-// for more on options see here:
-// https://github.com/showdownjs/showdown/wiki/Showdown-Options
-converter.setOption('literalMidWordUnderscores', 'true');
-converter.setOption('tables', 'true');
-
-
-readme_md = "";
-rawhtml = "";
-var httpc = new XMLHttpRequest();
-httpc.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        readme_md = this.responseText;
-        rawhtml = converter.makeHtml(readme_md);
-        document.getElementById("margin").innerHTML = rawhtml;
+function redrawtext(){
+    
+    document.getElementById("mathscroll").innerHTML = "";
+    text = textfeed.text;
+    for(var index = 0;index < text.length;index++){
+        var newbox = document.createElement("div");
+        newbox.className = "box";
+        newbox.innerHTML = text[index];
+        var newbutton = document.createElement("IMG");
+        newbutton.src = "iconsymbols/delete.svg";
+        newbutton.className = "deletebutton";
+        newbutton.id = "text" + index.toString();
+        newbutton.onclick = function(){
+            //alert(this.id.substring(4));
+            var thisindex = this.id.substring(4);
+            var localtext = textfeed.text;
+            textfeed.text = [];
+            for(var textindex = 0;textindex < localtext.length;textindex++){
+                if(textindex != thisindex){
+                    textfeed.text.push(localtext[textindex]);
+                }
+            }
+            redrawtext();
+            savejson();
         }
-        //un-commment for math mode:
-        MathJax.Hub.Typeset();//tell Mathjax to update the math
-};
-httpc.open("GET", "fileloader.php?filename=README.md", true);
-httpc.send();
+        newbox.appendChild(newbutton);
+        document.getElementById("mathscroll").appendChild(newbox);
+    }
+    //un comment for math
+    MathJax.Hub.Typeset();
+
+}
 
 
+function redrawsrc(){
+    document.getElementById("rockscroll").innerHTML = "";
+    var src = textfeed.src;
+    for(var index = 0;index < src.length;index++){
+        var newbox = document.createElement("div");
+        newbox.className = "box";
+        var newimg = document.createElement("img");
+        newimg.src = src[index];
+        newbox.appendChild(newimg);
+        
+        newimg.onclick = function() {
+                mainmap.array[0].src = this.src;
+                mainmap.draw();
+                MathJax.Hub.Typeset();
+
+        }
+        var newbutton = document.createElement("IMG");
+        newbutton.src = "iconsymbols/delete.svg";
+        newbutton.className = "deletebutton";
+        newbutton.id = "src" + index.toString();
+        newbutton.onclick = function(){
+            //alert(this.id.substring(4));
+            var thisindex = this.id.substring(3);
+            var localsrc = textfeed.src;
+            textfeed.src = [];
+            for(var srcindex = 0;srcindex < localsrc.length;srcindex++){
+                if(srcindex != thisindex){
+                    textfeed.src.push(localsrc[srcindex]);
+                }
+            }
+            
+            redrawsrc();
+            savejson();
+        }
+        newbox.appendChild(newbutton);
+        document.getElementById("rockscroll").appendChild(newbox);
+    }
+    
+}
+
+function savejson(){
+    var url = "filesaver.php";        
+    var httpc2 = new XMLHttpRequest();
+    httpc2.open("POST", url, true);
+    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc2.send("data="+encodeURIComponent(JSON.stringify(textfeed,null,"    "))+"&filename=data/textfeed.txt");//send text to filesaver.php
+}
 </script>
 <style>
-#decktable{
+h2{
+    text-align:center;
+}
+input{
+    width:90%;
+}
+#mainmap{
     position:absolute;
-    right:0px;
+    left:0px;
+    top:0px;
+    overflow:hidden;
+}
+#mainmap a{
+    font-family:Helvetica;
+    color:black;
+}
+
+#mathbox{
+    position:absolute;
+    left:0px;
     top:0px;
 }
+#rockbox{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+}
+#mathscroll{
+    
+}
+#rockscroll{
+    
+}
+#rockscroll img{
+    max-width:50%;
+    cursor:pointer;
+}
+
+.scrollbox{
+    position:absolute;
+    overflow:scroll;
+    left:0px;
+    right:0px;
+    top:10em;
+    bottom:0px;
+}
+@media only screen and (orientation: portrait) {
+    h2{
+        font-size:1.25em;
+    }
+}
 .button{
-    width:5em;
     border:solid;
     border-radius:10px;
     text-align:center;
@@ -182,73 +266,23 @@ httpc.send();
 .button:active{
     background-color:yellow;
 }
-#slideindex{
-    width:3em;
-}
-#numslides{
-    width:3em;
-    text-align:right;
-}
 body{
     overflow:hidden;
 }
-#mainmap{
-    position:absolute;
-    left:0px;
-    top:0px;
-    overflow:hidden;
+.deletebutton{
+    width:50px;
+    cursor:pointer;
 }
-#mainmap a{
-    font-family:Helvetica;
-    border-width:0.1px;
+.deletebutton:hover{
+    background-color:#afffaf;
 }
-#margin{
-    position:absolute;
-    right:0px;
-    bottom:0px;
-    overflow:scroll;
-    padding-left:1em;
-    padding-right:1em;
-    padding-bottom:5em;
-}
-#margin img{
-    max-width:80%;
-    display:block;
-    margin:auto;
-}
-#margin h1,h2,h3,h4{
-    margin:auto;
-    text-align:center;
-}
-    
-@media only screen and (orientation: landscape) {
-    #margin{
-        border-left:solid;
-        border-width:0.1px;
-        top:3em;
-
-    }
-}
-@media only screen and (orientation: portrait) {
-    #margin{
-        border-top:solid;
-        border-width:0.1px;
-    }
-    h1{
-        font-size:1.5em;
-    }
-    h2{
-        font-size:1.25em;
-    }
-    h3{
-        font-size:1em;
-    }
-    h4{
-        font-size:0.8em;
-    }
-}
-a{
-    color:black;
+.box{
+    margin:1em;
+    padding:0.5em;
+    border:solid;
+    border-radius:0.5em;
+    font-size:16px;
+    font-family:courier;
 }
 
 </style>
