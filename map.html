@@ -71,13 +71,24 @@
         <img id = "addslidebutton" src = "iconsymbols/addslide.svg" class = "button" style = "width:50px"/>              
         <img id = "deleteslidebutton" src = "iconsymbols/deleteslide.svg" class = "button" style = "width:50px"/>              
         
-        <table id = "decktable">
-    <tr>
-        <td>slide<input id = "slideindex"/>of</td>
-        <td id = "numslides"></td>
-    </tr>
+    <table id = "decktable">
+        <tr>
+            <td>slide<input id = "slideindex"/>of</td>
+            <td id = "numslides"></td>
+        </tr>
     </table>
+    <table>
+        <tr>
+            <td>text:</td><td><input id = "textinput"/></td>
+        </tr>
+        <tr>
+            <td>link:</td><td><input id = "linkinput"/></td>
+        </tr>
+        <tr>
+            <td>image url:</td><td><input id = "imginput"/></td>
+        </tr>
 
+    </table>
         
     </div>
     <div id = "feedscroll">
@@ -801,6 +812,19 @@ document.getElementById("deletelinkbutton").onclick = function(){
     document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
 }
 
+document.getElementById("textinput").onchange = function(){
+    mainmap.array[mainmap.linkindex].text = this.value;
+    mainmap.draw();
+}
+
+document.getElementById("linkinput").onchange = function(){
+    mainmap.array[mainmap.linkindex].href = this.value;
+    mainmap.draw();
+}
+document.getElementById("imginput").onchange = function(){
+    mainmap.array[mainmap.linkindex].src = this.value;
+    mainmap.draw();
+}
 </script>
 <style>
 #slideindex{
