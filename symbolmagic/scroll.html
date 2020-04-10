@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+    <head>
+     <meta charset="utf-8"/>
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+
+<!-- 
+
+showdown is a javascript library which converts markdown to html.
+it lives here on the internet:
+http://showdownjs.com/
+
+Markdown is a lightweight language for creating formatted text on a computer, see the wikipedia entry here
+
+https://en.wikipedia.org/wiki/Markdown
+
+
+-->
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>
+    
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/wAAAAD//wAA/wAAAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMzMzQREREAAzMzRBEREQAAMzNEQREQAAAzNERBERAAAAM0REQRAAAAAEREREAAAAAAREREQAAAAAACIiIAAAAAAAIiIgAAAAAAACIgAAAAAAAAIiAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAQAAwAEAAOADAADgAwAA8AcAAPgPAAD4DwAA/B8AAPwfAAD+PwAA/j8AAP9/AAD//wAA" rel="icon" type="image/x-icon" />
+
+    </head>
+<body>
+    
+<div id = "scrollscroll"></div>
+
+
+<script>
+
+    
+    //get readme.md, convert to html and display
+    
+    var converter = new showdown.Converter();
+    // for more on options see here:
+    // https://github.com/showdownjs/showdown/wiki/Showdown-Options
+
+    readme_md = "";
+    rawhtml = "";
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            readme_md = this.responseText;
+            rawhtml = converter.makeHtml(readme_md);
+            document.getElementById("scrollscroll").innerHTML = rawhtml;
+        }
+    };
+    httpc.open("GET", "fileloader.php?filename=README.md", true);
+    httpc.send();
+
+</script>
+<style>
+    body{
+        overflow:hidden;
+    }
+    a{
+        color:#00ff00;
+    }
+    h1,h2,h3,h4{
+        margin:auto;
+        text-align:center;
+    }
+    #scrollscroll{
+        position:absolute;
+        left:0px;
+        right:0px;
+        top:0px;
+        bottom:0px;
+        overflow:scroll;
+        padding-left:1em;
+        padding-right:1em;
+        padding-bottom:5em;
+        font-size:2em;
+        font-family:courier;
+        color:#00ff00;
+        background-color:black;
+    }
+     img{
+        max-width:90%;
+        display:block;
+        margin:auto;
+    }
+</style>
+</body>
+</html>

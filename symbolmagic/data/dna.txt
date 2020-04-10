@@ -1,0 +1,64 @@
+{
+    "html": [
+        "README.md",
+        "agkeyboard.html",
+        "fork.html",
+        "index.html",
+        "keyboardeditor.html",
+        "scroll.html",
+        "scrolleditor.html",
+        "setup.html",
+        "styleeditor.html",
+        "symbolfeed.html"
+    ],
+    "javascript": [
+        "geometron.js"
+    ],
+    "iconsymbols": [
+        "delete.svg",
+        "edit.svg",
+        "feed.svg",
+        "fractal45.svg",
+        "geometron.svg",
+        "glyphs.svg",
+        "goldenshapesimage.png",
+        "goldenspiral.svg",
+        "goldentriangle.svg",
+        "help.svg",
+        "hexagon-iris.svg",
+        "hexagon-star.svg",
+        "isocrightimage.png",
+        "keyboard.svg",
+        "linkup.svg",
+        "loadsymbol.svg",
+        "octagon.svg",
+        "pentagoniris.svg",
+        "pentagram.svg",
+        "root3image.png",
+        "save.svg",
+        "scroll.svg",
+        "shapeset.svg",
+        "spiral.svg",
+        "squareimage.png",
+        "t1image.png"
+    ],
+    "data": [
+        "currentjson.txt",
+        "dna.txt",
+        "hypercube.js",
+        "keyboard.js"
+    ],
+    "php": [
+        "deletefile.txt",
+        "dir.txt",
+        "dnagenerator.txt",
+        "editor.txt",
+        "fileloader.txt",
+        "filesaver.txt",
+        "mkdir.txt",
+        "rdelete.txt",
+        "replicator.txt",
+        "text2php.txt",
+        "uploadsymbol.txt"
+    ]
+}

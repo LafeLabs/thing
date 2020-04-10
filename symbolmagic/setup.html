@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">    
+<head>
+        <meta charset="utf-8">
+
+    <!--
+
+        EVERYTHING IS PHYSICAL 
+        EVERYTHING IS FRACTAL
+        EVERYTHING IS RECURSIVE
+        NO MONEY 
+        MO MINING 
+        NO PROPERTY
+        LOOK AT THE INSECTS
+        LOOK AT THE FUNGI
+        LANGUAGE IS HOW THE MIND PARSES REALITY
+
+    -->
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+    <script src="jscode/geometron.js"></script>
+    <script src="data/hypercube.js"></script>
+    <script src="data/font.js"></script>
+    <script src="data/keyboard.js"></script>
+
+</head>
+<body> 
+
+    <!--
+        setup.html:
+
+        this is where the custom language of symbol.html is built
+        
+        key pad elements
+        image size and shape, map-to image size and shape
+        unit,x0,y0,theta0
+        backgroundimage
+
+        
+    -->
+
+<div id = "square">
+    <canvas id = "maincanvas"></canvas>
+    <img id = "backgroundimage"/>
+</div>
+<div id = "margin">
+    <div id = "marginsquare1">
+        <a href = "index.html">
+            <img style = "width:50px;" src = "iconsymbols/geometron.svg"/>
+        </a>
+        <a href = "map.html">
+            <img style = "width:50px;" src = "../iconsymbols/map.svg"/>
+        </a>
+
+        <a href = "keyboardeditor.html">
+                <img style = "width:50px;" src = "iconsymbols/keyboardicon.svg"/>
+        </a>    
+        <a href = "fonteditor.html">
+                <img style = "width:50px;" src = "iconsymbols/fonteditor.svg"/>
+        </a>    
+        <a href = "shapetableeditor.html">
+            <img style = "width:50px;" src = "iconsymbols/table.svg"/>
+        </a>               
+     
+        
+        <textarea id = "textout"></textarea>
+        <table id = "maintable">
+            <tr><td></td><td id = "resetbutton" class = "button" style = "text-align:center;border:solid;border-radius:5px;">RESET</td></tr>
+            <tr>
+                <td>x0:</td>
+                <td><input/></td>
+            </tr>
+            <tr>
+                <td>y0:</td>
+                <td><input/></td>
+            </tr>
+            <tr>
+                <td>unit:</td>
+                <td><input/></td>
+            </tr>        
+            <tr>
+                <td>theta0:</td>
+                <td><input /></td>
+            </tr>
+            <tr>
+                <td>width:</td>
+                <td><input/></td>
+            </tr>
+            <tr>
+                <td>height:</td>
+                <td><input/></td>
+            </tr>    
+            <tr>
+                <td>scale:</td>
+                <td><input/></td>
+            </tr>    
+            <tr>
+                <td>backgroundimage:</td>
+                <td><input/></td>
+            </tr>        
+        </table>
+    </div>
+    <div id = "marginsquare2">
+        <!--this is where the various keys and symbols go which are used to select what is edited-->
+        <div id = "sourcesymbols"></div>
+        <div id = "controlsymbols"></div>
+    </div>
+</div>
+
+
+<script>
+landscape = false;
+if(innerWidth > innerHeight){
+
+    squareWidth = innerHeight;
+    document.getElementById("margin").style.width = (innerWidth - squareWidth).toString() + "px";
+    document.getElementById("margin").style.height = (innerHeight).toString() + "px";
+    marginWidth = innerWidth - squareWidth;
+    landscape = true;
+    document.getElementById("marginsquare2").style.width = marginWidth.toString() + "px";
+    document.getElementById("marginsquare2").style.height = (0.5*squareWidth).toString() + "px";
+    document.getElementById("marginsquare1").style.width = marginWidth.toString() + "px";
+    document.getElementById("marginsquare1").style.height = (0.5*squareWidth).toString() + "px";
+
+}
+else{
+    
+    squareWidth = innerWidth;
+    document.getElementById("margin").style.height = (innerHeight - squareWidth).toString() + "px";
+    document.getElementById("margin").style.width = (innerWidth).toString() + "px";
+    marginWidth = innerHeight - squareWidth;
+    document.getElementById("marginsquare2").style.width = (0.5*squareWidth).toString() + "px";
+    document.getElementById("marginsquare2").style.height = marginWidth.toString() + "px";
+    document.getElementById("marginsquare1").style.width = (0.5*squareWidth).toString() + "px";
+    document.getElementById("marginsquare1").style.height = marginWidth.toString() + "px";
+
+}
+document.getElementById("square").style.width = (squareWidth).toString() + "px";
+document.getElementById("square").style.height = (squareWidth).toString() + "px";
+
+//GVM2d(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
+
+var newGVM = new GVM(0.4*squareWidth,0.4*squareWidth,0.2*squareWidth,-Math.PI/2,document.getElementById("maincanvas"),0.8*squareWidth,0.8*squareWidth,hypercube);
+
+newGVM.importbytecode(font);
+
+hypercube = [];
+for(var index = 0;index < 01377;index++){
+    if(newGVM.hypercube[index].length  > 0 ){
+        hypercube.push( "0" + index.toString(8) +  ":" + newGVM.hypercube[index]);
+    }
+}
+
+
+buttonSize = 30;
+
+function loadcontrolbuttons() {
+    for(var index = 0;index< currentjson.controlbuttons.length;index++) {    
+        var newcan = document.createElement("canvas");
+        document.getElementById("controlsymbols").appendChild(newcan);
+        newcan.classList.add("button");
+        newcan.classList.add("sourcebutton");
+        //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
+        var newg = new GVM(1,buttonSize - 1,buttonSize-2,-Math.PI/2,newcan,buttonSize,buttonSize,hypercube);
+        newg.importbytecode(currentjson.shapes);
+        newg.drawGlyph("0300,0" + (currentjson.controlbuttons[index] + 01000).toString(8) + ",");
+        newcan.id = "control0" + currentjson.controlbuttons[index].toString(8);
+
+        newcan.onclick = function() {
+            var thiscommand = parseInt(this.id.substring(7),8);
+            var newarray = [];
+            for(var index = 0;index < currentjson.controlbuttons.length;index++) {
+            if(currentjson.controlbuttons[index] != thiscommand){
+                newarray.push(currentjson.controlbuttons[index]);
+            } 
+            }
+            currentjson.controlbuttons = newarray;
+            this.parentElement.removeChild(this);
+            savejson();
+        }
+    }
+}
+
+
+function loadsymbolbuttons(){
+    for(var index = 0;index < 0377;index++) {       
+        if(newGVM.hypercube[index + 01000].length  > 1) {
+
+            var newcan = document.createElement("canvas");
+            document.getElementById("sourcesymbols").appendChild(newcan);
+            newcan.classList.add("button");
+            newcan.classList.add("sourcebutton");
+            //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
+            var newg = new GVM(1,buttonSize - 1,buttonSize-2,-Math.PI/2,newcan,buttonSize,buttonSize,hypercube);
+            newg.importbytecode(currentjson.shapes);
+            newg.importbytecode(font);
+            newg.drawGlyph("0300,0" + (index + 01000).toString(8) + ",");
+            newcan.id = "source0" + index.toString(8);
+
+            newcan.onclick = function(){
+
+                var newcan = document.createElement("canvas");
+                document.getElementById("controlsymbols").appendChild(newcan);
+                newcan.classList.add("button");
+                newcan.classList.add("sourcebutton");
+                newcan.id = "control" + this.id.substring(6);
+                //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
+                var newg = new GVM(1,buttonSize - 1,buttonSize-2,-Math.PI/2,newcan,buttonSize,buttonSize,hypercube);
+                newg.importbytecode(currentjson.shapes);
+                newg.importbytecode(font);
+
+                newg.drawGlyph("0300,0" + (01000 + parseInt(this.id.substring(6),8)).toString(8) + ",");
+                currentjson.controlbuttons.push( parseInt(this.id.substring(6) , 8) );
+
+                newcan.onclick = function() {
+                    var thiscommand = parseInt(this.id.substring(7),8);
+                    var newarray = [];
+                    for(var index = 0;index < currentjson.controlbuttons.length;index++) {
+                        if(currentjson.controlbuttons[index] != thiscommand){
+                            newarray.push(currentjson.controlbuttons[index]);
+                        } 
+                    }
+                    currentjson.controlbuttons = newarray;
+                    this.parentElement.removeChild(this);
+                    savejson();
+                }
+                savejson();
+            }
+        }
+    }
+}
+
+
+
+
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        currentjson = JSON.parse(this.responseText);
+        currentstyle = currentjson.style;
+        newGVM.style = currentstyle;
+    
+        newGVM.width = currentjson.width;
+        newGVM.height = currentjson.height;
+        newGVM.canvas2d.width = currentjson.width;
+        newGVM.canvas2d.height = currentjson.height;
+
+        newGVM.x0 = currentjson.x0rel*newGVM.width;
+        newGVM.y0 = currentjson.y0rel*newGVM.height;    
+        newGVM.unit = currentjson.unitrel*newGVM.width;    
+        newGVM.theta0 = currentjson.theta0;
+        newGVM.glyph = currentjson.glyph;    
+        newGVM.importbytecode(currentjson.shapes);
+
+        newGVM.drawGlyph("0300,0341,0200,");
+
+        filltable();
+        redraw();
+        loadsymbolbuttons();
+        loadcontrolbuttons();
+    }
+};
+httpc.open("GET", "fileloader.php?filename=data/currentjson.txt", true);
+httpc.send();    
+
+inputs = document.getElementById("maintable").getElementsByTagName("INPUT");
+
+inputs[0].onchange = function(){
+    currentjson.x0rel = parseFloat(this.value);
+    redraw();
+    savejson();    
+}
+inputs[1].onchange = function(){
+    currentjson.y0rel = parseFloat(this.value);
+    redraw();
+    savejson();    
+}
+
+inputs[2].onchange = function(){
+    currentjson.unitrel = parseFloat(this.value);
+    redraw();
+    savejson();    
+}
+
+inputs[3].onchange = function(){
+    currentjson.theta0 = parseFloat(this.value);
+    redraw();
+    savejson();    
+}
+
+inputs[4].onchange = function(){
+    currentjson.width = parseInt(this.value);
+    redraw();
+    savejson();    
+}
+
+inputs[5].onchange = function(){
+    currentjson.height = parseInt(this.value);
+    redraw();
+    savejson();    
+}
+
+inputs[6].onchange = function(){
+    currentjson.scale = parseFloat(this.value);
+    redraw();
+    savejson();    
+}
+
+inputs[7].onchange = function(){
+    currentjson.backgroundimage = this.value;
+    redraw();
+    savejson();    
+
+}
+
+
+
+
+function filltable(){
+    inputs[0].value = currentjson.x0rel;
+    inputs[1].value = currentjson.y0rel;
+    inputs[2].value = currentjson.unitrel;
+    inputs[3].value = currentjson.theta0;
+    inputs[4].value = currentjson.width;
+    inputs[5].value = currentjson.height;
+    inputs[6].value = currentjson.scale;
+    inputs[7].value = currentjson.backgroundimage;
+
+}
+
+function redraw(){
+    newGVM.canvas2d.width = currentjson.width;
+    newGVM.canvas2d.height = currentjson.height;
+    newGVM.width = currentjson.width;
+    newGVM.height = currentjson.height;
+    newGVM.x0 = currentjson.x0rel*newGVM.width;
+    newGVM.y0 = currentjson.y0rel*newGVM.height;    
+    newGVM.unit = currentjson.unitrel*newGVM.width;    
+    newGVM.theta0 = currentjson.theta0;
+    newGVM.drawGlyph("0300,0341,0200,");
+    document.getElementById("backgroundimage").src = currentjson.backgroundimage;
+    if(currentjson.backgroundimage.length >  1) {
+        document.getElementById("backgroundimage").style.display = "block";
+    }
+    else{
+        document.getElementById("backgroundimage").style.display = "none";
+    }
+}
+
+
+document.getElementById("resetbutton").onclick = function() {
+    reset();
+}
+
+function reset(){
+    currentjson.x0rel = 0.5;
+    currentjson.y0rel = 0.5;
+    currentjson.unitrel = 0.1;
+    currentjson.theta0 = -1.570796;
+    currentjson.width = squareWidth;
+    currentjson.height = squareWidth;
+    currentjson.scale = 1;
+    currentjson.backgroundimage = "";
+    filltable();
+    redraw();
+    savejson();
+
+}
+
+function savejson(){
+    
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", "filesaver.php", true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(JSON.stringify(currentjson,null,"  "))+"&filename=data/currentjson.txt");//send text to filesaver.php
+
+}
+
+</script>
+<style>
+body{
+    overflow:hidden;
+    font-family:courier;
+    font-size:16px
+
+}
+#square{
+    position:absolute;
+    left:0px;
+    top:0px;
+    overflow:hidden;
+}
+#margin{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+}
+#marginsquare1{
+    position:absolute;
+    left:0px;
+    top:0px;
+    overflow:scroll;
+}
+#marginsquare2{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    overflow:scroll;
+}
+
+#maincanvas{
+    border:solid;
+    z-index:2;
+}
+
+#spellcanvas{
+    border:solid;
+}
+#actioninput{
+    width:1em;
+}
+input,textarea{
+    font-family:courier;
+    font-size:16px
+
+}
+#spellscroll{
+    position:absolute;
+    overflow:scroll;
+    bottom:0px;
+    right:0px;
+    left:0px;
+    height:10%;
+}
+#printinput{
+    width:1em;
+}
+#stackinput{
+    width:1em;
+}
+#spellinput{
+    width:100%;
+}
+.button{
+    cursor:pointer;
+}
+.button:hover{
+    background-color: green;
+}
+.button:active{
+    background-color:yellow;
+}
+#sourcesymbols{
+    position:absolute;
+    left:0px;
+    top:0px;
+    bottom:0px;
+    right:50%;
+    border:solid;
+    overflow:scroll;
+}
+#controlsymbols{
+    position:absolute;
+    right:0px;
+    top:0px;
+    bottom:0px;
+    left:50%;
+    border:solid;
+    overflow:scroll;
+}
+.sourcebutton{
+    margin: 10px 10px 10px 10px;
+    border:solid;
+    border-width:0.5px;
+}
+#backgroundimage{
+    position:absolute;
+    display:none;
+    left:0px;
+    top:0px;
+    z-index:-2;
+    width:100%;
+    overflow:hidden;
+}
+</style>
+</body>
+</html>
