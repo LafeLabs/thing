@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <!--
+
+        EVERYTHING IS PHYSICAL 
+        EVERYTHING IS FRACTAL
+        EVERYTHING IS RECURSIVE
+        NO MONEY 
+        MO MINING 
+        NO PROPERTY
+        LOOK AT THE INSECTS
+        LOOK AT THE FUNGI
+        LANGUAGE IS HOW THE MIND PARSES REALITY
+
+    -->
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/wAAAAD//wAA/wAAAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMzMzQREREAAzMzRBEREQAAMzNEQREQAAAzNERBERAAAAM0REQRAAAAAEREREAAAAAAREREQAAAAAACIiIAAAAAAAIiIgAAAAAAACIgAAAAAAAAIiAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAQAAwAEAAOADAADgAwAA8AcAAPgPAAD4DwAA/B8AAPwfAAD+PwAA/j8AAP9/AAD//wAA" rel="icon" type="image/x-icon" />
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+
+</head>
+<body>    
+
+<a href = "../"><img src="iconsymbols/uplink.svg"/></a>
+
+<h2>Energy Units Calculator</h2>
+
+<table id = "maintable">
+    <tr>
+        <td><input/></td><td>J</td>
+    </tr>
+    <tr>
+        <td><input/></td><td>eV</td>
+    </tr>
+    <tr>
+        <td><input/></td><td>kWh</td>
+    </tr>
+    <tr>
+        <td><input/></td><td>BTU</td>
+    </tr>
+    <tr>
+        <td><input/></td><td>quad</td>
+    </tr>
+
+</table>
+
+<script>
+
+inputs = document.getElementById("maintable").getElementsByTagName("input");
+
+
+updateinputs(1);
+
+function updateinputs(joules){
+    inputs[0].value = joules;//joules
+    inputs[1].value = joules/1.60218e-19;//eV
+    inputs[2].value = joules/3.6e6;//kwh
+    inputs[3].value = 0.000947817*joules;//BTU
+    inputs[4].value = joules/1.055e18;//quad
+
+}
+
+inputs[0].onchange = function(){
+    joules = this.value;
+    updateinputs(joules);
+}
+inputs[1].onchange = function(){
+    joules = this.value*1.60218e-19;
+    updateinputs(joules);
+}
+inputs[2].onchange = function(){
+    joules = this.value*3.6e6;
+    updateinputs(joules);
+}
+inputs[3].onchange = function(){
+    joules = this.value/0.000947817;
+    updateinputs(joules);
+}
+inputs[4].onchange = function(){
+    joules = this.value*1.055e18;
+    updateinputs(joules);
+}
+
+
+</script>
+<style>
+input{
+    width:20em;
+}
+</style>
+</body>
+</html>

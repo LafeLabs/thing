@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8"/>
+<!--Stop Google:-->
+<META NAME="robots" CONTENT="noindex,nofollow">
+<!--un-comment to add math: -->
+<!-- 
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>
+            MathJax.Hub.Config({
+                tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                processEscapes: true,
+                processClass: "mathjax",
+                ignoreClass: "no-mathjax"
+                }
+            });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
+        </script>
+        
+-->
+
+</head>
+<body>
+<div id = "header">
+    <a href = "map.html">
+        <img src = "iconsymbols/map.svg"/>
+    </a>
+</div>
+<div id = "column1" class = "column">
+    Text:
+    <input id = "textinput" class = "no-mathjax"/>
+<div id  = "textscroll" class = "scroll"></div>
+</div>
+<div id = "column2" class = "column">
+    Image URL:
+    <input id = "srcinput"/>
+    <div id  = "srcscroll" class = "scroll"></div>
+</div>
+<div id = "column3" class = "column">
+    Links:
+    <input id = "hrefinput"/>
+    <div id  = "hrefscroll" class = "scroll"></div>
+</div>
+<script>
+
+textfeed = {};
+
+var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        textfeed = JSON.parse(this.responseText);
+        redrawtext();
+        redrawsrc();
+        redrawhref();        
+    }
+};
+httpc.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
+httpc.send();
+
+
+document.getElementById("textinput").onchange = function(){
+    textfeed.text.push(this.value);
+    redrawtext();
+    savejson();
+}
+
+textfieldindex = 0;
+document.getElementById("textinput").onkeydown = function(a) {
+    var charCode = a.keyCode || a.which;
+
+    if(charCode == 046){
+        //up arrow: next
+        textfieldindex++;
+        if(textfieldindex >= textfeed.text.length){
+            textfieldindex = -1;
+        }
+        if(textfieldindex != -1){
+            this.value = textfeed.text[textfieldindex];
+        }
+        else{
+            this.value = "";
+        }
+    }
+    if(charCode == 050){
+        //down arrow: prev
+        textfieldindex--;
+        if(textfieldindex < -1){
+            textfieldindex = textfeed.text.length - 1;
+        }
+        if(textfieldindex != -1){
+            this.value = textfeed.text[textfieldindex];
+        }
+        else{
+            this.value = "";
+        }
+    }
+}
+
+
+
+document.getElementById("srcinput").onchange = function(){
+    textfeed.src.push(this.value);
+    redrawsrc();
+    savejson();
+}
+
+srcfieldindex = 0;
+document.getElementById("srcinput").onkeydown = function(a) {
+    var charCode = a.keyCode || a.which;
+
+    if(charCode == 046){
+        //up arrow: next
+        srcfieldindex++;
+        if(srcfieldindex >= textfeed.src.length){
+            srcfieldindex = -1;
+        }
+        if(srcfieldindex != -1){
+            this.value = textfeed.src[srcfieldindex];
+        }
+        else{
+            this.value = "";
+        }
+    }
+    if(charCode == 050){
+        //down arrow: prev
+        srcfieldindex--;
+        if(srcfieldindex < -1){
+            srcfieldindex = textfeed.src.length - 1;
+        }
+        if(srcfieldindex != -1){
+            this.value = textfeed.src[srcfieldindex];
+        }
+        else{
+            this.value = "";
+        }
+    }
+}
+
+document.getElementById("hrefinput").onchange = function(){
+    textfeed.href.push(this.value);
+    redrawhref();
+    savejson();
+}
+
+hreffieldindex = 0;
+document.getElementById("hrefinput").onkeydown = function(a) {
+    var charCode = a.keyCode || a.which;
+
+    if(charCode == 046){
+        //up arrow: next
+        hreffieldindex++;
+        if(hreffieldindex >= textfeed.href.length){
+            hreffieldindex = -1;
+        }
+        if(hreffieldindex != -1){
+            this.value = textfeed.href[hreffieldindex];
+        }
+        else{
+            this.value = "";
+        }
+    }
+    if(charCode == 050){
+        //down arrow: prev
+        hreffieldindex--;
+        if(hreffieldindex < -1){
+            hreffieldindex = textfeed.href.length - 1;
+        }
+        if(hreffieldindex != -1){
+            this.value = textfeed.href[hreffieldindex];
+        }
+        else{
+            this.value = "";
+        }
+    }
+}
+
+
+function savejson(){
+    var url = "filesaver.php";        
+    var httpc2 = new XMLHttpRequest();
+    httpc2.open("POST", url, true);
+    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc2.send("data="+encodeURIComponent(JSON.stringify(textfeed,null,"    "))+"&filename=data/textfeed.txt");//send text to filesaver.php
+}
+
+function redrawtext(){
+    
+    document.getElementById("textscroll").innerHTML = "";
+    text = textfeed.text;
+    for(var index = 0;index < text.length;index++){
+        var newbox = document.createElement("div");
+        newbox.className = "box";
+        newbox.innerHTML = text[index];
+        var newbutton = document.createElement("IMG");
+        newbutton.src = "iconsymbols/delete.svg";
+        newbutton.className = "deletebutton";
+        newbutton.id = "text" + index.toString();
+        newbutton.onclick = function(){
+            //alert(this.id.substring(4));
+            var thisindex = this.id.substring(4);
+            var localtext = textfeed.text;
+            textfeed.text = [];
+            for(var textindex = 0;textindex < localtext.length;textindex++){
+                if(textindex != thisindex){
+                    textfeed.text.push(localtext[textindex]);
+                }
+            }
+            redrawtext();
+            savejson();
+        }
+        newbox.appendChild(newbutton);
+        document.getElementById("textscroll").appendChild(newbox);
+    }
+    //un comment for math
+    //MathJax.Hub.Typeset();
+
+}
+
+function redrawsrc(){
+    document.getElementById("srcscroll").innerHTML = "";
+    var src = textfeed.src;
+    for(var index = 0;index < src.length;index++){
+        var newbox = document.createElement("div");
+        newbox.className = "box";
+        
+        var newimg = document.createElement("img");
+        newimg.src = src[index];
+        newbox.appendChild(newimg);
+        
+        var newbutton = document.createElement("IMG");
+        newbutton.src = "iconsymbols/delete.svg";
+        newbutton.className = "deletebutton";
+        newbutton.id = "src" + index.toString();
+        newbutton.onclick = function(){
+            //alert(this.id.substring(4));
+            var thisindex = this.id.substring(3);
+            var localsrc = textfeed.src;
+            textfeed.src = [];
+            for(var srcindex = 0;srcindex < localsrc.length;srcindex++){
+                if(srcindex != thisindex){
+                    textfeed.src.push(localsrc[srcindex]);
+                }
+            }
+            redrawsrc();
+            savejson();
+        }
+        newbox.appendChild(newbutton);
+        document.getElementById("srcscroll").appendChild(newbox);
+    }
+    
+}
+function redrawhref(){
+    document.getElementById("hrefscroll").innerHTML = "";
+    var href = textfeed.href;
+    for(var index = 0;index < href.length;index++){
+        var newbox = document.createElement("div");
+        newbox.className = "box";
+        
+        var newa = document.createElement("A");
+        newa.href = href[index];
+        newa.innerHTML = href[index];
+        newbox.appendChild(newa);
+        
+        var newbutton = document.createElement("IMG");
+        newbutton.src = "iconsymbols/delete.svg";
+        newbutton.className = "deletebutton";
+        newbutton.id = "href" + index.toString();
+        newbutton.onclick = function(){
+            //alert(this.id.substring(4));
+            var thisindex = this.id.substring(4);
+            var localhref = textfeed.href;
+            textfeed.href = [];
+            for(var hrefindex = 0;hrefindex < localhref.length;hrefindex++){
+                if(hrefindex != thisindex){
+                    textfeed.href.push(localhref[hrefindex]);
+                }
+            }
+            redrawhref();
+            savejson();
+        }
+        newbox.appendChild(newbutton);
+        document.getElementById("hrefscroll").appendChild(newbox);
+    }
+    
+}
+</script>
+<style>
+body,input{
+    font-family:courier;
+    font-size:16px;
+}
+#header{
+    position:absolute;
+    padding-left:1em;
+    padding-top:0.5em;
+    left:0px;
+    right:0px;
+    top:0px;
+    height:110px;
+    background-color:#ffe5e5;
+}
+#header img{
+    width:100px;
+}
+.column{
+    position:absolute;
+    top:120px;
+    width:32%;
+    bottom:0px;
+}
+.column input{
+    width:97%;
+}
+#column1{
+    left:0px;
+}
+#column2{
+    left:33%;
+}
+#column3{
+    right:0px;
+}
+.box{
+    margin:1em;
+    padding:0.5em;
+    border:solid;
+    border-radius:0.5em;
+    font-size:16px;
+    font-family:courier;
+}
+.scroll{
+    position:absolute;
+    top:60px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    overflow:scroll;
+}
+.deletebutton{
+    width:20px;
+    cursor:pointer;
+}
+.deletebutton:hover{
+    background-color:#afffaf;
+}
+#srcscroll img{
+    width:100px;
+}
+</style>
+</body>
+</html>
