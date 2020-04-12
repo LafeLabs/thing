@@ -535,7 +535,7 @@ var httpc9 = new XMLHttpRequest();
             newuploadbox.appendChild(newimg);
             document.getElementById("feedscroll").appendChild(newuploadbox);
             newimg.onclick = function() {
-                var localurl = "uploadimages" + this.src.split("../uploadimages")[1];
+                var localurl = "../uploadimages" + this.src.split("uploadimages")[1];
                 mainmap.array[mainmap.linkindex].src = localurl;
                 mainmap.draw();
             }
