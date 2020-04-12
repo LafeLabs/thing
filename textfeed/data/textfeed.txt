@@ -1,12 +1,8 @@
 {
     "text": [
-        "some text",
-        "☕ ",
-        "slide 2",
-        "slide 3",
-        "slide 4",
-        "deck.html",
-        "foo"
+        "test",
+        "enter text in top and hit enter",
+        "text input"
     ],
     "src": [
         "iconsymbols/geometronthing.svg",
