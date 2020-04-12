@@ -1,19 +1,23 @@
 {
     "text": [
+        "$y = mx + b$",
         "$E=mc^2$",
         "$\\frac{\\partial^2F}{\\partial t^2} = c^2\\frac{\\partial^2F}{\\partial x^2}$",
         "$E\\Psi = H\\Psi$",
         "$E\\Psi = H\\Psi$",
         "$e^{\\pi i}=-1$",
-        "$d = 2\\pi r$",
-        "$E=mc^2 $"
+        "$E=mc^2 $",
+        "$x$"
     ],
     "src": [
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Eve_-_one_of_the_Beckhampton_Longstones_-_geograph.org.uk_-_1098184.jpg/120px-Eve_-_one_of_the_Beckhampton_Longstones_-_geograph.org.uk_-_1098184.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Ethandunmem.jpg/120px-Ethandunmem.jpg",
         "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/GabbroRockCreek1.jpg/440px-GabbroRockCreek1.jpg",
         "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/%22This_means_something._This_is_important%22_%2819967592275%29.jpg/2560px-%22This_means_something._This_is_important%22_%2819967592275%29.jpg",
         "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Ametrin_from_Bolivia.jpg/266px-Ametrin_from_Bolivia.jpg",
         "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/ArideGranite1.jpg/440px-ArideGranite1.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Stonehenge2007_07_30.jpg/440px-Stonehenge2007_07_30.jpg"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Stonehenge2007_07_30.jpg/440px-Stonehenge2007_07_30.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Adam_-_one_of_the_Beckhampton_Longstones_-_geograph.org.uk_-_1098202.jpg/120px-Adam_-_one_of_the_Beckhampton_Longstones_-_geograph.org.uk_-_1098202.jpg"
     ],
     "href": []
 }

@@ -104,10 +104,29 @@ document.getElementById("mathinput").value = "";
 mainmap = new Map(squareWidth,squareWidth,document.getElementById("mainmap"));
 
 document.getElementById("mathinput").onchange = function(){
-    textfeed.text.push(this.value);
+    var temptext = [];
+    temptext.push(this.value);
+    for(var index = 0;index < textfeed.text.length;index++){
+        temptext.push(textfeed.text[index]);
+    }
+    textfeed.text = temptext;
+
     redrawtext();
     savejson();
 }
+
+document.getElementById("rockinput").onchange = function(){
+    var tempsrc = [];
+    tempsrc.push(this.value);
+    for(var index = 0;index < textfeed.src.length;index++){
+        tempsrc.push(textfeed.src[index]);
+    }
+    textfeed.src = tempsrc;
+    redrawsrc();
+    savejson();
+}
+
+
 
 textfieldindex = 0;
 document.getElementById("mathinput").onkeydown = function(a) {
