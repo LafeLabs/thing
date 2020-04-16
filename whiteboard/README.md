@@ -1,2 +1,2 @@
-Virtual white board on top of literal whiteboard
+Virtual white board on top of physical whiteboard
 
