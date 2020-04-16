@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <!--
+
+        EVERYTHING IS PHYSICAL 
+        EVERYTHING IS FRACTAL
+        EVERYTHING IS RECURSIVE
+        NO MONEY 
+        MO MINING 
+        NO PROPERTY
+        LOOK AT THE INSECTS
+        LOOK AT THE FUNGI
+        LANGUAGE IS HOW THE MIND PARSES REALITY
+
+    -->
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/wAAAAD//wAA/wAAAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMzMzQREREAAzMzRBEREQAAMzNEQREQAAAzNERBERAAAAM0REQRAAAAAEREREAAAAAAREREQAAAAAACIiIAAAAAAAIiIgAAAAAAACIgAAAAAAAAIiAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAQAAwAEAAOADAADgAwAA8AcAAPgPAAD4DwAA/B8AAPwfAAD+PwAA/j8AAP9/AAD//wAA" rel="icon" type="image/x-icon" />
+
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+
+</head>
+<body>    
+<div id = "square">
+    <h1 id = "title">Head of Trail from Vine to Maple Lawn</h1>
+    <img id = "backgroundimage" src = "https://i.imgur.com/LKzo3KC.png"/>
+    <img id = "editbutton" src = "iconsymbols/edit.svg" class = "button"/>
+    <table id = "squarecontrol">
+        <tr>
+            <td>Title:</td><td><input id = "titleinput"/></td>
+        </tr>
+        <tr>
+            <td>Image URL:</td><td><input id = "imgurlinput"/></td>
+        </tr>
+        <tr>
+            <td>Text Color:</td><td><input id = "colorinput"/></td>
+        </tr>
+        <tr>
+            <td>Font Size[px]:</td><td><input id = "fontsizeinput"/></td>
+        </tr>
+    </table>
+    <textarea id = "wall"></textarea>
+</div>
+<div id = "margin">
+<table id = "margintable">
+    <tr>
+        <td>Text:</td><td><input id = "textinput"/></td>
+    </tr>
+</table>    
+    <div id = "textscroll">
+        
+    </div>
+</div>
+
+<script>
+document.getElementById("squarecontrol").style.display =  "none";
+
+landscape = false;
+if(innerWidth > innerHeight){
+
+    squareWidth = innerHeight;
+    marginWidth = innerWidth - squareWidth;
+    landscape = true;
+    document.getElementById("square").style.width = squareWidth.toString() + "px";
+    document.getElementById("square").style.height = squareWidth.toString() + "px";
+    
+    document.getElementById("margin").style.width = marginWidth.toString() + "px";
+    document.getElementById("margin").style.height = innerHeight.toString() + "px";    
+    
+}
+else{
+    
+    squareWidth = innerWidth;
+    marginWidth = innerHeight - squareWidth;
+    document.getElementById("square").style.width = squareWidth.toString() + "px";
+    document.getElementById("square").style.height = squareWidth.toString() + "px";
+    document.getElementById("margin").style.width = innerWidth.toString() + "px";
+    document.getElementById("margin").style.height = marginWidth.toString() + "px";    
+
+}
+
+
+var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        textfeed = JSON.parse(this.responseText);
+        redrawtext();
+    }
+};
+httpc.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
+httpc.send();
+
+readme_md = "";
+
+var httpc2 = new XMLHttpRequest();
+httpc2.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        readme_md = this.responseText;
+        document.getElementById("wall").value = readme_md;
+    }
+};
+
+httpc2.open("GET", "fileloader.php?filename=README.md", true);
+httpc2.send();
+
+
+document.getElementById("textinput").value = "";
+
+
+document.getElementById("textinput").onchange = function(){
+    var temptext = [];
+    temptext.push(this.value);
+    for(var index = 0;index < textfeed.text.length;index++){
+        temptext.push(textfeed.text[index]);
+    }
+    textfeed.text = temptext;
+
+    redrawtext();
+    savejson();
+}
+
+
+function redrawtext(){
+    
+    document.getElementById("textscroll").innerHTML = "";
+    text = textfeed.text;
+    for(var index = 0;index < text.length;index++){
+        var newbox = document.createElement("div");
+        newbox.className = "box";
+
+        var newspan = document.createElement("span");
+        newspan.innerHTML = text[index];
+
+//        newbox.innerHTML = "foo";
+//        newbox.innerHTML = text[index];
+
+        var newbutton = document.createElement("IMG");
+        newbutton.src = "iconsymbols/delete.svg";
+        newbutton.classList.add("button");
+        newbutton.classList.add("deletebutton");
+        newbutton.id = "text" + index.toString();
+        newbutton.onclick = function(){
+            //alert(this.id.substring(4));
+            var thisindex = this.id.substring(4);
+            var localtext = textfeed.text;
+            textfeed.text = [];
+            for(var textindex = 0;textindex < localtext.length;textindex++){
+                if(textindex != thisindex){
+                    textfeed.text.push(localtext[textindex]);
+                }
+            }
+            redrawtext();
+            savejson();
+        }
+        newbox.appendChild(newbutton);
+        newbox.appendChild(newspan);
+        document.getElementById("textscroll").appendChild(newbox);
+    }
+    //un comment for math
+   // MathJax.Hub.Typeset();
+
+}
+
+function savejson(){
+    var url = "filesaver.php";        
+    var httpc2 = new XMLHttpRequest();
+    httpc2.open("POST", url, true);
+    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc2.send("data="+encodeURIComponent(JSON.stringify(textfeed,null,"    "))+"&filename=data/textfeed.txt");//send text to filesaver.php
+}
+
+
+document.getElementById("wall").onkeyup = function() {
+        readme_md = this.value;
+        data = encodeURIComponent(this.value);
+        var httpc = new XMLHttpRequest();
+        var url = "filesaver.php";        
+        httpc.open("POST", url, true);
+        httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+        httpc.send("data="+data+"&filename=README.md");//send text to filesaver.php
+}
+document.getElementById("editbutton").onclick = function(){
+    if(document.getElementById("squarecontrol").style.display ==  "none"){
+        document.getElementById("squarecontrol").style.display =  "block";
+    }
+    else{
+        document.getElementById("squarecontrol").style.display =  "none";
+    }
+}
+
+</script>
+<style>
+.box{
+    font-size:30px;
+}
+#wall{
+    position:absolute;
+    left:5%;
+    top:29%;
+    font-family:helvetica;
+    font-size:26px;
+    color:yellow;
+    width:90%;
+    height:70%;
+    background-color:rgba(0,0,0,0);
+
+}
+#squarecontrol{
+    display:none;
+    position:absolute;
+    right:0px;
+    top:0px;
+    z-index:1;
+}
+#editbutton{
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:50px;
+}
+.button{
+    cursor:pointer;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
+}
+body{
+    overflow:hidden;
+}
+#margin{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    overflow:scroll;
+}
+#square{
+    position:absolute;
+    left:0px;
+    top:0px;
+}
+#title{
+    position:absolute;
+    z-index:-2;
+    top:0px;
+    left:0px;
+    right:0px;
+    text-align:center;
+    font-size:2em;
+    color:black;
+    font-family:Helvetica;
+}
+#backgroundimage{
+    position:absolute;
+    left:0px;
+    top:0px;
+    z-index:-4;
+    width:100%;
+}
+.deletebutton{
+    width:25px;
+}
+#textinput{
+    width:14em;
+    font-family:courier;
+    font-size:26px;
+}
+#margintable{
+    font-size:26px;
+    font-family:courier;
+}
+#textscroll{
+        padding-left:1em;
+
+}
+</style>
+</body>
+</html>
