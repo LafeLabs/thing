@@ -1,0 +1,7 @@
+{
+    "title": "Trailhead of path from The Vine to Maple Lawn",
+    "color": "yellow",
+    "titlecolor": "blue",
+    "markerimage": "https://i.imgur.com/LKzo3KC.png",
+    "fontsize": 30
+}

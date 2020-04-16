@@ -27,9 +27,13 @@
     <h1 id = "title">Head of Trail from Vine to Maple Lawn</h1>
     <img id = "backgroundimage" src = "https://i.imgur.com/LKzo3KC.png"/>
     <img id = "editbutton" src = "iconsymbols/edit.svg" class = "button"/>
+    <a id = "uplink" href = "../"><img src = "iconsymbols/uplink.svg"/></a>
     <table id = "squarecontrol">
         <tr>
             <td>Title:</td><td><input id = "titleinput"/></td>
+        </tr>
+        <tr>
+            <td>Title Color:</td><td><input id = "titlecolorinput"/></td>
         </tr>
         <tr>
             <td>Image URL:</td><td><input id = "imgurlinput"/></td>
@@ -39,6 +43,9 @@
         </tr>
         <tr>
             <td>Font Size[px]:</td><td><input id = "fontsizeinput"/></td>
+        </tr>
+        <tr>
+            <td class = "button" id = "resetbutton">RESET</td><td></td>
         </tr>
     </table>
     <textarea id = "wall"></textarea>
@@ -56,6 +63,9 @@
 
 <script>
 document.getElementById("squarecontrol").style.display =  "none";
+
+squareinputs = document.getElementById("squarecontrol").getElementsByTagName("INPUT");
+
 
 landscape = false;
 if(innerWidth > innerHeight){
@@ -104,6 +114,36 @@ httpc2.onreadystatechange = function() {
 
 httpc2.open("GET", "fileloader.php?filename=README.md", true);
 httpc2.send();
+
+
+marker = {};
+var httpc3 = new XMLHttpRequest();
+httpc3.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        marker = JSON.parse(this.responseText);
+        redrawmarker();
+        squareinputs[0].value = marker.title;
+        squareinputs[1].value = marker.titlecolor;
+        squareinputs[2].value = marker.markerimage;
+        squareinputs[3].value = marker.color;
+        squareinputs[4].value = marker.fontsize;
+    }
+};
+
+
+httpc3.open("GET", "fileloader.php?filename=data/marker.txt", true);
+httpc3.send();
+
+function redrawmarker(){
+    document.getElementById("backgroundimage").src = marker.markerimage;    
+
+    document.getElementById("title").innerHTML = marker.title;
+    document.getElementById("title").style.color = marker.titlecolor;
+    document.getElementById("wall").style.color = marker.color;
+    document.getElementById("wall").style.fontSize = marker.fontsize.toString() + "px";
+    
+    
+}
 
 
 document.getElementById("textinput").value = "";
@@ -170,7 +210,13 @@ function savejson(){
     httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc2.send("data="+encodeURIComponent(JSON.stringify(textfeed,null,"    "))+"&filename=data/textfeed.txt");//send text to filesaver.php
 }
-
+function savemarker(){
+    var url = "filesaver.php";        
+    var httpc2 = new XMLHttpRequest();
+    httpc2.open("POST", url, true);
+    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc2.send("data="+encodeURIComponent(JSON.stringify(marker,null,"    "))+"&filename=data/marker.txt");//send text to filesaver.php
+}
 
 document.getElementById("wall").onkeyup = function() {
         readme_md = this.value;
@@ -188,6 +234,50 @@ document.getElementById("editbutton").onclick = function(){
     else{
         document.getElementById("squarecontrol").style.display =  "none";
     }
+}
+
+
+squareinputs[0].onchange = function(){
+    marker.title = this.value;
+    redrawmarker();
+    savemarker();
+} 
+
+squareinputs[1].onchange = function(){
+    marker.titlecolor = this.value;
+    redrawmarker();
+    savemarker();
+} 
+squareinputs[2].onchange = function(){
+    marker.markerimage = this.value;
+    redrawmarker();
+    savemarker();
+} 
+squareinputs[3].onchange = function(){
+    marker.color = this.value;
+    redrawmarker();
+    savemarker();
+} 
+squareinputs[4].onchange = function(){
+    marker.fontsize = parseInt(this.value);
+    redrawmarker();
+    savemarker();
+} 
+
+marker0 = {
+    "title": "Trailhead of path from The Vine to Maple Lawn",
+    "color": "yellow",
+    "titlecolor": "blue",
+    "markerimage": "https://i.imgur.com/LKzo3KC.png",
+    "fontsize": 30
+}
+
+
+document.getElementById("resetbutton").onclick = function(){
+    marker = marker0;
+    redrawmarker();
+    savemarker();
+
 }
 
 </script>
@@ -214,10 +304,21 @@ document.getElementById("editbutton").onclick = function(){
     top:0px;
     z-index:1;
 }
+#squarecontrol input{
+    width:25em;
+}
 #editbutton{
     position:absolute;
     left:0px;
     top:0px;
+    width:50px;
+}
+#uplink{
+    position:absolute;
+    right:0px;
+    top:0px;
+}
+#uplink img{
     width:50px;
 }
 .button{
