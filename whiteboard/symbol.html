@@ -302,8 +302,6 @@ document.getElementById("savebutton").onclick = function() {
     }
 
     invisibleGVM.drawGlyph(cleanGlyph);
-    
-    
     httpc.send("data="+encodeURIComponent(invisibleGVM.pngcode(invisibleGVM).substring(22))+"&filename=symbolfeed/symbol" + timestamp +  ".png");//send text to filesaver.php
 
         //need to inject json data here ... 
