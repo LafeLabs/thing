@@ -104,6 +104,7 @@
         "currentMap.txt",
         "currentjson.txt",
         "dna.txt",
+        "marker.txt",
         "textfeed.txt"
     ],
     "php": [
