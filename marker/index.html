@@ -45,6 +45,9 @@
             <td>Font Size[px]:</td><td><input id = "fontsizeinput"/></td>
         </tr>
         <tr>
+            <td>background color:</td><td><input id = "backgroundinput"/></td>
+        </tr>
+        <tr>
             <td class = "button" id = "resetbutton">RESET</td><td></td>
         </tr>
     </table>
@@ -127,6 +130,8 @@ httpc3.onreadystatechange = function() {
         squareinputs[2].value = marker.markerimage;
         squareinputs[3].value = marker.color;
         squareinputs[4].value = marker.fontsize;
+        squareinputs[5].value = marker.backgroundcolor;
+
     }
 };
 
@@ -141,7 +146,7 @@ function redrawmarker(){
     document.getElementById("title").style.color = marker.titlecolor;
     document.getElementById("wall").style.color = marker.color;
     document.getElementById("wall").style.fontSize = marker.fontsize.toString() + "px";
-    
+    document.getElementById("wall").style.backgroundColor = marker.backgroundcolor;
     
 }
 
@@ -263,13 +268,19 @@ squareinputs[4].onchange = function(){
     redrawmarker();
     savemarker();
 } 
+squareinputs[5].onchange = function(){
+    marker.backgroundcolor = this.value;
+    redrawmarker();
+    savemarker();
+} 
 
 marker0 = {
     "title": "Trailhead of path from The Vine to Maple Lawn",
     "color": "yellow",
     "titlecolor": "blue",
     "markerimage": "https://i.imgur.com/LKzo3KC.png",
-    "fontsize": 30
+    "fontsize": 30,
+    "backgroundcolor":"rgba(0,0,0,0)"
 }
 
 

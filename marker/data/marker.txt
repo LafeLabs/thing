@@ -3,5 +3,6 @@
     "color": "yellow",
     "titlecolor": "blue",
     "markerimage": "https://i.imgur.com/LKzo3KC.png",
-    "fontsize": 30
+    "fontsize": 30,
+    "backgroundcolor": "rgba(0,0,0,.7)"
 }
