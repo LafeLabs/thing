@@ -48,44 +48,181 @@
     ],
     [
         {
-            "x": 0.09818731117824774,
-            "y": 0.09818731117824774,
-            "w": 1.040785498489426,
+            "x": 0.008353221957040573,
+            "y": -0.002386634844868735,
+            "w": 0.7398568019093079,
             "angle": 0,
             "text": "slide 2",
             "href": "",
-            "src": ""
-        }
-    ],
-    [
-        {
-            "x": 0.18126888217522658,
-            "y": 0.10876132930513595,
-            "w": 0.5800604229607251,
-            "angle": -1,
-            "text": "slide 3",
-            "href": "",
-            "src": "iconsymbols/actiontablet.svg"
+            "src": "https://i.imgur.com/TdcvOGJ.png"
         },
         {
-            "x": 0.41408114558472553,
-            "y": 0.09069212410501193,
-            "w": 0.03699284009546539,
-            "angle": -1,
-            "text": "slide 3",
+            "x": 0.35918854415274465,
+            "y": 0.23747016706443913,
+            "w": 0.6754176610978521,
+            "angle": 0,
+            "text": "slide 2",
             "href": "",
-            "src": "iconsymbols/geometronthing.svg"
+            "src": "https://i.imgur.com/uubz1yy.png"
+        },
+        {
+            "x": -0.06205250596658711,
+            "y": 0.4522673031026253,
+            "w": 0.5584725536992841,
+            "angle": 0,
+            "text": "slide 2",
+            "href": "",
+            "src": "https://i.imgur.com/VslxtQL.png"
+        },
+        {
+            "x": 0.09665871121718377,
+            "y": 0.29236276849642007,
+            "w": 0.14081145584725538,
+            "angle": 0,
+            "text": "slide 2",
+            "href": "",
+            "src": "iconsymbols/arrow.svg"
+        },
+        {
+            "x": 0.5155131264916468,
+            "y": 0.36873508353221957,
+            "w": 0.14081145584725538,
+            "angle": 57,
+            "text": "slide 2",
+            "href": "",
+            "src": "iconsymbols/arrow.svg"
+        },
+        {
+            "x": 0.16348448687350836,
+            "y": 0.5250596658711217,
+            "w": 0.14081145584725538,
+            "angle": 57,
+            "text": "slide 2",
+            "href": "",
+            "src": "iconsymbols/arrow.svg"
         }
     ],
     [
         {
-            "x": 0.3233890214797136,
-            "y": 0.02386634844868735,
+            "x": -0.19809069212410502,
+            "y": -0.028639618138424822,
+            "w": 0.6515513126491647,
+            "angle": 0,
+            "text": "foo",
+            "href": "",
+            "src": "https://i.imgur.com/VslxtQL.png"
+        },
+        {
+            "x": 0.20047732696897375,
+            "y": 0.3496420047732697,
+            "w": 0.6885441527446301,
+            "angle": 0,
+            "text": "slide 3",
+            "href": "",
+            "src": "https://i.imgur.com/ZYhcndd.png"
+        },
+        {
+            "x": 0.4498806682577566,
+            "y": -0.059665871121718374,
+            "w": 0.6420047732696897,
+            "angle": 0,
+            "text": "slide 3",
+            "href": "",
+            "src": "https://i.imgur.com/huV713u.png"
+        },
+        {
+            "x": 0.08711217183770883,
+            "y": 0.14200477326968974,
+            "w": 0.17899761336515513,
+            "angle": 0,
+            "text": "foo",
+            "href": "",
+            "src": "iconsymbols/arrow.svg"
+        },
+        {
+            "x": 0.4379474940334129,
+            "y": 0.522673031026253,
+            "w": 0.17899761336515513,
+            "angle": 0,
+            "text": "foo",
+            "href": "",
+            "src": "iconsymbols/arrow.svg"
+        },
+        {
+            "x": 0.5369928400954654,
+            "y": 0.22673031026252982,
+            "w": 0.17899761336515513,
+            "angle": 0,
+            "text": "foo",
+            "href": "",
+            "src": "iconsymbols/arrow.svg"
+        }
+    ],
+    [
+        {
+            "x": -0.05608591885441527,
+            "y": 0.025059665871121718,
             "w": 0.986873508353222,
             "angle": 0,
-            "text": "slide 4",
+            "text": "the vine sat photo",
             "href": "",
-            "src": ""
+            "src": "https://i.imgur.com/huV713u.png"
+        },
+        {
+            "x": 0.5548926014319809,
+            "y": 0.2911694510739857,
+            "w": 0.4343675417661098,
+            "angle": 0,
+            "text": "the vine sat photo",
+            "href": "",
+            "src": "https://i.imgur.com/VP0eswH.jpg"
+        },
+        {
+            "x": 0.3042959427207637,
+            "y": 0.4522673031026253,
+            "w": 0.19212410501193317,
+            "angle": 149,
+            "text": "the vine sat photo",
+            "href": "",
+            "src": "iconsymbols/arrow.svg"
+        },
+        {
+            "x": 0.6133651551312649,
+            "y": 0.6217183770883055,
+            "w": 0.19212410501193317,
+            "angle": 83,
+            "text": "the vine sat photo",
+            "href": "",
+            "src": "iconsymbols/arrow.svg"
+        }
+    ],
+    [
+        {
+            "x": -0.6431980906921241,
+            "y": 0.18854415274463007,
+            "w": 1.9916467780429594,
+            "angle": 87,
+            "text": "the vine sat photo",
+            "href": "",
+            "src": "iconsymbols/arrow.svg"
+        },
+        {
+            "x": 0.3269689737470167,
+            "y": -0.4200477326968974,
+            "w": 0.8198090692124105,
+            "angle": 0,
+            "text": "the vine sat photo",
+            "href": "",
+            "src": "https://i.imgur.com/Aj9V8x1.jpg"
+        },
+        {
+            "x": -0.021479713603818614,
+            "y": 0.1324582338902148,
+            "w": 0.36634844868735084,
+            "angle": 0,
+            "text": "the vine sat photo",
+            "href": "",
+            "src": "https://i.imgur.com/TtdgpKz.png"
         }
     ]
 ]
