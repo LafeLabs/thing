@@ -1,7 +1,7 @@
 {
     "image": {
         "url": "https://i.imgur.com/LKzo3KC.png",
-        "width": "60%",
+        "width": "70%",
         "left": "10%",
         "top": "10%"
     },
@@ -11,12 +11,12 @@
         "color": "black"
     },
     "textarea": {
-        "left": "20%",
+        "left": "10%",
         "top": "10%",
-        "width": "60%",
-        "height": "50%",
+        "width": "70%",
+        "height": "70%",
         "fontSize": "35px",
-        "color": "red",
-        "opacity": ".7"
+        "color": "yellow",
+        "opacity": "0.76"
     }
 }
