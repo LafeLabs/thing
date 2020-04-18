@@ -1,8 +1,22 @@
 {
-    "title": "Marker",
-    "color": "yellow",
-    "titlecolor": "black",
-    "markerimage": "https://i.imgur.com/LKzo3KC.png",
-    "fontsize": 26,
-    "backgroundcolor": "rgba(0,0,0,.7)"
+    "image": {
+        "url": "https://i.imgur.com/LKzo3KC.png",
+        "width": "60%",
+        "left": "10%",
+        "top": "10%"
+    },
+    "title": {
+        "text": "Marker Title",
+        "fontSize": "50px",
+        "color": "black"
+    },
+    "textarea": {
+        "left": "20%",
+        "top": "10%",
+        "width": "60%",
+        "height": "50%",
+        "fontSize": "35px",
+        "color": "red",
+        "opacity": ".7"
+    }
 }

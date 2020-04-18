@@ -29,26 +29,50 @@
     <a id = "uplink" href = "../"><img src = "iconsymbols/uplink.svg"/></a>
     <textarea id = "wall"></textarea>
 
-
     <table id = "controltable">
         <tr>
-            <td>Title:</td><td><input id = "titleinput"/></td>
+          <td>Title:</td><td><input/></td>
         </tr>
         <tr>
-            <td>Title Color:</td><td><input id = "titlecolorinput"/></td>
+          <td>Title Color:</td><td><input/></td>
         </tr>
         <tr>
-            <td>Image URL:</td><td><input id = "imgurlinput"/></td>
+          <td>Title Size[px]:</td><td><input/></td>
         </tr>
         <tr>
-            <td>Text Color:</td><td><input id = "colorinput"/></td>
+          <td>Image URL:</td><td><input/></td>
         </tr>
         <tr>
-            <td>Font Size[px]:</td><td><input id = "fontsizeinput"/></td>
+          <td>Image width[%]:</td><td><input/></td>
         </tr>
         <tr>
-            <td>background color:</td><td><input id = "backgroundinput"/></td>
+          <td>Image left[%]:</td><td><input/></td>
         </tr>
+        <tr>
+          <td>Image top[%]:</td><td><input/></td>
+        </tr>
+        <tr>
+            <td>Wall Text Color[%]:</td><td><input/></td>
+        </tr>
+        <tr>
+            <td>Wall Text Size[px]:</td><td><input/></td>
+        </tr>
+        <tr>
+            <td>Wall Opacity[0.0-1.0]:</td><td><input/></td>
+        </tr>
+        <tr>
+            <td>Wall Left[%]:</td><td><input/></td>
+        </tr>
+        <tr>
+            <td>Wall Top[%]:</td><td><input/></td>
+        </tr>
+        <tr>
+            <td>Wall Width[%]:</td><td><input/></td>
+        </tr>
+        <tr>
+            <td>Wall Height[%]:</td><td><input/></td>
+        </tr>
+        
         <tr>
             <td class = "button" id = "resetbutton">RESET</td><td></td>
         </tr>
@@ -59,13 +83,13 @@ document.getElementById("controltable").style.display =  "none";
 
 inputs = document.getElementById("controltable").getElementsByTagName("INPUT");
 
-readme_md = "";
+wall = "";
 
 var httpc2 = new XMLHttpRequest();
 httpc2.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        readme_md = this.responseText;
-        document.getElementById("wall").value = readme_md;
+        wall = this.responseText;
+        document.getElementById("wall").value = wall;
     }
 };
 
@@ -79,12 +103,22 @@ httpc3.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         marker = JSON.parse(this.responseText);
         redrawmarker();
-        inputs[0].value = marker.title;
-        inputs[1].value = marker.titlecolor;
-        inputs[2].value = marker.markerimage;
-        inputs[3].value = marker.color;
-        inputs[4].value = marker.fontsize;
-        inputs[5].value = marker.backgroundcolor;
+        inputs[0].value = marker.title.text;
+        inputs[1].value = marker.title.color;
+        inputs[2].value = parseInt(marker.title.fontSize).toString();
+
+        inputs[3].value = marker.image.url;
+        inputs[4].value = parseInt(marker.image.width).toString();
+        inputs[5].value = parseInt(marker.image.left).toString();
+        inputs[6].value = parseInt(marker.image.top).toString();
+        inputs[7].value = marker.textarea.color;
+        inputs[8].value = parseInt(marker.textarea.fontSize).toString();
+        inputs[9].value = marker.textarea.opacity;
+        inputs[10].value = parseInt(marker.textarea.left).toString();
+        inputs[11].value = parseInt(marker.textarea.top).toString();
+        inputs[12].value = parseInt(marker.textarea.width).toString();
+        inputs[13].value = parseInt(marker.textarea.height).toString();
+
 
     }
 };
@@ -93,12 +127,25 @@ httpc3.open("GET", "fileloader.php?filename=data/marker.txt", true);
 httpc3.send();
 
 function redrawmarker(){
-    document.getElementById("backgroundimage").src = marker.markerimage;    
-    document.getElementById("title").innerHTML = marker.title;
-    document.getElementById("title").style.color = marker.titlecolor;
-    document.getElementById("wall").style.color = marker.color;
-    document.getElementById("wall").style.fontSize = marker.fontsize.toString() + "px";
-    document.getElementById("wall").style.backgroundColor = marker.backgroundcolor;
+    document.getElementById("backgroundimage").src = marker.image.url;
+
+    document.getElementById("backgroundimage").style.width = marker.image.width;
+    document.getElementById("backgroundimage").style.left = marker.image.left;
+    document.getElementById("backgroundimage").style.top = marker.image.top;
+    
+    document.getElementById("title").innerHTML = marker.title.text;
+    document.getElementById("title").style.color = marker.title.color;
+    document.getElementById("title").style.fontSize = marker.title.fontSize;
+
+    document.getElementById("wall").style.left = marker.textarea.left;
+    document.getElementById("wall").style.top = marker.textarea.top;
+    document.getElementById("wall").style.width = marker.textarea.width;
+    document.getElementById("wall").style.height = marker.textarea.height;
+
+    document.getElementById("wall").style.color = marker.textarea.color;
+    document.getElementById("wall").style.fontSize = marker.textarea.fontSize.toString() + "px";
+    document.getElementById("wall").style.backgroundColor = "rgba(0,0,0," + marker.textarea.opacity +")";
+    
     
 }
 
@@ -112,7 +159,7 @@ function savemarker(){
 }
 
 document.getElementById("wall").onkeyup = function() {
-        readme_md = this.value;
+        wall = this.value;
         data = encodeURIComponent(this.value);
         var httpc = new XMLHttpRequest();
         var url = "filesaver.php";        
@@ -132,51 +179,108 @@ document.getElementById("editbutton").onclick = function(){
 
 
 inputs[0].onchange = function(){
-    marker.title = this.value;
+    marker.title.text = this.value;
     redrawmarker();
     savemarker();
 } 
-
 inputs[1].onchange = function(){
-    marker.titlecolor = this.value;
+    marker.title.color = this.value;
     redrawmarker();
     savemarker();
 } 
 inputs[2].onchange = function(){
-    marker.markerimage = this.value;
+    marker.title.fontSize = this.value.toString() + "px";
     redrawmarker();
     savemarker();
 } 
 inputs[3].onchange = function(){
-    marker.color = this.value;
+    marker.image.url = this.value;
     redrawmarker();
     savemarker();
 } 
 inputs[4].onchange = function(){
-    marker.fontsize = parseInt(this.value);
+    marker.image.width = this.value.toString() + "%";
     redrawmarker();
     savemarker();
 } 
 inputs[5].onchange = function(){
-    marker.backgroundcolor = this.value;
+    marker.image.left = this.value.toString() + "%";
+    redrawmarker();
+    savemarker();
+} 
+inputs[6].onchange = function(){
+    marker.image.top = this.value.toString() + "%";
+    redrawmarker();
+    savemarker();
+} 
+inputs[7].onchange = function(){
+    marker.textarea.color = this.value;
+    redrawmarker();
+    savemarker();
+} 
+inputs[8].onchange = function(){
+    marker.textarea.fontSize = this.value.toString() + "px";
+    redrawmarker();
+    savemarker();
+} 
+inputs[9].onchange = function(){
+    marker.textarea.opacity = this.value.toString();
     redrawmarker();
     savemarker();
 } 
 
+inputs[10].onchange = function(){
+    marker.textarea.left = this.value.toString() + "%";
+    redrawmarker();
+    savemarker();
+} 
+inputs[11].onchange = function(){
+    marker.textarea.top = this.value.toString() + "%";
+    redrawmarker();
+    savemarker();
+} 
+inputs[12].onchange = function(){
+    marker.textarea.width = this.value.toString() + "%";
+    redrawmarker();
+    savemarker();
+} 
+inputs[13].onchange = function(){
+    marker.textarea.height = this.value.toString() + "%";
+    redrawmarker();
+    savemarker();
+} 
+
+
 marker0 = {
-    "title": "Trailhead of path from The Vine to Maple Lawn",
-    "color": "yellow",
-    "titlecolor": "blue",
-    "markerimage": "https://i.imgur.com/LKzo3KC.png",
-    "fontsize": 30,
-    "backgroundcolor":"rgba(0,0,0,0)"
-}
+    "image":{
+        "url":"https://i.imgur.com/LKzo3KC.png",
+        "width":"70%",
+        "left":"10%",
+        "top":"10%"
+    },
+    "title":{
+        "text":"Marker Title",
+        "fontSize":"50px",
+        "color":"black"
+    },
+    "textarea":{
+        "left":"10%",
+        "top":"10%",
+        "width":"70%",
+        "height":"70%",
+        "fontSize":"35px",
+        "color":"yellow",
+        "opacity":"0.76"
+    }
+};
 
 document.getElementById("resetbutton").onclick = function(){
     marker = marker0;
     redrawmarker();
     savemarker();
 }
+
+document.getElementById("editbutton").click();
 
 </script>
 <style>
