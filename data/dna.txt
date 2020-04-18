@@ -16,7 +16,8 @@
         "symbol.html",
         "symbolfeed.html",
         "tablet.html",
-        "textfeed.html"
+        "textfeed.html",
+        "wall.html"
     ],
     "javascript": [
         "font.js",
@@ -104,7 +105,9 @@
         "currentMap.txt",
         "currentjson.txt",
         "dna.txt",
-        "textfeed.txt"
+        "marker.txt",
+        "textfeed.txt",
+        "wall.txt"
     ],
     "php": [
         "deletebranch.txt",
@@ -115,6 +118,7 @@
         "fileloader.txt",
         "filesaver.txt",
         "mkdir.txt",
+        "pngsave.txt",
         "rdelete.txt",
         "replicator.txt",
         "text2php.txt",

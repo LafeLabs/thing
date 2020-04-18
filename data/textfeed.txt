@@ -5,7 +5,8 @@
         "slide 2",
         "slide 3",
         "slide 4",
-        "deck.html"
+        "deck.html",
+        "more tecxt"
     ],
     "src": [
         "iconsymbols/geometronthing.svg",

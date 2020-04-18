@@ -9,6 +9,9 @@
 
 [![](iconsymbols/scroll.svg)](scroll.html)
 
+
+[wall.html](wall.html)
+
 ### [Edit Scroll:](pageeditor.html)
 
 [![](iconsymbols/edit.svg)](pageeditor.html)

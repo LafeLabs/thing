@@ -1,0 +1,22 @@
+{
+    "image": {
+        "url": "https://i.imgur.com/LKzo3KC.png",
+        "width": "70%",
+        "left": "10%",
+        "top": "10%"
+    },
+    "title": {
+        "text": "Marker Title",
+        "fontSize": "50px",
+        "color": "black"
+    },
+    "textarea": {
+        "left": "10%",
+        "top": "10%",
+        "width": "70%",
+        "height": "70%",
+        "fontSize": "35px",
+        "color": "yellow",
+        "opacity": "0.76"
+    }
+}

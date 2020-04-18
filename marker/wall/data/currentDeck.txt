@@ -52,7 +52,7 @@
             "y": 0.09904534606205251,
             "w": 1.041766109785203,
             "angle": 0,
-            "text": "slide 2",
+            "text": "Huge map of region",
             "href": "",
             "src": ""
         }
@@ -63,9 +63,9 @@
             "y": 0.10978520286396182,
             "w": 0.581145584725537,
             "angle": -1,
-            "text": "slide 3",
+            "text": "zoomed map of area",
             "href": "",
-            "src": "iconsymbols/actiontablet.svg"
+            "src": ""
         },
         {
             "x": 0.41408114558472553,
@@ -79,11 +79,22 @@
     ],
     [
         {
-            "x": 0.3233890214797136,
-            "y": 0.02386634844868735,
+            "x": 0.17780429594272076,
+            "y": 0.12529832935560858,
             "w": 0.986873508353222,
             "angle": 0,
-            "text": "slide 4",
+            "text": "photogrpah with arrow, and also direct object photo",
+            "href": "",
+            "src": ""
+        }
+    ],
+    [
+        {
+            "x": 0.17780429594272076,
+            "y": 0.12529832935560858,
+            "w": 0.986873508353222,
+            "angle": 0,
+            "text": "photogrpah with arrow, and also direct object photo",
             "href": "",
             "src": ""
         }
