@@ -1,0 +1,17 @@
+[
+    {
+        "text": "some text, no link",
+        "href": "",
+        "src": ""
+    },
+    {
+        "text": "link to one level up",
+        "href": "../",
+        "src": ""
+    },
+    {
+        "text": "link to editor",
+        "href": "editor.php",
+        "src": "iconsymbols/edit.svg"
+    }
+]

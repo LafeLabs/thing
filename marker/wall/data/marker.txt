@@ -1,0 +1,8 @@
+{
+    "title": "Marker",
+    "color": "yellow",
+    "titlecolor": "black",
+    "markerimage": "https://i.imgur.com/LKzo3KC.png",
+    "fontsize": 26,
+    "backgroundcolor": "rgba(0,0,0,.7)"
+}

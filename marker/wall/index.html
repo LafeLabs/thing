@@ -9,7 +9,7 @@
         EVERYTHING IS FRACTAL
         EVERYTHING IS RECURSIVE
         NO MONEY 
-        MO MINING
+        MO MINING 
         NO PROPERTY
         LOOK AT THE INSECTS
         LOOK AT THE FUNGI
@@ -23,12 +23,14 @@
 
 </head>
 <body>    
-<div id = "square">
-    <h1 id = "title">Head of Trail from Vine to Maple Lawn</h1>
+    <h1 id = "title">Marker</h1>
     <img id = "backgroundimage" src = "https://i.imgur.com/LKzo3KC.png"/>
     <img id = "editbutton" src = "iconsymbols/edit.svg" class = "button"/>
     <a id = "uplink" href = "../"><img src = "iconsymbols/uplink.svg"/></a>
-    <table id = "squarecontrol">
+    <textarea id = "wall"></textarea>
+
+
+    <table id = "controltable">
         <tr>
             <td>Title:</td><td><input id = "titleinput"/></td>
         </tr>
@@ -51,59 +53,11 @@
             <td class = "button" id = "resetbutton">RESET</td><td></td>
         </tr>
     </table>
-    <textarea id = "wall"></textarea>
-</div>
-<div id = "margin">
-<table id = "margintable">
-    <tr>
-        <td>Text:</td><td><input id = "textinput"/></td>
-    </tr>
-</table>    
-    <div id = "textscroll">
-        
-    </div>
-</div>
 
 <script>
-document.getElementById("squarecontrol").style.display =  "none";
+document.getElementById("controltable").style.display =  "none";
 
-squareinputs = document.getElementById("squarecontrol").getElementsByTagName("INPUT");
-
-
-landscape = false;
-if(innerWidth > innerHeight){
-
-    squareWidth = innerHeight;
-    marginWidth = innerWidth - squareWidth;
-    landscape = true;
-    document.getElementById("square").style.width = squareWidth.toString() + "px";
-    document.getElementById("square").style.height = squareWidth.toString() + "px";
-    
-    document.getElementById("margin").style.width = marginWidth.toString() + "px";
-    document.getElementById("margin").style.height = innerHeight.toString() + "px";    
-    
-}
-else{
-    
-    squareWidth = innerWidth;
-    marginWidth = innerHeight - squareWidth;
-    document.getElementById("square").style.width = squareWidth.toString() + "px";
-    document.getElementById("square").style.height = squareWidth.toString() + "px";
-    document.getElementById("margin").style.width = innerWidth.toString() + "px";
-    document.getElementById("margin").style.height = marginWidth.toString() + "px";    
-
-}
-
-
-var httpc = new XMLHttpRequest();
-    httpc.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        textfeed = JSON.parse(this.responseText);
-        redrawtext();
-    }
-};
-httpc.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
-httpc.send();
+inputs = document.getElementById("controltable").getElementsByTagName("INPUT");
 
 readme_md = "";
 
@@ -115,7 +69,7 @@ httpc2.onreadystatechange = function() {
     }
 };
 
-httpc2.open("GET", "fileloader.php?filename=README.md", true);
+httpc2.open("GET", "fileloader.php?filename=data/wall.txt", true);
 httpc2.send();
 
 
@@ -125,23 +79,21 @@ httpc3.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         marker = JSON.parse(this.responseText);
         redrawmarker();
-        squareinputs[0].value = marker.title;
-        squareinputs[1].value = marker.titlecolor;
-        squareinputs[2].value = marker.markerimage;
-        squareinputs[3].value = marker.color;
-        squareinputs[4].value = marker.fontsize;
-        squareinputs[5].value = marker.backgroundcolor;
+        inputs[0].value = marker.title;
+        inputs[1].value = marker.titlecolor;
+        inputs[2].value = marker.markerimage;
+        inputs[3].value = marker.color;
+        inputs[4].value = marker.fontsize;
+        inputs[5].value = marker.backgroundcolor;
 
     }
 };
-
 
 httpc3.open("GET", "fileloader.php?filename=data/marker.txt", true);
 httpc3.send();
 
 function redrawmarker(){
     document.getElementById("backgroundimage").src = marker.markerimage;    
-
     document.getElementById("title").innerHTML = marker.title;
     document.getElementById("title").style.color = marker.titlecolor;
     document.getElementById("wall").style.color = marker.color;
@@ -151,70 +103,6 @@ function redrawmarker(){
 }
 
 
-document.getElementById("textinput").value = "";
-
-
-document.getElementById("textinput").onchange = function(){
-    var temptext = [];
-    temptext.push(this.value);
-    for(var index = 0;index < textfeed.text.length;index++){
-        temptext.push(textfeed.text[index]);
-    }
-    textfeed.text = temptext;
-
-    redrawtext();
-    savejson();
-}
-
-
-function redrawtext(){
-    
-    document.getElementById("textscroll").innerHTML = "";
-    text = textfeed.text;
-    for(var index = 0;index < text.length;index++){
-        var newbox = document.createElement("div");
-        newbox.className = "box";
-
-        var newspan = document.createElement("span");
-        newspan.innerHTML = text[index];
-
-//        newbox.innerHTML = "foo";
-//        newbox.innerHTML = text[index];
-
-        var newbutton = document.createElement("IMG");
-        newbutton.src = "iconsymbols/delete.svg";
-        newbutton.classList.add("button");
-        newbutton.classList.add("deletebutton");
-        newbutton.id = "text" + index.toString();
-        newbutton.onclick = function(){
-            //alert(this.id.substring(4));
-            var thisindex = this.id.substring(4);
-            var localtext = textfeed.text;
-            textfeed.text = [];
-            for(var textindex = 0;textindex < localtext.length;textindex++){
-                if(textindex != thisindex){
-                    textfeed.text.push(localtext[textindex]);
-                }
-            }
-            redrawtext();
-            savejson();
-        }
-        newbox.appendChild(newbutton);
-        newbox.appendChild(newspan);
-        document.getElementById("textscroll").appendChild(newbox);
-    }
-    //un comment for math
-   // MathJax.Hub.Typeset();
-
-}
-
-function savejson(){
-    var url = "filesaver.php";        
-    var httpc2 = new XMLHttpRequest();
-    httpc2.open("POST", url, true);
-    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc2.send("data="+encodeURIComponent(JSON.stringify(textfeed,null,"    "))+"&filename=data/textfeed.txt");//send text to filesaver.php
-}
 function savemarker(){
     var url = "filesaver.php";        
     var httpc2 = new XMLHttpRequest();
@@ -230,45 +118,46 @@ document.getElementById("wall").onkeyup = function() {
         var url = "filesaver.php";        
         httpc.open("POST", url, true);
         httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
-        httpc.send("data="+data+"&filename=README.md");//send text to filesaver.php
+        httpc.send("data="+data+"&filename=data/wall.txt");//send text to filesaver.php
 }
+
 document.getElementById("editbutton").onclick = function(){
-    if(document.getElementById("squarecontrol").style.display ==  "none"){
-        document.getElementById("squarecontrol").style.display =  "block";
+    if(document.getElementById("controltable").style.display ==  "none"){
+        document.getElementById("controltable").style.display =  "block";
     }
     else{
-        document.getElementById("squarecontrol").style.display =  "none";
+        document.getElementById("controltable").style.display =  "none";
     }
 }
 
 
-squareinputs[0].onchange = function(){
+inputs[0].onchange = function(){
     marker.title = this.value;
     redrawmarker();
     savemarker();
 } 
 
-squareinputs[1].onchange = function(){
+inputs[1].onchange = function(){
     marker.titlecolor = this.value;
     redrawmarker();
     savemarker();
 } 
-squareinputs[2].onchange = function(){
+inputs[2].onchange = function(){
     marker.markerimage = this.value;
     redrawmarker();
     savemarker();
 } 
-squareinputs[3].onchange = function(){
+inputs[3].onchange = function(){
     marker.color = this.value;
     redrawmarker();
     savemarker();
 } 
-squareinputs[4].onchange = function(){
+inputs[4].onchange = function(){
     marker.fontsize = parseInt(this.value);
     redrawmarker();
     savemarker();
 } 
-squareinputs[5].onchange = function(){
+inputs[5].onchange = function(){
     marker.backgroundcolor = this.value;
     redrawmarker();
     savemarker();
@@ -283,12 +172,10 @@ marker0 = {
     "backgroundcolor":"rgba(0,0,0,0)"
 }
 
-
 document.getElementById("resetbutton").onclick = function(){
     marker = marker0;
     redrawmarker();
     savemarker();
-
 }
 
 </script>
@@ -306,16 +193,19 @@ document.getElementById("resetbutton").onclick = function(){
     width:90%;
     height:70%;
     background-color:rgba(0,0,0,0);
-
 }
-#squarecontrol{
+#controltable{
     display:none;
     position:absolute;
     right:0px;
     top:0px;
     z-index:1;
+    font-size:26px;
+    font-family:courier;
+    background-color:white;
+
 }
-#squarecontrol input{
+#controltable input{
     width:25em;
 }
 #editbutton{
@@ -344,17 +234,6 @@ document.getElementById("resetbutton").onclick = function(){
 body{
     overflow:hidden;
 }
-#margin{
-    position:absolute;
-    right:0px;
-    bottom:0px;
-    overflow:scroll;
-}
-#square{
-    position:absolute;
-    left:0px;
-    top:0px;
-}
 #title{
     position:absolute;
     z-index:-2;
@@ -375,19 +254,6 @@ body{
 }
 .deletebutton{
     width:25px;
-}
-#textinput{
-    width:14em;
-    font-family:courier;
-    font-size:26px;
-}
-#margintable{
-    font-size:26px;
-    font-family:courier;
-}
-#textscroll{
-        padding-left:1em;
-
 }
 </style>
 </body>
