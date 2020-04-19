@@ -25,6 +25,9 @@ function Map(w,h,div) {
             newa.style.top  = (this.array[index].y*this.w).toString() + "px";
             newa.style.width  = (this.array[index].w*this.w).toString() + "px";
             newa.style.transform  = "rotate(" + (this.array[index].angle).toString() + "deg)";
+            if(this.array[index].href.length == 0){
+                newa.style.color = "black";
+            }
             if(this.array[index].src.length > 0) {
                 var newimg = document.createElement("IMG");
                 newimg.style.position = "absolute";
