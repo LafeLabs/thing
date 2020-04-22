@@ -14,7 +14,13 @@
 </head>
 <body>    
 
-
+<div id = "square">
+    <canvas id = "maincanvas"></canvas>
+    <canvas id = "invisiblecanvas"></canvas>
+</div>
+<div id  = "margin">
+    
+</div>
 <!--
 edit main glyph using soft keys and keyboard
 glyph is in data/robot.txt
@@ -22,6 +28,41 @@ glyph is in data/robot.txt
 -->
 
 <script>
+landscape = false;
+
+if(innerWidth > innerHeight){
+    squareWidth = innerHeight;
+    document.getElementById("margin").style.width = (innerWidth - squareWidth).toString() + "px";
+    document.getElementById("margin").style.height = innerHeight.toString() + "px";
+    document.getElementById("square").style.width = squareWidth.toString() + "px";
+    document.getElementById("square").style.height = squareWidth.toString() + "px";
+    marginWidth = innerWidth - squareWidth;
+    landscape = true;
+}
+else{
+    squareWidth = innerWidth;
+    document.getElementById("margin").style.height = (innerHeight - squareWidth).toString() + "px";
+    document.getElementById("margin").style.width = (innerWidth).toString() + "px";
+    document.getElementById("square").style.height = squareWidth.toString() + "px";
+    document.getElementById("square").style.width = squareWidth.toString() + "px";
+    marginWidth = innerHeight - squareWidth;
+}
+
+
+
+var newGVM = new GVM(0.98*squareWidth,0.98*squareWidth,0.96*squareWidth,-Math.PI/2,document.getElementById("maincanvas"),squareWidth,squareWidth,hypercube);
+
+for(var index = 0;index < 01377;index++){
+    if(newGVM.hypercube[index].length  > 0 ){
+        hypercube.push( "0" + index.toString(8) +  ":" + newGVM.hypercube[index]);
+    }
+}
+
+newGVM.importbytecode(font);
+
+invisibleWidth = 200;
+var invisibleGVM = new GVM(0.98*invisibleWidth,0.98*invisibleWidth,0.96*invisibleWidth,-Math.PI/2,document.getElementById("invisiblecanvas"),invisibleWidth,invisibleWidth,hypercube);
+
 
 robotjson = {};
 glyph = "";
@@ -31,18 +72,41 @@ var httpc = new XMLHttpRequest();
 httpc.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         robotjson = JSON.parse(this.responseText);
-        glyph = robotjson.glyph;
-        keyboard = robotjson.keyboard;
+        glyph = robotjson.robotglyph;
+        actions = robotjson.robotactions;
     }
 };
-httpc.open("GET", "fileloader.php?filename=data/robot.txt", true);
+httpc.open("GET", "fileloader.php?filename=data/currentjson.txt", true);
 httpc.send();    
+
+
 
 
 
 </script>
 <style>
-
+body{
+    overflow:hidden;
+}
+#square{
+    position:absolute;
+    left:0px;
+    top:0px;
+    border:solid;
+    border-width:0.1px;
+    border-color:blue;
+    overflow:hidden;
+}
+#margin{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    border:solid;
+    border-width:0.1px;
+}
+#invisiblecanvas{
+    display:none;
+}
 </style>
 </body>
 </html>

@@ -9,6 +9,7 @@
         "keyboardeditor.html",
         "map.html",
         "pageeditor.html",
+        "robot.html",
         "robot.py",
         "scroll.html",
         "setup.html",
@@ -107,7 +108,6 @@
         "currentjson.txt",
         "dna.txt",
         "marker.txt",
-        "robot.txt",
         "textfeed.txt",
         "wall.txt"
     ],
