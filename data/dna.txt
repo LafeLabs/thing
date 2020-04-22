@@ -9,6 +9,7 @@
         "keyboardeditor.html",
         "map.html",
         "pageeditor.html",
+        "robot.py",
         "scroll.html",
         "setup.html",
         "shapetableeditor.html",
@@ -106,6 +107,7 @@
         "currentjson.txt",
         "dna.txt",
         "marker.txt",
+        "robot.txt",
         "textfeed.txt",
         "wall.txt"
     ],
@@ -121,6 +123,7 @@
         "pngsave.txt",
         "rdelete.txt",
         "replicator.txt",
+        "robot.php",
         "text2php.txt",
         "upload.txt",
         "uploadsymbol.txt"

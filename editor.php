@@ -32,6 +32,7 @@ EGO DEATH:
         if(substr($value,-5) == ".html"){
             echo "\n<a href = \"".$value."\">".$value."</a>\n";
         }
+
     }
 
 ?>
@@ -49,6 +50,10 @@ EGO DEATH:
         if(substr($value,-5) == ".html"){
             echo "\n<div class = \"html file\">".$value."</div>\n";
         }
+        if(substr($value,-3) == ".py"){
+            echo "\n<div class = \"python file\">".$value."</div>\n";
+        }
+        
     }
 
     $jsfiles = scandir(getcwd()."/jscode");
@@ -171,6 +176,11 @@ for(var index = 0;index < files.length;index++){
             document.getElementById("namediv").style.color = "#800080";
             document.getElementById("namediv").style.borderColor = "#800080";
         }
+        if(this.classList[0] == "python"){
+            editor.getSession().setMode("ace/mode/python");
+            document.getElementById("namediv").style.color = "#add8e6";
+            document.getElementById("namediv").style.borderColor = "#add8e6";
+        }        
         if(this.classList[0] == "json"){
             editor.getSession().setMode("ace/mode/json");
             document.getElementById("namediv").style.color = "orange";
@@ -244,6 +254,9 @@ body{
 }
 .json{
     color:orange;
+}
+.python{
+    color:#add8e6;
 }
 .scrolls{
     color:#87ceeb;
