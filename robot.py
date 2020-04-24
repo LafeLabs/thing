@@ -4,10 +4,6 @@ robotfile = open("data/robot.txt", "r")
 robotjson = json.loads(robotfile.read())
 robotfile.close()
 
-robotfile = open("data/currentjson.txt", "r")
-robotjson = json.loads(robotfile.read())
-robotfile.close()
-
 
 hypercubefile = open("jscode/hypercube.js", "r")
 hypercubestring = hypercubefile.read();
@@ -18,7 +14,7 @@ hypercubefile.close()
 unit = 100
 numSteps = unit
 
-mainglyph = robotjson["robotglyph"]
+mainglyph = robotjson["glyph"]
 #keyboard = robotjson["keyboard"]
 
 hypercube = []

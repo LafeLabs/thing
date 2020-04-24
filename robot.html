@@ -19,7 +19,10 @@
     <canvas id = "invisiblecanvas"></canvas>
 </div>
 <div id  = "margin">
-    
+<div id = "runbutton" class= "button">RUN PROGRAM</div>
+    <div id = "controldiv">
+        
+    </div>
 </div>
 <!--
 edit main glyph using soft keys and keyboard
@@ -50,7 +53,7 @@ else{
 
 
 
-var newGVM = new GVM(0.98*squareWidth,0.98*squareWidth,0.96*squareWidth,-Math.PI/2,document.getElementById("maincanvas"),squareWidth,squareWidth,hypercube);
+var newGVM = new GVM(0.05*squareWidth,0.1*squareWidth,0.05*squareWidth,-Math.PI/2,document.getElementById("maincanvas"),squareWidth,squareWidth,hypercube);
 
 for(var index = 0;index < 01377;index++){
     if(newGVM.hypercube[index].length  > 0 ){
@@ -63,23 +66,106 @@ newGVM.importbytecode(font);
 invisibleWidth = 200;
 var invisibleGVM = new GVM(0.98*invisibleWidth,0.98*invisibleWidth,0.96*invisibleWidth,-Math.PI/2,document.getElementById("invisiblecanvas"),invisibleWidth,invisibleWidth,hypercube);
 
+buttonSize = 50;
 
-robotjson = {};
+currentjson = {};
 glyph = "";
 keyboard = [];
-
+actions = [];
 var httpc = new XMLHttpRequest();
 httpc.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        robotjson = JSON.parse(this.responseText);
-        glyph = robotjson.robotglyph;
-        actions = robotjson.robotactions;
+        currentjson = JSON.parse(this.responseText);
+        glyph = currentjson.glyph;
+        actionstrings = currentjson.actions.split(",");
+        actions  = [];
+        for(var index = 0;index < actionstrings.length;index++){
+            if(actionstrings[index].length > 0){
+                actions.push(parseInt(actionstrings[index],8));
+            }
+        }
+        newGVM.glyph = glyph + "0207,";
+        spellGlyph(newGVM.glyph);
+        drawbuttons();
     }
 };
-httpc.open("GET", "fileloader.php?filename=data/currentjson.txt", true);
+httpc.open("GET", "fileloader.php?filename=data/robot.txt", true);
 httpc.send();    
 
+function drawbuttons(){
+    for(var index = 0;index < actions.length;index++){
+        //draw a button in the button box
+    
+        var newcan = document.createElement("canvas");
+        document.getElementById("controldiv").appendChild(newcan);
+        newcan.classList.add("button");
+        //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
+        var newg = new GVM(1,buttonSize - 1,buttonSize-2,-Math.PI/2,newcan,buttonSize,buttonSize,hypercube);
+        newg.importbytecode(font);
 
+        newg.drawGlyph("0300,0" + (actions[index] + 01000).toString(8) + ",",newg);
+
+        newcan.id = "button0" + actions[index].toString(8);
+        newcan.onclick = function(){
+            var thisaction = parseInt(this.id.substring(6),8);
+            if(thisaction >= 040 && thisaction < 0177) {
+                newGVM.cursorAction(thisaction + 01000);
+            }
+            else{
+                newGVM.cursorAction(thisaction);
+            }
+                    
+            spellGlyph(newGVM.glyph);        
+            newGVM.saveGlyph();
+            savejson();
+            
+  //          document.getElementById("spellinput").value = currentjson.glyph;
+    //        document.getElementById("spellinput").style.width = 0.8*currentjson.glyph.length.toString() + "em";
+        }
+        
+        
+    }
+}
+
+
+glyphsize = 50;
+function spellGlyph(glyph){
+    var localGlyph = "";
+    var glyphArray = glyph.split(",");
+    for(var index = 0; index < glyphArray.length; index++){
+        if(glyphArray[index].length > 1){
+            var localAddress = parseInt(glyphArray[index],8);
+            if(localAddress < 01000){
+                localAddress += 01000;
+            }
+            newGVM.action(localAddress);
+            if(newGVM.x > squareWidth - 2*glyphsize){
+               newGVM.x = newGVM.unit;
+               newGVM.y += 1.5*newGVM.unit;
+            }
+        }
+    }
+}
+
+
+
+function savejson(){
+    
+    var glyphArray = newGVM.glyph.split(",");
+    var cleanGlyph = "";
+    for(var index = 0;index < glyphArray.length;index++) {
+        if(glyphArray[index] != "0207" && glyphArray[index].length> 1){
+            cleanGlyph += glyphArray[index] + ",";
+        }
+    }
+    currentjson.glyph = cleanGlyph;
+    
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", "filesaver.php", true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(JSON.stringify(currentjson,null,"  "))+"&filename=data/robot.txt");//send text to filesaver.php
+
+}
 
 
 
@@ -107,6 +193,30 @@ body{
 #invisiblecanvas{
     display:none;
 }
+.button{
+    cursor:pointer;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
+}
+#runbutton{
+    width:8em;
+    border:solid;
+    margin:1em;
+    border-radius:0.2em;
+    border-width:3px;
+    background-color:#afffaf
+}
+#runbutton:hover{
+    background-color:green;
+}
+#runbutton:active{
+    background-color:yellow;
+}
+
 </style>
 </body>
 </html>
