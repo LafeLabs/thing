@@ -1,0 +1,30 @@
+{
+    "text": [
+        "some text",
+        "☕ ",
+        "slide 2",
+        "slide 3",
+        "slide 4",
+        "deck.html",
+        "more tecxt"
+    ],
+    "src": [
+        "iconsymbols/geometronthing.svg",
+        "https://upload.wikimedia.org/wikipedia/commons/3/3b/BuckminsterFuller1.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Preserved_R_Buckminster_Fuller_and_Anne_Hewlitt_Dome_Home.jpg/440px-Preserved_R_Buckminster_Fuller_and_Anne_Hewlitt_Dome_Home.jpg",
+        "https://i.imgur.com/uubz1yy.png",
+        "https://i.imgur.com/VslxtQL.png",
+        "https://i.imgur.com/ZYhcndd.png",
+        "https://i.imgur.com/huV713u.png",
+        "https://i.imgur.com/VP0eswH.jpg",
+        "https://i.imgur.com/Aj9V8x1.jpg"
+    ],
+    "href": [
+        "../",
+        "https://en.wikipedia.org/wiki/Tensegrity",
+        "editor.php",
+        "map.html",
+        "foo/",
+        "deck.html"
+    ]
+}

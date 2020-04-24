@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <!--
+
+        EVERYTHING IS PHYSICAL 
+        EVERYTHING IS FRACTAL
+        EVERYTHING IS RECURSIVE
+        NO MONEY 
+        MO MINING 
+        NO PROPERTY
+        LOOK AT THE INSECTS
+        LOOK AT THE FUNGI
+        LANGUAGE IS HOW THE MIND PARSES REALITY
+
+    -->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD+fwAA/T8AAP0/AAD9PwAA+x8AAPMPAACDcQAAAH4AAH6AAACMwQAA8M8AAPjfAAD8vwAA/L8AAPy/AAD+fwAA" rel="icon" type="image/x-icon" />
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+    <script src="jscode/mapfactory.js"></script>
+
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"></script>
+
+<!--un-comment to add math: -->
+<!--
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>
+            MathJax.Hub.Config({
+                tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                processEscapes: true,
+                processClass: "mathjax",
+                ignoreClass: "no-mathjax"
+                }
+            });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
+        </script>
+-->        
+</head>
+<body>    
+    <img id = "backgroundimage"/>
+
+    <div id = "mainmap"></div>
+    <div id = "hammerxy">
+        <!--this covers the map exactly, sits at higher z index, and is turned off when NOT editing xy-->
+    </div>
+<div id = "margin">
+    <h2>Poetry Engine</h2>
+        
+        <img id = "prevbutton" src = "iconsymbols/upelement.svg" class = "button" style = "width:50px"/>
+        <img id = "nextbutton" src = "iconsymbols/downelement.svg" class = "button" style = "width:50px"/>
+        <img id = "savebutton" src = "iconsymbols/save.svg" class = "button" style = "width:50px"/>
+        <img id = "deletebutton" src = "iconsymbols/delete.svg" class = "button" style = "width:50px"/>
+        <img id = "newbutton" src = "iconsymbols/add.svg" class = "button" style = "width:50px"/>
+    <table>
+        <tr>
+            <td>text:</td><td><input id = "textinput"/></td>
+        </tr>
+        <tr>
+            <td>image url:</td><td><input id = "imginput"/></td>
+        </tr>
+    </table>
+
+<textarea id = "textio"></textarea>
+<table id= "importtable">
+    <tr>
+        <td class = "button" id = "importbutton">IMPORT</td>
+        <td class = "button" id = "resetbutton">RESET</td>
+    </tr>
+</table>
+</div>
+
+<script>
+
+landscape = false;
+if(innerWidth > innerHeight){
+
+    squareWidth = innerHeight;
+    marginWidth = innerWidth - squareWidth;
+    landscape = true;
+    document.getElementById("backgroundimage").style.width = squareWidth.toString() + "px";
+
+    document.getElementById("margin").style.width = marginWidth.toString() + "px";
+    document.getElementById("margin").style.height = innerHeight.toString() + "px";    
+    
+}
+else{
+    
+    squareWidth = innerWidth;
+    marginWidth = innerHeight - squareWidth;
+    document.getElementById("backgroundimage").style.width = squareWidth.toString() + "px";
+    document.getElementById("margin").style.width = innerWidth.toString() + "px";
+    document.getElementById("margin").style.height = marginWidth.toString() + "px";    
+    
+}
+
+document.getElementById("hammerxy").style.width = (squareWidth).toString() + "px";
+document.getElementById("hammerxy").style.height = (squareWidth).toString() + "px";
+
+mainmap = new Map(squareWidth,squareWidth,document.getElementById("mainmap"));
+
+json0 = {
+    "imgurl": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Rafael_-_El_Parnaso_%28Estancia_del_Sello%2C_Roma%2C_1511%29.jpg",
+    "map": [
+        {
+            "x": 0.2064439140811456,
+            "y": 0.12649164677804295,
+            "w": 0.19928400954653938,
+            "angle": 0,
+            "text": "word",
+            "href": "",
+            "src": ""
+        }
+    ]
+};
+json = {};
+json.map = [];
+json.imgurl = "";
+imgurl = "";
+
+var httpc2 = new XMLHttpRequest();
+    httpc2.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        json = JSON.parse(this.responseText);
+        
+        mainmap.array = json.map;
+        document.getElementById("backgroundimage").src = json.imgurl;
+        document.getElementById("imginput").value = json.imgurl;
+        mainmap.draw();
+        mainmap.linkArray[mainmap.linkindex].style.border = "solid";
+        mainmap.linkArray[mainmap.linkindex].style.borderWidth = "0.1px";
+
+        document.getElementById("textinput").value = mainmap.linkArray[mainmap.linkindex].text;
+        //un comment for math
+        //MathJax.Hub.Typeset();
+
+    }
+};
+httpc2.open("GET", "fileloader.php?filename=data/currentMap.txt", true);
+httpc2.send();
+
+
+linkindex  = 0;
+mainmap.linkindex = 0;
+pageindex = 0;
+
+document.getElementById("savebutton").onclick = function() {
+    
+    mainmap.array[mainmap.linkindex].x = parseInt(mainmap.linkArray[mainmap.linkindex].style.left.substring(0,mainmap.linkArray[mainmap.linkindex].style.left.length-2))/mainmap.w;
+    mainmap.array[mainmap.linkindex].y = parseInt(mainmap.linkArray[mainmap.linkindex].style.top.substring(0,mainmap.linkArray[mainmap.linkindex].style.top.length-2))/mainmap.w;
+    mainmap.array[mainmap.linkindex].w = parseInt(mainmap.linkArray[mainmap.linkindex].style.width.substring(0,mainmap.linkArray[mainmap.linkindex].style.width.length-2))/mainmap.w;
+    mainmap.array[mainmap.linkindex].angle = parseInt(mainmap.linkArray[mainmap.linkindex].style.transform.substring(7,mainmap.linkArray[mainmap.linkindex].style.transform.length - 4));
+
+    json.map = mainmap.array;
+    var url = "filesaver.php";        
+    var httpc2 = new XMLHttpRequest();
+    httpc2.open("POST", url, true);
+    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc2.send("data="+encodeURIComponent(JSON.stringify(json,null,"    "))+"&filename=data/currentMap.txt");//send text to filesaver.php
+    
+    document.getElementById("textio").value = JSON.stringify(json,null,"    ");
+
+}
+
+document.getElementById("resetbutton").onclick = function(){
+    document.getElementById("textio").value = JSON.stringify(json,null,"    ");
+    json = json0;
+    mainmap.array = json.map;
+    document.getElementById("backgroundimage").src = json.imgurl;
+    document.getElementById("imginput").value = json.imgurl;
+    mainmap.draw();
+    mainmap.linkArray[mainmap.linkindex].style.border = "solid";
+    mainmap.linkArray[mainmap.linkindex].style.borderWidth = "0.1px";
+    document.getElementById("textinput").value = mainmap.linkArray[mainmap.linkindex].text;    
+}
+
+document.getElementById("importbutton").onclick = function(){
+    json = JSON.parse(document.getElementById("textio").value);
+    mainmap.array = json.map;
+    document.getElementById("backgroundimage").src = json.imgurl;
+    document.getElementById("imginput").value = json.imgurl;
+    mainmap.draw();
+    mainmap.linkArray[mainmap.linkindex].style.border = "solid";
+    mainmap.linkArray[mainmap.linkindex].style.borderWidth = "0.1px";
+    document.getElementById("textinput").value = mainmap.linkArray[mainmap.linkindex].text;    
+    
+}
+
+
+document.getElementById("nextbutton").onclick = function() {
+
+    mainmap.nextlink();
+    document.getElementById("textinput").value = mainmap.linkArray[mainmap.linkindex].text;
+}
+
+document.getElementById("prevbutton").onclick = function() {
+
+    mainmap.prevlink();
+    document.getElementById("textinput").value = mainmap.linkArray[mainmap.linkindex].text;
+}
+
+document.getElementById("newbutton").onclick = function() {
+
+    mainmap.newlink();
+    document.getElementById("textinput").value = mainmap.linkArray[mainmap.linkindex].text;
+}
+
+
+document.getElementById("deletebutton").onclick = function() {
+
+    mainmap.deletelink();
+    document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
+    document.getElementById("textinput").value = mainmap.linkArray[mainmap.linkindex].text;
+}
+
+
+mc = new Hammer(document.getElementById("hammerxy"));
+mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+mc.on("panleft panright panup pandown tap press rotate", function(ev) {
+
+    mainmap.linkArray[mainmap.linkindex].style.left = (ev.deltaX + mainmap.array[mainmap.linkindex].x*mainmap.w).toString() +  "px";
+    mainmap.linkArray[mainmap.linkindex].style.top = (ev.deltaY + mainmap.array[mainmap.linkindex].y*mainmap.w).toString() +  "px";
+
+});    
+
+
+document.getElementById("textinput").onchange = function(){
+    mainmap.array[mainmap.linkindex].text = this.value;
+    mainmap.draw();
+}
+document.getElementById("textinput").onkeydown = function(a) {
+    var charCode = a.keyCode || a.which;
+
+    if(charCode == 046){
+        //up arrow: next
+        document.getElementById("nextbutton").click();
+    }
+    if(charCode == 050){
+        //down arrow: prev address
+        document.getElementById("prevbutton").click();
+
+    }
+}
+
+document.getElementById("imginput").onchange = function(){
+    json.imgurl = this.value;
+    document.getElementById("backgroundimage").src = this.value;
+}
+
+
+document.getElementById("textinput").select();
+</script>
+<style>
+#margin{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+}
+body{
+    overflow:hidden;
+}
+input,table,select{
+    font-family:courier;
+    font-size:16px;
+}
+#mainmap{
+    position:absolute;
+    left:0px;
+    top:0px;
+    overflow:hidden;
+}
+
+#mainmap a{
+    font-family:Times;
+    font-size:25px;
+    border-width:0.1px;
+    background-color:white;
+    color:black;
+}
+#hammerxy{
+    position:absolute;
+    left:0px;
+    top:0px;
+    z-index:1;
+    overflow:hidden;
+}
+.button{
+    cursor:pointer;
+}
+.button:hover{
+    background-color:#50ff50;
+}
+.button:active{
+    background-color:yellow;
+}
+
+#navbutton{
+    display:block;
+}
+.uploadimage{
+    max-width:50%;
+    display:block;
+    margin:auto;
+}
+
+.deletebutton{
+    width:50px;
+}
+.uploadbox{
+    border:solid;
+    border-width:0.5px;
+    border-radius:10px;
+    margin-top:1em;
+}
+
+
+#backgroundimage{
+    position:absolute;
+    left:0px;
+    top:0px;
+    z-index:-2;
+}
+#importtable{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+}
+#importtable td{
+    border:solid;
+    border-radius:5px;
+}
+</style>
+</body>
+</html>
