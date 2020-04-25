@@ -108,6 +108,7 @@
         "currentjson.txt",
         "dna.txt",
         "marker.txt",
+        "robot.txt",
         "textfeed.txt",
         "wall.txt"
     ],
