@@ -46,13 +46,13 @@ def action(address):
     global numSteps
     #address is an integer, an index in the Hypercube
     if address == 0o400:
-        moveLeft(numSteps)
-    if address == 0o401:
         moveRight(numSteps)
+    if address == 0o401:
+        moveLeft(numSteps)
     if address == 0o402:
-        moveIn(numSteps)
-    if address == 0o403:
         moveOut(numSteps)
+    if address == 0o403:
+        moveIn(numSteps)
     if address == 0o0404:
         moveUp(numSteps)
     if address == 0o0405:

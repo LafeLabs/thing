@@ -1,3 +1,3 @@
 <?php
-  exec("python robot.py");
+  exec("python robot.py > foo.txt");
 ?>

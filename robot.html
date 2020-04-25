@@ -13,13 +13,17 @@
 
 </head>
 <body>    
-
 <div id = "square">
     <canvas id = "maincanvas"></canvas>
     <canvas id = "invisiblecanvas"></canvas>
 </div>
 <div id  = "margin">
+    <a href = "tablet.html"><img style = "width:50px" src = "iconsymbols/tablet.svg"></a>
+<a href = "hypercube.html"><img style = "width:50px" src = "iconsymbols/hypercube.svg"></a>
+    <a href = "index.html"><img style = "width:50px" src = "iconsymbols/geometron.svg"></a>
+    <a href = "scroll.html"><img style = "width:50px" src = "iconsymbols/scroll.svg"></a>    
 <div id = "runbutton" class= "button">RUN PROGRAM</div>
+<input id = "spellinput"/>
     <div id = "controldiv">
         
     </div>
@@ -84,6 +88,7 @@ httpc.onreadystatechange = function() {
                 actions.push(parseInt(actionstrings[index],8));
             }
         }
+        document.getElementById("spellinput").value = glyph;
         newGVM.glyph = glyph + "0207,";
         spellGlyph(newGVM.glyph);
         drawbuttons();
@@ -114,7 +119,7 @@ function drawbuttons(){
             else{
                 newGVM.cursorAction(thisaction);
             }
-                    
+                    newGVM.drawGlyph("0300,");
             spellGlyph(newGVM.glyph);        
             newGVM.saveGlyph();
             savejson();
@@ -159,7 +164,7 @@ function savejson(){
         }
     }
     currentjson.glyph = cleanGlyph;
-    
+    document.getElementById("spellinput").value = cleanGlyph;
     var httpc = new XMLHttpRequest();
     httpc.open("POST", "filesaver.php", true);
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -168,6 +173,24 @@ function savejson(){
 }
 
 
+document.getElementById("runbutton").onclick = function(){
+
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", "robot.php", true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send();//send text to robot.php
+    
+}
+
+
+document.getElementById("spellinput").onchange = function(){
+    glyph = this.value;
+    currentjson.glyph = glyph;
+    newGVM.glyph = glyph + "0207,";
+    newGVM.drawGlyph("0300,");
+    spellGlyph(newGVM.glyph);
+    savejson();
+}
 
 </script>
 <style>
@@ -216,7 +239,12 @@ body{
 #runbutton:active{
     background-color:yellow;
 }
-
+#spellinput{
+    width:90%;
+    font-family:courier;
+    margin-bottom:10px;
+    margin-left:10px;
+}
 </style>
 </body>
 </html>
