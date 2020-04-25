@@ -22,7 +22,6 @@
 <a href = "hypercube.html"><img style = "width:50px" src = "iconsymbols/hypercube.svg"></a>
     <a href = "index.html"><img style = "width:50px" src = "iconsymbols/geometron.svg"></a>
     <a href = "scroll.html"><img style = "width:50px" src = "iconsymbols/scroll.svg"></a>    
-<div id = "runbutton" class= "button">RUN PROGRAM</div>
 <input id = "spellinput"/>
     <div id = "controldiv">
         
@@ -170,16 +169,6 @@ function savejson(){
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc.send("data="+encodeURIComponent(JSON.stringify(currentjson,null,"  "))+"&filename=data/robot.txt");//send text to filesaver.php
 
-}
-
-
-document.getElementById("runbutton").onclick = function(){
-
-    var httpc = new XMLHttpRequest();
-    httpc.open("POST", "robot.php", true);
-    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc.send();//send text to robot.php
-    
 }
 
 
