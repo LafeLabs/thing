@@ -1,0 +1,23 @@
+{
+    "Title":"trash magic",
+    "quad1":{
+        "description":"post capitalist industrial technology",
+        "value":[
+            "end mining",
+            "end use of money",
+            "end landlordism"
+        ]
+    },
+    "quad2":{
+        "imgurl":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/DUMPING_LANDFILL_AT_FRESH_KILLS%2C_ON_THE_WEST_SHORE_OF_STATEN_ISLAND_-_NARA_-_548348.jpg/2560px-DUMPING_LANDFILL_AT_FRESH_KILLS%2C_ON_THE_WEST_SHORE_OF_STATEN_ISLAND_-_NARA_-_548348.jpg"
+    },
+    {
+        "quad3":{
+            "objectives":[
+                "build industry from trash",
+                "build self-replicating media to document it",
+                "ego death"
+            ]
+        }
+    }
+}

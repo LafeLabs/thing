@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <!--
+
+        EVERYTHING IS PHYSICAL 
+        EVERYTHING IS FRACTAL
+        EVERYTHING IS RECURSIVE
+        NO MONEY 
+        MO MINING 
+        NO PROPERTY
+        LOOK AT THE INSECTS
+        LOOK AT THE FUNGI
+        LANGUAGE IS HOW THE MIND PARSES REALITY
+
+    -->
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/wAAAAD//wAA/wAAAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMzMzQREREAAzMzRBEREQAAMzNEQREQAAAzNERBERAAAAM0REQRAAAAAEREREAAAAAAREREQAAAAAACIiIAAAAAAAIiIgAAAAAAACIgAAAAAAAAIiAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAQAAwAEAAOADAADgAwAA8AcAAPgPAAD4DwAA/B8AAPwfAAD+PwAA/j8AAP9/AAD//wAA" rel="icon" type="image/x-icon" />
+
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>
+
+<!--un-comment to add math: -->
+<!-- 
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>
+            MathJax.Hub.Config({
+                tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                processEscapes: true,
+                processClass: "mathjax",
+                ignoreClass: "no-mathjax"
+                }
+            });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
+        </script>
+        
+-->
+
+</head>
+<body>    
+<div id  = "slide">
+    <div id = "titlebar"></div>
+    <div id = "quad1"></div>
+    <div id = "quad2"></div>
+    <div id = "quad3"></div>
+    <div id = "quad4"></div>
+</div>
+<textarea id  = "textio"></textarea>
+<script>
+
+landscape = false;
+if(innerWidth > innerHeight){
+
+    squareWidth = innerHeight;
+    marginWidth = innerWidth - squareWidth;
+    landscape = true;
+    document.getElementById("slide").style.width = (squareWidth).toString() + "px";
+    document.getElementById("slide").style.height = (3*squareWidth/4).toString() + "px";
+}
+else{
+    
+    squareWidth = innerWidth;
+    marginWidth = innerHeight - squareWidth;
+    
+}
+
+
+//get readme.md, convert to html and display
+var converter = new showdown.Converter();
+// for more on options see here:
+// https://github.com/showdownjs/showdown/wiki/Showdown-Options
+converter.setOption('literalMidWordUnderscores', 'true');
+converter.setOption('tables', 'true');
+
+
+quad1 = "";
+raw1 = "";
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        quad1 = this.responseText;
+        document.getElementById("textio").value = quad1;
+        raw1 = converter.makeHtml(quad1);
+        document.getElementById("quad1").innerHTML = raw1;
+        //un-commment for math mode:
+        //MathJax.Hub.Typeset();//tell Mathjax to update the math
+    }
+};
+httpc.open("GET", "fileloader.php?filename=quad1.md", true);
+httpc.send();
+
+
+quad2 = "";
+raw2 = "";
+var httpc2 = new XMLHttpRequest();
+httpc2.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        quad2 = this.responseText;
+        raw2 = converter.makeHtml(quad2);
+        document.getElementById("quad2").innerHTML = raw2;
+        //un-commment for math mode:
+        //MathJax.Hub.Typeset();//tell Mathjax to update the math
+    }
+};
+httpc2.open("GET", "fileloader.php?filename=quad2.md", true);
+httpc2.send();
+
+quad3 = "";
+raw3 = "";
+var httpc3 = new XMLHttpRequest();
+httpc3.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        quad3 = this.responseText;
+        raw3 = converter.makeHtml(quad3);
+        document.getElementById("quad3").innerHTML = raw3;
+        //un-commment for math mode:
+        //MathJax.Hub.Typeset();//tell Mathjax to update the math
+    }
+};
+httpc3.open("GET", "fileloader.php?filename=quad3.md", true);
+httpc3.send();
+
+quad4 = "";
+raw4 = "";
+var httpc4 = new XMLHttpRequest();
+httpc4.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        quad4 = this.responseText;
+        raw4 = converter.makeHtml(quad4);
+        document.getElementById("quad4").innerHTML = raw4;
+        //un-commment for math mode:
+        //MathJax.Hub.Typeset();//tell Mathjax to update the math
+    }
+};
+httpc4.open("GET", "fileloader.php?filename=quad4.md", true);
+httpc4.send();
+
+
+titlebar = "";
+rawbar = "";
+var httpc5 = new XMLHttpRequest();
+httpc5.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        titlebar = this.responseText;
+        rawbar = converter.makeHtml(titlebar);
+        document.getElementById("titlebar").innerHTML = rawbar;
+        //un-commment for math mode:
+        //MathJax.Hub.Typeset();//tell Mathjax to update the math
+    }
+};
+httpc5.open("GET", "fileloader.php?filename=titlebar.md", true);
+httpc5.send();
+
+document.getElementById("quad1").onclick = function(){
+    currentFile = "quad1.md";
+    document.getElementById("textio").value = quad1;
+}
+
+document.getElementById("quad2").onclick = function(){
+    currentFile = "quad2.md";
+    document.getElementById("textio").value = quad2;
+}
+
+document.getElementById("quad3").onclick = function(){
+    currentFile = "quad3.md";
+    document.getElementById("textio").value = quad3;
+}
+
+document.getElementById("quad4").onclick = function(){
+    currentFile = "quad4.md";
+    document.getElementById("textio").value = quad4;
+}
+
+currentFile = "quad1.md";
+
+document.getElementById("textio").onkeyup = function(){
+    data = this.value;
+    
+    if(currentFile == "quad1.md"){
+        quad1 = data;
+        raw1 = converter.makeHtml(quad1);
+        document.getElementById("quad1").innerHTML = raw1;
+    }
+    if(currentFile == "quad2.md"){
+        quad2 = data;
+        raw2 = converter.makeHtml(quad2);
+        document.getElementById("quad2").innerHTML = raw2;
+    }
+    if(currentFile == "quad3.md"){
+        quad3 = data;
+        raw3 = converter.makeHtml(quad3);
+        document.getElementById("quad3").innerHTML = raw3;
+    }
+    if(currentFile == "quad4.md"){
+        quad4 = data;
+        raw4 = converter.makeHtml(quad4);
+        document.getElementById("quad4").innerHTML = raw4;
+    }
+    
+    var httpc = new XMLHttpRequest();
+    var url = "filesaver.php";        
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+    httpc.send("data="+data+"&filename="+currentFile);//send text to filesaver.php        
+    
+}
+
+</script>
+<style>
+#slide{
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:100%;
+    height:80%;
+    border:solid;
+}
+#quad1{
+    position:absolute;
+    right:50%;
+    bottom:50%;
+    top:5%;
+    left:3%;
+    border-right:solid;
+    border-color:blue;    
+}
+#quad2{
+    position:absolute;
+    right:3%;
+    bottom:50%;
+    top:5%;
+    left:50%;
+    border-bottom:solid;
+    border-color:blue;    
+}
+h1{
+    text-align:center;
+    width:100%;
+}
+#quad2 h1{
+    position:absolute;
+    top:-20px;
+    text-align:center;
+    width:100%;
+}
+#quad2 img{
+    position:absolute;
+    width:80%;
+    left:10%;
+    top:15%;
+    overflow:hidden;
+    z-index:-1;
+}
+
+#quad3{
+    position:absolute;
+    right:50%;
+    bottom:3%;
+    top:50%;
+    left:3%;
+    border-top:solid;
+    border-color:blue;    
+}
+
+#quad4{
+    position:absolute;
+    right:3%;
+    bottom:3%;
+    top:50%;
+    left:50%;
+    border-left:solid;
+    border-color:blue;    
+}
+#titlebar{
+    margin-top:-23px;
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    bottom:97%;
+    text-align:center;
+}
+.button{
+    width:5em;
+    border:solid;
+    border-radius:10px;
+    text-align:center;
+    cursor:pointer;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
+}
+
+#textio{
+    position:absolute;
+    right:0px;
+    top:0px;
+    height:50%;
+    width:23%;
+    
+}
+</style>
+</body>
+</html>

@@ -83,14 +83,8 @@ To set up a raspberry pi server, you can run it headless but you need a TV or mo
 
 so to buy the whole pi server and set it up headless if you have basic computer stuff around like a screen, keyboard and mouse is about 75 dollars.  If you have to buy a screen, keyboard and mouse that probably adds 50 + 10 + 10 = about 70 dollars, then add a large lipo battery pack with usb c power cable for another 30-50 dollars or as high as 100 with a solar panel.  So the total cost for a fully portable system is in the range of 200 dollars.
 
- [robot.html](robot.html)
+ 
 
-the robot needs a button added to "run" the python robot program.  this should be added in the same script as the off button, both of which need to be run on boot, instructions for adding these are found here:
-
-[https://howchoo.com/g/mwnlytk3zmm/how-to-add-a-power-button-to-your-raspberry-pi](https://howchoo.com/g/mwnlytk3zmm/how-to-add-a-power-button-to-your-raspberry-pi)
-
-
-[here is a digikey cart with a bunch of the robot parts](https://www.digikey.com/short/zzj087)
 
 The longer term road map for the Geometron Art Factory network is to install server clusters locally in every basement of every library, school, town hall, church, coffee shop and office park, locally owned by the people in that local community who get value from it.  Ultimately this can completely replace the centralized Internet, with physical hardware all controlled by the people who benefit from that network in the local physical world near those servers.
 
