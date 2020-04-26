@@ -89,6 +89,57 @@ the robot needs a button added to "run" the python robot program.  this should b
 
 [https://howchoo.com/g/mwnlytk3zmm/how-to-add-a-power-button-to-your-raspberry-pi](https://howchoo.com/g/mwnlytk3zmm/how-to-add-a-power-button-to-your-raspberry-pi)
 
+copying directly the instructions above works on GPIO 2 with the following code for the two programs that replace those used in that tutorial:
+
+## listen-for-go-button.py:
+
+<pre>
+#!/usr/bin/env python
+
+import RPi.GPIO as GPIO
+import subprocess
+
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(2, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+while True:
+	GPIO.wait_for_edge(2, GPIO.FALLING)
+	subprocess.call('python /var/www/html/robot.py', shell=True)
+</pre>
+
+## listen-for-go-button.sh:
+
+<pre>
+#! /bin/sh
+
+### BEGIN INIT INFO
+# Provides:          listen-for-go-button.py
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+### END INIT INFO
+
+# If you want a command to always run, put it here
+
+# Carry out specific functions when asked to by the system
+case "$1" in
+  start)
+    echo "Starting listen-for-go-button.py"
+    /usr/local/bin/listen-for-go-button.py &
+    ;;
+  stop)
+    echo "Stopping listen-for-go-button.py"
+    pkill -f /usr/local/bin/listen-for-go-button.py
+    ;;
+  *)
+    echo "Usage: /etc/init.d/listen-for-go-button.sh {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0
+</pre>
 
 [here is a digikey cart with a bunch of the robot parts](https://www.digikey.com/short/zzj087)
 

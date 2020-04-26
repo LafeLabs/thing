@@ -12,7 +12,7 @@ if not robotExists:
     print("no robot here")
 
 if robotExists:
-    print("there is a robot i hate python")
+    print("there is a robot")
 
 import json
 
@@ -154,11 +154,20 @@ def moveOut(numSteps):
     else:
         print("move out " + str(numSteps))
 
-robotfile = open("data/robot.txt", "r")
+if robotExists:
+    robotfile = open("/var/www/html/data/robot.txt", "r")
+else:
+    robotfile = open("data/robot.txt", "r")
+
 robotjson = json.loads(robotfile.read())
 robotfile.close()
 
-hypercubefile = open("jscode/hypercube.js", "r")
+if robotExists:
+    hypercubefile = open("/var/www/html/jscode/hypercube.js", "r")
+else:
+    hypercubefile = open("jscode/hypercube.js", "r")
+
+
 hypercubestring = hypercubefile.read();
 hypercuberaw = "[" + hypercubestring.split("[")[1].split("]")[0] + "]"
 bytecode = json.loads(hypercuberaw)
