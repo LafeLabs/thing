@@ -85,7 +85,7 @@ so to buy the whole pi server and set it up headless if you have basic computer 
 
  [robot.html](robot.html)
 
-the robot needs a button added to "run" the python robot program.  this should be added in the same script as the off button, both of which need to be run on boot, instructions for adding these are found here:
+the robot needs a button added to "run" the python robot program.  this should be added in the same script as the off button(off button is on pin 3), both of which need to be run on boot, instructions for adding these are found here:
 
 [https://howchoo.com/g/mwnlytk3zmm/how-to-add-a-power-button-to-your-raspberry-pi](https://howchoo.com/g/mwnlytk3zmm/how-to-add-a-power-button-to-your-raspberry-pi)
 
@@ -140,6 +140,12 @@ esac
 
 exit 0
 </pre>
+
+
+pinout to jumpers from pi header :
+
+
+![](iconsymbols/pi-gpio-pinout.svg)
 
 [here is a digikey cart with a bunch of the robot parts](https://www.digikey.com/short/zzj087)
 
