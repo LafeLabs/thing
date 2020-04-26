@@ -25,6 +25,12 @@ enPin2 = 1
 dirPin3 = 14
 stepPin3 = 15
 enPin3 = 18
+
+controlpin1 = 6
+controlpin2 = 13
+controlpin3 = 19
+controlpin4 = 26
+
 stepTime = 0.001
 
 
@@ -38,6 +44,58 @@ if robotExists:
     GPIO.setup(dirPin3, GPIO.OUT, initial=GPIO.LOW) # 
     GPIO.setup(stepPin3, GPIO.OUT, initial=GPIO.LOW) # 
     GPIO.setup(enPin3, GPIO.OUT, initial=GPIO.HIGH) # 
+    GPIO.setup(controlpin1, GPIO.OUT, initial=GPIO.LOW) # 
+    GPIO.setup(controlpin2, GPIO.OUT, initial=GPIO.LOW) # 
+    GPIO.setup(controlpin3, GPIO.OUT, initial=GPIO.LOW) # 
+    GPIO.setup(controlpin4, GPIO.OUT, initial=GPIO.LOW) # 
+
+def control1on():
+    if robotExists:
+        GPIO.output(controlpin1,GPIO.HIGH) 
+    else:
+        print("control 1 on")
+
+def control1off():
+    if robotExists:
+        GPIO.output(controlpin1,GPIO.LOW) 
+    else:
+        print("control 1 on")
+
+def control2on():
+    if robotExists:
+        GPIO.output(controlpin2,GPIO.HIGH) 
+    else:
+        print("control 2 on")
+
+def control2off():
+    if robotExists:
+        GPIO.output(controlpin2,GPIO.LOW) 
+    else:
+        print("control 2 on")
+
+def control3on():
+    if robotExists:
+        GPIO.output(controlpin3,GPIO.HIGH) 
+    else:
+        print("control 3 on")
+
+def control3off():
+    if robotExists:
+        GPIO.output(controlpin3,GPIO.LOW) 
+    else:
+        print("control 3 on")
+
+def control4on():
+    if robotExists:
+        GPIO.output(controlpin4,GPIO.HIGH) 
+    else:
+        print("control 4 on")
+
+def control4off():
+    if robotExists:
+        GPIO.output(controlpin4,GPIO.LOW) 
+    else:
+        print("control 4 on")
 
 def moveLeft(numSteps):
     if robotExists:
@@ -208,6 +266,30 @@ def action(address):
         numSteps /= 2
     if address == 0o0407:
         numSteps *= 2
+    if address == 0o0410:
+        if robotExists:
+            for x in range(abs(numSteps)):
+                sleep(stepTime)   
+                sleep(stepTime)  
+        else:
+            print("pause")
+    if address == 0o0411:
+        control1on()
+    if address == 0o0412:
+        control1off()
+    if address == 0o0413:
+        control2on()
+    if address == 0o0414:
+        control2off()
+    if address == 0o0415:
+        control3on()
+    if address == 0o0416:
+        control3off()
+    if address == 0o0417:
+        control4on()
+    if address == 0o0420:
+        control4off()
+        
         
 def sequence(glyph):
     #glyph is a string which is a comma delimited array of base 8 numbers in js notation

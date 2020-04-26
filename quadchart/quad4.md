@@ -1,7 +1,6 @@
 # Key Milestones
 
-- abolition of all state authority
-- abolition of all corporations and law
-- abolition of all private property, money, and minning
-- total destruction of the concept of the ego and integration into ecosystem
-- live immersed in streams, creeks and shallow ocean water
+- Abolition of all state authority
+- Abolition of all corporations and law
+- Abolition of all private property, money, and minning
+- Live immersed in streams, creeks and shallow ocean water

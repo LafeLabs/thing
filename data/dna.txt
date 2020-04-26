@@ -124,7 +124,6 @@
         "pngsave.txt",
         "rdelete.txt",
         "replicator.txt",
-        "robot.php",
         "text2php.txt",
         "upload.txt",
         "uploadsymbol.txt"

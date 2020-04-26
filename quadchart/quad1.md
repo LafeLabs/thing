@@ -1,5 +1,5 @@
 # Objective
 
-- develop industry without property, mining, or money
-- total localization 
-- survive
+- Develop industry without property, mining, or money
+- Total localization 
+- Survive
