@@ -174,6 +174,12 @@ document.getElementById("quad4").onclick = function(){
     document.getElementById("textio").value = quad4;
 }
 
+document.getElementById("titlebar").onclick = function(){
+    currentFile = "titlebar.md";
+    document.getElementById("textio").value = titlebar;
+}
+
+
 currentFile = "quad1.md";
 
 document.getElementById("textio").onkeyup = function(){
@@ -199,6 +205,12 @@ document.getElementById("textio").onkeyup = function(){
         raw4 = converter.makeHtml(quad4);
         document.getElementById("quad4").innerHTML = raw4;
     }
+    if(currentFile == "titlebar.md"){
+        titlebar = data;
+        rawbar = converter.makeHtml(titlebar);
+        document.getElementById("titlebar").innerHTML = rawbar;
+        
+    }
     
     var httpc = new XMLHttpRequest();
     var url = "filesaver.php";        
@@ -211,9 +223,10 @@ document.getElementById("textio").onkeyup = function(){
 </script>
 <style>
 #slide{
+    font-family:helvetica;
     position:absolute;
-    left:0px;
-    top:0px;
+    left:20px;
+    top:20px;
     width:100%;
     height:80%;
     border:solid;
@@ -225,6 +238,7 @@ document.getElementById("textio").onkeyup = function(){
     top:5%;
     left:3%;
     border-right:solid;
+    border-bottom:solid;
     border-color:blue;    
 }
 #quad2{
@@ -261,7 +275,7 @@ h1{
     bottom:3%;
     top:50%;
     left:3%;
-    border-top:solid;
+    border-right:solid;
     border-color:blue;    
 }
 
@@ -271,7 +285,6 @@ h1{
     bottom:3%;
     top:50%;
     left:50%;
-    border-left:solid;
     border-color:blue;    
 }
 #titlebar{

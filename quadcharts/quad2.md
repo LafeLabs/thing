@@ -1,3 +1,3 @@
 # End this now
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/DUMPING_LANDFILL_AT_FRESH_KILLS,_ON_THE_WEST_SHORE_OF_STATEN_ISLAND_-_NARA_-_548348.jpg/2560px-DUMPING_LANDFILL_AT_FRESH_KILLS,_ON_THE_WEST_SHORE_OF_STATEN_ISLAND_-_NARA_-_548348.jpg)
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Ende_Gel%C3%A4nde_2017_CHB_23_%28cropped%29.jpg/2560px-Ende_Gel%C3%A4nde_2017_CHB_23_%28cropped%29.jpg)
