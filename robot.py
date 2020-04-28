@@ -311,6 +311,10 @@ def sequence(glyph):
 #moveUp(20)
 
 sequence(mainglyph)
+control1off()
+control2off()
+control3off()
+control4off()
 
 #sequence("0500,")
 
