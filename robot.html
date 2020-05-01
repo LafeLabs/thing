@@ -15,12 +15,13 @@
 <body>    
 <div id = "square">
     <canvas id = "maincanvas"></canvas>
+    <canvas id = "spellcanvas"></canvas>
     <canvas id = "invisiblecanvas"></canvas>
 </div>
 <div id  = "margin">
     <a href = "tablet.html"><img style = "width:50px" src = "iconsymbols/tablet.svg"></a>
 <a href = "hypercube.html"><img style = "width:50px" src = "iconsymbols/hypercube.svg"></a>
-    <a href = "index.html"><img style = "width:50px" src = "iconsymbols/geometron.svg"></a>
+    <a href = "index.html"><img style = "width:50px" src = "iconsymbols/geometronthing.svg"></a>
     <a href = "scroll.html"><img style = "width:50px" src = "iconsymbols/scroll.svg"></a>    
 <input id = "spellinput"/>
     <div id = "controldiv">
@@ -56,7 +57,9 @@ else{
 
 
 
-var newGVM = new GVM(0.05*squareWidth,0.1*squareWidth,0.05*squareWidth,-Math.PI/2,document.getElementById("maincanvas"),squareWidth,squareWidth,hypercube);
+var newGVM = new GVM(0.05*squareWidth,0.1*squareWidth,0.03*squareWidth,-Math.PI/2,document.getElementById("maincanvas"),squareWidth,0.5*squareWidth,hypercube);
+
+var actionGVM = new GVM(0.05*squareWidth,0.1*squareWidth,0.05*squareWidth,-Math.PI/2,document.getElementById("spellcanvas"),squareWidth,0.5*squareWidth,hypercube);
 
 for(var index = 0;index < 01377;index++){
     if(newGVM.hypercube[index].length  > 0 ){
@@ -64,7 +67,10 @@ for(var index = 0;index < 01377;index++){
     }
 }
 
+
 newGVM.importbytecode(font);
+actionGVM.importbytecode(font);
+
 
 invisibleWidth = 200;
 var invisibleGVM = new GVM(0.98*invisibleWidth,0.98*invisibleWidth,0.96*invisibleWidth,-Math.PI/2,document.getElementById("invisiblecanvas"),invisibleWidth,invisibleWidth,hypercube);
@@ -89,6 +95,8 @@ httpc.onreadystatechange = function() {
         }
         document.getElementById("spellinput").value = glyph;
         newGVM.glyph = glyph + "0207,";
+//        actionGVM.actionSequence(glyph);
+        draw();
         spellGlyph(newGVM.glyph);
         drawbuttons();
     }
@@ -118,8 +126,9 @@ function drawbuttons(){
             else{
                 newGVM.cursorAction(thisaction);
             }
-                    newGVM.drawGlyph("0300,");
-            spellGlyph(newGVM.glyph);        
+            newGVM.drawGlyph("0300,");
+            spellGlyph(newGVM.glyph);      
+            draw();
             newGVM.saveGlyph();
             savejson();
             
@@ -151,7 +160,11 @@ function spellGlyph(glyph){
     }
 }
 
-
+function draw(){
+    actionGVM.ctx.clearRect(0,0,actionGVM.width,actionGVM.height);
+    actionGVM.action(0300);
+    actionGVM.actionSequence(newGVM.glyph);
+}
 
 function savejson(){
     
@@ -195,6 +208,11 @@ body{
     border-color:blue;
     overflow:hidden;
 }
+#maincanvas{
+    position:absolute;
+    bottom:0px;
+    border:solid;
+}
 #margin{
     position:absolute;
     right:0px;
@@ -202,6 +220,7 @@ body{
     border:solid;
     border-width:0.1px;
 }
+
 #invisiblecanvas{
     display:none;
 }
