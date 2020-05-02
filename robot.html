@@ -23,6 +23,8 @@
 <a href = "hypercube.html"><img style = "width:50px" src = "iconsymbols/hypercube.svg"></a>
     <a href = "index.html"><img style = "width:50px" src = "iconsymbols/geometronthing.svg"></a>
     <a href = "scroll.html"><img style = "width:50px" src = "iconsymbols/scroll.svg"></a>    
+        <input id = "actioninput"/>
+
 <input id = "spellinput"/>
     <div id = "controldiv">
         
@@ -99,6 +101,13 @@ httpc.onreadystatechange = function() {
         draw();
         spellGlyph(newGVM.glyph);
         drawbuttons();
+  
+        for(var index = 0;index< currentjson.keyboard.length;index++){
+            newGVM.hypercube[currentjson.keyboard[index][0].charCodeAt(0)] = currentjson.keyboard[index][1]  + ",";
+        }  
+        
+//        newGVM.hypercube[currentjson.keyboard[0][0].charCodeAt(0)] = currentjson.keyboard[0][1]  + ",";
+        
     }
 };
 httpc.open("GET", "fileloader.php?filename=data/robot.txt", true);
@@ -194,6 +203,71 @@ document.getElementById("spellinput").onchange = function(){
     savejson();
 }
 
+document.getElementById("actioninput").value = "";
+document.getElementById("actioninput").select();
+
+
+document.getElementById("actioninput").onkeydown = function(a) {
+    var charCode = a.keyCode || a.which;
+
+    if(charCode == 015) {
+       // modeswitch();
+    }
+
+    if(charCode == 010) {
+        newGVM.cursorAction(010,newGVM);   
+    }
+    if(charCode == 045){
+        newGVM.cursorAction(020,newGVM);             
+    }
+    if(charCode == 047){
+        newGVM.cursorAction(021,newGVM);   
+    }
+
+    if(charCode == 046){
+        //up arrow: prev symbol
+
+    }
+    if(charCode == 050){
+        //down arrow: next symbol
+ 
+    }
+
+
+            newGVM.drawGlyph("0300,");
+            spellGlyph(newGVM.glyph);      
+            draw();
+            newGVM.saveGlyph();
+            savejson();
+}
+
+mode = 0;
+
+document.getElementById("actioninput").onkeypress = function(a) {
+    var charCode = a.keyCode || a.which;
+
+    if(charCode != 015){
+        if(mode == 0){
+            localCursorAction = parseInt(newGVM.hypercube[charCode],8);    
+        }    
+        if(mode == 1){
+            localCursorAction = charCode + 01000;     
+        }    
+        if(mode == 2){
+            localCursorAction = charCode;     
+        }    
+        newGVM.cursorAction(localCursorAction);   
+
+        newGVM.drawGlyph("0300,");
+        spellGlyph(newGVM.glyph);      
+        draw();
+        newGVM.saveGlyph();
+        savejson();
+        
+    }
+
+
+}
 </script>
 <style>
 body{
@@ -252,6 +326,12 @@ body{
     font-family:courier;
     margin-bottom:10px;
     margin-left:10px;
+}
+#actioninput{
+    width:1em;
+    position:absolute;
+    right:0px;
+    top:0px;
 }
 </style>
 </body>
