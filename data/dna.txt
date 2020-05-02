@@ -2,6 +2,7 @@
     "html": [
         "README.md",
         "deck.html",
+        "duality.html",
         "fonteditor.html",
         "fork.html",
         "hypercube.html",
@@ -9,6 +10,7 @@
         "keyboardeditor.html",
         "map.html",
         "pageeditor.html",
+        "poetryengine.html",
         "robot.html",
         "robot.py",
         "scroll.html",
@@ -108,7 +110,9 @@
         "currentMap.txt",
         "currentjson.txt",
         "dna.txt",
+        "duality.txt",
         "marker.txt",
+        "poetry.txt",
         "robot.txt",
         "textfeed.txt",
         "wall.txt"
