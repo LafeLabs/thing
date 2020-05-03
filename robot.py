@@ -59,7 +59,7 @@ def control1off():
     if robotExists:
         GPIO.output(controlpin1,GPIO.LOW) 
     else:
-        print("control 1 on")
+        print("control 1 off")
 
 def control2on():
     if robotExists:
@@ -71,7 +71,7 @@ def control2off():
     if robotExists:
         GPIO.output(controlpin2,GPIO.LOW) 
     else:
-        print("control 2 on")
+        print("control 2 off")
 
 def control3on():
     if robotExists:
@@ -83,7 +83,7 @@ def control3off():
     if robotExists:
         GPIO.output(controlpin3,GPIO.LOW) 
     else:
-        print("control 3 on")
+        print("control 3 off")
 
 def control4on():
     if robotExists:
@@ -95,7 +95,7 @@ def control4off():
     if robotExists:
         GPIO.output(controlpin4,GPIO.LOW) 
     else:
-        print("control 4 on")
+        print("control 4 off")
 
 def moveLeft(numSteps):
     if robotExists:
@@ -222,14 +222,23 @@ robotfile.close()
 
 if robotExists:
     hypercubefile = open("/var/www/html/jscode/hypercube.js", "r")
+    robotfontfile = open("/var/www/html/jscode/robotfont.js", "r")
 else:
     hypercubefile = open("jscode/hypercube.js", "r")
+    robotfontfile = open("jscode/robotfont.js", "r")
 
 
 hypercubestring = hypercubefile.read();
+robotfontstring = robotfontfile.read();
+
 hypercuberaw = "[" + hypercubestring.split("[")[1].split("]")[0] + "]"
 bytecode = json.loads(hypercuberaw)
 hypercubefile.close()
+
+robotfontraw = "[" + hypercubestring.split("[")[1].split("]")[0] + "]"
+robotfontbytecode = json.loads(robotfontraw)
+hypercubefile.close()
+
 
 unit = 100
 numSteps = unit
@@ -303,6 +312,11 @@ def sequence(glyph):
               action(address)
             if address >= 0o500 and address < 0o600:
               sequence(hypercube[address])
+            if address >= 0o1000 and address < 0o1777:
+              sequence(hypercube[address])
+            if address >= 0o200 and address < 0o277:
+              sequence(hypercube[address])
+
 #moveDown(20)
 #moveIn(100)
 #moveLeft(100)

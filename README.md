@@ -4,11 +4,9 @@
 
 [![](iconsymbols/geometronthing.svg)](index.html)
 
-
 ### [Scroll:](scroll.html)
 
 [![](iconsymbols/scroll.svg)](scroll.html)
-
 
 [wall.html](wall.html)
 
@@ -146,6 +144,8 @@ pinout to jumpers from pi header :
 
 
 ![](iconsymbols/pi-gpio-pinout.svg)
+
+![](https://www.raspberrypi.org/documentation/usage/gpio/images/GPIO-Pinout-Diagram-2.png)
 
 [here is a digikey cart with a bunch of the robot parts](https://www.digikey.com/short/zzj087)
 
