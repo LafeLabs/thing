@@ -13,6 +13,8 @@
         "poetryengine.html",
         "robot.html",
         "robot.py",
+        "robotcube.html",
+        "robotfont.html",
         "scroll.html",
         "setup.html",
         "shapetableeditor.html",
@@ -28,7 +30,8 @@
         "geometron.js",
         "hypercube.js",
         "keyboard.js",
-        "mapfactory.js"
+        "mapfactory.js",
+        "robotfont.js"
     ],
     "iconsymbols": [
         "abcfont.svg",

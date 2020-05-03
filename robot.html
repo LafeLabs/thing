@@ -8,7 +8,7 @@
     <!--Stop Google:-->
     <META NAME="robots" CONTENT="noindex,nofollow">
     <script src="jscode/geometron.js"></script>
-    <script src="jscode/font.js"></script>
+    <script src="jscode/robotfont.js"></script>
     <script src="jscode/hypercube.js"></script>
 
 </head>
@@ -19,6 +19,7 @@
     <canvas id = "invisiblecanvas"></canvas>
 </div>
 <div id  = "margin">
+    <img id = "modebutton" class = "button" style = "width:50px;background-color:#00ff00" src = "iconsymbols/cursor.svg"/>
     <a href = "tablet.html"><img style = "width:50px" src = "iconsymbols/tablet.svg"></a>
 <a href = "hypercube.html"><img style = "width:50px" src = "iconsymbols/hypercube.svg"></a>
     <a href = "index.html"><img style = "width:50px" src = "iconsymbols/geometronthing.svg"></a>
@@ -201,6 +202,8 @@ document.getElementById("spellinput").onchange = function(){
     newGVM.drawGlyph("0300,");
     spellGlyph(newGVM.glyph);
     savejson();
+    draw();
+    
 }
 
 document.getElementById("actioninput").value = "";
@@ -211,7 +214,7 @@ document.getElementById("actioninput").onkeydown = function(a) {
     var charCode = a.keyCode || a.which;
 
     if(charCode == 015) {
-       // modeswitch();
+        modeswitch();
     }
 
     if(charCode == 010) {
@@ -233,12 +236,13 @@ document.getElementById("actioninput").onkeydown = function(a) {
  
     }
 
-
-            newGVM.drawGlyph("0300,");
-            spellGlyph(newGVM.glyph);      
-            draw();
-            newGVM.saveGlyph();
-            savejson();
+    if(charCode != 015){
+        newGVM.drawGlyph("0300,");
+        spellGlyph(newGVM.glyph);      
+        draw();
+        newGVM.saveGlyph();
+        savejson();
+    }
 }
 
 mode = 0;
@@ -248,7 +252,7 @@ document.getElementById("actioninput").onkeypress = function(a) {
 
     if(charCode != 015){
         if(mode == 0){
-            localCursorAction = parseInt(newGVM.hypercube[charCode],8);    
+            localCursorAction = parseInt(newGVM.hypercube[charCode],8);
         }    
         if(mode == 1){
             localCursorAction = charCode + 01000;     
@@ -266,7 +270,25 @@ document.getElementById("actioninput").onkeypress = function(a) {
         
     }
 
+}
 
+document.getElementById("modebutton").onclick = function(){
+        modeswitch();
+}
+
+function modeswitch(){
+    mode++;
+    mode = mode%2;
+    if(mode == 0){
+        document.getElementById("modebutton").src = "iconsymbols/cursor.svg";
+    }
+    if(mode == 1){
+        document.getElementById("modebutton").src = "iconsymbols/abcfont.svg";
+    }
+    if(mode == 2){
+        document.getElementById("modebutton").src = "iconsymbols/abcstack.svg";
+    }
+    document.getElementById("actioninput").select();
 }
 </script>
 <style>
