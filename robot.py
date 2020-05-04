@@ -235,9 +235,9 @@ hypercuberaw = "[" + hypercubestring.split("[")[1].split("]")[0] + "]"
 bytecode = json.loads(hypercuberaw)
 hypercubefile.close()
 
-robotfontraw = "[" + hypercubestring.split("[")[1].split("]")[0] + "]"
+robotfontraw = "[" + robotfontstring.split("[")[1].split("]")[0] + "]"
 robotfontbytecode = json.loads(robotfontraw)
-hypercubefile.close()
+robotfontfile.close()
 
 
 unit = 100
@@ -251,6 +251,12 @@ for index in range(1024):
     hypercube.append("")
 
 for row in bytecode:
+    splitrow = row.split(":")
+    if len(splitrow) > 0:
+        address = int(splitrow[0],8)
+        hypercube[address] = splitrow[1]
+
+for row in robotfontbytecode:
     splitrow = row.split(":")
     if len(splitrow) > 0:
         address = int(splitrow[0],8)
