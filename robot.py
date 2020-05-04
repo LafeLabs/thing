@@ -31,6 +31,8 @@ controlpin2 = 13
 controlpin3 = 19
 controlpin4 = 26
 
+stopPin = 4
+
 stepTime = 0.001
 
 

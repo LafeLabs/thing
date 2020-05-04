@@ -140,6 +140,8 @@ exit 0
 </pre>
 
 
+![](https://a.pololu-files.com/picture/0J8411.600.png?b1d4747290149a17fb94d490c1b09f87)
+
 pinout to jumpers from pi header :
 
 
