@@ -48,6 +48,7 @@ if robotExists:
     GPIO.setup(controlpin2, GPIO.OUT, initial=GPIO.LOW) # 
     GPIO.setup(controlpin3, GPIO.OUT, initial=GPIO.LOW) # 
     GPIO.setup(controlpin4, GPIO.OUT, initial=GPIO.LOW) # 
+    GPIO.setup(stopPin, GPIO.IN, pull_up_down=GPIO.PUD_UP) # 
 
 def control1on():
     if robotExists:
@@ -198,7 +199,6 @@ def moveIn(numSteps):
 
 def moveOut(numSteps):
     if robotExists:
-        
         GPIO.output(dirPin2,GPIO.HIGH) # direction
         GPIO.output(enPin2, GPIO.LOW) # enable
         GPIO.output(enPin3, GPIO.HIGH) # deenable    
@@ -322,13 +322,9 @@ def sequence(glyph):
               sequence(hypercube[address])
             if address >= 0o200 and address < 0o277:
               sequence(hypercube[address])
-
-#moveDown(20)
-#moveIn(100)
-#moveLeft(100)
-#moveOut(100)
-#moveRight(100)
-#moveUp(20)
+            if robotExists:
+                if not GPIO.input(stopPin):
+                    break
 
 sequence(mainglyph)
 control1off()
