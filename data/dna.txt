@@ -23,6 +23,7 @@
         "symbolfeed.html",
         "tablet.html",
         "textfeed.html",
+        "voxel.html",
         "wall.html"
     ],
     "javascript": [

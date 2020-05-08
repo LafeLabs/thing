@@ -174,4 +174,29 @@ To learn the skills needed to [hack](https://en.wikipedia.org/wiki/Hacker_cultur
 Note that in the Geometron system we associate the basic Five Languages with the Five Elements as follows: Fire = JavaScript, Air = CSS, Water = HTML, Aether = PHP, and Earth = Geometron. 
 
 
+## Elements of Geometron
+
+- collection of code found here
+- walls
+- poetry engines
+- maps
+- decks
+- books
+- laser cut shape sets
+- icon factories
+- laser cut shape factories
+- raspberry pi servers
+- virtual machines inside intranets
+- hosted web servers
+- code editors
+- scrolls
+= trash printers
+- printed clay tablets
+- postcards with geometron printed with laser cut shapes
+- physical markers in physical places
+- other machine elements based on arduino: motors, pumps, other robotics, display, electrochemical probes, temperature regulation systems
+- Geometron hypercube
+- Geometron virtual machine
+
+
 

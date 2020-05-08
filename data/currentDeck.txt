@@ -98,6 +98,51 @@
             "text": "scroll editor",
             "href": "pageeditor.html",
             "src": ""
+        },
+        {
+            "x": 0.8090692124105012,
+            "y": 0.6885441527446301,
+            "w": 0.49522673031026254,
+            "angle": 0,
+            "text": "scroll",
+            "href": "scroll.html",
+            "src": ""
+        },
+        {
+            "x": 0.028639618138424822,
+            "y": 0.4701670644391408,
+            "w": 0.10620525059665871,
+            "angle": 0,
+            "text": "fork",
+            "href": "fork.html",
+            "src": "iconsymbols/fork.svg"
+        },
+        {
+            "x": 0.03341288782816229,
+            "y": 0.5990453460620525,
+            "w": 0.10620525059665871,
+            "angle": 0,
+            "text": "scroll",
+            "href": "scroll.html",
+            "src": "iconsymbols/scroll.svg"
+        },
+        {
+            "x": 0.03937947494033413,
+            "y": 0.7362768496420048,
+            "w": 0.11097852028639618,
+            "angle": 0,
+            "text": "robot.html",
+            "href": "robot.html",
+            "src": "iconsymbols/voxel.svg"
+        },
+        {
+            "x": 0.2243436754176611,
+            "y": 0.4403341288782816,
+            "w": 0.49522673031026254,
+            "angle": 0,
+            "text": "voxel.html",
+            "href": "voxel.html",
+            "src": ""
         }
     ],
     [
