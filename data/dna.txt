@@ -2,6 +2,7 @@
     "html": [
         "README.md",
         "deck.html",
+        "deckeditor.html",
         "duality.html",
         "fonteditor.html",
         "fork.html",
@@ -9,6 +10,7 @@
         "index.html",
         "keyboardeditor.html",
         "map.html",
+        "mapeditor.html",
         "pageeditor.html",
         "poetryengine.html",
         "robot.html",
