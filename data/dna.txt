@@ -18,11 +18,13 @@
         "scroll.html",
         "setup.html",
         "shapetableeditor.html",
+        "srs.md",
         "styleeditor.html",
         "symbol.html",
         "symbolfeed.html",
         "tablet.html",
         "textfeed.html",
+        "thing.html",
         "voxel.html",
         "wall.html"
     ],

@@ -1,36 +1,9 @@
 {
-    "imgurl": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Rafael_-_El_Parnaso_%28Estancia_del_Sello%2C_Roma%2C_1511%29.jpg",
+    "imgurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Altair_8800_at_the_Computer_History_Museum%2C_cropped.jpg/2880px-Altair_8800_at_the_Computer_History_Museum%2C_cropped.jpg",
     "map": [
         {
-            "x": 0.2458233890214797,
-            "y": 0.13484486873508353,
-            "w": 0.19928400954653938,
-            "angle": 0,
-            "text": "capitalism",
-            "href": "",
-            "src": ""
-        },
-        {
-            "x": 0.4295942720763723,
-            "y": 0.4630071599045346,
-            "w": 0.19928400954653938,
-            "angle": 0,
-            "text": "the end of all things",
-            "href": "",
-            "src": ""
-        },
-        {
-            "x": 0.5059665871121718,
-            "y": 0.19928400954653938,
-            "w": 0.19928400954653938,
-            "angle": 0,
-            "text": "nihilism",
-            "href": "",
-            "src": ""
-        },
-        {
-            "x": 0.324582338902148,
-            "y": 0.3031026252983294,
+            "x": 0.2720763723150358,
+            "y": 0.10739856801909307,
             "w": 0.19928400954653938,
             "angle": 0,
             "text": "the internet",
@@ -38,11 +11,47 @@
             "src": ""
         },
         {
-            "x": 0.662291169451074,
-            "y": 0.12171837708830549,
+            "x": 0.12529832935560858,
+            "y": 0.034606205250596656,
             "w": 0.19928400954653938,
             "angle": 0,
-            "text": "capitalism",
+            "text": "in the beginning",
+            "href": "",
+            "src": ""
+        },
+        {
+            "x": 0.38066825775656327,
+            "y": 0.17899761336515513,
+            "w": 0.19928400954653938,
+            "angle": 0,
+            "text": "was null",
+            "href": "",
+            "src": ""
+        },
+        {
+            "x": 0.5011933174224343,
+            "y": 0.24224343675417662,
+            "w": 0.19928400954653938,
+            "angle": 0,
+            "text": "and void",
+            "href": "",
+            "src": ""
+        },
+        {
+            "x": 0.6455847255369929,
+            "y": 0.3460620525059666,
+            "w": 0.19928400954653938,
+            "angle": 0,
+            "text": "then zero became one",
+            "href": "",
+            "src": ""
+        },
+        {
+            "x": 0.3627684964200477,
+            "y": 0.38902147971360385,
+            "w": 0.19928400954653938,
+            "angle": 0,
+            "text": "and one became infinity",
             "href": "",
             "src": ""
         }

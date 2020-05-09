@@ -41,7 +41,6 @@ EGO DEATH:
 <div id="maineditor" contenteditable="true" spellcheck="false"></div>
 <div id = "filescroll">
 
-<div class = "markdown file">README.md</div>
 
 <?php
     $topfiles = scandir(getcwd());
@@ -52,6 +51,9 @@ EGO DEATH:
         }
         if(substr($value,-3) == ".py"){
             echo "\n<div class = \"python file\">".$value."</div>\n";
+        }
+        if(substr($value,-3) == ".md"){
+            echo "\n<div class = \"markdown file\">".$value."</div>\n";
         }
         
     }
@@ -92,6 +94,11 @@ EGO DEATH:
         $newfile = $_GET["newfile"];
         if(substr($newfile,-5) == ".html"){
             echo "<div class = \"html file\">";
+            echo $newfile;
+            echo "</div>\n";
+        }
+        if(substr($newfile,-3) == ".md"){
+            echo "<div class = \"markdown file\">";
             echo $newfile;
             echo "</div>\n";
         }

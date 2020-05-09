@@ -1,18 +1,19 @@
-### [link up a level../](../)
-
-# Geometron Thing
-
 [![](iconsymbols/geometronthing.svg)](index.html)
 
-### [Scroll:](scroll.html)
+# Geometron
 
-[![](iconsymbols/scroll.svg)](scroll.html)
+## Poetry Engine
 
-[wall.html](wall.html)
+The first thing to do in Geometron is to learn to operate the Poetry Engine.  The poetry engine points to any image on the World Wide Web and adds meaning to it with words placed over the image like magnets on a refrigerator.
 
-### [Edit Scroll:](pageeditor.html)
+[click on this link to go to the poetry engine at poetryengine.html](poetryengine.html)
 
-[![](iconsymbols/edit.svg)](pageeditor.html)
+Now find an image on the Web and copy the link.  This is easiest to do by choosing something that comes to mind that you want to think about, look it up on [wikipedia](https://en.wikipedia.org/wiki/Main_Page), and then right clicking an image in the article that you like. When you right click an image you can select "copy image location", then go back to the browser with the Poetry Engine in it and enter that image url in the field marked "image url".  The image should instantly change to the one you selected. Now save that as the new image by clicking the save icon which is a box and a down arrow.  Now drag the mouse or slide a finger on the touch screen on the image to move words around.  Use the next and previous buttons with lines and arrows to move through the words or up and down arrows if you're using a keyboard and have the cursor in the "text" input.  Change the text and hit "enter", and save again.  Now move words around and edit them until you have created a meaning for the image.  Save again, and notice that the larger text box is filled with [strange looking code](https://en.wikipedia.org/wiki/JSON).  Now copy all that code to the clipboard and paste it into an email or text message to another Geometron user.  They can then paste that code into the same field and click the "IMPORT" button in the very lower right corner of their screen and it will load the whole of your poem to their screen.  Ask them to send back one to you and you can import it in the same way, edit it, and send it back.  
+
+## Quantum Duality
+
+
+
 
 What you see in the edit screen(after clicking the edit icon) here is "markdown", which is language which allows people to publish things on the web without learning more complex languages. Hit return twice to get a paragraph break.  Copy the syntax you see here to get links and images and headings. You can look up markdown ([cheat sheet](https://www.markdownguide.org/cheat-sheet/), [detailed guide](https://daringfireball.net/projects/markdown/syntax), [wikipedia entry](https://en.wikipedia.org/wiki/Markdown)) for more syntax.  Also embedding <span style = "color:red;font-family:courier;">HTML</span> works if you know that.  
 
@@ -240,7 +241,8 @@ Note that in the Geometron system we associate the basic Five Languages with the
 - smooth out the robot control hypercube editing
 - give away enough robots to enough people who will replicate that replication becomes exponential without any further investment
 - build up all CJK characters in geometron by building strokes then simple radicals, more complex radicals and compound characters in a fractal way
-
+- get some system working for printing tablets which can be easily optically scanned in using a browser
+- use levers to step down scale of stage motion 
 
 ## Physical Kit
 
