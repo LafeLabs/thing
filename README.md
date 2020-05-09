@@ -198,5 +198,67 @@ Note that in the Geometron system we associate the basic Five Languages with the
 - Geometron hypercube
 - Geometron virtual machine
 
+## Actions
+
+- build graphical poem
+- build quantum duality
+- build webpage using index.html and html editor
+- create and edit a scroll 
+- build a marker with a wall
+- build a map deck to the marker
+- write the book Action Geometry based on the existing copy using the shape set
+- bind a blank book
+- create symbols using geometron, learn the motions, symmetries and scales and actions and put the symbols in a map
+- upload and edit an icon
+- replicate geometron thing to local hard drive, edit on localhost, push to a new github
+- replicate geometron to a free or paid webhost
+- build a raspberry pi geometron web server and install it
+- build a custom shape table, your own graphical language, save, publish, and share
+- build a custom font, save and share
+- understand the Geometron hypercube and Geometron Virtual Machine, edit the hypercube
+- program the robot to make simple marks, writing
+- use the robot to make sculpey tablets, bake them, paint them
+- build robot including pi, pi hat, buttons and switches, battery, cables, dvd drives, bent plastic, magnets, nail, cardboard
+- design your own laser cut shape set and ruler, get them made at ponoko or local maker space or some artist
+- build laminated maps of your Street and Watershed
+- use voxel coding to make glitch art in 3d
+
+## trail map of future 
+
+- implement geometron in direct control of pixels in screen
+- build the physical hardware to do this from found materials and clay fabrication interconnects
+- build trash-sourced power generation and storage to run the system
+- goal is to have full Geometron Web with links and pages, servers and clients with bitmaps and geometron vectors with 100% trash and found materials input, no money or mining or property at all, including physical network infrastructure by way of point to point optical etc.  
+
+## next tasks in trail map
+
+- get fabrication working in river clay with a bake step directly after writing
+- get a copper/solder slurry or something like it to work for circuit fabrication in clay 
+- use this to make complex circuits with smt land pads, develop techniques for using found chips from other boards and clay interconnects to upcycle functional technology, integrate into rocks and other clay using river clay
+- build nonlinear circuits with clay electronics and various materials like fluids and found nonlinear things to build bottom-up active eletronics
+- develop a trash-sourced energy storage system using aluminum beverage cans and charcoal(aluminum-alumina-carbon cycle)
+- smooth out the robot control hypercube editing
+- give away enough robots to enough people who will replicate that replication becomes exponential without any further investment
+- build up all CJK characters in geometron by building strokes then simple radicals, more complex radicals and compound characters in a fractal way
+
+
+## Physical Kit
+
+- raspberry pi geometron server connected to trash robot
+- some sculpey
+- some crayola modeling clay
+- baked and painted clay tablets
+- shape set in cloth bag
+- geometron ruler
+- postcard with symbol on it
+- completed Action Geometry book
+- blank AG book
+- sewing needle and thread, push pin
+- painted stones with symbols on them
+- laminated maps of watershed and street
+
+
+
+
 
 
