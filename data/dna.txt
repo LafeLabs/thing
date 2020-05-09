@@ -21,6 +21,7 @@
         "srs.md",
         "styleeditor.html",
         "symbol.html",
+        "symbolapp.html",
         "symbolfeed.html",
         "tablet.html",
         "textfeed.html",
