@@ -141,6 +141,20 @@ httpc2.open("GET", "dir.php", true);
 httpc2.send();
 
 
+document.getElementById("externalinput").onchange = function(){
+    scrollname = this.value;
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        readme_md = this.responseText;
+        rawhtml = converter.makeHtml(readme_md);
+        document.getElementById("scrollscroll").innerHTML = rawhtml;
+        }
+    };
+    httpc.open("GET", "fileloader.php?filename=" + scrollname, true);
+    httpc.send();
+}
+
 </script>
 <style>
     .scrollbutton{
