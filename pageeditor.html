@@ -78,31 +78,68 @@
 
 <script>
 
+currentfile = "README.md";
 
-    //get readme.md, convert to html and display
+//get readme.md, convert to html and display
 
-    readme_md = "";
-    rawhtml = "";
-    var httpc = new XMLHttpRequest();
-    httpc.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            readme_md = this.responseText;
-            document.getElementById("maintextarea").value = readme_md;                 
-        }
-    };
-    httpc.open("GET", "fileloader.php?filename=README.md", true);
-    httpc.send();
-
-    document.getElementById("maintextarea").onkeyup = function() {
-        readme_md = this.value;
-        data = encodeURIComponent(this.value);
-        var httpc = new XMLHttpRequest();
-        var url = "filesaver.php";        
-        httpc.open("POST", url, true);
-        httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
-        httpc.send("data="+data+"&filename=README.md");//send text to filesaver.php
+readme_md = "";
+rawhtml = "";
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        readme_md = this.responseText;
+        document.getElementById("maintextarea").value = readme_md;  
+        
     }
+};
+httpc.open("GET", "fileloader.php?filename=" + currentfile, true);
+httpc.send();
 
+document.getElementById("maintextarea").onkeyup = function() {
+    readme_md = this.value;
+    data = encodeURIComponent(this.value);
+    var httpc = new XMLHttpRequest();
+    var url = "filesaver.php";        
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+    httpc.send("data="+data+"&filename=" + currentfile);//send text to filesaver.php
+}
+
+scrolls = [];
+var httpc7 = new XMLHttpRequest();
+    httpc7.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        scrolls = JSON.parse(this.responseText);
+        for(var index = scrolls.length - 1;index >= 0;index--) {
+            if(scrolls[index].substr(-3) == ".md"){
+    //            console.log(scrolls[index]);
+                var newscrollbutton = document.createElement("div");
+                newscrollbutton.className = "scrollbutton";
+                newscrollbutton.innerHTML = scrolls[index];
+                document.getElementById("feedscroll").appendChild(newscrollbutton);
+                newscrollbutton.onclick = function(){
+                    currentfile = this.innerHTML;
+                    //console.log(scrollname);
+                    var httpc = new XMLHttpRequest();
+                    httpc.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            readme_md = this.responseText;
+                            
+                            document.getElementById("maintextarea").value = readme_md;  
+
+
+                        }
+                    };
+                    httpc.open("GET", "fileloader.php?filename=" + currentfile, true);
+                    httpc.send();
+                }
+            }
+        }
+    }
+};
+
+httpc7.open("GET", "dir.php", true);
+httpc7.send();
 
 uploadImages = [];
 var httpc = new XMLHttpRequest();
@@ -224,14 +261,20 @@ httpc6.open("GET", "dir.php?filename=iconsymbols", true);
 httpc6.send();
 
 
+
 document.getElementById("reloadbar").onclick = function() {
 //     location.reload(); 
      window.location.href = "scroll.html";
      
 }
 
-        </script>
-        <style>
+</script>
+<style>
+
+    .scrollbutton{
+        cursor:pointer;
+    }
+
             body{
                 overflow:hidden;
             }
