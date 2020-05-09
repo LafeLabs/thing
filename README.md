@@ -8,10 +8,24 @@ The first thing to do in Geometron is to learn to operate the Poetry Engine.  Th
 
 [click on this link to go to the poetry engine at poetryengine.html](poetryengine.html)
 
-Now find an image on the Web and copy the link.  This is easiest to do by choosing something that comes to mind that you want to think about, look it up on [wikipedia](https://en.wikipedia.org/wiki/Main_Page), and then right clicking an image in the article that you like. When you right click an image you can select "copy image location", then go back to the browser with the Poetry Engine in it and enter that image url in the field marked "image url".  The image should instantly change to the one you selected. Now save that as the new image by clicking the save icon which is a box and a down arrow.  Now drag the mouse or slide a finger on the touch screen on the image to move words around.  Use the next and previous buttons with lines and arrows to move through the words or up and down arrows if you're using a keyboard and have the cursor in the "text" input.  Change the text and hit "enter", and save again.  Now move words around and edit them until you have created a meaning for the image.  Save again, and notice that the larger text box is filled with [strange looking code](https://en.wikipedia.org/wiki/JSON).  Now copy all that code to the clipboard and paste it into an email or text message to another Geometron user.  They can then paste that code into the same field and click the "IMPORT" button in the very lower right corner of their screen and it will load the whole of your poem to their screen.  Ask them to send back one to you and you can import it in the same way, edit it, and send it back.  
+Now find an image on the Web and copy the link.  This is easiest to do by choosing something that comes to mind that you want to think about, look it up on [wikipedia](https://en.wikipedia.org/wiki/Main_Page), and then right clicking an image in the article that you like. When you right click an image you can select "copy image location", then go back to the browser with the Poetry Engine in it and enter that image url in the field marked "image url".  The image should instantly change to the one you selected. Now save that as the new image by clicking the save icon which is a box and a down arrow.  Now drag the mouse or slide a finger on the touch screen on the image to move words around.  Use the next and previous buttons with lines and arrows to move through the words or up and down arrows if you're using a keyboard and have the cursor in the "text" input.  Change the text and hit "enter", and save again.  Now move words around and edit them until you have created a meaning for the image.  
+
+
+Save again, and notice that the larger text box is filled with [strange looking code](https://en.wikipedia.org/wiki/JSON).  Now copy all that code to the clipboard and paste it into an email or text message to another Geometron user.  They can then paste that code into the same field and click the "IMPORT" button in the very lower right corner of their screen and it will load the whole of your poem to their screen.  Ask them to send back one to you and you can import it in the same way, edit it, and send it back.  
+
+To get back to this page, click on the scroll symbol, the left-most icon in the row of icons.
 
 ## Quantum Duality
 
+After you can use the Poetry Engine, you are ready to experience the Quantum Duality.  This is another similar form of information.  In the quantum duality we find two images on the Web, put both links into the duality page, move them around, rotate them, scale them, and then experience the duality of them by sliding a pointer or finger on a touch screen sideways across the screen.
+
+[Click this link to go to the quantum duality app](duality.html)
+
+As in the Poetry Engine, copy-paste images from around the Web, such as from Wikipedia, into the image url inputs.  When you hit "enter" the image should replace the existing one.  Click the "save" icon to save the new duality.  Click the "top" or "bottom" button to select the top or bottom image.  Click "duality" to go back to duality mode.  Move a finger or drag a cursor around to move an image.   Slide a finger or drag a pointer across the scale or rotate bars to re-scale or rotate an image.  Click "save" again to save.  When you click "save" copy the text from the text area in the lower right hand corner of the screen, and text or email that to another Geometron user, who can then paste the code in the same text area and hit the "import" button to see it.  They can then interact with the duality, save a local copy, edit it, and re-export it to remix and share. 
+
+## Marker
+
+Place painted rock in a location, photograph the rock in that place, upload that photograph to imgur, get the raw image url, and post that in the background of [the marker wall app at wall.html](wall.html).
 
 
 ## Symbol App

@@ -1,22 +1,22 @@
 {
     "image": {
-        "url": "https://i.imgur.com/Aj9V8x1.jpg",
+        "url": "https://i.imgur.com/j08gJnZ.jpg",
         "width": "70%",
-        "left": "10%",
-        "top": "-60%"
+        "left": "5%",
+        "top": "-70%"
     },
     "title": {
-        "text": "Marker Title",
+        "text": "Hobbit Tunnel",
         "fontSize": "50px",
         "color": "yellow"
     },
     "textarea": {
-        "left": "10%",
+        "left": "25%",
         "top": "10%",
-        "width": "70%",
+        "width": "40%",
         "height": "70%",
-        "fontSize": "30px",
-        "color": "yellow",
-        "opacity": "0.6"
+        "fontSize": "35px",
+        "color": "#00ff00",
+        "opacity": "0.76"
     }
 }

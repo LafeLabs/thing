@@ -145,40 +145,13 @@
             "src": ""
         },
         {
-            "x": 0.19212410501193317,
-            "y": 0.6897374701670644,
-            "w": 0.2016706443914081,
+            "x": 0.5918854415274463,
+            "y": 0.8162291169451074,
+            "w": 0.49522673031026254,
             "angle": 0,
-            "text": "Geometron Map/Deck",
-            "href": "",
-            "src": "symbolfeed/symbol1588904382.svg"
-        },
-        {
-            "x": 0.477326968973747,
-            "y": 0.6873508353221957,
-            "w": 0.2016706443914081,
-            "angle": 0,
-            "text": "Geometron Map/Deck",
-            "href": "",
-            "src": "symbolfeed/symbol1588903833.svg"
-        },
-        {
-            "x": 0.7398568019093079,
-            "y": 0.752983293556086,
-            "w": 0.2016706443914081,
-            "angle": 0,
-            "text": "Geometron Map/Deck",
-            "href": "",
-            "src": "symbolfeed/symbol1588903176.svg"
-        },
-        {
-            "x": 0.4105011933174224,
-            "y": 0.4988066825775656,
-            "w": 0.2016706443914081,
-            "angle": 0,
-            "text": "Geometron Map/Deck",
-            "href": "",
-            "src": "symbolfeed/symbol1588903279.svg"
+            "text": "symbolapp.html",
+            "href": "symbolapp.html",
+            "src": ""
         }
     ],
     [

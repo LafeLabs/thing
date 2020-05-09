@@ -75,10 +75,11 @@
         </tr>
         
         <tr>
-            <td class = "button" id = "resetbutton">RESET</td><td></td>
+            <td class = "button" id = "resetbutton">RESET</td>
+            <td class = "button" id = "importbutton">IMPORT</td>
         </tr>
     </table>
-
+    <textarea id = "textio"></textarea>
 <script>
 document.getElementById("controltable").style.display =  "none";
 
@@ -147,7 +148,7 @@ function redrawmarker(){
     document.getElementById("wall").style.fontSize = marker.textarea.fontSize;
     document.getElementById("wall").style.backgroundColor = "rgba(0,0,0," + marker.textarea.opacity +")";
     
-    
+    document.getElementById("textio").value = JSON.stringify(marker,null,"    ");    
 }
 
 
@@ -157,6 +158,8 @@ function savemarker(){
     httpc2.open("POST", url, true);
     httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc2.send("data="+encodeURIComponent(JSON.stringify(marker,null,"    "))+"&filename=data/marker.txt");//send text to filesaver.php
+
+    
 }
 
 document.getElementById("wall").onkeyup = function() {
@@ -172,9 +175,11 @@ document.getElementById("wall").onkeyup = function() {
 document.getElementById("editbutton").onclick = function(){
     if(document.getElementById("controltable").style.display ==  "none"){
         document.getElementById("controltable").style.display =  "block";
+        document.getElementById("textio").style.display =  "block";
     }
     else{
         document.getElementById("controltable").style.display =  "none";
+        document.getElementById("textio").style.display =  "none"
     }
 }
 
@@ -281,6 +286,14 @@ document.getElementById("resetbutton").onclick = function(){
     savemarker();
 }
 
+document.getElementById("importbutton").onclick = function(){
+    marker = JSON.parse(document.getElementById("textio").value);
+    redrawmarker();
+    savemarker();
+}
+
+
+
 //document.getElementById("editbutton").click();
 
 </script>
@@ -309,6 +322,15 @@ document.getElementById("resetbutton").onclick = function(){
     font-family:courier;
     background-color:white;
 
+}
+#textio{
+    display:none;
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    z-index:1;
+    font-family:courier;
+    background-color:white;
 }
 #controltable input{
     width:25em;
