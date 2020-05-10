@@ -66,43 +66,28 @@ Practice making maps of all kinds: use an arrow to locate a thing on a map or in
 
 Once you have mastered making and sharing maps and have shared some maps, you can generalize this to the "map deck", a sequence of "slides" each of which is a map.  You can edit this [using the deck editor at deckeditor.html.](deckeditor.html)
 
-We will now place a painted rock, which you should have gotten from whoever shared this with you, in a public location using the Map/Deck system. Do this, in a location which you take a picture of and upload to a public url on the web.  Now [go to the "wall" from this Geometron instance by clicking on the link to wall.html.](wall.html).  You'll see a public bulletin board over an image of a place.  Edit the wall by clicking the edit icon which is a pencil as usual.  Paste the url of the image you took of your marker in a place.  Play with the numbers in the table to get the wall how you want it to be.  When you have a wall format you like, copy the code in the text area down in the lower right corner of your screen, and save that to another pastebin or local text file and again email or text it to another Geometron operator, and they'll be able to send you one as well.  
+We will now place a painted rock, which you should have gotten from whoever shared this with you, in a public location using the Map/Deck system. Do this, in a location which you take a picture of and upload to a public url on the web.  Now [go to the "wall" from this Geometron instance by clicking on the link to wall.html.](wall.html).  You'll see a public bulletin board over an image of a place.  Edit the wall by clicking the edit icon which is a pencil as usual.  Paste the url of the image you took of your marker in a place.  Play with the numbers in the table to get the wall how you want it to be.  When you have a wall format you like, copy the code in the text area down in the lower right corner of your screen, and save that to another pastebin or local text file and again email or text it to another Geometron operator, and they'll be able to send you one as well.  Edit the wall with whatever messages you want, copy and paste them with other users.  
 
+## Initial use of symbol app
 
-## Scrolls
+We will now take our first steps into using the geometric language of Geometron to create symbols to use in maps.  To do this, [click on the basic symbol app at symbolapp.html.](symbolapp.html)
 
-Create a new scroll, edit it, paste it, share it, let other edit, how to do math papers, link to srs scroll
+It is best for this to use mobile mode, which can either be a mobile phone or tablet or you can make the browser window higher than it is wide in a desk top.  Then click on some soft keys to make shapes, and make some random doodle, playing around a little with the language.  Notice that as you make symbols, you see symbol glyphs spelled out.  Also you can delete symbol glyphs with the "x" button and move your cursor around with the arrow symbols next to the delete button.  You can use a desktop with a keyboard, but that is more advanced and we'll return to that later.  For now, use this only in vertial/tablet mode. When you have a symbol you like, copy and save the text in the text area that has a sequence of numbers like "0341,0336,0333,0341,0336,0333,0341,0336,0333,0341,0336,0333,0341,0336,0333,0341,".  Send that code to another Geometron operator, and they'll send their code to you.  Paste their code in that same input area and hit "enter" and their symbol will appear.  Now paste your symbol back into the text area and hit the "save" button.  Having done that, click on the "map" icon to go back to the map editor, make a new link, and scroll down through the images and symbols until you see your new symbol.  Click on it to replace your new link by that symbol and it should appear in your map.  Save the map, drag it around, adjust it, save it again.  Now create yet another new link and click to get that to be one of your map images from before.  Save the map again and click the "move down in stack" icon a bunch of times to get the map to be on the bottom:
 
-## maps
+![](iconsymbols/elementdown.svg)
 
-Maps, memes, powerpoint, and the universal linked graphical document. Use of imgur for universal urls. Make a meme and share it, using universal urls, just like in previous systems.
+When the map image is below the symbol, save the map again, and move and scale the symbol how you want on the map.  Now you can see how a symbol can be created, saved, shared, and used in a map, which can point to physical objects on which the same symbol is drawn.  However, we still don't really know the Geometron language, but have just made things at random.  To understand how Geometron works we need to move on to Action Geometry, the geometry of actions based on symmetry and scale. The best way to understand this is to use the laser cut acrylic shapes provided to copy the bound book which you should have also recieved into the blank book.  
 
-## Decks
- 
-Stacks of maps, philosophy of watershed and street.  Make laminated maps of "here" in both street and watershed.  Put each one on imgur.  Make painted rocks and place them on maps, use to mark the marker created in the wall action above.  go make more markers and share them, build a deck as a stack of maps, then share that with someone, save it to pastebin
+## Action Geometry Book
 
-## Build a web page on index.html
+To copy the book, read the existing book and simply go through it following the instructions.  The book should include instructions for making another blank bound book, also do that, as you'll need that to give to the next person who shares Geometron.  If you don't have the laser cut shapes it it should be possible to get printed, cut, and laminated paper shapes.  Later, you'll be able to use Geometron to design your own laser cut shapes from scratch then use the network of laser cutters to get your shapes cut out to pass on to other new operators of Geometron.
 
-links to learn all the types of code, to how code fits together, the 5 alchemy elements of geometron code, how editor.php works.  At minimum, though, just make a link to something 
+## Geometron Hypercube and Virtual Machine
 
+In this section we will learn the structure of Geometron.  This is not for everyone.  But we will attempt to make it as non-technical as possible. 
 
-## Action Geometry
+make the keyboard, ascii, action tablet, physical hypercube stack, printed and copied from hypercube handed to you by someone, 
 
-use the laser cut shapes to copy the book
-
-note all the symmetry and scale glyphs in text, lead into glyphs for moving and drawing
-
-use the book to bind another blank book, make another book sewing kit
-
-## Symbol App
-
-[symbol app link](symbolapp.html)
-
-edit symbols and share them with other users via text message and email, copy glyphs and symbols with screen shots
-
-## build a keyboard, tablets, hypercube
-
-Understand the hypercube, ASCII, and the GVM.
 
 edit keyboard, paint keyboard, use to make icons and symbols, learn about the hypercube, edit one and share it with others, share all elements created, share keyboard, buy new keyboard, print and laminate tablets: 
 
@@ -117,13 +102,33 @@ edit keyboard, paint keyboard, use to make icons and symbols, learn about the hy
 - 0700-0777: 3d geometry actions
 - 01000-01777: symbols for 0-0777(second cube)
 
+
+## Making Symbols using the full Geometron
+
+Use the app to make complex symbols, make symbols for markers, integrate into physical network.  Use shapes from AG book to make markers, use s
+
+make icons, save them, load them, share them
+
+some example symbols and how to make them
+
+how to edit shape tables ets
+
+## Scrolls
+
+edit this scroll to make a more specific replication for next instance, save that in a paste bin.
+
+Create a new scroll, edit it, paste it, share it, let other edit, how to do math papers, link to srs scroll
+
+## Build a web page on index.html
+
+links to learn all the types of code, to how code fits together, the 5 alchemy elements of geometron code, how editor.php works.  At minimum, though, just make a link to something 
+
 ## build your own laser cut shapes
+
+nuts and bolts of buying them, finding maker spaces, hooking up with artist
 
 Use main geometron editor to create shapes, both svg and png, save, email to someone with laser cutter(or ponoko) and get shapes, more than you need, give them to people, including whoever sent you the system
 
-## symbol app builder
-
-build a new symbol app with custom symbolic language, custom mobile interface, custom keyboard, share symbol app with other users, along with symbols
 
 ## make patterns in clay
 
@@ -139,6 +144,10 @@ edit machine-specific hypercube, document it, share it, use it to make 3d object
 - find dvd drives, take them apart, solder wires on
 - assemble probe with cardboard, epoxy, tape, plastic, probe, electronics, pi
 - edit the code to make it work, test it out, set it up, repeat all tests, share it with someone else
+
+## Build a local instance not on a pi 
+
+take old hardware, delete everything, install linux.  install apache and php then install geometron server, put on wifi, host.  When this is done, release the hardware from the private property system and pass it out into the community using the physical marker network.  Hardware can be simply released.  The Geometron Educational foundation can take donations for the hardware and labor to convert it, and the operators in the foundation simply release all this freely to communities.  This should be possible on macs, pc's, androids, chromebooks.
 
 ## build a localhost instance, link to github
 
