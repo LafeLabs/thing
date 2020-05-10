@@ -45,11 +45,16 @@
 
 <div id = "margin">            
     <div id = "linkdiv">
-
         <a href = "scroll.html">
-            <img style = "width:50px;background-color:#00ff00" src = "iconsymbols/scroll.svg"/>
+            <img style = "width:50px;" src = "iconsymbols/scroll.svg"/>
+        </a>
+        <img id = "savebutton" src = "iconsymbols/save.svg"/>
+        <a href = "symbolfeed.html">
+            <img style = "width:50px;" src = "iconsymbols/feed.svg"/>
         </a>
         <input id = "spellinput">
+        
+        
 <!--        <a href = "../">
             <img style = "width:50px;" src = "iconsymbols/linkup.svg"/>
         </a>
@@ -357,8 +362,8 @@ function loadcontrolbuttons(){
         //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
         var newg = new GVM(1,buttonSize - 1,buttonSize-2,-Math.PI/2,newcan,buttonSize,buttonSize,hypercube);
         newg.importbytecode(currentjson.shapes);
-        newg.style = currentjson.style;
-
+        newg.style = newGVM.style;
+        console.log(newg.style.color0);
         newg.drawGlyph("0300,0" + (localaction + 01000).toString(8) + ",",newg);
 
         newcan.id = "button" + currentjson.controlbuttons[index];
@@ -460,9 +465,7 @@ httpc.onreadystatechange = function() {
         currentjson = JSON.parse(this.responseText);
         currentstyle = currentjson.style;
         newGVM.style = currentstyle;
-
-//   "a:0332",
-  // "d:0333"
+        spellGVM.style = newGVM.style;
 
         for(var index = 0;index < currentjson.keys.length;index++){
             var localaddress = currentjson.keys[index].split(":")[0].charCodeAt(0);//integer, address in hypercube
@@ -470,7 +473,7 @@ httpc.onreadystatechange = function() {
             
             newGVM.hypercube[localaddress] = localaction;
         }
-
+        document.getElementById("maincanvas").style.backgroundColor = currentjson.backgroundcolor;            
         spellGVM.importbytecode(currentjson.shapes);
         newGVM.importbytecode(currentjson.shapes);
         invisibleGVM.importbytecode(currentjson.shapes);
@@ -497,11 +500,59 @@ httpc.open("GET", "fileloader.php?filename=data/symbolapp.txt", true);
 httpc.send();    
 
 
+document.getElementById("savebutton").onclick = function() {
+
+    invisibleGVM.canvas2d.width = newGVM.width;
+    invisibleGVM.canvas2d.height = newGVM.height;
+    invisibleGVM.width = newGVM.width;
+    invisibleGVM.height = newGVM.height;
+    invisibleGVM.x0 = newGVM.x0;
+    invisibleGVM.y0 = newGVM.y0;
+    invisibleGVM.theta0 = newGVM.theta0;
+    invisibleGVM.unit = newGVM.unit;
+    invisibleGVM.hypercube = newGVM.hypercube;
+    invisibleGVM.style = newGVM.style;
+
+
+    var timestamp = Math.round((new Date().getTime())/1000).toString();
+    
+    
+//    var httpc = new XMLHttpRequest();
+ //   var url = "pngsave.php";        
+  //  httpc.open("POST", url, true);
+//    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    
+    
+    var cleanGlyph = "";
+    var glyphArray = newGVM.glyph.split(",");
+    for(var index = 0;index < glyphArray.length;index++ ) {
+        if(glyphArray[index] != "0207" && glyphArray[index].length > 0) {
+            cleanGlyph += glyphArray[index] + ",";
+        }
+    }
+
+    invisibleGVM.drawGlyph(cleanGlyph);
+    
+    
+//    httpc.send("data="+encodeURIComponent(invisibleGVM.pngcode(invisibleGVM).substring(22))+"&filename=symbolfeed/symbol" + timestamp +  ".png");//send text to filesaver.php
+
+        //need to inject json data here ... 
+    
+    invisibleGVM.svgString = invisibleGVM.svgString.split("<json>")[0] + "<json>" + JSON.stringify(currentjson,null,"  ") + "</json>" + invisibleGVM.svgString.split("</json>")[1];
+        
+    var httpc4 = new XMLHttpRequest();
+    httpc4.open("POST","filesaver.php", true);
+    httpc4.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc4.send("data="+encodeURIComponent(invisibleGVM.svgString) +"&filename=symbolfeed/symbol" + timestamp +  ".svg");//send text to filesaver.php
+
+
+}
+
+
 </script>
 <style>
 body{
     overflow:hidden;
-        background-color:black;
 
 }
 #square{
@@ -520,7 +571,6 @@ body{
     border:solid;
     border-width:0.1px;
     border-color:red;
-        background-color:black;
 
 }
 #spelldiv{
@@ -541,7 +591,6 @@ body{
     left:0px;
     right:0px;
     top:300px;
-    background-color:black;
 
 }
 #linkdiv{
@@ -551,17 +600,14 @@ body{
     position:absolute;
     top:0px;
     left:0px;
-    background-color:black;
 }
 #maincanvas{
     border:solid;
     float:left;
-        margin:2px 2px 2px 2px;
-    background-color:black;
+    margin:2px 2px 2px 2px;
 }
 #spellcanvas{
     border:solid;
-    background-color:black;
 }
 #actioninput{
     width:1em;
@@ -571,7 +617,7 @@ body{
 }
 
 .button:hover{
-    background-color:green;
+    background-color:blue;
 }
 .button:active{
     background-color:yellow;
@@ -581,9 +627,7 @@ body{
     float:left;
     margin:2px 2px 2px 2px;
     border:solid;
-    border-color:#00ff00;
     border-width:0.2px;
-    background-color:black;
 }
 #invisiblecanvas{
     display:none;
@@ -598,13 +642,23 @@ body{
     overflow:hidden;
 }
 #spellinput{
-    background-color:black;
-    color:#00ff00;
+
     font-family:courier;
     width:70%;
-    border-color:#00ff00;
     border:solid;
 }
+
+#savebutton{
+    width:50px;
+    cursor:pointer;
+}
+#savebutton:hover{
+    background-color:blue;
+}
+#savebutton:active{
+    background-color:yellow;
+}
+
 </style>
 </body>
 </html>
