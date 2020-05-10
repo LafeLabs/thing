@@ -123,6 +123,7 @@
         "marker.txt",
         "poetry.txt",
         "robot.txt",
+        "symbolapp.txt",
         "textfeed.txt",
         "wall.txt"
     ],

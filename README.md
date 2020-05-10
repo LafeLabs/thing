@@ -4,7 +4,7 @@
 
 ## Poetry Engine
 
-The first thing to do in Geometron is to learn to operate the Poetry Engine.  The poetry engine points to any image on the World Wide Web and adds meaning to it with words placed over the image like magnets on a refrigerator.
+The first thing to do in Geometron is to learn to operate the Poetry Engine.  The poetry engine points to any image on the World Wide Web and adds meaning to it with words placed over the image like magnets on a refrigerator.  This is a tool to impose meaning on any kind of "thing" in the most abstract possible sense, and to instantly transmit that meaning to any other person in the world.  
 
 [click on this link to go to the poetry engine at poetryengine.html](poetryengine.html)
 
@@ -15,7 +15,7 @@ Save again, and notice that the larger text box is filled with [strange looking 
 
 To get back to this page, click on the scroll symbol, the left-most icon in the row of icons.
 
-## Quantum Duality
+## Quantum Duality(optional!)
 
 After you can use the Poetry Engine, you are ready to experience the Quantum Duality.  This is another similar form of information.  In the quantum duality we find two images on the Web, put both links into the duality page, move them around, rotate them, scale them, and then experience the duality of them by sliding a pointer or finger on a touch screen sideways across the screen.
 
@@ -24,6 +24,12 @@ After you can use the Poetry Engine, you are ready to experience the Quantum Dua
 As in the Poetry Engine, copy-paste images from around the Web, such as from Wikipedia, into the image url inputs.  When you hit "enter" the image should replace the existing one.  Click the "save" icon to save the new duality.  Click the "top" or "bottom" button to select the top or bottom image.  Click "duality" to go back to duality mode.  Move a finger or drag a cursor around to move an image.   Slide a finger or drag a pointer across the scale or rotate bars to re-scale or rotate an image.  Click "save" again to save.  When you click "save" copy the text from the text area in the lower right hand corner of the screen, and text or email that to another Geometron user, who can then paste the code in the same text area and hit the "import" button to see it.  They can then interact with the duality, save a local copy, edit it, and re-export it to remix and share. 
 
 ## Marker
+
+Markers are how we link the physical environment around us to Geometron.  They can be anything, but for the time being they will be geometric symbols painted on found objects like rocks or trash and placed outside in a public space which has some sort of local geographic meaning.  Markers form the geographic syntax of Geometron.  
+
+In Geometron geography is divided into two spheres: the Watershed and the Street.  Wherever you are, you got there somehow, as did all the technological artifacts you use and are surrounded by.  The fractal structure by which you and your things got there is the Street.  It includes literal roads, highways, and streets in addition to more abstract supply chains and other means of transport like stairs, ramps, shipping lanes at sea and rail lines.  
+
+Also, 
 
 Place painted rock in a location, photograph the rock in that place, upload that photograph to imgur, get the raw image url, and post that in the background of [the marker wall app at wall.html](wall.html).
 

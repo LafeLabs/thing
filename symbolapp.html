@@ -266,6 +266,7 @@ spellGVM.hypercube = newGVM.hypercube;
 document.getElementById("actioninput").onkeydown = function(a) {
     var charCode = a.keyCode || a.which;
 
+//add save at spacebar 040 and possible text mode  at enter 015?
 
     if(charCode == 010) {
         newGVM.cursorAction(010,newGVM);   
@@ -394,14 +395,6 @@ spellGVM.importbytecode(currentjson.shapes);
 newGVM.importbytecode(currentjson.shapes);
 invisibleGVM.importbytecode(currentjson.shapes);
 
-newGVM.drawGlyph(newGVM.glyph);
-spellGlyph(newGVM.glyph);
-
-if(landscape == false){
-    loadcontrolbuttons();
-}
-
-savejson();
 
 document.getElementById("actioninput").select();
 
@@ -459,6 +452,50 @@ document.getElementById("spellinput").onchange = function(){
     document.getElementById("actioninput").select();
 
 }
+
+
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        currentjson = JSON.parse(this.responseText);
+        currentstyle = currentjson.style;
+        newGVM.style = currentstyle;
+
+//   "a:0332",
+  // "d:0333"
+
+        for(var index = 0;index < currentjson.keys.length;index++){
+            var localaddress = currentjson.keys[index].split(":")[0].charCodeAt(0);//integer, address in hypercube
+            var localaction = currentjson.keys[index].split(":")[1];
+            
+            newGVM.hypercube[localaddress] = localaction;
+        }
+
+        spellGVM.importbytecode(currentjson.shapes);
+        newGVM.importbytecode(currentjson.shapes);
+        invisibleGVM.importbytecode(currentjson.shapes);
+
+        document.getElementById("backgroundimage").src = currentjson.backgroundimage;
+        if(currentjson.backgroundimage.length >  1) {
+            document.getElementById("backgroundimage").style.display = "block";
+        }
+        else{
+            document.getElementById("backgroundimage").style.display = "none";
+        }
+        newGVM.drawGlyph(newGVM.glyph);
+        spellGlyph(newGVM.glyph);
+
+        if(landscape == false){
+            loadcontrolbuttons();
+        }
+
+        savejson();
+
+    }
+};
+httpc.open("GET", "fileloader.php?filename=data/symbolapp.txt", true);
+httpc.send();    
+
 
 </script>
 <style>
