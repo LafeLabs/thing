@@ -35,9 +35,39 @@ Also, wherever you are, you are in a Watershed: an ecosystem in which water flow
 
 In order to understand the geographic grammar of Geometron we must first make markers.  These can be painted objects with geometric symbols on them, both large and small.  The large one will go in the physical space around us, out in a public space that can be accessed by anyone.  The smaller one will be a token like a game piece in a board game that can be placed on a laminated map of a physical space.  We will then learn to build Geometron "maps" which can be used to identify where things are in the physical space in public.  We will generalize from the map to the "deck" which is a stack of maps used to zoom in on a place and locate it globally with respect to the larger fractal structures of the Street and the Watershed.  Finally, a marker placed in a location will have a "wall" which is an open bulletin board connected to it which can be used to encode information on that thing.  We will then learn to make our first Geometron symbols and use them to make a geometric marker in a place.
 
+We begin by getting a stack of maps.  This means taking screen shots of maps from [open street maps](https://www.openstreetmap.org/) or [google maps](https://maps.google.com) as well as photographs of a location, both the area around it and exactly where the marker object being placed is, as well as a photo of the object itself.  All these images are then uploaded to a global domain somewhere, either on a Geometron server or at an image paste site like [imgur](https://imgur.com/).  When you have a stack of images of maps and places, [go to the map editor at mapeditor.html(it's probably best to do this in a new browser window)](mapeditor.html).
 
+In the map editor, you want to create a new element, which you do by clicking the new element symbol which looks like this:
 
-Place painted rock in a location, photograph the rock in that place, upload that photograph to imgur, get the raw image url, and post that in the background of [the marker wall app at wall.html](wall.html).
+![](iconsymbols/add.svg)
+
+Then save the new link by clicking the save icons which looks like this:
+
+![](iconsymbols/save.svg).   
+
+Now go to the feed by clicking the feed icon which looks like this:
+
+![](iconsymbols/feed.svg)
+
+In the feed, add the urls to your images by pasting them into the field marked "Image URL" and hitting enter.  Then click back on the link to the map editor which is the "map" icon which looks like this:
+
+![](iconsymbols/map.svg)
+
+In the map editor, use the "next" and "previous" buttons to scroll through the elements. You should be able to see which element is being edited by a visible border.  When you have the new link you created selected, scroll down through the images on the side of the screen until you see your images you linked to, and click on the image you want to make that map element be it.  Then click the save button again to save the current map file.  The next and previous buttons look like this:
+
+![](iconsymbols/downelement.svg)
+![](iconsymbols/upelement.svg)
+
+Now click the new element button again to make another copy of that.  Scroll down through the images to the arrow and click that to get an arrow.  Save the file again with the save button, and move the arrow around with either a mouse drag for figner on touch screen. Use the scale and rotate bars to position angle and size of the arrow, always saving often.  
+
+Having made a new map, and saved it, copy the code in the text area just below the words "import" and "reset", and save that somewhere, either on your computer or on [a remote text paste site like pastebin.](https://pastebin.com/)  Now hit the "reset" button to clear the map back to the blank default.  What you made should now be gone.  Now save the new cleared map and reload your browser.  Now paste your code back into the text box and hit the "import" button and you should see your map re-appear!  After doing that, hit the save button again and reload the browser and you should see your map back for further editing.  Now email or text message that code or a link to a paste bin of the code to someone else on the Geometron network(whoever shared all this with you), and they should also then be able to share a map with you.  
+
+Practice making maps of all kinds: use an arrow to locate a thing on a map or in a picture, or to label a place in a picture.  Use the buttons to remove images from links, add or remove links, delete links, and move links up and down in the order. These can be used to make a totally generalized type of media which is similar to the "meme" format in viral Internet content as well as to PowerPoint slides, but with hyperlinks, and in a format which can be remixed openly on the Web by default.  To publish in the open without private data, a map can point to a physical place, which can be located relative to widely used hashtags which track the elements of the Street and Watershed network.  Those hashtags can link to a post on some commercial social media which contain links to the pastebin with the code to replicate the map.  Therefore when in a physical space with no connection to any physical networking hardware, a Geometron Operator can use hashtags to find a link, use the link to find code, and use that code in their personal Geometron server instance on their local machine to load the map using global links, then use the map to find a physical object in the location, which can then have more complex information such as clay tablets with optical encoding on them, printed material, more computer hardware, robots, etc.
+
+Once you have mastered making and sharing maps and have shared some maps, you can generalize this to the "map deck", a sequence of "slides" each of which is a map.  You can edit this [using the deck editor at deckeditor.html.](deckeditor.html)
+
+We will now place a painted rock, which you should have gotten from whoever shared this with you, in a public location using the Map/Deck system. Do this, in a location which you take a picture of and upload to a public url on the web.  Now [go to the "wall" from this Geometron instance by clicking on the link to wall.html.](wall.html).  You'll see a public bulletin board over an image of a place.  Edit the wall by clicking the edit icon which is a pencil as usual.  Paste the url of the image you took of your marker in a place.  Play with the numbers in the table to get the wall how you want it to be.  When you have a wall format you like, copy the code in the text area down in the lower right corner of your screen, and save that to another pastebin or local text file and again email or text it to another Geometron operator, and they'll be able to send you one as well.  
+
 
 ## Scrolls
 

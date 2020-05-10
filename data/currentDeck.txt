@@ -28,13 +28,13 @@
             "src": "iconsymbols/geometron.svg"
         },
         {
-            "x": 0.027446300715990454,
-            "y": 0.2637231503579952,
-            "w": 0.17422434367541767,
+            "x": 0.015513126491646777,
+            "y": 0.27923627684964203,
+            "w": 0.1276849642004773,
             "angle": 0,
             "text": "Map Factory",
-            "href": "map.html",
-            "src": "iconsymbols/map.svg"
+            "href": "deckeditor.html",
+            "src": "iconsymbols/edit.svg"
         },
         {
             "x": 0.6933174224343676,
@@ -152,6 +152,15 @@
             "text": "symbolapp.html",
             "href": "symbolapp.html",
             "src": ""
+        },
+        {
+            "x": 0.1658711217183771,
+            "y": 0.8365155131264916,
+            "w": 0.1324582338902148,
+            "angle": 0,
+            "text": "map",
+            "href": "map.html",
+            "src": "iconsymbols/map.svg"
         }
     ],
     [
