@@ -27,10 +27,78 @@ As in the Poetry Engine, copy-paste images from around the Web, such as from Wik
 
 Place painted rock in a location, photograph the rock in that place, upload that photograph to imgur, get the raw image url, and post that in the background of [the marker wall app at wall.html](wall.html).
 
+## Scrolls
+
+Create a new scroll, edit it, paste it, share it, let other edit
+
+## maps
+
+Maps, memes, powerpoint, and the universal linked graphical document. Use of imgur for universal urls. Make a meme and share it, using universal urls, just like in previous systems.
+
+## Decks
+ 
+Stacks of maps, philosophy of watershed and street.  Make laminated maps of "here" in both street and watershed.  Put each one on imgur.  Make painted rocks and place them on maps, use to mark the marker created in the wall action above.  go make more markers and share them, build a deck as a stack of maps, then share that with someone, save it to pastebin
+
+## Action Geometry
+
+use the laser cut shapes to copy the book
+
+note all the symmetry and scale glyphs in text, lead into glyphs for moving and drawing
+
+use the book to bind another blank book, make another book sewing kit
 
 ## Symbol App
 
 [symbol app link](symbolapp.html)
+
+edit symbols and share them with other users via text message and email, copy glyphs and symbols with screen shots
+
+## build a keyboard, tablets, hypercube
+
+Understand the hypercube, ASCII, and the GVM.
+
+edit keyboard, paint keyboard, use to make icons and symbols, learn about the hypercube, edit one and share it with others, share all elements created, share keyboard, buy new keyboard, print and laminate tablets: 
+
+- 00 - 037: root magick
+- 040-0176:ASCII
+- 0177: do nothing
+- 0200-0277: shapes
+- 0300-0377: 2d geometry actions
+- 0400-0477: machine actions
+- 0500-0577: machine shapes
+- 0600-0677: 3d shapes
+- 0700-0777: 3d geometry actions
+- 01000-01777: symbols for 0-0777(second cube)
+
+## build your own laser cut shapes
+
+Use main geometron editor to create shapes, both svg and png, save, email to someone with laser cutter(or ponoko) and get shapes, more than you need, give them to people, including whoever sent you the system
+
+## Build a web page on index.html
+
+links to learn all the types of code, to how code fits together, the 5 alchemy elements of geometron code, how editor.php works
+
+## symbol app builder
+
+build a new symbol app with custom symbolic language, custom mobile interface, custom keyboard, share symbol app with other users, along with symbols
+
+## make patterns in clay
+
+set up the robot, connect it all, edit the code, or have someone else set it all up and test it all.  When totally set up by someone else, put soft modeling clay on build stage, flatten it, and use a nail to make simple patterns and write words.  Copy code and share with other users, send code of symbol to whoever sent you the system.  Repeat with sculpey, bake, and paint, then share the tablets with whoever sent you the system and also whoever you're sending new systems to
+
+## Build your own language in the clay
+
+edit machine-specific hypercube, document it, share it, use it to make 3d objects
+
+## Build a new robot and share it with others
+
+- gather wires, connectors, pcb's, pi parts, cardboard, box cutter, glue and tape, plastic sheet, magnets, nails, salvaged buttons, lipo battery, pi screen and periferals
+- find dvd drives, take them apart, solder wires on
+- assemble probe with cardboard, epoxy, tape, plastic, probe, electronics, pi
+- edit the code to make it work, test it out, set it up, repeat all tests, share it with someone else
+
+
+
 
 What you see in the edit screen(after clicking the edit icon) here is "markdown", which is language which allows people to publish things on the web without learning more complex languages. Hit return twice to get a paragraph break.  Copy the syntax you see here to get links and images and headings. You can look up markdown ([cheat sheet](https://www.markdownguide.org/cheat-sheet/), [detailed guide](https://daringfireball.net/projects/markdown/syntax), [wikipedia entry](https://en.wikipedia.org/wiki/Markdown)) for more syntax.  Also embedding <span style = "color:red;font-family:courier;">HTML</span> works if you know that.  
 
