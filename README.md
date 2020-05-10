@@ -29,9 +29,13 @@ As in the Poetry Engine, copy-paste images from around the Web, such as from Wik
 
 Markers are how we link the physical environment around us to Geometron.  They can be anything, but for the time being they will be geometric symbols painted on found objects like rocks or trash and placed outside in a public space which has some sort of local geographic meaning.  Markers form the geographic syntax of Geometron.  
 
-In Geometron geography is divided into two spheres: the Watershed and the Street.  Wherever you are, you got there somehow, as did all the technological artifacts you use and are surrounded by.  The fractal structure by which you and your things got there is the Street.  It includes literal roads, highways, and streets in addition to more abstract supply chains and other means of transport like stairs, ramps, shipping lanes at sea and rail lines.  
+In Geometron, geography is divided into two spheres: the Watershed and the Street.  Wherever you are, you got there somehow, as did all the technological artifacts you use and are surrounded by.  The fractal structure by which you and your things got there is the Street.  It includes literal roads, highways, and streets in addition to more abstract supply chains and other means of transport like stairs, ramps, shipping lanes at sea and rail lines.  
 
-Also, 
+Also, wherever you are, you are in a Watershed: an ecosystem in which water flows from the sky to the sea.  Your local watershed is the fractal structure by which water flows through wherever you are.  This can include weather patterns, oceans, rivers, creeks, streams, sewer pipes, fresh water lines, springs, lakes and ponds, as well as any other artificial or natural waterways or water bodies.  
+
+In order to understand the geographic grammar of Geometron we must first make markers.  These can be painted objects with geometric symbols on them, both large and small.  The large one will go in the physical space around us, out in a public space that can be accessed by anyone.  The smaller one will be a token like a game piece in a board game that can be placed on a laminated map of a physical space.  We will then learn to build Geometron "maps" which can be used to identify where things are in the physical space in public.  We will generalize from the map to the "deck" which is a stack of maps used to zoom in on a place and locate it globally with respect to the larger fractal structures of the Street and the Watershed.  Finally, a marker placed in a location will have a "wall" which is an open bulletin board connected to it which can be used to encode information on that thing.  We will then learn to make our first Geometron symbols and use them to make a geometric marker in a place.
+
+
 
 Place painted rock in a location, photograph the rock in that place, upload that photograph to imgur, get the raw image url, and post that in the background of [the marker wall app at wall.html](wall.html).
 
