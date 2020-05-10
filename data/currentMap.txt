@@ -9,20 +9,11 @@
         "src": ""
     },
     {
-        "x": 0.2649164677804296,
-        "y": 0.2613365155131265,
-        "w": 0.4797136038186158,
-        "angle": 0,
-        "text": "Map Factory",
-        "href": "map.html",
-        "src": "symbolfeed/symbol1588904382.svg"
-    },
-    {
         "x": 0.017899761336515514,
         "y": 0.15990453460620524,
         "w": 0.13126491646778043,
         "angle": 0,
-        "text": "Map Factory",
+        "text": "Map Editor",
         "href": "mapeditor.html",
         "src": "iconsymbols/edit.svg"
     },
@@ -31,7 +22,7 @@
         "y": 0.011933174224343675,
         "w": 0.13126491646778043,
         "angle": 0,
-        "text": "Map Factory",
+        "text": "Scroll",
         "href": "scroll.html",
         "src": "iconsymbols/scroll.svg"
     }

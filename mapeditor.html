@@ -79,7 +79,13 @@
         </tr>
 
     </table>
-        
+        <table>
+            <tr>
+                <td id = "importbutton" class = "button">IMPORT</td>
+                <td id = "resetbutton" class = "button">RESET</td>
+            </tr>
+        </table>
+        <textarea id = "textio"></textarea>
     </div>
     <div id = "feedscroll">
         <form id = "uploadform" style = "margin-top:10px" action="upload.php" method="post" enctype="multipart/form-data">
@@ -175,7 +181,8 @@ var httpc2 = new XMLHttpRequest();
         document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
         //un comment for math
         //MathJax.Hub.Typeset();
-
+        document.getElementById("textio").value = JSON.stringify(mainmap,null,"    ");
+        
     }
 };
 httpc2.open("GET", "fileloader.php?filename=data/currentMap.txt", true);
@@ -198,9 +205,49 @@ document.getElementById("savebutton").onclick = function() {
     httpc2.open("POST", url, true);
     httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc2.send("data="+encodeURIComponent(JSON.stringify(mainmap.array,null,"    "))+"&filename=data/currentMap.txt");//send text to filesaver.php
-
+        document.getElementById("textio").value = JSON.stringify(mainmap.array,null,"    ");
+        
+        
 }
 
+document.getElementById("importbutton").onclick  = function(){
+    mainmap.array = JSON.parse(document.getElementById("textio").value);
+    mainmap.draw();
+}
+
+
+document.getElementById("resetbutton").onclick  = function(){
+    mainmap.array = [
+    {
+        "x": 0.4116945107398568,
+        "y": 0.02386634844868735,
+        "w": 0.6408114558472554,
+        "angle": 0,
+        "text": "Map",
+        "href": "",
+        "src": ""
+    },
+    {
+        "x": 0.017899761336515514,
+        "y": 0.15990453460620524,
+        "w": 0.13126491646778043,
+        "angle": 0,
+        "text": "Map Editor",
+        "href": "mapeditor.html",
+        "src": "iconsymbols/edit.svg"
+    },
+    {
+        "x": 0.02028639618138425,
+        "y": 0.011933174224343675,
+        "w": 0.13126491646778043,
+        "angle": 0,
+        "text": "Scroll",
+        "href": "scroll.html",
+        "src": "iconsymbols/scroll.svg"
+    }
+];
+    mainmap.draw();
+}
 
 document.getElementById("nextbutton").onclick = function() {
 
@@ -664,13 +711,6 @@ document.getElementById("imginput").onchange = function(){
 }
 </script>
 <style>
-#slideindex{
-    width:3em;
-}
-#numslides{
-    width:3em;
-    text-align:right;
-}
 
 #margin{
     position:absolute;

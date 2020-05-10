@@ -45,6 +45,9 @@
 <!--<datadiv/>-->
 <div id = "mainmap"></div>
 
+
+<textarea id = "textio"></textarea>
+<div id = "importbutton">IMPORT</div>
 <script>
 
 landscape = false;
@@ -75,7 +78,7 @@ var httpc2 = new XMLHttpRequest();
     if (this.readyState == 4 && this.status == 200) {
         mainmap.array = JSON.parse(this.responseText);
         mainmap.draw();
-
+        document.getElementById("textio").value = this.responseText;
         //un comment for math
         //MathJax.Hub.Typeset();
 
@@ -84,6 +87,10 @@ var httpc2 = new XMLHttpRequest();
 httpc2.open("GET", "fileloader.php?filename=data/currentMap.txt", true);
 httpc2.send();
 
+document.getElementById("importbutton").onclick = function(){
+    mainmap.array = JSON.parse(document.getElementById("textio").value);
+    mainmap.draw();
+}
 
 </script>
 <style>
@@ -110,6 +117,25 @@ body{
 #nextbutton{
     right:0px;
     bottom:0px;
+}
+#textio{
+    position:absolute;
+    right:0px;
+    bottom:40px;
+}
+#importbutton{
+    position:absolute;
+    bottom:0px;
+    right:0px;
+    border:solid;
+    cursor:pointer;
+    border-radius:5px;
+}
+#importbutton:hover{
+    background-color:green;
+}
+#importbutton:active{
+    background-color:yellow;
 }
 </style>
 </body>
