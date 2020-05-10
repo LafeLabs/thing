@@ -92,7 +92,14 @@
         </tr>
 
     </table>
-        
+        <table>
+            <tr>
+                <td id = "importbutton" class = "button">IMPORT</td>
+                <td id = "resetbutton" class = "button">RESET</td>
+            </tr>
+        </table>
+        <textarea id = "textio"></textarea>
+
     </div>
     <div id = "feedscroll">
         <form id = "uploadform" style = "margin-top:10px" action="upload.php" method="post" enctype="multipart/form-data">
@@ -192,11 +199,206 @@ var httpc2 = new XMLHttpRequest();
         document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
         //un comment for math
         //MathJax.Hub.Typeset();
-
+        document.getElementById("textio").value =JSON.stringify(deck,null,"    ");
+        
     }
 };
 httpc2.open("GET", "fileloader.php?filename=data/currentDeck.txt", true);
 httpc2.send();
+
+document.getElementById("resetbutton").onclick = function(){
+        deck = [
+    [
+        {
+            "x": 0.2840095465393795,
+            "y": 0.003579952267303103,
+            "w": 0.49522673031026254,
+            "angle": 0,
+            "text": "Geometron Map/Deck",
+            "href": "",
+            "src": ""
+        },
+        {
+            "x": 0.8078758949880668,
+            "y": 0.002386634844868735,
+            "w": 0.360381861575179,
+            "angle": 0,
+            "text": "Up A Level",
+            "href": "../",
+            "src": ""
+        },
+        {
+            "x": 0.027446300715990454,
+            "y": 0.013126491646778043,
+            "w": 0.12410501193317422,
+            "angle": 0,
+            "text": "",
+            "href": "symbol.html",
+            "src": "iconsymbols/geometron.svg"
+        },
+        {
+            "x": 0.027446300715990454,
+            "y": 0.2637231503579952,
+            "w": 0.17422434367541767,
+            "angle": 0,
+            "text": "Map Factory",
+            "href": "map.html",
+            "src": "iconsymbols/map.svg"
+        },
+        {
+            "x": 0.6933174224343676,
+            "y": 0.60381861575179,
+            "w": 0.5095465393794749,
+            "angle": 0,
+            "text": "deck.html",
+            "href": "deck.html",
+            "src": ""
+        },
+        {
+            "x": 0.04295942720763723,
+            "y": 0.17422434367541767,
+            "w": 0.5548926014319809,
+            "angle": 0,
+            "text": "robot.html",
+            "href": "robot.html",
+            "src": ""
+        },
+        {
+            "x": 0.48568019093078757,
+            "y": 0.2159904534606205,
+            "w": 0.49522673031026254,
+            "angle": 0,
+            "text": "poetry engine",
+            "href": "poetryengine.html",
+            "src": ""
+        },
+        {
+            "x": 0.5859188544152745,
+            "y": 0.29952267303102625,
+            "w": 0.49522673031026254,
+            "angle": 0,
+            "text": "quantum duality",
+            "href": "duality.html",
+            "src": ""
+        },
+        {
+            "x": 0.7231503579952268,
+            "y": 0.38066825775656327,
+            "w": 0.49522673031026254,
+            "angle": 0,
+            "text": "code editor",
+            "href": "editor.php",
+            "src": ""
+        },
+        {
+            "x": 0.6193317422434368,
+            "y": 0.45465393794749404,
+            "w": 0.49522673031026254,
+            "angle": 0,
+            "text": "text/marker wall",
+            "href": "wall.html",
+            "src": ""
+        },
+        {
+            "x": 0.6921241050119332,
+            "y": 0.5178997613365155,
+            "w": 0.49522673031026254,
+            "angle": 0,
+            "text": "scroll editor",
+            "href": "pageeditor.html",
+            "src": ""
+        },
+        {
+            "x": 0.8090692124105012,
+            "y": 0.6885441527446301,
+            "w": 0.49522673031026254,
+            "angle": 0,
+            "text": "scroll",
+            "href": "scroll.html",
+            "src": ""
+        },
+        {
+            "x": 0.028639618138424822,
+            "y": 0.4701670644391408,
+            "w": 0.10620525059665871,
+            "angle": 0,
+            "text": "fork",
+            "href": "fork.html",
+            "src": "iconsymbols/fork.svg"
+        },
+        {
+            "x": 0.03341288782816229,
+            "y": 0.5990453460620525,
+            "w": 0.10620525059665871,
+            "angle": 0,
+            "text": "scroll",
+            "href": "scroll.html",
+            "src": "iconsymbols/scroll.svg"
+        },
+        {
+            "x": 0.03937947494033413,
+            "y": 0.7362768496420048,
+            "w": 0.11097852028639618,
+            "angle": 0,
+            "text": "robot.html",
+            "href": "robot.html",
+            "src": "iconsymbols/voxel.svg"
+        },
+        {
+            "x": 0.2243436754176611,
+            "y": 0.4403341288782816,
+            "w": 0.49522673031026254,
+            "angle": 0,
+            "text": "voxel.html",
+            "href": "voxel.html",
+            "src": ""
+        },
+        {
+            "x": 0.5918854415274463,
+            "y": 0.8162291169451074,
+            "w": 0.49522673031026254,
+            "angle": 0,
+            "text": "symbolapp.html",
+            "href": "symbolapp.html",
+            "src": ""
+        }
+    ],
+    [
+        {
+            "x": 0.23747016706443913,
+            "y": 0.041766109785202864,
+            "w": 0.6825775656324582,
+            "angle": 0,
+            "text": "slide 2",
+            "href": "",
+            "src": ""
+        }
+    ]
+];
+        mainmap.array = deck[slideIndex];
+        mainmap.draw();
+        mainmap.linkArray[mainmap.linkindex].style.border = "solid";
+        mainmap.linkArray[mainmap.linkindex].style.borderWidth = "0.1px";
+        document.getElementById("numslides").innerHTML = deck.length.toString();
+        document.getElementById("slideindex").value = (slideIndex + 1).toString();
+        
+        document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
+        //un comment for math
+        //MathJax.Hub.Typeset();
+}
+document.getElementById("importbutton").onclick = function(){
+    deck = JSON.parse(document.getElementById("textio").value);
+        mainmap.array = deck[slideIndex];
+        mainmap.draw();
+        mainmap.linkArray[mainmap.linkindex].style.border = "solid";
+        mainmap.linkArray[mainmap.linkindex].style.borderWidth = "0.1px";
+        document.getElementById("numslides").innerHTML = deck.length.toString();
+        document.getElementById("slideindex").value = (slideIndex + 1).toString();
+        
+        document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
+        //un comment for math
+        //MathJax.Hub.Typeset();    
+}
 
 document.getElementById("prevslidebutton").onclick = function(){
     deck[slideIndex] = mainmap.array;
@@ -296,7 +498,7 @@ document.getElementById("addslidebutton").onclick = function(){
 }
 
 document.getElementById("deleteslidebutton").onclick = function(){
-    //add a slide after current slide
+    //delete current slide
     var tempArray = [];
     for(var index = 0;index < slideIndex;index++){
         tempArray.push(deck[index]);
