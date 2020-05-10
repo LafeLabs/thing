@@ -15,9 +15,11 @@ Save again, and notice that the larger text box is filled with [strange looking 
 
 To get back to this page, click on the scroll symbol, the left-most icon in the row of icons.
 
-## Quantum Duality(optional!)
+## Quantum Duality
 
-After you can use the Poetry Engine, you are ready to experience the Quantum Duality.  This is another similar form of information.  In the quantum duality we find two images on the Web, put both links into the duality page, move them around, rotate them, scale them, and then experience the duality of them by sliding a pointer or finger on a touch screen sideways across the screen.
+From fundamental computer science to politics to gender, the binary models of understanding the Universe are failing.  In Quantum Duality is a philosophy engine in which we address the failures of these old numerical ideas by directly interacting with duality based on pairs of stacked images with varying opacity, which are lined up, scaled and rotated.  The math which determines the opacity of each image is identical to that of quantum superposition.  
+
+In the quantum duality we find two images on the Web, put both links into the duality page, move them around, rotate them, scale them, and then experience the duality of them by sliding a pointer or finger on a touch screen sideways across the screen.
 
 [Click this link to go to the quantum duality app](duality.html)
 
