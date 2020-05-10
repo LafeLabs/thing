@@ -29,7 +29,7 @@ Place painted rock in a location, photograph the rock in that place, upload that
 
 ## Scrolls
 
-Create a new scroll, edit it, paste it, share it, let other edit
+Create a new scroll, edit it, paste it, share it, let other edit, how to do math papers, link to srs scroll
 
 ## maps
 
@@ -38,6 +38,11 @@ Maps, memes, powerpoint, and the universal linked graphical document. Use of img
 ## Decks
  
 Stacks of maps, philosophy of watershed and street.  Make laminated maps of "here" in both street and watershed.  Put each one on imgur.  Make painted rocks and place them on maps, use to mark the marker created in the wall action above.  go make more markers and share them, build a deck as a stack of maps, then share that with someone, save it to pastebin
+
+## Build a web page on index.html
+
+links to learn all the types of code, to how code fits together, the 5 alchemy elements of geometron code, how editor.php works.  At minimum, though, just make a link to something 
+
 
 ## Action Geometry
 
@@ -74,10 +79,6 @@ edit keyboard, paint keyboard, use to make icons and symbols, learn about the hy
 
 Use main geometron editor to create shapes, both svg and png, save, email to someone with laser cutter(or ponoko) and get shapes, more than you need, give them to people, including whoever sent you the system
 
-## Build a web page on index.html
-
-links to learn all the types of code, to how code fits together, the 5 alchemy elements of geometron code, how editor.php works
-
 ## symbol app builder
 
 build a new symbol app with custom symbolic language, custom mobile interface, custom keyboard, share symbol app with other users, along with symbols
@@ -97,8 +98,11 @@ edit machine-specific hypercube, document it, share it, use it to make 3d object
 - assemble probe with cardboard, epoxy, tape, plastic, probe, electronics, pi
 - edit the code to make it work, test it out, set it up, repeat all tests, share it with someone else
 
+## build a localhost instance, link to github
 
+## Build an instance on a free or paid web host
 
+## Improve the system and replicate it
 
 What you see in the edit screen(after clicking the edit icon) here is "markdown", which is language which allows people to publish things on the web without learning more complex languages. Hit return twice to get a paragraph break.  Copy the syntax you see here to get links and images and headings. You can look up markdown ([cheat sheet](https://www.markdownguide.org/cheat-sheet/), [detailed guide](https://daringfireball.net/projects/markdown/syntax), [wikipedia entry](https://en.wikipedia.org/wiki/Markdown)) for more syntax.  Also embedding <span style = "color:red;font-family:courier;">HTML</span> works if you know that.  
 
