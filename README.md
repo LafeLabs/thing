@@ -78,7 +78,11 @@ It is best for this to use mobile mode, which can either be a mobile phone or ta
 
 When the map image is below the symbol, save the map again, and move and scale the symbol how you want on the map.  Now you can see how a symbol can be created, saved, shared, and used in a map, which can point to physical objects on which the same symbol is drawn.  However, we still don't really know the Geometron language, but have just made things at random.  To understand how Geometron works we need to move on to Action Geometry, the geometry of actions based on symmetry and scale. The best way to understand this is to use the laser cut acrylic shapes provided to copy the bound book which you should have also recieved into the blank book.  
 
-## Action Geometry Book
+
+
+## Book of Shapes
+
+The symbolic language used in the basic symbol app uses a set of shapes based on fundamental symmetries found in Nature.  These shapes are also laser cut using symbols made with Geometron(you'll make these later).  By using the app combined with the acrylic shapes it is possible to make geometric symbols quickly and without complex geometric constructions both with physical media and with a computer.  This allows for a network of physical objects which are mapped to digital information using symbols.  Physical things have a geometric symbol painted on them, they are placed outside in public, and Geometron maps describe them and their location with respect to the Street and Watershed networks.
 
 To copy the book, read the existing book and simply go through it following the instructions.  The book should include instructions for making another blank bound book, also do that, as you'll need that to give to the next person who shares Geometron.  If you don't have the laser cut shapes it it should be possible to get printed, cut, and laminated paper shapes.  Later, you'll be able to use Geometron to design your own laser cut shapes from scratch then use the network of laser cutters to get your shapes cut out to pass on to other new operators of Geometron.
 

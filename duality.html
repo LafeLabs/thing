@@ -39,7 +39,7 @@ PUBLIC DOMAIN, NO COPYRIGHTS, NO PATENTS.
             <img src = "iconsymbols/rotate.svg" id = "rotatebar"/>
         </div>  
     <a href = "deck.html"><img src = "iconsymbols/map.svg" style = "width:50px"/></a>
-
+    <a href = "scroll.html"><img src = "iconsymbols/scroll.svg" style = "width:50px"/></a>
     <div id = "iobox">
         <textarea id = "textio"></textarea>
         <div class = "button" id = "importbutton">IMPORT</div>
@@ -217,7 +217,7 @@ document.getElementById("savebutton").onclick = function(){
     httpc2.open("POST", url, true);
     httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc2.send("data="+encodeURIComponent(JSON.stringify(duality,null,"    "))+"&filename=data/duality.txt");//send text to filesaver.php
-    
+    document.getElementById("textio").value = JSON.stringify(duality,null,"    ");
     
 }
 

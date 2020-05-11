@@ -1,6 +1,7 @@
 {
     "html": [
         "README.md",
+        "appeditor.html",
         "deck.html",
         "deckeditor.html",
         "duality.html",
