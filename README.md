@@ -76,24 +76,32 @@ It is best for this to use mobile mode, which can either be a mobile phone or ta
 
 ![](iconsymbols/elementdown.svg)
 
-When the map image is below the symbol, save the map again, and move and scale the symbol how you want on the map.  Now you can see how a symbol can be created, saved, shared, and used in a map, which can point to physical objects on which the same symbol is drawn.  However, we still don't really know the Geometron language, but have just made things at random.  To understand how Geometron works we need to move on to Action Geometry, the geometry of actions based on symmetry and scale. The best way to understand this is to use the laser cut acrylic shapes provided to copy the bound book which you should have also recieved into the blank book.  
+When the map image is below the symbol, save the map again, and move and scale the symbol how you want on the map.  Now you can see how a symbol can be created, saved, shared, and used in a map, which can point to physical objects on which the same symbol is drawn.  However, we still don't really know the Geometron language, but have just made things at random.  To understand how Geometron works we need to move on to Action Geometry, the geometry of actions based on symmetry and scale. The best way to understand this is to use the laser cut acrylic shapes provided to copy the bound book which you should have also received into the blank book.  
+
+The symbolic language used in the basic symbol app uses a set of shapes based on fundamental symmetries found in Nature.  These shapes are also laser cut using symbols made with Geometron(you'll make these later).  By using the app combined with the acrylic shapes it is possible to make geometric symbols quickly and without complex geometric constructions both with physical media and with a computer.  This allows for a network of physical objects which are mapped to digital information using symbols.  Physical things have a geometric symbol painted on them, they are placed outside in public, and Geometron maps describe them and their location with respect to the Street and Watershed networks.
 
 
+Later, you can learn to customize symbolic languages and make your own symbol apps based on specific languages like circuit diagrams or subway maps. 
 
 ## Book of Shapes
 
-The symbolic language used in the basic symbol app uses a set of shapes based on fundamental symmetries found in Nature.  These shapes are also laser cut using symbols made with Geometron(you'll make these later).  By using the app combined with the acrylic shapes it is possible to make geometric symbols quickly and without complex geometric constructions both with physical media and with a computer.  This allows for a network of physical objects which are mapped to digital information using symbols.  Physical things have a geometric symbol painted on them, they are placed outside in public, and Geometron maps describe them and their location with respect to the Street and Watershed networks.
+To further explore the nature of the shapes, we will replicate the Book of Shapes, which uses the shapes to document their meaning.  You should have gotten both a completed Book of Shapes and at least one blank book from whover passed Geometron to you.  Go through the completed book and use the laser cut shapes to create your own new book, with your own additions or subtractions, color it in, and either release it into a library or pass it to whenever you pass all of Geometron along to for replication.  
 
 To copy the book, read the existing book and simply go through it following the instructions.  The book should include instructions for making another blank bound book, also do that, as you'll need that to give to the next person who shares Geometron.  If you don't have the laser cut shapes it it should be possible to get printed, cut, and laminated paper shapes.  Later, you'll be able to use Geometron to design your own laser cut shapes from scratch then use the network of laser cutters to get your shapes cut out to pass on to other new operators of Geometron.
 
 ## Geometron Hypercube and Virtual Machine
 
-In this section we will learn the structure of Geometron.  This is not for everyone.  But we will attempt to make it as non-technical as possible. 
+What, exactly, is Geometron?  It is a language.  But what is a language?  A language is many things. It is a culture, a body of literature, vocabulary, and grammar.  It is generally a stack of technology like the printing press or brush calligraphy.  
 
-make the keyboard, ascii, action tablet, physical hypercube stack, printed and copied from hypercube handed to you by someone, 
+But for Geometron in particular there is a structure that is unique.  Geometron is fundamentally a way to  structure geometric information.  In Geometron we create an abstract concept of the "Geometron Virtual Machine", or GVM, which is performs geometric operations on something.  The "something" might be pixels on a computer screen, ink on paper with a straight edge, motion through three dimensions in a 3d computer file, or motion of a physical robotic probe used to manipulate objects.  The GVM is fed a sequence of "actions", tell it what to do.  It has states like "fourfold symmetry" or "scale = 1 foot", which can be manipulated by actions.  Every action has a corresponding symbol which is itself created using Geometron actions.  
 
+The simplest Geometron program we consider is creating the so-called "[vesica piscis](https://en.wikipedia.org/wiki/Vesica_piscis)"(Latin for "fish bladder"), which consists of two circles of equal radius, each with its center along the other one.  The symbol glyphs and what they produce are as follows:
 
-edit keyboard, paint keyboard, use to make icons and symbols, learn about the hypercube, edit one and share it with others, share all elements created, share keyboard, buy new keyboard, print and laminate tablets: 
+This shows how the GVM is used to make symbols, but not what the code is that is fed into the GVM.  This code consists of addresses in the "Geometron Hypercube".  The Geometron Hypercube consists of two cubes, each with 8 layers of 8x8 tablets.  One cube is all actions like "draw a circle" or "move to the left".  The other cube represents all the symbols for all the actions in the Action Cube.  All addresses begin with a "0" to distinguish them from ordinary numbers.  Addresses in the action cube are three digits: one digit indicates the layer, the next indicates the row, and the last indicates the column.  The addresses in the symbol cube begin with 01 instead of 0 and also map to locations in the cube.  For instance, the action to draw a circle in a symbol is at address 0341, and the symbol for that is at address 01341.  Moving over to the right is 0333, so the figure drawn above is a sequence of actions given by "0341,0333,0341,", and the symbol glyph spelling is drawn by feeding the symbol address "01341,01333,01341," into the GVM.  
+
+Each address in the hypercube contains a list of addresses.  Because one layer of the hypercube contains all the standard ASCII characters used in English typing and also computer code, this can include writing of both computer code and English.  Since computer code can include HTML which uses Unicode to represent any human language, the Geometron Hypercube structure can encapsulate all computer languages as well as all human languages.  
+
+The layers of the action cube are described as follows:
 
 - 00 - 037: root magick
 - 040-0176:ASCII
@@ -105,6 +113,26 @@ edit keyboard, paint keyboard, use to make icons and symbols, learn about the hy
 - 0600-0677: 3d shapes
 - 0700-0777: 3d geometry actions
 - 01000-01777: symbols for 0-0777(second cube)
+
+To begin with, the so-called "root magick" actions do things to the GVM in various ways, interacting with the various editors, moving the GVM through the hypercube, etc.
+
+ASCII is a system of encoding all printable characters used in standard English-based computing, which is the standard for web coding used in the Geometron software platform.  ASCII is used to represent the actions in software implementations of the GVM, encoding actions described in JavaScript code.  Because ASCII also maps to the keys on a standard English language keyboard, these addresses in the hypercube correspond to the actions of the keys in Geometron apps. For instance, if the address 0141 corresponding to "a" points to 0330, it means that pressing the "a" key will cause the action 0330(move forward one unit) to be added to a glyph being edited. 
+
+The symbol cube contains symbols representing all the ASCII characters, which takes the form of geometric font information.   Thus again using the "a" example, we can point the address 01141, which is the ASCII for "a" with a 1 before it, to a sequence of geometric operations which draw an "a" on the screen.  This defines a font, and any number of these can be created.  
+
+The 8x8 tablet defined by the address 0200 through 0277 represent the "shape table" which defines a specific symbolic language.  This might be a collection of specialized symbols like circuit symbols, subway map symbols etc.   As will all elements of the Geometron system, these shape tables are designed to be copy/pasted and remixed by all users in the network.  
+
+The 8x8 tablet from 0300 through 0377 represents the heart of the system in many ways, and is the geometric actions used to make two dimensional symbols.
+
+
+
+In this section we will learn the structure of Geometron.  This is not for everyone.  But we will attempt to make it as non-technical as possible. 
+
+make the keyboard, ascii, action tablet, physical hypercube stack, printed and copied from hypercube handed to you by someone, 
+
+
+edit keyboard, paint keyboard, use to make icons and symbols, learn about the hypercube, edit one and share it with others, share all elements created, share keyboard, buy new keyboard, print and laminate tablets: 
+
 
 
 ## Making Symbols using the full Geometron
