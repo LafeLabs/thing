@@ -124,20 +124,28 @@ The 8x8 tablet defined by the address 0200 through 0277 represent the "shape tab
 
 The 8x8 tablet from 0300 through 0377 represents the heart of the system in many ways, and is the geometric actions used to make two dimensional symbols.  These will be dealt with in great detail in the next section.   Each of these is described by JavaScript code which is itself ASCII and therefore a sequence of addresses in the range from 040 through 0176. Again, the addresses from 01300 through 01377 represent symbols for each action.  
 
-The addresses from 0400 through 0477 represent machine actions.  This can in principle be any machine, although initially this is a robotic probe made from upcycled DVD drives from old broken computers and controlled by a Raspberry Pi server running Geometron.  Again, this will get more attention in a later section, but
+The addresses from 0400 through 0477 represent machine actions.  This can in principle be any machine, although initially this is a robotic probe made from upcycled DVD drives from old broken computers and controlled by a Raspberry Pi server running Geometron.  Again, this will get more attention in a later section, but the point is that for *any* machine, we may encode the geometry by which it acts into this layer of the action cube, make a symbol in the corresponding layer of the symbol cube, and start using it to program any machine.  By encoding symbols from the 02xx layer we can make systems for designing systems with robots by creating symbols made of symbols, where each symbol corresponds to an action of the robot.  Again, we'll actually do this in a later section, when using the trash printer.  In terms of what actually goes in the addresses here, it is generally computer code to directly control the robot, which will generally be in Python, but again encoded in ASCII(like all computer code).
 
+The next layer, 0500 through 0577 acts for the machine actions like how 02xx is for the plane geometry actions in 03xx. That is, each address in this range is just a sequence of other actions.  This is not a formal or strict definition, and these can be treated as identical to 02xx, it is just convention that 05xx refers to machine actions.  
 
+The top two layers of the action cube represent three dimensional geometry.  When using three dimensional software in the browser, the direct actions like "move up" or "draw a sphere" are encoded in the 3d geometry action layer from 0700 to 0777.  The layer below that, 0600 through 0677, are used much like 05xx, as a set of sequences of 07xx 3d actions, again just by convention.  All these can be combined, to use actions in 0600 through 0777 to create three dimensional structures which are then fabricated using actions in 0400 through 0577 and represented by abstract symbols in 02xx, for a complete system of physical technology control.  Ultimately the ability to program robotic fabrication technology like this can be bootstrapped to fabricate electronic circuits which connect salvaged electronics and bring it back from the dead, making more hardware to get incorporated back into the system, fabricating more robots to make more robots, etc.
 
-In this section we will learn the structure of Geometron.  This is not for everyone.  But we will attempt to make it as non-technical as possible. 
-
-make the keyboard, ascii, action tablet, physical hypercube stack, printed and copied from hypercube handed to you by someone, 
-
-
-edit keyboard, paint keyboard, use to make icons and symbols, learn about the hypercube, edit one and share it with others, share all elements created, share keyboard, buy new keyboard, print and laminate tablets: 
-
-
+The activity to do here is to print out each layer of the symbol cube from 01000 to 01777, so that we can have a handy reference of how the system works.  This is useful even if you don't use it much, as it will very much help the person you pass this along to to understanod the system. Just print, cutout and laminate, and pass on.  Also, the values of the key actions in 040 through 0176 can be printed in a file that has the shape of a standard QWERTY keybaord which we'll need for the next section as we dig in and make our own Geometron shapes and symbols from scratch.
 
 ## Making Symbols using the full Geometron
+
+This is where you will want a painted keyboard which has the layout of symbols shown in the printed and laminated tablet above.  
+
+We will now learn to use all the actions of Geometron to make all kinds of symbols.  We can use these
+
+
+## Custom Languages
+
+fonts: pixel font, katakana pixels, hebrew, stencils, make your own, signal fonts,
+
+symbols: chemistry, circuits, kaballah, arrows, watershed, quantum gates,icons, penrose tiles and golden triangles
+
+how to make styles, custom apps, etc.  how to edit whole hypercube
 
 Use the app to make complex symbols, make symbols for markers, integrate into physical network.  Use shapes from AG book to make markers, use s
 
