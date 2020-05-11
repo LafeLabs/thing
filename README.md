@@ -122,7 +122,9 @@ The symbol cube contains symbols representing all the ASCII characters, which ta
 
 The 8x8 tablet defined by the address 0200 through 0277 represent the "shape table" which defines a specific symbolic language.  This might be a collection of specialized symbols like circuit symbols, subway map symbols etc.   As will all elements of the Geometron system, these shape tables are designed to be copy/pasted and remixed by all users in the network.  
 
-The 8x8 tablet from 0300 through 0377 represents the heart of the system in many ways, and is the geometric actions used to make two dimensional symbols.
+The 8x8 tablet from 0300 through 0377 represents the heart of the system in many ways, and is the geometric actions used to make two dimensional symbols.  These will be dealt with in great detail in the next section.   Each of these is described by JavaScript code which is itself ASCII and therefore a sequence of addresses in the range from 040 through 0176. Again, the addresses from 01300 through 01377 represent symbols for each action.  
+
+The addresses from 0400 through 0477 represent machine actions.  This can in principle be any machine, although initially this is a robotic probe made from upcycled DVD drives from old broken computers and controlled by a Raspberry Pi server running Geometron.  Again, this will get more attention in a later section, but
 
 
 
