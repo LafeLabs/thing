@@ -186,6 +186,11 @@ var httpc2 = new XMLHttpRequest();
         //MathJax.Hub.Typeset();
         document.getElementById("textio").value = JSON.stringify(mainmap,null,"    ");
         
+    document.getElementById("textinput").value = mainmap.array[mainmap.linkindex].text;
+    document.getElementById("linkinput").value = mainmap.array[mainmap.linkindex].href;
+    document.getElementById("imginput").value = mainmap.array[mainmap.linkindex].src;
+            
+        
     }
 };
 httpc2.open("GET", "fileloader.php?filename=data/currentMap.txt", true);
@@ -256,18 +261,31 @@ document.getElementById("nextbutton").onclick = function() {
 
     mainmap.nextlink();
     document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
+    document.getElementById("textinput").value = mainmap.array[mainmap.linkindex].text;
+    document.getElementById("linkinput").value = mainmap.array[mainmap.linkindex].href;
+    document.getElementById("imginput").value = mainmap.array[mainmap.linkindex].src;
+    
+
+    
 }
 
 document.getElementById("prevbutton").onclick = function() {
 
     mainmap.prevlink();
     document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
+        document.getElementById("textinput").value = mainmap.array[mainmap.linkindex].text;
+    document.getElementById("linkinput").value = mainmap.array[mainmap.linkindex].href;
+    document.getElementById("imginput").value = mainmap.array[mainmap.linkindex].src;
+    
 }
 
 document.getElementById("newbutton").onclick = function() {
 
     mainmap.newlink();
-
+    document.getElementById("textinput").value = mainmap.array[mainmap.linkindex].text;
+    document.getElementById("linkinput").value = mainmap.array[mainmap.linkindex].href;
+    document.getElementById("imginput").value = mainmap.array[mainmap.linkindex].src;
+    
 }
 
 
@@ -275,6 +293,10 @@ document.getElementById("deletebutton").onclick = function() {
 
     mainmap.deletelink();
     document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
+        document.getElementById("textinput").value = mainmap.array[mainmap.linkindex].text;
+    document.getElementById("linkinput").value = mainmap.array[mainmap.linkindex].href;
+    document.getElementById("imginput").value = mainmap.array[mainmap.linkindex].src;
+    
 }
 
 document.getElementById("moveupbutton").onclick  = function() {
