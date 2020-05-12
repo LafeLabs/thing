@@ -19,6 +19,7 @@ HTML = HyperText Markup Language
    
    comments do nothing, and are encapsulated by dashes, angle brackets and an exclamation mark as seen in this comment, and should be blue like this.    
     -->
+<h1 id = "ipaddress"></h2>
 
 <h1>Geometron</h1><!-- h1, h2, h3 etc represent headings of decreasing size as the numbers go up.  "elements" refer to anything in an html document  -->
 
@@ -33,9 +34,27 @@ HTML = HyperText Markup Language
 copy and paste the link code to add your own new link, then go back to index.html to see the change.
 
 -->
-
 </p>
+<script>
 
+
+is_local = true;
+//is_local = false;
+
+if(is_local){
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            ipaddress = this.responseText;
+            document.getElementById("ipaddress").innerHTML = ipaddress;
+        }
+    };
+    httpc.open("GET", "ipaddress.php", true);
+    httpc.send();    
+    
+}
+
+</script>
 <style>
 body{
     background-color:black;

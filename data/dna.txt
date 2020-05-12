@@ -136,6 +136,7 @@
         "editor.txt",
         "fileloader.txt",
         "filesaver.txt",
+        "ipaddress.txt",
         "mkdir.txt",
         "pngsave.txt",
         "rdelete.txt",
