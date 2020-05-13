@@ -2,6 +2,7 @@
     "html": [
         "README.md",
         "appeditor.html",
+        "canvas2png.html",
         "deck.html",
         "deckeditor.html",
         "duality.html",

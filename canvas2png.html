@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>   
+
+<h1>canvas to png</h2>
+
+<!--
+<img id = "mainimage" src = "https://i.imgur.com/sEkTrFV.jpg"/>
+-->
+
+
+<img id = "mainimage" src = "uploadimages/image1.PNG"/>
+
+
+<canvas id = "maincanvas"></canvas>
+<table>
+    <tr>
+        <td>Image URL:</td>
+        <td><input id = "imageurl"/></td>
+    </tr>
+    <tr>
+        <td>RAW png code:</td>
+        <td><input id = "rawinput"/></td>
+    </tr>
+</table>
+<script>
+foo = "";
+document.getElementById("mainimage").onload = function() {
+    canvas = document.getElementById("maincanvas");
+    ctx = canvas.getContext("2d");
+    canvas.width = this.width;
+    canvas.height = this.height;
+    img = document.getElementById("mainimage");
+    img.crossOrigin = 'Anonymous';
+  
+    ctx.drawImage(img, 0,0,this.width,this.height);
+    document.getElementById("rawinput").value = canvas.toDataURL();
+//    foo = canvas.toDataURL('image/jpeg', 0.1);
+    
+};
+
+
+</script>
+<style>
+#mainimage{
+    width:400px;
+}
+</style>
+</body>
+</html>
