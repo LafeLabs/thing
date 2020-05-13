@@ -10,6 +10,7 @@
 </script>
 </head>
 <body>    
+<img id = "rawimg"/>
 <a href = "symbolapp.html">
     <img style = "border:solid;border-color:#208020;width:50px;" src = "iconsymbols/geometron.svg"/>
 </a>
@@ -54,10 +55,33 @@ httpc4.onreadystatechange = function() {
             
             document.getElementById("symbolscroll").appendChild(newp);
             newp.appendChild(newimg);
-            newimg.onclick = function() {
+            if(symbols[index].substr(-4) == ".txt"){
+                newimg.onclick = function() {
                 var localurl = "symbolfeed" + this.src.split("symbolfeed")[1];
-                document.getElementById("urlinput").value = localurl;
+                    
+                    //load up localurl contents, paste into src and input
+                    var httpc = new XMLHttpRequest();
+                    httpc.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("urlinput").value = this.responseText;
+                            document.getElementById("rawimg").src = this.responseText; 
+
+
+                        }
+                    };
+                    httpc.open("GET", "fileloader.php?filename=" + localurl, true);
+                    httpc.send();
+                    
+                    document.getElementById("urlinput").value = localurl;
+                }        
             }
+            else{
+                newimg.onclick = function() {
+                    var localurl = "symbolfeed" + this.src.split("symbolfeed")[1];
+                    document.getElementById("urlinput").value = localurl;
+                }
+            }
+
             var delimg = document.createElement("IMG");
             delimg.src = "iconsymbols/delete.svg";
             delimg.className = "button";
@@ -144,6 +168,12 @@ p img{
 }
 input{
     width:30em;
+}
+#rawimg{
+    position:absolute;
+    right:0px;
+    top:0px;
+    width:100px;
 }
 </style>
 </body>
