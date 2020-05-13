@@ -46,7 +46,7 @@ function Map(w,h,div) {
                 newa.innerHTML = this.array[index].text;
                 newa.style.fontSize = (0.1*this.array[index].w*this.w).toString() + "px"; 
             }
-            if(this.array[index].href.length > 0){
+            if(this.array[index].href.length > 0 && !this.array[index].href.includes("pastebin")){
                 newa.href = this.array[index].href;
             }
 

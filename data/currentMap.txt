@@ -52,5 +52,14 @@
         "text": "Map",
         "href": "",
         "src": "symbolfeed/symbol1589227566.svg"
+    },
+    {
+        "x": 0.636038186157518,
+        "y": 0.22553699284009546,
+        "w": 0.1801909307875895,
+        "angle": 0,
+        "text": "Map",
+        "href": "https://pastebin.com/raw/S3snMg3g",
+        "src": ""
     }
 ]

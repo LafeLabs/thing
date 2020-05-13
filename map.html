@@ -81,6 +81,7 @@ var httpc2 = new XMLHttpRequest();
         document.getElementById("textio").value = this.responseText;
         //un comment for math
         //MathJax.Hub.Typeset();
+        makemagiclinks();
 
     }
 };
@@ -91,6 +92,31 @@ document.getElementById("importbutton").onclick = function(){
     mainmap.array = JSON.parse(document.getElementById("textio").value);
     mainmap.draw();
 }
+
+
+
+
+function makemagiclinks(){
+    for(var index = 0;index < mainmap.array.length;index++){
+        if(mainmap.array[index].href.includes("pastebin")){
+            mainmap.linkArray[index].id = "index" + index.toString();
+            mainmap.linkArray[index].onclick = function(){
+                var localindex = parseInt(this.id.substring(5));
+                var httpc2 = new XMLHttpRequest();
+                httpc2.onreadystatechange = function(){
+                    if (this.readyState == 4 && this.status == 200) {
+                        mainmap.array = JSON.parse(this.responseText);
+                        mainmap.draw();
+                        console.log(this.responseText);
+                        document.getElementById("textio").value = this.responseText;
+                    }
+                };
+                httpc2.open("GET", "fileloader.php?filename=" + mainmap.array[localindex].href, true);
+                httpc2.send();
+            }
+        }
+    }
+}    
 
 </script>
 <style>
