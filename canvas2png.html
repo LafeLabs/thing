@@ -4,6 +4,9 @@
     <meta charset="utf-8">
 </head>
 <body>   
+    <a href = "mapeditor.html">
+        <img style = "width:50px;" src = "iconsymbols/map.svg"/>
+    </a>        
 
 <h1>canvas to png</h2>
 
@@ -26,6 +29,9 @@
         <td><input id = "rawinput"/></td>
     </tr>
 </table>
+<div id  = "imagescroll">
+    
+</div>
 <script>
 foo = "";
 document.getElementById("mainimage").onload = function() {
@@ -43,10 +49,48 @@ document.getElementById("mainimage").onload = function() {
 };
 
 
+
+upuploadImages = [];
+var httpc9 = new XMLHttpRequest();
+    httpc9.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        upuploadImages = JSON.parse(this.responseText);
+        for(var index = upuploadImages.length - 1;index >= 0;index--) {
+            var newimg = document.createElement("IMG");
+            newimg.src = "../uploadimages/" + upuploadImages[index];
+            newimg.classList.add("uploadimage");
+            newimg.classList.add("button");
+            document.getElementById("imagescroll").appendChild(newimg);
+            newimg.onclick = function() {
+                var localurl = "uploadimages" + this.src.split("uploadimages")[1];
+                document.getElementById("imageurl").value = localurl;
+                document.getElementById("mainimage").src = localurl;
+            }
+
+        }
+    }
+};
+
+httpc9.open("GET", "dir.php?filename=uploadimages", true);
+httpc9.send();
+
 </script>
 <style>
 #mainimage{
     width:400px;
+}
+#imagescroll{
+    position:absolute;
+    right:0px;
+    top:0px;
+    overflow:scroll;
+    width:300px;
+}
+#imagescroll img{
+    max-width:50%;
+    display:block;
+    margin:auto;
+    margin-top:1em;
 }
 </style>
 </body>
