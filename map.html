@@ -76,6 +76,7 @@ else{
 
 mainmap = new Map(squareWidth,squareWidth,document.getElementById("mainmap"));
 
+        mainmap.pastebinlinks = true;
 
 var httpc2 = new XMLHttpRequest();
     httpc2.onreadystatechange = function() {
@@ -112,7 +113,6 @@ function makemagiclinks(){
                         if (this.readyState == 4 && this.status == 200) {
                             mainmap.array = JSON.parse(this.responseText);
                             mainmap.draw();
-                            console.log(this.responseText);
                             document.getElementById("textio").value = this.responseText;
                         }
                     };

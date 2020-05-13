@@ -10,6 +10,7 @@ function Map(w,h,div) {
     this.linkArray = [];
     this.linkindex = 0;
     this.editmode = false;
+    this.pastebinlinks = false;
     //MapLink(x,y,w,angle,text,href,src)
     var newLink  = new MapLink(0.1,0.1,0.2,0,"text","","");
     this.array.push(newLink);
@@ -46,8 +47,13 @@ function Map(w,h,div) {
                 newa.innerHTML = this.array[index].text;
                 newa.style.fontSize = (0.1*this.array[index].w*this.w).toString() + "px"; 
             }
-            if(this.array[index].href.length > 0 && !this.array[index].href.includes("pastebin")){
-                newa.href = this.array[index].href;
+            if(this.array[index].href.length > 0){
+                if(this.array[index].href.includes("pastebin") && this.pastebinlinks){
+                    //do nothing, leave the link empty
+                }
+                else{
+                    newa.href = this.array[index].href;
+                }
             }
 
             this.linkArray.push(newa);

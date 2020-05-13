@@ -170,6 +170,15 @@
             "text": "Geometron Map/Deck",
             "href": "",
             "src": "symbolfeed/symbol1589326799.svg"
+        },
+        {
+            "x": 0.29952267303102625,
+            "y": 0.07637231503579953,
+            "w": 0.49522673031026254,
+            "angle": 0,
+            "text": "https://pastebin.com/raw/S3snMg3g",
+            "href": "https://pastebin.com/raw/S3snMg3g",
+            "src": ""
         }
     ],
     [
