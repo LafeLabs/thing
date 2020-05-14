@@ -14,6 +14,7 @@
         "map.html",
         "mapeditor.html",
         "pageeditor.html",
+        "pisetup.md",
         "poetryengine.html",
         "robot.html",
         "robot.py",
