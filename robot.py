@@ -16,15 +16,17 @@ if robotExists:
 
 import json
 
-dirPin1 = 16
-stepPin1 = 20
-enPin1 = 21
-dirPin2 = 8
-stepPin2 = 7
-enPin2 = 1
-dirPin3 = 14
-stepPin3 = 15
-enPin3 = 18
+enPin1 = 14
+stepPin1 = 15
+dirPin1 = 18
+
+enPin2 = 25
+stepPin2 = 8
+dirPin2 = 7
+
+enPin3 = 16
+stepPin3 = 20
+dirPin3 = 21
 
 controlpin1 = 6
 controlpin2 = 13
@@ -102,8 +104,8 @@ def control4off():
 
 def moveLeft(numSteps):
     if robotExists:
-        GPIO.output(dirPin1,GPIO.LOW)
-        GPIO.output(dirPin3,GPIO.HIGH) 
+        GPIO.output(dirPin1,GPIO.HIGH)
+        GPIO.output(dirPin3,GPIO.LOW) 
         GPIO.output(enPin1, GPIO.LOW) # enable  
         GPIO.output(enPin3, GPIO.LOW) # enable  
         GPIO.output(enPin2, GPIO.HIGH) # deenable  
@@ -123,8 +125,8 @@ def moveLeft(numSteps):
         
 def moveRight(numSteps):
     if robotExists:
-        GPIO.output(dirPin1,GPIO.HIGH)
-        GPIO.output(dirPin3,GPIO.LOW) 
+        GPIO.output(dirPin1,GPIO.LOW)
+        GPIO.output(dirPin3,GPIO.HIGH) 
         GPIO.output(enPin1, GPIO.LOW) # enable  
         GPIO.output(enPin3, GPIO.LOW) # enable  
         GPIO.output(enPin2, GPIO.HIGH) # deenable  
@@ -144,8 +146,8 @@ def moveRight(numSteps):
 
 def moveUp(numSteps):
     if robotExists:
-        GPIO.output(dirPin1,GPIO.HIGH)
-        GPIO.output(dirPin3,GPIO.HIGH)
+        GPIO.output(dirPin1,GPIO.LOW)
+        GPIO.output(dirPin3,GPIO.LOW)
         GPIO.output(enPin2, GPIO.HIGH) # deenable  
         GPIO.output(enPin1, GPIO.LOW) # enable  
         GPIO.output(enPin3, GPIO.LOW) # enable  
@@ -165,8 +167,8 @@ def moveUp(numSteps):
 
 def moveDown(numSteps):
     if robotExists:
-        GPIO.output(dirPin1,GPIO.LOW)
-        GPIO.output(dirPin3,GPIO.LOW)
+        GPIO.output(dirPin1,GPIO.HIGH)
+        GPIO.output(dirPin3,GPIO.HIGH)
         GPIO.output(enPin2, GPIO.HIGH) # deenable  
         GPIO.output(enPin1, GPIO.LOW) # enable  
         GPIO.output(enPin3, GPIO.LOW) # enable  
