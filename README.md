@@ -323,12 +323,8 @@ exit 0
 </pre>
 
 
-![](https://a.pololu-files.com/picture/0J8411.600.png?b1d4747290149a17fb94d490c1b09f87)
+![](https://a.pololu-files.com/picture/0J8411.600.png)
 
-pinout to jumpers from pi header :
-
-
-![](iconsymbols/pi-gpio-pinout.svg)
 
 ![](https://www.raspberrypi.org/documentation/usage/gpio/images/GPIO-Pinout-Diagram-2.png)
 

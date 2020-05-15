@@ -38,7 +38,7 @@
 ## Tasks
 
 - buy or scavenge everything, store it, distribute it(supply chain within geometron network)
-- [flash images onto SD cards](https://www.raspberrypi.org/documentation/installation/installing-images/)
+- [flash images onto SD cards using Raspberry Pi Imager](https://www.raspberrypi.org/documentation/installation/installing-images/)
 - do the geometron-specific software setup described here
 - assemble electronics--solder parts on, rotate potentiometer all the way to the left
 - assemble cardboard chassis
@@ -282,11 +282,9 @@ sudo /etc/init.d/listen-for-go-button.sh start
 
 
 
-![](https://a.pololu-files.com/picture/0J8411.600.png?b1d4747290149a17fb94d490c1b09f87)
+![](https://a.pololu-files.com/picture/0J8411.600.png)
 
 pinout to jumpers from pi header :
 
-
-![](iconsymbols/pi-gpio-pinout.svg)
 
 ![](https://www.raspberrypi.org/documentation/usage/gpio/images/GPIO-Pinout-Diagram-2.png)
