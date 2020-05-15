@@ -55,6 +55,9 @@ EGO DEATH:
         if(substr($value,-3) == ".md"){
             echo "\n<div class = \"markdown file\">".$value."</div>\n";
         }
+        if(substr($value,-3) == ".sh"){
+            echo "\n<div class = \"sh file\">".$value."</div>\n";
+        }
         
     }
 
@@ -99,6 +102,16 @@ EGO DEATH:
         }
         if(substr($newfile,-3) == ".md"){
             echo "<div class = \"markdown file\">";
+            echo $newfile;
+            echo "</div>\n";
+        }
+        if(substr($newfile,-3) == ".py"){
+            echo "<div class = \"python file\">";
+            echo $newfile;
+            echo "</div>\n";
+        }
+        if(substr($newfile,-3) == ".sh"){
+            echo "<div class = \"sh file\">";
             echo $newfile;
             echo "</div>\n";
         }
@@ -198,7 +211,11 @@ for(var index = 0;index < files.length;index++){
             document.getElementById("namediv").style.color = "aqua";
             document.getElementById("namediv").style.borderColor = "aqua";
         }
-
+        if(this.classList[0] == "sh"){
+            editor.getSession().setMode("ace/mode/sh");
+            document.getElementById("namediv").style.color = "white";
+            document.getElementById("namediv").style.borderColor = "aqua";
+        }
         document.getElementById("namediv").innerHTML = currentFile;
     }
 }
@@ -270,6 +287,9 @@ body{
 }
 .markdown{
     color:aqua;
+}
+.sh{
+    color:white;
 }
 
 .file{

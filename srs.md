@@ -4,7 +4,6 @@
 
 ### 2020
 
-foo
 
 ### [link to edit page](pageeditor.html)
 

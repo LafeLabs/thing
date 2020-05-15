@@ -2,6 +2,7 @@
     "html": [
         "README.md",
         "appeditor.html",
+        "buttonsetup.sh",
         "canvas2png.html",
         "deck.html",
         "deckeditor.html",
@@ -11,6 +12,10 @@
         "hypercube.html",
         "index.html",
         "keyboardeditor.html",
+        "listen-for-go-button.py",
+        "listen-for-go-button.sh",
+        "listen-for-shutdown.py",
+        "listen-for-shutdown.sh",
         "map.html",
         "mapeditor.html",
         "pageeditor.html",
