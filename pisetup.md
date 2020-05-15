@@ -1,3 +1,66 @@
+# Replicate a Raspberry Pi Geometron server
+
+## Tools:
+
+- SD card reader
+- HDMI cable
+- keyboard
+- mouse
+- HDMI display like a TV or small screen
+- soldering iron
+
+
+## Feedstock
+
+- Pi 3 B+ or 4
+- 16 gigabyte SD card
+- USB A to USB Micro for 3 or USB C for 4
+- wall wort to USB A with over 2 amps or USB battery with 12 V connection
+- battery with barrel connector to drive robot or 12V wall plug which converts barrel gender, charger for battery, wall and/or solar
+- cardboard and duct tape
+- push buttons
+- [potentiometer-adjust MP6500 stepper driver](https://www.pololu.com/product/2966)
+- solder
+- 4 pin headers for pi hat board
+- pi hat boards
+- 40 pin headers for pi hat board
+- optional switch and pilot light
+- optional breakout wires for control pins to arduinos
+- DVD or CD drives(3) or other linear stepper motor stages
+- 4 wire samtecs from stripped tinned leads to female or female to female and male headers to break out on motors
+- gorilla epoxy, elmers glue, JB weld
+- modeling clay and sculpey
+- plastic trash sheet(polyprpelyne) 
+- magnets
+- nails
+
+
+## Tasks
+
+- buy or scavenge everything, store it, distribute it(supply chain within geometron network)
+- [flash images onto SD cards](https://www.raspberrypi.org/documentation/installation/installing-images/)
+- do the geometron-specific software setup described here
+- assemble electronics--solder parts on, rotate potentiometer all the way to the left
+- assemble cardboard chassis
+- mount stages on cardboard, mount cardboard on stages
+- cut plastic, bend it, mount it on cardboard and add magnets and nail
+- use meter to find right wire pairs, connect 4 wire samtec 
+- change robotExists from False to True in robot.py
+- connect everything and run tests of basic x,y,z motions 
+- put soft modelling clay under nail probe, flatten it, use robot controls to set height, do test prints of lines, squares, words
+- make prints of symbols and words on slabs of sculpey, bake, paint, epoxy to rocks, distribute into public spaces with geometron maps to locate them
+- improve all elements of system, document improvements, merge with main project or fork and replicate
+- replicate the whole system again, pass it along to another user and guide them to replicate another one after that
+- solicit donations from people of parts, tools, materials
+- build more robots, release them into public spaces with maps that guide users to them and from them to more robots and more robot factories
+- develop and use clay and metal circuit fabrication to make interconnects to use all-upcycled technology for the whole system, including energy generation, storage, motor control, and geometron server, ultimately building full bottom-up electrical fabrication
+
+
+
+Buy a raspberry Pi 3 B+ preferably but 4 also works.
+
+Buy 16 gigabyte SD card and SD card reader
+
 Here are the commands to install everything on the pi:
 
 <pre>
