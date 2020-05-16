@@ -281,12 +281,29 @@ sudo /etc/init.d/listen-for-go-button.sh start
 </pre>
 
 
-
-
-
 ![](https://a.pololu-files.com/picture/0J8411.600.png)
 
 pinout to jumpers from pi header :
 
 
 ![](https://www.raspberrypi.org/documentation/usage/gpio/images/GPIO-Pinout-Diagram-2.png)
+
+samtec cables can be tinned ends or female both ends
+
+female both ends is 
+
+IDSS-04-D-xx.00, xx inches long
+
+and stripped and tinned is 
+
+IDSS-04-S-xx.00-T
+
+
+some information on samtec headers:
+
+the headers used here, which will be for most things will be in the series 
+
+TSW-104-[pin type from chart]-G-S
+
+![](https://i.imgur.com/nXaHf9n.png)
+
