@@ -71,7 +71,7 @@ bootstrap is whole big thing that does lots of things, but what we use it for he
     </a>
 
 <table>
-    <tr>
+    <tr id = "extscrollr">
         <td>external scroll url:</td>
         <td><input id = "externalinput"/></td>
     </tr>
@@ -121,16 +121,7 @@ var httpc2 = new XMLHttpRequest();
                 newscrollbutton.onclick = function(){
                     var scrollname = this.innerHTML;
                     //console.log(scrollname);
-                    var httpc = new XMLHttpRequest();
-                    httpc.onreadystatechange = function() {
-                        if (this.readyState == 4 && this.status == 200) {
-                        readme_md = this.responseText;
-                        rawhtml = converter.makeHtml(readme_md);
-                        document.getElementById("scrollscroll").innerHTML = rawhtml;
-        }
-    };
-                httpc.open("GET", "fileloader.php?filename=" + scrollname, true);
-                httpc.send();
+                    loadscroll(scrollname);
                 }
             }
         }
@@ -143,6 +134,10 @@ httpc2.send();
 
 document.getElementById("externalinput").onchange = function(){
     scrollname = this.value;
+    loadscroll(scrollname);
+}
+
+function loadscroll(scrollname){
     var httpc = new XMLHttpRequest();
     httpc.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -153,10 +148,27 @@ document.getElementById("externalinput").onchange = function(){
     };
     httpc.open("GET", "fileloader.php?filename=" + scrollname, true);
     httpc.send();
+    
 }
 
 </script>
 <style>
+#extscrollr{
+    border:solid;
+    border-width:0.5px;
+}
+.button{
+    width:10em;
+    border:solid;
+    text-align:center;
+    margin:auto;
+    border-radius:5px;
+    cursor:pointer;
+    font-family:courier;
+    background-color:#e0e0e0;
+    margin-top:1em;
+    margin-bottom:1em;
+}
     .scrollbutton{
         cursor:pointer;
     }

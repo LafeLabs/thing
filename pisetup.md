@@ -1,3 +1,5 @@
+<div class = "button" onclick = "loadscroll(&#34README.md&#34)">LOAD MAIN SCROLL</div>
+
 # Replicate a Raspberry Pi Geometron server
 
 ## Tools:

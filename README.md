@@ -1,3 +1,8 @@
+<div class = "button" onclick = "loadscroll(&#34srs.md&#34)">LOAD SET THEORY</div>
+
+<div class = "button" onclick = "loadscroll(&#34pisetup.md&#34)">LOAD PI SCROLL</div>
+
+
 [![](iconsymbols/geometronthing.svg)](index.html)
 
 # Geometron
