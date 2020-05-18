@@ -226,6 +226,9 @@ function redrawsrc(){
         newbox.className = "box";
         
         var newimg = document.createElement("img");
+        newimg.onclick  = function(){
+            document.getElementById("srcinput").value = this.src;
+        }
         newimg.src = src[index];
         newbox.appendChild(newimg);
         

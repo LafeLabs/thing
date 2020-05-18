@@ -179,6 +179,15 @@
             "text": "https://pastebin.com/raw/S3snMg3g",
             "href": "https://pastebin.com/raw/S3snMg3g",
             "src": ""
+        },
+        {
+            "x": 0.16825775656324582,
+            "y": 0.35083532219570407,
+            "w": 0.49522673031026254,
+            "angle": 0,
+            "text": "keyboardeditor.html",
+            "href": "keyboardeditor.html",
+            "src": ""
         }
     ],
     [
