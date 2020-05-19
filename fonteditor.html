@@ -69,17 +69,17 @@ document.getElementById("square").style.width =  squareWidth.toString() + "px";
 document.getElementById("square").style.height =  squareWidth.toString() + "px";
 
 tablecan = document.getElementById("fontcanvas");
-var newg = new GVM(2,2,symbolsize,-Math.PI/2,tablecan,symbolsize*8.5,symbolsize*13,hypercube);
+var newg = new GVM(2,2,symbolsize,-Math.PI/2,tablecan,symbolsize*10,symbolsize*15,hypercube);
 newg.importbytecode(font);
 newg.importbytecode(keyboard);
 
 newg.address = address;
 newg.glyph = newg.hypercube[address] + "0207,";
 currentGlyph = newg.hypercube[address] + "0207,";
-cansize = squareWidth/3;
+cansize = squareWidth/2.5;
 
 shapecan = document.getElementById("lettercanvas");
-var shapeg = new GVM(cansize*0.5,cansize*0.5,cansize*0.25,-Math.PI/2,shapecan,cansize,cansize,hypercube);
+var shapeg = new GVM(cansize*0.3,cansize*0.7,cansize*0.45,-Math.PI/2,shapecan,cansize,cansize,hypercube);
 shapeg.importbytecode(font);
 shapeg.importbytecode(keyboard);
 shapeg.drawGlyph("0300,");
@@ -95,10 +95,40 @@ function redrawtable() {
     newg.svgString = "<svg width=\"" + newg.width.toString() + "\" height=\"" + newg.height.toString() + "\" viewbox = \"0 0 " + newg.width.toString() + " " + newg.height.toString() + "\"  xmlns=\"http://www.w3.org/2000/svg\">\n";
     newg.action(0300);
 
+    for(var index = 060 ;index <= 067;index++) {
+        newg.action(0300);
+        newg.x = symbolsize + 1.1*symbolsize*(index%8);
+        newg.y = 0.7*symbolsize;
+        newg.action(index);
+        newg.actionSequence("0336,0336,0333,0337,0365,");
+    }
+
+    for(var index = 0 ;index < 4;index++) {
+        newg.action(0300);
+        newg.x = 0.1*symbolsize;
+        newg.y = 0.7*symbolsize + (index + 1)*symbolsize*1.1;
+        newg.action(060);
+        newg.action(060 + index + 4);
+        newg.action(0170);
+        newg.actionSequence("0336,0336,0336,0333,0337,0365,");
+    }
+
+    for(var index = 0 ;index <= 7;index++) {
+        newg.action(0300);
+        newg.x = 0.1*symbolsize;
+        newg.y = 0.7*symbolsize + (index + 5)*symbolsize*1.1;
+        newg.action(060);
+        newg.action(061);
+        newg.action(060 + index);
+        newg.action(0170);
+        newg.actionSequence("0336,0336,0336,0333,0337,0365,");
+    }
+
+
     for(var index = 01040 ;index <= 01176;index++) {
         newg.action(0300);
-        newg.x = 2 + symbolsize*(index%8);
-        newg.y = 2 + symbolsize*((index>>3)%8) + 8*symbolsize*((index>>6)%8) - 3*symbolsize;
+        newg.x = symbolsize + 1.1*symbolsize*(index%8);
+        newg.y = 1.1*symbolsize + 1.1*(symbolsize*((index>>3)%8) + 8*symbolsize*((index>>6)%8) - 3*symbolsize);
         newg.action(index);
     }
 
@@ -304,7 +334,9 @@ body{
 #fontcanvas{
     border:solid;
 }
-
+#lettercanvas{
+    border:solid;
+}
 </style>
 </body>
 </html>
