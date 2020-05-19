@@ -62,19 +62,19 @@ Having set up a pi server, you should also consider making a new one from scratc
 
 ## Consumables[robot server, but no robot manipulator]
 
-- Pi 3 B+ or 4
-- 16 gigabyte SD card
-- USB A to USB Micro for 3 or USB C for 4
-- wall wort to USB A with over 2 amps or USB battery with 12 V connection
-- barrel connector for 12 V input
-- battery with barrel connector to drive robot or 12V wall plug which converts barrel gender, charger for battery, wall and/or solar
+- Pi 3 B+ or 4 ([buy 3B+ from pishop.us](https://www.pishop.us/product/raspberry-pi-3-model-b-plus/))
+- 16 gigabyte SD card (link to buy cheap ones from newegg.com)[https://www.newegg.com/team-16gb-microsdhc/p/N82E16820313308]
+- USB A to USB Micro for 3 or USB C for 4 
+- wall wort to USB A with over 2 amps or USB battery with 12 V connection (link to buy USB micro wall wort from pololu.com)[https://www.pololu.com/product/1458]
+- barrel connector for 12 V input [amazon link to buy](https://www.amazon.com/gp/product/B07C7VSRBG/)
+- battery with barrel connector to drive robot or 12V wall plug which converts barrel gender, charger for battery, wall and/or solar (amazon link to buy 35 dollar 6000 mAh battery that works)[https://www.amazon.com/gp/product/B00ME3ZH7C/] (amazon link to buy 25 dollar 3000 mAh)[https://www.amazon.com/gp/product/B01M7Z9Z1N/]
 - cardboard and duct tape
-- push buttons
+- push buttons (digikey part number P8079STB-ND, cheap and good panasonic button)[https://www.digikey.com/product-detail/en/panasonic-electronic-components/EVQ-11L05R/P8079STB-ND/259532]
 - [potentiometer-adjust MP6500 stepper driver](https://www.pololu.com/product/2966)
 - solder
-- 4 pin headers for pi hat board
-- pi hat boards
-- 40 pin headers for pi hat board
+- 4 pin headers for pi hat board (digikey link to samtec part)[https://www.digikey.com/product-detail/en/samtec-inc/TSW-104-07-G-S/SAM1029-04-ND/1101323] 
+- pi hat boards (link to order them from pcbway.com)[https://www.pcbway.com/project/shareproject/pi_hat_to_connect_to_pololu_MP6500_stepper_motor_drover_boards.html]
+- 40 pin headers for pi hat board [link to buy from pololu](https://www.pololu.com/product/1037)
 - optional switch and pilot light
 - optional breakout wires for control pins to arduinos
 
@@ -82,6 +82,7 @@ Having set up a pi server, you should also consider making a new one from scratc
 
 - DVD or CD drives(3) or other linear stepper motor stages
 - 4 wire samtecs from stripped tinned leads to female or female to female and male headers to break out on motors
+- samtec pin-pin's to connect wires to header [samtec TSW-104-08-G-S](https://www.digikey.com/product-detail/en/samtec-inc/TSW-104-08-G-S/SAM1038-04-ND/1101770)
 - gorilla epoxy, elmers glue, JB weld
 - modeling clay and sculpey
 - plastic trash sheet(polyprpelyne) 
@@ -158,7 +159,7 @@ This will copy two shell scripts and two python scripts to the proper directorie
 sudo /etc/init.d/listen-for-shutdown.sh start
 </pre>
 
-And just press the button to shut it all down.  When it's shut down, you can write the IP address on it, restart it in headless mode as you did for the first server you set up, and now you're ready to pass that server along to another user, giving them the same setup instructions you started with here.
+And just press the button to shut it all down.  When it's shut down, you can write the IP address on it, restart it in headless mode as you did for the first server you set up, and now you're ready to pass that server along t
 
 Now you can turn off the pi by 
 
@@ -362,7 +363,8 @@ IDSS-04-D-xx.00, xx inches long
 
 and stripped and tinned is 
 
-IDSS-04-S-xx.00-T
+IDSS-04-S-06.00-ST4
+IDSS-04-S-08.00-ST4
 
 
 some information on samtec headers:

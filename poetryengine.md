@@ -1,4 +1,4 @@
-<div class = "button" onclick = "loadscroll(&#34poetryengine.md&#34)">LOAD POETRY ENGINE SCROLL</div>
+<div class = "button" onclick = "loadscroll(&#34README.md&#34)">LOAD MAIN SCROLL</div>
 
 # Poetry Engine
 

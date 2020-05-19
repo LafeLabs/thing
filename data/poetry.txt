@@ -24,7 +24,7 @@
             "y": 0.45346062052505964,
             "w": 0.19928400954653938,
             "angle": 0,
-            "text": "dark thunder",
+            "text": "deep thunder",
             "href": "",
             "src": ""
         },
@@ -33,7 +33,16 @@
             "y": 0.6133651551312649,
             "w": 0.19928400954653938,
             "angle": 0,
-            "text": "rolled along their shores",
+            "text": "rolled around their shores",
+            "href": "",
+            "src": ""
+        },
+        {
+            "x": 0.5178997613365155,
+            "y": 0.7852028639618138,
+            "w": 0.19928400954653938,
+            "angle": 0,
+            "text": "burning with the fires of orc",
             "href": "",
             "src": ""
         }
