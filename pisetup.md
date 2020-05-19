@@ -1,5 +1,53 @@
 <div class = "button" onclick = "loadscroll(&#34README.md&#34)">LOAD MAIN SCROLL</div>
 
+# Setup of already-built Raspberry Pi Trash Robot Geometron Server
+
+First, gather what you need:
+
+![](https://i.imgur.com/lhwkw6c.jpg)
+
+- The server which someone presumably gave you
+- an HDMI cable which connects to some screen you have, which could be a TV or computer screen
+- a usb keyboard and usb mouse
+- a paint pen or permanent marker
+- USB micro power supply which can supply 2.5 Amps or more, which should also be supplied by whoever gave you the server
+
+
+![](https://i.imgur.com/lhwkw6c.jpg)
+
+Plug the USB mouse and keyboard into the Pi server, plug in the HDMI between the Pi and the screen, turn the screen on, set it to the correct HDMI if there are multiple HDMI inputs, and then plug the Pi into the wall power(or USB battery pack) with the micro USB cable.
+
+![](https://i.imgur.com/s0nOIJG.jpg)
+
+![](https://i.imgur.com/D6TqBRP.jpg)
+
+
+When it's all plugged in it should boot to a desktop not unlike what you would see in a mac or pc.  Click on the wifi icon in the upper right of the screen and set up your local wifi network password like you would for a PC or mac.  When you're on the Internet, open a web browser with the link in the upper left corner of the screen.  Point the browser to "localhost/", and you should see the IP address, which is a series of 4 numbers separated by periods.  If you don't see that, try reloading the browser a couple times.  When you see the local IP address, use the paint pen or permanent marker to mark the IP address on the server in the blank area which should exist in a new server. 
+
+![](https://i.imgur.com/JmwBwQ0.jpg)
+
+ After you have marked the IP address on the pi, hit the off button to shut it down, unplug everything, then move it to a location convenient for being near a wall power socket, out of the way, and preferably a good work area for robotics later.  
+
+![](https://i.imgur.com/6NW8C65.jpg)
+
+![](https://i.imgur.com/XNluU6A.jpg)
+
+Plug it back into the wall, and wait for a minute or two for it to boot up.  Now go to another device on the local wifi network, like a phone, tablet or laptop and point the browser on your other device to the IP address written on the Pi.  You should now see the main page of the new server!  From here, you can click on the main scroll which will link to the scrolls for various actions, and can start setting up more parts of the pi and running the system to produce various products.
+
+Finally if you have access to a global Geometron server you can add a link to your new server from that.  To do that, use click on the editor program at [editor.php](editor.php) to add a link, and paste the code into the main part of the page next to the other "a" elements:
+
+<pre>
+
+<a href = "http://[your ip address here]">[name of your local wifi network or some other vague identifier]</a>
+
+</pre>
+
+where you make some name that doesn't tell anyone where you are but which makes sense to you, and place your specific IP address in the proper place there.  If you're doing this on some global domain that's easy to remember, you can point browsers there when you're on your home wifi network, and then click on your local link to get to the pi server.
+
+
+Having set up a pi server, you should also consider making a new one from scratch to spread to the next person.  Instructions for doing that are the next section of this Scroll.
+
+
 # Replicate a Raspberry Pi Geometron server
 
 ## Tools:
@@ -8,16 +56,17 @@
 - HDMI cable
 - keyboard
 - mouse
-- HDMI display like a TV or small screen
+- HDMI display like a TV or computer screen
 - soldering iron
 
 
-## Feedstock
+## Consumables[robot server, but no robot manipulator]
 
 - Pi 3 B+ or 4
 - 16 gigabyte SD card
 - USB A to USB Micro for 3 or USB C for 4
 - wall wort to USB A with over 2 amps or USB battery with 12 V connection
+- barrel connector for 12 V input
 - battery with barrel connector to drive robot or 12V wall plug which converts barrel gender, charger for battery, wall and/or solar
 - cardboard and duct tape
 - push buttons
@@ -28,6 +77,9 @@
 - 40 pin headers for pi hat board
 - optional switch and pilot light
 - optional breakout wires for control pins to arduinos
+
+## Robot manipulator consumables[documented in separate robot scroll]
+
 - DVD or CD drives(3) or other linear stepper motor stages
 - 4 wire samtecs from stripped tinned leads to female or female to female and male headers to break out on motors
 - gorilla epoxy, elmers glue, JB weld
@@ -56,8 +108,6 @@
 - solicit donations from people of parts, tools, materials
 - build more robots, release them into public spaces with maps that guide users to them and from them to more robots and more robot factories
 - develop and use clay and metal circuit fabrication to make interconnects to use all-upcycled technology for the whole system, including energy generation, storage, motor control, and geometron server, ultimately building full bottom-up electrical fabrication
-
-
 
 Buy a raspberry Pi 3 B+ preferably but 4 also works.
 
@@ -95,6 +145,22 @@ so to buy the whole pi server and set it up headless if you have basic computer 
  [robot.html](robot.html)
 
 the robot needs a button added to "run" the python robot program on GPIO2.  this should be added in the same script as the off button(off button is on pin 3), both of which need to be run on boot, instructions for adding these are found here:
+
+both buttons are added with a script called buttonsetup.sh, which you an  run from the command line with 
+
+<pre>
+sudo bash buttonsetup.sh
+</pre>
+
+This will copy two shell scripts and two python scripts to the proper directories, make them executable, and set up both to run on restart of the pi.  To start the shutdown script so it's running right now, type in 
+
+<pre>
+sudo /etc/init.d/listen-for-shutdown.sh start
+</pre>
+
+And just press the button to shut it all down.  When it's shut down, you can write the IP address on it, restart it in headless mode as you did for the first server you set up, and now you're ready to pass that server along to another user, giving them the same setup instructions you started with here.
+
+Now you can turn off the pi by 
 
 [https://howchoo.com/g/mwnlytk3zmm/how-to-add-a-power-button-to-your-raspberry-pi](https://howchoo.com/g/mwnlytk3zmm/how-to-add-a-power-button-to-your-raspberry-pi)
 
