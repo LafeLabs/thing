@@ -13,8 +13,6 @@ First, gather what you need:
 - USB micro power supply which can supply 2.5 Amps or more, which should also be supplied by whoever gave you the server
 
 
-![](https://i.imgur.com/lhwkw6c.jpg)
-
 Plug the USB mouse and keyboard into the Pi server, plug in the HDMI between the Pi and the screen, turn the screen on, set it to the correct HDMI if there are multiple HDMI inputs, and then plug the Pi into the wall power(or USB battery pack) with the micro USB cable.
 
 ![](https://i.imgur.com/s0nOIJG.jpg)

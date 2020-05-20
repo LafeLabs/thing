@@ -1,17 +1,17 @@
 {
     "top": {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Erwin_Schr%C3%B6dinger_%281933%29.jpg/440px-Erwin_Schr%C3%B6dinger_%281933%29.jpg",
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Stonehenge2007_07_30.jpg/2560px-Stonehenge2007_07_30.jpg",
         "x": 0.1718377088305489,
         "y": -0.022673031026252982,
         "w": 0.5011933174224343,
         "angle": 0
     },
     "bottom": {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Erwin_Schr%C3%B6dinger_%281933%29.jpg/440px-Erwin_Schr%C3%B6dinger_%281933%29.jpg",
-        "x": 0.13365155131264916,
-        "y": -0.20286396181384247,
-        "w": 0.5429594272076372,
-        "angle": 177
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/IBM_Blue_Gene_P_supercomputer.jpg/660px-IBM_Blue_Gene_P_supercomputer.jpg",
+        "x": 0.18615751789976134,
+        "y": 0.059665871121718374,
+        "w": 0.47613365155131265,
+        "angle": -1
     },
     "theta": 0.785398
 }
