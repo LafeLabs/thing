@@ -233,7 +233,7 @@ document.getElementById("actioninput").onkeypress = function(a) {
 
 buttonSize = marginWidth/6;
 
-controlbuttons = [0700,0701,0702,0703,0704,0705,0601,0602,0603,0604,0605,0606,0607,020,010,021];
+controlbuttons = [0640,0641,0642,0643,0644,0645,0700,0701,0702,0703,0704,0705,0601,0602,0603,0604,0605,0606,0607,020,010,021];
 
 function loadcontrolbuttons(){
     
@@ -292,11 +292,12 @@ httpc.onreadystatechange = function() {
         newGVM.y0 = currentjson.y0rel*newGVM.height;    
         newGVM.unit = currentjson.unitrel*newGVM.width;    
         newGVM.theta0 = currentjson.theta0;
-        newGVM.glyph = currentjson.glyph + ",0207,";    
-
+        
         spellGVM.importbytecode(currentjson.shapes);
         newGVM.importbytecode(currentjson.shapes);
-
+        
+        newGVM.glyph = newGVM.hypercube[0600] + ",0207,";
+        
         newGVM.drawGlyph(newGVM.glyph);
         spellGVM.spellGlyph(newGVM.glyph);
         
@@ -329,8 +330,9 @@ document.getElementById("spellinput").onchange = function() {
 
 function savejson(){
     
-    currentjson.glyph = newGVM.hypercube[0600];
-        
+//    currentjson.glyph = newGVM.hypercube[0600];
+    newGVM.saveGlyph();
+
     if(newGVM.address >= 0600 && newGVM.address <= 0607){
         
         currentjson.shapes = [];
