@@ -1,8 +1,16 @@
+When setting up a new Raspberry Pi Geometron server, click on the link below to load the scroll which describes setting up a new server.  This starts with the assumption someone has distributed to you a server.  It shows you how to set that up on your local wifi as well as how to create a new server for you to distribute forward on the Geometron network.
+
+<div class = "button" onclick = "loadscroll(&#34pisetup.md&#34)">LOAD RASPBERRY PI SETUP SCROLL</div>
+
 <div class = "button" onclick = "loadscroll(&#34poetryengine.md&#34)">LOAD POETRY ENGINE SCROLL</div>
+
+<div class = "button" onclick = "loadscroll(&#34maps.md&#34)">LOAD SCROLL ABOUT MAPS, DECKS, AND WALLS</div>
+
+<div class = "button" onclick = "loadscroll(&#34github.md&#34)">LOAD SCROLL ON USING GITHUB TO REPLICATE LOCAL SERVERS GLOBALLY</div>
+
 
 <div class = "button" onclick = "loadscroll(&#34srs.md&#34)">LOAD SCROLL ON THE THEORY OF SELF-REPLICATING SETS</div>
 
-<div class = "button" onclick = "loadscroll(&#34pisetup.md&#34)">LOAD RASPBERRY PI SETUP SCROLL</div>
 
 
 [![](iconsymbols/geometronthing.svg)](index.html)
