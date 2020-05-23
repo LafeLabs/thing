@@ -86,8 +86,11 @@ document.getElementById("controltable").style.display =  "none";
 
 inputs = document.getElementById("controltable").getElementsByTagName("INPUT");
 
+
+
 wall = "";
 
+/*
 var httpc2 = new XMLHttpRequest();
 httpc2.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -98,7 +101,7 @@ httpc2.onreadystatechange = function() {
 
 httpc2.open("GET", "fileloader.php?filename=data/wall.txt", true);
 httpc2.send();
-
+*/
 
 marker = {};
 var httpc3 = new XMLHttpRequest();
@@ -121,7 +124,7 @@ httpc3.onreadystatechange = function() {
         inputs[11].value = parseInt(marker.textarea.top).toString();
         inputs[12].value = parseInt(marker.textarea.width).toString();
         inputs[13].value = parseInt(marker.textarea.height).toString();
-
+        document.getElementById("wall").value = marker.text;
 
     }
 };
@@ -160,17 +163,16 @@ function savemarker(){
     httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc2.send("data="+encodeURIComponent(JSON.stringify(marker,null,"    "))+"&filename=data/marker.txt");//send text to filesaver.php
 
-    
 }
 
 document.getElementById("wall").onkeyup = function() {
-        wall = this.value;
-        data = encodeURIComponent(this.value);
+        marker.text = this.value;
         var httpc = new XMLHttpRequest();
         var url = "filesaver.php";        
         httpc.open("POST", url, true);
         httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
-        httpc.send("data="+data+"&filename=data/wall.txt");//send text to filesaver.php
+        httpc.send("data="+encodeURIComponent(JSON.stringify(marker,null,"    "))+"&filename=data/marker.txt");//send text to filesaver.php        
+    
 }
 
 document.getElementById("editbutton").onclick = function(){
@@ -278,7 +280,8 @@ marker0 = {
         "fontSize":"35px",
         "color":"yellow",
         "opacity":"0.76"
-    }
+    },
+    "text":"wall text"
 };
 
 document.getElementById("resetbutton").onclick = function(){
