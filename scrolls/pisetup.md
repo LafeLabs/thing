@@ -1,5 +1,3 @@
-<div class = "button" onclick = "loadscroll(&#34README.md&#34)">LOAD MAIN SCROLL</div>
-
 # Setup of already-built Raspberry Pi Trash Robot Geometron Server
 
 First, gather what you need:

@@ -56,6 +56,15 @@ foreach($dna->php as $value){
 }
 
 
+foreach($dna->maps as $value){
+    copy($baseurl."maps/".$value,"maps/".$value);
+}
+
+foreach($dna->scrolls as $value){
+    copy($baseurl."scrolls/".$value,"scrolls/".$value);
+}
+
+
 ?>
 <a href = "index.html">CLICK TO GO TO PAGE</a>
 <style>

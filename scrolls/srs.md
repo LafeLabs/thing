@@ -1,5 +1,3 @@
-<div class = "button" onclick = "loadscroll(&#34README.md&#34)">LOAD MAIN SCROLL</div>
-
 # On Self-Replicating Sets
 
 ### John. Q Geometer

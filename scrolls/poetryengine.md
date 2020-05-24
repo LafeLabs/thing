@@ -1,5 +1,3 @@
-<div class = "button" onclick = "loadscroll(&#34README.md&#34)">LOAD MAIN SCROLL</div>
-
 # Poetry Engine
 
 The Poetry Engine is a good place to start in learning how to produce and share art on the Geometron network.  What this software does is point to any image on the Web, and allow you to place words over it of your choosing.  Delete words, add words, move words around, change them. It is the same basic format as refrigerator magnet poetry, which is where it gets its name.  However, by being able to point to anything on the Web, and being able to clone and remix across the web it becomes a tool of immense potential power to augment human thought and understanding. 

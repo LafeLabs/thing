@@ -133,5 +133,14 @@
         "text": "link to openstreetmaps",
         "href": "",
         "src": "iconsymbols/arrow.svg"
+    },
+    {
+        "x": 0.2935560859188544,
+        "y": -0.013126491646778043,
+        "w": 0.16825775656324582,
+        "angle": 1,
+        "text": "link to openstreetmaps",
+        "href": "",
+        "src": "symbolfeed/symbol1589396440.svg"
     }
 ]

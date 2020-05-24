@@ -1,5 +1,3 @@
-<div class = "button" onclick = "loadscroll(&#34README.md&#34)">LOAD MAIN SCROLL</div>
-
 # Replicating local server globally using Github
 
 This assumes you have some idea of what Github is, and can use PHP from the command line, but it should be not hard to follow this if you get help from someone who knows it. Get a Github account, which is free.  [Download Github Desktop to use a simple graphical interface](https://desktop.github.com/).  

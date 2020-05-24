@@ -9,7 +9,6 @@
         "duality.html",
         "fonteditor.html",
         "fork.html",
-        "github.md",
         "hypercube.html",
         "index.html",
         "keyboardeditor.html",
@@ -18,12 +17,10 @@
         "listen-for-shutdown.py",
         "listen-for-shutdown.sh",
         "map.html",
+        "mapdelete.html",
         "mapeditor.html",
-        "maps.md",
         "pageeditor.html",
-        "pisetup.md",
         "poetryengine.html",
-        "poetryengine.md",
         "robot.html",
         "robot.py",
         "robotcube.html",
@@ -34,7 +31,6 @@
         "scrolleditor.html",
         "setup.html",
         "shapetableeditor.html",
-        "srs.md",
         "styleeditor.html",
         "symbol.html",
         "symbolapp.html",
@@ -159,5 +155,17 @@
         "text2php.txt",
         "upload.txt",
         "uploadsymbol.txt"
+    ],
+    "maps": [
+        "markermap.txt",
+        "servermap.txt"
+    ],
+    "scrolls": [
+        "github.md",
+        "maps.md",
+        "pireplicate.md",
+        "pisetup.md",
+        "poetryengine.md",
+        "srs.md"
     ]
 }
