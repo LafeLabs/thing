@@ -198,12 +198,12 @@
         "src": ""
     },
     {
-        "x": 0.8031026252983293,
-        "y": 0.22911694510739858,
-        "w": 0.42482100238663484,
+        "x": 0.4331742243436754,
+        "y": 0.8818615751789977,
+        "w": 0.37708830548926014,
         "angle": 0,
-        "text": "wall.html",
-        "href": "wall.html",
+        "text": "pastebin of repository map",
+        "href": "https://pastebin.com/raw/XFpDJgc6",
         "src": ""
     }
 ]

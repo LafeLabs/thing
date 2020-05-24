@@ -45,6 +45,7 @@
 <!--<datadiv/>-->
 <div id = "mainmap"></div>
 
+<textarea id = "wall"></textarea>
 
 <textarea id = "textio"></textarea>
 <div id = "importbutton">IMPORT</div>
@@ -62,14 +63,16 @@ if(innerWidth > innerHeight){
     landscape = true;
     document.getElementById("mainmap").style.left = (innerWidth - squareWidth - 0.5*marginWidth).toString() + "px";
 
-    
+    document.getElementById("wall").style.width = (innerWidth - squareWidth - 0.5*marginWidth).toString() + "px";
+    document.getElementById("wall").style.height = (innerHeight).toString() + "px";    
 }
 else{
     
     squareWidth = innerWidth;
     marginWidth = innerHeight - squareWidth;
     document.getElementById("mainmap").style.top = (innerHeight - squareWidth - 0.5*marginWidth).toString() + "px";
-    
+    document.getElementById("wall").style.width = (innerWidth).toString() + "px";
+    document.getElementById("wall").style.height = (innerHeight - squareWidth - 0.5*marginWidth).toString() + "px";    
     
 }
 
@@ -92,6 +95,18 @@ var httpc2 = new XMLHttpRequest();
 };
 httpc2.open("GET", "fileloader.php?filename=data/currentMap.txt", true);
 httpc2.send();
+
+var httpc3 = new XMLHttpRequest();
+httpc3.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        wall = this.responseText;
+        document.getElementById("wall").value = wall;
+    }
+};
+
+httpc3.open("GET", "fileloader.php?filename=data/wall.txt", true);
+httpc3.send();
+
 
 document.getElementById("importbutton").onclick = function(){
     mainmap.array = JSON.parse(document.getElementById("textio").value);
@@ -127,8 +142,28 @@ function makemagiclinks(){
     }
 }    
 
+
+
+document.getElementById("wall").onkeyup = function() {
+        wall = this.value;
+        data = encodeURIComponent(this.value);
+        var httpc = new XMLHttpRequest();
+        var url = "filesaver.php";        
+        httpc.open("POST", url, true);
+        httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+        httpc.send("data="+data+"&filename=data/wall.txt");//send text to filesaver.php
+}
+
+
 </script>
 <style>
+#wall{
+    position:absolute;
+    left:0px;
+    top:0px;
+    font-family:courier;
+}
+
 body{
     overflow:hidden;
 }
@@ -154,7 +189,7 @@ body{
     bottom:0px;
 }
 #textio{
-    position:absolute;
+    position:absolute;  
     right:0px;
     bottom:40px;
 }
