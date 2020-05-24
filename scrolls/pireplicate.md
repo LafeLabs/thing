@@ -17,15 +17,16 @@ First, the tools you'll need for each installation, which are not consumable:
 Next are the consumables you will need:
 
 1. raspberry pi 3 B+([buy 3B+ from pishop.us](https://www.pishop.us/product/raspberry-pi-3-model-b-plus/))
-2. SD card
-3. custom robot hat board
-4. samtec headers
-5. raspberry pi 40 pin header
-5. 3 buttons
+2. 16 gigabyte SD card
+3. custom robot hat board [link to order them from pcbway.com](https://www.pcbway.com/project/shareproject/pi_hat_to_connect_to_pololu_MP6500_stepper_motor_drover_boards.html)
+4. samtec headers [digikey link to samtec part](https://www.digikey.com/product-detail/en/samtec-inc/TSW-104-07-G-S/SAM1029-04-ND/1101323)
+5. raspberry pi 40 pin header [link to buy from pololu](https://www.pololu.com/product/1037)
+5. 3 buttons [digikey part number P8079STB-ND, cheap and good panasonic button](https://www.digikey.com/product-detail/en/panasonic-electronic-components/EVQ-11L05R/P8079STB-ND/259532)
+6. pololu potentiometer stepper motor control boards [potentiometer-adjust MP6500 stepper driver](https://www.pololu.com/product/2966)
 6. cardboard
 7. duct tape
-8. 12 V power supply cable
-9. USB/12 V power pack battery
+8. 12 V power supply cable [amazon link to buy](https://www.amazon.com/gp/product/B07C7VSRBG/)
+9. USB/12 V power pack battery [amazon link to buy 35 dollar 6000 mAh battery that works](https://www.amazon.com/gp/product/B00ME3ZH7C/) [amazon link to buy 25 dollar 3000 mAh](https://www.amazon.com/gp/product/B01M7Z9Z1N/)
 10. USB wall plug
 11. USB power cord
 12. 12 V charger to wall for battery pack
@@ -37,12 +38,12 @@ steps to setup physical pi server:
 
 Steps to set up software on pi server:
 
-1. put raspbian on the SD card
+1. put raspbian on the SD card [flash images onto SD cards using Raspberry Pi Imager](https://www.raspberrypi.org/documentation/installation/installing-images/)
 2. boot system, set it up
-2. install apache and php
-3. install geometron
-4. install button control scripts
-5. get IP address of server and write it on the unit
+2. install apache and php(see below)
+3. install geometron(see below)
+4. install button control scripts(see below)
+5. get IP address of server and write it on the unit(see below)
 
 ## apache and php install code, to be copy/pasted into terminal on pi:
 
@@ -75,4 +76,8 @@ This will copy two shell scripts and two python scripts to the proper directorie
 <pre>
 sudo /etc/init.d/listen-for-shutdown.sh start
 </pre>
+
+
+Hit the off button and go to the "set up new server" scroll for the next operator
+
 
