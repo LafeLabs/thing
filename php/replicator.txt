@@ -17,6 +17,9 @@ mkdir("php");
 mkdir("jscode");
 mkdir("uploadimages");
 mkdir("symbolfeed");
+mkdir("maps");
+mkdir("scrolls");
+
 
 foreach($dna->html as $value){
     

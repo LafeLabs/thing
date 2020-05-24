@@ -47,6 +47,11 @@
 
 <textarea id = "wall"></textarea>
 
+<div id = "maplistdiv">
+    <h2 id = "currentmapname"></h2>
+    <ul id = "maplist"></ul>
+</div>
+
 <textarea id = "textio"></textarea>
 <div id = "importbutton">IMPORT</div>
 <script>
@@ -65,6 +70,10 @@ if(innerWidth > innerHeight){
 
     document.getElementById("wall").style.width = (innerWidth - squareWidth - 0.5*marginWidth).toString() + "px";
     document.getElementById("wall").style.height = (innerHeight).toString() + "px";    
+    
+    document.getElementById("maplistdiv").style.width = (innerWidth - squareWidth - 0.5*marginWidth).toString() + "px";
+    document.getElementById("maplistdiv").style.height = (innerHeight).toString() + "px";    
+    
 }
 else{
     
@@ -73,6 +82,8 @@ else{
     document.getElementById("mainmap").style.top = (innerHeight - squareWidth - 0.5*marginWidth).toString() + "px";
     document.getElementById("wall").style.width = (innerWidth).toString() + "px";
     document.getElementById("wall").style.height = (innerHeight - squareWidth - 0.5*marginWidth).toString() + "px";    
+    document.getElementById("maplistdiv").style.width = (innerWidth).toString() + "px";
+    document.getElementById("maplistdiv").style.height = (innerHeight - squareWidth - 0.5*marginWidth).toString() + "px";        
     
 }
 
@@ -80,6 +91,11 @@ else{
 mainmap = new Map(squareWidth,squareWidth,document.getElementById("mainmap"));
 
         mainmap.pastebinlinks = true;
+
+
+mapname = "data/currentMap.txt";
+
+document.getElementById("currentmapname").innerHTML = mapname;
 
 var httpc2 = new XMLHttpRequest();
     httpc2.onreadystatechange = function() {
@@ -155,6 +171,45 @@ document.getElementById("wall").onkeyup = function() {
 }
 
 
+maplist = [];
+
+var httpc4 = new XMLHttpRequest();
+    httpc4.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        maplist = JSON.parse(this.responseText);
+        for(var index = maplist.length - 1;index >= 0;index--) {
+            var newmapbutton = document.createElement("LI");
+            newmapbutton.className = "mapbutton";
+            newmapbutton.innerHTML = "maps/" + maplist[index];
+            document.getElementById("maplist").appendChild(newmapbutton);
+                newmapbutton.onclick = function(){
+                    var mapname = this.innerHTML;
+                    //console.log(scrollname);
+                    loadmap(mapname);
+                }
+            
+        }
+    }
+};
+
+httpc4.open("GET", "dir.php?filename=maps", true);
+httpc4.send();
+
+
+function loadmap(mapname){
+    document.getElementById("currentmapname").innerHTML = mapname;
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200) {
+            mainmap.array = JSON.parse(this.responseText);
+            mainmap.draw();
+            document.getElementById("textio").value = this.responseText;
+        }
+    };
+    httpc.open("GET", "fileloader.php?filename=" + mapname, true);
+    httpc.send();
+}
+
 </script>
 <style>
 #wall{
@@ -163,7 +218,13 @@ document.getElementById("wall").onkeyup = function() {
     top:0px;
     font-family:courier;
 }
-
+#maplistdiv{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    font-family:courier;
+    margin:auto;
+}
 body{
     overflow:hidden;
 }

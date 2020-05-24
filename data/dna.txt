@@ -29,6 +29,9 @@
         "robotcube.html",
         "robotfont.html",
         "scroll.html",
+        "scroll.md",
+        "scrolldelete.html",
+        "scrolleditor.html",
         "setup.html",
         "shapetableeditor.html",
         "srs.md",
@@ -137,7 +140,8 @@
         "poetry.txt",
         "robot.txt",
         "symbolapp.txt",
-        "textfeed.txt"
+        "textfeed.txt",
+        "wall.txt"
     ],
     "php": [
         "deletebranch.txt",

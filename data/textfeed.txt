@@ -2,11 +2,7 @@
     "text": [
         "some text",
         "☕ ",
-        "slide 2",
-        "slide 3",
-        "slide 4",
-        "deck.html",
-        "more tecxt"
+        "deck.html"
     ],
     "src": [
         "https://upload.wikimedia.org/wikipedia/commons/3/3b/BuckminsterFuller1.jpg",

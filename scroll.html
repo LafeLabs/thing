@@ -57,19 +57,12 @@ bootstrap is whole big thing that does lots of things, but what we use it for he
 <div class = "mainscrollarea" id = "scrollscroll"></div>
 
 <div id = "margin">
-    <a href = "pageeditor.html">
+    <a href = "scrolleditor.html">
          <img style = "width:50px;" src = "iconsymbols/edit.svg"/>
     </a>
     <a href = "map.html">
         <img style = "width:50px;" src = "iconsymbols/map.svg"/>
     </a>        
-    <a href = "index.html">
-        <img id = "scrollbutton" class = "button" style = "width:50px;" src = "iconsymbols/geometronthing.svg"/>
-    </a>
-    <a href = "fork.html">
-        <img style = "width:50px;" src = "iconsymbols/fork.svg"/>
-    </a>
-
 <table>
     <tr id = "extscrollr">
         <td>external scroll url:</td>
@@ -90,17 +83,17 @@ bootstrap is whole big thing that does lots of things, but what we use it for he
     converter.setOption('tables', 'true');
 
 
-    readme_md = "";
+    scroll = "";
     rawhtml = "";
     var httpc = new XMLHttpRequest();
     httpc.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            readme_md = this.responseText;
-            rawhtml = converter.makeHtml(readme_md);
+            scroll = this.responseText;
+            rawhtml = converter.makeHtml(scroll);
             document.getElementById("scrollscroll").innerHTML = rawhtml;
         }
     };
-    httpc.open("GET", "fileloader.php?filename=README.md", true);
+    httpc.open("GET", "fileloader.php?filename=scroll.md", true);
     httpc.send();
     
     
@@ -132,6 +125,27 @@ httpc2.open("GET", "dir.php", true);
 httpc2.send();
 
 
+scrolls2 = [];
+var httpc3 = new XMLHttpRequest();
+    httpc3.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        scrolls2 = JSON.parse(this.responseText);
+        for(var index = scrolls2.length - 1;index >= 0;index--) {
+            var newscrollbutton = document.createElement("div");
+            newscrollbutton.className = "scrollbutton";
+            newscrollbutton.innerHTML = "scrolls/" + scrolls2[index];
+            document.getElementById("margin").appendChild(newscrollbutton);
+            newscrollbutton.onclick = function(){
+                var scrollname = this.innerHTML;
+                loadscroll(scrollname);
+            }
+        }
+    }
+};
+
+httpc3.open("GET", "dir.php?filename=scrolls", true);
+httpc3.send();
+
 document.getElementById("externalinput").onchange = function(){
     scrollname = this.value;
     loadscroll(scrollname);
@@ -141,8 +155,8 @@ function loadscroll(scrollname){
     var httpc = new XMLHttpRequest();
     httpc.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        readme_md = this.responseText;
-        rawhtml = converter.makeHtml(readme_md);
+        scroll = this.responseText;
+        rawhtml = converter.makeHtml(scroll);
         document.getElementById("scrollscroll").innerHTML = rawhtml;
         }
     };

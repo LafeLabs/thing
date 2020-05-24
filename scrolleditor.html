@@ -40,20 +40,21 @@
         <a href = "map.html">
             <img style = "width:50px;" src = "iconsymbols/map.svg"/>
         </a>
+        <a href = "scrolldelete.html">
+            <img style = "width:50px;" src = "iconsymbols/delete.svg"/>
+        </a>
 
-        <div id = "imgurlbox">
-        Image url:
-        </div>
-        <input id = "srcinput"/>
-        
-        <form id = "uploadform" style = "margin-top:10px" action="upload.php" method="post" enctype="multipart/form-data">
-                Select image to upload:
-                    <input type="file" name="fileToUpload" id="fileToUpload">
-                    <input type="submit" value="Upload Image" name="submit">
-        </form>
-             <!--
-                put the links here, also put the images here 
-             -->
+        <table>
+            <tr>
+                <td>Currentfile:</td>
+                <td id = "currentfilename"></td>
+            </tr>
+            <tr>
+                <td>New Scroll Name:</td>
+                <td><input id = "newscrollinput"/></td>
+            </tr>
+        </table>
+
     </div>
         
 <div id = "reloadbar">
@@ -73,25 +74,25 @@
 
 <script>
 
-currentfile = "README.md";
+currentfile = "scroll.md";
 
 //get readme.md, convert to html and display
 
-readme_md = "";
+scroll = "";
 rawhtml = "";
 var httpc = new XMLHttpRequest();
 httpc.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        readme_md = this.responseText;
-        document.getElementById("maintextarea").value = readme_md;  
-        
+        scroll = this.responseText;
+        document.getElementById("maintextarea").value = scroll;  
+        document.getElementById("currentfilename").innerHTML = currentfile;        
     }
 };
 httpc.open("GET", "fileloader.php?filename=" + currentfile, true);
 httpc.send();
 
 document.getElementById("maintextarea").onkeyup = function() {
-    readme_md = this.value;
+    scroll = this.value;
     data = encodeURIComponent(this.value);
     var httpc = new XMLHttpRequest();
     var url = "filesaver.php";        
@@ -115,12 +116,13 @@ var httpc7 = new XMLHttpRequest();
                 newscrollbutton.onclick = function(){
                     currentfile = this.innerHTML;
                     //console.log(scrollname);
+                document.getElementById("currentfilename").innerHTML = "scrolls/" + currentfile;                
                     var httpc = new XMLHttpRequest();
                     httpc.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
-                            readme_md = this.responseText;
+                            scroll = this.responseText;
                             
-                            document.getElementById("maintextarea").value = readme_md;  
+                            document.getElementById("maintextarea").value = scroll;  
 
 
                         }
@@ -136,131 +138,57 @@ var httpc7 = new XMLHttpRequest();
 httpc7.open("GET", "dir.php", true);
 httpc7.send();
 
-uploadImages = [];
-var httpc = new XMLHttpRequest();
-    httpc.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        uploadImages = JSON.parse(this.responseText);
-        for(var index = uploadImages.length - 1;index >= 0;index--) {
-            var newuploadbox = document.createElement("DIV");
-            newuploadbox.classList.add("uploadbox");
-            var newimg = document.createElement("IMG");
-            newimg.src = "uploadimages/" + uploadImages[index];
-            newimg.classList.add("uploadimage");
-            newimg.classList.add("button");
-            newuploadbox.appendChild(newimg);
-            document.getElementById("feedscroll").appendChild(newuploadbox);
-            newimg.onclick = function() {
-                document.getElementById("srcinput").value = "![](" + this.src + ")";
-                document.getElementById("srcinput").select();
-            }
-            var newimg = document.createElement("IMG");
-            newimg.src = "iconsymbols/delete.svg";
-            newuploadbox.appendChild(newimg);
-            newimg.classList.add("button");
-            newimg.classList.add("deletebutton");
-            newimg.onclick = function(){
-                var imageurl =this.parentElement.getElementsByClassName("uploadimage")[0].src; 
-                var imagename = "uploadimages/" + imageurl.split("uploadimages/")[1];
-                var httpc = new XMLHttpRequest();
-                var url = "deletefile.php";         
-                httpc.open("POST", url, true);
-                httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
-                httpc.send("filename=" + imagename);//send text to deletefile.php
-                this.parentElement.parentElement.removeChild(this.parentElement);
-            }
-        }
-    }
-};
-
-httpc.open("GET", "dir.php?filename=uploadimages", true);
-httpc.send();
-
-
-symbol = [];
-var httpc3 = new XMLHttpRequest();
-    httpc3.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        symbol = JSON.parse(this.responseText);
-        for(var index = symbol.length - 1;index >= 0;index--) {
-
-            var newimg = document.createElement("IMG");
-            newimg.src = "symbolfeed/" + symbol[index];
-            newimg.classList.add("uploadimage");
-            newimg.classList.add("button");
-
-            document.getElementById("feedscroll").appendChild(newimg);
-            newimg.onclick = function() {
-                var localurl = "symbolfeed/" + this.src.split("symbolfeed/")[1];
-                document.getElementById("srcinput").value = "![](" + localurl + ")";
-                document.getElementById("srcinput").select();
+scrolls2 = [];
+var httpc8 = new XMLHttpRequest();
+httpc8.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+    scrolls2 = JSON.parse(this.responseText);
+    for(var index = scrolls2.length - 1;index >= 0;index--) {
+        var newscrollbutton = document.createElement("div");
+        newscrollbutton.className = "scrollbutton";
+        newscrollbutton.innerHTML = "scrolls/" + scrolls2[index];
+        document.getElementById("feedscroll").appendChild(newscrollbutton);
+        newscrollbutton.onclick = function(){
+            currentfile = this.innerHTML;
+            document.getElementById("currentfilename").innerHTML = currentfile;
+            var httpc = new XMLHttpRequest();
+            httpc.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    scroll = this.responseText;
+                    document.getElementById("maintextarea").value = scroll; 
+                }
+            };
+            httpc.open("GET", "fileloader.php?filename=" + currentfile, true);
+            httpc.send();
             }
             
         }
     }
 };
 
-httpc3.open("GET", "dir.php?filename=symbolfeed", true);
-httpc3.send();
-
-upsymbol = [];
-var httpc5 = new XMLHttpRequest();
-    httpc5.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        upsymbol = JSON.parse(this.responseText);
-        for(var index = upsymbol.length - 1;index >= 0;index--) {
-
-            var newimg = document.createElement("IMG");
-            newimg.src = "../symbolfeed/" + upsymbol[index];
-            newimg.classList.add("uploadimage");
-            newimg.classList.add("button");
-
-            document.getElementById("feedscroll").appendChild(newimg);
-            newimg.onclick = function() {
-                var localurl = "../symbolfeed/" + this.src.split("symbolfeed/")[1];
-                document.getElementById("srcinput").value = "![](" + localurl + ")";
-                document.getElementById("srcinput").select();
-            }
-            
-        }
-    }
-};
-
-httpc5.open("GET", "dir.php?filename=../symbolfeed", true);
-httpc5.send();
-
-
-icons = [];
-var httpc6 = new XMLHttpRequest();
-httpc6.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        icons = JSON.parse(this.responseText);
-        for(var index = 0;index < icons.length;index++) {
-
-            var newimg = document.createElement("IMG");
-            newimg.src = "iconsymbols/" + icons[index];
-            newimg.classList.add("uploadimage");
-            newimg.classList.add("button");
-
-            document.getElementById("feedscroll").appendChild(newimg);
-            newimg.onclick = function() {
-                document.getElementById("srcinput").value = "![](" + this.src + ")";
-                document.getElementById("srcinput").select();
-            }
-            
-        }
-    }
-};
-
-httpc6.open("GET", "dir.php?filename=iconsymbols", true);
-httpc6.send();
-
+httpc8.open("GET", "dir.php?filename=scrolls", true);
+httpc8.send();
 
 
 document.getElementById("reloadbar").onclick = function() {
 //     location.reload(); 
      window.location.href = "scroll.html";
      
+}
+
+document.getElementById("newscrollinput").onchange = function(){
+    currentfile = "scrolls/" + this.value;
+    document.getElementById("currentfilename").innerHTML = currentfile;       
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            scroll = this.responseText;
+            document.getElementById("maintextarea").value = scroll; 
+            document.getElementById("currentfilename").innerHTML = currentfile;
+        }
+    };
+    httpc.open("GET", "fileloader.php?filename=" + currentfile, true);
+    httpc.send();
 }
 
 </script>
