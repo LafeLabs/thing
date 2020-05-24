@@ -818,6 +818,26 @@ document.getElementById("newmapinput").onchange = function(){
     ];
     mainmap.draw();
     document.getElementById("textio").value = JSON.stringify(mainmap.array,null,"    ");
+    
+    
+    var newmapbutton = document.createElement("LI");
+    newmapbutton.innerHTML = currentFile;
+    document.getElementById("maplist").appendChild(newmapbutton);
+    newmapbutton.onclick = function(){
+        currentFile = this.innerHTML;
+        document.getElementById("currentfilename").innerHTML = currentFile;
+        var httpc = new XMLHttpRequest();
+        httpc.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                mainmap.array = JSON.parse(this.responseText);
+                mainmap.draw();
+                document.getElementById("textio").value = JSON.stringify(mainmap.array,null,"    ");
+            }
+        };
+        httpc.open("GET", "fileloader.php?filename=" + currentFile, true);
+        httpc.send();
+        
+    }
 }
 
 
@@ -918,7 +938,7 @@ input,table,select{
     }
     #linkscroll{
         display:none; 
-        width:32%;
+        width:16%;
         height:98%;
         position:absolute;
         left:33%;
@@ -928,7 +948,7 @@ input,table,select{
     }
     #textscroll{
         display:none; 
-        width:32%;
+        width:16%;
         height:98%;
         position:absolute;
         left:33%;
@@ -973,7 +993,7 @@ input,table,select{
         overflow:scroll;
     }
     #textscroll{
-        width:98%;
+        width:50%;
         height:32%;
         position:absolute;
         right:0px;
@@ -983,7 +1003,7 @@ input,table,select{
     }
     #linkscroll{
         display:none;
-        width:98%;
+        width:50%;
         height:32%;
         position:absolute;
         right:0px;
