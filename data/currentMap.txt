@@ -117,9 +117,9 @@
         "src": ""
     },
     {
-        "x": 0.8568019093078759,
-        "y": 0.8591885441527446,
-        "w": 0.12410501193317422,
+        "x": 0.6503579952267303,
+        "y": 0.6264916467780429,
+        "w": 0.3221957040572792,
         "angle": 0,
         "text": "scroll.html",
         "href": "scroll.html",
@@ -196,14 +196,5 @@
         "text": "pastebin of repository map (https://pastebin.com/raw/XFpDJgc6)",
         "href": "https://pastebin.com/raw/XFpDJgc6",
         "src": ""
-    },
-    {
-        "x": 0.8615751789976134,
-        "y": 0.7100238663484487,
-        "w": 0.11813842482100238,
-        "angle": 0,
-        "text": "fork",
-        "href": "fork.html",
-        "src": "iconsymbols/fork.svg"
     }
 ]
