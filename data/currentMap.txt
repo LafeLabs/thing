@@ -189,12 +189,12 @@
         "src": ""
     },
     {
-        "x": 0.5274463007159904,
-        "y": 0.9200477326968973,
-        "w": 0.14797136038186157,
+        "x": 0.5751789976133651,
+        "y": 0.21121718377088305,
+        "w": 0.37708830548926014,
         "angle": 0,
-        "text": "pastebin of repository map (https://pastebin.com/raw/XFpDJgc6)",
-        "href": "https://pastebin.com/raw/XFpDJgc6",
+        "text": "foo.txt map",
+        "href": "http://localhost/maps/foo.txt",
         "src": ""
     }
 ]

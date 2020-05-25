@@ -2,7 +2,8 @@
     "text": [
         "some text",
         "☕ ",
-        "deck.html"
+        "deck.html",
+        "$\\frac{-\\hbar^2}{2m}\\nabla^2\\Psi$"
     ],
     "src": [
         "https://upload.wikimedia.org/wikipedia/commons/3/3b/BuckminsterFuller1.jpg",

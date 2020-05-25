@@ -24,8 +24,8 @@
 
 
 <!--un-comment to add math: -->
-<!-- 
 
+<!--
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script>
             MathJax.Hub.Config({
@@ -37,28 +37,25 @@
                 }
             });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
         </script>
-        
--->
+        -->
 
 </head>
 <body>    
-<!--<datadiv/>-->
 <div id = "mainmap"></div>
 
-<textarea id = "wall"></textarea>
+<textarea id = "wall" class = "no-mathjax"></textarea>
 
-<div id = "maplistdiv">
+<div id = "maplistdiv" class = "no-mathjax">
     <h2 id = "currentmapname"></h2>
     <ul id = "maplist"></ul>
 </div>
 
-<textarea id = "textio"></textarea>
+<textarea id = "textio" class = "no-mathjax"></textarea>
 <div id = "importbutton">IMPORT</div>
 <script>
 
-//pastebinlinksmode = false;
-pastebinlinksmode = true;
-
+mathmode = false;
+//mathmode = true;
 
 landscape = false;
 if(innerWidth > innerHeight){
@@ -90,27 +87,10 @@ else{
 
 mainmap = new Map(squareWidth,squareWidth,document.getElementById("mainmap"));
 
-        mainmap.pastebinlinks = true;
-
+mainmap.pastebinlinks = false;
 
 mapname = "data/currentMap.txt";
-
-document.getElementById("currentmapname").innerHTML = mapname;
-
-var httpc2 = new XMLHttpRequest();
-    httpc2.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        mainmap.array = JSON.parse(this.responseText);
-        mainmap.draw();
-        document.getElementById("textio").value = this.responseText;
-        //un comment for math
-        //MathJax.Hub.Typeset();
-        makemagiclinks();
-
-    }
-};
-httpc2.open("GET", "fileloader.php?filename=data/currentMap.txt", true);
-httpc2.send();
+loadmap(mapname);
 
 var httpc3 = new XMLHttpRequest();
 httpc3.onreadystatechange = function() {
@@ -128,35 +108,6 @@ document.getElementById("importbutton").onclick = function(){
     mainmap.array = JSON.parse(document.getElementById("textio").value);
     mainmap.draw();
 }
-
-
-
-
-function makemagiclinks(){
-    for(var index = 0;index < mainmap.array.length;index++){
-        if(mainmap.array[index].href.includes("pastebin")){
-            if(pastebinlinksmode){
-                mainmap.linkArray[index].id = "index" + index.toString();
-                mainmap.linkArray[index].onclick = function(){
-                    var localindex = parseInt(this.id.substring(5));
-                    var httpc2 = new XMLHttpRequest();
-                    httpc2.onreadystatechange = function(){
-                        if (this.readyState == 4 && this.status == 200) {
-                            mainmap.array = JSON.parse(this.responseText);
-                            mainmap.draw();
-                            document.getElementById("textio").value = this.responseText;
-                        }
-                    };
-                    httpc2.open("GET", "fileloader.php?filename=" + mainmap.array[localindex].href, true);
-                    httpc2.send();
-                }
-            }
-            else{
-                mainmap.linkArray[index].href = mainmap.array[index].href;
-            }
-        }
-    }
-}    
 
 
 
@@ -184,7 +135,6 @@ var httpc4 = new XMLHttpRequest();
             document.getElementById("maplist").appendChild(newmapbutton);
                 newmapbutton.onclick = function(){
                     var mapname = this.innerHTML;
-                    //console.log(scrollname);
                     loadmap(mapname);
                 }
             
@@ -204,6 +154,10 @@ function loadmap(mapname){
             mainmap.array = JSON.parse(this.responseText);
             mainmap.draw();
             document.getElementById("textio").value = this.responseText;
+            //un comment for math
+            if(mathmode){
+                MathJax.Hub.Typeset();
+            }
         }
     };
     httpc.open("GET", "fileloader.php?filename=" + mapname, true);
