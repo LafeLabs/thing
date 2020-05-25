@@ -46,15 +46,6 @@
     </div>
 <div id = "margin">
     <div id = "inputbox">
-        <a href = "scroll.html">
-            <img id = "scrollbutton" class = "button" src = "iconsymbols/scroll.svg"/>
-        </a>
-        <a href = "map.html">
-            <img id = "scrollbutton" class = "button" src = "iconsymbols/map.svg"/>
-        </a>
-        <a href = "textfeed.html">
-            <img class = "button" src = "iconsymbols/feed.svg"/>
-        </a>
         <img id = "prevbutton" src = "iconsymbols/upelement.svg" class = "button" />
         <img id = "nextbutton" src = "iconsymbols/downelement.svg" class = "button" />
         <img id = "movedownbutton" src = "iconsymbols/elementdown.svg" class = "button" />
@@ -88,7 +79,13 @@
     </div>
     <div id = "mapscroll">
         <a href= "mapdelete.html">
-            <img style = "width:50px" src = "iconsymbols/delete.svg"/>
+            <img src = "iconsymbols/delete.svg"/>
+        </a>
+        <a href = "scroll.html">
+            <img id = "scrollbutton" class = "button" src = "iconsymbols/scroll.svg"/>
+        </a>
+        <a href = "map.html">
+            <img id = "scrollbutton" class = "button" src = "iconsymbols/map.svg"/>
         </a>
         <table>
             <tr>
@@ -105,6 +102,10 @@
         </ul>
     </div>
     <div id = "feedscroll">
+                <a href = "textfeed.html">
+            <img class = "button" src = "iconsymbols/feed.svg"/>
+        </a>
+
         <form id = "uploadform" style = "margin-top:10px" action="upload.php" method="post" enctype="multipart/form-data">
                 Select image to upload:
             <input type="file" name="fileToUpload" id="fileToUpload">
@@ -114,8 +115,14 @@
                 images and symbols 
              -->
     </div>
-    <div id = "textscroll" class = "no-mathjax"></div>
-    <div id = "linkscroll">
+    <div id = "textscroll" class = "no-mathjax">        <a href = "textfeed.html">
+            <img class = "button" src = "iconsymbols/feed.svg"/>
+        </a>
+</div>
+    <div id = "linkscroll">        <a href = "textfeed.html">
+            <img class = "button" src = "iconsymbols/feed.svg"/>
+        </a>
+
         <h3 id = "linkbox"></h3>
     </div>
     <div id = "rotatezoombox">
@@ -801,7 +808,9 @@ input,table,select{
         left:0px;
         overflow:scroll;
     }
-
+    #mapscroll img{
+        width:100px;
+    }
     #inputbox{
         position:absolute;
         right:0px;
@@ -854,9 +863,8 @@ input,table,select{
 }
 @media only screen and (orientation: landscape) {
     #inputbox img{
-        width:50px;
+        width:80px;
     }
-
     #feedscroll{
         width:50%;
         height:32%;
@@ -873,6 +881,19 @@ input,table,select{
         bottom:33%;
         overflow:scroll;
     }
+    #mapscroll img{
+        width:70px;
+    }
+    #textscroll img{
+        width:70px;
+    }
+    #linkscroll img{
+        width:70px;
+    }
+    #feedscroll img{
+        width:70px;
+    }
+
     #textscroll{
         width:50%;
         height:32%;
