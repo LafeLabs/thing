@@ -47,38 +47,37 @@
 <div id = "margin">
     <div id = "inputbox">
         <a href = "scroll.html">
-            <img id = "scrollbutton" class = "button" style = "width:50px;" src = "iconsymbols/scroll.svg"/>
+            <img id = "scrollbutton" class = "button" src = "iconsymbols/scroll.svg"/>
         </a>
         <a href = "map.html">
-            <img id = "scrollbutton" class = "button" style = "width:50px;" src = "iconsymbols/map.svg"/>
+            <img id = "scrollbutton" class = "button" src = "iconsymbols/map.svg"/>
         </a>
         <a href = "textfeed.html">
-            <img class = "button" style = "width:50px;" src = "iconsymbols/feed.svg"/>
+            <img class = "button" src = "iconsymbols/feed.svg"/>
         </a>
-        <img id = "prevbutton" src = "iconsymbols/upelement.svg" class = "button" style = "width:50px"/>
-        <img id = "nextbutton" src = "iconsymbols/downelement.svg" class = "button" style = "width:50px"/>
-        <img id = "movedownbutton" src = "iconsymbols/elementdown.svg" class = "button" style = "width:50px"/>
-        <img id = "moveupbutton" src = "iconsymbols/elementup.svg" class = "button" style = "width:50px"/>    
-        <img id = "savebutton" src = "iconsymbols/save.svg" class = "button" style = "width:50px"/>
-        <img id = "deletebutton" src = "iconsymbols/delete.svg" class = "button" style = "width:50px"/>
-        <img id = "newbutton" src = "iconsymbols/add.svg" class = "button" style = "width:50px"/>
-        <img id = "deleteimagebutton" src = "iconsymbols/deleteimage.svg" class = "button" style = "width:50px"/>
-        <img id = "deletelinkbutton" src = "iconsymbols/deletelink.svg" class = "button" style = "width:50px"/>
-        <img id = "textbutton" src = "iconsymbols/text.svg" class = "button" style = "width:50px"/>
-        <img id = "imagebutton" src = "iconsymbols/image.svg" class = "button" style = "width:50px"/>                
-        <img id = "linkbutton" src = "iconsymbols/link.svg" class = "button" style = "width:50px"/>              
-    <table>
-        <tr>
-            <td>text:</td><td><input id = "textinput"/></td>
-        </tr>
-        <tr>
-            <td>link:</td><td><input id = "linkinput"/></td>
-        </tr>
-        <tr>
-            <td>image url:</td><td><input id = "imginput"/></td>
-        </tr>
-
-    </table>
+        <img id = "prevbutton" src = "iconsymbols/upelement.svg" class = "button" />
+        <img id = "nextbutton" src = "iconsymbols/downelement.svg" class = "button" />
+        <img id = "movedownbutton" src = "iconsymbols/elementdown.svg" class = "button" />
+        <img id = "moveupbutton" src = "iconsymbols/elementup.svg" class = "button" />    
+        <img id = "savebutton" src = "iconsymbols/save.svg" class = "button" />
+        <img id = "deletebutton" src = "iconsymbols/delete.svg" class = "button" />
+        <img id = "newbutton" src = "iconsymbols/add.svg" class = "button" />
+        <img id = "deleteimagebutton" src = "iconsymbols/deleteimage.svg" class = "button" />
+        <img id = "deletelinkbutton" src = "iconsymbols/deletelink.svg" class = "button" />
+        <img id = "textbutton" src = "iconsymbols/text.svg" class = "button" />
+        <img id = "imagebutton" src = "iconsymbols/image.svg" class = "button" />                
+        <img id = "linkbutton" src = "iconsymbols/link.svg" class = "button" />              
+        <table id = "inputtable">
+            <tr>
+                <td>text:</td><td><input id = "textinput"/></td>
+            </tr>
+            <tr>
+                <td>link:</td><td><input id = "linkinput"/></td>
+            </tr>
+            <tr>
+                <td>image url:</td><td><input id = "imginput"/></td>
+            </tr>
+        </table>
         <table>
             <tr>
                 <td id = "importbutton" class = "button">IMPORT</td>
@@ -121,7 +120,7 @@
     </div>
     <div id = "rotatezoombox">
         <table id = "rotatezoomtable">
-            <tr>
+            <tr id = "rotatezoombuttons1">
                 <td>
                     <img id = "zoomoutbutton" src= "iconsymbols/shrink.svg" class = "button" /> 
                 </td>
@@ -135,7 +134,7 @@
                     <img id = "zoominbutton" src= "iconsymbols/expand.svg" class = "button"/> 
                 </td>
             </tr>
-            <tr>
+            <tr id = "rotatezoombuttons2">
                 <td>
                     <img id = "rotateleftbutton" src= "iconsymbols/left.svg" class = "button" /> 
                 </td>
@@ -171,8 +170,7 @@ if(innerWidth > innerHeight){
     document.getElementById("scalebar").style.height = (innerHeight*0.064).toString() + "px";
     document.getElementById("scalebar").style.bottom = (innerHeight*0.07).toString() + "px";
     document.getElementById("rotatebar").style.height = (innerHeight*0.064).toString() + "px";
-    
-    
+
 }
 else{
     
@@ -181,6 +179,21 @@ else{
     document.getElementById("margin").style.width = innerWidth.toString() + "px";
     document.getElementById("margin").style.height = marginWidth.toString() + "px";    
     
+    document.getElementById("inputtable").style.display = "none";
+    
+    document.getElementById("rotatezoombox").style.height = (marginWidth/4).toString() + "px";
+
+    document.getElementById("scalebar").style.height = (marginWidth/8).toString() + "px";       
+    document.getElementById("scalebar").style.top = "0px";
+    document.getElementById("rotatebar").style.bottom = "0px";
+    document.getElementById("rotatebar").style.height = (marginWidth/8).toString() + "px";    
+    
+    document.getElementById("inputbox").style.right = "0px";
+    document.getElementById("inputbox").style.position = "absolute";
+    
+    document.getElementById("rotatezoombuttons1").style.display = "none";
+    document.getElementById("rotatezoombuttons2").style.display = "none";    
+    document.getElementById("rotatezoomtable").style.display = "none";    
 }
 
 document.getElementById("hammerxy").style.width = (squareWidth).toString() + "px";
@@ -406,7 +419,6 @@ mcrotate.on("panleft panright panup pandown tap press", function(ev) {
 });    
 
         
-
 uploadImages = [];
 var httpc = new XMLHttpRequest();
     httpc.onreadystatechange = function() {
@@ -449,109 +461,6 @@ var httpc = new XMLHttpRequest();
 
 httpc.open("GET", "dir.php?filename=uploadimages", true);
 httpc.send();
-
-upuploadImages = [];
-var httpc9 = new XMLHttpRequest();
-    httpc9.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        upuploadImages = JSON.parse(this.responseText);
-        for(var index = upuploadImages.length - 1;index >= 0;index--) {
-            var newuploadbox = document.createElement("DIV");
-            newuploadbox.classList.add("uploadbox");
-            var newimg = document.createElement("IMG");
-            newimg.src = "../uploadimages/" + upuploadImages[index];
-            newimg.classList.add("uploadimage");
-            newimg.classList.add("button");
-            newuploadbox.appendChild(newimg);
-            document.getElementById("feedscroll").appendChild(newuploadbox);
-            newimg.onclick = function() {
-                var localurl = "../uploadimages" + this.src.split("uploadimages")[1];
-                mainmap.array[mainmap.linkindex].src = localurl;
-                mainmap.draw();
-                    document.getElementById("imginput").value = mainmap.array[mainmap.linkindex].src;
-    
-            }
-            var newimg = document.createElement("IMG");
-            newimg.src = "iconsymbols/delete.svg";
-            newuploadbox.appendChild(newimg);
-            newimg.classList.add("button");
-            newimg.classList.add("deletebutton");
-            newimg.onclick = function(){
-                var imageurl =this.parentElement.getElementsByClassName("uploadimage")[0].src; 
-                var imagename = "uploadimages/" + imageurl.split("uploadimages/")[1];
-                var httpc = new XMLHttpRequest();
-                var url = "deletefile.php";         
-                httpc.open("POST", url, true);
-                httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
-                httpc.send("filename=" + imagename);//send text to deletefile.php
-                this.parentElement.parentElement.removeChild(this.parentElement);
-            }
-        }
-    }
-};
-
-httpc9.open("GET", "dir.php?filename=../uploadimages", true);
-httpc9.send();
-
-
-symbol = [];
-var httpc3 = new XMLHttpRequest();
-    httpc3.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        symbol = JSON.parse(this.responseText);
-        for(var index = symbol.length - 1;index >= 0;index--) {
-
-            var newimg = document.createElement("IMG");
-            newimg.src = "../symbolfeed/" + symbol[index];
-            newimg.classList.add("uploadimage");
-            newimg.classList.add("button");
-
-            document.getElementById("feedscroll").appendChild(newimg);
-            newimg.onclick = function() {
-                var localurl = "../symbolfeed/" + this.src.split("symbolfeed/")[1];
-                mainmap.array[mainmap.linkindex].src = localurl;
-                mainmap.draw();
-                    document.getElementById("imginput").value = mainmap.array[mainmap.linkindex].src;
-    
-            }
-            
-        }
-    }
-};
-
-httpc3.open("GET", "dir.php?filename=../symbolfeed", true);
-httpc3.send();
-
-upupsymbol = [];
-var httpcupup = new XMLHttpRequest();
-    httpcupup.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        symbol = JSON.parse(this.responseText);
-        for(var index = symbol.length - 1;index >= 0;index--) {
-
-            var newimg = document.createElement("IMG");
-            newimg.src = "../../symbolfeed/" + symbol[index];
-            newimg.classList.add("uploadimage");
-            newimg.classList.add("button");
-
-            document.getElementById("feedscroll").appendChild(newimg);
-            newimg.onclick = function() {
-                var localurl = "../../symbolfeed/" + this.src.split("symbolfeed/")[1];
-                mainmap.array[mainmap.linkindex].src = localurl;
-                mainmap.draw();
-                    document.getElementById("imginput").value = mainmap.array[mainmap.linkindex].src;
-    
-            }
-            
-        }
-    }
-};
-
-httpcupup.open("GET", "dir.php?filename=../../symbolfeed", true);
-httpcupup.send();
-
-
-//for(var index = symbols.length - 1;index >= 0;index--) {
 
 symbolhere = [];
 var httpc5 = new XMLHttpRequest();
@@ -642,53 +551,6 @@ httpc10.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
 httpc10.send();
 
 
-directories = [];
-var httpc11 = new XMLHttpRequest();
-    httpc11.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        directories = JSON.parse(this.responseText);
-        for(var index = 0;index < directories.length;index++){
-            var newbox = document.createElement("div");
-            newbox.className = "button";
-            newbox.innerHTML = directories[index] + "/";
-            newbox.onclick = function(){
-                //replace current href with this href and update map
-                mainmap.array[mainmap.linkindex].href = this.innerHTML;
-                mainmap.draw();
-                document.getElementById("linkbox").innerHTML = this.innerHTML;
-            }
-            document.getElementById("linkscroll").appendChild(newbox);
-        }
-    
-    }
-};
-
-httpc11.open("GET", "dir.php?type=dir", true);
-httpc11.send();
-
-directories2 = [];
-var httpc12 = new XMLHttpRequest();
-    httpc12.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        directories2 = JSON.parse(this.responseText);
-        for(var index = 0;index < directories2.length;index++){
-            var newbox = document.createElement("div");
-            newbox.className = "button";
-            newbox.innerHTML = "../" + directories2[index] + "/";
-            newbox.onclick = function(){
-                //replace current href with this href and update map
-                mainmap.array[mainmap.linkindex].href = this.innerHTML;
-                mainmap.draw();
-                document.getElementById("linkbox").innerHTML = this.innerHTML;
-            }
-            document.getElementById("linkscroll").appendChild(newbox);
-        }
-    
-    }
-};
-
-httpc12.open("GET", "dir.php?filename=../", true);
-httpc12.send();
 
 
 function loadtextfeed(){
@@ -928,9 +790,28 @@ input,table,select{
     margin-top:1em;
 }
 @media only screen and (orientation: portrait) {
-    
+    #inputbox img{
+        width:100px;
+    }
+    #mapscroll{
+        width:32%;
+        height:70%;
+        position:absolute;
+        top:0px;
+        left:0px;
+        overflow:scroll;
+    }
+
+    #inputbox{
+        position:absolute;
+        right:0px;
+        top:0px;
+        width:32%;
+        height:98%;
+        overflow:scroll;
+    }
     #feedscroll{
-        width:16%;
+        width:32%;
         height:98%;
         position:absolute;
         left:33%;
@@ -939,44 +820,43 @@ input,table,select{
     }
     #linkscroll{
         display:none; 
-        width:16%;
+        width:32%;
         height:98%;
         position:absolute;
         left:33%;
         bottom:0px;
         overflow:scroll;
         color:blue;
+        font-size:2em;
     }
     #textscroll{
         display:none; 
-        width:16%;
+        width:32%;
         height:98%;
         position:absolute;
         left:33%;
         bottom:0px;
         overflow:scroll;
-    }
-    #inputbox{
-        position:absolute;
-        overflow:scroll;
-        top:0px;
-        left:0px;
-        height:98%;
-        width:32%;
+        font-size:2em;
     }
     #rotatezoombox{
         position:absolute;
-        right:0px;
+        left:0px;
         bottom:0px;
         width:32%;
-        height:98%;
+        height:48%;
     }
     #mainmap{
         border-bottom:solid;
         border-width:0.1px;
     }
+
 }
 @media only screen and (orientation: landscape) {
+    #inputbox img{
+        width:50px;
+    }
+
     #feedscroll{
         width:50%;
         height:32%;
@@ -1025,7 +905,7 @@ input,table,select{
         position:absolute;
         right:0px;
         bottom:0px;
-        width:98%;
+        width:95%;
         height:32%;
         
     }

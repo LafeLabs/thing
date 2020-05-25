@@ -62,13 +62,10 @@ bootstrap is whole big thing that does lots of things, but what we use it for he
     </a>
     <a href = "map.html">
         <img style = "width:50px;" src = "iconsymbols/map.svg"/>
-    </a>        
-<table>
-    <tr id = "extscrollr">
-        <td>external scroll url:</td>
-        <td><input id = "externalinput"/></td>
-    </tr>
-</table>
+    </a>
+        <a href = "scrolldelete.html">
+            <img style = "width:50px;" src = "iconsymbols/delete.svg"/>
+        </a>
 
 </div>
 
@@ -146,10 +143,6 @@ var httpc3 = new XMLHttpRequest();
 httpc3.open("GET", "dir.php?filename=scrolls", true);
 httpc3.send();
 
-document.getElementById("externalinput").onchange = function(){
-    scrollname = this.value;
-    loadscroll(scrollname);
-}
 
 function loadscroll(scrollname){
     var httpc = new XMLHttpRequest();
@@ -162,7 +155,7 @@ function loadscroll(scrollname){
     };
     httpc.open("GET", "fileloader.php?filename=" + scrollname, true);
     httpc.send();
-    
+    //MathJax.Hub.Typeset();//tell Mathjax to update the math
 }
 
 </script>
@@ -227,7 +220,7 @@ function loadscroll(scrollname){
         .mainscrollarea{
             position:absolute;
             left:0px;
-            top:70px;
+            top:10%;
             right:0px;
             bottom:0px;
             font-size:3em;
@@ -250,7 +243,7 @@ function loadscroll(scrollname){
             left:0px;
             top:0px;
             width:100%;
-            height:70px;
+            height:10%;
             overflow:scroll;
         }
     }

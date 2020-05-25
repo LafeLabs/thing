@@ -19,11 +19,7 @@
         "https://i.imgur.com/sg95uWv.jpg"
     ],
     "href": [
-        "../",
         "https://en.wikipedia.org/wiki/Tensegrity",
-        "editor.php",
-        "map.html",
-        "foo/",
-        "deck.html"
+        "http://geometronics.org"
     ]
 }
