@@ -46,6 +46,7 @@
 <textarea id = "wall" class = "no-mathjax"></textarea>
 
 <div id = "maplistdiv" class = "no-mathjax">
+    <a href = "mapeditor.html"><img src = "iconsymbols/edit.svg"/></a>
     <h2 id = "currentmapname"></h2>
     <ul id = "maplist"></ul>
 </div>
@@ -133,11 +134,10 @@ var httpc4 = new XMLHttpRequest();
             newmapbutton.className = "mapbutton";
             newmapbutton.innerHTML = "maps/" + maplist[index];
             document.getElementById("maplist").appendChild(newmapbutton);
-                newmapbutton.onclick = function(){
-                    var mapname = this.innerHTML;
-                    loadmap(mapname);
-                }
-            
+            newmapbutton.onclick = function(){
+                var mapname = this.innerHTML;
+                loadmap(mapname);
+            }
         }
     }
 };
@@ -162,6 +162,15 @@ function loadmap(mapname){
     };
     httpc.open("GET", "fileloader.php?filename=" + mapname, true);
     httpc.send();
+}
+
+var newmapbutton = document.createElement("LI");
+newmapbutton.className = "mapbutton";
+newmapbutton.innerHTML = "data/currentMap.txt";
+document.getElementById("maplist").appendChild(newmapbutton);
+newmapbutton.onclick = function(){
+    var mapname = this.innerHTML;
+    loadmap(mapname);
 }
 
 </script>

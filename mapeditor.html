@@ -46,11 +46,12 @@
     </div>
 <div id = "margin">
     <div id = "inputbox">
+        <img id = "savebutton" src = "iconsymbols/save.svg" class = "button" />
         <img id = "prevbutton" src = "iconsymbols/upelement.svg" class = "button" />
         <img id = "nextbutton" src = "iconsymbols/downelement.svg" class = "button" />
         <img id = "movedownbutton" src = "iconsymbols/elementdown.svg" class = "button" />
         <img id = "moveupbutton" src = "iconsymbols/elementup.svg" class = "button" />    
-        <img id = "savebutton" src = "iconsymbols/save.svg" class = "button" />
+
         <img id = "deletebutton" src = "iconsymbols/delete.svg" class = "button" />
         <img id = "newbutton" src = "iconsymbols/add.svg" class = "button" />
         <img id = "deleteimagebutton" src = "iconsymbols/deleteimage.svg" class = "button" />
@@ -76,16 +77,17 @@
             </tr>
         </table>
         <textarea id = "textio"></textarea>
+        <a href = "canvas2png.html">canvas2png.html</a>
     </div>
     <div id = "mapscroll">
+        <a href = "map.html">
+            <img id = "scrollbutton" class = "button" src = "iconsymbols/map.svg"/>
+        </a>
         <a href= "mapdelete.html">
             <img src = "iconsymbols/delete.svg"/>
         </a>
         <a href = "scroll.html">
             <img id = "scrollbutton" class = "button" src = "iconsymbols/scroll.svg"/>
-        </a>
-        <a href = "map.html">
-            <img id = "scrollbutton" class = "button" src = "iconsymbols/map.svg"/>
         </a>
         <table>
             <tr>
@@ -266,33 +268,15 @@ document.getElementById("importbutton").onclick  = function(){
 document.getElementById("resetbutton").onclick  = function(){
     mainmap.array = [
     {
-        "x": 0.4116945107398568,
-        "y": 0.02386634844868735,
-        "w": 0.6408114558472554,
+        "x": 0.5,
+        "y": 0.0,
+        "w": 0.35,
         "angle": 0,
         "text": "Map",
         "href": "",
         "src": ""
-    },
-    {
-        "x": 0.017899761336515514,
-        "y": 0.15990453460620524,
-        "w": 0.13126491646778043,
-        "angle": 0,
-        "text": "Map Editor",
-        "href": "mapeditor.html",
-        "src": "iconsymbols/edit.svg"
-    },
-    {
-        "x": 0.02028639618138425,
-        "y": 0.011933174224343675,
-        "w": 0.13126491646778043,
-        "angle": 0,
-        "text": "Scroll",
-        "href": "scroll.html",
-        "src": "iconsymbols/scroll.svg"
     }
-];
+    ];
     mainmap.draw();
 }
 
@@ -674,18 +658,6 @@ httpc8.send();
 document.getElementById("newmapinput").onchange = function(){
     currentFile = "maps/" + this.value;
     document.getElementById("currentfilename").innerHTML = currentFile;
-    mainmap.array = [
-        {
-            "x": 0.4116945107398568,
-            "y": 0.02386634844868735,
-            "w": 0.6408114558472554,
-            "angle": 0,
-            "text": "Map",
-            "href": "",
-            "src": ""
-        }
-    ];
-    mainmap.draw();
     document.getElementById("textio").value = JSON.stringify(mainmap.array,null,"    ");
     
     
@@ -709,6 +681,25 @@ document.getElementById("newmapinput").onchange = function(){
     }
 }
 
+
+
+var newmapbutton = document.createElement("LI");
+newmapbutton.innerHTML = "data/currentMap.txt";
+document.getElementById("maplist").appendChild(newmapbutton);
+newmapbutton.onclick = function(){
+    currentFile = this.innerHTML;
+    document.getElementById("currentfilename").innerHTML = currentFile;
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            mainmap.array = JSON.parse(this.responseText);
+            mainmap.draw();
+            document.getElementById("textio").value = JSON.stringify(mainmap.array,null,"    ");
+        }
+    };
+    httpc.open("GET", "fileloader.php?filename=" + currentFile, true);
+    httpc.send();
+}
 
 </script>
 <style>
