@@ -1,5 +1,11 @@
-#robotExists = True #python has capitalized booleans because it is dumb
-robotExists = False #python has capitalized booleans because it is dumb
+polarity1 = 0
+polarity2 = 0
+polarity3 = 0
+
+#python has capitalized booleans
+#robotExists = False # this is used for debugging on non-pi machines wihtout robots
+robotExists = True 
+
 
 from time import sleep # Import the sleep function from the time module
 
@@ -104,8 +110,15 @@ def control4off():
 
 def moveLeft(numSteps):
     if robotExists:
-        GPIO.output(dirPin1,GPIO.HIGH)
-        GPIO.output(dirPin3,GPIO.LOW) 
+        if polarity1 == 0:
+            GPIO.output(dirPin1,GPIO.HIGH)    
+        else:
+            GPIO.output(dirPin1,GPIO.LOW)    
+        if polarity3 == 0:
+            GPIO.output(dirPin3,GPIO.LOW) 
+        else:
+            GPIO.output(dirPin3,GPIO.HIGH) 
+
         GPIO.output(enPin1, GPIO.LOW) # enable  
         GPIO.output(enPin3, GPIO.LOW) # enable  
         GPIO.output(enPin2, GPIO.HIGH) # deenable  
@@ -125,8 +138,16 @@ def moveLeft(numSteps):
         
 def moveRight(numSteps):
     if robotExists:
-        GPIO.output(dirPin1,GPIO.LOW)
-        GPIO.output(dirPin3,GPIO.HIGH) 
+        if polarity1 == 0:
+            GPIO.output(dirPin1,GPIO.LOW)    
+        else:
+            GPIO.output(dirPin1,GPIO.HIGH)    
+        if polarity3 == 0:
+            GPIO.output(dirPin3,GPIO.HIGH) 
+        else:
+            GPIO.output(dirPin3,GPIO.LOW) 
+
+        
         GPIO.output(enPin1, GPIO.LOW) # enable  
         GPIO.output(enPin3, GPIO.LOW) # enable  
         GPIO.output(enPin2, GPIO.HIGH) # deenable  
@@ -146,8 +167,15 @@ def moveRight(numSteps):
 
 def moveUp(numSteps):
     if robotExists:
-        GPIO.output(dirPin1,GPIO.LOW)
-        GPIO.output(dirPin3,GPIO.LOW)
+        if polarity1 == 0:
+            GPIO.output(dirPin1,GPIO.LOW)    
+        else:
+            GPIO.output(dirPin1,GPIO.HIGH)    
+        if polarity3 == 0:
+            GPIO.output(dirPin3,GPIO.LOW) 
+        else:
+            GPIO.output(dirPin3,GPIO.HIGH) 
+        
         GPIO.output(enPin2, GPIO.HIGH) # deenable  
         GPIO.output(enPin1, GPIO.LOW) # enable  
         GPIO.output(enPin3, GPIO.LOW) # enable  
@@ -167,8 +195,15 @@ def moveUp(numSteps):
 
 def moveDown(numSteps):
     if robotExists:
-        GPIO.output(dirPin1,GPIO.HIGH)
-        GPIO.output(dirPin3,GPIO.HIGH)
+        if polarity1 == 0:
+            GPIO.output(dirPin1,GPIO.HIGH)    
+        else:
+            GPIO.output(dirPin1,GPIO.LOW)    
+        if polarity3 == 0:
+            GPIO.output(dirPin3,GPIO.HIGH) 
+        else:
+            GPIO.output(dirPin3,GPIO.LOW) 
+
         GPIO.output(enPin2, GPIO.HIGH) # deenable  
         GPIO.output(enPin1, GPIO.LOW) # enable  
         GPIO.output(enPin3, GPIO.LOW) # enable  
@@ -188,7 +223,10 @@ def moveDown(numSteps):
 
 def moveIn(numSteps):
     if robotExists:
-        GPIO.output(dirPin2,GPIO.LOW)
+        if polarity2 == 0:
+            GPIO.output(dirPin2,GPIO.LOW)
+        else:
+            GPIO.output(dirPin2,GPIO.HIGH)
         GPIO.output(enPin2, GPIO.LOW) # enable
         GPIO.output(enPin3, GPIO.HIGH) # deenable    
         GPIO.output(enPin1, GPIO.HIGH) # deenable  
@@ -203,7 +241,10 @@ def moveIn(numSteps):
 
 def moveOut(numSteps):
     if robotExists:
-        GPIO.output(dirPin2,GPIO.HIGH) # direction
+        if polarity2 == 0:
+            GPIO.output(dirPin2,GPIO.HIGH)
+        else:
+            GPIO.output(dirPin2,GPIO.LOW)
         GPIO.output(enPin2, GPIO.LOW) # enable
         GPIO.output(enPin3, GPIO.HIGH) # deenable    
         GPIO.output(enPin1, GPIO.HIGH) # deenable  
@@ -243,6 +284,9 @@ robotfontraw = "[" + robotfontstring.split("[")[1].split("]")[0] + "]"
 robotfontbytecode = json.loads(robotfontraw)
 robotfontfile.close()
 
+polarity1 = robotjson["polarity1"]
+polarity2 = robotjson["polarity2"]
+polarity3 = robotjson["polarity3"]
 
 unit = 100
 numSteps = unit
