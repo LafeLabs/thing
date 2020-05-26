@@ -1,5 +1,53 @@
 # Replicate a New Robot
 
+This assumes you have the raspberry pi geometron server, and are just building the robot part.
+
+## Tools
+
+1. soldering iron
+2. solder
+3. box cutter
+4. tiny screwdriver
+5. voltmeter
+
+## Consumables
+
+1. DVD/CD drives/players (3)
+2. cardboard
+3. epoxy
+4. elmer's glue
+5. samtec 4 wire ribbon cable, stripped and tinned one end (3)
+6. stiff plastic
+7. bendy plastic
+8. rare earth magnets(2)
+9. nails(1)
+10. super sculpey III clay
+11. paint pens
+
+
+## Steps
+
+1. strip down drives to get out stages
+3. solder 4 wire cables to stages
+4. epoxy strain relief as needed for all three, on one side
+5. glue stacks of cardboard on 4 corners of each stage on bottom side so they're even
+6. create cardboard chassis board
+7. epoxy all 3 linear stages onto chassis
+8. epoxy cardboard stacks on each stage
+9. cut bend and epoxy bendy and stiff plastic into tool holder
+10. assemble magnets and nail to set up tool in tablet print mode
+12. use tiny screwdriver, battery, volt meter and power supply to set current limit correctly for stepper motors
+13. connect the server to the robot
+14. change boolean isrobot to true
+15. move probe right and left, up and down, forward and back, check directions, set direction pin booleans in robot.py
+16. do test prints, make tablets, bake, paint and distribute
+
+
+
+<pre>
+#robotExists = True #python has capitalized booleans because it is dumb
+robotExists = False #python has capitalized booleans because it is dumb
+</pre>
 
 
 - DVD or CD drives(3) or other linear stepper motor stages

@@ -1,4 +1,4 @@
-# Maps, Decks and Walls
+# Maps
 
 The Map is a generalization of the Poetry Engine and is one of the most universal types of file in Geometron. A map is like a "meme" or a slide in a presentation, but also like a map in geography.  It is a generalized type of document where images, links and text are arranged on top of each other.  Images can be external links on the web or locally uploaded images or symbols created using the Geometron symbolic language.  This ability to instantly integrate symbols into maps is a big part of what makes the Geometron symbolic language powerful. 
 
@@ -93,11 +93,6 @@ Having made a new map, and saved it, copy the code in the text area just below t
 
 Practice making maps of all kinds: use an arrow to locate a thing on a map or in a picture, or to label a place in a picture.  Use the buttons to remove images from links, add or remove links, delete links, and move links up and down in the order. These can be used to make a totally generalized type of media which is similar to the "meme" format in viral Internet content as well as to PowerPoint slides, but with hyperlinks, and in a format which can be remixed openly on the Web by default.  To publish in the open without private data, a map can point to a physical place, which can be located relative to widely used hashtags which track the elements of the Street and Watershed network.  Those hashtags can link to a post on some commercial social media which contain links to the pastebin with the code to replicate the map.  Therefore when in a physical space with no connection to any physical networking hardware, a Geometron Operator can use hashtags to find a link, use the link to find code, and use that code in their personal Geometron server instance on their local machine to load the map using global links, then use the map to find a physical object in the location, which can then have more complex information such as clay tablets with optical encoding on them, printed material, more computer hardware, robots, etc.
 
-Once you have mastered making and sharing maps and have shared some maps, you can generalize this to the "map deck", a sequence of "slides" each of which is a map.  You can edit this [using the deck editor at deckeditor.html.](deckeditor.html). Decks are just maps generalized to a stack of them which can be shown in sequence.  The current deck can be seen at [deck.html](deck.html).  There are some added actions in the deck editor, all of which mirror the basic element editing actions: add, delete, move, etc.
-
-Finally we must introduce the "wall".  This is an open message board placed over an image.  It is a little like a map or poetry engine but specialized for a different purpose.  It is a general open form text board, of some location and size and transparency over some image, which generally is of some physical thing being reference in the board. This might be the Raspberry Pi Geometron server itself, or more likely a marker in the geography of he physical Geometron network.  
-
-Use of maps and walls to denote markers and repositories and feeds will be described in the physical networking scroll.  
 
 
 
