@@ -1,0 +1,9 @@
+# Symbol Magic
+
+Take the laser cut shape set, use it to make a symbol on an object, place the object in physical space and use a map to connect to it via the internet.  Make the same shape using the [Shape Magic App](symbolapp.html), and save the symbol.  Convert the symbol from svg to base 64 encoded bitmap using the application called [canvas2png.html](canvas2png.html).  Copy and paste that code into a new image link on the map that locates the physical object with the symbol on it.  Make sure the images of the physical location are global links posted to [https://imgur.com/](https://imgur.com/), and that all symbols are bitmaps or the universal arrow symbol.  
+
+![](iconsymbols/arrow.svg)
+
+Save the whole map with all global or replicating links. Then copy that map to the clipboard and paste it to [https://pastebin.com/](https://pastebin.com/).  Then add a link to that pastebin to the map, and edit the paste bin to include the added link to itself.  Now that you have a self-referncing pastebin map, go to a global geometron server url like [http://geometronics.org/](http://geometronics.org/), go to the map, make a new map, drop your map into it, and save it.  Now add the name of the map file and the global geometron server url to the physical marker you dropped in the location located on the map.  Now the physical location has a symbol and url and name which map to json which maps to a digital description of the location of the physical object which has an identical symbol in physical space and online geometron.  
+
+A full system of loops of information has now been created between a physical place, a physical object, a symbol in pure geometry, tools used to replicate it all, links to all elements of replication.  

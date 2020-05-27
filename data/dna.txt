@@ -75,6 +75,7 @@
         "feed.svg",
         "flagsymbols.svg",
         "fonteditor.svg",
+        "fonttablet.svg",
         "fork.svg",
         "geometron.svg",
         "geometronthing.svg",
@@ -151,15 +152,19 @@
         "servermap.txt"
     ],
     "scrolls": [
+        "bookofshapes",
         "buildrobot.md",
         "foo",
         "github.md",
+        "hellogeometron",
+        "lasercutshapes",
         "maps.md",
         "pireplicate.md",
         "pisetup.md",
         "poetryengine.md",
         "robotsetup.md",
         "scrollscroll.md",
-        "srs.md"
+        "srs.md",
+        "symbolmagic"
     ]
 }
