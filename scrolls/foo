@@ -1,18 +1,1 @@
-# Main scroll
-
-To load a scroll, click on a link on the side if you're on a computer or top if you're on mobile.  To edit a scroll, click the edit link which looks like this:
-
-(![](iconsymbols/edit.svg))[scrolleditor.html]
-
-To create a new scroll from the editor, enter the name of the new scroll in the "new scroll name" input, and hit enter/return.  Then enter the content of your scroll, and return to the scroll reader by clicking the scroll link which looks like this:
-
-
-![](iconsymbols/scroll.svg)
-
-To delete a scroll go to the scroll delete page which can be reached(only from the scroll editor) by clicking on the icon which looks like this:
-
-![](iconsymbols/delete.svg)
-
-To get to the main navigator map click on the "map" icon which looks like this:
-
-![](iconsymbols/map.svg)
+foo

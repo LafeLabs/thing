@@ -1,11 +1,191 @@
 [
     {
-        "x": 0.4606205250596659,
-        "y": 0.0405727923627685,
-        "w": 0.3496420047732697,
+        "x": 0.014319809069212411,
+        "y": 0,
+        "w": 0.37708830548926014,
         "angle": 0,
-        "text": "Map",
-        "href": "",
+        "text": "editor.php",
+        "href": "editor.php",
+        "src": ""
+    },
+    {
+        "x": 0.057279236276849645,
+        "y": 0.08949880668257756,
+        "w": 0.12171837708830549,
+        "angle": 0,
+        "text": "symbol",
+        "href": "symbol.html",
+        "src": "iconsymbols/geometron.svg"
+    },
+    {
+        "x": 0.05489260143198091,
+        "y": 0.22553699284009546,
+        "w": 0.12171837708830549,
+        "angle": 0,
+        "text": "fonteditor",
+        "href": "fonteditor.html",
+        "src": "iconsymbols/fonteditor.svg"
+    },
+    {
+        "x": 0.05489260143198091,
+        "y": 0.3723150357995227,
+        "w": 0.12171837708830549,
+        "angle": 0,
+        "text": "symbolfeed",
+        "href": "symbolfeed.html",
+        "src": "iconsymbols/feed.svg"
+    },
+    {
+        "x": 0.059665871121718374,
+        "y": 0.5190930787589498,
+        "w": 0.12171837708830549,
+        "angle": 0,
+        "text": "keyboard",
+        "href": "keyboardeditor.html",
+        "src": "iconsymbols/keyboardicon.svg"
+    },
+    {
+        "x": 0.05608591885441527,
+        "y": 0.6563245823389021,
+        "w": 0.12171837708830549,
+        "angle": 0,
+        "text": "setup",
+        "href": "setup.html",
+        "src": "iconsymbols/setup.svg"
+    },
+    {
+        "x": 0.05489260143198091,
+        "y": 0.7899761336515513,
+        "w": 0.12171837708830549,
+        "angle": 0,
+        "text": "style",
+        "href": "styleeditor.html",
+        "src": "iconsymbols/style.svg"
+    },
+    {
+        "x": 0.22553699284009546,
+        "y": 0.23627684964200477,
+        "w": 0.12171837708830549,
+        "angle": 0,
+        "text": "style",
+        "href": "shapetableeditor.html",
+        "src": "iconsymbols/table.svg"
+    },
+    {
+        "x": 0.22911694510739858,
+        "y": 0.3711217183770883,
+        "w": 0.12171837708830549,
+        "angle": 0,
+        "text": "tablet",
+        "href": "tablet.html",
+        "src": "iconsymbols/tablet.svg"
+    },
+    {
+        "x": 0.220763723150358,
+        "y": 0.5083532219570406,
+        "w": 0.12171837708830549,
+        "angle": 0,
+        "text": "tablet",
+        "href": "hypercube.html",
+        "src": "iconsymbols/hypercube.svg"
+    },
+    {
+        "x": 0.045346062052505964,
+        "y": 0.9140811455847255,
+        "w": 0.37708830548926014,
+        "angle": 0,
+        "text": "symbolapp.html",
+        "href": "symbolapp.html",
+        "src": ""
+    },
+    {
+        "x": 0.0477326968973747,
+        "y": 0.9474940334128878,
+        "w": 0.37708830548926014,
+        "angle": 0,
+        "text": "appeditor.html",
+        "href": "appeditor.html",
+        "src": ""
+    },
+    {
+        "x": 0.8568019093078759,
+        "y": 0.8591885441527446,
+        "w": 0.12410501193317422,
+        "angle": 0,
+        "text": "scroll.html",
+        "href": "scroll.html",
+        "src": "iconsymbols/scroll.svg"
+    },
+    {
+        "x": 0.42840095465393796,
+        "y": 0.011933174224343675,
+        "w": 0.39856801909307876,
+        "angle": 0,
+        "text": "poetryengine.html",
+        "href": "poetryengine.html",
+        "src": ""
+    },
+    {
+        "x": 0.42482100238663484,
+        "y": 0.06443914081145585,
+        "w": 0.39618138424821003,
+        "angle": 0,
+        "text": "duality.html",
+        "href": "duality.html",
+        "src": ""
+    },
+    {
+        "x": 0.5429594272076372,
+        "y": 0.33651551312649164,
+        "w": 0.39618138424821003,
+        "angle": 0,
+        "text": "robot.html",
+        "href": "robot.html",
+        "src": ""
+    },
+    {
+        "x": 0.5405727923627685,
+        "y": 0.38663484486873506,
+        "w": 0.39618138424821003,
+        "angle": 0,
+        "text": "voxel.html",
+        "href": "voxel.html",
+        "src": ""
+    },
+    {
+        "x": 0.5417661097852029,
+        "y": 0.4307875894988067,
+        "w": 0.39618138424821003,
+        "angle": 0,
+        "text": "robotcube.html",
+        "href": "robotcube.html",
+        "src": ""
+    },
+    {
+        "x": 0.5393794749403341,
+        "y": 0.47494033412887826,
+        "w": 0.39618138424821003,
+        "angle": 0,
+        "text": "robotfont.html",
+        "href": "robotfont.html",
+        "src": ""
+    },
+    {
+        "x": 0.19689737470167065,
+        "y": 0.6157517899761337,
+        "w": 0.3412887828162291,
+        "angle": 0,
+        "text": "canvas2png.html",
+        "href": "canvas2png.html",
+        "src": ""
+    },
+    {
+        "x": 0.4331742243436754,
+        "y": 0.8818615751789977,
+        "w": 0.37708830548926014,
+        "angle": 0,
+        "text": "pastebin of repository map",
+        "href": "https://pastebin.com/raw/XFpDJgc6",
         "src": ""
     }
 ]
