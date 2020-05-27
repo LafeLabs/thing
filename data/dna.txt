@@ -163,6 +163,7 @@
         "pisetup.md",
         "poetryengine.md",
         "robotsetup.md",
+        "ruler",
         "scrollscroll.md",
         "srs.md",
         "symbolmagic"
