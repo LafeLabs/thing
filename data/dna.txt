@@ -166,6 +166,7 @@
         "pireplicate.md",
         "pisetup.md",
         "poetryengine.md",
+        "roadmap",
         "robotsetup.md",
         "ruler",
         "scrollscroll.md",
