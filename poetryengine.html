@@ -48,13 +48,13 @@
     </div>
 <div id = "margin">
     <h2>Poetry Engine</h2>
-    <a href = "scroll.html"><img style = "width:50px" src = "iconsymbols/scroll.svg"/></a>
-        <a href = "map.html"><img style = "width:50px" src = "iconsymbols/map.svg"/></a>
-        <img id = "prevbutton" src = "iconsymbols/upelement.svg" class = "button" style = "width:50px"/>
-        <img id = "nextbutton" src = "iconsymbols/downelement.svg" class = "button" style = "width:50px"/>
-        <img id = "savebutton" src = "iconsymbols/save.svg" class = "button" style = "width:50px"/>
-        <img id = "deletebutton" src = "iconsymbols/delete.svg" class = "button" style = "width:50px"/>
-        <img id = "newbutton" src = "iconsymbols/add.svg" class = "button" style = "width:50px"/>
+    <a href = "scroll.html"><img src = "iconsymbols/scroll.svg"/></a>
+    <a href = "map.html"><img src = "iconsymbols/map.svg"/></a>
+    <img id = "prevbutton" src = "iconsymbols/upelement.svg" class = "button"/>
+    <img id = "nextbutton" src = "iconsymbols/downelement.svg" class = "button"/>
+    <img id = "savebutton" src = "iconsymbols/save.svg" class = "button"/>
+    <img id = "deletebutton" src = "iconsymbols/delete.svg" class = "button"/>
+    <img id = "newbutton" src = "iconsymbols/add.svg" class = "button" />
     <table>
         <tr>
             <td>text:</td><td><input id = "textinput"/></td>
@@ -305,6 +305,8 @@ document.getElementById("textinput").select();
     position:absolute;
     right:0px;
     bottom:0px;
+    z-index:1;
+    background-color:white;
 }
 body{
     overflow:hidden;
