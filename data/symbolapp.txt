@@ -61,7 +61,7 @@
   "backgroundcolor":"#f0f0f0",
   "style": {
     "color0": "black",
-    "fill0": "black",
+    "fill0": "rgba(0,0,0,0)",
     "line0": 2,
     "color1": "black",
     "fill1": "rgba(0,0,0,0)",
