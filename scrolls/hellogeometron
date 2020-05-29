@@ -1,10 +1,14 @@
 # Hello Geometron
 
+## Introduction
+
 Geometron is a way of interacting with machines based on geometry rather than arithmetic.  A "computer" is generally a machine which is fed a list of numbers which tell it what to do with that list of numbers. This process is abstracted into higher and higher level languages to make the complex software products we use.  In Geometron, however, the machine is programmed to take geometric information as its input and to act on that information by affecting some output geometrically.  
 
 We speak of the "Geometron Virtual Machine"(GVM) as being the abstract idea of a machine which draws on some output using geometric actions.  In the examples presented here, this will mean pixels on a screen, cut and etching of plastic or wood shapes with a laser, and symbols printed on clay which can be baked and painted.  However, this could apply to any machine that can encode geometry onto something.  Some examples of this are using a flying drone to create images on snow with its props, a hanging robot suspended from cables on winches which moves around on a wall or cliff carving or painting, electron beam lithography, electrochemical deposition patterning, 3d printing in biomaterials, to name a few examples.  Any system which has some object that moves through space can be re-encoded to be controlled with the language structure presented here.
 
 While these ideas are general and can apply to many systems and be encoded many ways, this work all uses one implementation, which is based on making vector graphics in a web browser, and controlling simple robotic probes made from trash using a pocket computer.  
+
+## Hello, World
 
 In computer languages there is a tradition of the "Hello, World" program.  This is a program which simply prints the statement "hello, world" to some kind of output.  The geometric equivalent of "hello, world" is printing the so-called vesica piscis(Latin for fish bladder), which is a pair of circles each with its center on the other one. This illustrates the basic logic of Geometron: drawings actions are all relative to some unit, and so are motions of the "tool".  So drawing this consists of the actions "draw circle of radius 1 unit, move 1 unit, draw circle of radius 1 unit".  In symbols this is:
 
@@ -34,6 +38,7 @@ Before delving deeper into Geometron it's worth noting how it works with a lapto
 
 It's a good idea to print this layout out on a printer and laminate it, and maybe to make a few of these as needed to share with other people as you teach others the system.  This laminated printout can be used as a reference for making custom Geometron keyboards, where you use paint pen(or metallic sharpie can do this well) to write all the symbols on all the keys.  You can paint them next to the keys so that the keyboard is still usable for other purposes.  It is a good idea to get a cheap USB keyboard for this purpose and to keep it as a part of your basic Geometron kit, since it can also be used for setting up new Raspberry Pi servers.
 
+## More General Geometron
 
 With "hello world" behind us, we will learn to move the cursor around.  Again if you're a pure beginner I recommend using the mobile app mode.  Use the arrows symbol glyph buttons to move the cursor around:
 
@@ -43,17 +48,47 @@ The mobile app also has a "draw circle" and "draw line segment" keys.  There are
 
 Now, before diving deeper into the structure of Geometron using the keyboard-driven version it's worth using the other actions in the mobile app. These are the drawing of shapes, and the setting of symmetries and scales which are associated with those shapes.  The best way to learn this is to just try stuff at random.  If you reload your browser it will clear the screen.  The purpose of this app is both to learn the general logic of Geometron and how we interact with symmetry, scale and shape, but also to create a shared language between the physical and virtual layers of Geometron.  You should have gotten a set of laser cut shapes with your Geometron kit.  If not you can get one from whoever introduced you to Geometron, or have your own made or make your own(this is documented in another scroll).  The details of working with these shapes is shared in yet another scroll as well.
 
-If we now return to the laptop/desktop based version which is at [symbol.html](symbol.html) (as opposed to [symbolapp.html](symbolapp.html) for the mobile app)
+We now return to the laptop/desktop based version which is at [symbol.html](symbol.html) (as opposed to [symbolapp.html](symbolapp.html) for the mobile app). The symmetry operations for general Geometron(as opposed to the specific system for the app) are as follows:
 
 ![](iconsymbols/symmetrysymbols.svg)
 
+These determine what the rotation angle is of the action cursor(the wings of the little "T" show the angle).  They are 90 degrees for fourfold symmetry, 72 degrees for fivefold, and 60 degrees for sixfold.  The other actions are to either divide or multiply the angles by 2 or 3.  The list of symbols shows which key is used for which action(also see the laminated reference keyboard).  
+
+Next we deal with the scale actions, which determine by what factor the geometric unit is either multiplied or divide with the "+" and "-" actions.  These are as follows(with their corresponding keys):
+
 ![](iconsymbols/scalesymbols.svg)
+
+These are, from left to right, the square root of two, the Golden Ratio, the square root of three, 2, 3, and 5.  Try playing with all these and moving the cursor around making circles and line segments.  
+
+Now we need to add the rest of the basic set of drawing actions.  These are as follows:
 
 ![](iconsymbols/drawingsymbols.svg)
 
+These are from left to right: dot, circle,  line segment(without travel), arc, open square, filled circle, filled square and line segment with travel.  Try these!
+
+Now, in vector graphics, which is what this system is primarily for, "paths" are an important concept if we want to avoid having weird breaks on corners, and also it's useful for designing shapes for laser cutting designs.  The basic path operations are as follows:
+
 ![](iconsymbols/pathsymbols.svg)
 
+These are, from left to right: start path, move along line segment on path, terminate closed and filled path, terminate closed but unfilled path, and terminate open path.  To get more out of these, you should also learn to move between the different color layers by using the shift-keys above the numbers as follows:
+
 ![](iconsymbols/colorlayers.svg)
+
+When you select a layer, you select that color, fill color and linewidth.  All of these can be changed at any time by using the number entry table found in the file [styleeditor.html](styleeditor.html) which you can get to with this link(found from the main symbol page):
+
+
+[![](iconsymbols/style.svg)](styleeditor.html)
+
+Geometron is good for making systematic curves using the cubic bezier curve.  These are made with  "start curve" and "terminate curve" actions, symbolized as follows:
+
+![](iconsymbols/beziersymbols.svg)
+
+Another detail that is less used is the "drop marker" and "goto marker" commands.  There are several but only two are put in the basic keyboard, which are as follows:
+
+![](iconsymbols/flagsymbols.svg)
+
+
+These can be used to save the state of the Geometron tool, then reload that state.  It's useful for building complex fractal shapes.
 
 
 ![](iconsymbols/addressstack.svg)
@@ -64,12 +99,6 @@ If we now return to the laptop/desktop based version which is at [symbol.html](s
 
 ![](iconsymbols/actiontablet.svg)
 
-![](iconsymbols/beziersymbols.svg)
-
-![](iconsymbols/flagsymbols.svg)
-
-
-
 
 ![](iconsymbols/fonttablet.svg)
 
@@ -79,7 +108,7 @@ If we now return to the laptop/desktop based version which is at [symbol.html](s
 
 ![](iconsymbols/symbolmode.svg)
 
-![](iconsymbols/style.svg)
+
 
 ![](iconsymbols/table.svg)
 
