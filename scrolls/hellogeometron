@@ -18,27 +18,32 @@ and the symbol feed is linked to with this symbol:
 
 ![](iconsymbols/feed.svg)
 
+If you go to the symbol feed you can scroll down to your symbol, then save it to disc, or screen shot it or copy it, and do with it what you want.  The Geometron network is one in which we produce symbols and share them with as many people as possible.  Symbols we want get replicated and symbols we don't want are deleted.  You can 
+
 As long as you are in the app mode(on mobile) you should also see the cursor move and delete keys which look like this:
 
 ![](iconsymbols/arrowdeletesymbols.svg)
 
 NOTE!! If you are NOT on mobile you will not see the keys on your computer, and the app will be linked to your keyboard.  If you're on a laptop or desktop, you can hit the keys "x,f,x" in that order to do the same thing, then click on the save button as you would on mobile.  This will likely put the symbol partly out of the picture, but we will deal with how to fix that later. 
 
-That's it! You have now used the Geometron language to make a new symbol, which you can now download and use for whatever you want.  Also, notice that the 
+That's it! You have now used the Geometron language to make a new symbol, which you can now download and use for whatever you want.  
+
+Before delving deeper into Geometron it's worth noting how it works with a laptop or desktop as opposed to mobile.  On a machine with a keyboard, with a screen wider than it is high, the way to control Geometron is with they keyboard.  The layout is shown here:
 
 ![](iconsymbols/keyboard.svg)
 
-![](iconsymbols/hypercube.svg)
+It's a good idea to print this layout out on a printer and laminate it, and maybe to make a few of these as needed to share with other people as you teach others the system.  This laminated printout can be used as a reference for making custom Geometron keyboards, where you use paint pen(or metallic sharpie can do this well) to write all the symbols on all the keys.  You can paint them next to the keys so that the keyboard is still usable for other purposes.  It is a good idea to get a cheap USB keyboard for this purpose and to keep it as a part of your basic Geometron kit, since it can also be used for setting up new Raspberry Pi servers.
 
-![](iconsymbols/addressstack.svg)
 
-![](iconsymbols/cubes.svg)
+With "hello world" behind us, we will learn to move the cursor around.  Again if you're a pure beginner I recommend using the mobile app mode.  Use the arrows symbol glyph buttons to move the cursor around:
 
-![](iconsymbols/actiontablet.svg)
+![](iconsymbols/cursormovements.svg)
 
-![](iconsymbols/beziersymbols.svg)
+The mobile app also has a "draw circle" and "draw line segment" keys.  There are two cursors you interact with when you edit a Geometron symbol, the action cursor and the symbol cursor.  The symbol cursor is an un-filled circle which shows where you are in editing the spelling of the symbol in the symbol glyph language of Geometron.  You can navigate that with the cursor forward, back and delete buttons or with the left and right arrow keys and the "backspace" or delete button on a keyboard, and edit the sequence of symbols just as you would text in a text editor.  
 
-![](iconsymbols/flagsymbols.svg)
+Now, before diving deeper into the structure of Geometron using the keyboard-driven version it's worth using the other actions in the mobile app. These are the drawing of shapes, and the setting of symmetries and scales which are associated with those shapes.  The best way to learn this is to just try stuff at random.  If you reload your browser it will clear the screen.  The purpose of this app is both to learn the general logic of Geometron and how we interact with symmetry, scale and shape, but also to create a shared language between the physical and virtual layers of Geometron.  You should have gotten a set of laser cut shapes with your Geometron kit.  If not you can get one from whoever introduced you to Geometron, or have your own made or make your own(this is documented in another scroll).  The details of working with these shapes is shared in yet another scroll as well.
+
+If we now return to the laptop/desktop based version which is at [symbol.html](symbol.html) (as opposed to [symbolapp.html](symbolapp.html) for the mobile app)
 
 ![](iconsymbols/symmetrysymbols.svg)
 
@@ -50,7 +55,21 @@ That's it! You have now used the Geometron language to make a new symbol, which 
 
 ![](iconsymbols/colorlayers.svg)
 
-![](iconsymbols/cursormovements.svg)
+
+![](iconsymbols/addressstack.svg)
+
+![](iconsymbols/hypercube.svg)
+
+![](iconsymbols/cubes.svg)
+
+![](iconsymbols/actiontablet.svg)
+
+![](iconsymbols/beziersymbols.svg)
+
+![](iconsymbols/flagsymbols.svg)
+
+
+
 
 ![](iconsymbols/fonttablet.svg)
 
