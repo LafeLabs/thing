@@ -80,6 +80,7 @@
         "geometron.svg",
         "geometronthing.svg",
         "goldenspiral.svg",
+        "helloworld.svg",
         "hexagon.svg",
         "hypercube.svg",
         "iconset.svg",
