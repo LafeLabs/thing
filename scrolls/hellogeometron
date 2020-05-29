@@ -87,44 +87,83 @@ Another detail that is less used is the "drop marker" and "goto marker" commands
 
 ![](iconsymbols/flagsymbols.svg)
 
+These can be used to save the state of the Geometron tool, then reload that state.  It's useful for building complex fractal shapes.  
 
-These can be used to save the state of the Geometron tool, then reload that state.  It's useful for building complex fractal shapes.
-
-
-![](iconsymbols/addressstack.svg)
-
-![](iconsymbols/hypercube.svg)
-
-![](iconsymbols/cubes.svg)
-
-![](iconsymbols/actiontablet.svg)
-
-
-![](iconsymbols/fonttablet.svg)
-
-![](iconsymbols/arrowdeletesymbols.svg)
-
-![](iconsymbols/xyzcube.svg)
-
-![](iconsymbols/symbolmode.svg)
-
-
-
-![](iconsymbols/table.svg)
-
-![](iconsymbols/tablet.svg)
+The following commands are used to move the view of the symbol being drawn without changing the symbol itself:
 
 ![](iconsymbols/panzoom.svg)
 
-![](iconsymbols/keyboardicon.svg)
+Try using these to put the symbol where you want it and change its size without altering its basic form.
 
-![](iconsymbols/fonteditor.svg)
+The final thing we should learn about to get the basic tour of Geometron actions is making text.  There are two ways to make text.  Both involve changing the mode with the mode button or by hitting return.  The mode button looks like this when you start:
 
-![](iconsymbols/feed.svg)
+![](iconsymbols/symbolmode.svg)
 
-![](iconsymbols/cursor.svg)
+The first time you hit the button or the enter key you get to direct print mode.  In this mode, what you type on the keyboard is directly drawn using the built in Geometron font, which is made up entirely of Geometron actions.  You can build your own fonts, and share them across the network, and that will be dealt with separately.  If you hit the button again you'll get to "text stack" mode where whatever keys you type go into a "text stack", which is then printed out when you go back to basic action mode and hit the "[" key.  This will print out the text in a system font of your computer rather than in pure Geometron.  
 
-![](iconsymbols/abcfontsymbol.svg)
+## Structure of Geometron
+
+![](iconsymbols/hypercube.svg)
+
+
+So far we have dealt with Geometron actions like "move to the left" and symbols which are squares with simple icons describing what they do.  But to really understand the geometric nature of Geometron we have to look at the Geometron Hypercube.  This is a set of two cubes, each of which is a collection of 8x8x8 smaller cubes.  Each little cube in the larger cubes has an address, which is either 0 or 1 to describe which large cube it's in, and then three numbers to describe layer, row and column.  Inside each of these 1024 cubes is a list of addresses.  So in computer science terms the Geometron hypercube is an array of 1024 arrays each of which is made up of addresses in the big array.  
+
+![](iconsymbols/xyzcube.svg)
+
+![](iconsymbols/cubes.svg)
+
+The first of these cubes is the "action cube" which consists of all the possible geometric actions carried out by various parts of the Geometron Virtual Machine(GVM).  The second is the "symbol cube" which represents the symbol for each of the 512 elements in the action cube.  These symbols are made up entirely of the geometric actions described in this document, as well as shapes made up of those.  
+
+The Action Cube which is addresses from 00 to 0777 is broken up into different layers, organized by type of information they represent.  Note that all addresses begin with a "0" because that is how computer scientists and the code which is used in this software denote a "base 8 number", which is what the addresses can be though of as.  The layers of the Action Cube are shown here:
+
+![](iconsymbols/addressstack.svg)
+
+The symbol cube has addresses from 01000 through 01777, and represent the symbols used to denote each of the geometric actions in the action cube.  The elements of the symbol hypercube are all actions which are used to create symbols on the screen of a computer, as described in this document.  
+
+The action cube all starts with "root magic", which are actions which do things to the GVM like move the cursor around, delete, move through the hypercube and so on.  These are addresses 0-037.  Then is the ASCII code, which is a standard system of encoding printable characters on an English QWERTY keyboard. This consists of the addresses from 040(space bar) through 0176(tilde).  In the hypercube, these map to what the key actions are in the software that runs a Geometron editor.  So for example address 0141 represents lowercase "a", and it contains the address 0330, because when you hit the "a" key the 0330 geometric action is carried out.  
+
+For each of these letters/characters there are also symbols in Geoemtron which constitute the native Geometron font.  These are at the addresses from 01040 to 01176.  The following table both shows the ASCII code values and shows the native Geometron font at that value with a "1" added before the address: 
+
+![](iconsymbols/fonttablet.svg)
+
+
+After the ASCII is the shape table, which goes from 0200 to 0277 and which carries arrays of geometric actions of all kinds, including references to other shapes(making fractal structures).  
+
+To edit this, you use the shape table editor which is linked to via the following icon:
+
+[![](iconsymbols/table.svg)](shapetableeditor.html)
+
+0177 is the do nothing action.
+
+The main part of Geometron as we deal with it in this document is the geometric action table which is the addresses from 0300 to 0377.  These are shown in the tablet here, where every address begins with 03 and then the row then the column.  
+
+![](iconsymbols/actiontablet.svg)
+
+Addresses from 0400 through 0577 are for robotics controls and 0600 through 0777 are for 3d graphics control and 3d CAD.
+
+The Geometron hypercube is an abstraction. The cells have meanings which are geometric in nature but which are more abstract than any one colletion of computer code. It is, however, often computer code.  This code is then fully encapsulated within the Geometron Hypercube format, because the computer code in JavaScript or Python or whatever is itself encoded entirely using the ASCII code, the addresses from 040 through 0176, so these addresses are themselves just arrays of addresses in the hypercube once again.  That also applies to more physical actions, as one can encode any English with ASCII, and non English using UNICODE encoding in HTML, again being totally built from ASCII code.  
+
+Sequences of Geometron code are expresses in their raw form as strings of text of consisting of addresses with their appropriate leading zero and commas separating them.  Raw Geometron code files consist of an address followed by a colon after which is a sequence of addresses separated by a comma.  These address arrays are then themselves in an array separated by "newline".  In the JavaScript code used here, geometron is often arrays of strings, where each string is an address, colon, and sequence of addresses.  This can be done by other means in other languages, for instance in Arduino it is useful to use strings for everything because arrays are awkward.
+
+To get the spelling value of parts of the Hypercube using Geometron symbol glyph spelling use the tablet app here:
+
+
+[![](iconsymbols/tablet.svg)](tablet.html)
+
+You can change the values of the keys using the keyboard app here:
+
+
+[![](iconsymbols/keyboardicon.svg)](keyboardeditor.html)
+
+Edit the font here:
+
+[![](iconsymbols/fonteditor.svg)](fonteditor.html)
+
+See the feed of symbols on the symbol feed here:
+
+[![](iconsymbols/feed.svg)](symbolfeed.html)
+
+With the basics of Gemetron explored we can proceed to build laser cut shapes, custom shape tables to share with other users, custom fonts, robotics programming, 3d programming, clay fabrication, custom web icons, custom symbols and diagrams of all kinds, and new original self-replicating apps based on the code here.
 
 
 
