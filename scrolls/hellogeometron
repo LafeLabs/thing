@@ -18,6 +18,14 @@ and the symbol feed is linked to with this symbol:
 
 ![](iconsymbols/feed.svg)
 
+As long as you are in the app mode(on mobile) you should also see the cursor move and delete keys which look like this:
+
+![](iconsymbols/arrowdeletesymbols.svg)
+
+NOTE!! If you are NOT on mobile you will not see the keys on your computer, and the app will be linked to your keyboard.  If you're on a laptop or desktop, you can hit the keys "x,f,x" in that order to do the same thing, then click on the save button as you would on mobile.  This will likely put the symbol partly out of the picture, but we will deal with how to fix that later. 
+
+That's it! You have now used the Geometron language to make a new symbol, which you can now download and use for whatever you want.  Also, notice that the 
+
 ![](iconsymbols/keyboard.svg)
 
 ![](iconsymbols/hypercube.svg)
