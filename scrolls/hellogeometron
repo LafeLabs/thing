@@ -163,6 +163,18 @@ See the feed of symbols on the symbol feed here:
 
 [![](iconsymbols/feed.svg)](symbolfeed.html)
 
+The feed has text files with raw base 64 png code, then svg files then png files, all of which can be deleted by clicking the big red "X" or downloaded.  You can upload other saved Geometron files to the Feed, then click the "edit" pencil icon to load that symbol and go back to the main symbol editor to edit a copy of that file.  You can then remix it, save it and others can again remix.  Each saved symbol also saves a copy inside the file of the local shape table used to generate the symbol.  That means that when we remix symbols from one user to another across the Geometron network, the whole symbolic language used for that is also remixed.  You can download a file, upload it, edit it, share the link, save it, and email that to another user.  They can then open it locally, remix it with another symbolic language, and instantly replace the components with some other analogous component.  
+
+The setup of the symbol file such as it's initial width and height and basic unit and zero point are set in the Geometron Setup app at [setup.html](setup.html), linked via this icon:
+
+[![](iconsymbols/setup.svg)](setup.html)
+
+The hypercube is edited with the hypercube editor which is linked here:
+
+[![](iconsymbols/hypercube.svg)](hypercube.html)
+
+All aspects of Geometron are shared freely across the network using copy and pasted code as with the other elements of this software(the map, the Poetry Engine, the Duality, the Scroll, etc.).  Fonts can be shared, app keys, specialized apps, robot encoding, all the possible elements of this system can be shared by copy/pasting code using the code editing described in other scrolls in this system.  
+
 With the basics of Gemetron explored we can proceed to build laser cut shapes, custom shape tables to share with other users, custom fonts, robotics programming, 3d programming, clay fabrication, custom web icons, custom symbols and diagrams of all kinds, and new original self-replicating apps based on the code here.
 
 
