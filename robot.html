@@ -48,6 +48,7 @@ if(innerWidth > innerHeight){
     document.getElementById("square").style.height = squareWidth.toString() + "px";
     marginWidth = innerWidth - squareWidth;
     landscape = true;
+    newGVM = new GVM(0.05*squareWidth,0.1*squareWidth,0.04*squareWidth,-Math.PI/2,document.getElementById("maincanvas"),squareWidth,0.5*squareWidth,hypercube);
 }
 else{
     squareWidth = innerWidth;
@@ -56,11 +57,11 @@ else{
     document.getElementById("square").style.height = squareWidth.toString() + "px";
     document.getElementById("square").style.width = squareWidth.toString() + "px";
     marginWidth = innerHeight - squareWidth;
+    newGVM = new GVM(0.05*squareWidth,0.1*squareWidth,0.06*squareWidth,-Math.PI/2,document.getElementById("maincanvas"),squareWidth,0.5*squareWidth,hypercube);
 }
 
 
 
-var newGVM = new GVM(0.05*squareWidth,0.1*squareWidth,0.03*squareWidth,-Math.PI/2,document.getElementById("maincanvas"),squareWidth,0.5*squareWidth,hypercube);
 
 var actionGVM = new GVM(0.5*squareWidth,0.25*squareWidth,0.05*squareWidth,-Math.PI/2,document.getElementById("spellcanvas"),squareWidth,0.5*squareWidth,hypercube);
 
@@ -78,7 +79,7 @@ actionGVM.importbytecode(font);
 invisibleWidth = 200;
 var invisibleGVM = new GVM(0.98*invisibleWidth,0.98*invisibleWidth,0.96*invisibleWidth,-Math.PI/2,document.getElementById("invisiblecanvas"),invisibleWidth,invisibleWidth,hypercube);
 
-buttonSize = 50;
+buttonSize = 70;
 
 currentjson = {};
 glyph = "";
@@ -316,6 +317,7 @@ body{
     bottom:0px;
     border:solid;
     border-width:0.1px;
+    overflow:scroll;
 }
 
 #invisiblecanvas{
