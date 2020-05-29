@@ -1,5 +1,22 @@
 # Hello Geometron
 
+Geometron is a way of interacting with machines based on geometry rather than arithmetic.  A "computer" is generally a machine which is fed a list of numbers which tell it what to do with that list of numbers. This process is abstracted into higher and higher level languages to make the complex software products we use.  In Geometron, however, the machine is programmed to take geometric information as its input and to act on that information by affecting some output geometrically.  
+
+We speak of the "Geometron Virtual Machine"(GVM) as being the abstract idea of a machine which draws on some output using geometric actions.  In the examples presented here, this will mean pixels on a screen, cut and etching of plastic or wood shapes with a laser, and symbols printed on clay which can be baked and painted.  However, this could apply to any machine that can encode geometry onto something.  Some examples of this are using a flying drone to create images on snow with its props, a hanging robot suspended from cables on winches which moves around on a wall or cliff carving or painting, electron beam lithography, electrochemical deposition patterning, 3d printing in biomaterials, to name a few examples.  Any system which has some object that moves through space can be re-encoded to be controlled with the language structure presented here.
+
+While these ideas are general and can apply to many systems and be encoded many ways, this work all uses one implementation, which is based on making vector graphics in a web browser, and controlling simple robotic probes made from trash using a pocket computer.  
+
+In computer languages there is a tradition of the "Hello, World" program.  This is a program which simply prints the statement "hello, world" to some kind of output.  The geometric equivalent of "hello, world" is printing the so-called vesica piscis(Latin for fish bladder), which is a pair of circles each with its center on the other one. This illustrates the basic logic of Geometron: drawings actions are all relative to some unit, and so are motions of the "tool".  So drawing this consists of the actions "draw circle of radius 1 unit, move 1 unit, draw circle of radius 1 unit".  In symbols this is:
+
+![](iconsymbols/helloworld.svg)
+
+In the tradition of the "hello world" program the reader should now go ahead and make this symbol.  This is easiest on a mobile device.  Point a mobile device to the address of whatever this server is, then go on that to the [local symbol app which is at symbolapp.html](symbolapp.html).  On there you will see a control panel of touch screen buttons.  Hit the "circle" button, the arrow to the right, then the circle button again.  There is the symbol! And you should see the symbol glyph spelling at the bottom of the screen.  Now if you hit the "save" button you can save your new vector graphics symbol you just made to the symbol feed.  The save button is:
+
+![](iconsymbols/save.svg)
+
+and the symbol feed is linked to with this symbol:
+
+![](iconsymbols/feed.svg)
 
 ![](iconsymbols/keyboard.svg)
 
