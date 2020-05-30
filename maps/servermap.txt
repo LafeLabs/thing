@@ -2,11 +2,11 @@
     {
         "x": 0.014319809069212411,
         "y": 0,
-        "w": 0.37708830548926014,
+        "w": 0.0883054892601432,
         "angle": 0,
         "text": "editor.php",
         "href": "editor.php",
-        "src": ""
+        "src": "iconsymbols/edit.svg"
     },
     {
         "x": 0.057279236276849645,
@@ -90,22 +90,13 @@
         "src": "iconsymbols/hypercube.svg"
     },
     {
-        "x": 0.045346062052505964,
-        "y": 0.9140811455847255,
-        "w": 0.37708830548926014,
+        "x": 0.2016706443914081,
+        "y": 0.7696897374701671,
+        "w": 0.12171837708830549,
         "angle": 0,
         "text": "symbolapp.html",
         "href": "symbolapp.html",
-        "src": ""
-    },
-    {
-        "x": 0.0477326968973747,
-        "y": 0.9474940334128878,
-        "w": 0.37708830548926014,
-        "angle": 0,
-        "text": "appeditor.html",
-        "href": "appeditor.html",
-        "src": ""
+        "src": "iconsymbols/symbolapp.svg"
     },
     {
         "x": 0.8568019093078759,
@@ -117,75 +108,66 @@
         "src": "iconsymbols/scroll.svg"
     },
     {
-        "x": 0.42840095465393796,
-        "y": 0.011933174224343675,
-        "w": 0.39856801909307876,
+        "x": 0.7124105011933174,
+        "y": 0.008353221957040573,
+        "w": 0.1431980906921241,
         "angle": 0,
         "text": "poetryengine.html",
         "href": "poetryengine.html",
-        "src": ""
+        "src": "iconsymbols/poetryengine.svg"
     },
     {
-        "x": 0.42482100238663484,
-        "y": 0.06443914081145585,
-        "w": 0.39618138424821003,
+        "x": 0.5525059665871122,
+        "y": -0.0059665871121718375,
+        "w": 0.15274463007159905,
         "angle": 0,
         "text": "duality.html",
         "href": "duality.html",
-        "src": ""
+        "src": "iconsymbols/duality.svg"
     },
     {
-        "x": 0.5429594272076372,
-        "y": 0.33651551312649164,
-        "w": 0.39618138424821003,
+        "x": 0.8663484486873508,
+        "y": 0.22792362768496421,
+        "w": 0.11933174224343675,
         "angle": 0,
         "text": "robot.html",
         "href": "robot.html",
-        "src": ""
+        "src": "iconsymbols/voxel.svg"
     },
     {
-        "x": 0.5405727923627685,
-        "y": 0.38663484486873506,
-        "w": 0.39618138424821003,
-        "angle": 0,
-        "text": "voxel.html",
-        "href": "voxel.html",
-        "src": ""
-    },
-    {
-        "x": 0.5417661097852029,
-        "y": 0.4307875894988067,
-        "w": 0.39618138424821003,
+        "x": 0.850835322195704,
+        "y": 0.45823389021479716,
+        "w": 0.1575178997613365,
         "angle": 0,
         "text": "robotcube.html",
         "href": "robotcube.html",
-        "src": ""
+        "src": "iconsymbols/hypercube.svg"
     },
     {
-        "x": 0.5393794749403341,
-        "y": 0.47494033412887826,
-        "w": 0.39618138424821003,
+        "x": 0.8818615751789977,
+        "y": 0.35918854415274465,
+        "w": 0.10739856801909307,
         "angle": 0,
         "text": "robotfont.html",
         "href": "robotfont.html",
-        "src": ""
+        "src": "iconsymbols/fonteditor.svg"
     },
     {
         "x": 0.19689737470167065,
         "y": 0.6157517899761337,
-        "w": 0.3412887828162291,
+        "w": 0.1288782816229117,
         "angle": 0,
         "text": "canvas2png.html",
         "href": "canvas2png.html",
-        "src": ""
+        "src": "iconsymbols/pngcode.svg"
     },
     {
-        "x": 0.4331742243436754,
-        "y": 0.8818615751789977,
-        "w": 0.37708830548926014,
+        "x": 0.2840095465393795,
+        "y": 0.032219570405727926,
+        "w": 0.1026252983293556,
         "angle": 0,
-        "text": "pastebin of repository map",
-        "href": "https://pastebin.com/raw/XFpDJgc6",
-        "src": ""
+        "text": "index.html",
+        "href": "index.html",
+        "src": "iconsymbols/geometronthing.svg"
     }
 ]
