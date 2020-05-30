@@ -300,12 +300,13 @@ document.getElementById("savebutton").onclick = function() {
     httpc.send("data="+encodeURIComponent(invisibleGVM.pngcode(invisibleGVM).substring(22))+"&filename=symbolfeed/symbol" + timestamp +  ".png");//send text to filesaver.php
 
 //save raw text file with data url
-
+/*
     var httpc6 = new XMLHttpRequest();
     var url = "filesaver.php";        
     httpc6.open("POST", url, true);
     httpc6.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc6.send("data="+encodeURIComponent(invisibleGVM.pngcode(invisibleGVM))+"&filename=symbolfeed/symbol" + timestamp +  ".txt");//send text to filesaver.php    
+  */  
     
     invisibleGVM.svgString = invisibleGVM.svgString.split("<json>")[0] + "<json>" + JSON.stringify(currentjson,null,"  ") + "</json>" + invisibleGVM.svgString.split("</json>")[1];
         

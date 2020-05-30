@@ -10,32 +10,46 @@
 </script>
 </head>
 <body>    
-<img id = "rawimg"/>
+
+<div id = "margin">
+<div id = "linkdiv">
+    <img id = "rawimg"/>
 <a href = "symbolapp.html">
-    <img style = "border:solid;border-color:#208020;width:50px;" src = "iconsymbols/geometron.svg"/>
+    <img style = "border:solid;border-color:#208020;" src = "iconsymbols/geometron.svg"/>
 </a>
 <a href = "symbol.html">
-    <img style = "width:50px;" src = "iconsymbols/geometron.svg"/>
+    <img src = "iconsymbols/geometron.svg"/>
 </a>
 <a href = "scroll.html">
-    <img style = "width:50px;" src = "iconsymbols/scroll.svg"/>
+    <img src = "iconsymbols/scroll.svg"/>
 </a>
-        <a href = "map.html">
-            <img style = "width:50px;" src = "../iconsymbols/map.svg"/>
-        </a>
+<a href = "map.html">
+    <img src = "../iconsymbols/map.svg"/>
+</a>
 
-<!--
-<img style = "width:50px;" class = "button" src = "iconsymbols/deletebutton.svg"/>
--->
+</div>
 
-<input id = "urlinput"/>
-<img id = "editbutton" style = "width:50px;" class=  "button" src = "iconsymbols/edit.svg"/>
+<div id = "filediv">
+<table>
+    <tr>
+        <td>File To Edit</td>
+        <td><input id = "urlinput"/></td>
+        <td>
+            <img style = "width:3em" id = "editbutton" class=  "button" src = "iconsymbols/edit.svg"/>
+        </td>
+    </tr>
+</table>
 
-<form id = "uploadform" style = "margin-top:10px" action="uploadsymbol.php" method="post" enctype="multipart/form-data">
-                Select image to upload:
+<form id = "uploadform"  action="uploadsymbol.php" method="post" enctype="multipart/form-data">
+                Select symbol file to upload:
     <input type="file" name="fileToUpload" id="fileToUpload">
     <input type="submit" value="Upload Image" name="submit">
 </form>
+</div>
+
+
+</div>
+
 <div id = "symbolscroll">
 
 </div>
@@ -52,36 +66,28 @@ httpc4.onreadystatechange = function() {
             var newimg = document.createElement("IMG");
             newimg.src = "symbolfeed/" + symbols[index];
             newimg.classList.add("button");
-            
+            newimg.classList.add("feedimage");
             document.getElementById("symbolscroll").appendChild(newp);
             newp.appendChild(newimg);
-            if(symbols[index].substr(-4) == ".txt"){
-                newimg.onclick = function() {
+                         
+            newimg.onclick = function() {
                 var localurl = "symbolfeed" + this.src.split("symbolfeed")[1];
-                    
-                    //load up localurl contents, paste into src and input
-                    var httpc = new XMLHttpRequest();
-                    httpc.onreadystatechange = function() {
-                        if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById("urlinput").value = this.responseText;
-                            document.getElementById("rawimg").src = this.responseText; 
-
-
-                        }
-                    };
-                    httpc.open("GET", "fileloader.php?filename=" + localurl, true);
-                    httpc.send();
-                    
-                    document.getElementById("urlinput").value = localurl;
-                }        
-            }
-            else{
-                newimg.onclick = function() {
-                    var localurl = "symbolfeed" + this.src.split("symbolfeed")[1];
-                    document.getElementById("urlinput").value = localurl;
-                }
+                document.getElementById("urlinput").value = localurl;
             }
 
+            var newlabel = document.createElement("P");
+            newlabel.className = "typelabel";
+            if(symbols[index].substr(-4) == ".png"){
+                newlabel.innerHTML = "PNG";
+                newlabel.style.color = "red";
+                newimg.style.borderColor = "red";
+            }
+            if(symbols[index].substr(-4) == ".svg"){
+                newlabel.innerHTML = "SVG";
+                newlabel.style.color = "blue";
+                newimg.style.borderColor = "blue";
+            }
+            newp.appendChild(newlabel);
             var delimg = document.createElement("IMG");
             delimg.src = "iconsymbols/delete.svg";
             delimg.className = "button";
@@ -139,10 +145,32 @@ document.getElementById("editbutton").onclick = function() {
 
 </script>
 <style>
+#margin{
+    position:absolute;
+    bottom:85%;
+    top:0px;
+    left:0px;
+    right:0px;
+    overflow:scroll;
+}
+#linkdiv{
+    position:absolute;
+    left:0px;
+    top:0px;
+    bottom:0px;
+    right:50%;
+}
+#filediv{
+    position:absolute;
+    right:0px;
+    top:0px;
+    bottom:0px;
+    left:50%;
+}
 #symbolscroll{
     position:absolute;
     bottom:0px;
-    top:100px;
+    top:15%;
     left:0px;
     right:0px;
     overflow:scroll;
@@ -157,6 +185,10 @@ p img{
     display:block;
     margin:auto;
 }
+.feedimage{
+    border:solid;
+    border-width:0.5px;
+}
 .button{
     cursor:pointer;
 }
@@ -167,7 +199,7 @@ p img{
     background-color:yellow;
 }
 input{
-    width:30em;
+    width:20em;
 }
 #rawimg{
     position:absolute;
@@ -175,6 +207,12 @@ input{
     top:0px;
     width:100px;
 }
+.typelabel{
+    text-align:center;
+    font-size:2em;
+    font-family:courier;
+}
+
 </style>
 </body>
 </html>
