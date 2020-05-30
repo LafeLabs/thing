@@ -114,6 +114,7 @@
         "shrink.svg",
         "shrinksmall.svg",
         "style.svg",
+        "symbolfeed.svg",
         "symbolmode.svg",
         "symmetrysymbols.svg",
         "table.svg",

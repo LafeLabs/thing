@@ -2,7 +2,8 @@
     "text": [
         "some text",
         "☕ ",
-        "foo"
+        "foo",
+        "fiery the angels fell"
     ],
     "src": [
         "https://i.imgur.com/VP0eswH.jpg",

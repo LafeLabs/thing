@@ -33,7 +33,7 @@
         "angle": 0,
         "text": "symbolfeed",
         "href": "symbolfeed.html",
-        "src": "iconsymbols/feed.svg"
+        "src": "iconsymbols/symbolfeed.svg"
     },
     {
         "x": 0.059665871121718374,
@@ -187,5 +187,14 @@
         "text": "pastebin of repository map",
         "href": "https://pastebin.com/raw/XFpDJgc6",
         "src": ""
+    },
+    {
+        "x": 0.8424821002386634,
+        "y": 0.1718377088305489,
+        "w": 0.12171837708830549,
+        "angle": 0,
+        "text": "feed",
+        "href": "feed.html",
+        "src": "iconsymbols/feed.svg"
     }
 ]
