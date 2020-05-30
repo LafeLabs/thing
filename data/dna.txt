@@ -164,6 +164,7 @@
     "scrolls": [
         "bookofshapes",
         "buildrobot.md",
+        "duality",
         "foo",
         "github.md",
         "hellogeometron",

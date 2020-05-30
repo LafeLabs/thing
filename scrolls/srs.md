@@ -1,13 +1,6 @@
 # On Self-Replicating Sets
 
-### John. Q Geometer
-
 ### 2020
-
-
-### [link to edit page](pageeditor.html)
-
-### [paper.pdf](paper.pdf)
 
 ## 1. Computer Science and the Theory of Self-Replication
 

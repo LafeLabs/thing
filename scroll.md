@@ -23,3 +23,28 @@ To copy a scroll from one server to another, open the edit screen in the source 
 To make a button which can load another scroll, copy this code and replace the text with your text and the scroll name between the "div" tags and the code which says "scrolls/pisetup.md" with your scroll name.
 
 <div class = "button" onclick = "loadscroll(&#34scrolls/pisetup.md&#34)">LOAD RASPBERRY PI SETUP SCROLL</div>
+
+<div class = "button" onclick = "loadscroll(&#34scrolls/pireplicate.md&#34)">LOAD RASPBERRY PI REPLICATOR SCROLL</div>
+
+<div class = "button" onclick = "loadscroll(&#34scrolls/srs.md&#34)">PAPER ABOUT SELF REPLICATING SET THEORY</div>
+
+<div class = "button" onclick = "loadscroll(&#34scrolls/lasercutshapes&#34)">LASER CUT SHAPES SCROLL</div>
+
+<div class = "button" onclick = "loadscroll(&#34scrolls/bookofshapes&#34)">BOOK OF SHAPES SCROLL</div>
+
+<div class = "button" onclick = "loadscroll(&#34scrolls/github.md&#34)">GIT CODE REPLICATION SCROLL</div>
+
+<div class = "button" onclick = "loadscroll(&#34scrolls/poetryengine.md&#34)">POETRY ENGINE SCROLL</div>
+
+<div class = "button" onclick = "loadscroll(&#34scrolls/duality&#34)">DUALITY SCROLL</div>
+
+<div class = "button" onclick = "loadscroll(&#34scrolls/hellogeometron&#34)">HELLO GEOMETRON</div>
+
+
+
+
+
+
+
+
+
