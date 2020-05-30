@@ -70,14 +70,16 @@
                 <td>image url:</td><td><input id = "imginput"/></td>
             </tr>
         </table>
-        <table>
+        <table id = "iotable">
             <tr>
                 <td id = "importbutton" class = "button">IMPORT</td>
                 <td id = "resetbutton" class = "button">RESET</td>
             </tr>
         </table>
         <textarea id = "textio"></textarea>
-        <a href = "canvas2png.html">canvas2png.html</a>
+        <a href = "canvas2png.html">
+            <img src = "iconsymbols/pngcode.svg"/>
+        </a>
     </div>
     <div id = "mapscroll">
         <a href = "map.html">
@@ -703,6 +705,10 @@ newmapbutton.onclick = function(){
 
 </script>
 <style>
+#iotable .button{
+    border:solid;
+    border-radius:5px;
+}
 h3{
     text-align:center;
 }

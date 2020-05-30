@@ -90,13 +90,13 @@
         "src": "iconsymbols/hypercube.svg"
     },
     {
-        "x": 0.045346062052505964,
-        "y": 0.9140811455847255,
-        "w": 0.37708830548926014,
+        "x": 0.22911694510739858,
+        "y": 0.09307875894988067,
+        "w": 0.11933174224343675,
         "angle": 0,
         "text": "symbolapp.html",
         "href": "symbolapp.html",
-        "src": ""
+        "src": "iconsymbols/symbolapp.svg"
     },
     {
         "x": 0.0477326968973747,
@@ -171,22 +171,13 @@
         "src": ""
     },
     {
-        "x": 0.19689737470167065,
-        "y": 0.6157517899761337,
-        "w": 0.3412887828162291,
+        "x": 0.21121718377088305,
+        "y": 0.6515513126491647,
+        "w": 0.11694510739856802,
         "angle": 0,
         "text": "canvas2png.html",
         "href": "canvas2png.html",
-        "src": ""
-    },
-    {
-        "x": 0.4331742243436754,
-        "y": 0.8818615751789977,
-        "w": 0.37708830548926014,
-        "angle": 0,
-        "text": "pastebin of repository map",
-        "href": "https://pastebin.com/raw/XFpDJgc6",
-        "src": ""
+        "src": "iconsymbols/pngcode.svg"
     },
     {
         "x": 0.8424821002386634,
@@ -196,5 +187,14 @@
         "text": "feed",
         "href": "feed.html",
         "src": "iconsymbols/feed.svg"
+    },
+    {
+        "x": 0.4439140811455847,
+        "y": 0.7004773269689738,
+        "w": 0.37708830548926014,
+        "angle": 0,
+        "text": "index.html",
+        "href": "index.html",
+        "src": ""
     }
 ]
