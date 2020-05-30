@@ -33,7 +33,12 @@
     <a href = "poetryengine.html">
         <img src = "iconsymbols/poetryengine.svg"/>
     </a>
+    <div id = "iobox">
+        <div class= "button" id ="importbutton">IMPORT</div>
+        <div class= "button" id ="resetbutton">RESET</div>
+                <textarea id = "textio"></textarea>
 
+    </div>
 </div>
 <div id = "column1" class = "column">
     Text:
@@ -58,6 +63,7 @@ var httpc = new XMLHttpRequest();
     httpc.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         textfeed = JSON.parse(this.responseText);
+        document.getElementById("textio").value = this.responseText;
         redrawtext();
         redrawsrc();
         redrawhref();        
@@ -105,6 +111,34 @@ document.getElementById("textinput").onkeydown = function(a) {
     }
 }
 
+document.getElementById("resetbutton").onclick = function(){
+    textfeed = {
+    "text": [
+        "some text",
+        "☕ "
+    ],
+    "src": [
+        "https://i.imgur.com/VP0eswH.jpg",
+        "https://i.imgur.com/sg95uWv.jpg"
+    ],
+    "href": [
+        "http://geometronics.org"
+    ]
+    };
+    redrawtext();
+    redrawsrc();
+    redrawhref();        
+    savejson();
+}
+document.getElementById("importbutton").onclick = function(){
+    textfeed = JSON.parse(document.getElementById("textio").value);
+    document.getElementById("textio").value = this.responseText;
+    redrawtext();
+    redrawsrc();
+    redrawhref();        
+    savejson();
+
+}
 
 
 document.getElementById("srcinput").onchange = function(){
@@ -356,6 +390,27 @@ body,input{
 }
 #srcscroll img{
     width:100px;
+}
+#iobox{
+    position:absolute;
+    right:0px;
+    overflow:scroll;
+    top:0px;
+    width:50%;
+}
+.button{
+    text-align:center;
+    border:solid;
+    border-radius:5px;
+    border-width:2px;
+    width:5em;
+    cursor:pointer;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
 }
 </style>
 </body>
