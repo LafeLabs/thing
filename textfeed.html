@@ -33,29 +33,99 @@
     <a href = "poetryengine.html">
         <img src = "iconsymbols/poetryengine.svg"/>
     </a>
-    <div id = "iobox">
-        <div class= "button" id ="importbutton">IMPORT</div>
-        <div class= "button" id ="resetbutton">RESET</div>
+
+    <img class = "button" id = "textbutton" src = "iconsymbols/text.svg"/>
+    <img class = "button" id = "imagebutton" src = "iconsymbols/image.svg"/>
+    <img class = "button" id = "linkbutton" src = "iconsymbols/link.svg"/>
+
+<table id  = "iotable">
+    <tr>
+        <td class = "button" id = "importbutton">IMPORT</td>
+        <td class = "button" id = "resetbutton">RESET</td>
+    </tr>
+</table>
                 <textarea id = "textio"></textarea>
 
-    </div>
+    
 </div>
 <div id = "column1" class = "column">
-    Text:
-    <input id = "textinput" class = "no-mathjax"/>
-<div id  = "textscroll" class = "scroll"></div>
+    <table class = "inputtable" id ="textinputtable">
+        <tr>
+            <td>Text:</td>
+            <td>
+                <input id = "textinput" class = "no-mathjax"/>
+            </td>
+        </tr>
+    </table>
+    <div id  = "textscroll" class = "scroll"></div>
 </div>
+
 <div id = "column2" class = "column">
-    Image URL:
-    <input id = "srcinput"/>
+    <table class = "inputtable" id ="textinputtable">
+        <tr>
+            <td>Image URL:</td>
+            <td>
+                <input id = "srcinput" class = "no-mathjax"/>
+            </td>
+        </tr>
+    </table>
+
     <div id  = "srcscroll" class = "scroll"></div>
 </div>
 <div id = "column3" class = "column">
-    Links:
-    <input id = "hrefinput"/>
+    <table class = "inputtable" id ="textinputtable">
+        <tr>
+            <td>Link:</td>
+            <td>
+                <input id = "hrefinput" class = "no-mathjax"/>
+            </td>
+        </tr>
+    </table>
     <div id  = "hrefscroll" class = "scroll"></div>
 </div>
 <script>
+
+if(innerWidth > innerHeight){
+
+    
+}
+else{
+    document.getElementById("column2").style.display = "none";
+    document.getElementById("column3").style.display = "none";
+    document.getElementById("textbutton").style.backgroundColor = "#00ff00";
+}
+
+document.getElementById("textbutton").onclick = function(){
+    document.getElementById("column1").style.display = "block";
+    document.getElementById("column2").style.display = "none";
+    document.getElementById("column3").style.display = "none";
+    document.getElementById("imagebutton").style.backgroundColor = "white";
+    document.getElementById("linkbutton").style.backgroundColor = "white";
+    document.getElementById("textbutton").style.backgroundColor = "#00ff00";
+    document.getElementById("textinput").select();
+    
+}
+document.getElementById("imagebutton").onclick = function(){
+    document.getElementById("column1").style.display = "none";
+    document.getElementById("column2").style.display = "block";
+    document.getElementById("column3").style.display = "none";
+    document.getElementById("textbutton").style.backgroundColor = "white";
+    document.getElementById("linkbutton").style.backgroundColor = "white";
+    document.getElementById("imagebutton").style.backgroundColor = "#00ff00";
+    document.getElementById("srcinput").select();
+
+}
+document.getElementById("linkbutton").onclick = function(){
+    document.getElementById("column1").style.display = "none";
+    document.getElementById("column2").style.display = "none";
+    document.getElementById("column3").style.display = "block";
+    document.getElementById("imagebutton").style.backgroundColor = "white";
+    document.getElementById("textbutton").style.backgroundColor = "white";    
+    document.getElementById("linkbutton").style.backgroundColor = "#00ff00";
+    document.getElementById("hrefinput").select();
+
+}
+
 
 textfeed = {};
 
@@ -329,8 +399,16 @@ function redrawhref(){
     }
     
 }
+
+document.getElementById("textinput").select();
 </script>
 <style>
+.inputtable{
+    width:100%;
+}
+.inputtable td{
+    text-align:right;
+}
 body,input{
     font-family:courier;
     font-size:16px;
@@ -342,28 +420,21 @@ body,input{
     left:0px;
     right:0px;
     top:0px;
-    height:110px;
+    height:18%;
+    overflow:scroll;
+    
 }
 #header img{
     width:100px;
 }
 .column{
     position:absolute;
-    top:120px;
-    width:32%;
+    top:20%;
     bottom:0px;
 }
+
 .column input{
     width:97%;
-}
-#column1{
-    left:0px;
-}
-#column2{
-    left:33%;
-}
-#column3{
-    right:0px;
 }
 .box{
     margin:1em;
@@ -391,19 +462,14 @@ body,input{
 #srcscroll img{
     width:100px;
 }
-#iobox{
-    position:absolute;
-    right:0px;
-    overflow:scroll;
-    top:0px;
-    width:50%;
-}
-.button{
+#iotable .button{
     text-align:center;
     border:solid;
     border-radius:5px;
     border-width:2px;
     width:5em;
+}
+.button{
     cursor:pointer;
 }
 .button:hover{
@@ -412,6 +478,60 @@ body,input{
 .button:active{
     background-color:yellow;
 }
+
+@media only screen and (orientation: landscape) {
+    .inputtable{
+        border-bottom:solid;
+    }
+
+    #textbutton{
+        display:none;
+    }
+    #linkbutton{
+        display:none;
+    }
+    #imagebutton{
+        display:none;
+    }
+    .column{
+        width:32%;
+    }
+    #column1{
+        left:0px;
+    }
+    #column2{
+        left:33%;
+    }
+    #column3{
+        right:0px;
+    }
+
+}
+@media only screen and (orientation: portrait) {
+    .inputtable{
+        border-top:solid;
+        border-bottom:solid;
+        border-color:purple;
+    }
+
+    #header img{
+        width:14%;
+    }
+    .column{
+        width:100%;
+    }
+    #column1{
+        left:0px;
+    }
+    #column2{
+        left:0px;
+    }
+    #column3{
+        right:0px;
+    }
+    
+}
+
 </style>
 </body>
 </html>
