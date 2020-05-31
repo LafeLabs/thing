@@ -102,6 +102,8 @@
         "printer.svg",
         "right.svg",
         "rightsmall.svg",
+        "robot.svg",
+        "robotconfig.svg",
         "rotate.svg",
         "rulers.png",
         "rulers.svg",

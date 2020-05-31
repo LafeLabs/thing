@@ -19,14 +19,16 @@
     <canvas id = "invisiblecanvas"></canvas>
 </div>
 <div id  = "margin">
-    <img id = "modebutton" class = "button" style = "width:50px;background-color:#00ff00" src = "iconsymbols/cursor.svg"/>
-    <a href = "tablet.html"><img style = "width:50px" src = "iconsymbols/tablet.svg"></a>
-    <a href = "robotfont.html"><img style = "width:50px" src = "iconsymbols/fonteditor.svg"></a>    
-<a href = "robotcube.html"><img style = "width:50px" src = "iconsymbols/hypercube.svg"></a>
-    <a href = "map.html"><img style = "width:50px" src = "iconsymbols/map.svg"></a>
-    <a href = "scroll.html"><img style = "width:50px" src = "iconsymbols/scroll.svg"></a>    
+    <img id = "modebutton" class = "button" src = "iconsymbols/cursor.svg"/>
+    <a href = "tablet.html"><img  src = "iconsymbols/tablet.svg"></a>
+    <a href = "robotfont.html"><img src = "iconsymbols/fonteditor.svg"></a>    
+<a href = "robotcube.html"><img src = "iconsymbols/hypercube.svg"></a>
+    <a href = "map.html"><img src = "iconsymbols/map.svg"></a>
+    <a href = "scroll.html"><img src = "iconsymbols/scroll.svg"></a>    
         <input id = "actioninput"/>
-<a href = "robotconfig.html">robotconfig.html</a>
+<a href = "robotconfig.html">
+    <img src = "iconsymbols/robotconfig.svg"/>
+</a>
 <input id = "spellinput"/>
     <div id = "controldiv">
         
@@ -295,6 +297,12 @@ function modeswitch(){
 
 </script>
 <style>
+a img{
+    width:60px;
+}
+#modebutton{
+    width:60px;
+}
 body{
     overflow:hidden;
 }
