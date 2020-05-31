@@ -213,6 +213,9 @@ document.getElementById("hammerxy").style.height = (squareWidth).toString() + "p
 mainmap = new Map(squareWidth,squareWidth,document.getElementById("mainmap"));
 
 
+loadmap(currentFile);
+
+/*
 var httpc2 = new XMLHttpRequest();
     httpc2.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -236,7 +239,7 @@ var httpc2 = new XMLHttpRequest();
 };
 httpc2.open("GET", "fileloader.php?filename=" + currentFile, true);
 httpc2.send();
-
+*/
 
 linkindex  = 0;
 mainmap.linkindex = 0;
@@ -636,19 +639,8 @@ if (this.readyState == 4 && this.status == 200) {
         document.getElementById("maplist").appendChild(newmapbutton);
         newmapbutton.onclick = function(){
             currentFile = this.innerHTML;
-            document.getElementById("currentfilename").innerHTML = currentFile;
-            var httpc = new XMLHttpRequest();
-            httpc.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    mainmap.array = JSON.parse(this.responseText);
-                    mainmap.draw();
-                    document.getElementById("textio").value = JSON.stringify(mainmap.array,null,"    ");
-                }
-            };
-            httpc.open("GET", "fileloader.php?filename=" + currentFile, true);
-            httpc.send();
+            loadmap(currentFile);
             }
-            
         }
     }
 };
@@ -698,6 +690,33 @@ newmapbutton.onclick = function(){
             mainmap.draw();
             document.getElementById("textio").value = JSON.stringify(mainmap.array,null,"    ");
         }
+    };
+    httpc.open("GET", "fileloader.php?filename=" + currentFile, true);
+    httpc.send();
+}
+
+
+function loadmap(mapname){
+    document.getElementById("currentfilename").innerHTML = mapname;
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            mainmap.array = JSON.parse(this.responseText);
+            mainmap.draw();
+            document.getElementById("textio").value = JSON.stringify(mainmap.array,null,"    ");
+        }
+        
+        mainmap.linkArray[mainmap.linkindex].style.border = "solid";
+        mainmap.linkArray[mainmap.linkindex].style.borderWidth = "0.1px";
+
+        document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
+        //un comment for math
+        //MathJax.Hub.Typeset();
+        document.getElementById("textio").value = JSON.stringify(mainmap.array,null,"    ");
+        document.getElementById("textinput").value = mainmap.array[mainmap.linkindex].text;
+        document.getElementById("linkinput").value = mainmap.array[mainmap.linkindex].href;
+        document.getElementById("imginput").value = mainmap.array[mainmap.linkindex].src;
+        //			MathJax.Hub.Typeset();//tell Mathjax to update the math
     };
     httpc.open("GET", "fileloader.php?filename=" + currentFile, true);
     httpc.send();

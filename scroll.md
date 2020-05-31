@@ -1,4 +1,3 @@
-
 # Main scroll
 
 To load a scroll, click on a link on the side if you're on a computer or top if you're on mobile.  To edit a scroll, click the edit link which looks like this:
