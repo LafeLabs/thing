@@ -1,29 +1,62 @@
 [
     {
-        "x": 0.11933174224343675,
-        "y": 0.00477326968973747,
-        "w": 0.09188544152744631,
+        "x": 0.11813842482100238,
+        "y": 0.002386634844868735,
+        "w": 0.08949880668257756,
         "angle": 0,
         "text": "symbolapp.html",
         "href": "symbolapp.html",
-        "src": "iconsymbols/symbolapp.svg"
+        "src": "iconsymbols/symbolapp.svg",
+        "maplinkmode": false
     },
     {
-        "x": 0.008353221957040573,
-        "y": 0.0059665871121718375,
-        "w": 0.0954653937947494,
+        "x": 0.0059665871121718375,
+        "y": 0.00477326968973747,
+        "w": 0.09427207637231504,
         "angle": 0,
         "text": "index.html",
         "href": "index.html",
-        "src": "iconsymbols/geometronthing.svg"
+        "src": "iconsymbols/geometronthing.svg",
+        "maplinkmode": false
     },
     {
-        "x": 0.1610978520286396,
-        "y": 0.3341288782816229,
-        "w": 0.42840095465393796,
+        "x": 0.15990453460620524,
+        "y": 0.3317422434367542,
+        "w": 0.42720763723150357,
         "angle": 57,
         "text": "symbolapp.html",
         "href": "symbolapp.html",
-        "src": "iconsymbols/arrow.svg"
+        "src": "iconsymbols/arrow.svg",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.2508361204013378,
+        "y": 0.29431438127090304,
+        "w": 0.5886287625418061,
+        "angle": 54,
+        "text": "link to a pastebin with another map",
+        "href": "https://pastebin.com/raw/SYJ0Pc4u",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.45584725536992843,
+        "y": 0.5835322195704057,
+        "w": 0.535799522673031,
+        "angle": 6,
+        "text": "link to a pastebin with another map",
+        "href": "https://pastebin.com/raw/SYJ0Pc4u",
+        "src": "uploadimages/image1.jpg",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.11575178997613365,
+        "y": 0.7219570405727923,
+        "w": 1.0393794749403342,
+        "angle": 0,
+        "text": "link to foo",
+        "href": "maps/foo",
+        "src": "",
+        "maplinkmode": true
     }
 ]

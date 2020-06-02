@@ -69,6 +69,9 @@
             <tr>
                 <td>image url:</td><td><input id = "imginput"/></td>
             </tr>
+            <tr>
+                <td>maplinkmode</td><td id = "maplinkmodebutton" class= "button"></td>
+            </tr>
         </table>
         <table id = "iotable">
             <tr>
@@ -166,6 +169,25 @@
 </div>
 
 <script>
+document.getElementById("maplinkmodebutton").onclick = function(){
+    var oldstate = false;
+    if(this.innerHTML == "true"){
+        oldstate = true;
+    }
+    else{
+        oldstate = false;
+    }
+    var newstate = !oldstate;
+    if(newstate == true){
+        mainmap.array[mainmap.linkindex].maplinkmode = true;
+        this.innerHTML = "true";
+    }
+    else{
+        mainmap.array[mainmap.linkindex].maplinkmode = false;
+        this.innerHTML = "false";
+    }
+    
+}
 
 currentFile = "data/currentMap.txt";
 
@@ -213,9 +235,6 @@ document.getElementById("hammerxy").style.height = (squareWidth).toString() + "p
 mainmap = new Map(squareWidth,squareWidth,document.getElementById("mainmap"));
 
 
-loadmap(currentFile);
-
-/*
 var httpc2 = new XMLHttpRequest();
     httpc2.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -233,13 +252,18 @@ var httpc2 = new XMLHttpRequest();
     document.getElementById("textinput").value = mainmap.array[mainmap.linkindex].text;
     document.getElementById("linkinput").value = mainmap.array[mainmap.linkindex].href;
     document.getElementById("imginput").value = mainmap.array[mainmap.linkindex].src;
-            
+
+    if(typeof mainmap.array[mainmap.linkindex].maplinkmode == "undefined"){
+        mainmap.array[mainmap.linkindex].maplinkmode = false;
+    }
+    document.getElementById("maplinkmodebutton").innerHTML = mainmap.array[mainmap.linkindex].maplinkmode.toString();       
+    
         
     }
 };
 httpc2.open("GET", "fileloader.php?filename=" + currentFile, true);
 httpc2.send();
-*/
+
 
 linkindex  = 0;
 mainmap.linkindex = 0;
@@ -279,7 +303,8 @@ document.getElementById("resetbutton").onclick  = function(){
         "angle": 0,
         "text": "Map",
         "href": "",
-        "src": ""
+        "src": "",
+        "maplinkmode":false
     }
     ];
     mainmap.draw();
@@ -292,8 +317,11 @@ document.getElementById("nextbutton").onclick = function() {
     document.getElementById("textinput").value = mainmap.array[mainmap.linkindex].text;
     document.getElementById("linkinput").value = mainmap.array[mainmap.linkindex].href;
     document.getElementById("imginput").value = mainmap.array[mainmap.linkindex].src;
-    
 
+    if(typeof mainmap.array[mainmap.linkindex].maplinkmode == "undefined"){
+        mainmap.array[mainmap.linkindex].maplinkmode = false;
+    }
+    document.getElementById("maplinkmodebutton").innerHTML = mainmap.array[mainmap.linkindex].maplinkmode.toString();        
     
 }
 
@@ -304,7 +332,11 @@ document.getElementById("prevbutton").onclick = function() {
         document.getElementById("textinput").value = mainmap.array[mainmap.linkindex].text;
     document.getElementById("linkinput").value = mainmap.array[mainmap.linkindex].href;
     document.getElementById("imginput").value = mainmap.array[mainmap.linkindex].src;
-    
+    if(typeof mainmap.array[mainmap.linkindex].maplinkmode == "undefined"){
+        mainmap.array[mainmap.linkindex].maplinkmode = false;
+    }
+    document.getElementById("maplinkmodebutton").innerHTML = mainmap.array[mainmap.linkindex].maplinkmode.toString();       
+
 }
 
 document.getElementById("newbutton").onclick = function() {
@@ -313,7 +345,11 @@ document.getElementById("newbutton").onclick = function() {
     document.getElementById("textinput").value = mainmap.array[mainmap.linkindex].text;
     document.getElementById("linkinput").value = mainmap.array[mainmap.linkindex].href;
     document.getElementById("imginput").value = mainmap.array[mainmap.linkindex].src;
-    
+    if(typeof mainmap.array[mainmap.linkindex].maplinkmode == "undefined"){
+        mainmap.array[mainmap.linkindex].maplinkmode = false;
+    }
+    document.getElementById("maplinkmodebutton").innerHTML = mainmap.array[mainmap.linkindex].maplinkmode.toString();       
+
 }
 
 
@@ -324,6 +360,10 @@ document.getElementById("deletebutton").onclick = function() {
         document.getElementById("textinput").value = mainmap.array[mainmap.linkindex].text;
     document.getElementById("linkinput").value = mainmap.array[mainmap.linkindex].href;
     document.getElementById("imginput").value = mainmap.array[mainmap.linkindex].src;
+    if(typeof mainmap.array[mainmap.linkindex].maplinkmode == "undefined"){
+        mainmap.array[mainmap.linkindex].maplinkmode = false;
+    }
+    document.getElementById("maplinkmodebutton").innerHTML = mainmap.array[mainmap.linkindex].maplinkmode.toString();       
     
 }
 
@@ -639,8 +679,19 @@ if (this.readyState == 4 && this.status == 200) {
         document.getElementById("maplist").appendChild(newmapbutton);
         newmapbutton.onclick = function(){
             currentFile = this.innerHTML;
-            loadmap(currentFile);
+            document.getElementById("currentfilename").innerHTML = currentFile;
+            var httpc = new XMLHttpRequest();
+            httpc.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    mainmap.array = JSON.parse(this.responseText);
+                    mainmap.draw();
+                    document.getElementById("textio").value = JSON.stringify(mainmap.array,null,"    ");
+                }
+            };
+            httpc.open("GET", "fileloader.php?filename=" + currentFile, true);
+            httpc.send();
             }
+            
         }
     }
 };
@@ -690,33 +741,6 @@ newmapbutton.onclick = function(){
             mainmap.draw();
             document.getElementById("textio").value = JSON.stringify(mainmap.array,null,"    ");
         }
-    };
-    httpc.open("GET", "fileloader.php?filename=" + currentFile, true);
-    httpc.send();
-}
-
-
-function loadmap(mapname){
-    document.getElementById("currentfilename").innerHTML = mapname;
-    var httpc = new XMLHttpRequest();
-    httpc.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            mainmap.array = JSON.parse(this.responseText);
-            mainmap.draw();
-            document.getElementById("textio").value = JSON.stringify(mainmap.array,null,"    ");
-        }
-        
-        mainmap.linkArray[mainmap.linkindex].style.border = "solid";
-        mainmap.linkArray[mainmap.linkindex].style.borderWidth = "0.1px";
-
-        document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
-        //un comment for math
-        //MathJax.Hub.Typeset();
-        document.getElementById("textio").value = JSON.stringify(mainmap.array,null,"    ");
-        document.getElementById("textinput").value = mainmap.array[mainmap.linkindex].text;
-        document.getElementById("linkinput").value = mainmap.array[mainmap.linkindex].href;
-        document.getElementById("imginput").value = mainmap.array[mainmap.linkindex].src;
-        //			MathJax.Hub.Typeset();//tell Mathjax to update the math
     };
     httpc.open("GET", "fileloader.php?filename=" + currentFile, true);
     httpc.send();
@@ -967,7 +991,9 @@ input,table,select{
 #rotatezoomtable img{
     width:47px;
 }
-
+#maplinkmodebutton{
+    border:solid;
+}
 </style>
 </body>
 </html>

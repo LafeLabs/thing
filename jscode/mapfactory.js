@@ -12,13 +12,14 @@ function Map(w,h,div) {
     this.editmode = false;
 //    this.pastebinlinks = false;
     //MapLink(x,y,w,angle,text,href,src)
-    var newLink  = new MapLink(0.1,0.1,0.2,0,"text","","");
+    var newLink  = new MapLink(0.1,0.1,0.2,0,"text","","",false);
     this.array.push(newLink);
 
     this.draw = function() {
         this.div.innerHTML = "";
         this.linkArray = [];
         for(var index = 0;index < this.array.length;index++){
+            
             var newa = document.createElement("A");
             newa.style.position = "absolute";
             this.div.appendChild(newa);
@@ -48,7 +49,18 @@ function Map(w,h,div) {
                 newa.style.fontSize = (0.1*this.array[index].w*this.w).toString() + "px"; 
             }
             if(this.array[index].href.length > 0){
-                newa.href = this.array[index].href;
+                if(this.array[index].maplinkmode == true){
+                    var newspan = document.createElement("SPAN");
+                    newspan.innerHTML = this.array[index].href;
+                    newspan.className = "maplink";
+                    newspan.style.display = "none";
+                    newa.style.color = "brown";
+                    newa.style.cursor = "pointer";
+                    newa.appendChild(newspan);
+                }
+                else{
+                    newa.href = this.array[index].href;
+                }
             }
 
             this.linkArray.push(newa);
@@ -77,10 +89,10 @@ function Map(w,h,div) {
         
         if(this.array.length > 0 ){
             this.linkArray[this.linkindex].style.border = "none";
-            var newLink  = new MapLink(this.array[this.linkindex].x + this.array[linkindex].w*0.05,this.array[this.linkindex].y + this.array[this.linkindex].w*0.05,this.array[this.linkindex].w,this.array[this.linkindex].angle,this.array[this.linkindex].text,this.array[this.linkindex].href,this.array[this.linkindex].src);
+            var newLink  = new MapLink(this.array[this.linkindex].x + this.array[linkindex].w*0.05,this.array[this.linkindex].y + this.array[this.linkindex].w*0.05,this.array[this.linkindex].w,this.array[this.linkindex].angle,this.array[this.linkindex].text,this.array[this.linkindex].href,this.array[this.linkindex].src,this.array[this.linkindex].maplinkmode);
         }
         else{
-            var newLink  = new MapLink(0.1,0.1,0.1,0,"text","","");
+            var newLink  = new MapLink(0.1,0.1,0.1,0,"text","","",false);
             this.linkindex = 0;
         }
         //  var newLink = new MapLink(0,0,0.1,1,0,"","","","text");
@@ -174,7 +186,7 @@ function Map(w,h,div) {
 }
 
 
-function MapLink(x,y,w,angle,text,href,src) {
+function MapLink(x,y,w,angle,text,href,src,maplinkmode) {
  
     this.x = x;
     this.y = y;
@@ -183,6 +195,7 @@ function MapLink(x,y,w,angle,text,href,src) {
     this.text = text;
     this.href = href;
     this.src = src;
+    this.maplinkmode = maplinkmode;
 
 }
 

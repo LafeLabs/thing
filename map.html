@@ -155,6 +155,14 @@ function loadmap(mapname){
         if (this.readyState == 4 && this.status == 200) {
             mainmap.array = JSON.parse(this.responseText);
             mainmap.draw();
+            for(var index = 0;index < mainmap.linkArray.length;index++){
+                if(mainmap.array[index].maplinkmode == true){
+                    mainmap.linkArray[index].onclick = function(){
+                        loadmap(this.getElementsByClassName("maplink")[0].innerHTML);    
+                        
+                    }
+                }
+            }
             document.getElementById("textio").value = this.responseText;
             //un comment for math
             if(mathmode){
