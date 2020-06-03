@@ -161,10 +161,18 @@
     ],
     "maps": [
         "actions",
+        "assemble",
+        "buy",
         "foo",
+        "kits",
         "markermap.txt",
+        "node",
         "nouns",
+        "operate",
         "repository",
+        "roles",
+        "samteccables",
+        "scavenge",
         "servermap.txt"
     ],
     "scrolls": [

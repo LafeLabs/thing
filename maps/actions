@@ -10,12 +10,12 @@
         "maplinkmode": true
     },
     {
-        "x": 0.06443914081145585,
-        "y": 0.2541766109785203,
+        "x": 0.05608591885441527,
+        "y": 0.36754176610978523,
         "w": 0.7482100238663485,
         "angle": 0,
         "text": "buy",
-        "href": "",
+        "href": "maps/buy",
         "src": "",
         "maplinkmode": true
     },
@@ -35,17 +35,7 @@
         "w": 0.7482100238663485,
         "angle": 0,
         "text": "assemble",
-        "href": "",
-        "src": "",
-        "maplinkmode": true
-    },
-    {
-        "x": 0.057279236276849645,
-        "y": 0.39618138424821003,
-        "w": 0.7482100238663485,
-        "angle": 0,
-        "text": "distribute",
-        "href": "",
+        "href": "maps/assemble",
         "src": "",
         "maplinkmode": true
     },
@@ -55,27 +45,27 @@
         "w": 0.7482100238663485,
         "angle": 0,
         "text": "scavenge",
-        "href": "",
+        "href": "maps/scavenge",
         "src": "",
         "maplinkmode": true
     },
     {
-        "x": 0.04892601431980907,
-        "y": 0.7028639618138425,
-        "w": 0.7482100238663485,
-        "angle": 0,
-        "text": "install",
-        "href": "",
-        "src": "",
-        "maplinkmode": true
-    },
-    {
-        "x": 0.04295942720763723,
-        "y": 0.8579952267303103,
+        "x": 0.046539379474940336,
+        "y": 0.7708830548926014,
         "w": 0.7482100238663485,
         "angle": 0,
         "text": "operate",
-        "href": "",
+        "href": "maps/operate",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.8007159904534606,
+        "y": -0.02028639618138425,
+        "w": 0.7243436754176611,
+        "angle": 0,
+        "text": "reality",
+        "href": "data/currentMap.txt",
         "src": "",
         "maplinkmode": true
     }

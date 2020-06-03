@@ -58,5 +58,15 @@
         "href": "maps/node",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0.7852028639618138,
+        "y": -0.02028639618138425,
+        "w": 0.7482100238663485,
+        "angle": 0,
+        "text": "reality",
+        "href": "data/currentMap.txt",
+        "src": "",
+        "maplinkmode": true
     }
 ]
