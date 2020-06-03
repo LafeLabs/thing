@@ -168,5 +168,15 @@
         "href": "",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0.02028639618138425,
+        "y": 0.3926014319809069,
+        "w": 0.2684964200477327,
+        "angle": 0,
+        "text": "duct tape",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
     }
 ]

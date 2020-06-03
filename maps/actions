@@ -68,5 +68,15 @@
         "href": "data/currentMap.txt",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0.0513126491646778,
+        "y": 0.25894988066825775,
+        "w": 0.7482100238663485,
+        "angle": 0,
+        "text": "distribute",
+        "href": "maps/distribute",
+        "src": "",
+        "maplinkmode": true
     }
 ]

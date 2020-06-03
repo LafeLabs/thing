@@ -164,6 +164,7 @@
         "assemble",
         "bridgetool",
         "buy",
+        "distribute",
         "electronicskit",
         "foo",
         "kits",

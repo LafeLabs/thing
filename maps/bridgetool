@@ -98,5 +98,15 @@
         "href": "",
         "src": "https://i.imgur.com/p8QfdkY.png",
         "maplinkmode": true
+    },
+    {
+        "x": 0.19331742243436753,
+        "y": 0.8257756563245824,
+        "w": 0.301909307875895,
+        "angle": -30,
+        "text": "joints are duct taped",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
     }
 ]
