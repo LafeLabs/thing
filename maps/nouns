@@ -24,8 +24,8 @@
         "y": 0.1515513126491647,
         "w": 0.7482100238663485,
         "angle": 0,
-        "text": "role",
-        "href": "",
+        "text": "roles",
+        "href": "maps/roles",
         "src": "",
         "maplinkmode": true
     },
@@ -44,8 +44,8 @@
         "y": 0.4439140811455847,
         "w": 0.7482100238663485,
         "angle": 0,
-        "text": "kit",
-        "href": "",
+        "text": "kits",
+        "href": "maps/kits",
         "src": "",
         "maplinkmode": true
     },
@@ -54,8 +54,8 @@
         "y": 0.5906921241050119,
         "w": 0.7482100238663485,
         "angle": 0,
-        "text": "feed",
-        "href": "",
+        "text": "node",
+        "href": "maps/node",
         "src": "",
         "maplinkmode": true
     }
