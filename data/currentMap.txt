@@ -1,62 +1,32 @@
 [
     {
-        "x": 0.11813842482100238,
-        "y": 0.002386634844868735,
-        "w": 0.08949880668257756,
+        "x": 0.6778042959427207,
+        "y": 0.007159904534606206,
+        "w": 0.8890214797136038,
         "angle": 0,
-        "text": "symbolapp.html",
-        "href": "symbolapp.html",
-        "src": "iconsymbols/symbolapp.svg",
-        "maplinkmode": false
+        "text": "actions",
+        "href": "maps/actions",
+        "src": "",
+        "maplinkmode": true
     },
     {
-        "x": 0.0059665871121718375,
-        "y": 0.00477326968973747,
-        "w": 0.09427207637231504,
+        "x": 0.6957040572792362,
+        "y": 0.3329355608591885,
+        "w": 0.8890214797136038,
+        "angle": 0,
+        "text": "nouns",
+        "href": "maps/nouns",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.046539379474940336,
+        "y": 0.017899761336515514,
+        "w": 0.7482100238663485,
         "angle": 0,
         "text": "index.html",
         "href": "index.html",
-        "src": "iconsymbols/geometronthing.svg",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.15990453460620524,
-        "y": 0.3317422434367542,
-        "w": 0.42720763723150357,
-        "angle": 57,
-        "text": "symbolapp.html",
-        "href": "symbolapp.html",
-        "src": "iconsymbols/arrow.svg",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.2508361204013378,
-        "y": 0.29431438127090304,
-        "w": 0.5886287625418061,
-        "angle": 54,
-        "text": "link to a pastebin with another map",
-        "href": "https://pastebin.com/raw/SYJ0Pc4u",
         "src": "",
-        "maplinkmode": true
-    },
-    {
-        "x": 0.45584725536992843,
-        "y": 0.5835322195704057,
-        "w": 0.535799522673031,
-        "angle": 6,
-        "text": "link to a pastebin with another map",
-        "href": "https://pastebin.com/raw/SYJ0Pc4u",
-        "src": "uploadimages/image1.jpg",
-        "maplinkmode": true
-    },
-    {
-        "x": 0.11575178997613365,
-        "y": 0.7219570405727923,
-        "w": 1.0393794749403342,
-        "angle": 0,
-        "text": "link to foo",
-        "href": "maps/foo",
-        "src": "",
-        "maplinkmode": true
+        "maplinkmode": false
     }
 ]

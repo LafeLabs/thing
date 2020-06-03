@@ -6,7 +6,7 @@
         "angle": 4,
         "text": "link to servermap",
         "href": "maps/servermap.txt",
-        "src": "symbolfeed/symbol1588904382.svg",
+        "src": "",
         "maplinkmode": true
     },
     {
@@ -16,7 +16,17 @@
         "angle": 6,
         "text": "link to currentMap",
         "href": "data/currentMap.txt",
-        "src": "symbolfeed/symbol1589138122.svg",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.2744630071599045,
+        "y": 0.7040572792362768,
+        "w": 0.34725536992840095,
+        "angle": -14,
+        "text": "link to pastebin foo",
+        "href": "https://pastebin.com/raw/J5kpsRpM",
+        "src": "",
         "maplinkmode": true
     }
 ]

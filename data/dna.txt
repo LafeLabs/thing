@@ -160,7 +160,11 @@
         "uploadsymbol.txt"
     ],
     "maps": [
+        "actions",
+        "foo",
         "markermap.txt",
+        "nouns",
+        "repository",
         "servermap.txt"
     ],
     "scrolls": [
