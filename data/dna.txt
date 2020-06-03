@@ -162,6 +162,7 @@
     "maps": [
         "actions",
         "assemble",
+        "bridgetool",
         "buy",
         "electronicskit",
         "foo",

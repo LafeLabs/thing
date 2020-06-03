@@ -45,7 +45,7 @@
         "w": 0.7482100238663485,
         "angle": 0,
         "text": "linear stage set(3x) kit",
-        "href": "",
+        "href": "maps/stagekit",
         "src": "",
         "maplinkmode": true
     },
@@ -55,7 +55,7 @@
         "w": 0.7482100238663485,
         "angle": 0,
         "text": "plastic bridge tool kit",
-        "href": "",
+        "href": "maps/bridgetool",
         "src": "",
         "maplinkmode": true
     }

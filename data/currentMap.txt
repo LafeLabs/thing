@@ -38,5 +38,15 @@
         "href": "maps/actions",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0.05369928400954654,
+        "y": 0.2100238663484487,
+        "w": 0.2159904534606205,
+        "angle": 0,
+        "text": "symbol",
+        "href": "symbol.html",
+        "src": "iconsymbols/geometron.svg",
+        "maplinkmode": false
     }
 ]
