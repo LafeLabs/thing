@@ -1,0 +1,92 @@
+[
+    {
+        "x": 0.2720763723150358,
+        "y": 0.07756563245823389,
+        "w": 0.9463007159904535,
+        "angle": 0,
+        "text": "Stage Kit",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.8448687350835322,
+        "y": -0.01909307875894988,
+        "w": 0.8890214797136038,
+        "angle": 0,
+        "text": "kits",
+        "href": "maps/kits",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.010739856801909307,
+        "y": 0.22792362768496421,
+        "w": 0.2828162291169451,
+        "angle": 0,
+        "text": "Samtec Cables",
+        "href": "maps/samteccables",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.02386634844868735,
+        "y": 0.3031026252983294,
+        "w": 0.2828162291169451,
+        "angle": 0,
+        "text": "DVD drives, stripped down",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.02386634844868735,
+        "y": 0.4343675417661098,
+        "w": 0.2828162291169451,
+        "angle": 0,
+        "text": "cardboard cutout set",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.01909307875894988,
+        "y": 0.5059665871121718,
+        "w": 0.2828162291169451,
+        "angle": 0,
+        "text": "elmers glue",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.01909307875894988,
+        "y": 0.5632458233890215,
+        "w": 0.2828162291169451,
+        "angle": 0,
+        "text": "epoxy",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.013126491646778043,
+        "y": 0.6109785202863962,
+        "w": 0.2828162291169451,
+        "angle": 0,
+        "text": "box cutter",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.013126491646778043,
+        "y": 0.6646778042959427,
+        "w": 0.2828162291169451,
+        "angle": 0,
+        "text": "box cutter",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    }
+]

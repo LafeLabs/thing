@@ -25,7 +25,7 @@
         "w": 0.7482100238663485,
         "angle": 0,
         "text": "electronics hat kit",
-        "href": "",
+        "href": "maps/electronicskit",
         "src": "",
         "maplinkmode": true
     },
@@ -35,7 +35,7 @@
         "w": 0.7482100238663485,
         "angle": 0,
         "text": "pi kit",
-        "href": "",
+        "href": "maps/pikit",
         "src": "",
         "maplinkmode": true
     },

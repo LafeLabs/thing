@@ -163,17 +163,20 @@
         "actions",
         "assemble",
         "buy",
+        "electronicskit",
         "foo",
         "kits",
         "markermap.txt",
         "node",
         "nouns",
         "operate",
+        "pikit",
         "repository",
         "roles",
         "samteccables",
         "scavenge",
-        "servermap.txt"
+        "servermap.txt",
+        "stagekit"
     ],
     "scrolls": [
         "bookofshapes",

@@ -48,5 +48,15 @@
         "href": "",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0.7398568019093079,
+        "y": 0.42601431980906923,
+        "w": 0.7147971360381862,
+        "angle": 0,
+        "text": "stagekit",
+        "href": "maps/stagekit",
+        "src": "",
+        "maplinkmode": true
     }
 ]

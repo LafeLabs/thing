@@ -65,7 +65,7 @@
         "w": 0.7482100238663485,
         "angle": 0,
         "text": "map",
-        "href": "",
+        "href": "maps/markermap.txt",
         "src": "",
         "maplinkmode": true
     }
