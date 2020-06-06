@@ -188,6 +188,7 @@
         "foo",
         "github.md",
         "hellogeometron",
+        "imagescroll",
         "introvideo",
         "lasercutshapes",
         "maps.md",
