@@ -280,7 +280,7 @@ Now to do a first print of a tablet go to letter mode by clicking the far left b
 
 It is very important that before turning your system off you turn off the 12 volt power. After doing that, hit the "off" button to shut down the pi.  Having done that you can now disconnect everything from the Pi but the power.  The next time you want to use it, just plug in the pi and leave everything else disconnected(this is called "headless mode" on the Pi) and you can operate the robot from any other device on the network by going back to the IP address you wrote on the Pi.  That address will be different on each wifi network and can sometimes randomly change. So if you ever don't have the ability to see the Pi after turning it on, hook it back up with a screen and keyboard, boot it with the screen, make sure it's on the proper network, direct the Pi's browser to "localhost" and again write down the new IP address. Then turn the whole thing off and try headless mode again. You will also repeat this process whenever you install a robot in a new location(home, office, coffee shop, classroom, library, public park etc).
 
-Having built a robot, find students and artists who can use it and distribute it directly to them, distribute it in public directly to passerby, or donate it to a public library which can distribute it via their existing educational programming.
+Having built a robot, find students and artists who can use it and distribute it directly to them, distribute it in public directly to passerby, or donate it to a public library which can distribute it via their educational programming.
 
 
 
