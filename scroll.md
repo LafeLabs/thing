@@ -1,6 +1,6 @@
-[link back to main page](index.html)
+## [link back to main page](index.html)
 
-[link to robot](robot.html)
+## [link to robot](robot.html)
 
 # Building a Robot
 

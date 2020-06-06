@@ -48,5 +48,25 @@
         "href": "symbol.html",
         "src": "iconsymbols/geometron.svg",
         "maplinkmode": false
+    },
+    {
+        "x": 0.2529832935560859,
+        "y": 0.5692124105011933,
+        "w": 1.0990453460620524,
+        "angle": 0,
+        "text": "operate robot",
+        "href": "robot.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.2553699284009546,
+        "y": 0.7016706443914081,
+        "w": 1.0990453460620524,
+        "angle": 0,
+        "text": "build robot",
+        "href": "scroll.html",
+        "src": "",
+        "maplinkmode": false
     }
 ]
