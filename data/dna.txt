@@ -164,6 +164,7 @@
         "assemble",
         "bridgetool",
         "buy",
+        "digitup",
         "distribute",
         "electronicskit",
         "foo",
@@ -186,6 +187,7 @@
         "duality",
         "elementsofcode",
         "foo",
+        "geometronscroll",
         "github.md",
         "hellogeometron",
         "imagescroll",
@@ -200,6 +202,7 @@
         "ruler",
         "scrollscroll.md",
         "srs.md",
-        "symbolmagic"
+        "symbolmagic",
+        "trashrobotdotorg"
     ]
 }
