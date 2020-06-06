@@ -36,6 +36,7 @@
         "tablet.html",
         "textfeed.html",
         "thing.html",
+        "trashrobotdotorg.html",
         "voxel.html",
         "wall.html"
     ],
