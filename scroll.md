@@ -262,6 +262,9 @@ Now to start the off button working so you can turn the machine off with the but
 sudo /etc/init.d/listen-for-shutdown.sh start
 </pre>
 
+
+The last step is to set up the Pi to be able to have the outputs controlled remotely. To do that go to "Preferences" then "Raspberry Pi Configuration" then click on "interfaces" to see the interfaces choices.  Click the radio button to enable the Remote GPIO and close that window.
+
 Now open a web browser, and put in "localhost" into the browser.  That will display the IP address(a series of 4 numbers separated by periods) in big letters.  Write that on the main control unit somewhere in big letters with a marker or paint pen(assuming this is the network you'll be using the robot on).  
 
 With that IP address noted down, navigate another computer or device on the network to that IP address by copying it into the browser.  You should now see the same screen on your other device/computer as you do on the Pi.  Click the link to go to the robot.  
