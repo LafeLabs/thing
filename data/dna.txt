@@ -81,6 +81,7 @@
         "fork.svg",
         "geometron.svg",
         "geometronthing.svg",
+        "gobutton.svg",
         "goldenspiral.svg",
         "helloworld.svg",
         "hexagon.svg",
@@ -156,6 +157,7 @@
         "pngsave.txt",
         "rdelete.txt",
         "replicator.txt",
+        "robot.txt",
         "text2php.txt",
         "upload.txt",
         "uploadsymbol.txt"

@@ -20,15 +20,15 @@
 </div>
 <div id  = "margin">
     <img id = "modebutton" class = "button" src = "iconsymbols/cursor.svg"/>
-    <a href = "tablet.html"><img  src = "iconsymbols/tablet.svg"></a>
     <a href = "robotfont.html"><img src = "iconsymbols/fonteditor.svg"></a>    
 <a href = "robotcube.html"><img src = "iconsymbols/hypercube.svg"></a>
     <a href = "map.html"><img src = "iconsymbols/map.svg"></a>
-    <a href = "scroll.html"><img src = "iconsymbols/scroll.svg"></a>    
+    <a href = "scroll.html"><img src = "iconsymbols/scroll.svg"></a>  
         <input id = "actioninput"/>
 <a href = "robotconfig.html">
     <img src = "iconsymbols/robotconfig.svg"/>
 </a>
+    <img id = "gobutton" src = "iconsymbols/gobutton.svg" class = "button"/>
 <input id = "spellinput"/>
     <div id = "controldiv">
         
@@ -295,9 +295,22 @@ function modeswitch(){
     document.getElementById("actioninput").select();
 }
 
+
+document.getElementById("gobutton").onclick = function(){
+    var httpc = new XMLHttpRequest();
+    var url = "robot.php";         
+    httpc.open("GET", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+    httpc.send();//send text to deletefile.php
+    
+}
+
 </script>
 <style>
 a img{
+    width:60px;
+}
+#gobutton{
     width:60px;
 }
 #modebutton{
