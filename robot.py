@@ -39,6 +39,17 @@ controlpin2 = 13
 controlpin3 = 19
 controlpin4 = 26
 
+controlpin5 = 5
+controlpin6 = 0
+controlpin7 = 11
+controlpin8 = 9
+
+controlpin9 = 10
+controlpin10 = 22
+controlpin11 = 27
+controlpin12 = 17
+
+
 stopPin = 4
 
 stepTime = 0.001
@@ -58,6 +69,15 @@ if robotExists:
     GPIO.setup(controlpin2, GPIO.OUT, initial=GPIO.LOW) # 
     GPIO.setup(controlpin3, GPIO.OUT, initial=GPIO.LOW) # 
     GPIO.setup(controlpin4, GPIO.OUT, initial=GPIO.LOW) # 
+    GPIO.setup(controlpin5, GPIO.OUT, initial=GPIO.LOW) # 
+    GPIO.setup(controlpin6, GPIO.OUT, initial=GPIO.LOW) # 
+    GPIO.setup(controlpin7, GPIO.OUT, initial=GPIO.LOW) # 
+    GPIO.setup(controlpin8, GPIO.OUT, initial=GPIO.LOW) # 
+    GPIO.setup(controlpin9, GPIO.OUT, initial=GPIO.LOW) # 
+    GPIO.setup(controlpin10, GPIO.OUT, initial=GPIO.LOW) # 
+    GPIO.setup(controlpin11, GPIO.OUT, initial=GPIO.LOW) # 
+    GPIO.setup(controlpin12, GPIO.OUT, initial=GPIO.LOW) # 
+
     GPIO.setup(stopPin, GPIO.IN, pull_up_down=GPIO.PUD_UP) # 
 
 def control1on():
@@ -107,6 +127,102 @@ def control4off():
         GPIO.output(controlpin4,GPIO.LOW) 
     else:
         print("control 4 off")
+
+def control5on():
+    if robotExists:
+        GPIO.output(controlpin5,GPIO.HIGH) 
+    else:
+        print("control 5 on")
+
+def control5off():
+    if robotExists:
+        GPIO.output(controlpin5,GPIO.LOW) 
+    else:
+        print("control 5 off")
+
+def control6on():
+    if robotExists:
+        GPIO.output(controlpin6,GPIO.HIGH) 
+    else:
+        print("control 6 on")
+
+def control6off():
+    if robotExists:
+        GPIO.output(controlpin6,GPIO.LOW) 
+    else:
+        print("control 6 off")
+
+def control7on():
+    if robotExists:
+        GPIO.output(controlpin7,GPIO.HIGH) 
+    else:
+        print("control 7 on")
+
+def control7off():
+    if robotExists:
+        GPIO.output(controlpin7,GPIO.LOW) 
+    else:
+        print("control 7 off")
+
+def control8on():
+    if robotExists:
+        GPIO.output(controlpin8,GPIO.HIGH) 
+    else:
+        print("control 8 on")
+
+def control8off():
+    if robotExists:
+        GPIO.output(controlpin8,GPIO.LOW) 
+    else:
+        print("control 8 off")
+
+def control9on():
+    if robotExists:
+        GPIO.output(controlpin9,GPIO.HIGH) 
+    else:
+        print("control 9 on")
+
+def control9off():
+    if robotExists:
+        GPIO.output(controlpin9,GPIO.LOW) 
+    else:
+        print("control 9 off")
+
+def control10on():
+    if robotExists:
+        GPIO.output(controlpin10,GPIO.HIGH) 
+    else:
+        print("control 10 on")
+
+def control10off():
+    if robotExists:
+        GPIO.output(controlpin10,GPIO.LOW) 
+    else:
+        print("control 10 off")
+
+def control11on():
+    if robotExists:
+        GPIO.output(controlpin11,GPIO.HIGH) 
+    else:
+        print("control 11 on")
+
+def control11off():
+    if robotExists:
+        GPIO.output(controlpin11,GPIO.LOW) 
+    else:
+        print("control 11 off")
+
+def control12on():
+    if robotExists:
+        GPIO.output(controlpin12,GPIO.HIGH) 
+    else:
+        print("control 12 on")
+
+def control12off():
+    if robotExists:
+        GPIO.output(controlpin12,GPIO.LOW) 
+    else:
+        print("control 12 off")
 
 def moveLeft(numSteps):
     if robotExists:
@@ -352,6 +468,38 @@ def action(address):
         control4on()
     if address == 0o0420:
         control4off()
+    if address == 0o0421:
+        control5on()
+    if address == 0o0422:
+        control5off()
+    if address == 0o0423:
+        control6on()
+    if address == 0o0424:
+        control6off()
+    if address == 0o0425:
+        control7on()
+    if address == 0o0426:
+        control7off()
+    if address == 0o0427:
+        control8on()
+    if address == 0o0430:
+        control8off()
+    if address == 0o0431:
+        control9on()
+    if address == 0o0432:
+        control9off()
+    if address == 0o0433:
+        control10on()
+    if address == 0o0434:
+        control10off()
+    if address == 0o0435:
+        control11on()
+    if address == 0o0436:
+        control11off()
+    if address == 0o0437:
+        control12on()
+    if address == 0o0440:
+        control12off()
         
         
 def sequence(glyph):
@@ -379,6 +527,14 @@ control1off()
 control2off()
 control3off()
 control4off()
+control5off()
+control6off()
+control7off()
+control8off()
+control9off()
+control10off()
+control11off()
+control12off()
 
 #sequence("0500,")
 
