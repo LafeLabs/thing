@@ -4,6 +4,48 @@
 
 # Building a Robot
 
+## Bill of materials
+
+- corrugated cardboard
+- HDPE thin plastic from milk jugs
+- thick stiff plastic, 1/16 inch
+- DVD drives(3 per robot)
+- Samtec cables, 3 per robot, see below
+- duct tape
+- high strength magnets(a stack of 5 little disk magnets per robot)
+- nails(1 per robot)
+- custom printed circuit board
+- stepper motor driver boards from Pololu(3 per robot)
+- 40 pin Pi header(1 per robot)
+- 12 V power barrel connector(1 per robot)
+- momentary buttons(3 per robot)
+- 4 pin headers(3 per robot)
+- raspberry pi board
+- SD card
+- raspberry pi power supply, wall and battery
+- lithium ion battery power pack kit with wall power
+
+## Tools and consumables
+
+- soldering iron
+- solder
+- pliers, wire strippers
+- screwdrivers, both tiny flathead and medium size Phillips head
+- box cutter
+- Elmer's glue
+- Gorilla 2 part epoxy
+- duct tape
+- ruler
+- markers and/or paint pens
+- scoring tool like a fork
+- HDMI screen
+- HDMI cable or HDMI to HDMI mini converter cable if using a Raspberry PI 4
+- Multimeter(to measure both resistance and voltage)
+- USB mouse
+- USB keyboard
+
+
+
 ##  Acquire and wire up linear stages
 
 To begin, gather 3 DVD or CD drives or players.  DVD drives from computers are ideal as they are what all current development has been for.  The important part here is not the drawer that is used to insert and eject the disk but the little part inside that moves the optics back and forth.  Ask people you know if they have any old computer or audio or video equipment, take it apart and look for the stages shown in the images here.
@@ -211,6 +253,8 @@ Plug the three cables into the three headers to complete the robot.
 Finally, set up the three stages either where they will be used or fixed to a board where they can be carried around and duct tape the ends of the bridge tool to the stages as shown.  Mount the nail and magnets also as shown.  Having a supply of random magnets and nails increases versatility of the system.  
 
 ![fully assembled robot](https://i.imgur.com/u42Ua4d.jpg)
+
+In addition to the actual robot you need a power supply which can drive the 12 volt motor drivers.  For this it's good to have one that you can recharge which will last a while and which can also drive USB devices.  A good choice for this is [this lithium ion power pack from Amazon which comes with a wall charger and a cable that changes gender so you can choose to plug the robot directly into the wall.](https://www.amazon.com/dp/B00ME3ZH7C)
 
 To set up the robot, you will need to first set up the Raspberry Pi.  To do this you will need:
 
