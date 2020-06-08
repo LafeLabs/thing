@@ -19,7 +19,9 @@ mkdir("uploadimages");
 mkdir("symbolfeed");
 mkdir("maps");
 mkdir("scrolls");
+mkdir("tree");
 
+copy("https://raw.githubusercontent.com/LafeLabs/thing/master/tree/php/replicator.txt","tree/replicator.php");
 
 foreach($dna->html as $value){
     
