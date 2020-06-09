@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/wAAAAD/AAAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAREAAAAAAiAAEAAAAAACIAAQAAAAAAACABAAAAAAAAAgEAAAAAAwAAIQAAADAzMzMwMzMzMwMAAAEgAAAwAAAAAQIAAAAAAAABACAAAAAAAAEAAgAAAAAAAQAAIgAAAAABAAAiAAAAABEQAAAAAAAAAQAAAAD+/wAA/H8AAM7/AADO/wAA9v8AAPr/AAC8/QAAAAAAAL59AAD+vwAA/t8AAP7vAAD+8wAA/vMAAPx/AAD+/wAA" rel="icon" type="image/x-icon" />
+
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+    <script src="jscode/geometron.js"></script>
+    <script src="jscode/robotfont.js"></script>
+    <script src="jscode/hypercube.js"></script>
+
+</head>
+<body>    
+<div id = "square">
+    <canvas id = "maincanvas"></canvas>
+    <canvas id = "spellcanvas"></canvas>
+    <canvas id = "invisiblecanvas"></canvas>
+</div>
+<div id  = "margin">
+    <img id = "modebutton" class = "button" src = "iconsymbols/cursor.svg"/>
+    <a href = "robotfont.html"><img src = "iconsymbols/fonteditor.svg"></a>    
+<a href = "robotcube.html"><img src = "iconsymbols/hypercube.svg"></a>
+    <a href = "map.html"><img src = "iconsymbols/map.svg"></a>
+    <a href = "scroll.html"><img src = "iconsymbols/scroll.svg"></a>  
+        <input id = "actioninput"/>
+<a href = "robotconfig.html">
+    <img src = "iconsymbols/robotconfig.svg"/>
+</a>
+    <img id = "gobutton" src = "iconsymbols/gobutton.svg" class = "button"/>
+<input id = "spellinput"/>
+    <div id = "controldiv">
+        
+    </div>
+</div>
+<!--
+edit main glyph using soft keys and keyboard
+glyph is in data/robot.txt
+
+-->
+
+<script>
+landscape = false;
+
+if(innerWidth > innerHeight){
+    squareWidth = innerHeight;
+    document.getElementById("margin").style.width = (innerWidth - squareWidth).toString() + "px";
+    document.getElementById("margin").style.height = innerHeight.toString() + "px";
+    document.getElementById("square").style.width = squareWidth.toString() + "px";
+    document.getElementById("square").style.height = squareWidth.toString() + "px";
+    marginWidth = innerWidth - squareWidth;
+    landscape = true;
+    newGVM = new GVM(0.05*squareWidth,0.1*squareWidth,0.04*squareWidth,-Math.PI/2,document.getElementById("maincanvas"),squareWidth,0.5*squareWidth,hypercube);
+}
+else{
+    squareWidth = innerWidth;
+    document.getElementById("margin").style.height = (innerHeight - squareWidth).toString() + "px";
+    document.getElementById("margin").style.width = (innerWidth).toString() + "px";
+    document.getElementById("square").style.height = squareWidth.toString() + "px";
+    document.getElementById("square").style.width = squareWidth.toString() + "px";
+    marginWidth = innerHeight - squareWidth;
+    newGVM = new GVM(0.05*squareWidth,0.1*squareWidth,0.06*squareWidth,-Math.PI/2,document.getElementById("maincanvas"),squareWidth,0.5*squareWidth,hypercube);
+}
+
+
+
+
+var actionGVM = new GVM(0.5*squareWidth,0.25*squareWidth,0.05*squareWidth,-Math.PI/2,document.getElementById("spellcanvas"),squareWidth,0.5*squareWidth,hypercube);
+
+for(var index = 0;index < 01377;index++){
+    if(newGVM.hypercube[index].length  > 0 ){
+        hypercube.push( "0" + index.toString(8) +  ":" + newGVM.hypercube[index]);
+    }
+}
+
+
+newGVM.importbytecode(font);
+actionGVM.importbytecode(font);
+
+
+invisibleWidth = 200;
+var invisibleGVM = new GVM(0.98*invisibleWidth,0.98*invisibleWidth,0.96*invisibleWidth,-Math.PI/2,document.getElementById("invisiblecanvas"),invisibleWidth,invisibleWidth,hypercube);
+
+buttonSize = 70;
+
+currentjson = {};
+glyph = "";
+keyboard = [];
+actions = [];
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        currentjson = JSON.parse(this.responseText);
+        glyph = currentjson.glyph;
+        actionstrings = currentjson.actions.split(",");
+        actions  = [];
+        for(var index = 0;index < actionstrings.length;index++){
+            if(actionstrings[index].length > 0){
+                actions.push(parseInt(actionstrings[index],8));
+            }
+        }
+        document.getElementById("spellinput").value = glyph;
+        newGVM.glyph = glyph + "0207,";
+//        actionGVM.actionSequence(glyph);
+        draw();
+        spellGlyph(newGVM.glyph);
+        drawbuttons();
+  
+        for(var index = 0;index< currentjson.keyboard.length;index++){
+            newGVM.hypercube[currentjson.keyboard[index][0].charCodeAt(0)] = currentjson.keyboard[index][1]  + ",";
+        }  
+        
+//        newGVM.hypercube[currentjson.keyboard[0][0].charCodeAt(0)] = currentjson.keyboard[0][1]  + ",";
+        
+    }
+};
+httpc.open("GET", "fileloader.php?filename=data/robot.txt", true);
+httpc.send();    
+
+function drawbuttons(){
+    for(var index = 0;index < actions.length;index++){
+        //draw a button in the button box
+    
+        var newcan = document.createElement("canvas");
+        document.getElementById("controldiv").appendChild(newcan);
+        newcan.classList.add("button");
+        //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
+        var newg = new GVM(1,buttonSize - 1,buttonSize-2,-Math.PI/2,newcan,buttonSize,buttonSize,hypercube);
+        newg.importbytecode(font);
+
+        newg.drawGlyph("0300,0" + (actions[index] + 01000).toString(8) + ",",newg);
+
+        newcan.id = "button0" + actions[index].toString(8);
+        newcan.onclick = function(){
+            var thisaction = parseInt(this.id.substring(6),8);
+            if(thisaction >= 040 && thisaction < 0177) {
+                newGVM.cursorAction(thisaction + 01000);
+            }
+            else{
+                newGVM.cursorAction(thisaction);
+            }
+            newGVM.drawGlyph("0300,");
+            spellGlyph(newGVM.glyph);      
+            draw();
+            newGVM.saveGlyph();
+            savejson();
+            
+  //          document.getElementById("spellinput").value = currentjson.glyph;
+    //        document.getElementById("spellinput").style.width = 0.8*currentjson.glyph.length.toString() + "em";
+        }
+        
+        
+    }
+}
+
+
+glyphsize = 50;
+function spellGlyph(glyph){
+    var localGlyph = "";
+    var glyphArray = glyph.split(",");
+    for(var index = 0; index < glyphArray.length; index++){
+        if(glyphArray[index].length > 1){
+            var localAddress = parseInt(glyphArray[index],8);
+            if(localAddress < 01000){
+                localAddress += 01000;
+            }
+            newGVM.action(localAddress);
+            if(newGVM.x > squareWidth - 2*glyphsize){
+               newGVM.x = newGVM.unit;
+               newGVM.y += 1.5*newGVM.unit;
+            }
+        }
+    }
+}
+
+function draw(){
+    actionGVM.ctx.clearRect(0,0,actionGVM.width,actionGVM.height);
+    actionGVM.action(0300);
+    actionGVM.actionSequence(newGVM.glyph);
+}
+
+function savejson(){
+    
+    var glyphArray = newGVM.glyph.split(",");
+    var cleanGlyph = "";
+    for(var index = 0;index < glyphArray.length;index++) {
+        if(glyphArray[index] != "0207" && glyphArray[index].length> 1){
+            cleanGlyph += glyphArray[index] + ",";
+        }
+    }
+    currentjson.glyph = cleanGlyph;
+    document.getElementById("spellinput").value = cleanGlyph;
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", "filesaver.php", true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(JSON.stringify(currentjson,null,"  "))+"&filename=data/robot.txt");//send text to filesaver.php
+
+}
+
+
+document.getElementById("spellinput").onchange = function(){
+    glyph = this.value;
+    currentjson.glyph = glyph;
+    newGVM.glyph = glyph + "0207,";
+    newGVM.drawGlyph("0300,");
+    spellGlyph(newGVM.glyph);
+    savejson();
+    draw();
+    
+}
+
+document.getElementById("actioninput").value = "";
+document.getElementById("actioninput").select();
+
+
+document.getElementById("actioninput").onkeydown = function(a) {
+    var charCode = a.keyCode || a.which;
+
+    if(charCode == 015) {
+        modeswitch();
+    }
+
+    if(charCode == 010) {
+        newGVM.cursorAction(010,newGVM);   
+    }
+    if(charCode == 045){
+        newGVM.cursorAction(020,newGVM);             
+    }
+    if(charCode == 047){
+        newGVM.cursorAction(021,newGVM);   
+    }
+
+    if(charCode == 046){
+        //up arrow: prev symbol
+
+    }
+    if(charCode == 050){
+        //down arrow: next symbol
+ 
+    }
+
+    if(charCode != 015){
+        newGVM.drawGlyph("0300,");
+        spellGlyph(newGVM.glyph);      
+        draw();
+        newGVM.saveGlyph();
+        savejson();
+    }
+}
+
+mode = 0;
+
+document.getElementById("actioninput").onkeypress = function(a) {
+    var charCode = a.keyCode || a.which;
+
+    if(charCode != 015){
+        if(mode == 0){
+            localCursorAction = parseInt(newGVM.hypercube[charCode],8);
+        }    
+        if(mode == 1){
+            localCursorAction = charCode + 01000;     
+        }    
+        if(mode == 2){
+            localCursorAction = charCode;     
+        }    
+        newGVM.cursorAction(localCursorAction);   
+
+        newGVM.drawGlyph("0300,");
+        spellGlyph(newGVM.glyph);      
+        draw();
+        newGVM.saveGlyph();
+        savejson();
+        
+    }
+
+}
+
+document.getElementById("modebutton").onclick = function(){
+        modeswitch();
+}
+
+function modeswitch(){
+    mode++;
+    mode = mode%2;
+    if(mode == 0){
+        document.getElementById("modebutton").src = "iconsymbols/cursor.svg";
+    }
+    if(mode == 1){
+        document.getElementById("modebutton").src = "iconsymbols/abcfont.svg";
+    }
+    if(mode == 2){
+        document.getElementById("modebutton").src = "iconsymbols/abcstack.svg";
+    }
+    document.getElementById("actioninput").select();
+}
+
+
+document.getElementById("gobutton").onclick = function(){
+    var httpc = new XMLHttpRequest();
+    var url = "robot.php";         
+    httpc.open("GET", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+    httpc.send();//send text to deletefile.php
+    
+}
+
+</script>
+<style>
+a img{
+    width:60px;
+}
+#gobutton{
+    width:60px;
+}
+#modebutton{
+    width:60px;
+}
+body{
+    overflow:hidden;
+}
+#square{
+    position:absolute;
+    left:0px;
+    top:0px;
+    border:solid;
+    border-width:0.1px;
+    border-color:blue;
+    overflow:hidden;
+}
+#maincanvas{
+    position:absolute;
+    bottom:0px;
+    border:solid;
+}
+#margin{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    border:solid;
+    border-width:0.1px;
+    overflow:scroll;
+}
+
+#invisiblecanvas{
+    display:none;
+}
+.button{
+    cursor:pointer;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
+}
+#runbutton{
+    width:8em;
+    border:solid;
+    margin:1em;
+    border-radius:0.2em;
+    border-width:3px;
+    background-color:#afffaf
+}
+#runbutton:hover{
+    background-color:green;
+}
+#runbutton:active{
+    background-color:yellow;
+}
+#spellinput{
+    width:90%;
+    font-family:courier;
+    margin-bottom:10px;
+    margin-left:10px;
+}
+#actioninput{
+    width:1em;
+    position:absolute;
+    right:0px;
+    top:0px;
+}
+</style>
+</body>
+</html>
