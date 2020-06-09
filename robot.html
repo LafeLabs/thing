@@ -129,7 +129,13 @@ function drawbuttons(){
         var newg = new GVM(1,buttonSize - 1,buttonSize-2,-Math.PI/2,newcan,buttonSize,buttonSize,hypercube);
         newg.importbytecode(font);
 
-        newg.drawGlyph("0300,0" + (actions[index] + 01000).toString(8) + ",",newg);
+        if(actions[index] + 01000 >= 01040 && actions[index] + 01000 < 01177){
+            newg.drawGlyph("0300,0336,0330,0333,0210,0" + (actions[index] + 01000).toString(8) + ",",newg);        
+        }
+        else{
+            newg.drawGlyph("0300,0" + (actions[index] + 01000).toString(8) + ",",newg);            
+        }
+
 
         newcan.id = "button0" + actions[index].toString(8);
         newcan.onclick = function(){
