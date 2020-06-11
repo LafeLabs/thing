@@ -197,6 +197,7 @@
         "introvideo",
         "lasercutshapes",
         "maps.md",
+        "mirrorhypercube",
         "pireplicate.md",
         "pisetup.md",
         "poetryengine.md",
