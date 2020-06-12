@@ -1,0 +1,34 @@
+{
+    "html": [
+        "README.md",
+        "fork.html",
+        "index.html",
+        "scrolleditor.html"
+    ],
+    "javascript": [],
+    "iconsymbols": [
+        "delete.svg",
+        "edit.svg",
+        "fork.svg",
+        "scroll.svg",
+        "uplink.svg"
+    ],
+    "data": [
+        "dna.txt"
+    ],
+    "php": [
+        "deletebranch.txt",
+        "deletefile.txt",
+        "dir.txt",
+        "dnagenerator.txt",
+        "editor.txt",
+        "fileloader.txt",
+        "filesaver.txt",
+        "mkdir.txt",
+        "rdelete.txt",
+        "replicator.txt",
+        "text2php.txt"
+    ],
+    "maps": [],
+    "scrolls": []
+}
