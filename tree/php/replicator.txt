@@ -1,6 +1,6 @@
 <?php
 
-$dnaurl = "../data/dna.txt";
+$dnaurl = "https://raw.githubusercontent.com/LafeLabs/thing/master/tree/data/dna.txt";
 
 if(isset($_GET["dna"])){
     $dnaurl = $_GET["dna"];
