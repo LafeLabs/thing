@@ -29,6 +29,7 @@
     <img src = "iconsymbols/robotconfig.svg"/>
 </a>
     <img id = "gobutton" src = "iconsymbols/gobutton.svg" class = "button"/>
+    <img style ="width:60px" id = "mirrorbutton" src = "iconsymbols/notmirror.svg" class = "button"/>
 <input id = "spellinput"/>
     <div id = "controldiv">
         
@@ -309,6 +310,39 @@ document.getElementById("gobutton").onclick = function(){
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
     httpc.send();//send text to deletefile.php
     
+}
+
+mirrormode = false;
+
+document.getElementById("mirrorbutton").onclick = function(){
+    mirrormode = !mirrormode;
+    if(mirrormode){
+        document.getElementById("mirrorbutton").src = "iconsymbols/mirror.svg";
+
+        newGVM.hypercube[0502] = "0406,0406,0400,0407,0405,0404,0407,0336,0336,0336,0336,0333,0333,0333,0347,0337,0337,0337,0337,";
+        newGVM.hypercube[0503] = "0406,0406,0401,0407,0405,0404,0407,0336,0336,0336,0336,0332,0332,0332,0347,0337,0337,0337,0337,";
+        newGVM.hypercube[0506] = "0406,0406,0400,0407,0407,0336,0336,0336,0336,0333,0333,0333,0337,0337,0337,0337,";
+        newGVM.hypercube[0507] = "0406,0406,0401,0407,0407,0336,0336,0336,0336,0332,0332,0332,0337,0337,0337,0337,";
+
+    }
+    else{
+        document.getElementById("mirrorbutton").src = "iconsymbols/notmirror.svg";
+
+        newGVM.hypercube[0502] = "0406,0406,0401,0407,0405,0404,0407,0336,0336,0336,0336,0332,0332,0332,0347,0337,0337,0337,0337,";
+        newGVM.hypercube[0503] = "0406,0406,0400,0407,0405,0404,0407,0336,0336,0336,0336,0333,0333,0333,0347,0337,0337,0337,0337,";
+        newGVM.hypercube[0506] = "0406,0406,0401,0407,0407,0336,0336,0336,0336,0332,0332,0332,0337,0337,0337,0337,";
+        newGVM.hypercube[0507] = "0406,0406,0400,0407,0407,0336,0336,0336,0336,0333,0333,0333,0337,0337,0337,0337,";
+
+    }
+
+    actionGVM.hypercube[0502] = newGVM.hypercube[0502];
+    actionGVM.hypercube[0503] = newGVM.hypercube[0503];
+    actionGVM.hypercube[0506] = newGVM.hypercube[0506];
+    actionGVM.hypercube[0507] = newGVM.hypercube[0507];
+         
+    draw();
+    document.getElementById("actioninput").select();
+   
 }
 
 </script>
