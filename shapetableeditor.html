@@ -231,24 +231,27 @@ document.getElementById("actioninput").onkeydown = function(a) {
 document.getElementById("actioninput").onkeypress = function(a) {
     var charCode = a.keyCode || a.which;
     var localCursorAction = 0177;//do nothing
-    if(mode == 0){
-        localCursorAction = parseInt(spellGVM.hypercube[charCode],8);     
-    }    
-    if(mode == 1){
-        localCursorAction = charCode + 01000;     
-    }    
-    if(mode == 2){
-        localCursorAction = charCode;     
-    }    
+    if(charCode != 015){
+        if(mode == 0){
+            localCursorAction = parseInt(spellGVM.hypercube[charCode],8);   
+        }    
+        if(mode == 1){
+            localCursorAction = charCode + 01000;     
+        }    
+        if(mode == 2){
+            localCursorAction = charCode;     
+        }    
 
-    if(spellGVM.address != localCursorAction) {
-        spellGVM.cursorAction(localCursorAction);   
-        spellGVM.spellGlyph(spellGVM.glyph);    
-        this.value = "";
-        spellGVM.saveGlyph();
-        redraw();
+        if(spellGVM.address != localCursorAction) {
+            spellGVM.cursorAction(localCursorAction);   
+            spellGVM.spellGlyph(spellGVM.glyph);    
+            this.value = "";
+            spellGVM.saveGlyph();
+            redraw();
 
+        }
     }
+
 }
 
 
@@ -263,11 +266,17 @@ document.getElementById("savebutton").onclick = function(){
 
 
     currentjson.shapes = [];
-    for(var index = 0220;index < 0250;index++){
-        currentjson.shapes.push("0" + index.toString(8) + ":" + spellGVM.hypercube[index]);
+    for(var index = 0220;index <= 0277;index++){
+        if(spellGVM.hypercube[index].length > 0){
+            console.log("foo");
+            currentjson.shapes.push("0" + index.toString(8) + ":" + spellGVM.hypercube[index]);
+        }
     }
-    for(var index = 01220;index < 01250;index++){
-        currentjson.shapes.push("0" + index.toString(8) + ":" + spellGVM.hypercube[index]);
+    for(var index = 01220;index < 01300;index++){
+        if(spellGVM.hypercube[index].length > 0){
+            console.log("bar");
+            currentjson.shapes.push("0" + index.toString(8) + ":" + spellGVM.hypercube[index]);   
+        }
     }
 
     var httpc4 = new XMLHttpRequest();
