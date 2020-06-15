@@ -1,4 +1,5 @@
-{
+<svg width="700" height="700" viewbox = "0 0 700 700"  xmlns="http://www.w3.org/2000/svg">
+<!--<json>{
   "glyph": "0337,0341,0333,0341,0332,0336,0333,0341,",
   "shapes": [
     "01220:0333,0200,",
@@ -81,4 +82,7 @@
     16,
     17
   ]
-}
+}</json>--><circle cx="447" cy = "447" r = "272.82039400000014" stroke = "#000000" stroke-width = "1" fill = "none" />
+<circle cx="720" cy = "447" r = "272.82039400000014" stroke = "#000000" stroke-width = "1" fill = "none" />
+<circle cx="584" cy = "447" r = "136.41019700000007" stroke = "#000000" stroke-width = "1" fill = "none" />
+</svg>
