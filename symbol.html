@@ -347,10 +347,23 @@ httpc.onreadystatechange = function() {
         document.getElementById("backgroundimage").src = currentjson.backgroundimage;
         if(currentjson.backgroundimage.length >  1) {
             document.getElementById("backgroundimage").style.display = "block";
+            if(currentjson.imgw != undefined){
+                document.getElementById("backgroundimage").style.width = currentjson.imgw*currentjson.width + "px";
+            }
+            if(currentjson.imgx != undefined){
+                document.getElementById("backgroundimage").style.left = currentjson.imgx*currentjson.width + "px";
+            }
+            if(currentjson.imgy != undefined){
+                document.getElementById("backgroundimage").style.top = currentjson.imgy*currentjson.width + "px";
+            }            
+            if(currentjson.imgtheta != undefined){
+                document.getElementById("backgroundimage").style.transform = "rotate(" + currentjson.imgtheta.toString() + "deg)";
+            }                   
         }
         else{
             document.getElementById("backgroundimage").style.display = "none";
         }
+
 
         loadcontrolbuttons();
     }
