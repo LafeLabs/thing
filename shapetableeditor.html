@@ -121,19 +121,38 @@ function redrawtable() {
     newg.svgString = "<svg width=\"" + newg.width.toString() + "\" height=\"" + newg.height.toString() + "\" viewbox = \"0 0 " + newg.width.toString() + " " + newg.height.toString() + "\"  xmlns=\"http://www.w3.org/2000/svg\">\n";
     newg.action(0300);
 
-    for(var index = 0220 ;index < 0230;index++) {
-        newg.actionSequence("0370,01" + index.toString(8) + ",0371,0333,");
+    if(spellGVM.address < 0250){
+        for(var index = 0220 ;index < 0230;index++) {
+            newg.actionSequence("0370,01" + index.toString(8) + ",0371,0333,");
+        }
+        newg.action(0300);
+        newg.actionSequence("0331,0336,0336,0331,0337,0337,");
+        for(var index = 0230 ;index < 0240;index++) {
+            newg.actionSequence("0370,01" + index.toString(8) + ",0371,0333,");
+        }
+        newg.action(0300);
+        newg.actionSequence("0331,0336,0336,0331,0337,0337,");
+        newg.actionSequence("0331,0336,0336,0331,0337,0337,");
+        for(var index = 0240 ;index < 0250;index++) {
+            newg.actionSequence("0370,01" + index.toString(8) + ",0371,0333,");
+        }
     }
-    newg.action(0300);
-    newg.actionSequence("0331,0336,0336,0331,0337,0337,");
-    for(var index = 0230 ;index < 0240;index++) {
-        newg.actionSequence("0370,01" + index.toString(8) + ",0371,0333,");
-    }
-    newg.action(0300);
-    newg.actionSequence("0331,0336,0336,0331,0337,0337,");
-    newg.actionSequence("0331,0336,0336,0331,0337,0337,");
-    for(var index = 0240 ;index < 0250;index++) {
-        newg.actionSequence("0370,01" + index.toString(8) + ",0371,0333,");
+    else{
+        for(var index = 0250 ;index < 0260;index++) {
+            newg.actionSequence("0370,01" + index.toString(8) + ",0371,0333,");
+        }
+        newg.action(0300);
+        newg.actionSequence("0331,0336,0336,0331,0337,0337,");
+        for(var index = 0260 ;index < 0270;index++) {
+            newg.actionSequence("0370,01" + index.toString(8) + ",0371,0333,");
+        }
+        newg.action(0300);
+        newg.actionSequence("0331,0336,0336,0331,0337,0337,");
+        newg.actionSequence("0331,0336,0336,0331,0337,0337,");
+        for(var index = 0270 ;index < 0300;index++) {
+            newg.actionSequence("0370,01" + index.toString(8) + ",0371,0333,");
+        }
+        
     }
 
     newg.svgString += "</svg>";
@@ -191,10 +210,10 @@ document.getElementById("actioninput").onkeydown = function(a) {
     if(charCode == 046){
         //up arrow: next
         spellGVM.address++;
-        if(spellGVM.address > 0247 && spellGVM.address < 01000) {
+        if(spellGVM.address > 0277 && spellGVM.address < 01000) {
             spellGVM.address = 0220;
         }
-        if(spellGVM.address > 01247) {
+        if(spellGVM.address > 01277) {
             spellGVM.address = 01220;
         }
 
@@ -210,10 +229,10 @@ document.getElementById("actioninput").onkeydown = function(a) {
         //down arrow: prev address
         spellGVM.address--;
         if(spellGVM.address < 0220) {
-            spellGVM.address = 0247;
+            spellGVM.address = 0277;
         }
         if(spellGVM.address > 01000 && spellGVM.address < 01220) {
-            spellGVM.address = 01247;
+            spellGVM.address = 01277;
         }
         spellGVM.glyph = spellGVM.hypercube[spellGVM.address] + "0207,";
         spellGVM.saveGlyph();
@@ -388,6 +407,19 @@ httpc.onreadystatechange = function() {
 };
 httpc.open("GET", "fileloader.php?filename=data/currentjson.txt", true);
 httpc.send();    
+
+
+document.getElementById("addressinput").onchange = function(){
+    spellGVM.address = parseInt(this.value,8);
+    spellGVM.glyph = spellGVM.hypercube[spellGVM.address] + "0207,";
+    spellGVM.saveGlyph();
+    newg.hypercube = spellGVM.hypercube;
+    symg.hypercube = spellGVM.hypercube;
+    shapeg.hypercube = spellGVM.hypercube;
+    redrawtable();
+    spellGVM.saveGlyph();
+    redraw();
+}
 
 </script>
 <style>
