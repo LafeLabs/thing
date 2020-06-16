@@ -33,7 +33,6 @@
         "symbol.html",
         "symbolapp.html",
         "symbolfeed.html",
-        "symbolimagealign.html",
         "tablet.html",
         "textfeed.html",
         "thing.html",
@@ -185,7 +184,8 @@
         "samteccables",
         "scavenge",
         "servermap.txt",
-        "stagekit"
+        "stagekit",
+        "symbol"
     ],
     "scrolls": [
         "bookofshapes",

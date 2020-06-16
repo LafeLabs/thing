@@ -1,5 +1,6 @@
-{
-  "glyph": "",
+<svg width="600" height="600" viewbox = "0 0 600 600"  xmlns="http://www.w3.org/2000/svg">
+<!--<json>{
+  "glyph": "0306,0336,0322,0341,0330,0341,0331,0331,0341,0332,0330,0341,0331,0341,0333,0333,0341,0331,0341,",
   "shapes": [
     "01220:0333,0200,",
     "01221:0333,0200,",
@@ -28,16 +29,16 @@
   ],
   "x0rel": 0.5,
   "y0rel": 0.5,
-  "unitrel": 0.10000000000000002,
+  "unitrel": 0.31384283767210025,
   "theta0": -1.570796,
   "width": 600,
   "height": 600,
   "scale": 1,
-  "backgroundimage": "",
-  "imgw": 0.5,
-  "imgx": 0.2,
-  "imgy": 0.2,
-  "imgtheta": 0,
+  "backgroundimage": "https://i.imgur.com/ZD4SR89.jpg",
+  "imgw": 0.7166666666666667,
+  "imgx": 0.15333333333333332,
+  "imgy": 0.14333333333333334,
+  "imgtheta": 11,
   "style": {
     "color0": "black",
     "fill0": "black",
@@ -99,6 +100,14 @@
     26,
     27,
     30,
-    31
+    31,
+    192
   ]
-}
+}</json>--><circle cx="300" cy = "300" r = "94.15285130163008" stroke = "#ff0000" stroke-width = "1" fill = "none" />
+<circle cx="300" cy = "206" r = "94.15285130163008" stroke = "#ff0000" stroke-width = "1" fill = "none" />
+<circle cx="300" cy = "394" r = "94.15285130163008" stroke = "#ff0000" stroke-width = "1" fill = "none" />
+<circle cx="218" cy = "253" r = "94.15285130163008" stroke = "#ff0000" stroke-width = "1" fill = "none" />
+<circle cx="218" cy = "347" r = "94.15285130163008" stroke = "#ff0000" stroke-width = "1" fill = "none" />
+<circle cx="382" cy = "253" r = "94.15285130163008" stroke = "#ff0000" stroke-width = "1" fill = "none" />
+<circle cx="382" cy = "347" r = "94.15285130163008" stroke = "#ff0000" stroke-width = "1" fill = "none" />
+</svg>

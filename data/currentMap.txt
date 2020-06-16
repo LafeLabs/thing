@@ -78,5 +78,15 @@
         "href": "tree/",
         "src": "iconsymbols/fork.svg",
         "maplinkmode": false
+    },
+    {
+        "x": 0.032219570405727926,
+        "y": 0.4713603818615752,
+        "w": 0.8890214797136038,
+        "angle": 0,
+        "text": "symbol",
+        "href": "maps/symbol",
+        "src": "",
+        "maplinkmode": true
     }
 ]

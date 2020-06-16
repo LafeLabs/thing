@@ -22,7 +22,7 @@
     <script src="jscode/hypercube.js"></script>
     <script src="jscode/font.js"></script>
     <script src="jscode/keyboard.js"></script>
-
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"></script>
 </head>
 <body> 
 
@@ -42,17 +42,14 @@
 <div id = "square">
     <canvas id = "maincanvas"></canvas>
     <img id = "backgroundimage"/>
+    <div id = "hammerxy"></div>
 </div>
 <div id = "margin">
     <div id = "marginsquare1">
         <a href = "symbol.html">
             <img style = "width:50px;" src = "iconsymbols/geometron.svg"/>
         </a>
-        <a href = "map.html">
-            <img style = "width:50px;" src = "../iconsymbols/map.svg"/>
-        </a>
-
-        <a href = "keyboardeditor.html">
+                <a href = "keyboardeditor.html">
                 <img style = "width:50px;" src = "iconsymbols/keyboardicon.svg"/>
         </a>    
         <a href = "fonteditor.html">
@@ -65,14 +62,15 @@
         <a href = "hypercube.html">
             <img style = "width:50px;" src = "iconsymbols/hypercube.svg"/>
         </a>               
-        <a href = "tablet.html">
-            <img style = "width:50px;" src = "iconsymbols/tablet.svg"/>
-        </a>               
-     
-        
-        <textarea id = "textout"></textarea>
+
+        <img style = "width:50px;" id = "savebutton" src = "iconsymbols/save.svg" class = "button" />
         <table id = "maintable">
-            <tr><td></td><td id = "resetbutton" class = "button" style = "text-align:center;border:solid;border-radius:5px;">RESET</td></tr>
+            <tr>
+                <td id = "modebutton" class = "button" style = "text-align:center;border:solid;border-radius:5px;">IMAGE/BUTTONS</td>
+                <td id = "resetbutton" class = "button" style = "text-align:center;border:solid;border-radius:5px;">
+                    RESET
+                </td>
+            </tr>        
             <tr>
                 <td>x0:</td>
                 <td><input/></td>
@@ -123,11 +121,44 @@
             </tr>        
             
         </table>
+        
     </div>
     <div id = "marginsquare2">
-        <!--this is where the various keys and symbols go which are used to select what is edited-->
-        <div id = "sourcesymbols"></div>
+        <div id = "sourcesymbols"></div>    
         <div id = "controlsymbols"></div>
+
+        <table id = "rotatezoomtable">
+            <tr id = "rotatezoombuttons1">
+                <td>
+                    <img id = "zoomoutbutton" src= "iconsymbols/shrink.svg" class = "button" /> 
+                </td>
+                <td>
+                    <img id = "littlezoomoutbutton" src= "iconsymbols/shrinksmall.svg" class = "button"/> 
+                </td>
+                <td>
+                    <img id = "littlezoominbutton" src= "iconsymbols/expandsmall.svg" class = "button" /> 
+                </td>
+                <td>
+                    <img id = "zoominbutton" src= "iconsymbols/expand.svg" class = "button"/> 
+                </td>
+            </tr>
+            <tr id = "rotatezoombuttons2">
+                <td>
+                    <img id = "rotateleftbutton" src= "iconsymbols/left.svg" class = "button" /> 
+                </td>
+                <td>
+                    <img id = "littlerotateleftbutton" src= "iconsymbols/leftsmall.svg" class = "button"/> 
+                </td>
+                <td>
+                    <img id = "littlerotaterightbutton" src= "iconsymbols/rightsmall.svg" class = "button"/> 
+                </td>
+                <td>
+                    <img id = "rotaterightbutton" src= "iconsymbols/right.svg" class = "button" /> 
+                </td>
+            </tr>
+        </table>
+        <img src = "iconsymbols/scale.svg" id = "scalebar"/>
+        <img src = "iconsymbols/rotate.svg" id = "rotatebar"/>
     </div>
 </div>
 
@@ -176,87 +207,6 @@ for(var index = 0;index < 01377;index++){
 }
 
 
-buttonSize = 30;
-
-function loadcontrolbuttons() {
-    for(var index = 0;index< currentjson.controlbuttons.length;index++) {    
-        var newcan = document.createElement("canvas");
-        document.getElementById("controlsymbols").appendChild(newcan);
-        newcan.classList.add("button");
-        newcan.classList.add("sourcebutton");
-        //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
-        var newg = new GVM(1,buttonSize - 1,buttonSize-2,-Math.PI/2,newcan,buttonSize,buttonSize,hypercube);
-        newg.importbytecode(currentjson.shapes);
-        newg.drawGlyph("0300,0" + (currentjson.controlbuttons[index] + 01000).toString(8) + ",");
-        newcan.id = "control0" + currentjson.controlbuttons[index].toString(8);
-
-        newcan.onclick = function() {
-            var thiscommand = parseInt(this.id.substring(7),8);
-            var newarray = [];
-            for(var index = 0;index < currentjson.controlbuttons.length;index++) {
-            if(currentjson.controlbuttons[index] != thiscommand){
-                newarray.push(currentjson.controlbuttons[index]);
-            } 
-            }
-            currentjson.controlbuttons = newarray;
-            this.parentElement.removeChild(this);
-            savejson();
-        }
-    }
-}
-
-
-function loadsymbolbuttons(){
-    for(var index = 0;index < 0377;index++) {       
-        if(newGVM.hypercube[index + 01000].length  > 1) {
-
-            var newcan = document.createElement("canvas");
-            document.getElementById("sourcesymbols").appendChild(newcan);
-            newcan.classList.add("button");
-            newcan.classList.add("sourcebutton");
-            //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
-            var newg = new GVM(1,buttonSize - 1,buttonSize-2,-Math.PI/2,newcan,buttonSize,buttonSize,hypercube);
-            newg.importbytecode(currentjson.shapes);
-            newg.importbytecode(font);
-            newg.drawGlyph("0300,0" + (index + 01000).toString(8) + ",");
-            newcan.id = "source0" + index.toString(8);
-
-            newcan.onclick = function(){
-
-                var newcan = document.createElement("canvas");
-                document.getElementById("controlsymbols").appendChild(newcan);
-                newcan.classList.add("button");
-                newcan.classList.add("sourcebutton");
-                newcan.id = "control" + this.id.substring(6);
-                //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
-                var newg = new GVM(1,buttonSize - 1,buttonSize-2,-Math.PI/2,newcan,buttonSize,buttonSize,hypercube);
-                newg.importbytecode(currentjson.shapes);
-                newg.importbytecode(font);
-
-                newg.drawGlyph("0300,0" + (01000 + parseInt(this.id.substring(6),8)).toString(8) + ",");
-                currentjson.controlbuttons.push( parseInt(this.id.substring(6) , 8) );
-
-                newcan.onclick = function() {
-                    var thiscommand = parseInt(this.id.substring(7),8);
-                    var newarray = [];
-                    for(var index = 0;index < currentjson.controlbuttons.length;index++) {
-                        if(currentjson.controlbuttons[index] != thiscommand){
-                            newarray.push(currentjson.controlbuttons[index]);
-                        } 
-                    }
-                    currentjson.controlbuttons = newarray;
-                    this.parentElement.removeChild(this);
-                    savejson();
-                }
-                savejson();
-            }
-        }
-    }
-}
-
-
-
-
 var httpc = new XMLHttpRequest();
 httpc.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -278,9 +228,10 @@ httpc.onreadystatechange = function() {
 
         filltable();
         redraw();
+        newGVM.drawGlyph("0300,0341,0200," + currentjson.glyph);
         loadsymbolbuttons();
         loadcontrolbuttons();
-        newGVM.drawGlyph("0300,0341,0200," + currentjson.glyph);
+
     }
 };
 httpc.open("GET", "fileloader.php?filename=data/currentjson.txt", true);
@@ -423,6 +374,101 @@ function redraw(){
 }
 
 
+
+function savejson(){
+    
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", "filesaver.php", true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(JSON.stringify(currentjson,null,"  "))+"&filename=data/currentjson.txt");//send text to filesaver.php
+}
+
+
+mc = new Hammer(document.getElementById("hammerxy"));
+mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+mc.on("panleft panright panup pandown tap press rotate", function(ev) {
+
+    document.getElementById("backgroundimage").style.left = (ev.deltaX + currentjson.imgx*currentjson.width).toString() +  "px";
+    document.getElementById("backgroundimage").style.top = (ev.deltaY + currentjson.imgy*currentjson.width).toString() +  "px";
+
+}); 
+
+document.getElementById("savebutton").onclick = function(){
+
+    currentjson.imgx = parseInt(document.getElementById("backgroundimage").style.left.substring(0,document.getElementById("backgroundimage").style.left.length-2))/currentjson.width;
+    currentjson.imgy = parseInt(document.getElementById("backgroundimage").style.top.substring(0,document.getElementById("backgroundimage").style.top.length-2))/currentjson.width;    
+    currentjson.imgw = parseInt(document.getElementById("backgroundimage").style.width.substring(0,document.getElementById("backgroundimage").style.width.length-2))/currentjson.width;    
+    
+    currentjson.imgtheta = parseInt(document.getElementById("backgroundimage").style.transform.substring(7,document.getElementById("backgroundimage").style.transform.length - 4));
+    
+    savejson();
+
+}
+
+
+mczoom = new Hammer(document.getElementById("scalebar"));
+mczoom.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+mczoom.on("panleft panright panup pandown tap press", function(ev) {
+
+    document.getElementById("backgroundimage").style.width = (Math.abs(currentjson.imgw*currentjson.width + 2*ev.deltaX)).toString() +  "px";
+    
+});    
+
+
+mcrotate = new Hammer(document.getElementById("rotatebar"));
+mcrotate.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+mcrotate.on("panleft panright panup pandown tap press", function(ev) {
+
+    document.getElementById("backgroundimage").style.transform = "rotate(" + (currentjson.imgtheta + ev.deltaX).toString() + "deg)";
+
+});    
+
+
+
+document.getElementById("zoomoutbutton").onclick = function() {
+    currentjson.imgw /= 1.25;
+    document.getElementById("backgroundimage").style.width = (Math.abs(currentjson.imgw*currentjson.width)).toString() +  "px";
+
+}
+document.getElementById("zoominbutton").onclick = function() {
+    currentjson.imgw *= 1.25;
+    document.getElementById("backgroundimage").style.width = (Math.abs(currentjson.imgw*currentjson.width)).toString() +  "px";
+}
+
+
+document.getElementById("littlezoomoutbutton").onclick = function() {
+    currentjson.imgw /= 1.01;
+    document.getElementById("backgroundimage").style.width = (Math.abs(currentjson.imgw*currentjson.width)).toString() +  "px";
+
+}
+document.getElementById("littlezoominbutton").onclick = function() {
+    currentjson.imgw *= 1.01;
+    document.getElementById("backgroundimage").style.width = (Math.abs(currentjson.imgw*currentjson.width)).toString() +  "px";
+}
+
+
+document.getElementById("rotateleftbutton").onclick = function() {
+    currentjson.imgtheta -= 5;
+    document.getElementById("backgroundimage").style.transform = "rotate(" + (currentjson.imgtheta).toString() + "deg)";    
+
+}
+document.getElementById("rotaterightbutton").onclick = function() {
+    currentjson.imgtheta += 5;
+    document.getElementById("backgroundimage").style.transform = "rotate(" + (currentjson.imgtheta).toString() + "deg)";    
+
+}
+document.getElementById("littlerotateleftbutton").onclick = function() {
+    currentjson.imgtheta -= 0.5;
+    document.getElementById("backgroundimage").style.transform = "rotate(" + (currentjson.imgtheta).toString() + "deg)";    
+
+}
+document.getElementById("littlerotaterightbutton").onclick = function() {
+    currentjson.imgtheta += 0.5;
+    document.getElementById("backgroundimage").style.transform = "rotate(" + (currentjson.imgtheta).toString() + "deg)";    
+
+}
+
+
 document.getElementById("resetbutton").onclick = function() {
     reset();
 }
@@ -446,13 +492,107 @@ function reset(){
 
 }
 
-function savejson(){
-    
-    var httpc = new XMLHttpRequest();
-    httpc.open("POST", "filesaver.php", true);
-    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc.send("data="+encodeURIComponent(JSON.stringify(currentjson,null,"  "))+"&filename=data/currentjson.txt");//send text to filesaver.php
 
+buttonSize = 30;
+
+function loadcontrolbuttons() {
+    for(var index = 0;index< currentjson.controlbuttons.length;index++) {    
+        var newcan = document.createElement("canvas");
+        document.getElementById("controlsymbols").appendChild(newcan);
+        newcan.classList.add("button");
+        newcan.classList.add("sourcebutton");
+        //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
+        var newg = new GVM(1,buttonSize - 1,buttonSize-2,-Math.PI/2,newcan,buttonSize,buttonSize,hypercube);
+        newg.importbytecode(currentjson.shapes);
+        newg.drawGlyph("0300,0" + (currentjson.controlbuttons[index] + 01000).toString(8) + ",");
+        newcan.id = "control0" + currentjson.controlbuttons[index].toString(8);
+
+        newcan.onclick = function() {
+            var thiscommand = parseInt(this.id.substring(7),8);
+            var newarray = [];
+            for(var index = 0;index < currentjson.controlbuttons.length;index++) {
+            if(currentjson.controlbuttons[index] != thiscommand){
+                newarray.push(currentjson.controlbuttons[index]);
+            } 
+            }
+            currentjson.controlbuttons = newarray;
+            this.parentElement.removeChild(this);
+            savejson();
+        }
+    }
+}
+
+
+function loadsymbolbuttons(){
+    for(var index = 0;index < 0377;index++) {       
+        if(newGVM.hypercube[index + 01000].length  > 1) {
+
+            var newcan = document.createElement("canvas");
+            document.getElementById("sourcesymbols").appendChild(newcan);
+            newcan.classList.add("button");
+            newcan.classList.add("sourcebutton");
+            //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
+            var newg = new GVM(1,buttonSize - 1,buttonSize-2,-Math.PI/2,newcan,buttonSize,buttonSize,hypercube);
+            newg.importbytecode(currentjson.shapes);
+            newg.importbytecode(font);
+            newg.drawGlyph("0300,0" + (index + 01000).toString(8) + ",");
+            newcan.id = "source0" + index.toString(8);
+
+            newcan.onclick = function(){
+
+                var newcan = document.createElement("canvas");
+                document.getElementById("controlsymbols").appendChild(newcan);
+                newcan.classList.add("button");
+                newcan.classList.add("sourcebutton");
+                newcan.id = "control" + this.id.substring(6);
+                //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
+                var newg = new GVM(1,buttonSize - 1,buttonSize-2,-Math.PI/2,newcan,buttonSize,buttonSize,hypercube);
+                newg.importbytecode(currentjson.shapes);
+                newg.importbytecode(font);
+
+                newg.drawGlyph("0300,0" + (01000 + parseInt(this.id.substring(6),8)).toString(8) + ",");
+                currentjson.controlbuttons.push( parseInt(this.id.substring(6) , 8) );
+
+                newcan.onclick = function() {
+                    var thiscommand = parseInt(this.id.substring(7),8);
+                    var newarray = [];
+                    for(var index = 0;index < currentjson.controlbuttons.length;index++) {
+                        if(currentjson.controlbuttons[index] != thiscommand){
+                            newarray.push(currentjson.controlbuttons[index]);
+                        } 
+                    }
+                    currentjson.controlbuttons = newarray;
+                    this.parentElement.removeChild(this);
+                    savejson();
+                }
+                savejson();
+            }
+        }
+    }
+}
+
+document.getElementById("rotatezoomtable").style.display = "none";
+document.getElementById("rotatebar").style.display = "none";
+document.getElementById("scalebar").style.display = "none";
+
+imagemode = false;
+
+document.getElementById("modebutton").onclick = function(){
+    imagemode = !imagemode;
+    if(imagemode){
+        document.getElementById("rotatezoomtable").style.display = "block";
+        document.getElementById("rotatebar").style.display = "block";
+        document.getElementById("scalebar").style.display = "block";
+        document.getElementById("sourcesymbols").style.display = "none";
+        document.getElementById("controlsymbols").style.display = "none";
+    }
+    else{
+        document.getElementById("rotatezoomtable").style.display = "none";
+        document.getElementById("rotatebar").style.display = "none";
+        document.getElementById("scalebar").style.display = "none";
+        document.getElementById("sourcesymbols").style.display = "block";
+        document.getElementById("controlsymbols").style.display = "block";    
+    }
 }
 
 </script>
@@ -468,6 +608,14 @@ body{
     left:0px;
     top:0px;
     overflow:hidden;
+}
+#hammerxy{
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:100%;
+    height:100%;
+    z-index:2;
 }
 #margin{
     position:absolute;
@@ -547,6 +695,7 @@ input,textarea{
     border:solid;
     overflow:scroll;
 }
+
 .sourcebutton{
     margin: 10px 10px 10px 10px;
     border:solid;
