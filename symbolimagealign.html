@@ -372,10 +372,37 @@ document.getElementById("savebutton").onclick = function(){
 
     currentjson.imgx = parseInt(document.getElementById("backgroundimage").style.left.substring(0,document.getElementById("backgroundimage").style.left.length-2))/currentjson.width;
     currentjson.imgy = parseInt(document.getElementById("backgroundimage").style.top.substring(0,document.getElementById("backgroundimage").style.top.length-2))/currentjson.width;    
+    currentjson.imgw = parseInt(document.getElementById("backgroundimage").style.width.substring(0,document.getElementById("backgroundimage").style.width.length-2))/currentjson.width;    
+    
+
+    currentjson.imgtheta = parseInt(document.getElementById("backgroundimage").style.transform.substring(7,document.getElementById("backgroundimage").style.transform.length - 4));
+    
+    
     
     savejson();
 
 }
+
+
+mczoom = new Hammer(document.getElementById("scalebar"));
+mczoom.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+mczoom.on("panleft panright panup pandown tap press", function(ev) {
+
+    document.getElementById("backgroundimage").style.width = (Math.abs(currentjson.imgw*currentjson.width + 2*ev.deltaX)).toString() +  "px";
+    
+});    
+
+
+mcrotate = new Hammer(document.getElementById("rotatebar"));
+mcrotate.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+mcrotate.on("panleft panright panup pandown tap press", function(ev) {
+
+    document.getElementById("backgroundimage").style.transform = "rotate(" + (currentjson.imgtheta + ev.deltaX).toString() + "deg)";
+
+
+
+});    
+
 
 </script>
 <style>
