@@ -295,7 +295,8 @@ document.getElementById("savebutton").onclick = function() {
     }
 
     invisibleGVM.drawGlyph(cleanGlyph);
-    
+    gridglyph = "";//to add something that is drawn ever time put it in a glyph here. used for specialty apps
+    invisibleGVM.drawGlyph(cleanGlyph + gridglyph);
     
     httpc.send("data="+encodeURIComponent(invisibleGVM.pngcode(invisibleGVM).substring(22))+"&filename=symbolfeed/symbol" + timestamp +  ".png");//send text to filesaver.php
 
