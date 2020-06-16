@@ -1,0 +1,92 @@
+[
+    {
+        "x": 0.07756563245823389,
+        "y": 0.14081145584725538,
+        "w": 0.8412887828162291,
+        "angle": 0,
+        "text": "Electronics Kit",
+        "href": "",
+        "src": "https://i.imgur.com/IxQGZHy.jpg",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.017899761336515514,
+        "y": -0.002386634844868735,
+        "w": 0.9343675417661098,
+        "angle": 0,
+        "text": "Electronics Kit",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.8389021479713604,
+        "y": -0.02386634844868735,
+        "w": 0.8890214797136038,
+        "angle": 0,
+        "text": "kits",
+        "href": "maps/kits",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.1658711217183771,
+        "y": 0.5787589498806682,
+        "w": 0.2828162291169451,
+        "angle": 0,
+        "text": "custom pcb(pcbway)",
+        "href": "https://www.pcbway.com/project/shareproject/pi_hat_to_connect_to_pololu_MP6500_stepper_motor_drover_boards.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.6336515513126492,
+        "y": 0.5572792362768496,
+        "w": 0.26610978520286394,
+        "angle": 0,
+        "text": "one 40 pin pi header(pololu)",
+        "href": "https://www.pololu.com/product/1037",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.3568019093078759,
+        "y": 0.21957040572792363,
+        "w": 0.24463007159904535,
+        "angle": 0,
+        "text": "3 buttons(digikey P8079sct-nd)",
+        "href": "https://www.digikey.com/product-detail/en/panasonic-electronic-components/EVQ-11L05R/P8079SCT-ND/259564",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.5393794749403341,
+        "y": 0.7768496420047732,
+        "w": 0.22315035799522673,
+        "angle": 0,
+        "text": "3 stepper driver boards(pololu 2966)",
+        "href": "https://www.pololu.com/product/2966",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.5477326968973747,
+        "y": 0.6014319809069213,
+        "w": 0.24463007159904535,
+        "angle": 0,
+        "text": "3x 4 pin headers(digikey  SAM1029-04-ND )",
+        "href": "https://www.digikey.com/product-detail/en/samtec-inc/TSW-104-07-G-S/SAM1029-04-ND/1101323",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.6730310262529833,
+        "y": 0.4522673031026253,
+        "w": 0.24463007159904535,
+        "angle": 0,
+        "text": "power barrel connectors(amazon)",
+        "href": "https://www.amazon.com/gp/product/B07C7VSRBG/",
+        "src": "",
+        "maplinkmode": false
+    }
+]
