@@ -105,6 +105,23 @@
                 <td>backgroundimage:</td>
                 <td><input/></td>
             </tr>        
+            <tr>
+                <td>image width(relative):</td>
+                <td><input/></td>
+            </tr>        
+            <tr>
+                <td>image x(relative):</td>
+                <td><input/></td>
+            </tr>        
+            <tr>
+                <td>image y(relative):</td>
+                <td><input/></td>
+            </tr>        
+            <tr>
+                <td>image angle(degrees):</td>
+                <td><input/></td>
+            </tr>        
+            
         </table>
     </div>
     <div id = "marginsquare2">
@@ -259,12 +276,11 @@ httpc.onreadystatechange = function() {
         newGVM.glyph = currentjson.glyph;    
         newGVM.importbytecode(currentjson.shapes);
 
-        newGVM.drawGlyph("0300,0341,0200,");
-
         filltable();
         redraw();
         loadsymbolbuttons();
         loadcontrolbuttons();
+        newGVM.drawGlyph("0300,0341,0200," + currentjson.glyph);
     }
 };
 httpc.open("GET", "fileloader.php?filename=data/currentjson.txt", true);
@@ -317,8 +333,32 @@ inputs[7].onchange = function(){
     currentjson.backgroundimage = this.value;
     redraw();
     savejson();    
-
 }
+
+inputs[8].onchange = function(){
+    currentjson.imgw = parseFloat(this.value);
+    redraw();
+    savejson();    
+}
+
+inputs[9].onchange = function(){
+    currentjson.imgx = parseFloat(this.value);
+    redraw();
+    savejson();    
+}
+
+inputs[10].onchange = function(){
+    currentjson.imgy = parseFloat(this.value);
+    redraw();
+    savejson();    
+}
+
+inputs[11].onchange = function(){
+    currentjson.imgtheta = parseFloat(this.value);
+    redraw();
+    savejson();    
+}
+
 
 
 
@@ -332,7 +372,20 @@ function filltable(){
     inputs[5].value = currentjson.height;
     inputs[6].value = currentjson.scale;
     inputs[7].value = currentjson.backgroundimage;
+    if(currentjson.imgw != undefined){
+        inputs[8].value = currentjson.imgw;
+    }
+    if(currentjson.imgx != undefined){
+        inputs[9].value = currentjson.imgx;
+    }
+    if(currentjson.imgy != undefined){
+        inputs[10].value = currentjson.imgy;
+    }
+    if(currentjson.imgtheta != undefined){
+        inputs[11].value = currentjson.imgtheta;
+    }
 
+    
 }
 
 function redraw(){
@@ -344,10 +397,25 @@ function redraw(){
     newGVM.y0 = currentjson.y0rel*newGVM.height;    
     newGVM.unit = currentjson.unitrel*newGVM.width;    
     newGVM.theta0 = currentjson.theta0;
-    newGVM.drawGlyph("0300,0341,0200,");
+    newGVM.drawGlyph("0300,0341,0200," + currentjson.glyph);
     document.getElementById("backgroundimage").src = currentjson.backgroundimage;
     if(currentjson.backgroundimage.length >  1) {
         document.getElementById("backgroundimage").style.display = "block";
+        document.getElementById("backgroundimage").style.display = "block";
+        if(currentjson.imgw != undefined){
+            document.getElementById("backgroundimage").style.width = currentjson.imgw*currentjson.width + "px";
+        }
+        if(currentjson.imgx != undefined){
+            document.getElementById("backgroundimage").style.left = currentjson.imgx*currentjson.width + "px";
+        }
+        if(currentjson.imgy != undefined){
+            document.getElementById("backgroundimage").style.top = currentjson.imgy*currentjson.width + "px";
+        }            
+        if(currentjson.imgtheta != undefined){
+            document.getElementById("backgroundimage").style.transform = "rotate(" + currentjson.imgtheta.toString() + "deg)";
+        }                   
+
+
     }
     else{
         document.getElementById("backgroundimage").style.display = "none";
