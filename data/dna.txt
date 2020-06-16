@@ -33,6 +33,7 @@
         "symbol.html",
         "symbolapp.html",
         "symbolfeed.html",
+        "symbolimagealign.html",
         "tablet.html",
         "textfeed.html",
         "thing.html",

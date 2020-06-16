@@ -35,8 +35,8 @@
   "scale": 1,
   "backgroundimage": "https://i.imgur.com/6Rel1tk.jpg",
   "imgw": 0.5,
-  "imgx": 0.1,
-  "imgy": 0.1,
+  "imgx": 0.03375,
+  "imgy": 0.41625,
   "imgtheta": 0,
   "style": {
     "color0": "black",
