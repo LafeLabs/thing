@@ -374,10 +374,7 @@ document.getElementById("savebutton").onclick = function(){
     currentjson.imgy = parseInt(document.getElementById("backgroundimage").style.top.substring(0,document.getElementById("backgroundimage").style.top.length-2))/currentjson.width;    
     currentjson.imgw = parseInt(document.getElementById("backgroundimage").style.width.substring(0,document.getElementById("backgroundimage").style.width.length-2))/currentjson.width;    
     
-
     currentjson.imgtheta = parseInt(document.getElementById("backgroundimage").style.transform.substring(7,document.getElementById("backgroundimage").style.transform.length - 4));
-    
-    
     
     savejson();
 
@@ -399,9 +396,52 @@ mcrotate.on("panleft panright panup pandown tap press", function(ev) {
 
     document.getElementById("backgroundimage").style.transform = "rotate(" + (currentjson.imgtheta + ev.deltaX).toString() + "deg)";
 
-
-
 });    
+
+
+
+document.getElementById("zoomoutbutton").onclick = function() {
+    currentjson.imgw /= 1.25;
+    document.getElementById("backgroundimage").style.width = (Math.abs(currentjson.imgw*currentjson.width)).toString() +  "px";
+
+}
+document.getElementById("zoominbutton").onclick = function() {
+    currentjson.imgw *= 1.25;
+    document.getElementById("backgroundimage").style.width = (Math.abs(currentjson.imgw*currentjson.width)).toString() +  "px";
+}
+
+
+document.getElementById("littlezoomoutbutton").onclick = function() {
+    currentjson.imgw /= 1.01;
+    document.getElementById("backgroundimage").style.width = (Math.abs(currentjson.imgw*currentjson.width)).toString() +  "px";
+
+}
+document.getElementById("littlezoominbutton").onclick = function() {
+    currentjson.imgw *= 1.01;
+    document.getElementById("backgroundimage").style.width = (Math.abs(currentjson.imgw*currentjson.width)).toString() +  "px";
+}
+
+
+document.getElementById("rotateleftbutton").onclick = function() {
+    currentjson.imgtheta -= 5;
+    document.getElementById("backgroundimage").style.transform = "rotate(" + (currentjson.imgtheta).toString() + "deg)";    
+
+}
+document.getElementById("rotaterightbutton").onclick = function() {
+    currentjson.imgtheta += 5;
+    document.getElementById("backgroundimage").style.transform = "rotate(" + (currentjson.imgtheta).toString() + "deg)";    
+
+}
+document.getElementById("littlerotateleftbutton").onclick = function() {
+    currentjson.imgtheta -= 0.5;
+    document.getElementById("backgroundimage").style.transform = "rotate(" + (currentjson.imgtheta).toString() + "deg)";    
+
+}
+document.getElementById("littlerotaterightbutton").onclick = function() {
+    currentjson.imgtheta += 0.5;
+    document.getElementById("backgroundimage").style.transform = "rotate(" + (currentjson.imgtheta).toString() + "deg)";    
+
+}
 
 
 </script>
