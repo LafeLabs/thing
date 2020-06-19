@@ -9,13 +9,17 @@
         "the robots will",
         "metabolize",
         "the robots",
-        "the cars"
+        "the cars",
+        "dooewewesdfsdf",
+        "derp"
     ],
     "src": [
         "https://i.imgur.com/VP0eswH.jpg",
-        "https://i.imgur.com/sg95uWv.jpg"
+        "https://i.imgur.com/sg95uWv.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/c/c0/Douglas_adams_portrait_cropped.jpg"
     ],
     "href": [
-        "http://geometronics.org"
+        "http://geometronics.org",
+        "https://en.wikipedia.org/wiki/Douglas_Adams"
     ]
 }

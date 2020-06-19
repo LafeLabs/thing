@@ -300,7 +300,7 @@ function redrawtext(){
     
     document.getElementById("textscroll").innerHTML = "";
     text = textfeed.text;
-    for(var index = 0;index < text.length;index++){
+    for(var index = text.length - 1;index >=0;index--){
         var newbox = document.createElement("div");
         newbox.className = "box";
         newbox.innerHTML = text[index];
@@ -332,7 +332,7 @@ function redrawtext(){
 function redrawsrc(){
     document.getElementById("srcscroll").innerHTML = "";
     var src = textfeed.src;
-    for(var index = 0;index < src.length;index++){
+    for(var index = src.length - 1;index >= 0;index--){
         var newbox = document.createElement("div");
         newbox.className = "box";
         
@@ -368,7 +368,7 @@ function redrawsrc(){
 function redrawhref(){
     document.getElementById("hrefscroll").innerHTML = "";
     var href = textfeed.href;
-    for(var index = 0;index < href.length;index++){
+    for(var index = href.length - 1;index >= 0 ;index--){
         var newbox = document.createElement("div");
         newbox.className = "box";
         
