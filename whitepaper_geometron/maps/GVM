@@ -48,5 +48,25 @@
         "href": "",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0.02386634844868735,
+        "y": 0.9116945107398569,
+        "w": 0.08949880668257756,
+        "angle": -152,
+        "text": "Geometron Virtual Machine",
+        "href": "maps/symboliclanguages",
+        "src": "iconsymbols/arrow.svg",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.9045346062052506,
+        "y": 0.9236276849642004,
+        "w": 0.08949880668257756,
+        "angle": -359,
+        "text": "Geometron Virtual Machine",
+        "href": "maps/hypercube",
+        "src": "iconsymbols/arrow.svg",
+        "maplinkmode": true
     }
 ]

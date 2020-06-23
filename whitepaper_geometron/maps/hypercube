@@ -1,8 +1,8 @@
 [
     {
-        "x": 0.2720763723150358,
-        "y": 0.003579952267303103,
-        "w": 0.7052505966587113,
+        "x": 0.27088305489260145,
+        "y": 0.002386634844868735,
+        "w": 0.7028639618138425,
         "angle": 0,
         "text": "Geometron Hypercube",
         "href": "",
@@ -10,9 +10,9 @@
         "maplinkmode": true
     },
     {
-        "x": 0.008353221957040573,
-        "y": 0.13961813842482101,
-        "w": 0.4498806682577566,
+        "x": 0.006688963210702341,
+        "y": 0.13879598662207357,
+        "w": 0.4498327759197324,
         "angle": 0,
         "text": "Geometron Hypercube",
         "href": "",
@@ -20,13 +20,33 @@
         "maplinkmode": true
     },
     {
-        "x": 0.4403341288782816,
-        "y": 0.1324582338902148,
-        "w": 0.5692124105011933,
+        "x": 0.43914081145584727,
+        "y": 0.13126491646778043,
+        "w": 0.568019093078759,
         "angle": 0,
         "text": "Geometron Hypercube",
         "href": "",
         "src": "iconsymbols/cubes.svg",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.00477326968973747,
+        "y": 0.9212410501193318,
+        "w": 0.10859188544152745,
+        "angle": -186,
+        "text": "Geometron Hypercube",
+        "href": "maps/GVM",
+        "src": "iconsymbols/arrow.svg",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.8794749403341289,
+        "y": 0.9176610978520287,
+        "w": 0.10859188544152745,
+        "angle": -365,
+        "text": "Geometron Hypercube",
+        "href": "maps/actions",
+        "src": "iconsymbols/arrow.svg",
         "maplinkmode": true
     }
 ]

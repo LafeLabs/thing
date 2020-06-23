@@ -18,5 +18,25 @@
         "href": "",
         "src": "iconsymbols/actiontablet.svg",
         "maplinkmode": true
+    },
+    {
+        "x": 0.9033412887828163,
+        "y": 0.9152744630071599,
+        "w": 0.07279236276849642,
+        "angle": 0,
+        "text": "Actions",
+        "href": "maps/applications",
+        "src": "iconsymbols/arrow.svg",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.008353221957040573,
+        "y": 0.9343675417661098,
+        "w": 0.07279236276849642,
+        "angle": -181,
+        "text": "Actions",
+        "href": "maps/hypercube",
+        "src": "iconsymbols/arrow.svg",
+        "maplinkmode": true
     }
 ]

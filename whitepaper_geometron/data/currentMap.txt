@@ -48,5 +48,15 @@
         "href": "maps/symboliclanguages",
         "src": "iconsymbols/arrow.svg",
         "maplinkmode": true
+    },
+    {
+        "x": 0.007159904534606206,
+        "y": -0.003579952267303103,
+        "w": 0.5334128878281623,
+        "angle": 0,
+        "text": "editor.php",
+        "href": "editor.php",
+        "src": "",
+        "maplinkmode": false
     }
 ]

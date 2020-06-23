@@ -167,6 +167,7 @@
     "maps": [
         "GVM",
         "actions",
+        "applications",
         "hypercube",
         "symboliclanguages"
     ],
