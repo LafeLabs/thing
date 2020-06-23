@@ -1,0 +1,22 @@
+[
+    {
+        "x": 0.12649164677804295,
+        "y": -0.014319809069212411,
+        "w": 0.8890214797136038,
+        "angle": 0,
+        "text": "Actions",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.11336515513126491,
+        "y": 0.12052505966587113,
+        "w": 0.7410501193317423,
+        "angle": 0,
+        "text": "Processing",
+        "href": "",
+        "src": "iconsymbols/actiontablet.svg",
+        "maplinkmode": true
+    }
+]

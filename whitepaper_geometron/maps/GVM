@@ -1,0 +1,52 @@
+[
+    {
+        "x": 0.15274463007159905,
+        "y": -0.00954653937947494,
+        "w": 0.7505966587112172,
+        "angle": 0,
+        "text": "Geometron Virtual Machine",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.046539379474940336,
+        "y": 0.27804295942720764,
+        "w": 0.42840095465393796,
+        "angle": 0,
+        "text": "abstract geometric processor structure",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.46539379474940334,
+        "y": 0.18496420047732698,
+        "w": 0.42840095465393796,
+        "angle": 0,
+        "text": "abstract geometric processor structure",
+        "href": "",
+        "src": "iconsymbols/helloworld.svg",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.4701670644391408,
+        "y": 0.6026252983293556,
+        "w": 0.42840095465393796,
+        "angle": 0,
+        "text": "hardware independent",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.477326968973747,
+        "y": 0.6599045346062052,
+        "w": 0.42840095465393796,
+        "angle": 0,
+        "text": "software independent",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    }
+]

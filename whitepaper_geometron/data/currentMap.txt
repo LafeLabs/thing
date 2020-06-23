@@ -1,0 +1,52 @@
+[
+    {
+        "x": 0.28878281622911695,
+        "y": -0.02028639618138425,
+        "w": 0.8890214797136038,
+        "angle": 0,
+        "text": "Geometron",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.6431980906921241,
+        "y": 0.07517899761336516,
+        "w": 0.35918854415274465,
+        "angle": 0,
+        "text": "Symbolic Languages",
+        "href": "maps/symboliclanguages",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.6479713603818615,
+        "y": 0.14081145584725538,
+        "w": 0.35918854415274465,
+        "angle": 0,
+        "text": "Geometron Virtual Machine",
+        "href": "maps/GVM",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.6455847255369929,
+        "y": 0.2350835322195704,
+        "w": 0.35918854415274465,
+        "angle": 0,
+        "text": "hypercube",
+        "href": "maps/hypercube",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.9128878281622912,
+        "y": 0.9474940334128878,
+        "w": 0.07995226730310262,
+        "angle": 0,
+        "text": "Symbolic Languages",
+        "href": "maps/symboliclanguages",
+        "src": "iconsymbols/arrow.svg",
+        "maplinkmode": true
+    }
+]

@@ -88,5 +88,15 @@
         "href": "maps/symbol",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0.5023866348448688,
+        "y": 0.8687350835322196,
+        "w": 0.8890214797136038,
+        "angle": 0,
+        "text": "minibanner",
+        "href": "maps/minibanner",
+        "src": "",
+        "maplinkmode": true
     }
 ]

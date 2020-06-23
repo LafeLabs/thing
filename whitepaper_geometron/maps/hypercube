@@ -1,0 +1,32 @@
+[
+    {
+        "x": 0.2720763723150358,
+        "y": 0.003579952267303103,
+        "w": 0.7052505966587113,
+        "angle": 0,
+        "text": "Geometron Hypercube",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.008353221957040573,
+        "y": 0.13961813842482101,
+        "w": 0.4498806682577566,
+        "angle": 0,
+        "text": "Geometron Hypercube",
+        "href": "",
+        "src": "iconsymbols/xyzcube.svg",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.4403341288782816,
+        "y": 0.1324582338902148,
+        "w": 0.5692124105011933,
+        "angle": 0,
+        "text": "Geometron Hypercube",
+        "href": "",
+        "src": "iconsymbols/cubes.svg",
+        "maplinkmode": true
+    }
+]
