@@ -77,7 +77,7 @@
   "width": 838,
   "height": 838,
   "scale": 1,
-  "backgroundimage": "",
+  "backgroundimage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Virginia_state_coat_of_arms_%28illustrated%2C_1876%29.jpg/700px-Virginia_state_coat_of_arms_%28illustrated%2C_1876%29.jpg",
   "style": {
     "color0": "black",
     "fill0": "black",
