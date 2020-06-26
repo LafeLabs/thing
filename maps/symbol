@@ -198,15 +198,5 @@
         "href": "tablet.html",
         "src": "iconsymbols/tablet.svg",
         "maplinkmode": false
-    },
-    {
-        "x": 0.05489260143198091,
-        "y": 0.8078758949880668,
-        "w": 0.3711217183770883,
-        "angle": 0,
-        "text": "symbolimagealign.html",
-        "href": "symbolimagealign.html",
-        "src": "",
-        "maplinkmode": false
     }
 ]
