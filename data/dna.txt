@@ -108,6 +108,7 @@
         "rightsmall.svg",
         "robot.svg",
         "robotconfig.svg",
+        "robotsymbolmode.svg",
         "rotate.svg",
         "rulers.png",
         "rulers.svg",
@@ -175,6 +176,7 @@
         "foo",
         "kits",
         "markermap.txt",
+        "minibanner",
         "node",
         "nouns",
         "operate",
@@ -212,6 +214,7 @@
         "scrollscroll.md",
         "srs.md",
         "symbolmagic",
-        "trashrobotdotorg"
+        "trashrobotdotorg",
+        "zdrive-arduino"
     ]
 }

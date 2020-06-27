@@ -64,9 +64,8 @@
         <a href = "setup.html">
             <img style = "width:50px;" src = "iconsymbols/setup.svg"/>
         </a>    
-
         <img id = "modebutton" class = "button" style = "width:50px;background-color:#00ff00" src = "iconsymbols/cursor.svg"/>
-
+        <img id = "robotmode" class = "button" style = "width:50px;" src = "iconsymbols/robotsymbolmode.svg"/>
 
         <img id = "savebutton" class = "button" style = "width:50px;" src = "iconsymbols/save.svg"/>
     </div>    
@@ -81,6 +80,8 @@
 </div>
 
 <script>
+
+
 
 landscape = false;
 
@@ -404,6 +405,47 @@ function savejson(){
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc.send("data="+encodeURIComponent(JSON.stringify(currentjson,null,"  "))+"&filename=data/currentjson.txt");//send text to filesaver.php
 
+}
+
+robotkeyboard = [
+    "0161:0545,",
+    "0141:0500,",
+    "0163:0501,",
+    "0144:0502,",
+    "0146:0503,",
+    "0172:0504,",
+    "0170:0505,",
+    "0143:0506,",
+    "0166:0507,"
+];
+
+symbolkeyboard = [
+    "0161:0362,",
+    "0141:0330,",
+    "0163:0331,",
+    "0144:0332,",
+    "0146:0333,",
+    "0172:0340,",
+    "0170:0341,",
+    "0143:0342,",
+    "0166:0343,"
+];
+
+robotkeyboardmode = false;
+
+document.getElementById("robotmode").onclick = function(){
+    robotkeyboardmode = !robotkeyboardmode;
+    
+    if(robotkeyboardmode){
+        newGVM.importbytecode(robotkeyboard);
+        document.getElementById("robotmode").style.backgroundColor = "pink";        
+    }
+    else{
+        newGVM.importbytecode(symbolkeyboard);
+        document.getElementById("robotmode").style.backgroundColor = "white";        
+    }
+     document.getElementById("actioninput").select();
+   
 }
 </script>
 <style>
