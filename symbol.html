@@ -46,8 +46,8 @@
 
 <div id = "margin">            
     <div id = "linkdiv">
-        <a href = "map.html">
-            <img style = "width:50px;" src = "../iconsymbols/map.svg"/>
+        <a href = "robot.html">
+            <img style = "width:50px;" src = "../iconsymbols/robot.svg"/>
         </a>
         <a href = "shapetableeditor.html">
             <img style = "width:50px;" src = "iconsymbols/table.svg"/>
@@ -317,8 +317,12 @@ document.getElementById("savebutton").onclick = function() {
     httpc4.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc4.send("data="+encodeURIComponent(invisibleGVM.svgString) +"&filename=symbolfeed/symbol" + timestamp +  ".svg");//send text to filesaver.php
 
-
-
+    robotjson.glyph = currentjson.glyph;
+    
+    var httpc666 = new XMLHttpRequest();
+    httpc666.open("POST","filesaver.php", true);
+    httpc666.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc666.send("data="+encodeURIComponent(JSON.stringify(robotjson,null,"  ")) +"&filename=data/robot.txt");//send text to filesaver.php
 
 }
 
@@ -372,6 +376,15 @@ httpc.onreadystatechange = function() {
 };
 httpc.open("GET", "fileloader.php?filename=data/currentjson.txt", true);
 httpc.send();    
+
+var httpc666 = new XMLHttpRequest();
+httpc666.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        robotjson = JSON.parse(this.responseText);
+    }
+};
+httpc666.open("GET", "fileloader.php?filename=data/robot.txt", true);
+httpc666.send();    
 
 
 document.getElementById("actioninput").select();
