@@ -45,6 +45,7 @@
         "geometron.js",
         "hypercube.js",
         "keyboard.js",
+        "lasercutfont.js",
         "mapfactory.js",
         "robotfont.js"
     ],
@@ -193,6 +194,7 @@
         "bookofshapes",
         "buildrobot.md",
         "buystuff",
+        "connectors",
         "duality",
         "elementsofcode",
         "foo",
