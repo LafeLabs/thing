@@ -29,6 +29,7 @@
     <img src = "iconsymbols/robotconfig.svg"/>
 </a>
     <img id = "gobutton" src = "iconsymbols/gobutton.svg" class = "button"/>
+    <img style = "width:60px" id = "clearbutton" src = "iconsymbols/clearicon.svg" class = "button"/>
     <img style ="width:60px" id = "mirrorbutton" src = "iconsymbols/notmirror.svg" class = "button"/>
 <input id = "spellinput"/>
     <div id = "controldiv">
@@ -363,6 +364,16 @@ document.getElementById("mirrorbutton").onclick = function(){
     draw();
     document.getElementById("actioninput").select();
    
+}
+
+document.getElementById("clearbutton").onclick = function(){
+    glyph = "";
+    newGVM.glyph = glyph + "0207,";
+    newGVM.drawGlyph("0300,");
+    spellGlyph(newGVM.glyph);
+    savejson();
+    draw();
+    
 }
 
 </script>

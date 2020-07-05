@@ -60,6 +60,7 @@
         "arrowdeletesymbols.svg",
         "beziersymbols.svg",
         "bullseye.svg",
+        "clearicon.svg",
         "colorlayers.svg",
         "cubes.svg",
         "cursor.svg",
