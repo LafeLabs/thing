@@ -5,28 +5,19 @@
         "scroll.html",
         "scrolleditor.html"
     ],
-    "javascript": [],
-    "iconsymbols": [],
-    "data": [],
+    "iconsymbols": [
+        "edit.svg"
+    ],
+    "data": [
+        "dna.txt"
+    ],
     "php": [
-        "deletebranch.txt",
-        "deletefile.txt",
-        "dir.txt",
         "dnagenerator.txt",
         "editor.txt",
         "fileloader.txt",
         "filesaver.txt",
-        "ipaddress.txt",
-        "mkdir.txt",
-        "pngsave.txt",
-        "rdelete.txt",
         "replicator.txt",
-        "robot.txt",
         "seed.txt",
-        "text2php.txt",
-        "upload.txt",
-        "uploadsymbol.txt"
-    ],
-    "maps": [],
-    "scrolls": []
+        "text2php.txt"
+    ]
 }
