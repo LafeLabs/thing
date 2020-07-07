@@ -30,13 +30,7 @@
 
     <textarea id = "maintextarea"></textarea>
 
-    <div id = "feedscroll">
 
-        <a href = "index.html">
-            <img src = "iconsymbols/scroll.svg"/>
-        </a>
-    </div>
-        
 <div id = "reloadbar">
     R
     <BR/>
@@ -82,119 +76,62 @@ document.getElementById("maintextarea").onkeyup = function() {
 
 document.getElementById("reloadbar").onclick = function() {
 //     location.reload(); 
-     window.location.href = "scroll.html";
+     window.location.href = "index.html";
      
 }
 
 </script>
 <style>
 
-    .scrollbutton{
-        cursor:pointer;
-        color:blue;
-        margin-bottom:0.5em;
+
+body{
+    overflow:hidden;
+}
+#reloadbar{
+    position:absolute;
+    left:0px;
+    top:0px;
+    height:100%;
+    width:50px;
+    font-size:36px;
+    font-family:courier;
+    color:red;
+    background-color:white;
+    z-index:20;
+    overflow:hidden;
+    cursor:pointer;
+}
+#maintextarea{
+    position:absolute;
+    left:5%;
+    top:0px;
+    width:90%;
+    height:100%;
+    padding-left:1em;
+    padding-top:1em;
+    background-color:black;
+    color:#00ff00;
+    font-family:courier;
+    font-size:1em;
+    overflow:scroll;
+}
+
+@media only screen and (max-width: 1000px) {
+    #maintextarea{
+        position:absolute;
+        left:5%;
+        top:30%;
+        width:95%;
+        bottom:10px;
+        padding-left:1em;
+        padding-top:1em;
+        background-color:black;
+        color:#00ff00;
+        font-family:courier;
+        font-size:1em;
+        overflow:scroll;
     }
-
-            body{
-                overflow:hidden;
-            }
-            #reloadbar{
-                position:absolute;
-                left:0px;
-                top:0px;
-                height:100%;
-                width:50px;
-                font-size:36px;
-                font-family:courier;
-                color:red;
-                background-color:white;
-                z-index:20;
-                overflow:hidden;
-                cursor:pointer;
-            }
-            #maintextarea{
-                position:absolute;
-                left:5%;
-                top:0px;
-                width:65%;
-                height:100%;
-                padding-left:1em;
-                padding-top:1em;
-                background-color:black;
-                color:#00ff00;
-                font-family:courier;
-                font-size:1em;
-                overflow:scroll;
-            }
-            #feedscroll{
-                position:absolute;
-                right:0px;
-                bottom:0px;
-                top:0px;
-                width:27%;
-                overflow:scroll;
-                font-size:1.5em;
-            }
-            .uploadimage{
-                max-width:50%;
-                display:block;
-                margin:auto;
-            }
-
-            .deletebutton{
-                width:50px;
-            }
-            .uploadbox{
-                border:solid;
-                border-width:0.5px;
-                border-radius:10px;
-                margin-top:1em;
-            }
-            .button{
-                cursor:pointer;
-            }
-            .button:hover{
-                background-color:#50ff50;
-            }
-            .button:active{
-                background-color:yellow;
-            }
-            #srcinput{
-                display:block;
-            }
-            #imgurlbox{
-                display:block;
-                font-family:courier;
-                font-size:28px;
-            }
-            @media only screen and (max-width: 1000px) {
-                #maintextarea{
-                    position:absolute;
-                    left:5%;
-                    top:30%;
-                    width:95%;
-                    bottom:10px;
-                    padding-left:1em;
-                    padding-top:1em;
-                    background-color:black;
-                    color:#00ff00;
-                    font-family:courier;
-                    font-size:1em;
-                    overflow:scroll;
-                }
-                #feedscroll{
-                    position:absolute;
-                    top:0px;
-                    left:50px;
-                    right:0px;
-                    width:100%;
-                    bottom:73%;
-                    overflow:scroll;
-                    font-size:1.5em;
-        
-                }
-
-            }
+}
 
         </style>
     </body>
