@@ -1,15 +1,15 @@
 <?php
 //seed.php?replicatorurl=[replicator url]&pagename=[page name]
 
+//href = 
+//seed.php?replicatorurl=https://raw.githubusercontent.com/LafeLabs/thing/master/seeds/cherrytree/php/replicator.txt&pagename=cherrytree
 
-//seed.php?replicatorurl=https://raw.githubusercontent.com/LafeLabs/thing/master/seeds/cherrytree/data/dna.txt&pagename=cherrytree
 
 if(isset($_GET["replicatorurl"]) && isset($_GET["pagename"])){
     $replicatorurl = $_GET["replicatorurl"];//get replicatorurl
     $pagename = $_GET["pagename"];//get replicatorurl
     mkdir($pagename);
-    $replicator = file_get_contents($replicatorurl);
-    copy($replicator,$pagename."/replicator.php");
+    copy($replicatorurl,$pagename."/replicator.php");
     echo "<a href = \"".$pagename."/replicator.php\">".$pagename."/replicator.php</a>";
 }
 
