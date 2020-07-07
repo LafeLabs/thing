@@ -1,0 +1,77 @@
+
+
+<pre>
+
+
+/*
+
+FREE, PUBLIC DOMAIN
+NO COPYRIGHT
+
+
+
+*/
+
+boolean fwd = false;//A0
+boolean rvs = false;//A1
+
+int dirpin = 13;
+int steppin = 12;
+int enpin = 11; 
+
+int pulseTime = 1;//ms
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(dirpin,OUTPUT);
+  pinMode(steppin,OUTPUT); 
+  pinMode(enpin,OUTPUT); 
+  digitalWrite(enpin,HIGH);
+  digitalWrite(dirpin,LOW);
+  digitalWrite(steppin,LOW);
+
+}
+
+void loop() {
+
+  if(analogRead(A0) > 500){
+    fwd = true;
+  }
+  else{
+    fwd = false;
+  }
+  if(analogRead(A1) > 500){
+    rvs = true;
+  }
+  else{
+    rvs = false;
+  }
+  
+  if(fwd && !rvs){
+    digitalWrite(dirpin,HIGH);  
+
+    //enable engaged
+    //dir in correct direction
+    //step 
+  }  
+  if(rvs && !fwd){
+    digitalWrite(dirpin,LOW);  
+  }
+  if(fwd || rvs){
+    digitalWrite(enpin,LOW);  
+    digitalWrite(steppin,HIGH);  
+    delay(pulseTime);
+    digitalWrite(steppin,LOW);  
+    delay(pulseTime);
+  }
+  if((fwd && rvs) || (!fwd && !rvs)){
+    digitalWrite(enpin,HIGH);              
+  }
+
+  Serial.print("fwd = "); 
+  Serial.print(fwd);
+  Serial.print(", rvs = "); 
+  Serial.println(rvs);
+  
+}
+</pre>

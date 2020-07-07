@@ -1,0 +1,102 @@
+[
+    {
+        "x": 0.6957040572792362,
+        "y": 0.3329355608591885,
+        "w": 0.8890214797136038,
+        "angle": 0,
+        "text": "nouns",
+        "href": "maps/nouns",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.046539379474940336,
+        "y": 0.017899761336515514,
+        "w": 0.7482100238663485,
+        "angle": 0,
+        "text": "index.html",
+        "href": "index.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.11217183770883055,
+        "y": -0.13961813842482101,
+        "w": 0.8890214797136038,
+        "angle": -91,
+        "text": "reality",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.6778042959427207,
+        "y": 0.007159904534606206,
+        "w": 0.8890214797136038,
+        "angle": 0,
+        "text": "actions",
+        "href": "maps/actions",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.05369928400954654,
+        "y": 0.2100238663484487,
+        "w": 0.2159904534606205,
+        "angle": 0,
+        "text": "symbol",
+        "href": "symbol.html",
+        "src": "iconsymbols/geometron.svg",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.2529832935560859,
+        "y": 0.5692124105011933,
+        "w": 1.0990453460620524,
+        "angle": 0,
+        "text": "operate robot",
+        "href": "robot.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.2553699284009546,
+        "y": 0.7016706443914081,
+        "w": 1.0990453460620524,
+        "angle": 0,
+        "text": "build robot",
+        "href": "scroll.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.03937947494033413,
+        "y": 0.7637231503579952,
+        "w": 0.1324582338902148,
+        "angle": 0,
+        "text": "tree",
+        "href": "tree/",
+        "src": "iconsymbols/fork.svg",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.032219570405727926,
+        "y": 0.4713603818615752,
+        "w": 0.8890214797136038,
+        "angle": 0,
+        "text": "symbol",
+        "href": "maps/symbol",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.5023866348448688,
+        "y": 0.8687350835322196,
+        "w": 0.8890214797136038,
+        "angle": 0,
+        "text": "minibanner",
+        "href": "maps/minibanner",
+        "src": "",
+        "maplinkmode": true
+    }
+]

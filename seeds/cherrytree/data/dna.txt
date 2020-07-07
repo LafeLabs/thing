@@ -1,0 +1,32 @@
+{
+    "html": [
+        "README.md",
+        "index.html",
+        "scroll.html",
+        "scrolleditor.html"
+    ],
+    "javascript": [],
+    "iconsymbols": [],
+    "data": [],
+    "php": [
+        "deletebranch.txt",
+        "deletefile.txt",
+        "dir.txt",
+        "dnagenerator.txt",
+        "editor.txt",
+        "fileloader.txt",
+        "filesaver.txt",
+        "ipaddress.txt",
+        "mkdir.txt",
+        "pngsave.txt",
+        "rdelete.txt",
+        "replicator.txt",
+        "robot.txt",
+        "seed.txt",
+        "text2php.txt",
+        "upload.txt",
+        "uploadsymbol.txt"
+    ],
+    "maps": [],
+    "scrolls": []
+}
