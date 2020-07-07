@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>    
+
+<a href = "robot.html">
+<img alt = "robot" src = "iconsymbols/robot.svg"/>    
+</a>
+
+<h2>Robot Configuration</h2>
+
+<table>
+    <tr>
+        <td id = "polarity1button" class = "button">POLARITY1 = <span id = "polarity1">0</span></td>
+    </tr>
+    <tr>
+        <td id = "polarity2button" class = "button">POLARITY2 = <span id = "polarity2">0</span></td>
+    </tr>
+    <tr>
+        <td id = "polarity3button" class = "button">POLARITY3 = <span id = "polarity3">0</span></td>
+    </tr>
+</table>
+
+<script>
+
+document.getElementById("polarity1button").onclick = function(){
+    currentjson.polarity1 = currentjson.polarity1^1;
+    if(currentjson.polarity1 == 0){
+        document.getElementById("polarity1").innerHTML = "0";
+    }    
+    else{
+        document.getElementById("polarity1").innerHTML = "1";
+    }
+    savejson();
+}
+
+document.getElementById("polarity2button").onclick = function(){
+    currentjson.polarity2 = currentjson.polarity2^1;
+    if(currentjson.polarity2 == 0){
+        document.getElementById("polarity2").innerHTML = "0";
+    }    
+    else{
+        document.getElementById("polarity2").innerHTML = "1";
+    }
+    savejson();
+}
+
+
+document.getElementById("polarity3button").onclick = function(){
+    currentjson.polarity3 = currentjson.polarity3^1;
+    if(currentjson.polarity3 == 0){
+        document.getElementById("polarity3").innerHTML = "0";
+    }    
+    else{
+        document.getElementById("polarity3").innerHTML = "1";
+    }
+    savejson();
+}
+
+
+
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        currentjson = JSON.parse(this.responseText);
+
+        if(currentjson.polarity1 == 0){
+            document.getElementById("polarity1").innerHTML = "0";
+        }    
+        else{
+            document.getElementById("polarity1").innerHTML = "1";
+        }
+        if(currentjson.polarity2 == 0){
+            document.getElementById("polarity2").innerHTML = "0";
+        }    
+        else{
+            document.getElementById("polarity2").innerHTML = "1";
+        }
+        if(currentjson.polarity3 == 0){
+            document.getElementById("polarity3").innerHTML = "0";
+        }    
+        else{
+            document.getElementById("polarity3").innerHTML = "1";
+        }
+
+    }
+};
+httpc.open("GET", "fileloader.php?filename=data/robot.txt", true);
+httpc.send();    
+
+
+function savejson(){
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", "filesaver.php", true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(JSON.stringify(currentjson,null,"  "))+"&filename=data/robot.txt");//send text to filesaver.php
+}
+
+</script>
+<style>
+.button{
+    padding:0.25em;
+    border:solid;
+    border-radius:0.25em;
+    font-family:courier;
+    font-size:2em;
+    text-align:center;
+    cursor:pointer;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
+}
+
+</style>
+</body>
+</html>

@@ -163,6 +163,7 @@
         "rdelete.txt",
         "replicator.txt",
         "robot.txt",
+        "seed.txt",
         "text2php.txt",
         "upload.txt",
         "uploadsymbol.txt"
