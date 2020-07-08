@@ -24,6 +24,40 @@
                 "angle": -1
             },
             "theta": 0.785398
+        },
+        {
+            "top": {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Donald_Trump_official_portrait.jpg/440px-Donald_Trump_official_portrait.jpg",
+                "x": 0.1873508353221957,
+                "y": 0.12052505966587113,
+                "w": 0.5596658711217184,
+                "angle": 0
+            },
+            "bottom": {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Joe_Biden_official_portrait_2013.jpg/440px-Joe_Biden_official_portrait_2013.jpg",
+                "x": -0.09427207637231504,
+                "y": 0.15393794749403342,
+                "w": 0.9439140811455847,
+                "angle": -1
+            },
+            "theta": 0.785398
+        },
+        {
+            "top": {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Krilleyekils.jpg/500px-Krilleyekils.jpg",
+                "x": 0.045346062052505964,
+                "y": 0.07398568019093078,
+                "w": 0.8007159904534606,
+                "angle": 0
+            },
+            "bottom": {
+                "src": "https://upload.wikimedia.org/wikipedia/en/f/f9/Death_star1.png",
+                "x": 0.15871121718377088,
+                "y": 0.12649164677804295,
+                "w": 0.6145584725536993,
+                "angle": 0
+            },
+            "theta": 0.785398
         }
     ]
 }

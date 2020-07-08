@@ -1,17 +1,17 @@
 {
     "top": {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Stonehenge2007_07_30.jpg/2560px-Stonehenge2007_07_30.jpg",
-        "x": 0.03699284009546539,
-        "y": 0.0883054892601432,
-        "w": 0.8794749403341289,
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Krilleyekils.jpg/500px-Krilleyekils.jpg",
+        "x": 0.045346062052505964,
+        "y": 0.07398568019093078,
+        "w": 0.8007159904534606,
         "angle": 0
     },
     "bottom": {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/IBM_Blue_Gene_P_supercomputer.jpg/660px-IBM_Blue_Gene_P_supercomputer.jpg",
-        "x": 0.05489260143198091,
-        "y": 0.09069212410501193,
-        "w": 0.8293556085918854,
-        "angle": -1
+        "src": "https://upload.wikimedia.org/wikipedia/en/f/f9/Death_star1.png",
+        "x": 0.15871121718377088,
+        "y": 0.12649164677804295,
+        "w": 0.6145584725536993,
+        "angle": 0
     },
     "theta": 0.785398
 }
