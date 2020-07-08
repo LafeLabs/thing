@@ -1,0 +1,32 @@
+{
+    "html": [
+        "dualityfeed.html",
+        "index.html",
+        "textfeed.html"
+    ],
+    "iconsymbols": [
+        "delete.svg",
+        "downelement.svg",
+        "duality.svg",
+        "edit.svg",
+        "feed.svg",
+        "rotate.svg",
+        "save.svg",
+        "scale.svg",
+        "upelement.svg"
+    ],
+    "data": [
+        "dna.txt",
+        "duality.txt",
+        "textfeed.txt"
+    ],
+    "php": [
+        "dnagenerator.txt",
+        "editor.txt",
+        "fileloader.txt",
+        "filesaver.txt",
+        "replicator.txt",
+        "seed.txt",
+        "text2php.txt"
+    ]
+}

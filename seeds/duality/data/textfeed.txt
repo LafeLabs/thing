@@ -1,0 +1,29 @@
+{
+    "src": [
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Joe_Biden_official_portrait_2013.jpg/440px-Joe_Biden_official_portrait_2013.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Donald_Trump_official_portrait.jpg/440px-Donald_Trump_official_portrait.jpg",
+        "https://upload.wikimedia.org/wikipedia/en/8/8f/Emperor_RotJ.png",
+        "https://upload.wikimedia.org/wikipedia/en/e/e5/Ian_McDiarmid_as_Palpatine_%281999%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Krilleyekils.jpg/500px-Krilleyekils.jpg",
+        "https://upload.wikimedia.org/wikipedia/en/f/f9/Death_star1.png"
+    ],
+    "dualities": [
+        {
+            "top": {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Stonehenge2007_07_30.jpg/2560px-Stonehenge2007_07_30.jpg",
+                "x": 0.03699284009546539,
+                "y": 0.0883054892601432,
+                "w": 0.8794749403341289,
+                "angle": 0
+            },
+            "bottom": {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/IBM_Blue_Gene_P_supercomputer.jpg/660px-IBM_Blue_Gene_P_supercomputer.jpg",
+                "x": 0.05489260143198091,
+                "y": 0.09069212410501193,
+                "w": 0.8293556085918854,
+                "angle": -1
+            },
+            "theta": 0.785398
+        }
+    ]
+}

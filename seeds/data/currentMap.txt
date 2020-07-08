@@ -98,5 +98,15 @@
         "href": "maps/minibanner",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0.41646778042959426,
+        "y": 0.4403341288782816,
+        "w": 0.31861575178997614,
+        "angle": 0,
+        "text": "seed duality with place page",
+        "href": "seed.php?replicatorurl=https://raw.githubusercontent.com/LafeLabs/thing/master/seeds/cherrytree/php/replicator.txt&pagename=duality",
+        "src": "",
+        "maplinkmode": false
     }
 ]

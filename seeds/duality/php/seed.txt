@@ -1,6 +1,10 @@
 <?php
 //seed.php?replicatorurl=[replicator url]&pagename=[page name]
 
+//href = 
+//seed.php?replicatorurl=https://raw.githubusercontent.com/LafeLabs/thing/master/seeds/cherrytree/php/replicator.txt&pagename=cherrytree
+
+
 if(isset($_GET["replicatorurl"]) && isset($_GET["pagename"])){
     $replicatorurl = $_GET["replicatorurl"];//get replicatorurl
     $pagename = $_GET["pagename"];//get replicatorurl
