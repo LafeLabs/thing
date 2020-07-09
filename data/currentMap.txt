@@ -1,15 +1,5 @@
 [
     {
-        "x": 0.6957040572792362,
-        "y": 0.3329355608591885,
-        "w": 0.8890214797136038,
-        "angle": 0,
-        "text": "nouns",
-        "href": "maps/nouns",
-        "src": "",
-        "maplinkmode": true
-    },
-    {
         "x": 0.046539379474940336,
         "y": 0.017899761336515514,
         "w": 0.7482100238663485,
@@ -75,7 +65,7 @@
         "w": 0.1324582338902148,
         "angle": 0,
         "text": "tree",
-        "href": "tree/",
+        "href": "fork.html",
         "src": "iconsymbols/fork.svg",
         "maplinkmode": false
     },
@@ -86,16 +76,6 @@
         "angle": 0,
         "text": "symbol",
         "href": "maps/symbol",
-        "src": "",
-        "maplinkmode": true
-    },
-    {
-        "x": 0.5023866348448688,
-        "y": 0.8687350835322196,
-        "w": 0.8890214797136038,
-        "angle": 0,
-        "text": "minibanner",
-        "href": "maps/minibanner",
         "src": "",
         "maplinkmode": true
     }
