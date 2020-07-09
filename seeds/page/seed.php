@@ -2,7 +2,7 @@
 //seed.php?replicatorurl=[replicator url]&pagename=[page name]
 
 //href = 
-//seed.php?replicatorurl=https://raw.githubusercontent.com/LafeLabs/thing/master/seeds/cherrytree/php/replicator.txt&pagename=cherrytree
+//seed.php?replicatorurl=https://raw.githubusercontent.com/LafeLabs/thing/master/seeds/page/php/replicator.txt&pagename=newpagename
 
 
 if(isset($_GET["replicatorurl"]) && isset($_GET["pagename"])){
