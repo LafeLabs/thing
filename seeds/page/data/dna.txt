@@ -1,0 +1,22 @@
+{
+    "html": [
+        "README.md",
+        "index.html",
+        "scrolleditor.html"
+    ],
+    "iconsymbols": [
+        "edit.svg"
+    ],
+    "data": [
+        "dna.txt"
+    ],
+    "php": [
+        "dnagenerator.txt",
+        "editor.txt",
+        "fileloader.txt",
+        "filesaver.txt",
+        "replicator.txt",
+        "seed.txt",
+        "text2php.txt"
+    ]
+}
