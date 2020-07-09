@@ -8,5 +8,35 @@
         "href": "",
         "src": "",
         "maplinkmode": false
+    },
+    {
+        "x": 0.39618138424821003,
+        "y": 0.21121718377088305,
+        "w": 0.2541766109785203,
+        "angle": 89,
+        "text": "map",
+        "href": "",
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXgAAADiCAYAAABEF9w3AAAFcElEQVR4nO3aS47dVgxFUQ0h859UnBFVOoEBx1Wu9xF1SGotYPcFXOK0dBwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD39Vf6AwCo8fdh5AFW+jiMPMBKH//14zDyAKt8HEYeYKWPw8gDrPT/gTfyAEt8NvBGHmCBrwbe3zUAw/1p4I08wGDfDbyRBxjqkYE38gADPTrwRh5gmGcG3sgDDPLswBt5gCFeGXgjDzDAqwNv5AGae2fgjTxAY+8OvJEHaOqMgTfyAA2dNfBGHqCZMwfeyAM0cvbAG3mAJioG3sgDNFA18EYeIKxy4I08QFD1wBt5gJArBt7IAwRcNfBGHuBiVw68kQe40NUDb+QBLpIYeCMPcIHUwBt5gGLJgTfyAIXSA2/kAYqkx93IAxRJD7uRByiSHnUjD1AkPehGHqBIesyNPECR9JAbeYAi6RE38gBF0gNu5AGKpMfbyAMUSQ+3kQcokh5tIw9QJD3YRh6gSHqsjTxAkfRQG3kulT5aSY9n5HlK+mAlPZeR52HpY5X0fEaeh6QPVdJrGXm+lT5SSa9n5Pmj9IFKei8jz5fSxynp/Yw8n0ofpqRzMvL8Jn2Uks7LyPOL9EFKOjcjz0/pY5R0fkae4zjyhyipJiNP/Agl1WXkby59gJJqM/I3lj4+SfUZ+ZtKH56kazLyN5Q+OknXZeRvJn1wkq7NyN9I+tgkXZ+Rv4n0oUnKZORvIH1kknIZ+eXSByYpm5FfLH1ckvIZ+aXShyWpR0Z+ofRRSeqTkV8mfVCSemXkF0kfk6R+Gfkl0ockqWdGfoH0EUnqm5EfLn1Aknpn5AdLH4+k/hn5odKHI2lGRn6g9NFImpORHyZ9MJJmZeQHSR+LpHkZ+SHShyJpZkZ+gPSRSJqbkW8ufSCSZmfkG0sfh6T5Gfmm0ochaUdGvqH0UUjak5FvJn0QknZl5BtJH4OkfRn5JtKHIGlnRr6B9BFI2puRD0sfgKTdGfmg9ONL2p+RD0k/vKR7ZOQD0o8u6R79OAz85dKPLml/xj0k/fCSdmfcg9KPL2lvxj0sfQCSdmbcG0gfgaR9Gfcm0ocgaVfGvZH0MUjak3FvJn0QknZk3BtKH4Wk+Rn3ptKHIWl2xr2x9HFImptxby59IJJmZtwHSB+JpHkZ9yHShyJpVsZ9kPSxSJqTcR8mfTCSZmTcB0ofjaT+Gfeh0ocjqXfGfbD08Ujqm3EfLn1Aknpm3BdIH5Gkfhn3JdKHJKlXxn2R9DFJ6pNxXyZ9UJJ6ZNwXSh+VpHzGfan0YUnKZtwXSx+XpFzGfbn0gUnKZNxvIH1kkq7PuN9E+tAkXZtxv5H0sUm6LuN+M+mDk3RNxv2G0kcnqT7jflPpw5NUm3G/sfTxSarLuN9c+gAl1WTciR+hpPMz7hzHkT9ESedm3PkpfYySzsu484v0QUo6J+POb9JHKen9jDufSh+mpPcy7nwpfZySXs+480fpA5X0Wsadb6WPVNLzGXcekj5USc9l3HlY+lglPZ5xB/hCeqCNO0CR9Egbd4Ai6aE27gBF0mNt3AGKpAfbuAMUSY+2cQcokh5u4w5QJD3exh2gSHrAjTtAkfSIG3eAIukhN+4ARdJjbtwBiqQH3bgDFEmPunEHKJIeduMOUMS4Ayxl3AGWMu4ASxl3gKWMO8BSxh1gKeMOsJRxB1jKuAMsZdwBljLuAEsZd4CljDvAUsYdYCnjDrCUcQdYyrgDLGXcAZYy7gBLGXeApYw7wFLGHWAp4w6wlHEHWMq4Ayxl3AGW+mrc/zmMO8Boxh1gKeMOsJRxB1jKuAMs5W8ZgKWMO8BSxh0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJr4F76bY+FR7x9wAAAAAElFTkSuQmCC",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.43675417661097854,
+        "y": 0.39856801909307876,
+        "w": 0.8890214797136038,
+        "angle": 0,
+        "text": "foo",
+        "href": "maps/foo",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.5465393794749404,
+        "y": 0,
+        "w": 0.5835322195704057,
+        "angle": 0,
+        "text": "editor.php",
+        "href": "editor.php",
+        "src": "",
+        "maplinkmode": false
     }
 ]

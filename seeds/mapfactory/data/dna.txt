@@ -55,9 +55,7 @@
     ],
     "data": [
         "currentMap.txt",
-        "currentjson.txt",
         "dna.txt",
-        "marker.txt",
         "textfeed.txt",
         "wall.txt"
     ],
@@ -69,12 +67,12 @@
         "fileloader.txt",
         "filesaver.txt",
         "replicator.txt",
-        "robot.txt",
         "seed.txt",
         "text2php.txt",
-        "upload.txt",
-        "uploadsymbol.txt"
+        "upload.txt"
     ],
-    "maps": [],
+    "maps": [
+        "foo"
+    ],
     "scrolls": []
 }

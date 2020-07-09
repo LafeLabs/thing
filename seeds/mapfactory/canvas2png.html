@@ -90,6 +90,10 @@ var httpc10 = new XMLHttpRequest();
 httpc10.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
 httpc10.send();
 
+
+document.getElementById("imageurl").onchange = function(){
+    document.getElementById("mainimage").src = this.value;
+}
 </script>
 <style>
 #mainbox{

@@ -500,7 +500,6 @@ var httpc = new XMLHttpRequest();
 httpc.open("GET", "dir.php?filename=uploadimages", true);
 httpc.send();
 
-
 textfeed = {};
 var httpc10 = new XMLHttpRequest();
     httpc10.onreadystatechange = function() {
@@ -690,6 +689,40 @@ newmapbutton.onclick = function(){
     httpc.send();
 }
 
+
+//getsymbolfeed("../symbolfeed");
+
+function getsymbolfeed(symbolpath){
+    
+    symbolhere = [];
+    var httpc5 = new XMLHttpRequest();
+    httpc5.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        symbolhere = JSON.parse(this.responseText);
+        for(var index = symbolhere.length - 1;index >= 0;index--) {
+
+            var newimg = document.createElement("IMG");
+            newimg.src = symbolpath  +"/"+ symbolhere[index];
+            newimg.classList.add("uploadimage");
+            newimg.classList.add("button");
+
+            document.getElementById("feedscroll").appendChild(newimg);
+            newimg.onclick = function() {
+                var localurl = this.src;
+                mainmap.array[mainmap.linkindex].src = localurl;
+                mainmap.draw();
+                    document.getElementById("imginput").value = mainmap.array[mainmap.linkindex].src;
+    
+            }
+                
+            }
+        }
+    };
+
+    httpc5.open("GET", "dir.php?filename=" + symbolpath, true);
+    httpc5.send();
+    
+}
 </script>
 <style>
 #iotable .button{
