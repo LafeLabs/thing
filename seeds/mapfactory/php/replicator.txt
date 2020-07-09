@@ -16,10 +16,7 @@ mkdir("data");
 mkdir("php");
 mkdir("jscode");
 mkdir("uploadimages");
-mkdir("symbolfeed");
 mkdir("maps");
-mkdir("scrolls");
-mkdir("tree");
 
 copy("https://raw.githubusercontent.com/LafeLabs/thing/master/tree/php/replicator.txt","tree/replicator.php");
 
@@ -60,10 +57,6 @@ foreach($dna->php as $value){
 
 foreach($dna->maps as $value){
     copy($baseurl."maps/".$value,"maps/".$value);
-}
-
-foreach($dna->scrolls as $value){
-    copy($baseurl."scrolls/".$value,"scrolls/".$value);
 }
 
 

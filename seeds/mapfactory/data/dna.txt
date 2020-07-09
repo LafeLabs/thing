@@ -2,6 +2,7 @@
     "html": [
         "README.md",
         "canvas2png.html",
+        "fork.html",
         "index.html",
         "map.html",
         "mapdelete.html",
@@ -21,6 +22,7 @@
         "delete.svg",
         "deleteimage.svg",
         "deletelink.svg",
+        "deletemap.svg",
         "downelement.svg",
         "drawingsymbols.svg",
         "edit.svg",
@@ -66,6 +68,7 @@
         "editor.txt",
         "fileloader.txt",
         "filesaver.txt",
+        "mkdir.txt",
         "replicator.txt",
         "seed.txt",
         "text2php.txt",
@@ -73,6 +76,5 @@
     ],
     "maps": [
         "foo"
-    ],
-    "scrolls": []
+    ]
 }

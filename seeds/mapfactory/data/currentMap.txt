@@ -1,18 +1,8 @@
 [
     {
-        "x": 0.027446300715990454,
-        "y": 0.014319809069212411,
-        "w": 0.8890214797136038,
-        "angle": 0,
-        "text": "map",
-        "href": "",
-        "src": "",
-        "maplinkmode": false
-    },
-    {
         "x": 0.39618138424821003,
         "y": 0.21121718377088305,
-        "w": 0.2541766109785203,
+        "w": 0.18496420047732698,
         "angle": 89,
         "text": "map",
         "href": "",
@@ -28,6 +18,36 @@
         "href": "maps/foo",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0.027446300715990454,
+        "y": 0.014319809069212411,
+        "w": 0.8890214797136038,
+        "angle": 0,
+        "text": "map",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.752983293556086,
+        "y": 0.24821002386634844,
+        "w": 0.8890214797136038,
+        "angle": 0,
+        "text": "☕ ",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.14558472553699284,
+        "y": 0.581145584725537,
+        "w": 0.8890214797136038,
+        "angle": 0,
+        "text": "<span style=\"color:red\">Γ</span>     <span style=\"color:orange\">ε</span>     <span style=\"color:yellow\">ω</span>     <span style=\"color:green\">μ</span>     <span style=\"color:blue\">ε</span>     <span style=\"color:purple\">τ</span>     <span style=\"color:red\">ρ</span>     <span style=\"color:orange\">ο</span>     <span style=\"color:yellow\">ν</span>",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
     },
     {
         "x": 0.5465393794749404,
