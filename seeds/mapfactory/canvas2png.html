@@ -21,9 +21,6 @@
     <a href = "mapeditor.html">
         <img src = "iconsymbols/map.svg"/>
     </a>        
-    <a href = "symbolfeed.html">
-        <img src = "iconsymbols/symbolfeed.svg"/>
-    </a>        
 
 </div>
 <div id  = "imagescroll">
@@ -67,34 +64,6 @@ var httpc9 = new XMLHttpRequest();
 };
 httpc9.open("GET", "dir.php?filename=uploadimages", true);
 httpc9.send();
-
-
-symbolhere = [];
-var httpc5 = new XMLHttpRequest();
-httpc5.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        symbolhere = JSON.parse(this.responseText);
-        for(var index = symbolhere.length - 1;index >= 0;index--) {
-
-            var newimg = document.createElement("IMG");
-            newimg.src = "symbolfeed/" + symbolhere[index];
-            newimg.classList.add("uploadimage");
-            newimg.classList.add("button");
-            document.getElementById("imagescroll").appendChild(newimg);
-            newimg.onclick = function() {
-                var localurl = "symbolfeed" + this.src.split("symbolfeed")[1];
-                document.getElementById("imageurl").value = localurl;
-                document.getElementById("mainimage").src = localurl;
-            }
-
-
-            
-        }
-    }
-};
-
-httpc5.open("GET", "dir.php?filename=symbolfeed", true);
-httpc5.send();
 
 
 textfeed = {};
