@@ -4,7 +4,6 @@
         "canvas2png.html",
         "fork.html",
         "index.html",
-        "map.html",
         "mapdelete.html",
         "mapeditor.html",
         "scroll.html",
