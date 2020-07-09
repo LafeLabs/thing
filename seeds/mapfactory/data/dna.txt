@@ -69,6 +69,7 @@
         "fileloader.txt",
         "filesaver.txt",
         "mkdir.txt",
+        "rdelete.txt",
         "replicator.txt",
         "seed.txt",
         "text2php.txt",
