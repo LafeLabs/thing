@@ -77,7 +77,7 @@
     "line5": 1,
     "color6": "blue",
     "fill6": "blue",
-    "line6": 10,
+    "line6": 1,
     "color7": "purple",
     "fill7": "purple",
     "line7": 1
