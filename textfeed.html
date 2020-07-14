@@ -202,7 +202,6 @@ document.getElementById("resetbutton").onclick = function(){
 }
 document.getElementById("importbutton").onclick = function(){
     textfeed = JSON.parse(document.getElementById("textio").value);
-    document.getElementById("textio").value = this.responseText;
     redrawtext();
     redrawsrc();
     redrawhref();        

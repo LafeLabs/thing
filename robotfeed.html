@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8"/>
+<!--Stop Google:-->
+<META NAME="robots" CONTENT="noindex,nofollow">
+    <script src="jscode/geometron.js"></script>
+    <script src="jscode/robotfont.js"></script>
+    <script src="jscode/hypercube.js"></script>
+
+</head>
+<body>
+<div id = "header">
+    <a href = "robot.html">
+        <img src = "iconsymbols/robot.svg"/>
+    </a>
+
+<table id  = "iotable">
+    <tr>
+        <td class = "button" id = "importbutton">IMPORT</td>
+        <td class = "button" id = "resetbutton">RESET</td>
+    </tr>
+</table>
+                <textarea id = "textio"></textarea>
+
+</div>
+
+<div id = "column2" class = "column">
+    <table class = "inputtable" id ="textinputtable">
+        <tr>
+            <td>Robot Code:</td>
+            <td>
+                <input id = "robotinput"/>
+            </td>
+        </tr>
+    </table>
+    <div id  = "srcscroll" class = "scroll"></div>
+</div>
+<script>
+
+if(innerWidth > innerHeight){
+}
+else{
+}
+
+
+var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        robotfeed = JSON.parse(this.responseText);
+        document.getElementById("textio").value = this.responseText;
+        redraw();
+    }
+};
+httpc.open("GET", "fileloader.php?filename=data/robotfeed.txt", true);
+httpc.send();
+
+document.getElementById("robotinput").onchange = function(){
+    robotfeed.push(this.value);
+    redraw();
+    savejson();
+}
+
+document.getElementById("resetbutton").onclick = function(){
+    robotfeed = ["0545,","0322,0546,"];
+    redraw();
+    savejson();
+}
+
+document.getElementById("importbutton").onclick = function(){
+    robotfeed = JSON.parse(document.getElementById("textio").value);
+    redraw();
+    savejson();
+}
+
+function savejson(){
+    var url = "filesaver.php";        
+    var httpc2 = new XMLHttpRequest();
+    httpc2.open("POST", url, true);
+    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc2.send("data="+encodeURIComponent(JSON.stringify(robotfeed,null,"    "))+"&filename=data/robotfeed.txt");//send text to filesaver.php
+}
+
+
+function redraw(){
+    document.getElementById("srcscroll").innerHTML = "";
+    for(var index = robotfeed.length - 1;index >= 0;index--){
+        var newbox = document.createElement("div");
+        newbox.className = "box";
+        var newcan = document.createElement("canvas");
+        newcan.classList.add("button");
+        //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
+        var newg = new GVM(200,200,20,-Math.PI/2,newcan,400,400,hypercube);
+        newg.importbytecode(font);
+
+        newg.drawGlyph("0300," + robotfeed[index],newg);
+        newcan.onclick = function(){
+
+        }
+        newbox.appendChild(newcan);
+        
+        var newbutton = document.createElement("IMG");
+        newbutton.src = "iconsymbols/delete.svg";
+        newbutton.className = "deletebutton";
+        newbutton.id = "src" + index.toString();
+        newbutton.onclick = function(){
+            //alert(this.id.substring(4));
+            var thisindex = this.id.substring(3);
+            var localsrc = robotfeed;
+            robotfeed = [];
+            for(var srcindex = 0;srcindex < localsrc.length;srcindex++){
+                if(srcindex != thisindex){
+                    robotfeed.push(localsrc[srcindex]);
+                }
+            }
+            redraw();
+            savejson();
+        }
+        newbox.appendChild(newbutton);
+        document.getElementById("srcscroll").appendChild(newbox);
+    }
+    
+}
+
+
+</script>
+<style>
+canvas{
+    border:solid;
+}
+.inputtable{
+    width:100%;
+}
+.inputtable td{
+    text-align:right;
+}
+body,input{
+    font-family:courier;
+    font-size:16px;
+}
+#header{
+    position:absolute;
+    padding-left:1em;
+    padding-top:0.5em;
+    left:0px;
+    right:0px;
+    top:0px;
+    height:18%;
+    overflow:scroll;
+    
+}
+#header img{
+    width:100px;
+}
+.column{
+    position:absolute;
+    top:20%;
+    bottom:0px;
+}
+
+.column input{
+    width:97%;
+}
+.box{
+    margin:1em;
+    padding:0.5em;
+    border:solid;
+    border-radius:0.5em;
+    font-size:16px;
+    font-family:courier;
+}
+.scroll{
+    position:absolute;
+    top:60px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    overflow:scroll;
+}
+.deletebutton{
+    width:20px;
+    cursor:pointer;
+}
+.deletebutton:hover{
+    background-color:#afffaf;
+}
+#srcscroll img{
+    width:100px;
+}
+#iotable .button{
+    text-align:center;
+    border:solid;
+    border-radius:5px;
+    border-width:2px;
+    width:5em;
+}
+.button{
+    cursor:pointer;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
+}
+
+@media only screen and (orientation: landscape) {
+    .inputtable{
+        border-bottom:solid;
+    }
+
+    #textbutton{
+        display:none;
+    }
+    #linkbutton{
+        display:none;
+    }
+    #imagebutton{
+        display:none;
+    }
+    .column{
+        width:32%;
+    }
+    #column2{
+        left:33%;
+    }
+
+}
+@media only screen and (orientation: portrait) {
+    .inputtable{
+        border-top:solid;
+        border-bottom:solid;
+        border-color:purple;
+    }
+
+    #header img{
+        width:14%;
+    }
+    .column{
+        width:100%;
+    }
+    #column1{
+        left:0px;
+    }
+    #column2{
+        left:0px;
+    }
+    #column3{
+        right:0px;
+    }
+    
+}
+
+</style>
+</body>
+</html>

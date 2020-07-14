@@ -22,6 +22,7 @@
         "robot.py",
         "robotconfig.html",
         "robotcube.html",
+        "robotfeed.html",
         "robotfont.html",
         "scroll.html",
         "scroll.md",
@@ -87,6 +88,7 @@
         "goldenspiral.svg",
         "helloworld.svg",
         "hexagon.svg",
+        "home.svg",
         "hypercube.svg",
         "iconset.svg",
         "image.svg",
@@ -145,6 +147,7 @@
         "marker.txt",
         "poetry.txt",
         "robot.txt",
+        "robotfeed.txt",
         "symbolapp.txt",
         "textfeed.txt",
         "wall.txt"
