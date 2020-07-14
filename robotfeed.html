@@ -14,28 +14,17 @@
     <a href = "robot.html">
         <img src = "iconsymbols/robot.svg"/>
     </a>
-
-<table id  = "iotable">
-    <tr>
-        <td class = "button" id = "importbutton">IMPORT</td>
-        <td class = "button" id = "resetbutton">RESET</td>
-    </tr>
-</table>
-                <textarea id = "textio"></textarea>
+    <textarea id = "textio"></textarea>
+    
+    <h3>Robot Code:</h3>
+    <input id = "robotinput"/>
+    <span class = "topbutton button" id = "importbutton">IMPORT</span>
+    <span class = "topbutton button" id = "resetbutton">RESET</span>
 
 </div>
 
-<div id = "column2" class = "column">
-    <table class = "inputtable" id ="textinputtable">
-        <tr>
-            <td>Robot Code:</td>
-            <td>
-                <input id = "robotinput"/>
-            </td>
-        </tr>
-    </table>
-    <div id  = "srcscroll" class = "scroll"></div>
-</div>
+<div id  = "srcscroll" class = "scroll"></div>
+
 <script>
 
 if(innerWidth > innerHeight){
@@ -145,6 +134,9 @@ httpc666.send();
 
 </script>
 <style>
+#robotinput{
+    width:80%;
+}
 canvas{
     border:solid;
 }
@@ -172,15 +164,6 @@ body,input{
 #header img{
     width:100px;
 }
-.column{
-    position:absolute;
-    top:20%;
-    bottom:0px;
-}
-
-.column input{
-    width:97%;
-}
 .box{
     margin:1em;
     padding:0.5em;
@@ -191,7 +174,7 @@ body,input{
 }
 .scroll{
     position:absolute;
-    top:60px;
+    top:20%;
     left:0px;
     right:0px;
     bottom:0px;
@@ -207,6 +190,7 @@ body,input{
 #srcscroll img{
     width:100px;
 }
+
 #iotable .button{
     text-align:center;
     border:solid;
@@ -223,52 +207,14 @@ body,input{
 .button:active{
     background-color:yellow;
 }
-
-@media only screen and (orientation: landscape) {
-    .inputtable{
-        border-bottom:solid;
-    }
-
-    #textbutton{
-        display:none;
-    }
-    #linkbutton{
-        display:none;
-    }
-    #imagebutton{
-        display:none;
-    }
-    .column{
-        width:32%;
-    }
-    #column2{
-        left:33%;
-    }
-
-}
-@media only screen and (orientation: portrait) {
-    .inputtable{
-        border-top:solid;
-        border-bottom:solid;
-        border-color:purple;
-    }
-
-    #header img{
-        width:14%;
-    }
-    .column{
-        width:100%;
-    }
-    #column1{
-        left:0px;
-    }
-    #column2{
-        left:0px;
-    }
-    #column3{
-        right:0px;
-    }
-    
+.topbutton{
+    width:6em;
+    text-align:center;
+    border:solid;
+    border-width:3px;
+    margin-bottom:0.5em;
+    margin-top:0.5em;
+    border-radius:10px;
 }
 
 </style>
