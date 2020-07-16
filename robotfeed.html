@@ -68,6 +68,7 @@ function savejson(){
     httpc2.open("POST", url, true);
     httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc2.send("data="+encodeURIComponent(JSON.stringify(robotfeed,null,"    "))+"&filename=data/robotfeed.txt");//send text to filesaver.php
+    document.getElementById("textio").value = JSON.stringify(robotfeed,null,"    ");
 }
 
 
@@ -126,6 +127,7 @@ var httpc666 = new XMLHttpRequest();
 httpc666.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         robotjson = JSON.parse(this.responseText);
+        document.getElementById("textio").value = this.responseText;
     }
 };
 httpc666.open("GET", "fileloader.php?filename=data/robot.txt", true);
