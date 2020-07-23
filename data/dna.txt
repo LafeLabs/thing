@@ -208,7 +208,6 @@
         "hellogeometron",
         "imagescroll",
         "introvideo",
-        "kitproduct",
         "lasercutshapes",
         "maps.md",
         "mirrorhypercube",
