@@ -127,7 +127,6 @@ var httpc666 = new XMLHttpRequest();
 httpc666.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         robotjson = JSON.parse(this.responseText);
-        document.getElementById("textio").value = this.responseText;
     }
 };
 httpc666.open("GET", "fileloader.php?filename=data/robot.txt", true);
