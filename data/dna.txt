@@ -17,6 +17,7 @@
         "map.html",
         "mapdelete.html",
         "mapeditor.html",
+        "pi.html",
         "poetryengine.html",
         "robot.html",
         "robot.py",

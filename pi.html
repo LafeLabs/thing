@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>    
+
+    <!--
+    
+HTML = HyperText Markup Language
+
+       to learn html, go to https://www.w3schools.com/ and follow the html tutorial.  Learn HTML, CSS, javascript, and basic php.  Together with geometron these are the Five Elements of geometron code:
+       
+       Earth: Geometron
+       Water: HTML
+       Fire: Javascript
+       Air: CSS
+       Aether: PHP or other server-side code such as python
+   
+   comments do nothing, and are encapsulated by dashes, angle brackets and an exclamation mark as seen in this comment, and should be blue like this.    
+    -->
+<h1 id = "ipaddress"></h2>
+
+<h1>Trash Robot</h1><!-- h1, h2, h3 etc represent headings of decreasing size as the numbers go up.  "elements" refer to anything in an html document  -->
+
+<p>
+    <a href = "robot.html"><img src = "iconsymbols/robot.svg" style = "width:1em"/>Operate Robot</a>
+</p>
+<p>
+    <a href = "scroll.html"><img style = "width:1em" src = "iconsymbols/scroll.svg">Build Robot</a>
+</p>
+
+
+<p><!-- p means paragraph, and makes a newline on the screen -->
+
+<!-- links are denoted by an "a" meaning "anchor", with the destination of the link in the "href" field and what gets displayed going between the open tag <a> and closing tag </a>: -->    
+
+
+
+<!--
+
+copy and paste the link code to add your own new link, then go back to index.html to see the change.
+
+-->
+</p>
+
+<table>
+    <tr>
+        <td>
+            <a href = "scroll.html"><img src = "iconsymbols/scroll.svg"/></a>
+        </td>
+        <td>
+            <a href = "map.html"><img src = "iconsymbols/map.svg"/></a>
+        </td>
+        <td>
+            <a href = "poetryengine.html"><img src = "iconsymbols/poetryengine.svg"/></a>            
+        </td>
+        <td>
+            <a href = "duality.html"><img src = "iconsymbols/duality.svg"/></a>
+        </td>
+        <td>
+            <a href = "symbol.html"><img src = "iconsymbols/geometron.svg"/></a>
+        </td>
+        <td>
+            <a href = "symbolapp.html"><img src = "iconsymbols/symbolapp.svg"/></a>
+        </td>
+        <td>
+            <a href = "robot.html"><img src = "iconsymbols/robot.svg"/></a>
+        </td>
+    </tr>
+    <tr>
+        <td><a href = "scroll.html">scroll</a></td>
+        <td><a href = "map.html">map</a></td>
+        <td><a href = "poetryengine.html">poem</a></td>
+        <td><a href = "duality.html">duality</a></td>
+        <td><a href = "symbol.html">symbol</a></td>
+        <td><a href = "symbolapp.html">symbol app</a></td>
+        <td><a href = "robot.html">robot</a></td>
+
+    </tr>
+    
+</table>
+
+
+
+
+<script>
+
+
+is_local = true;
+//is_local = false;
+
+if(is_local){
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            ipaddress = this.responseText;
+            document.getElementById("ipaddress").innerHTML = ipaddress;
+        }
+    };
+    httpc.open("GET", "ipaddress.php", true);
+    httpc.send();    
+    
+}
+
+</script>
+<style>
+body{
+    font-family:courier;
+    font-size:3em;
+}
+a{
+    color:#0000ff;
+}
+td{
+    font-size:20px;
+    text-align:center;
+}
+</style>
+</body>
+</html>
