@@ -49,7 +49,7 @@
     </tr>
 </table>
 
-<textarea id = "cssout"></textarea>
+<textarea id = "textio"></textarea>
 <div id = "iconbox">
 </div>
 <script>
@@ -57,9 +57,15 @@ document.getElementById("glyphinput").onchange = function(){
    drawglyph(this.value);
 }
 
-drawglyph("0500,0500,0500,0502,0502,0501,");
+drawglyph("0505,0505,0505,0505,0505,0505,0505,0505,0505,0505,0505,0505,0505,0505,0505,0505,0505,0501,0504,0502,0504,0502,0504,0502,0504,0502,0502,0504,0502,0504,0502,0504,0502,0504,0502,0504,0502,0504,0502,0504,0502,0502,0504,0502,0500,0506,0500,0506,0500,0506,0500,0506,0500,0500,0500,0506,0500,0500,0500,0500,0506,0500,0500,0500,0507,0500,0500,0500,0507,0500,0500,0507,0500,0507,0500,0507,0500,0503,0504,0503,0503,0503,0504,0503,0503,0503,0505,0503,0503,0503,0505,0503,0505,0503,0505,0503,0505,0503,0505,0503,0504,0503,0504,0503,0504,0503,0504,0503,0503,0504,0503,0503,0503,0504,0503,0503,0503,0505,0503,0503,0503,0505,0503,0503,0505,0503,0505,0503,0501,0507,0501,0501,0501,0507,0501,0501,0501,0501,0501,0501,0506,0501,0501,0501,0506,0501,0501,0506,0501,0501,0506,0501,0506,0501,0506,0501,0506,0501,0502,0505,0502,0505,0502,0505,0502,0505,0502,0505,0502,0505,0502,0505,0502,0502,0505,0502,0505,0502,0505,0502,0504,0504,0504,0504,0504,0504,0504,0504,0504,0327,0504,0504,");
 
 function drawglyph(glyphstring){
+    
+    htmlstring = "<div id = \"iconbox\">";
+    cssstring = "";
+    cssstring += "#iconbox{\nposition:absolute;\nleft:100px;\ntop:100px;\nwidth:300px;\nheight:300px;\nborder:solid;\n}";
+    cssstring += ".dot{\nposition:absolute;\nwidth:2%;\nheight:2%;\nborder-radius:50%;\nbackground-color:black;\n}";
+    
     glyph = glyphstring.split(",");    
     document.getElementById("iconbox").innerHTML = "";
     x = 0;
@@ -94,6 +100,9 @@ function drawglyph(glyphstring){
             newdot.style.left = (50 + x).toString() + "%";
             newdot.style.top = (50 - y).toString() + "%";
             document.getElementById("iconbox").appendChild(newdot);
+            cssstring += "\n#dot" + index.toString() + "{\nleft:" + (50 + x).toString() + "%;\n" + "top:" + (50 - y).toString() + "%;\n}";
+            htmlstring += "<div class = \"dot\" id = \"dot" + index.toString() + "\"></div>";
+            
         }
         if(glyph[index] == "0501"){
             y -= 2;
@@ -103,6 +112,8 @@ function drawglyph(glyphstring){
             newdot.style.top = (50 - y).toString() + "%";
             newdot.style.backgroundColor = color;
             document.getElementById("iconbox").appendChild(newdot);
+            cssstring += "\n#dot" + index.toString() + "{\nleft:" + (50 + x).toString() + "%;\n" + "top:" + (50 - y).toString() + "%;\n}";
+            htmlstring += "<div class = \"dot\" id = \"dot" + index.toString() + "\"></div>";
         }
         if(glyph[index] == "0502"){
             x -= 2;
@@ -112,6 +123,8 @@ function drawglyph(glyphstring){
             newdot.style.top = (50 - y).toString() + "%";
             newdot.style.backgroundColor = color;
             document.getElementById("iconbox").appendChild(newdot);
+            cssstring += "\n#dot" + index.toString() + "{\nleft:" + (50 + x).toString() + "%;\n" + "top:" + (50 - y).toString() + "%;\n}";
+            htmlstring += "<div class = \"dot\" id = \"dot" + index.toString() + "\"></div>";
         }
         if(glyph[index] == "0503"){
             x += 2;
@@ -121,6 +134,9 @@ function drawglyph(glyphstring){
             newdot.style.top = (50 - y).toString() + "%";
             newdot.style.backgroundColor = color;
             document.getElementById("iconbox").appendChild(newdot);
+            cssstring += "\n#dot" + index.toString() + "{\nleft:" + (50 + x).toString() + "%;\n" + "top:" + (50 - y).toString() + "%;\n}";
+            htmlstring += "<div class = \"dot\" id = \"dot" + index.toString() + "\"></div>";
+            
         }
         if(glyph[index] == "0504"){
             y += 2;
@@ -134,9 +150,15 @@ function drawglyph(glyphstring){
         if(glyph[index] == "0507"){
             x += 2;
         }
-        
     }
+    
+    htmlstring += "</div>";
+    htmlstring += "<style>" + cssstring + "</style>"
+    
+    document.getElementById("textio").value = htmlstring;
 }
+
+
 </script>
 <style>
 #iconbox{
