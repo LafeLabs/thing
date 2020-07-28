@@ -99,8 +99,9 @@ function drawglyph(glyphstring){
             newdot.className = "dot";
             newdot.style.left = (50 + x).toString() + "%";
             newdot.style.top = (50 - y).toString() + "%";
+            newdot.style.backgroundColor = color;
             document.getElementById("iconbox").appendChild(newdot);
-            cssstring += "\n#dot" + index.toString() + "{\nleft:" + (50 + x).toString() + "%;\n" + "top:" + (50 - y).toString() + "%;\n}";
+            cssstring += "\n#dot" + index.toString() + "{\nleft:" + (50 + x).toString() + "%;\n" + "top:" + (50 - y).toString() + "%;\nbackground-color:" + color + ";\n}";
             htmlstring += "<div class = \"dot\" id = \"dot" + index.toString() + "\"></div>";
             
         }
@@ -112,7 +113,7 @@ function drawglyph(glyphstring){
             newdot.style.top = (50 - y).toString() + "%";
             newdot.style.backgroundColor = color;
             document.getElementById("iconbox").appendChild(newdot);
-            cssstring += "\n#dot" + index.toString() + "{\nleft:" + (50 + x).toString() + "%;\n" + "top:" + (50 - y).toString() + "%;\n}";
+            cssstring += "\n#dot" + index.toString() + "{\nleft:" + (50 + x).toString() + "%;\n" + "top:" + (50 - y).toString() + "%;\nbackground-color:" + color + ";\n}";
             htmlstring += "<div class = \"dot\" id = \"dot" + index.toString() + "\"></div>";
         }
         if(glyph[index] == "0502"){
@@ -123,7 +124,7 @@ function drawglyph(glyphstring){
             newdot.style.top = (50 - y).toString() + "%";
             newdot.style.backgroundColor = color;
             document.getElementById("iconbox").appendChild(newdot);
-            cssstring += "\n#dot" + index.toString() + "{\nleft:" + (50 + x).toString() + "%;\n" + "top:" + (50 - y).toString() + "%;\n}";
+            cssstring += "\n#dot" + index.toString() + "{\nleft:" + (50 + x).toString() + "%;\n" + "top:" + (50 - y).toString() + "%;\nbackground-color:" + color + ";\n}";
             htmlstring += "<div class = \"dot\" id = \"dot" + index.toString() + "\"></div>";
         }
         if(glyph[index] == "0503"){
@@ -134,7 +135,7 @@ function drawglyph(glyphstring){
             newdot.style.top = (50 - y).toString() + "%";
             newdot.style.backgroundColor = color;
             document.getElementById("iconbox").appendChild(newdot);
-            cssstring += "\n#dot" + index.toString() + "{\nleft:" + (50 + x).toString() + "%;\n" + "top:" + (50 - y).toString() + "%;\n}";
+            cssstring += "\n#dot" + index.toString() + "{\nleft:" + (50 + x).toString() + "%;\n" + "top:" + (50 - y).toString() + "%;\nbackground-color:" + color + ";\n}";
             htmlstring += "<div class = \"dot\" id = \"dot" + index.toString() + "\"></div>";
             
         }
