@@ -578,6 +578,7 @@ var httpc10 = new XMLHttpRequest();
             document.getElementById("feedscroll").appendChild(newimg);
             newimg.onclick = function() {
                 mainmap.array[mainmap.linkindex].src = this.src;
+                document.getElementById("imginput").value = this.src;
                 mainmap.draw();
             }
             
