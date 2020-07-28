@@ -47,12 +47,28 @@
         <td>robot glyph:</td>
         <td><input id = "glyphinput"/></td>
     </tr>
+    <tr>
+        <td>width[px]:</td>
+        <td><input id = "widthinput"/></td>
+    </tr>
+    <tr>
+        <td>height[px]:</td>
+        <td><input id = "heightinput"/></td>
+    </tr>
 </table>
 
 <textarea id = "textio"></textarea>
 <div id = "iconbox">
 </div>
 <script>
+
+width = 400;
+height = 400;
+
+document.getElementById("widthinput").value = width.toString();
+document.getElementById("heightinput").value = height.toString();
+
+
 document.getElementById("glyphinput").onchange = function(){
    drawglyph(this.value);
 }
@@ -61,9 +77,15 @@ drawglyph("0505,0505,0505,0505,0505,0505,0505,0505,0505,0505,0505,0505,0505,0505
 
 function drawglyph(glyphstring){
     
+    width = parseInt(document.getElementById("widthinput").value);
+    height = parseInt(document.getElementById("heightinput").value);
+
+    document.getElementById("iconbox").style.width = width + "px";
+    document.getElementById("iconbox").style.height = height + "px";
+
     htmlstring = "<div id = \"iconbox\">";
     cssstring = "";
-    cssstring += "#iconbox{\nposition:absolute;\nleft:100px;\ntop:100px;\nwidth:300px;\nheight:300px;\nborder:solid;\n}";
+    cssstring += "#iconbox{\nposition:absolute;\nleft:100px;\ntop:100px;\nwidth:" + width.toString() + "px;\nheight:" + height.toString() + "px;\nborder:solid;\n}";
     cssstring += ".dot{\nposition:absolute;\nwidth:2%;\nheight:2%;\nborder-radius:50%;\nbackground-color:black;\n}";
     
     glyph = glyphstring.split(",");    
@@ -177,7 +199,13 @@ function drawglyph(glyphstring){
     border-radius:50%;
     background-color:black;
 }
-
+#textio{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    width:400px;
+    height:400px;
+}
 </style>
 </body>
 </html>
