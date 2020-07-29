@@ -24,6 +24,7 @@
 
 </head>
 <body>    
+<input id = "mapinput"/>
 <div id = "mainmap"></div>
 <textarea id = "textio"></textarea>
 <script>
@@ -71,6 +72,10 @@ function loadmap(mapname){
 }
 
 
+document.getElementById("mapinput").onchange = function(){
+  loadmap(this.value);   
+}
+
 </script>
 <style>
 body{
@@ -89,7 +94,12 @@ body{
     top:0px;
     z-index:2;
 }
-
+#mapinput{
+    position:absolute;
+    z-index:3;
+    top:0px;
+    right:0px;
+}
 </style>
 </body>
 </html>

@@ -57,6 +57,7 @@ bootstrap is whole big thing that does lots of things, but what we use it for he
 <div class = "mainscrollarea" id = "scrollscroll"></div>
 
 <div id = "margin">
+    <input id = "scrollinput"/>
     <a href = "scrolleditor.html">
          <img src = "iconsymbols/edit.svg"/>
     </a>
@@ -132,6 +133,11 @@ var httpc3 = new XMLHttpRequest();
 httpc3.open("GET", "dir.php?filename=scrolls", true);
 httpc3.send();
 
+document.getElementById("scrollinput").value = "";
+document.getElementById("scrollinput").onchange = function(){
+    loadscroll(this.value);
+    
+}
 
 function loadscroll(scrollname){
     var httpc = new XMLHttpRequest();
@@ -149,6 +155,11 @@ function loadscroll(scrollname){
 
 </script>
 <style>
+input{
+    margin-bottom:1.5em;
+    font-family:courier;
+    font-size:16px;
+}
 #extscrollr{
     border:solid;
     border-width:0.5px;
