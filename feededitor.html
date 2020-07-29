@@ -130,20 +130,24 @@ function redraw(){
         var newimg = document.createElement("img");
         newimg.onclick  = function(){
             document.getElementById("srcinput").value = this.src;
+            document.getElementById("hrefinput").value = "";
+            document.getElementById("textinput").value = "";
+
+            document.getElementById("headerimage").src = this.src;
         }
         newimg.src = feed[index].src;
         newbox.appendChild(newimg);
         
         var newbutton = document.createElement("IMG");
         newbutton.src = "iconsymbols/delete.svg";
-        newbutton.className = "deletebutton";
+        newbutton.className = "button";
         newbutton.id = "src" + index.toString();
         newbutton.onclick = function(){
             //alert(this.id.substring(4));
             var thisindex = this.id.substring(3);
             var localfeed = feed;
             feed = [];
-            for(var localindex = 0;localindex < feed.length;localindex++){
+            for(var localindex = 0;localindex < localfeed.length;localindex++){
                 if(localindex != thisindex){
                     feed.push(localfeed[localindex]);
                 }

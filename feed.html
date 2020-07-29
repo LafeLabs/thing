@@ -57,9 +57,8 @@ httpc.onreadystatechange = function() {
 httpc.open("GET", "fileloader.php?filename=data/feed.txt", true);
 httpc.send();
 
-
 function loadfeed(){
-    for(var index = 0;index < feed.length;index++){
+    for(var index = feed.length - 1;index >= 0;index--){
         var newlink = document.createElement("DIV");
         newlink.classList.add("link");
         var newimg = document.createElement("IMG");
