@@ -43,9 +43,12 @@ if(innerWidth > innerHeight){
     document.getElementById("margin").style.height = (innerHeight).toString() + "px";
 }
 else{
-    mainmap = new Map(innerHeight,innerHeight,document.getElementById("mainmap"));    
+    mainmap = new Map(innerWidth,innerWidth,document.getElementById("mainmap"));    
     document.getElementById("margin").style.width = (innerWidth).toString() + "px";    
     document.getElementById("margin").style.height = (innerHeight - innerWidth).toString() + "px";
+    
+//    document.getElementById("margin").style.display = "none";
+
 }
 
 
