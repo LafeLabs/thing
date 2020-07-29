@@ -147,6 +147,8 @@ function loadscroll(scrollname){
         rawhtml = converter.makeHtml(scroll);
         document.getElementById("scrollscroll").innerHTML = rawhtml;
         }
+        document.getElementById("scrollinput").value = "";
+
     };
     httpc.open("GET", "fileloader.php?filename=" + scrollname, true);
     httpc.send();
