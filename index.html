@@ -71,7 +71,7 @@ function loadmap(mapname){
     httpc.send();
 }
 
-
+document.getElementById("mapinput").value = "";
 document.getElementById("mapinput").onchange = function(){
   loadmap(this.value);   
 }
