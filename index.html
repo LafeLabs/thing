@@ -24,16 +24,28 @@
 
 </head>
 <body>    
-<input id = "mapinput"/>
 <div id = "mainmap"></div>
-<textarea id = "textio"></textarea>
+<div id = "margin">
+    <div id = "box1">
+        <input id = "mapinput"/>
+    </div>
+    <div id = "box2">
+        <textarea id = "wall"></textarea>
+        <textarea id = "textio"></textarea>
+    </div>
+
+</div>
 <script>
 
 if(innerWidth > innerHeight){
     mainmap = new Map(innerHeight,innerHeight,document.getElementById("mainmap"));
+    document.getElementById("margin").style.width = (innerWidth  - innerHeight).toString() + "px";    
+    document.getElementById("margin").style.height = (innerHeight).toString() + "px";
 }
 else{
     mainmap = new Map(innerHeight,innerHeight,document.getElementById("mainmap"));    
+    document.getElementById("margin").style.width = (innerWidth).toString() + "px";    
+    document.getElementById("margin").style.height = (innerHeight - innerWidth).toString() + "px";
 }
 
 
@@ -77,8 +89,77 @@ document.getElementById("mapinput").onchange = function(){
   loadmap(this.value);   
 }
 
+
+var httpc3 = new XMLHttpRequest();
+httpc3.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        wall = this.responseText;
+        document.getElementById("wall").value = wall;
+    }
+};
+
+httpc3.open("GET", "fileloader.php?filename=data/wall.txt", true);
+httpc3.send();
+
+
+document.getElementById("wall").onkeyup = function() {
+        wall = this.value;
+        data = encodeURIComponent(this.value);
+        var httpc = new XMLHttpRequest();
+        var url = "filesaver.php";        
+        httpc.open("POST", url, true);
+        httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+        httpc.send("data="+data+"&filename=data/wall.txt");//send text to filesaver.php
+}
+
+
 </script>
 <style>
+#wall{
+    position:absolute;
+    left:0px;
+    right:0px;
+    background-color:black;
+    color:#00ff00;
+    width:100%;
+    height:100%;
+    overflow:scroll;
+    font-size:2em;
+}
+input{
+    width:90%;
+    font-family:courier;
+    font-size:1.5em;
+    background-color:black;
+    color:#0000ff;
+    border-color:#ff2cb4;
+    border-width:8px;
+}
+#margin{
+    background-color:black;
+    position:absolute;
+    font-family:courier;
+    font-size:2em;
+    right:0px;
+    bottom:0px;
+}
+#box1{
+    position:absolute;
+    left:0px;
+    right:0px;
+    top:0px;
+    height:25%;
+    background-color:black;
+}
+#box2{
+    background-color:black;
+    position:absolute;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    height:70%;
+}
+
 body{
     overflow:hidden;
 }
