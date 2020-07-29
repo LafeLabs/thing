@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8"/>
+<!--Stop Google:-->
+<META NAME="robots" CONTENT="noindex,nofollow">
+<!--un-comment to add math: -->
+<!-- 
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>
+            MathJax.Hub.Config({
+                tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                processEscapes: true,
+                processClass: "mathjax",
+                ignoreClass: "no-mathjax"
+                }
+            });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
+        </script>
+        
+-->
+
+</head>
+<body>
+<div id = "header">
+    
+    <a href = "feed.html">
+        <img src = "iconsymbols/feed.svg"/>
+    </a>
+    <table id  = "iotable">
+    <tr>
+        <td class = "button" id = "importbutton">IMPORT</td>
+        <td class = "button" id = "resetbutton">RESET</td>
+        <td class = "button" id = "loadbutton">LOAD</td>
+    </tr>
+    </table>
+    <img id = "headerimage"/>
+    <table id = "inputtable">
+        <tr>
+            <td>src:</td>
+            <td><input id = "srcinput"/></td>
+        </tr>
+        <tr>
+            <td>text:</td>
+            <td><input id = "textinput"/></td>
+        </tr>
+        <tr>
+            <td>href:</td>
+            <td><input id = "hrefinput"/></td>
+        </tr>
+    </table>    
+    <textarea id = "textio"></textarea>
+
+</div>
+<div id = "feed">
+</div>
+
+
+<script>
+
+feedindex = 0;
+
+feed = [];
+
+src = "";
+text = "";
+href = "";
+
+var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        feed = JSON.parse(this.responseText);
+        document.getElementById("textio").value = this.responseText;
+        redraw();
+    }
+};
+httpc.open("GET", "fileloader.php?filename=data/feed.txt", true);
+httpc.send();
+
+
+document.getElementById("textinput").onchange = function(){
+//    textfeed.text.push(this.value);
+    redraw();
+    savejson();
+}
+
+document.getElementById("resetbutton").onclick = function(){
+    feed = [];
+    redraw();
+    savejson();
+}
+
+document.getElementById("importbutton").onclick = function(){
+    feed = JSON.parse(document.getElementById("textio").value);
+    redraw();
+    savejson();
+}
+
+document.getElementById("loadbutton").onclick = function(){
+    var newlink = {};
+    newlink.href = document.getElementById("hrefinput").value;
+    newlink.src = document.getElementById("srcinput").value;
+    newlink.text = document.getElementById("textinput").value;
+    feed.push(newlink);
+    redraw();
+    savejson();
+}
+
+document.getElementById("srcinput").onchange = function(){
+    document.getElementById("headerimage").src = this.value;
+}
+
+
+function savejson(){
+    var url = "filesaver.php";        
+    var httpc2 = new XMLHttpRequest();
+    httpc2.open("POST", url, true);
+    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc2.send("data="+encodeURIComponent(JSON.stringify(feed,null,"    "))+"&filename=data/feed.txt");//send text to filesaver.php
+}
+
+
+function redraw(){
+    document.getElementById("feed").innerHTML = "";
+    for(var index = feed.length - 1;index >= 0;index--){
+        var newbox = document.createElement("div");
+        newbox.className = "box";
+        
+        var newimg = document.createElement("img");
+        newimg.onclick  = function(){
+            document.getElementById("srcinput").value = this.src;
+        }
+        newimg.src = feed[index].src;
+        newbox.appendChild(newimg);
+        
+        var newbutton = document.createElement("IMG");
+        newbutton.src = "iconsymbols/delete.svg";
+        newbutton.className = "deletebutton";
+        newbutton.id = "src" + index.toString();
+        newbutton.onclick = function(){
+            //alert(this.id.substring(4));
+            var thisindex = this.id.substring(3);
+            var localfeed = feed;
+            feed = [];
+            for(var localindex = 0;localindex < feed.length;localindex++){
+                if(localindex != thisindex){
+                    feed.push(localfeed[localindex]);
+                }
+            }
+            redraw();
+            savejson();
+        }
+        newbox.appendChild(newbutton);
+        document.getElementById("feed").appendChild(newbox);
+    }
+    
+}
+
+
+</script>
+<style>
+#header{
+    position:absolute;
+    padding-left:1em;
+    padding-top:0.5em;
+    left:0px;
+    right:0px;
+    top:0px;
+    height:48%;
+    overflow:scroll;
+}
+#header img{
+    width:100px;
+}
+.button{
+    cursor:pointer;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
+}
+#feed{
+    position:absolute;
+    overflow:scroll;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    top:50%;
+}
+#headerimage{
+    width:200px;
+}
+</style>
+</body>
+</html>
