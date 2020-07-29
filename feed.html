@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--
+
+        EVERYTHING IS PHYSICAL 
+        EVERYTHING IS FRACTAL
+        EVERYTHING IS RECURSIVE
+        NO MONEY 
+        MO MINING 
+        NO PROPERTY
+        LOOK AT THE INSECTS
+        LOOK AT THE FUNGI
+        LANGUAGE IS HOW THE MIND PARSES REALITY
+
+    -->
+    
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/wAAAAD//wAA/wAAAAD/AP8A/wAApv8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFUAAARGAAIxFVUABEYAAjMRFQAARGYiIjMRAABERmZiIzEAAARERGZiMwAAAARERGYiAAAAAABERiL4PwAA+78AAPu/AAD33wAA9V8AAPVfAAD1XwAA998AAOADAADhAAAA4AAAAPAAAADwAAAA+AAAAP4AAAD/wAAA" rel="icon" type="image/x-icon" />
+    
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+
+
+<!--un-comment to add math: -->
+
+<!--
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>
+            MathJax.Hub.Config({
+                tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                processEscapes: true,
+                processClass: "mathjax",
+                ignoreClass: "no-mathjax"
+                }
+            });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
+        </script>
+        -->
+
+</head>
+<body>    
+<div id = "feed"></div>
+<script>
+
+
+feed = [];
+
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        feed = JSON.parse(this.responseText);
+        loadfeed();
+    }
+};
+
+httpc.open("GET", "fileloader.php?filename=data/feed.txt", true);
+httpc.send();
+
+
+function loadfeed(){
+    for(var index = 0;index < feed.length;index++){
+        var newlink = document.createElement("DIV");
+        newlink.classList.add("link");
+        var newimg = document.createElement("IMG");
+        newimg.src = feed[index].src;
+        var newa = document.createElement("A");
+        newa.href = feed[index].href;
+        newimg.alt = feed[index].text;
+        newa.appendChild(newimg);
+        newlink.appendChild(newa);
+        document.getElementById("feed").appendChild(newlink);
+    }
+}
+
+</script>
+<style>
+#feed{
+    position:absolute;
+    left:0px;
+    right:0px;
+    top:0px;
+    bottom:0px;
+    overflow:scroll;
+}
+#feed img{
+    width:20%;
+}
+.link:hover{
+    background-color:#a0ffa0;
+}
+.link a{
+    display:block;
+    width:100%;
+    text-align:center;
+}
+
+    @media only screen and (orientation: portrait) {
+
+        
+    }
+</style>
+</body>
+</html>
