@@ -10,6 +10,10 @@
 <canvas id = "maincanvas"></canvas>
 <table>
     <tr>
+        <td>width[px]:</td>
+        <td><input id = "widthinput"/></td>
+    </tr>
+    <tr>
         <td>Image URL:</td>
         <td><input id = "imageurl"/></td>
     </tr>
@@ -125,6 +129,10 @@ document.getElementById("imageurl").onchange = function(){
     document.getElementById("mainimage").src = this.value;
 }
 
+document.getElementById("widthinput").onchange = function(){
+    width = parseInt(this.value);
+    document.getElementById("mainimage").style.width = width.toString() + "px";
+}
 
 </script>
 <style>
