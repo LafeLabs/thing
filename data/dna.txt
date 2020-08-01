@@ -19,6 +19,7 @@
         "map.html",
         "mapdelete.html",
         "mapeditor.html",
+        "mapuser.html",
         "pi.html",
         "poetryengine.html",
         "robot.html",
