@@ -13,5 +13,10 @@
         "href": "http://10.0.0.21/",
         "src": "",
         "text": "link to robot at 10.0.0.21"
+    },
+    {
+        "href": "editor.php",
+        "src": "",
+        "text": "editor.php"
     }
 ]
