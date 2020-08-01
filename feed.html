@@ -40,15 +40,29 @@
 
 </head>
 <body>    
+<div id = "header"><input id = "feedurlinput"/></div>
 <div id = "feed"></div>
+<div id = "wall"></div>
 <script>
 
+
+if(innerWidth > innerHeight){
+    document.getElementById("header").style.width = (0.5*innerWidth-50).toString() + "px";
+    document.getElementById("feed").style.width = (0.5*innerWidth-50).toString() + "px";
+    document.getElementById("wall").style.width = (0.5*innerWidth).toString() + "px";
+    document.getElementById("feed").style.height = (innerHeight).toString() + "px";
+    document.getElementById("wall").style.height = (innerHeight).toString() + "px";    
+}
+else{
+    
+}
 
 feed = [];
 
 var httpc = new XMLHttpRequest();
 httpc.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("feedurlinput").value = "";
         feed = JSON.parse(this.responseText);
         loadfeed();
     }
@@ -56,6 +70,34 @@ httpc.onreadystatechange = function() {
 
 httpc.open("GET", "fileloader.php?filename=data/feed.txt", true);
 httpc.send();
+
+var httpc3 = new XMLHttpRequest();
+httpc3.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        wall = this.responseText;
+        document.getElementById("wall").innerHTML = wall;
+    }
+};
+
+httpc3.open("GET", "fileloader.php?filename=data/wall.txt", true);
+httpc3.send();
+
+document.getElementById("feedurlinput").onchange = function(){
+    loadfeedurl(this.value);
+}
+
+function loadfeedurl(url){
+    document.getElementById("feedurlinput").value = "";
+    var httpc666 = new XMLHttpRequest();
+    httpc666.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200) {
+            feed = JSON.parse(this.responseText);
+            loadfeed();
+        }
+    };
+    httpc666.open("GET", "fileloader.php?filename=" + url, true);
+    httpc666.send();
+}
 
 function loadfeed(){
     for(var index = feed.length - 1;index >= 0;index--){
@@ -83,15 +125,46 @@ function loadfeed(){
 <style>
 body{
     background-color:black;
+    overflow:hidden;
+}
+#wall{
+    font-size:1.5em;
+    font-family:courier;
+    color:#00ff00;
+    position:absolute;
+    overflow:scroll;
+    right:0px;
+    bottom:0px;
+    top:0px;
+    padding:1em 1em 1em 1em;
+}
+#header{
+    position:absolute;
+    left:0px;
+    top:0px;
+    height:80px;
+}
+#feedurlinput{
+    width:80%;
+    height:50px;
+    border:solid;
+    border-color:#f9429e;
+    background-color:black;
+    font-size:26px;
+    font-family:courier;
+    color:#00ff00;
+    display:block;
+    margin:auto;
 }
 #feed{
     position:absolute;
     left:0px;
-    width:600px;
-    top:0px;
+    width:48%;
+    top:100px;
     bottom:0px;
     overflow:scroll;
     font-size:3em;
+    background-color:#404040;
 }
 a{
     margin:auto;
