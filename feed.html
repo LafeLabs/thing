@@ -87,6 +87,7 @@ document.getElementById("feedurlinput").onchange = function(){
 }
 
 function loadfeedurl(url){
+    document.getElementById("feed").innerHTML = "";
     document.getElementById("feedurlinput").value = "";
     var httpc666 = new XMLHttpRequest();
     httpc666.onreadystatechange = function(){
