@@ -1,8 +1,13 @@
 [
     {
         "href": "feededitor.html",
-        "src": "iconsymbols/edit.svg",
-        "text": "edit"
+        "src": "",
+        "text": "link to feed editor"
+    },
+    {
+        "href": "mailto:lafelabs@gmail.com",
+        "src": "",
+        "text": "Your ad here! Message the Operator of this Geometron node to add your add.  "
     },
     {
         "href": "mailto:lafelabs@gmail.com",
