@@ -8,5 +8,10 @@
         "href": "mailto:lafelabs@gmail.com",
         "src": "",
         "text": "Your ad here! Message the Operator of this Geometron node to add your add.  "
+    },
+    {
+        "href": "http://10.0.0.21/",
+        "src": "",
+        "text": "link to robot at 10.0.0.21"
     }
 ]
