@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-
     <!--
 
         EVERYTHING IS PHYSICAL 
@@ -16,177 +15,172 @@
         LANGUAGE IS HOW THE MIND PARSES REALITY
 
     -->
+    
     <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/wAAAAD//wAA/wAAAAD/AP8A/wAApv8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFUAAARGAAIxFVUABEYAAjMRFQAARGYiIjMRAABERmZiIzEAAARERGZiMwAAAARERGYiAAAAAABERiL4PwAA+78AAPu/AAD33wAA9V8AAPVfAAD1XwAA998AAOADAADhAAAA4AAAAPAAAADwAAAA+AAAAP4AAAD/wAAA" rel="icon" type="image/x-icon" />
-
+    
     <!--Stop Google:-->
     <META NAME="robots" CONTENT="noindex,nofollow">
-    <script src="jscode/mapfactory.js"></script>
+
+
+<!--un-comment to add math: -->
+
+<!--
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>
+            MathJax.Hub.Config({
+                tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                processEscapes: true,
+                processClass: "mathjax",
+                ignoreClass: "no-mathjax"
+                }
+            });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
+        </script>
+        -->
 
 </head>
 <body>    
-<div id = "mainmap"></div>
-<div id = "margin">
-    <div id = "box1">
-        <input id = "mapinput"/>
-    </div>
-    <div id = "box2">
-        <textarea id = "wall"></textarea>
-        <textarea id = "textio"></textarea>
-    </div>
-
-</div>
+<div id = "header"><input id = "feedurlinput"/></div>
+<div id = "feed"></div>
+<div id = "wall"></div>
 <script>
 
+
 if(innerWidth > innerHeight){
-    mainmap = new Map(innerHeight,innerHeight,document.getElementById("mainmap"));
-    document.getElementById("margin").style.width = (innerWidth  - innerHeight).toString() + "px";    
-    document.getElementById("margin").style.height = (innerHeight).toString() + "px";
+    document.getElementById("header").style.width = (0.5*innerWidth-50).toString() + "px";
+    document.getElementById("feed").style.width = (0.5*innerWidth-50).toString() + "px";
+    document.getElementById("wall").style.width = (0.5*innerWidth).toString() + "px";
+    document.getElementById("feed").style.height = (innerHeight).toString() + "px";
+    document.getElementById("wall").style.height = (innerHeight).toString() + "px";    
 }
 else{
-    mainmap = new Map(innerWidth,innerWidth,document.getElementById("mainmap"));    
-    document.getElementById("margin").style.width = (innerWidth).toString() + "px";    
-    document.getElementById("margin").style.height = (innerHeight - innerWidth).toString() + "px";
     
-//    document.getElementById("margin").style.display = "none";
-
 }
 
+feed = [];
 
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("feedurlinput").value = "";
+        feed = JSON.parse(this.responseText);
+        loadfeed();
+    }
+};
 
-mapname = "data/currentMap.txt";
-loadmap(mapname);
-
-
-function loadmap(mapname){
-    var httpc = new XMLHttpRequest();
-    httpc.onreadystatechange = function(){
-        if (this.readyState == 4 && this.status == 200) {
-            mainmap.array = JSON.parse(this.responseText);
-            
-            N = mainmap.array.length;
-
-            for(var index = 0;index < mainmap.array.length;index++){
-                
-            }
-            
-            mainmap.draw();
-            for(var index = 0;index < mainmap.linkArray.length;index++){
-                if(mainmap.array[index].maplinkmode == true){
-                    mainmap.linkArray[index].onclick = function(){
-                        loadmap(this.getElementsByClassName("maplink")[0].innerHTML);    
-                        
-                    }
-                }
-            }
-            document.getElementById("textio").value = this.responseText;
-            document.getElementById("mapinput").value = "";
-
-        }
-    };
-    httpc.open("GET", "fileloader.php?filename=" + mapname, true);
-    httpc.send();
-}
-
-document.getElementById("mapinput").value = "";
-document.getElementById("mapinput").onchange = function(){
-  loadmap(this.value);   
-}
-
+httpc.open("GET", "fileloader.php?filename=data/feed.txt", true);
+httpc.send();
 
 var httpc3 = new XMLHttpRequest();
 httpc3.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         wall = this.responseText;
-        document.getElementById("wall").value = wall;
+        document.getElementById("wall").innerHTML = wall;
     }
 };
 
 httpc3.open("GET", "fileloader.php?filename=data/wall.txt", true);
 httpc3.send();
 
-
-document.getElementById("wall").onkeyup = function() {
-        wall = this.value;
-        data = encodeURIComponent(this.value);
-        var httpc = new XMLHttpRequest();
-        var url = "filesaver.php";        
-        httpc.open("POST", url, true);
-        httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
-        httpc.send("data="+data+"&filename=data/wall.txt");//send text to filesaver.php
+document.getElementById("feedurlinput").onchange = function(){
+    loadfeedurl(this.value);
 }
 
+function loadfeedurl(url){
+    document.getElementById("feed").innerHTML = "";
+    document.getElementById("feedurlinput").value = "";
+    var httpc666 = new XMLHttpRequest();
+    httpc666.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200) {
+            feed = JSON.parse(this.responseText);
+            loadfeed();
+        }
+    };
+    httpc666.open("GET", "fileloader.php?filename=" + url, true);
+    httpc666.send();
+}
+
+function loadfeed(){
+    for(var index = feed.length - 1;index >= 0;index--){
+        var newa = document.createElement("A");
+        if(feed[index].href.length > 0){
+            newa.href = feed[index].href;
+        }
+        if(feed[index].src.length > 0){
+            var newimg = document.createElement("IMG");
+            newimg.src = feed[index].src;
+            newimg.alt = feed[index].text;
+            newa.appendChild(newimg);
+            newimg.onload = function(){
+                this.parentElement.style.height = this.height + "px";
+            }
+        }
+        else{
+            newa.innerHTML = feed[index].text;
+        }
+        document.getElementById("feed").appendChild(newa);
+    }
+}
 
 </script>
 <style>
-#wall{
-    position:absolute;
-    left:0px;
-    right:0px;
-    background-color:black;
-    color:#00ff00;
-    width:100%;
-    height:100%;
-    overflow:scroll;
-    font-size:2em;
-    border-color:blue;
-
-}
-input{
-    width:90%;
-    font-family:courier;
-    font-size:1.5em;
-    background-color:black;
-    color:#0000ff;
-    border-color:#ff2cb4;
-    border-width:8px;
-}
-#margin{
-    background-color:black;
-    position:absolute;
-    font-family:courier;
-    font-size:2em;
-    right:0px;
-    bottom:0px;
-}
-#box1{
-    position:absolute;
-    left:0px;
-    right:0px;
-    top:0px;
-    height:25%;
-    background-color:black;
-}
-#box2{
-    background-color:black;
-    position:absolute;
-    left:0px;
-    right:0px;
-    bottom:0px;
-    height:70%;
-}
-
 body{
+    background-color:black;
     overflow:hidden;
 }
-#mainmap{
+#wall{
+    font-size:1.5em;
+    font-family:courier;
+    color:#00ff00;
     position:absolute;
-    left:0px;
-    top:0px;
-    overflow:hidden;
-}
-#textio{
-    display:none;
-    position:absolute;
-    left:0px;
-    top:0px;
-    z-index:2;
-}
-#mapinput{
-    position:absolute;
-    z-index:3;
-    top:0px;
+    overflow:scroll;
     right:0px;
+    bottom:0px;
+    top:0px;
+    padding:1em 1em 1em 1em;
 }
+#header{
+    position:absolute;
+    left:0px;
+    top:0px;
+    height:80px;
+}
+#feedurlinput{
+    width:80%;
+    height:50px;
+    border:solid;
+    border-color:#f9429e;
+    background-color:black;
+    font-size:26px;
+    font-family:courier;
+    color:#00ff00;
+    display:block;
+    margin:auto;
+}
+#feed{
+    position:absolute;
+    left:0px;
+    width:48%;
+    top:100px;
+    bottom:0px;
+    overflow:scroll;
+    font-size:3em;
+    background-color:#404040;
+}
+#feed a{
+    margin:auto;
+    margin-bottom:1em;
+    margin-top:1em;
+    display:block;
+    width:80%;
+    height:10em;
+    background-color:white;
+    overflow:scroll;
+}
+#feed img{
+    width:100%;
+}
+
 </style>
 </body>
 </html>
