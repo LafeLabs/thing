@@ -132,33 +132,10 @@ function redraw(){
         var newbox = document.createElement("div");
         newbox.className = "box";
         newbox.id = "box" + index.toString();
-        
-        if(feed[index].src.length > 0){
-            var newimg = document.createElement("img");
-            newimg.onclick  = function(){
-                boxindex = parseInt(this.parentElement.id.substring(3));
-                document.getElementById("srcinput").value = feed[boxindex].src;
-                document.getElementById("hrefinput").value = feed[boxindex].href;
-                document.getElementById("textinput").value = feed[boxindex].text;
-                document.getElementById("headerimage").src = this.src;
-            }
-            newimg.src = feed[index].src;
-            newbox.appendChild(newimg);
-        }
-        else{
-            var newspan = document.createElement("span");
-            newspan.innerHTML = feed[index].text;
-            newbox.appendChild(newspan);
-            newspan.onclick = function(){
-                boxindex = parseInt(this.parentElement.id.substring(3));
-                document.getElementById("srcinput").value = feed[boxindex].src;
-                document.getElementById("hrefinput").value = feed[boxindex].href;
-                document.getElementById("textinput").value = feed[boxindex].text;
-            }
-        }
 
-        
         var newbutton = document.createElement("IMG");
+        newbutton.style.width = "26px";
+        newbutton.style.marginRight = "1em";
         newbutton.src = "iconsymbols/delete.svg";
         newbutton.className = "button";
         newbutton.id = "src" + index.toString();
@@ -177,6 +154,36 @@ function redraw(){
         }
         newbox.appendChild(newbutton);
         document.getElementById("feed").appendChild(newbox);
+        
+        if(feed[index].src.length > 0){
+            var newimg = document.createElement("img");
+            newimg.onclick  = function(){
+                boxindex = parseInt(this.parentElement.id.substring(3));
+                document.getElementById("srcinput").value = feed[boxindex].src;
+                document.getElementById("hrefinput").value = feed[boxindex].href;
+                document.getElementById("textinput").value = feed[boxindex].text;
+                document.getElementById("headerimage").src = this.src;
+            }
+            newimg.src = feed[index].src;
+            newimg.style.cursor = "pointer";
+            newbox.appendChild(newimg);
+        }
+        else{
+            var newspan = document.createElement("span");
+            newspan.innerHTML = feed[index].text;
+            newbox.appendChild(newspan);
+            newspan.onclick = function(){
+                boxindex = parseInt(this.parentElement.id.substring(3));
+                document.getElementById("srcinput").value = feed[boxindex].src;
+                document.getElementById("hrefinput").value = feed[boxindex].href;
+                document.getElementById("textinput").value = feed[boxindex].text;
+            }
+            newspan.style.cursor = "pointer";
+        }
+
+        
+
+        
     }
     
 }
@@ -207,6 +214,13 @@ document.getElementById("wall").onkeyup = function() {
 
 </script>
 <style>
+.box{
+    margin-top:1em;
+    border-bottom:solid;
+}
+input{
+    width:20em;
+}
 #wall{
     font-family:courier;
     background-color:black;
@@ -243,6 +257,9 @@ document.getElementById("wall").onkeyup = function() {
 .button:active{
     background-color:yellow;
 }
+.button img{
+    width:50px;
+}
 #feed{
     position:absolute;
     overflow:scroll;
@@ -251,7 +268,10 @@ document.getElementById("wall").onkeyup = function() {
     bottom:0px;
     top:0px;
     background-color:#ffe0e0;
-
+    font-size:26px;
+}
+#feed img{
+    max-width:50%;
 }
 #headerimage{
     width:200px;

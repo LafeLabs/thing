@@ -18,5 +18,15 @@
         "href": "editor.php",
         "src": "",
         "text": "editor.php"
+    },
+    {
+        "href": "feededitor.html",
+        "src": "",
+        "text": "link to feed editor"
+    },
+    {
+        "href": "",
+        "src": "https://i.imgur.com/2hYTTEM.png",
+        "text": ""
     }
 ]
