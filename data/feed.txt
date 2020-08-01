@@ -8,5 +8,10 @@
         "href": "",
         "src": "",
         "text": "Your ad here!"
+    },
+    {
+        "href": "editor.php",
+        "src": "",
+        "text": "editor.php"
     }
 ]

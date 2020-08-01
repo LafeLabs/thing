@@ -54,7 +54,8 @@
     <table style = "margin-top:3em" id  = "iotable">
     <tr>
         <td class = "button" id = "importbutton">IMPORT</td>
-        <td class = "button" id = "resetbutton">RESET</td>
+        <td class = "button" id = "resetbutton">CLEAR</td>
+        <td class = "button" id = "exportbutton">EXPORT</td>
     </tr>
     </table>
     <textarea id = "textio"></textarea>
@@ -96,6 +97,7 @@ document.getElementById("resetbutton").onclick = function(){
     feed = [];
     redraw();
     savejson();
+    document.getElementById("textio").value = JSON.stringify(feed,null,"    ");
 }
 
 document.getElementById("importbutton").onclick = function(){
@@ -103,6 +105,13 @@ document.getElementById("importbutton").onclick = function(){
     redraw();
     savejson();
 }
+
+document.getElementById("exportbutton").onclick = function(){
+    
+    document.getElementById("textio").value = JSON.stringify(feed,null,"    ");
+    
+}
+
 
 document.getElementById("loadbutton").onclick = function(){
     var newlink = {};
