@@ -28,6 +28,7 @@
         "robotcube.html",
         "robotfeed.html",
         "robotfont.html",
+        "robotuser.html",
         "scroll.html",
         "scroll.md",
         "scrolldelete.html",
