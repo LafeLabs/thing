@@ -2,26 +2,11 @@
     {
         "href": "feededitor.html",
         "src": "",
-        "text": "link to feed editor"
+        "text": "operator screen"
     },
     {
-        "href": "mailto:lafelabs@gmail.com",
+        "href": "",
         "src": "",
-        "text": "Your ad here! Message the Operator of this Geometron node to add your add.  "
-    },
-    {
-        "href": "http://10.0.0.21/",
-        "src": "",
-        "text": "link to robot at 10.0.0.21"
-    },
-    {
-        "href": "editor.php",
-        "src": "",
-        "text": "editor.php"
-    },
-    {
-        "href": "feededitor.html",
-        "src": "",
-        "text": "link to feed editor"
+        "text": "Your ad here!"
     }
 ]
