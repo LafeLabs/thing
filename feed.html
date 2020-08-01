@@ -59,38 +59,52 @@ httpc.send();
 
 function loadfeed(){
     for(var index = feed.length - 1;index >= 0;index--){
-        var newlink = document.createElement("DIV");
-        newlink.classList.add("link");
-        var newimg = document.createElement("IMG");
-        newimg.src = feed[index].src;
         var newa = document.createElement("A");
-        newa.href = feed[index].href;
-        newimg.alt = feed[index].text;
-        newa.appendChild(newimg);
-        newlink.appendChild(newa);
-        document.getElementById("feed").appendChild(newlink);
+        if(feed[index].href.length > 0){
+            newa.href = feed[index].href;
+        }
+        if(feed[index].src.length > 0){
+            var newimg = document.createElement("IMG");
+            newimg.src = feed[index].src;
+            newimg.alt = feed[index].text;
+            newa.appendChild(newimg);
+            newimg.onload = function(){
+                this.parentElement.style.height = this.height + "px";
+            }
+        }
+        else{
+            newa.innerHTML = feed[index].text;
+        }
+        document.getElementById("feed").appendChild(newa);
     }
 }
 
 </script>
 <style>
+body{
+    background-color:black;
+}
 #feed{
     position:absolute;
     left:0px;
-    right:0px;
+    width:600px;
     top:0px;
     bottom:0px;
     overflow:scroll;
+    font-size:3em;
 }
-#feed img{
-    width:200px;
-    height:200px;
+a{
+    margin:auto;
+    margin-bottom:1em;
+    margin-top:1em;
+    display:block;
+    width:80%;
+    height:10em;
+    background-color:white;
+    overflow:scroll;
 }
-.link{
-    width:200px;
-    height:200px;
-    display:inline;
-    margin:1em;
+img{
+    width:100%;
 }
 
 </style>

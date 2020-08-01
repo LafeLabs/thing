@@ -126,17 +126,32 @@ function redraw(){
     for(var index = feed.length - 1;index >= 0;index--){
         var newbox = document.createElement("div");
         newbox.className = "box";
+        newbox.id = "box" + index.toString();
         
-        var newimg = document.createElement("img");
-        newimg.onclick  = function(){
-            document.getElementById("srcinput").value = this.src;
-            document.getElementById("hrefinput").value = "";
-            document.getElementById("textinput").value = "";
-
-            document.getElementById("headerimage").src = this.src;
+        if(feed[index].src.length > 0){
+            var newimg = document.createElement("img");
+            newimg.onclick  = function(){
+                boxindex = parseInt(this.parentElement.id.substring(3));
+                document.getElementById("srcinput").value = feed[boxindex].src;
+                document.getElementById("hrefinput").value = feed[boxindex].href;
+                document.getElementById("textinput").value = feed[boxindex].text;
+                document.getElementById("headerimage").src = this.src;
+            }
+            newimg.src = feed[index].src;
+            newbox.appendChild(newimg);
         }
-        newimg.src = feed[index].src;
-        newbox.appendChild(newimg);
+        else{
+            var newspan = document.createElement("span");
+            newspan.innerHTML = feed[index].text;
+            newbox.appendChild(newspan);
+            newspan.onclick = function(){
+                boxindex = parseInt(this.parentElement.id.substring(3));
+                document.getElementById("srcinput").value = feed[boxindex].src;
+                document.getElementById("hrefinput").value = feed[boxindex].href;
+                document.getElementById("textinput").value = feed[boxindex].text;
+            }
+        }
+
         
         var newbutton = document.createElement("IMG");
         newbutton.src = "iconsymbols/delete.svg";
@@ -169,9 +184,9 @@ function redraw(){
     padding-left:1em;
     padding-top:0.5em;
     left:0px;
-    right:0px;
+    right:50%;
     top:0px;
-    height:48%;
+    bottom:0px;
     overflow:scroll;
 }
 #header img{
@@ -193,10 +208,10 @@ function redraw(){
 #feed{
     position:absolute;
     overflow:scroll;
-    left:0px;
+    left:50%;
     right:0px;
     bottom:0px;
-    top:50%;
+    top:0px;
 }
 #headerimage{
     width:200px;
