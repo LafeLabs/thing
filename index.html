@@ -23,7 +23,6 @@
 
 
 <!--un-comment to add math: -->
-
 <!--
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script>
@@ -36,8 +35,8 @@
                 }
             });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
         </script>
--->
 
+-->
 <!-- 
 
 showdown is a javascript library which converts markdown to html.
@@ -48,9 +47,12 @@ Markdown is a lightweight language for creating formatted text on a computer, se
 
 https://en.wikipedia.org/wiki/Markdown
 
+bootstrap is whole big thing that does lots of things, but what we use it for here is just to make things look good on a mobile device. 
 
 -->
-<script src = "https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>
+
+    <script src="jscode/mapfactory.js"></script>
 
 </head>
 <body>    
@@ -59,6 +61,7 @@ https://en.wikipedia.org/wiki/Markdown
 <div id = "wall"></div>
 <script>
 
+
 var converter = new showdown.Converter();
 // for more on options see here:
 // https://github.com/showdownjs/showdown/wiki/Showdown-Options
@@ -66,21 +69,28 @@ converter.setOption('literalMidWordUnderscores', 'true');
 converter.setOption('tables', 'true');
 
 
+mapwidth = 400;
+
 if(innerWidth > innerHeight){
     document.getElementById("header").style.width = (0.5*innerWidth-50).toString() + "px";
     document.getElementById("feed").style.width = (0.5*innerWidth-50).toString() + "px";
     document.getElementById("wall").style.width = (0.5*innerWidth).toString() + "px";
     document.getElementById("feed").style.height = (innerHeight).toString() + "px";
     document.getElementById("wall").style.height = (innerHeight).toString() + "px";    
+    mapwidth = innerWidth*0.3;
+    
 }
 else{
+
     document.getElementById("header").style.width = innerWidth.toString() + "px";
     document.getElementById("feed").style.width = innerWidth.toString() + "px";
     document.getElementById("wall").style.width = innerWidth.toString() + "px";
     
-    document.getElementById("feed").style.height = (0.5*innerHeight - 150).toString() + "px";
-    document.getElementById("wall").style.height = (0.5*innerHeight-150).toString() + "px";        
-    document.getElementById("wall").style.top = (0.5*innerHeight + 150).toString() + "px";            
+    mapwidth = innerWidth*0.8;
+    
+    document.getElementById("feed").style.height = (0.7*innerHeight - 150).toString() + "px";
+    document.getElementById("wall").style.height = (0.3*innerHeight-150).toString() + "px";        
+    document.getElementById("wall").style.top = (0.5*innerHeight + 250).toString() + "px";            
     document.getElementById("wall").style.left = "0px";
 }
 
@@ -92,7 +102,6 @@ httpc.onreadystatechange = function() {
         document.getElementById("feedurlinput").value = "";
         feed = JSON.parse(this.responseText);
         loadfeed();
-        //MathJax.Hub.Typeset();//tell Mathjax to update the math
     }
 };
 
@@ -104,8 +113,7 @@ httpc3.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         wall = this.responseText;
         document.getElementById("wall").innerHTML = wall;
-        //MathJax.Hub.Typeset();//tell Mathjax to update the math
-
+       // MathJax.Hub.Typeset();//tell Mathjax to update the math
     }
 };
 
@@ -124,7 +132,6 @@ function loadfeedurl(url){
         if (this.readyState == 4 && this.status == 200) {
             feed = JSON.parse(this.responseText);
             loadfeed();
-            //MathJax.Hub.Typeset();//tell Mathjax to update the math
         }
     };
     httpc666.open("GET", "fileloader.php?filename=" + url, true);
@@ -134,6 +141,7 @@ function loadfeedurl(url){
 function loadfeed(){
     for(var index = feed.length - 1;index >= 0;index--){
         var newa = document.createElement("A");
+        newa.id = "a" + index.toString();
         newa.className = "feedlink";
         if(feed[index].href.length > 0){
             newa.href = feed[index].href;
@@ -153,6 +161,7 @@ function loadfeed(){
         }
         document.getElementById("feed").appendChild(newa);
     }
+  //  MathJax.Hub.Typeset();//tell Mathjax to update the math
 }
 
 function loadscroll(feedlink,scrollfile){
@@ -166,13 +175,53 @@ function loadscroll(feedlink,scrollfile){
             scroll = this.responseText;//load the markdown
             rawhtml = converter.makeHtml(scroll);
             feedlink.innerHTML = rawhtml;   
-            //MathJax.Hub.Typeset();//tell Mathjax to update the math
+        //    MathJax.Hub.Typeset();//tell Mathjax to update the math
             
         }
     };
     httpc666.open("GET", "fileloader.php?filename=" + scrollfile, true);
     httpc666.send();
 }
+
+function loadmap(feedlink,mapfile){
+    //mapfile is a string with url of map file (geometron json)
+    //feedlink is the object in the DOM of the relevant feedlink
+    feedlink.innerHTML = "";
+    var newdiv = document.createElement("DIV");
+    newdiv.style.width = mapwidth.toString() + "px";
+    newdiv.style.height = mapwidth.toString() + "px";
+    feedlink.style.width = mapwidth.toString() + "px";
+    feedlink.style.height = mapwidth.toString() + "px";
+
+    newdiv.style.position = "absolute";
+    feedlink.appendChild(newdiv);
+    newdiv.innerHTML = "";
+
+
+    var httpc666 = new XMLHttpRequest();
+    httpc666.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200) {
+            var newmap = new Map(mapwidth,mapwidth,newdiv);
+            newmap.array = JSON.parse(this.responseText);
+            newmap.draw();
+            
+            for(var index = 0;index < newmap.linkArray.length;index++){
+                if(newmap.array[index].maplinkmode == true){
+                    newmap.linkArray[index].onclick = function(){
+                        loadmap(this.parentElement,this.getElementsByClassName("maplink")[0].innerHTML);    
+                    }
+                }
+            }
+            
+            
+        }
+    };
+    httpc666.open("GET", "fileloader.php?filename=" + mapfile, true);
+    httpc666.send();
+
+    
+}
+
 
 
 </script>
@@ -233,7 +282,6 @@ body{
     background-color:white;
     overflow:scroll;
     font-size:26px;
-    
 }
 .feedlink .button{
     cursor:pointer;
