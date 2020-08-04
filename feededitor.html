@@ -253,6 +253,8 @@ document.getElementById("scrolllinkinput").onchange = function(){
         newtext  = "<div onclick = \"loadscroll(this.parentElement,&quot;" + scrolllinkurl + "&quot;)\" class = \"button\">" + oldtext + "</div>";        
     }
     document.getElementById("textinput").value = newtext;
+    document.getElementById("srcinput").value = "";
+
 }
 
 document.getElementById("maplinkinput").value = "";
@@ -262,12 +264,13 @@ document.getElementById("maplinkinput").onchange = function(){
     oldsrc = document.getElementById("srcinput").value;
     newtext = "";
     if(oldsrc.length > 0){
-        newtext  = "<div onclick = \"loadsmap(this.parentElement,&quot;" + maplinkurl + "&quot;)\" class = \"button\"><img src = \"" + oldsrc + "\"/></div>";        
+        newtext  = "<div onclick = \"loadmap(this.parentElement,&quot;" + maplinkurl + "&quot;)\" class = \"button\"><img src = \"" + oldsrc + "\"/></div>";        
     }
     else{
         newtext  = "<div onclick = \"loadmap(this.parentElement,&quot;" + maplinkurl + "&quot;)\" class = \"button\">" + oldtext + "</div>";        
     }
     document.getElementById("textinput").value = newtext;
+    document.getElementById("srcinput").value = "";
 }
 
 </script>
