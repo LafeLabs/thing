@@ -48,6 +48,19 @@
             <td>href:</td>
             <td><input id = "hrefinput"/></td>
         </tr>
+        <tr style = "background-color:black">
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Scroll url:</td>
+            <td><input id = "scrolllinkinput"/></td>
+        </tr>
+        <tr>
+            <td>Map url:</td>
+            <td><input id = "maplinkinput"/></td>
+        </tr>
+        
     </table>    
         <textarea id = "wall"></textarea>
     
@@ -86,6 +99,10 @@ var httpc = new XMLHttpRequest();
 httpc.open("GET", "fileloader.php?filename=data/feed.txt", true);
 httpc.send();
 
+
+document.getElementById("textinput").value = "";
+document.getElementById("srcinput").value = "";
+document.getElementById("hrefinput").value = "";
 
 document.getElementById("textinput").onchange = function(){
 //    textfeed.text.push(this.value);
@@ -221,6 +238,36 @@ document.getElementById("wall").onkeyup = function() {
         httpc.open("POST", url, true);
         httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
         httpc.send("data="+data+"&filename=data/wall.txt");//send text to filesaver.php
+}
+
+document.getElementById("scrolllinkinput").value = "";
+document.getElementById("scrolllinkinput").onchange = function(){
+    scrolllinkurl = this.value;
+    oldtext = document.getElementById("textinput").value;
+    oldsrc = document.getElementById("srcinput").value;
+    newtext = "";
+    if(oldsrc.length > 0){
+        newtext  = "<div onclick = \"loadscroll(this.parentElement,&quot;" + scrolllinkurl + "&quot;)\" class = \"button\"><img src = \"" + oldsrc + "\"/></div>";        
+    }
+    else{
+        newtext  = "<div onclick = \"loadscroll(this.parentElement,&quot;" + scrolllinkurl + "&quot;)\" class = \"button\">" + oldtext + "</div>";        
+    }
+    document.getElementById("textinput").value = newtext;
+}
+
+document.getElementById("maplinkinput").value = "";
+document.getElementById("maplinkinput").onchange = function(){
+    maplinkurl = this.value;
+    oldtext = document.getElementById("textinput").value;
+    oldsrc = document.getElementById("srcinput").value;
+    newtext = "";
+    if(oldsrc.length > 0){
+        newtext  = "<div onclick = \"loadsmap(this.parentElement,&quot;" + maplinkurl + "&quot;)\" class = \"button\"><img src = \"" + oldsrc + "\"/></div>";        
+    }
+    else{
+        newtext  = "<div onclick = \"loadmap(this.parentElement,&quot;" + maplinkurl + "&quot;)\" class = \"button\">" + oldtext + "</div>";        
+    }
+    document.getElementById("textinput").value = newtext;
 }
 
 </script>
