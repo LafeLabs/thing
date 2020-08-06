@@ -343,13 +343,13 @@ httpc.onreadystatechange = function() {
         if(currentjson.backgroundimage.length >  1) {
             document.getElementById("backgroundimage").style.display = "block";
             if(currentjson.imgw != undefined){
-                document.getElementById("backgroundimage").style.width = currentjson.imgw*currentjson.width + "px";
+                document.getElementById("backgroundimage").style.width = currentjson.imgw*newGVM.width + "px";
             }
             if(currentjson.imgx != undefined){
-                document.getElementById("backgroundimage").style.left = currentjson.imgx*currentjson.width + "px";
+                document.getElementById("backgroundimage").style.left = currentjson.imgx*newGVM.width + "px";
             }
             if(currentjson.imgy != undefined){
-                document.getElementById("backgroundimage").style.top = currentjson.imgy*currentjson.width + "px";
+                document.getElementById("backgroundimage").style.top = currentjson.imgy*newGVM.width + "px";
             }            
             if(currentjson.imgtheta != undefined){
                 document.getElementById("backgroundimage").style.transform = "rotate(" + currentjson.imgtheta.toString() + "deg)";

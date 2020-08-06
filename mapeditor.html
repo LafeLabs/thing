@@ -571,8 +571,7 @@ var httpc10 = new XMLHttpRequest();
         //un comment for math
         //MathJax.Hub.Typeset();
         loadlinkfeed();
-        for(var index = 0;index < textfeed.src.length;index++) {
-
+        for(var index = textfeed.src.length - 1;index >= 0;index--) {
             var newimg = document.createElement("IMG");
             newimg.src = textfeed.src[index];
             newimg.classList.add("uploadimage");
