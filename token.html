@@ -295,7 +295,14 @@ document.getElementById("savebutton").onclick = function() {
     textfeed.src.push(invisibleGVM.pngcode(invisibleGVM));
     robotfeed.push(cleanGlyph);
     
-
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", "filesaver.php", true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(JSON.stringify(textfeed,null,"  "))+"&filename=data/textfeed.txt");//send text to filesaver.php
+    var httpc2 = new XMLHttpRequest();
+    httpc2.open("POST", "filesaver.php", true);
+    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc2.send("data="+encodeURIComponent(JSON.stringify(robotfeed,null,"  "))+"&filename=data/robotfeed.txt");//send text to filesaver.php
 }
 
 var httpc = new XMLHttpRequest();
