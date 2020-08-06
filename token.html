@@ -61,7 +61,7 @@
 
     </div>        
     <input id = "actioninput"/>
-    <img id = "modeindicator" class = "button" style = "width:50px;" src = "iconsymbols/cursor.svg"/>
+    <img id = "modeindicator" class = "button" src = "iconsymbols/cursor.svg"/>
 </div>
 
 <script>
@@ -218,9 +218,14 @@ document.getElementById("actioninput").onkeypress = function(a) {
 
 buttonSize = marginWidth/8;
 
+ascii = "";
+for(var index = 040;index < 0177;index++){
+    ascii += "0" + index.toString(8) + ",";
+}
+
 function loadcontrolbuttons(){
-    
-    var controlbuttonarray = currentjson.controlbuttonsstring.split(",");
+    controlbuttonsstring = currentjson.controlbuttonsstring + ascii;
+    var controlbuttonarray = controlbuttonsstring.split(",");
     for(var index = 0;index < controlbuttonarray.length; index++) {    
         if(controlbuttonarray[index].length > 0){
             var newcan = document.createElement("canvas");
@@ -231,7 +236,14 @@ function loadcontrolbuttons(){
             newg.importbytecode(currentjson.shapes);
             newg.importbytecode(font);
     
-            newg.drawGlyph("0300,0" + (parseInt(controlbuttonarray[index],8) + 01000).toString(8) + ",",newg);
+            var thisaction = parseInt(controlbuttonarray[index],8);
+            
+            if(thisaction >= 040 && thisaction < 0177){
+                newg.drawGlyph("0300,0336,0336,0330,0333,0" + (thisaction + 01000).toString(8) + ",",newg);   
+            }
+            else{
+                newg.drawGlyph("0300,0" + (thisaction + 01000).toString(8) + ",",newg);                
+            }
     
             newcan.id = "button" + controlbuttonarray[index];
             newcan.onclick = function(){
@@ -489,6 +501,7 @@ body{
     left:0px;
     right:0px;
     top:200px;
+    overflow:scroll;
 }
 #linkdiv{
     width:100%;
@@ -536,6 +549,7 @@ body{
     position:absolute;
     right:3em;
     bottom:0px;
+    width:2em;
 }
 </style>
 </body>
