@@ -287,6 +287,7 @@ document.getElementById("savebutton").onclick = function() {
     var url = "pngsave.php";        
     httpc.open("POST", url, true);
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    
     var cleanGlyph = "";
     var glyphArray = newGVM.glyph.split(",");
     for(var index = 0;index < glyphArray.length;index++ ) {
@@ -377,6 +378,7 @@ httpc.onreadystatechange = function() {
 httpc.open("GET", "fileloader.php?filename=data/token.txt", true);
 httpc.send();    
 
+robotfeed = [];
 var httpc666 = new XMLHttpRequest();
 httpc666.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -386,6 +388,15 @@ httpc666.onreadystatechange = function() {
 httpc666.open("GET", "fileloader.php?filename=data/robotfeed.txt", true);
 httpc666.send();    
 
+textfeed = {};
+var httpc777 = new XMLHttpRequest();
+httpc666.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        textfeed = JSON.parse(this.responseText);
+    }
+};
+httpc777.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
+httpc777.send();    
 
 document.getElementById("actioninput").select();
 
