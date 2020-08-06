@@ -52,6 +52,9 @@
         <a href = "canvas2png.html">
             <img style = "width:50px;" src = "iconsymbols/pngcode.svg"/>
         </a>    
+        <a href = "textfeed.html">
+            <img style = "width:50px;" src = "iconsymbols/feed.svg"/>
+        </a>    
 
     <img style = "width:50px" id = "clearbutton" src = "iconsymbols/clearicon.svg" class = "button"/>
         <img id = "savebutton" class = "button" style = "width:50px;" src = "iconsymbols/save.svg"/>
@@ -116,11 +119,11 @@ newGVM.importbytecode(font);
 newGVM.importbytecode(keyboard);
 
 
-invisibleWidth = 200;
-var invisibleGVM = new GVM(0.98*invisibleWidth,0.98*invisibleWidth,0.96*invisibleWidth,-Math.PI/2,document.getElementById("invisiblecanvas"),invisibleWidth,invisibleWidth,hypercube);
+invisibleWidth = 150;
+var invisibleGVM = new GVM(0.5*invisibleWidth,0.5*invisibleWidth,invisibleWidth,-Math.PI/2,document.getElementById("invisiblecanvas"),invisibleWidth,invisibleWidth,hypercube);
 
 
-
+invisibleGVM.importbytecode(font);
 
 var spellGVM = new GVM(10,100,50,-Math.PI/2,document.getElementById("spellcanvas"),200,200,hypercube);
 spellGVM.importbytecode(font);
@@ -272,6 +275,7 @@ function loadcontrolbuttons(){
 
 document.getElementById("savebutton").onclick = function() {
 
+/*
     invisibleGVM.canvas2d.width = newGVM.width;
     invisibleGVM.canvas2d.height = newGVM.height;
     invisibleGVM.width = newGVM.width;
@@ -282,6 +286,9 @@ document.getElementById("savebutton").onclick = function() {
     invisibleGVM.unit = newGVM.unit;
     invisibleGVM.hypercube = newGVM.hypercube;
     invisibleGVM.style = newGVM.style;
+*/
+
+    invisibleGVM.unit = newGVM.unit*invisibleGVM.width/newGVM.width;
 
     var cleanGlyph = "";
     var glyphArray = newGVM.glyph.split(",");
@@ -314,10 +321,10 @@ httpc.onreadystatechange = function() {
         currentjson = JSON.parse(this.responseText);
         currentstyle = currentjson.style;
         newGVM.style = currentstyle;
-        newGVM.canvas2d.width = currentjson.width;
-        newGVM.canvas2d.height = currentjson.height;
-        newGVM.width = currentjson.width;
-        newGVM.height = currentjson.height;
+//        newGVM.canvas2d.width = currentjson.width;
+ //       newGVM.canvas2d.height = currentjson.height;
+  //      newGVM.width = currentjson.width;
+//        newGVM.height = currentjson.height;
         newGVM.x0 = currentjson.x0rel*newGVM.width;
         newGVM.y0 = currentjson.y0rel*newGVM.height;    
         newGVM.unit = currentjson.unitrel*newGVM.width;    
@@ -401,10 +408,6 @@ function savejson(){
     }
     currentjson.glyph = cleanGlyph;
     
-    currentjson.x0rel = newGVM.x0/newGVM.width;
-    currentjson.y0rel = newGVM.y0/newGVM.height;
-    currentjson.unitrel = newGVM.unit/newGVM.width;
-
     var httpc = new XMLHttpRequest();
     httpc.open("POST", "filesaver.php", true);
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
