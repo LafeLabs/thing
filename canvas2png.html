@@ -28,7 +28,7 @@
     <a href = "symbolfeed.html">
         <img src = "iconsymbols/symbolfeed.svg"/>
     </a>        
-
+    <img id = "savebutton" src = "iconsymbols/save.svg" class = "button" />
 </div>
 <div id  = "imagescroll">
 </div>
@@ -134,6 +134,12 @@ document.getElementById("widthinput").onchange = function(){
     document.getElementById("mainimage").style.width = width.toString() + "px";
 }
 
+document.getElementById("savebutton").onclick = function(){
+    pngcode = document.getElementById("rawinput").value;
+    textfeed.src.push(pngcode);
+    
+}
+
 </script>
 <style>
 #mainbox{
@@ -161,6 +167,16 @@ document.getElementById("widthinput").onchange = function(){
     margin:auto;
     margin-top:1em;
 }
+.button{
+    cursor:pointer;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
+}
+
 </style>
 </body>
 </html>
