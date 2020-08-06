@@ -80,9 +80,6 @@
             </tr>
         </table>
         <textarea id = "textio"></textarea>
-        <a href = "canvas2png.html">
-            <img src = "iconsymbols/pngcode.svg"/>
-        </a>
     </div>
     <div id = "mapscroll">
         <a href = "map.html">
@@ -112,12 +109,16 @@
                 <a href = "textfeed.html">
             <img class = "button" src = "iconsymbols/feed.svg"/>
         </a>
+        <a href = "canvas2png.html">
+            <img src = "iconsymbols/pngcode.svg"/>
+        </a>
 
         <form id = "uploadform" style = "margin-top:10px" action="upload.php" method="post" enctype="multipart/form-data">
                 Select image to upload:
             <input type="file" name="fileToUpload" id="fileToUpload">
             <input type="submit" value="Upload Image" name="submit">
         </form>
+        
              <!--
                 images and symbols 
              -->
@@ -126,7 +127,8 @@
             <img class = "button" src = "iconsymbols/feed.svg"/>
         </a>
 </div>
-    <div id = "linkscroll">        <a href = "textfeed.html">
+    <div id = "linkscroll">        
+        <a href = "textfeed.html">
             <img class = "button" src = "iconsymbols/feed.svg"/>
         </a>
 
@@ -456,7 +458,7 @@ mcrotate.on("panleft panright panup pandown tap press", function(ev) {
 
 });    
 
-        
+/*
 uploadImages = [];
 var httpc = new XMLHttpRequest();
     httpc.onreadystatechange = function() {
@@ -557,7 +559,7 @@ httpc6.onreadystatechange = function() {
 
 httpc6.open("GET", "dir.php?filename=iconsymbols", true);
 httpc6.send();
-
+*/
 
 textfeed = {};
 var httpc10 = new XMLHttpRequest();
@@ -588,8 +590,6 @@ var httpc10 = new XMLHttpRequest();
 };
 httpc10.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
 httpc10.send();
-
-
 
 
 function loadtextfeed(){

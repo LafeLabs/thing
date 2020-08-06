@@ -31,6 +31,10 @@ else{
     <a href = "mapeditor.html">
     <img src = "iconsymbols/edit.svg"/>
     </a>
+    <a href = "canvas2png.html">
+    <img src = "iconsymbols/pngcode.svg"/>
+    </a>
+
 </p>
 
 
