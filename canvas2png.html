@@ -25,9 +25,16 @@
     <a href = "mapeditor.html">
         <img src = "iconsymbols/map.svg"/>
     </a>        
+    <a href = "textfeed.html">
+        <img src = "iconsymbols/feed.svg"/>
+    </a>        
+
+<!--    
     <a href = "symbolfeed.html">
         <img src = "iconsymbols/symbolfeed.svg"/>
     </a>        
+-->
+
     <img id = "savebutton" src = "iconsymbols/save.svg" class = "button" />
 </div>
 <div id  = "imagescroll">
@@ -136,8 +143,11 @@ document.getElementById("widthinput").onchange = function(){
 
 document.getElementById("savebutton").onclick = function(){
     pngcode = document.getElementById("rawinput").value;
-    textfeed.src.push(pngcode);
-    
+    textfeed.src.push(pngcode); 
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", "filesaver.php", true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(JSON.stringify(textfeed,null,"  "))+"&filename=data/textfeed.txt");//send text to filesaver.php
 }
 
 </script>
