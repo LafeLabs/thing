@@ -106,11 +106,14 @@
         </ul>
     </div>
     <div id = "feedscroll">
-                <a href = "textfeed.html">
+        <a href = "textfeed.html">
             <img class = "button" src = "iconsymbols/feed.svg"/>
         </a>
         <a href = "canvas2png.html">
             <img src = "iconsymbols/pngcode.svg"/>
+        </a>
+        <a href = "token.html">
+            <img src = "iconsymbols/token.svg"/>
         </a>
 
         <form id = "uploadform" style = "margin-top:10px" action="upload.php" method="post" enctype="multipart/form-data">
@@ -593,7 +596,7 @@ httpc10.send();
 
 function loadtextfeed(){
     text = textfeed.text;
-    for(var index = 0;index < text.length;index++){
+    for(var index = text.length - 1;index >= 0;index--){
         var newbox = document.createElement("div");
         newbox.className = "button";
         newbox.innerHTML = text[index];
@@ -610,7 +613,7 @@ function loadtextfeed(){
 
 function loadlinkfeed(){
     href = textfeed.href;
-    for(var index = 0;index < href.length;index++){
+    for(var index = href.length - 1;index >= 0;index--){
         var newbox = document.createElement("div");
         newbox.className = "button";
         newbox.innerHTML = href[index];
