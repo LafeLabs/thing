@@ -49,8 +49,8 @@
         <a href = "tokensetup.html">
             <img style = "width:50px;" src = "iconsymbols/setup.svg"/>
         </a>    
-        <img id = "modebutton" class = "button" style = "width:50px;background-color:#00ff00" src = "iconsymbols/cursor.svg"/>
-        <img id = "robotmode" class = "button" style = "width:50px;" src = "iconsymbols/robotsymbolmode.svg"/>
+        <img id = "modebutton" class = "button" style = "width:50px;" src = "iconsymbols/cursor.svg"/>
+
     <img style = "width:50px" id = "clearbutton" src = "iconsymbols/clearicon.svg" class = "button"/>
         <img id = "savebutton" class = "button" style = "width:50px;" src = "iconsymbols/save.svg"/>
     </div>    
@@ -443,6 +443,7 @@ symbolkeyboard = [
 
 robotkeyboardmode = false;
 
+/*
 document.getElementById("robotmode").onclick = function(){
     robotkeyboardmode = !robotkeyboardmode;
     
@@ -457,6 +458,7 @@ document.getElementById("robotmode").onclick = function(){
      document.getElementById("actioninput").select();
    
 }
+*/
 
 document.getElementById("clearbutton").onclick = function(){
     document.getElementById("spellinput").value = "";
