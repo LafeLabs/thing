@@ -41,12 +41,17 @@ function redraw(){
         newcan.id = "can" + index.toString();
         newcan.onclick = function(){
             thisglyph = robotfeed[parseInt(this.id.substring(3))];
-            console.log(thisglyph);
             robotjson.glyph = thisglyph;
             var httpc666 = new XMLHttpRequest();
             httpc666.open("POST","filesaver.php", true);
             httpc666.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             httpc666.send("data="+encodeURIComponent(JSON.stringify(robotjson,null,"  ")) +"&filename=data/robot.txt");//send text to filesaver.php
+
+            token.glyph = thisglyph;
+            httpc777.open("POST","filesaver.php", true);
+            httpc777.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            httpc777.send("data="+encodeURIComponent(JSON.stringify(token,null,"  ")) +"&filename=data/token.txt");//send text to filesaver.php            
+            
         }
         document.getElementById("srcscroll").appendChild(newcan);
     }
@@ -62,6 +67,17 @@ httpc666.onreadystatechange = function() {
 };
 httpc666.open("GET", "fileloader.php?filename=data/robot.txt", true);
 httpc666.send();    
+
+
+token = {};
+var httpc777 = new XMLHttpRequest();
+httpc777.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        token = JSON.parse(this.responseText);
+    }
+};
+httpc777.open("GET", "fileloader.php?filename=data/token.txt", true);
+httpc777.send();    
 
 
 </script>
