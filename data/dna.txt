@@ -43,6 +43,8 @@
         "tablet.html",
         "textfeed.html",
         "thing.html",
+        "token.html",
+        "tokensetup.html",
         "trashrobotdotorg.html",
         "voxel.html",
         "wall.html"
@@ -157,6 +159,7 @@
         "robotfeed.txt",
         "symbolapp.txt",
         "textfeed.txt",
+        "token.txt",
         "wall.txt"
     ],
     "php": [

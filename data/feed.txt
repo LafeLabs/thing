@@ -3,5 +3,20 @@
         "href": "feededitor.html",
         "src": "",
         "text": "<div style = \"width:100%;height:100%;color:#00ff00;background-color:black;\">operator screen</div>"
+    },
+    {
+        "href": "mapuser.html",
+        "src": "",
+        "text": "mapuser.html"
+    },
+    {
+        "href": "editor.php",
+        "src": "",
+        "text": "editor.php"
+    },
+    {
+        "href": "token.html",
+        "src": "",
+        "text": "token.html"
     }
 ]
