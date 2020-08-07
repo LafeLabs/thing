@@ -4,15 +4,13 @@ function Map(w,h,div) {
     this.w = w;//width of div element map will be drawn in
     this.h = h;//height of div element
     this.div = div; //div element in document
-    this.div.style.width = this.w + "px"; //set width of div
-    this.div.style.height = this.h + "px";//set height of div
+    this.div.style.width = this.w.toString() + "px"; //set width of div
+    this.div.style.height = this.h.toString() + "px";//set height of div
     this.array = [];
     this.linkArray = [];
     this.linkindex = 0;
-    this.editmode = false;
-//    this.pastebinlinks = false;
-    //MapLink(x,y,w,angle,text,href,src)
-    var newLink  = new MapLink(0.1,0.1,0.2,0,"text","","",false);
+    //MapLink(x,y,w,aspectRatio,angle,text,href,src,maplinkmode)
+    var newLink  = new MapLink(0.1,0.1,0.2,0.2,0,"text","","",false,{});
     this.array.push(newLink);
 
     this.draw = function() {
@@ -26,6 +24,7 @@ function Map(w,h,div) {
             newa.style.left = (this.array[index].x*this.w).toString() + "px";
             newa.style.top  = (this.array[index].y*this.w).toString() + "px";
             newa.style.width  = (this.array[index].w*this.w).toString() + "px";
+            newa.style.height  = (this.array[index].h*this.w).toString() + "px";
             newa.style.transform  = "rotate(" + (this.array[index].angle).toString() + "deg)";
             if(this.array[index].href.length == 0){
                 newa.style.color = "black";
@@ -62,7 +61,15 @@ function Map(w,h,div) {
                     newa.href = this.array[index].href;
                 }
             }
-
+            if(JSON.stringify(this.geometron) != "{}"){
+                var newcan = document.createElement("CANVAS");
+                //set canvas width to be same width of link
+                //create a new gvm on this canvas
+                //set canvas height to be link width times geometron height divided by specified geometron width
+                //set unit appropriately 
+                //load the shapes
+                //print the glyph
+            }
             this.linkArray.push(newa);
         }
     }
@@ -89,13 +96,12 @@ function Map(w,h,div) {
         
         if(this.array.length > 0 ){
             this.linkArray[this.linkindex].style.border = "none";
-            var newLink  = new MapLink(this.array[this.linkindex].x + this.array[linkindex].w*0.05,this.array[this.linkindex].y + this.array[this.linkindex].w*0.05,this.array[this.linkindex].w,this.array[this.linkindex].angle,this.array[this.linkindex].text,this.array[this.linkindex].href,this.array[this.linkindex].src,this.array[this.linkindex].maplinkmode);
+            var newLink  = new MapLink(this.array[this.linkindex].x + this.array[linkindex].w*0.05,this.array[this.linkindex].y + this.array[this.linkindex].w*0.05,this.array[this.linkindex].w,this.array[this.linkindex].h,this.array[this.linkindex].angle,this.array[this.linkindex].text,this.array[this.linkindex].href,this.array[this.linkindex].src,this.array[this.linkindex].maplinkmode,this.array[this.linkindex].geometron);
         }
         else{
-            var newLink  = new MapLink(0.1,0.1,0.1,0,"text","","",false);
+            var newLink  = new MapLink(0.1,0.1,0.1,0.1,0,"text","","",false,{});
             this.linkindex = 0;
         }
-        //  var newLink = new MapLink(0,0,0.1,1,0,"","","","text");
         this.array.push(newLink);
         this.linkindex = this.array.length - 1;
         this.draw();
@@ -186,16 +192,18 @@ function Map(w,h,div) {
 }
 
 
-function MapLink(x,y,w,angle,text,href,src,maplinkmode) {
+function MapLink(x,y,w,h,angle,text,href,src,maplinkmode,geometron) {
  
     this.x = x;
     this.y = y;
     this.w = w;
+    this.h = h;
     this.angle = angle;
     this.text = text;
-    this.href = href;
+    this.href = href;//either an href property of an anchor element or the url of a json file with another map in it with which to load
     this.src = src;
     this.maplinkmode = maplinkmode;
+    this.geometron = geometron;
 
 }
 
