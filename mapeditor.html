@@ -140,6 +140,7 @@
     <div id = "rotatezoombox">
         <table id = "rotatezoomtable">
             <tr id = "rotatezoombuttons1">
+                <td id = "hmodebutton" class=  "button" style = "text-align:center;border:solid;">height mode</td>
                 <td>
                     <img id = "zoomoutbutton" src= "iconsymbols/shrink.svg" class = "button" /> 
                 </td>
@@ -154,6 +155,7 @@
                 </td>
             </tr>
             <tr id = "rotatezoombuttons2">
+                <td></td>
                 <td>
                     <img id = "rotateleftbutton" src= "iconsymbols/left.svg" class = "button" /> 
                 </td>
@@ -279,6 +281,7 @@ document.getElementById("savebutton").onclick = function() {
     mainmap.array[mainmap.linkindex].x = parseInt(mainmap.linkArray[mainmap.linkindex].style.left.substring(0,mainmap.linkArray[mainmap.linkindex].style.left.length-2))/mainmap.w;
     mainmap.array[mainmap.linkindex].y = parseInt(mainmap.linkArray[mainmap.linkindex].style.top.substring(0,mainmap.linkArray[mainmap.linkindex].style.top.length-2))/mainmap.w;
     mainmap.array[mainmap.linkindex].w = parseInt(mainmap.linkArray[mainmap.linkindex].style.width.substring(0,mainmap.linkArray[mainmap.linkindex].style.width.length-2))/mainmap.w;
+    mainmap.array[mainmap.linkindex].h = parseInt(mainmap.linkArray[mainmap.linkindex].style.height.substring(0,mainmap.linkArray[mainmap.linkindex].style.height.length-2))/mainmap.w;
     mainmap.array[mainmap.linkindex].angle = parseInt(mainmap.linkArray[mainmap.linkindex].style.transform.substring(7,mainmap.linkArray[mainmap.linkindex].style.transform.length - 4));
 
     var url = "filesaver.php";        
@@ -305,11 +308,13 @@ document.getElementById("resetbutton").onclick  = function(){
         "x": 0.5,
         "y": 0.0,
         "w": 0.35,
+        "h": 0.35,
         "angle": 0,
         "text": "Map",
         "href": "",
         "src": "",
-        "maplinkmode":false
+        "maplinkmode":false,
+        "geometron":{}
     }
     ];
     mainmap.draw();
@@ -399,35 +404,64 @@ mczoom = new Hammer(document.getElementById("scalebar"));
 mczoom.get('pan').set({ direction: Hammer.DIRECTION_ALL });
 mczoom.on("panleft panright panup pandown tap press", function(ev) {
 
-    mainmap.linkArray[mainmap.linkindex].style.width = (Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w + 2*ev.deltaX)).toString() +  "px";
-    mainmap.linkArray[mainmap.linkindex].style.fontSize = (0.1*Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w + 2*ev.deltaX)).toString() + "px"; 
+
+    if(hmode){
+        mainmap.linkArray[mainmap.linkindex].style.height = (Math.abs(mainmap.array[mainmap.linkindex].h*mainmap.w + 2*ev.deltaX)).toString() +  "px";
+    }
+    else{
+        mainmap.linkArray[mainmap.linkindex].style.width = (Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w + 2*ev.deltaX)).toString() +  "px";
+        mainmap.linkArray[mainmap.linkindex].style.height = (Math.abs(mainmap.array[mainmap.linkindex].h*mainmap.w + 2*ev.deltaX)).toString() +  "px";
+        mainmap.linkArray[mainmap.linkindex].style.fontSize = (0.1*Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w + 2*ev.deltaX)).toString() + "px"; 
+    }
+    
 
 });    
 
 
+hmode = false;//height mode instead of width mode for zoom
 
 document.getElementById("zoomoutbutton").onclick = function() {
     mainmap.array[mainmap.linkindex].w /= 1.25;
-    mainmap.linkArray[mainmap.linkindex].style.width = (Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w)).toString() +  "px";
-    mainmap.linkArray[mainmap.linkindex].style.fontSize = (0.1*Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w)).toString() + "px"; 
-
+    if(hmode){
+        mainmap.linkArray[mainmap.linkindex].style.height = (Math.abs(mainmap.array[mainmap.linkindex].h*mainmap.w)).toString() +  "px";
+    }
+    else{
+        mainmap.linkArray[mainmap.linkindex].style.width = (Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w)).toString() +  "px";
+        mainmap.linkArray[mainmap.linkindex].style.fontSize = (0.1*Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w)).toString() + "px";   
+    }
 }
 document.getElementById("zoominbutton").onclick = function() {
     mainmap.array[mainmap.linkindex].w *= 1.25;
-    mainmap.linkArray[mainmap.linkindex].style.width = (Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w)).toString() +  "px";
-    mainmap.linkArray[mainmap.linkindex].style.fontSize = (0.1*Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w)).toString() + "px"; 
-
+    if(hmode){
+        mainmap.linkArray[mainmap.linkindex].style.height = (Math.abs(mainmap.array[mainmap.linkindex].h*mainmap.w)).toString() +  "px";
+    }
+    else{
+        mainmap.linkArray[mainmap.linkindex].style.width = (Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w)).toString() +  "px";
+        mainmap.linkArray[mainmap.linkindex].style.fontSize = (0.1*Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w)).toString() + "px";   
+    }
 }
+
 document.getElementById("littlezoomoutbutton").onclick = function() {
     mainmap.array[mainmap.linkindex].w /= 1.01;
-    mainmap.linkArray[mainmap.linkindex].style.width = (Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w)).toString() +  "px";
-    mainmap.linkArray[mainmap.linkindex].style.fontSize = (0.1*Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w)).toString() + "px"; 
-
+    
+    if(hmode){
+        mainmap.linkArray[mainmap.linkindex].style.height = (Math.abs(mainmap.array[mainmap.linkindex].h*mainmap.w)).toString() +  "px";
+    }
+    else{
+        mainmap.linkArray[mainmap.linkindex].style.width = (Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w)).toString() +  "px";
+        mainmap.linkArray[mainmap.linkindex].style.fontSize = (0.1*Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w)).toString() + "px";   
+    }    
+    
 }
 document.getElementById("littlezoominbutton").onclick = function() {
     mainmap.array[mainmap.linkindex].w *= 1.01;
-    mainmap.linkArray[mainmap.linkindex].style.width = (Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w)).toString() +  "px";
-    mainmap.linkArray[mainmap.linkindex].style.fontSize = (0.1*Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w)).toString() + "px"; 
+    if(hmode){
+        mainmap.linkArray[mainmap.linkindex].style.height = (Math.abs(mainmap.array[mainmap.linkindex].h*mainmap.w)).toString() +  "px";
+    }
+    else{
+        mainmap.linkArray[mainmap.linkindex].style.width = (Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w)).toString() +  "px";
+        mainmap.linkArray[mainmap.linkindex].style.fontSize = (0.1*Math.abs(mainmap.array[mainmap.linkindex].w*mainmap.w)).toString() + "px";   
+    }
 
 }
 
@@ -751,6 +785,15 @@ newmapbutton.onclick = function(){
     httpc.send();
 }
 
+document.getElementById("hmodebutton").onclick = function(){
+    hmode = !hmode;
+    if(hmode){
+        this.style.backgroundColor = "green";
+    }
+    else{
+        this.style.backgroundColor = "white";
+    }
+}
 </script>
 <style>
 #iotable .button{
