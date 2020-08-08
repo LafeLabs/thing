@@ -66,9 +66,11 @@
         </tr>
         
     </table>    
+        <div id = "imagefeed"></div>
+
         <textarea id = "wall" wrap="hard" cols = "40"></textarea>
     
-    <table style = "margin-top:3em" id  = "iotable">
+    <table style = "margin-top:3em;" id  = "iotable">
     <tr>
         <td class = "button" id = "importbutton">IMPORT</td>
         <td class = "button" id = "resetbutton">CLEAR</td>
@@ -213,7 +215,15 @@ function redraw(){
                 boxindex = parseInt(this.parentElement.id.substring(3));
                 document.getElementById("srcinput").value = feed[boxindex].src;
                 document.getElementById("hrefinput").value = feed[boxindex].href;
-                document.getElementById("textinput").value = feed[boxindex].text;
+                if(feed[boxindex].text.substring(0,25) == "<div class = \"scrollbox\">"){
+                    var scrollextract = feed[boxindex].text.substring(25,feed[boxindex].text.length  - 6);
+                    document.getElementById("wall").value = scrollextract;
+                    
+                }
+                else{
+                    document.getElementById("textinput").value = feed[boxindex].text;                    
+               
+                }
             }
             newspan.style.cursor = "pointer";
         }
@@ -293,6 +303,31 @@ document.getElementById("wall2scroll").onclick = function(){
     
 }
 
+
+textfeed = {};
+var httpc10 = new XMLHttpRequest();
+    httpc10.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        textfeed = JSON.parse(this.responseText);
+
+        for(var index = textfeed.src.length - 1;index >= 0;index--) {
+            var newimg = document.createElement("IMG");
+            newimg.src = textfeed.src[index];
+            newimg.classList.add("button");
+            document.getElementById("imagefeed").appendChild(newimg);
+            newimg.onclick = function() {
+                document.getElementById("headerimage").src = this.src;
+                document.getElementById("srcinput").value = this.src;
+            }
+            
+        }
+
+    }
+};
+httpc10.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
+httpc10.send();
+
+
 </script>
 <style>
 .box{
@@ -309,7 +344,7 @@ input{
     width:90%;
     display:block;
     margin:auto;
-    height:40em;
+    height:20em;
 }
 #header{
     position:absolute;
@@ -356,6 +391,14 @@ input{
 }
 #headerimage{
     width:200px;
+}
+#imagefeed{
+    width:80%;
+    height:10em;
+    overflow:scroll;
+}
+#imagefeed img{
+    max-width:50%;
 }
 </style>
 </body>
