@@ -154,6 +154,7 @@
         "duality.txt",
         "feed.txt",
         "font.txt",
+        "geometronfeed.txt",
         "marker.txt",
         "poetry.txt",
         "robot.txt",

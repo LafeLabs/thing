@@ -309,16 +309,25 @@ document.getElementById("savebutton").onclick = function() {
     invisibleGVM.drawGlyph(cleanGlyph + gridglyph);
     
     textfeed.src.push(invisibleGVM.pngcode(invisibleGVM));
+
     robotfeed.push(cleanGlyph);
-    
     var httpc = new XMLHttpRequest();
     httpc.open("POST", "filesaver.php", true);
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc.send("data="+encodeURIComponent(JSON.stringify(textfeed,null,"  "))+"&filename=data/textfeed.txt");//send text to filesaver.php
+
     var httpc2 = new XMLHttpRequest();
     httpc2.open("POST", "filesaver.php", true);
     httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc2.send("data="+encodeURIComponent(JSON.stringify(robotfeed,null,"  "))+"&filename=data/robotfeed.txt");//send text to filesaver.php
+
+    geometronfeed.push(currentjson);
+    var httpc3 = new XMLHttpRequest();
+    httpc3.open("POST", "filesaver.php", true);
+    httpc3.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc3.send("data="+encodeURIComponent(JSON.stringify(geometronfeed,null,"  "))+"&filename=data/geometronfeed.txt");//send text to filesaver.php
+
+    
 }
 
 var httpc = new XMLHttpRequest();
@@ -391,6 +400,16 @@ httpc777.onreadystatechange = function() {
 };
 httpc777.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
 httpc777.send();    
+
+geometronfeed = [];
+var httpc99 = new XMLHttpRequest();
+httpc99.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        geometronfeed = JSON.parse(this.responseText);
+    }
+};
+httpc99.open("GET", "fileloader.php?filename=data/geometronfeed.txt", true);
+httpc99.send();    
 
 document.getElementById("actioninput").select();
 
