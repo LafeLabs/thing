@@ -75,6 +75,7 @@
         "cursor.svg",
         "cursormovements.svg",
         "delete.svg",
+        "deletegeometron.svg",
         "deleteimage.svg",
         "deletelink.svg",
         "downelement.svg",

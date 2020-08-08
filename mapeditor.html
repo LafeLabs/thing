@@ -62,6 +62,8 @@
         <img id = "newbutton" src = "iconsymbols/add.svg" class = "button" />
         <img id = "deleteimagebutton" src = "iconsymbols/deleteimage.svg" class = "button" />
         <img id = "deletelinkbutton" src = "iconsymbols/deletelink.svg" class = "button" />
+        <img id = "deletegeometronbutton" src = "iconsymbols/deletegeometron.svg" class = "button" />
+        
         <img id = "textbutton" src = "iconsymbols/text.svg" class = "button" />
         <img id = "imagebutton" src = "iconsymbols/image.svg" class = "button" />                
         <img id = "linkbutton" src = "iconsymbols/link.svg" class = "button" />              
@@ -734,6 +736,12 @@ document.getElementById("deletelinkbutton").onclick = function(){
     mainmap.array[mainmap.linkindex].href = "";
     mainmap.draw();
     document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
+}
+
+document.getElementById("deletegeometronbutton").onclick = function(){
+    mainmap.array[mainmap.linkindex].geometron = {};
+    mainmap.draw();
+
 }
 
 document.getElementById("textinput").onchange = function(){
