@@ -349,6 +349,7 @@ httpc.onreadystatechange = function() {
         spellGVM.importbytecode(currentjson.shapes);
         newGVM.importbytecode(currentjson.shapes);
         invisibleGVM.importbytecode(currentjson.shapes);
+        invisibleGVM.style = currentstyle;
 
         newGVM.drawGlyph(newGVM.glyph);
         spellGVM.spellGlyph(newGVM.glyph);
