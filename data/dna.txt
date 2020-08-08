@@ -141,6 +141,7 @@
         "table.svg",
         "tablet.svg",
         "text.svg",
+        "token.svg",
         "upelement.svg",
         "uplink.svg",
         "voxel.svg",
