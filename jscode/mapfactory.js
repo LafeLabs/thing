@@ -61,15 +61,19 @@ function Map(w,h,div) {
                     newa.href = this.array[index].href;
                 }
             }
-            if(JSON.stringify(this.geometron) != "{}"){
+            if(JSON.stringify(this.array[index].geometron) != "{}" && this.array[index].geometron != undefined){
                 var newcan = document.createElement("CANVAS");
-                //set canvas width to be same width of link
-                //create a new gvm on this canvas
-                //set canvas height to be link width times geometron height divided by specified geometron width
-                //set unit appropriately 
-                //load the shapes
-                //print the glyph
+                newa.appendChild(newcan);
+                newcan.style.position = "absolute";
+                newcan.style.left = "0px";
+                newcan.style.top = "0px";
+                //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
+                var newg = new GVM(this.array[index].geometron.x0rel*this.array[index].w*this.w,this.array[index].geometron.y0rel*this.array[index].w*this.w,this.array[index].geometron.unitrel*this.array[index].w*this.w,this.array[index].geometron.theta0,newcan,this.array[index].w*this.w,this.array[index].w*this.array[index].geometron.height*this.w/this.array[index].geometron.width,hypercube);
+                newg.importbytecode(this.array[index].geometron.shapes);
+                newg.drawGlyph(this.array[index].geometron.glyph);
+                newa.style.height = (this.array[index].w*this.array[index].geometron.height*this.w/this.array[index].geometron.width).toString() + "px";
             }
+
             this.linkArray.push(newa);
         }
     }
