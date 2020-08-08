@@ -295,7 +295,7 @@ document.getElementById("savebutton").onclick = function() {
     httpc2.send("data="+encodeURIComponent(JSON.stringify(mainmap.array,null,"    "))+"&filename=" + currentFile);//send text to filesaver.php
         document.getElementById("textio").value = JSON.stringify(mainmap.array,null,"    ");
         
-                    mainmap.draw();
+    mainmap.draw();
 
         
 }

@@ -22,9 +22,12 @@
     <META NAME="robots" CONTENT="noindex,nofollow">
 
     <script src="jscode/geometron.js"></script>
+    
+<!--    
     <script src="jscode/robotfont.js"></script>
     <script src="jscode/keyboard.js"></script>
     <script src="jscode/hypercube.js"></script>
+    -->
     
 <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/wAAAAD//wAA/wAAAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMzMzQREREAAzMzRBEREQAAMzNEQREQAAAzNERBERAAAAM0REQRAAAAAEREREAAAAAAREREQAAAAAACIiIAAAAAAAIiIgAAAAAAACIgAAAAAAAAIiAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAQAAwAEAAOADAADgAwAA8AcAAPgPAAD4DwAA/B8AAPwfAAD+PwAA/j8AAP9/AAD//wAA" rel="icon" type="image/x-icon" />
 </head>
@@ -118,19 +121,19 @@ for(var index = 0;index < 01377;index++){
     }
 }
 
-newGVM.importbytecode(font);
-newGVM.importbytecode(keyboard);
+//newGVM.importbytecode(font);
+//newGVM.importbytecode(keyboard);
 
 
 invisibleWidth = 150;
 var invisibleGVM = new GVM(0.5*invisibleWidth,0.5*invisibleWidth,invisibleWidth,-Math.PI/2,document.getElementById("invisiblecanvas"),invisibleWidth,invisibleWidth,hypercube);
 
 
-invisibleGVM.importbytecode(font);
+//invisibleGVM.importbytecode(font);
 
 var spellGVM = new GVM(10,100,50,-Math.PI/2,document.getElementById("spellcanvas"),200,200,hypercube);
-spellGVM.importbytecode(font);
-spellGVM.importbytecode(keyboard);
+//spellGVM.importbytecode(font);
+//spellGVM.importbytecode(keyboard);
 
 spellGVM.hypercube = newGVM.hypercube;
 
@@ -243,7 +246,7 @@ function loadcontrolbuttons(){
             //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
             var newg = new GVM(1,buttonSize - 1,buttonSize-2,-Math.PI/2,newcan,buttonSize,buttonSize,hypercube);
             newg.importbytecode(currentjson.shapes);
-            newg.importbytecode(font);
+//            newg.importbytecode(font);
     
             var thisaction = parseInt(controlbuttonarray[index],8);
             
