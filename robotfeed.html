@@ -98,6 +98,13 @@ function redraw(){
             httpc777.open("POST","filesaver.php", true);
             httpc777.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             httpc777.send("data="+encodeURIComponent(JSON.stringify(token,null,"  ")) +"&filename=data/token.txt");//send text to filesaver.php
+            
+            geometronfeed.push(token);
+            var httpc99 = new XMLHttpRequest();
+            httpc99.open("POST","filesaver.php", true);
+            httpc99.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            httpc99.send("data="+encodeURIComponent(JSON.stringify(geometronfeed,null,"  ")) +"&filename=data/geometronfeed.txt");//send text to filesaver.php
+            
         }
         newbox.appendChild(newcan);
         
@@ -148,6 +155,16 @@ httpc777.onreadystatechange = function() {
 httpc777.open("GET", "fileloader.php?filename=data/token.txt", true);
 httpc777.send();    
 
+
+geometronfeed = [];
+var httpc99 = new XMLHttpRequest();
+httpc99.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        geometronfeed = JSON.parse(this.responseText);
+    }
+};
+httpc99.open("GET", "fileloader.php?filename=data/geometronfeed.txt", true);
+httpc99.send();    
 
 </script>
 <style>

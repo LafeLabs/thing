@@ -651,16 +651,14 @@ var httpc99 = new XMLHttpRequest();
             var newcan = document.createElement("CANVAS");
             newdiv.appendChild(newcan);
 
-            newcan.style.position = "absolute";
-            newcan.style.left = "0px";
-            newcan.style.top = "0px";
             newcan.class = "geometroncanvas";
                 //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
-            var newg = new GVM(geometronfeed[index].x0,geometronfeed[index].y0,geometronfeed[index].unit,geometronfeed[index].theta0,newcan,200,200,hypercube);
+                
+            var newg = new GVM(100,100,20,geometronfeed[index].theta0,newcan,200,200,hypercube);
             newg.importbytecode(geometronfeed[index].shapes);
-            newg.drawGlyph(geometronfeed[index].glyph);
-                    
+            newg.drawGlyph("0300,0341," + geometronfeed[index].glyph);
 
+                    
         //use geometron to put the geometron in here
             document.getElementById("feedscroll").appendChild(newdiv);
             newdiv.onclick = function() {
@@ -1089,8 +1087,20 @@ input,table,select{
 #maplinkmodebutton{
     border:solid;
 }
-.databox{
+.datadiv{
     display:none;
+}
+.gbox{
+    border:solid;
+    border-color:#ff2cb4;
+    width:200px;
+    height:200px;
+    margin:auto;
+}
+.box{
+}
+.geometroncanvas{
+    border:solid;
 }
 </style>
 </body>

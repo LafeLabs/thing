@@ -847,6 +847,7 @@ function Map(w,h,div) {
                 }
             }
             if(JSON.stringify(this.array[index].geometron) != "{}" && this.array[index].geometron != undefined){
+               
                 var newcan = document.createElement("CANVAS");
                 newa.appendChild(newcan);
                 newcan.style.position = "absolute";
@@ -855,9 +856,11 @@ function Map(w,h,div) {
                 newcan.class = "geometroncanvas";
                 //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
                 var newg = new GVM(this.array[index].geometron.x0rel*this.array[index].w*this.w,this.array[index].geometron.y0rel*this.array[index].w*this.w,this.array[index].geometron.unitrel*this.array[index].w*this.w,this.array[index].geometron.theta0,newcan,this.array[index].w*this.w,this.array[index].w*this.array[index].geometron.height*this.w/this.array[index].geometron.width,hypercube);
-                newg.importbytecode(this.array[index].geometron.shapes);
+//                newg.importbytecode(this.array[index].geometron.shapes);
                 newg.drawGlyph(this.array[index].geometron.glyph);
                 newa.style.height = (this.array[index].w*this.array[index].geometron.height*this.w/this.array[index].geometron.width).toString() + "px";
+                
+                
             }
 
             this.linkArray.push(newa);
