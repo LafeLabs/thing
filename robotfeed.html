@@ -83,7 +83,7 @@ function redraw(){
         newcan.classList.add("button");
         //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
         var newg = new GVM(200,200,20,-Math.PI/2,newcan,400,400,hypercube);
-
+        newg.style.fill1 = "white";
         newg.drawGlyph("0300," + robotfeed[index],newg);
         newcan.onclick = function(){
             var thisglyph = this.parentNode.getElementsByTagName("TEXTAREA")[0].value;

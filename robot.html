@@ -8,8 +8,6 @@
     <!--Stop Google:-->
     <META NAME="robots" CONTENT="noindex,nofollow">
     <script src="jscode/geometron.js"></script>
-    <script src="jscode/robotfont.js"></script>
-    <script src="jscode/hypercube.js"></script>
 
 </head>
 <body>    
@@ -67,10 +65,13 @@ else{
     newGVM = new GVM(0.05*squareWidth,0.1*squareWidth,0.06*squareWidth,-Math.PI/2,document.getElementById("maincanvas"),squareWidth,0.5*squareWidth,hypercube);
 }
 
+newGVM.style.fill1 = "white";
 
 
 
 var actionGVM = new GVM(0.5*squareWidth,0.25*squareWidth,0.05*squareWidth,-Math.PI/2,document.getElementById("spellcanvas"),squareWidth,0.5*squareWidth,hypercube);
+
+actionGVM.style.fill1 = "white";
 
 for(var index = 0;index < 01377;index++){
     if(newGVM.hypercube[index].length  > 0 ){
@@ -79,8 +80,6 @@ for(var index = 0;index < 01377;index++){
 }
 
 
-newGVM.importbytecode(font);
-actionGVM.importbytecode(font);
 
 
 invisibleWidth = 200;
@@ -106,6 +105,7 @@ httpc.onreadystatechange = function() {
         }
         document.getElementById("spellinput").value = glyph;
         newGVM.glyph = glyph + "0207,";
+
 //        actionGVM.actionSequence(glyph);
         draw();
         spellGlyph(newGVM.glyph);
@@ -131,7 +131,6 @@ function drawbuttons(){
         newcan.classList.add("button");
         //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
         var newg = new GVM(1,buttonSize - 1,buttonSize-2,-Math.PI/2,newcan,buttonSize,buttonSize,hypercube);
-        newg.importbytecode(font);
 
         if(actions[index] + 01000 >= 01040 && actions[index] + 01000 < 01177){
             newg.drawGlyph("0300,0336,0330,0333,0210,0" + (actions[index] + 01000).toString(8) + ",",newg);        
