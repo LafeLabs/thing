@@ -9,6 +9,7 @@
         "feededitor.html",
         "fonteditor.html",
         "fork.html",
+        "geometronfeed.html",
         "hypercube.html",
         "index.html",
         "keyboardeditor.html",

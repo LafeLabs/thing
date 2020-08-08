@@ -658,7 +658,9 @@ var httpc99 = new XMLHttpRequest();
                 
             var newg = new GVM(100,100,20,geometronfeed[index].theta0,newcan,200,200,hypercube);
             newg.importbytecode(geometronfeed[index].shapes);
-            newg.drawGlyph("0300,0341," + geometronfeed[index].glyph);
+            currentstyle = geometronfeed[index].style;
+            newg.style = currentstyle;
+            newg.drawGlyph("0300,0321," + geometronfeed[index].glyph);
 
                     
         //use geometron to put the geometron in here

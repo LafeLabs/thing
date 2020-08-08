@@ -9,13 +9,15 @@
 </head>
 <body>
 <div id = "header">
-    <a href = "robot.html">
-        <img src = "iconsymbols/robot.svg"/>
+    <a href = "token.html">
+        <img src = "iconsymbols/geometron.svg"/>
     </a>
     <textarea id = "textio"></textarea>
-    
-    <h3>Robot Code:</h3>
-    <input id = "robotinput"/>
+    <span style = "display:none">
+    <h3>Geometron JSON Code:</h3>
+    <input id = "robotinput"/>        
+    </span>
+
     <span class = "topbutton button" id = "importbutton">IMPORT</span>
     <span class = "topbutton button" id = "resetbutton">RESET</span>
 
@@ -30,32 +32,32 @@ if(innerWidth > innerHeight){
 else{
 }
 
-
+geometronfeed = [];
 var httpc = new XMLHttpRequest();
     httpc.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        robotfeed = JSON.parse(this.responseText);
+        geometronfeed = JSON.parse(this.responseText);
         document.getElementById("textio").value = this.responseText;
         redraw();
     }
 };
-httpc.open("GET", "fileloader.php?filename=data/robotfeed.txt", true);
+httpc.open("GET", "fileloader.php?filename=data/geometronfeed.txt", true);
 httpc.send();
 
 document.getElementById("robotinput").onchange = function(){
-    robotfeed.push(this.value);
+    geometronfeed.push(JSON.parse(this.value));
     redraw();
     savejson();
 }
 
 document.getElementById("resetbutton").onclick = function(){
-    robotfeed = ["0545,","0322,0546,"];
+    geometronfeed = [];
     redraw();
     savejson();
 }
 
 document.getElementById("importbutton").onclick = function(){
-    robotfeed = JSON.parse(document.getElementById("textio").value);
+    geometronfeed = JSON.parse(document.getElementById("textio").value);
     redraw();
     savejson();
 }
@@ -65,14 +67,15 @@ function savejson(){
     var httpc2 = new XMLHttpRequest();
     httpc2.open("POST", url, true);
     httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc2.send("data="+encodeURIComponent(JSON.stringify(robotfeed,null,"    "))+"&filename=data/robotfeed.txt");//send text to filesaver.php
-    document.getElementById("textio").value = JSON.stringify(robotfeed,null,"    ");
+    httpc2.send("data="+encodeURIComponent(JSON.stringify(geometronfeed,null,"    "))+"&filename=data/geometronfeed.txt");//send text to filesaver.php
+    
+    document.getElementById("textio").value = JSON.stringify(geometronfeed,null,"    ");
 }
 
 
 function redraw(){
     document.getElementById("srcscroll").innerHTML = "";
-    for(var index = robotfeed.length - 1;index >= 0;index--){
+    for(var index = geometronfeed.length - 1;index >= 0;index--){
         var newbox = document.createElement("div");
         newbox.className = "box";
         var newcan = document.createElement("canvas");
@@ -80,33 +83,12 @@ function redraw(){
         //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
         var newg = new GVM(200,200,20,-Math.PI/2,newcan,400,400,hypercube);
 
-        newg.drawGlyph("0300," + robotfeed[index],newg);
-        newcan.onclick = function(){
-            var thisglyph = this.parentNode.getElementsByTagName("TEXTAREA")[0].value;
-            document.getElementById("robotinput").value = thisglyph;
-            robotjson.glyph = thisglyph;
-            var httpc666 = new XMLHttpRequest();
-            httpc666.open("POST","filesaver.php", true);
-            httpc666.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            httpc666.send("data="+encodeURIComponent(JSON.stringify(robotjson,null,"  ")) +"&filename=data/robot.txt");//send text to filesaver.php
-            
-            token.glyph = thisglyph;
-            var httpc777 = new XMLHttpRequest();
-            httpc777.open("POST","filesaver.php", true);
-            httpc777.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            httpc777.send("data="+encodeURIComponent(JSON.stringify(token,null,"  ")) +"&filename=data/token.txt");//send text to filesaver.php
-            
-            geometronfeed.push(token);
-            var httpc99 = new XMLHttpRequest();
-            httpc99.open("POST","filesaver.php", true);
-            httpc99.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            httpc99.send("data="+encodeURIComponent(JSON.stringify(geometronfeed,null,"  ")) +"&filename=data/geometronfeed.txt");//send text to filesaver.php
-            
-        }
+        newg.drawGlyph(geometronfeed[index].glyph);
+
         newbox.appendChild(newcan);
         
         var newt = document.createElement("TEXTAREA");
-        newt.value = robotfeed[index];
+        newt.value = JSON.stringify(geometronfeed[index],null,"    ");
         newbox.appendChild(newt);
         
         var newbutton = document.createElement("IMG");
@@ -116,11 +98,11 @@ function redraw(){
         newbutton.onclick = function(){
             //alert(this.id.substring(4));
             var thisindex = this.id.substring(3);
-            var localsrc = robotfeed;
-            robotfeed = [];
-            for(var srcindex = 0;srcindex < localsrc.length;srcindex++){
-                if(srcindex != thisindex){
-                    robotfeed.push(localsrc[srcindex]);
+            var localfeed = geometronfeed;
+            geometronfeed = [];
+            for(var feedindex = 0;feedindex < localfeed.length;feedindex++){
+                if(feedindex != thisindex){
+                    geometronfeed.push(localfeed[feedindex]);
                 }
             }
             redraw();
@@ -132,36 +114,6 @@ function redraw(){
     
 }
 
-
-var httpc666 = new XMLHttpRequest();
-httpc666.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        robotjson = JSON.parse(this.responseText);
-    }
-};
-httpc666.open("GET", "fileloader.php?filename=data/robot.txt", true);
-httpc666.send();    
-
-token = {};
-var httpc777 = new XMLHttpRequest();
-httpc777.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        token = JSON.parse(this.responseText);
-    }
-};
-httpc777.open("GET", "fileloader.php?filename=data/token.txt", true);
-httpc777.send();    
-
-
-geometronfeed = [];
-var httpc99 = new XMLHttpRequest();
-httpc99.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        geometronfeed = JSON.parse(this.responseText);
-    }
-};
-httpc99.open("GET", "fileloader.php?filename=data/geometronfeed.txt", true);
-httpc99.send();    
 
 </script>
 <style>
