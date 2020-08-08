@@ -21,6 +21,10 @@
     <tr>
         <td id = "polarity3button" class = "button">POLARITY3 = <span id = "polarity3">0</span></td>
     </tr>
+    <tr>
+        <td id = "upsidedownbutton" class = "button">UPSIDEDOWN = <span id = "upsidedown">0</span></td>
+    </tr>
+    
 </table>
 
 <script>
@@ -59,6 +63,17 @@ document.getElementById("polarity3button").onclick = function(){
     savejson();
 }
 
+document.getElementById("upsidedownbutton").onclick = function(){
+    currentjson.upsidedown = currentjson.upsidedown^1;
+    if(currentjson.upsidedown == 0){
+        document.getElementById("upsidedown").innerHTML = "0";
+    }    
+    else{
+        document.getElementById("upsidedown").innerHTML = "1";
+    }
+    savejson();
+}
+
 
 
 var httpc = new XMLHttpRequest();
@@ -83,6 +98,12 @@ httpc.onreadystatechange = function() {
         }    
         else{
             document.getElementById("polarity3").innerHTML = "1";
+        }
+        if(currentjson.upsidedown == 0){
+            document.getElementById("upsidedown").innerHTML = "0";
+        }    
+        else{
+            document.getElementById("upsidedown").innerHTML = "1";
         }
 
     }

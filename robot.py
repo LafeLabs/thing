@@ -1,6 +1,7 @@
 polarity1 = 0
 polarity2 = 0
 polarity3 = 0
+upsidedown = 0
 
 #python has capitalized booleans
 #robotExists = False # this is used for debugging on non-pi machines wihtout robots
@@ -403,6 +404,16 @@ robotfontfile.close()
 polarity1 = robotjson["polarity1"]
 polarity2 = robotjson["polarity2"]
 polarity3 = robotjson["polarity3"]
+upsidedown = robotjson["upsidedown"]
+
+if upsidedown == 1:
+    enPin1 = 16
+    stepPin1 = 20
+    dirPin1 = 21
+    enPin3 = 14
+    stepPin3 = 15
+    dirPin3 = 18
+    polarity2 = polarity2^1
 
 unit = 100
 numSteps = unit
