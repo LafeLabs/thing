@@ -635,6 +635,46 @@ httpc10.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
 httpc10.send();
 
 
+geometronfeed = [];
+var httpc99 = new XMLHttpRequest();
+    httpc99.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        geometronfeed = JSON.parse(this.responseText);
+        for(var index = geometronfeed.length - 1;index >= 0;index--) {
+            var newdiv = document.createElement("DIV");
+            newdiv.className = "gbox";
+            newdiv.classList.add("button");
+            var newdatadiv = document.createElement("DIV");
+            newdatadiv.className = "datadiv";
+            newdatadiv.innerHTML = JSON.stringify(geometronfeed[index]);
+            newdiv.appendChild(newdatadiv);
+            var newcan = document.createElement("CANVAS");
+            newdiv.appendChild(newcan);
+
+            newcan.style.position = "absolute";
+            newcan.style.left = "0px";
+            newcan.style.top = "0px";
+            newcan.class = "geometroncanvas";
+                //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
+            var newg = new GVM(geometronfeed[index].x0,geometronfeed[index].y0,geometronfeed[index].unit,geometronfeed[index].theta0,newcan,200,200,hypercube);
+            newg.importbytecode(geometronfeed[index].shapes);
+            newg.drawGlyph(geometronfeed[index].glyph);
+                    
+
+        //use geometron to put the geometron in here
+            document.getElementById("feedscroll").appendChild(newdiv);
+            newdiv.onclick = function() {
+                mainmap.array[mainmap.linkindex].geometron = JSON.parse(this.getElementsByClassName("datadiv")[0].innerHTML);
+                mainmap.draw();
+            }
+            
+        }
+
+    }
+};
+httpc99.open("GET", "fileloader.php?filename=data/geometronfeed.txt", true);
+httpc99.send();
+
 function loadtextfeed(){
     text = textfeed.text;
     for(var index = text.length - 1;index >= 0;index--){
@@ -1048,6 +1088,9 @@ input,table,select{
 }
 #maplinkmodebutton{
     border:solid;
+}
+.databox{
+    display:none;
 }
 </style>
 </body>
