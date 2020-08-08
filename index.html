@@ -112,8 +112,10 @@ var httpc3 = new XMLHttpRequest();
 httpc3.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         wall = this.responseText;
-        document.getElementById("wall").innerHTML = wall;
+        rawhtml = converter.makeHtml(wall);
+        document.getElementById("wall").innerHTML = rawhtml;
        // MathJax.Hub.Typeset();//tell Mathjax to update the math
+       
     }
 };
 
@@ -158,10 +160,21 @@ function loadfeed(){
         }
         else{
             newa.innerHTML = feed[index].text;
+            newa.style.height = "2em";
         }
         document.getElementById("feed").appendChild(newa);
     }
   //  MathJax.Hub.Typeset();//tell Mathjax to update the math
+    scrollboxes = document.getElementsByClassName("scrollbox");
+    for(var index = 0;index < scrollboxes.length;index++){
+        var rawscroll = scrollboxes[index].innerHTML;
+        var rawHTML = converter.makeHtml(rawscroll);
+        scrollboxes[index].parentElement.style.height = "10em";
+        scrollboxes[index].innerHTML = rawHTML;
+        scrollboxes[index].onclick = function(){
+            document.getElementById("wall").innerHTML = this.innerHTML;
+        }
+    }
 }
 
 function loadscroll(feedlink,scrollfile){
@@ -227,13 +240,11 @@ function loadmap(feedlink,mapfile){
 </script>
 <style>
 body{
-    background-color:black;
+    background-color:white;
     overflow:hidden;
 }
 #wall{
     font-size:1.5em;
-    font-family:courier;
-    color:#00ff00;
     position:absolute;
     overflow:scroll;
     right:0px;
@@ -249,6 +260,7 @@ body{
     left:0px;
     top:0px;
     height:80px;
+    background-color:black;
 }
 #feedurlinput{
     width:80%;
@@ -292,7 +304,13 @@ body{
 .feedimage{
     width:100%;
 }
-
+.scrollbox{
+    overflow:scroll;
+    left:0px;
+    top:0px;
+    right:0px;
+    bottom:0px;
+}
 </style>
 </body>
 </html>

@@ -60,9 +60,13 @@
             <td>Map url:</td>
             <td><input id = "maplinkinput"/></td>
         </tr>
+        <tr>
+            <td></td>
+            <td id = "wall2scroll" class  = "button">wall2scroll</td>
+        </tr>
         
     </table>    
-        <textarea id = "wall"></textarea>
+        <textarea id = "wall" wrap="hard" cols = "40"></textarea>
     
     <table style = "margin-top:3em" id  = "iotable">
     <tr>
@@ -112,6 +116,11 @@ document.getElementById("textinput").onchange = function(){
 
 document.getElementById("resetbutton").onclick = function(){
     feed = [];
+    var newlink = {};
+    newlink.href = "feededitor.html";
+    newlink.src = "";
+    newlink.text = "operator screen";
+    feed.push(newlink);
     redraw();
     savejson();
     document.getElementById("textio").value = JSON.stringify(feed,null,"    ");
@@ -271,6 +280,17 @@ document.getElementById("maplinkinput").onchange = function(){
     }
     document.getElementById("textinput").value = newtext;
     document.getElementById("srcinput").value = "";
+}
+
+document.getElementById("wall2scroll").onclick = function(){
+    var newlink = {};
+    newlink.href = "";
+    newlink.src = "";
+    newlink.text = "<div class = \"scrollbox\">" + document.getElementById("wall").value + "</div>";
+    feed.push(newlink);
+    redraw();
+    savejson();
+    
 }
 
 </script>
