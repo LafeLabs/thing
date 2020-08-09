@@ -84,7 +84,7 @@ function redraw(){
         var newg = new GVM(200,200,20,-Math.PI/2,newcan,400,400,hypercube);
 
         newg.drawGlyph(geometronfeed[index].glyph);
-
+        newg.style.fill1 = "white";
         newbox.appendChild(newcan);
         
         var newt = document.createElement("TEXTAREA");
