@@ -10,13 +10,13 @@
         "text": "token.html"
     },
     {
-        "href": "feededitor.html",
-        "src": "",
-        "text": "operator screen"
-    },
-    {
         "href": "textfeed.html",
         "src": "",
         "text": "textfeed"
+    },
+    {
+        "href": "feededitor.html",
+        "src": "",
+        "text": "operator screen"
     }
 ]

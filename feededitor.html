@@ -62,6 +62,10 @@
         </tr>
         <tr>
             <td></td>
+            <td id = "src2wall" class  = "button">src2wall</td>
+        </tr>
+        <tr>
+            <td></td>
             <td id = "wall2scroll" class  = "button">wall2scroll</td>
         </tr>
         
@@ -303,6 +307,9 @@ document.getElementById("wall2scroll").onclick = function(){
     
 }
 
+document.getElementById("src2wall").onclick = function(){
+    document.getElementById("wall").value += "\n![](" + document.getElementById("srcinput").value + ")";
+}
 
 textfeed = {};
 var httpc10 = new XMLHttpRequest();
