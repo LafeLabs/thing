@@ -1,0 +1,32 @@
+[
+    {
+        "x": 0.06205250596658711,
+        "y": 0.3639618138424821,
+        "w": 0.2159904534606205,
+        "angle": 4,
+        "text": "link to servermap",
+        "href": "maps/servermap.txt",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.5346062052505967,
+        "y": 0.3496420047732697,
+        "w": 0.34725536992840095,
+        "angle": 6,
+        "text": "link to currentMap",
+        "href": "data/currentMap.txt",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.2744630071599045,
+        "y": 0.7040572792362768,
+        "w": 0.34725536992840095,
+        "angle": -14,
+        "text": "link to pastebin foo",
+        "href": "https://pastebin.com/raw/J5kpsRpM",
+        "src": "",
+        "maplinkmode": true
+    }
+]

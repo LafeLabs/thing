@@ -1,0 +1,112 @@
+[
+    {
+        "x": 0.3198090692124105,
+        "y": 0.007159904534606206,
+        "w": 1.3878281622911695,
+        "angle": 0,
+        "text": "buy",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.025059665871121718,
+        "y": 0.16706443914081145,
+        "w": 0.5906921241050119,
+        "angle": 0,
+        "text": "electronics kit set",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.7553699284009546,
+        "y": -0.013126491646778043,
+        "w": 0.7147971360381862,
+        "angle": 0,
+        "text": "actions",
+        "href": "maps/actions",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.025059665871121718,
+        "y": 0.23389021479713604,
+        "w": 0.6861575178997613,
+        "angle": 0,
+        "text": "samtec cables",
+        "href": "maps/samteccables",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.029832935560859187,
+        "y": 0.3042959427207637,
+        "w": 0.6264916467780429,
+        "angle": 0,
+        "text": "tools",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.021479713603818614,
+        "y": 0.3723150357995227,
+        "w": 0.6121718377088305,
+        "angle": 0,
+        "text": "raspberry pi periferals",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.025059665871121718,
+        "y": 0.4439140811455847,
+        "w": 0.6431980906921241,
+        "angle": 0,
+        "text": "raspberry pi parts",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.021479713603818614,
+        "y": 0.5286396181384249,
+        "w": 0.5954653937947494,
+        "angle": 0,
+        "text": "power supply parts",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.01909307875894988,
+        "y": 0.6014319809069213,
+        "w": 0.545346062052506,
+        "angle": 0,
+        "text": "magnets, nails",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.011933174224343675,
+        "y": 0.6694510739856802,
+        "w": 0.5405727923627685,
+        "angle": 0,
+        "text": "sculpey",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.014319809069212411,
+        "y": 0.7434367541766109,
+        "w": 0.5548926014319809,
+        "angle": 0,
+        "text": "craft supplies",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    }
+]

@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--
+
+        EVERYTHING IS PHYSICAL 
+        EVERYTHING IS FRACTAL
+        EVERYTHING IS RECURSIVE
+        NO MONEY 
+        MO MINING 
+        NO PROPERTY
+        LOOK AT THE INSECTS
+        LOOK AT THE FUNGI
+        LANGUAGE IS HOW THE MIND PARSES REALITY
+
+    -->
+    
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/wAAAAD//wAA/wAAAAD/AP8A/wAApv8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFUAAARGAAIxFVUABEYAAjMRFQAARGYiIjMRAABERmZiIzEAAARERGZiMwAAAARERGYiAAAAAABERiL4PwAA+78AAPu/AAD33wAA9V8AAPVfAAD1XwAA998AAOADAADhAAAA4AAAAPAAAADwAAAA+AAAAP4AAAD/wAAA" rel="icon" type="image/x-icon" />
+    
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+
+
+<!--un-comment to add math: -->
+<!--
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>
+            MathJax.Hub.Config({
+                tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                processEscapes: true,
+                processClass: "mathjax",
+                ignoreClass: "no-mathjax"
+                }
+            });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
+        </script>
+
+-->
+<!-- 
+
+showdown is a javascript library which converts markdown to html.
+it lives here on the internet:
+http://showdownjs.com/
+
+Markdown is a lightweight language for creating formatted text on a computer, see the wikipedia entry here
+
+https://en.wikipedia.org/wiki/Markdown
+
+bootstrap is whole big thing that does lots of things, but what we use it for here is just to make things look good on a mobile device. 
+
+-->
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>
+
+    <script src="jscode/geometron.js"></script>
+
+</head>
+<body>    
+<div id = "bigbox">
+    <div id = "mediumbox">
+        <div class = "littlebox" id = "icon1"></div>
+        <div class = "littlebox" id = "icon3"></div>
+    </div>
+    <div class = "littlebox" id = "icon2"></div>
+
+    <input id = "actioninput"/>
+    <input id = "spellinput"/>
+    <img id = "modebutton" src= "iconsymbols/cursor.svg"/>
+</div>
+<script>
+
+
+shapes = [
+    "0220:0314,0336,0313,0333,0331,0331,0337,0337,0321,0332,0362,0203,0336,0336,0333,0350,0334,0345,0335,0330,0335,0335,0337,0337,0203,0336,0336,0335,0333,0334,0334,0345,0335,0330,0335,0335,0337,0337,0203,0335,0336,0336,0333,0334,0334,0345,0335,0330,0335,0335,0337,0337,0203,0335,0336,0336,0333,0334,0334,0345,0333,0364,0335,0335,0335,0304,0337,0330,0333,0336,0333,0314,0337,0313,0320,",
+    "0221:0220,0350,0335,0313,0304,0336,0331,0336,0336,0332,0337,0337,0337,0362,0203,0335,0336,0336,0203,0335,0337,0337,0203,0335,0336,0336,0203,0363,0335,0336,0333,0337,0337,0337,0330,0336,0336,0336,0336,0330,0337,0362,0346,0363,0336,0331,0337,0337,0337,0337,0331,0336,0336,0336,0335,0335,0336,0330,0335,0337,0330,0334,0334,0337,0306,0362,0203,0335,0335,0203,0335,0335,0203,0363,0334,0304,0335,0336,0333,0336,0330,0337,0337,0337,0337,0336,0330,0337,0350,0334,0304,0331,0331,0336,0330,0336,0332,0332,0337,0330,0330,0330,0333,0337,",
+    "01220:0333,0200,0336,0330,0332,0210,0220,0211,0333,0331,0337,",
+    "01221:0333,0200,0336,0330,0332,0210,0221,0211,0333,0331,0337,"
+ ];
+
+newgeometron = {
+  "glyph": "0221,0207,",
+  "shapes": shapes,
+  "x0": 0.5,
+  "y0": 0.5,
+  "unit": 0.45,
+  "style": {
+    "color0": "black",
+    "fill0": "black",
+    "line0": 1,
+    "color1": "black",
+    "fill1": "black",
+    "line1": 5,
+    "color2": "red",
+    "fill2": "red",
+    "line2": 1,
+    "color3": "#FF7900",
+    "fill3": "#FF7900",
+    "line3": 1,
+    "color4": "yellow",
+    "fill4": "yellow",
+    "line4": 1,
+    "color5": "green",
+    "fill5": "green",
+    "line5": 1,
+    "color6": "blue",
+    "fill6": "blue",
+    "line6": 1,
+    "color7": "purple",
+    "fill7": "purple",
+    "line7": 1
+  },
+  "controlGlyph": "020,010,021,0330,0331,0332,0333,0341,0320,0322,0323,0324,0325,0326,0327,"
+};
+
+
+var newcan = document.createElement("CANVAS");
+document.getElementById("icon1").appendChild(newcan);
+newcan.style.backgroundColor = "red";
+
+var newGVM = new GVM(newgeometron,newcan,hypercube,250,250);
+newGVM.saveGlyph();
+newGVM.drawGlyph(newGVM.cleanGlyph);
+
+
+var newcan2 = document.createElement("CANVAS");
+document.getElementById("icon2").appendChild(newcan2)
+newcan2.style.backgroundColor = "#bfffff";
+
+var newcan3 = document.createElement("CANVAS");
+document.getElementById("icon3").appendChild(newcan3)
+newcan3.style.backgroundColor = "#bfffff";
+
+
+var newGVM3 = new GVM(newgeometron,newcan3,hypercube,250,250);
+newGVM3.drawGlyph(newGVM3.glyph);
+
+
+spellgeometron = JSON.parse(JSON.stringify(newgeometron));
+
+spellgeometron.unit = 0.05;
+
+var spellGVM= new GVM(spellgeometron,newcan2,hypercube,500,200);
+spellGVM.spellGlyph(newGVM.glyph);
+
+
+document.getElementById("actioninput").select();
+
+currentGVM = newGVM3;
+
+gvmindex = 0;
+
+document.getElementById("actioninput").onkeydown = function(a) {
+    var charCode = a.keyCode || a.which;
+
+    if(charCode == 015) {
+        modeswitch();
+    }
+
+    if(charCode == 010) {
+        currentGVM.cursorAction(010);
+    }
+    if(charCode == 045){
+        currentGVM.cursorAction(020);             
+    }
+    if(charCode == 047){
+        currentGVM.cursorAction(021);   
+    }
+
+    if(charCode == 046){
+        //up arrow: prev symbol
+            currentGVM.drawGlyph(currentGVM.cleanGlyph);
+            currentGVM = newGVM;
+            currentGVM.drawGlyph(currentGVM.glyph);
+    }
+    if(charCode == 050){
+        //down arrow: next symbol
+            currentGVM.drawGlyph(currentGVM.cleanGlyph);
+            currentGVM = newGVM3;
+            currentGVM.drawGlyph(currentGVM.glyph);
+ 
+    }
+
+
+    spellGVM.spellGlyph(currentGVM.glyph);    
+  //  savejson();//
+    currentGVM.saveGlyph();
+    document.getElementById("spellinput").value = currentGVM.cleanGlyph;
+ //   document.getElementById("spellinput").style.width = 0.8*currentjson.glyph.length.toString() + "em";
+
+}
+
+
+document.getElementById("actioninput").onkeypress = function(a) {
+    var charCode = a.keyCode || a.which;
+
+    if(charCode != 015){
+        if(mode == 0){
+            localCursorAction = parseInt(currentGVM.hypercube[charCode],8);   
+        }    
+        if(mode == 1){
+            localCursorAction = charCode + 01000;     
+        }    
+        if(mode == 2){
+            localCursorAction = charCode;     
+        }    
+
+        currentGVM.cursorAction(localCursorAction);   
+        spellGVM.spellGlyph(currentGVM.glyph);    
+        this.value = "";
+        currentGVM.saveGlyph();
+        document.getElementById("spellinput").value = currentGVM.cleanGlyph;
+
+//        savejson();
+  //      document.getElementById("spellinput").value = currentjson.glyph;
+   //     document.getElementById("spellinput").style.width = 0.8*currentjson.glyph.length.toString() + "em";    
+    }
+
+
+}
+
+
+mode = 0;//0 is action, 1, is spelling, 2 is stack.
+document.getElementById("modebutton").onclick = function(){
+    modeswitch();
+}
+function modeswitch(){
+    mode++;
+    mode = mode%3;
+    if(mode == 0){
+        document.getElementById("modebutton").src = "iconsymbols/cursor.svg";
+    }
+    if(mode == 1){
+        document.getElementById("modebutton").src = "iconsymbols/abcfont.svg";
+    }
+    if(mode == 2){
+        document.getElementById("modebutton").src = "iconsymbols/abcstack.svg";
+    }
+    document.getElementById("actioninput").select();
+}
+
+    newGVM.saveGlyph();
+    document.getElementById("spellinput").value = newGVM.cleanGlyph;
+
+document.getElementById("spellinput").onchange = function(){
+    newGVM.cleanGlyph = this.value;
+    newGVM.glyph = this.value + "0207,";
+    newGVM.drawGlyph(newGVM.glyph);
+    spellGVM.spellGlyph(newGVM.glyph);
+}
+
+
+</script>
+<style>
+body{
+    background-color:blue;
+}
+#icon2{
+    position:absolute;
+    left:100px;
+    bottom:100px;
+    background-color:purple;
+    width:100px;
+    height:200px;
+    cursor:pointer;
+}
+
+
+
+#bigbox{
+    background-color:#afafff;
+    position:absolute;
+    right:0px;
+    top:0px;
+    left:0px;
+    bottom:0px;
+}
+#modebutton{
+    position:absolute;
+    right:2em;
+    bottom:0px;
+    width:2em;
+    z-index:2;
+    background-color:yellow;
+}
+#actioninput{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    width:1em;
+}
+#spellinput{
+    font-family:courier;
+    width:90%;
+    position:absolute;
+    top:10px;
+    left:10px;
+    font-size:12px;
+}
+#mediumbox{
+    position:absolute;
+    right:100px;
+    bottom:100px;
+    width:500px;
+    height:700px;
+    background-color:#404040;
+}
+#mediumbox .littlebox{
+    margin:1em 1em 1em 1em;
+}
+</style>
+</body>
+</html>

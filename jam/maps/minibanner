@@ -1,0 +1,32 @@
+[
+    {
+        "x": 0.17541766109785203,
+        "y": 0.06205250596658711,
+        "w": 0.9725536992840096,
+        "angle": 0,
+        "text": "<span style=\"color:red\">Γ</span>     <span style=\"color:orange\">ε</span>     <span style=\"color:yellow\">ω</span>     <span style=\"color:green\">μ</span>     <span style=\"color:blue\">ε</span>     <span style=\"color:purple\">τ</span>     <span style=\"color:red\">ρ</span>     <span style=\"color:orange\">ο</span>     <span style=\"color:yellow\">ν</span>",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": -0.02386634844868735,
+        "y": 0.13723150357995226,
+        "w": 1.077565632458234,
+        "angle": 0,
+        "text": "symbol",
+        "href": "maps/symbol",
+        "src": "symbolfeed/symbol1592768961.svg",
+        "maplinkmode": true
+    },
+    {
+        "x": -0.02028639618138425,
+        "y": -0.07398568019093078,
+        "w": 1.1443914081145585,
+        "angle": 0,
+        "text": "symbol",
+        "href": "maps/symbol",
+        "src": "symbolfeed/symbol1592768416.png",
+        "maplinkmode": true
+    }
+]
