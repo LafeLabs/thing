@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
     <meta charset="utf-8"/>
+        <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/wAAAAD//wAA/wAAAAD/AP8A/wAApv8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFUAAARGAAIxFVUABEYAAjMRFQAARGYiIjMRAABERmZiIzEAAARERGZiMwAAAARERGYiAAAAAABERiL4PwAA+78AAPu/AAD33wAA9V8AAPVfAAD1XwAA998AAOADAADhAAAA4AAAAPAAAADwAAAA+AAAAP4AAAD/wAAA" rel="icon" type="image/x-icon" />
 <!--Stop Google:-->
 <META NAME="robots" CONTENT="noindex,nofollow">
     <script src="jscode/geometron.js"></script>
@@ -85,8 +86,21 @@ function redraw(){
         var newg = new GVM(200,200,20,-Math.PI/2,newcan,400,400,hypercube);
         newg.style.fill1 = "white";
         newg.drawGlyph("0300," + robotfeed[index],newg);
+        newcan.id = "can" + index.toString();
         newcan.onclick = function(){
+
+            var thisindex = parseInt(this.id.substring(3));
             var thisglyph = this.parentNode.getElementsByTagName("TEXTAREA")[0].value;
+            var temprobotfeed = [];
+            for(var index = 0;index < robotfeed.length;index++){
+                if(index != thisindex){
+                    temprobotfeed.push(robotfeed[index]);
+                }
+            }
+            robotfeed = temprobotfeed;
+            robotfeed.push(thisglyph);
+            redraw();
+            savejson();
             document.getElementById("robotinput").value = thisglyph;
             robotjson.glyph = thisglyph;
             var httpc666 = new XMLHttpRequest();
