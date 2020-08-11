@@ -432,12 +432,12 @@ document.getElementById("resetbutton").onclick = function(){
 
 
 document.getElementById("importbutton").onclick =  function(){
-//    var importcode = JSON.parse(this.value);
-//    mainGVM.importbytecode(importcode);
- //   mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
-  //  mainGVM.saveGlyph();
-//    mainGVM.drawGlyph(mainGVM.glyph);
-  //  redraw();
+    var importcode = JSON.parse(document.getElementById("textio").value);
+    mainGVM.importbytecode(importcode);
+    mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
+    mainGVM.saveGlyph();
+    mainGVM.drawGlyph(mainGVM.glyph);
+    redraw();
 }
 
 </script>
