@@ -131,11 +131,11 @@ controls  = [
 maincanvas = document.getElementById("maincanvas");
 var mainGVM = new GVM(newgeometron,maincanvas,hypercube,200,200);
 
-mainGVM.x0 = mainGVM.width*0.5;
-mainGVM.y0 = mainGVM.width*0.5;
-mainGVM.unit = mainGVM.width*0.3;
+mainGVM.x0 = mainGVM.width*0.2;
+mainGVM.y0 = mainGVM.width*0.75;
+mainGVM.unit = mainGVM.width*0.5;
 
-mainGVM.cleanGlyph = "0321,0336,0332,0337,0341,0333,0341,";
+mainGVM.cleanGlyph = "01101,";
 mainGVM.glyph = mainGVM.cleanGlyph + "0207,";
 
 mainGVM.drawGlyph(mainGVM.glyph);
@@ -152,13 +152,14 @@ for(var index = 0;index < controls.length;index++){
             newtd.appendChild(newcan);
             var datadiv = document.createElement("div");
             datadiv.innerHTML = rowarray[rowindex];
-            datadiv.className = "actiondata";
+            datadiv.className = "data";
             newtd.appendChild(datadiv);
             var newGVM = new GVM(newgeometron,newcan,hypercube,50,50);
             newGVM.action(parseInt(rowarray[rowindex],8)+01000);
             newtd.onclick = function(){
-                var localaction = parseInt(this.getElementsByClassName("actiondata")[0].innerHTML,8);
+                var localaction = parseInt(this.getElementsByClassName("data")[0].innerHTML,8);
                 mainGVM.cursorAction(localaction);
+                mainGVM.saveGlyph();
             }
         }
     }
@@ -166,8 +167,9 @@ for(var index = 0;index < controls.length;index++){
 }
 
 
+
 gvmArray = [];
-address = 040;
+address = 01040;
 for(var row = 0;row < 12;row++){
     var newtr = document.createElement("TR");
     document.getElementById("shapetable").appendChild(newtr);
@@ -181,9 +183,20 @@ for(var row = 0;row < 12;row++){
         newGVM.y0 = 30;
         newGVM.unit = 20;
         newGVM.action(0300);
-        newGVM.action(address + 01000);
-        address++;
+        newGVM.action(address);
         gvmArray.push(newGVM);
+        var datadiv = document.createElement("div");
+        datadiv.innerHTML = "0" + address.toString(8);
+        datadiv.className = "data";
+        newtd.appendChild(datadiv);
+        newtd.onclick = function(){
+            var thisaddress = parseInt(this.getElementsByClassName("data")[0].innerHTML,8);
+            mainGVM.glyph = mainGVM.hypercube[thisaddress] + "0207,";
+            mainGVM.drawGlyph(mainGVM.glyph);
+            mainGVM.address = thisaddress;
+            mainGVM.saveGlyph();
+        }
+        address++;
     }
 }
 
@@ -191,7 +204,7 @@ for(var row = 0;row < 12;row++){
 </script>
 <style>
 body{
-    background-color:#bfffbf;
+    background-color:#afafff;
 }
 #controltable{
     position:absolute;
@@ -246,7 +259,7 @@ body{
     left:0px;
     top:0px;
 }
-.actiondata{
+.data{
     display:none;
 }
 </style>
