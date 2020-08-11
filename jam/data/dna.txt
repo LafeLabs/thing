@@ -158,6 +158,7 @@
         "feed.txt",
         "font.txt",
         "geometronfeed.txt",
+        "imagefeed.txt",
         "localcube.txt",
         "localfont.txt",
         "localkeyboard.txt",
