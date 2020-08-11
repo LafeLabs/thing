@@ -22,6 +22,7 @@
     <META NAME="robots" CONTENT="noindex,nofollow">
 <!--geometron javascript library-->
     <script src="jscode/geometron.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"></script>
 
 </head>
 <body>
@@ -36,6 +37,8 @@
 
     <input id = "actioninput"/>
     <img class = "button" id = "modeindicator" src= "iconsymbols/robotsymbolmode.svg"/>
+    
+    <div id = "hammerxy"></div>
     <table id = "buttontable">
         <tr>
             <td id = "savebutton" class = "button">SAVE FEED</td>
@@ -81,7 +84,7 @@ function loadfeedurl(url){
             feed = JSON.parse(this.responseText);
             loadfeed();
             
-            spellGVM = new GVM(feed[feedindex],document.getElementById("spellcanvas"),hypercube,innerWidth*0.5 - 100,300);
+            spellGVM = new GVM(feed[feedindex],document.getElementById("spellcanvas"),hypercube,innerWidth*0.5 - 100,200);
             gvmArray[feedindex].glyph = gvmArray[feedindex].glyph + "0207,";
             spellGVM.unit = 26;
             spellGVM.x0 = 26;
@@ -307,12 +310,38 @@ document.getElementById("savebutton").onclick = function(){
     savejson();
 }
 function savejson(){
+    var imagewidthpx = parseInt(document.getElementById("feed").getElementsByClassName("feedimage")[feedindex].style.width);
+    var imagexpx = parseInt(document.getElementById("feed").getElementsByClassName("feedimage")[feedindex].style.left);
+    var imageypx = parseInt(document.getElementById("feed").getElementsByClassName("feedimage")[feedindex].style.top);
+    var parentwidthpx = gvmArray[feedindex].width;
+
+    feed[feedindex].image.w = imagewidthpx/parentwidthpx;
+    feed[feedindex].image.x = imagexpx/parentwidthpx;
+    feed[feedindex].image.y = imageypx/parentwidthpx;
+    
+    
+//    feed[feedindex].image.x = parseInt(document.getElementById("feed").getElementsByClassName("feedimage")[feedindex].style.left.substring(0,document.getElementById("feed").getElementsByClassName("feedimage")[feedindex].style.left.length-2))/feed[feedindex].width;
+    
+    
+    
     var url = "filesaver.php";        
     var httpc2 = new XMLHttpRequest();
     httpc2.open("POST", url, true);
     httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc2.send("data="+encodeURIComponent(JSON.stringify(feed,null,"    "))+"&filename=" + feedurl);//send text to filesaver.php
 }
+
+
+mc = new Hammer(document.getElementById("hammerxy"));
+mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+mc.on("panleft panright panup pandown tap press rotate", function(ev) {
+    document.getElementById("feed").getElementsByClassName("feedimage")[feedindex].style.left = (ev.deltaX + feed[feedindex].image.x*gvmArray[feedindex].width).toString() +  "px";
+    document.getElementById("feed").getElementsByClassName("feedimage")[feedindex].style.top = (ev.deltaY + feed[feedindex].image.y*gvmArray[feedindex].width).toString() +  "px";
+
+
+});    
+
+
 
 </script>
 <style>
@@ -432,6 +461,14 @@ function savejson(){
 #buttontable .button{
     text-align:center;
     border:solid;
+}
+#hammerxy{
+    position:absolute;
+    left:0px;
+    height:300px;
+    width:300px;
+    background-color:grey;
+    bottom:200px;
 }
 </style>
 </body>
