@@ -159,11 +159,49 @@ redraw();
 
 
 
+keyboardfile = "data/localkeyboard.txt";
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        localkeyboard = JSON.parse(this.responseText);
+        mainGVM.importbytecode(localkeyboard);
+        redraw();
+        document.getElementById("keyinput").select();
+    }
+};
+httpc.open("GET", "fileloader.php?filename=" + keyboardfile, true);
+httpc.send();    
 
-//draw 8x8 array of 03xx to select
-//draw 8x8 array of 02xx to select
 
-//make the key input determine what is displayed, one letter and one symbol
+
+function savekeyboard(){
+    
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", "filesaver.php", true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data=" + encodeURIComponent(mainGVM.bytecode(040,0176))+"&filename=" + keyboardfile);//send text to filesaver.php 
+    document.getElementById("textio").value = mainGVM.bytecode(040,0176);
+
+}
+
+document.getElementById("savebutton").onclick  = function(){
+    savekeyboard();
+    document.getElementById("textio").value = mainGVM.bytecode(040,0176);    
+}
+
+
+document.getElementById("resetbutton").onclick = function(){
+    mainGVM.importbytecode(hypercube);
+    redraw();
+}
+
+
+document.getElementById("importbutton").onclick =  function(){
+    var importcode = JSON.parse(document.getElementById("textio").value);
+    mainGVM.importbytecode(importcode);
+    redraw();
+}
+
 </script>
 <style>
 .button{
