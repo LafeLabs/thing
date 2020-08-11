@@ -505,6 +505,18 @@ document.getElementById("copybutton").onclick  = function(){
     feed.push(tempelement);
     loadfeed();
 }
+
+document.getElementById("deletebutton").onclick  = function(){
+    var tempfeed = [];
+    for(var index = 0;index < feed.length;index++){
+        if(index != feedindex){
+            tempfeed.push(feed[index]);
+        }
+    }
+    feed = tempfeed;
+    loadfeed();
+}
+
 </script>
 <style>
 #controlbox{
