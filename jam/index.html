@@ -20,161 +20,91 @@
     
     <!--Stop Google:-->
     <META NAME="robots" CONTENT="noindex,nofollow">
-
-
-<!--un-comment to add math: -->
-<!--
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script>
-            MathJax.Hub.Config({
-                tex2jax: {
-                inlineMath: [['$','$'], ['\\(','\\)']],
-                processEscapes: true,
-                processClass: "mathjax",
-                ignoreClass: "no-mathjax"
-                }
-            });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
-        </script>
-
--->
-<!-- 
-
-showdown is a javascript library which converts markdown to html.
-it lives here on the internet:
-http://showdownjs.com/
-
-Markdown is a lightweight language for creating formatted text on a computer, see the wikipedia entry here
-
-https://en.wikipedia.org/wiki/Markdown
-
-bootstrap is whole big thing that does lots of things, but what we use it for here is just to make things look good on a mobile device. 
-
--->
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>
-
+<!--geometron javascript library-->
     <script src="jscode/geometron.js"></script>
 
 </head>
 <body>
-<div id  "header"></div>
-<div id = "feed">
+<a href = "console.html" id = "editlink">
+    <img src = "iconsymbols/edit.svg"/>
+</a>
 
+<div id = "feed">
 </div>
-<div id = "scroll">
-    
-</div>
+<textarea id = "textio"></textarea>
 <script>
 
-shapes = [];
+feedurl = "data/geometronfeed.txt";
+loadfeedurl(feedurl);
 
-newgeometron = {
-  "glyph": "0321,0341,0340,",
-  "shapes": shapes,
-  "x0": 0.5,
-  "y0": 0.5,
-  "unit": 0.45,
-  "style": {
-    "color0": "black",
-    "fill0": "black",
-    "line0": 1,
-    "color1": "black",
-    "fill1": "black",
-    "line1": 5,
-    "color2": "red",
-    "fill2": "red",
-    "line2": 1,
-    "color3": "#FF7900",
-    "fill3": "#FF7900",
-    "line3": 1,
-    "color4": "yellow",
-    "fill4": "yellow",
-    "line4": 1,
-    "color5": "green",
-    "fill5": "green",
-    "line5": 1,
-    "color6": "blue",
-    "fill6": "blue",
-    "line6": 1,
-    "color7": "purple",
-    "fill7": "purple",
-    "line7": 1
-  }
-};
-
-newimage = {
-    "src":"https://i.imgur.com/JgWqwxU.jpg",
-    "w":0.8,
-    "angle":30,
-    "x":0.1,
-    "y":0.1
+function loadfeedurl(url){
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200) {
+            feed = JSON.parse(this.responseText);
+            loadfeed();
+        }
+    };
+    httpc.open("GET", "fileloader.php?filename=" + url, true);
+    httpc.send();
 }
-
-newlink = {
-    "href":"scrolls/foo",
-    "type":"scrolllink"
-}
-
-newfeedelement = {
-    "geometron":newgeometron,
-    "image":newimage,
-    "link":newlink
-}
-
-
-
-feed = [];
-newfeedelement2 = JSON.parse(JSON.stringify(newfeedelement));
-newfeedelement2.geometron.glyph = "0200,0336,0336,0332,0332,0101,0103,0101,0102,0365,";
-feed.push(newfeedelement);
-feed.push(newfeedelement2); 
-
-feed[0].image.src = "https://acdn.list25.com/wp-content/uploads/2012/05/tumblr_nfodzdlXuk1r6q4zxo1_1280.gif";
 
 feedwidth = innerWidth;
 feedlinkwidth = feedwidth - 500;
 
-for(var index = 0;index < feed.length;index++){
-    var newdiv = document.createElement("DIV");
-    var newcan = document.createElement("CANVAS");
-    newcan.className = "feedcan";
-    newdiv.style.marginTop = 0.05*feedwidth + "px";
-    newdiv.style.marginBottom = 0.05*feedwidth + "px";
-    newdiv.appendChild(newcan);
-    newdiv.className = "feedelement";
-    document.getElementById("feed").appendChild(newdiv);
-    var newGVM = new GVM(feed[index].geometron,newcan,hypercube,feedlinkwidth,feedlinkwidth);
-    
-    newGVM.drawGlyph(feed[index].geometron.glyph);    
-    if(feed[index].image.src.length > 0){
-        var newimg = document.createElement("IMG");
-        console.log(feed[index].image.src);
-        newimg.src = feed[index].image.src;
-        newdiv.appendChild(newimg);
-        newimg.className = "feedimage";
-        newimg.style.width = (feed[index].image.w*feedlinkwidth).toString() + "px";
-        newimg.style.left = (feed[index].image.x*feedlinkwidth).toString() + "px";
-        newimg.style.top = (feed[index].image.y*feedlinkwidth).toString() + "px";
-        newimg.style.transform = "rotate(" + feed[index].image.angle.toString() + "deg)";
-    }
+function loadfeed(){
+    for(var index = 0;index < feed.length;index++){
+        var newdiv = document.createElement("DIV");
+        var newcan = document.createElement("CANVAS");
+        newcan.className = "feedcan";
+        newdiv.style.marginTop = 0.05*feedwidth + "px";
+        newdiv.style.marginBottom = 0.05*feedwidth + "px";
+        newdiv.appendChild(newcan);
+        newdiv.className = "feedelement";
+        document.getElementById("feed").appendChild(newdiv);
+        var newGVM = new GVM(feed[index],newcan,hypercube,feedlinkwidth,feedlinkwidth);
+        
+        newGVM.drawGlyph(feed[index].glyph);    
+        if(feed[index].image.src.length > 0){
+            var newimg = document.createElement("IMG");
+            console.log(feed[index].image.src);
+            newimg.src = feed[index].image.src;
+            newdiv.appendChild(newimg);
+            newimg.className = "feedimage";
+            newimg.style.width = (feed[index].image.w*feedlinkwidth).toString() + "px";
+            newimg.style.left = (feed[index].image.x*feedlinkwidth).toString() + "px";
+            newimg.style.top = (feed[index].image.y*feedlinkwidth).toString() + "px";
+            newimg.style.transform = "rotate(" + feed[index].image.angle.toString() + "deg)";
+        }
+    }    
 }
 
+
+//document.getElementById("textio").value = JSON.stringify(feed,null,"    ");
 
 </script>
 <style>
-body{
+#textio{
+    position:relative;
+    z-index:2;
+    display:none;
 }
-#header{
-    
+#editlink{
+    position:absolute;
+    left:5px;
+    top:5px;
+    width:50px;
+    z-index:1;
 }
-#scroll{
-    
+#editlink img{
+    width:100%;
 }
 #feed{
     position:absolute;
     left:0px;
     bottom:0px;
     width:100%;
-    top:50px;
+    top:0px;
     overflow:scroll;
 }
 .feedelement{
