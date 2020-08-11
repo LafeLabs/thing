@@ -119,11 +119,12 @@ newgeometron = {
 
 
 controls  = [
-    "020,010,021,",
-    "0334,0330,0335,",
-    "0332,0330,0333,",
-    "0336,0331,0337,",
-    "0341,0201,0200,"
+    "020,010,021,0500,",
+    "0334,0330,0335,0501,",
+    "0332,0330,0333,0502,",
+    "0336,0331,0337,0503,",
+    "0341,0201,0200,0547,",
+    "0504,0505,0506,0507,"
 ];
 
 
@@ -167,8 +168,8 @@ for(var index = 0;index < controls.length;index++){
 }
 
 
-
 gvmArray = [];
+
 address = 01040;
 for(var row = 0;row < 12;row++){
     var newtr = document.createElement("TR");
@@ -189,17 +190,30 @@ for(var row = 0;row < 12;row++){
         datadiv.innerHTML = "0" + address.toString(8);
         datadiv.className = "data";
         newtd.appendChild(datadiv);
+        var datadiv2 = document.createElement("div");
+        datadiv2.innerHTML = "0" + (8*row + col).toString(8);
+        datadiv2.className = "data";
+        newtd.appendChild(datadiv2);
+
         newtd.onclick = function(){
             var thisaddress = parseInt(this.getElementsByClassName("data")[0].innerHTML,8);
+            var thisindex = parseInt(this.getElementsByClassName("data")[1].innerHTML,8); 
+            mainGVM.saveGlyph();
+            gvmArray[thisindex].drawGlyph(mainGVM.hypercube[mainGVM.address]);            
+            mainGVM.saveGlyph();
             mainGVM.glyph = mainGVM.hypercube[thisaddress] + "0207,";
             mainGVM.drawGlyph(mainGVM.glyph);
             mainGVM.address = thisaddress;
             mainGVM.saveGlyph();
+            gvmArray[thisindex].drawGlyph(mainGVM.cleanGlyph);
         }
         address++;
     }
 }
 
+mainGVM.address = 01060;
+mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
+mainGVM.drawGlyph(mainGVM.glyph);
 
 </script>
 <style>
