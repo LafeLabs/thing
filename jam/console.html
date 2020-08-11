@@ -39,6 +39,13 @@
     <img class = "button" id = "modeindicator" src= "iconsymbols/robotsymbolmode.svg"/>
     
     <div id = "hammerxy"></div>
+    
+    
+    <div id = "rotatezoombox">
+        <img src = "iconsymbols/scale.svg" id = "scalebar"/>
+        <img src = "iconsymbols/rotate.svg" id = "rotatebar"/>
+    </div>
+    
     <table id = "buttontable">
         <tr>
             <td id = "savebutton" class = "button">SAVE FEED</td>
@@ -315,6 +322,9 @@ function savejson(){
     var imageypx = parseInt(document.getElementById("feed").getElementsByClassName("feedimage")[feedindex].style.top);
     var parentwidthpx = gvmArray[feedindex].width;
 
+    var rotatedeg = parseInt(document.getElementById("feed").getElementsByClassName("feedimage")[feedindex].style.transform.substring(7));
+
+    feed[feedindex].image.angle = rotatedeg;
     feed[feedindex].image.w = imagewidthpx/parentwidthpx;
     feed[feedindex].image.x = imagexpx/parentwidthpx;
     feed[feedindex].image.y = imageypx/parentwidthpx;
@@ -341,6 +351,27 @@ mc.on("panleft panright panup pandown tap press rotate", function(ev) {
 
 });    
 
+
+
+mczoom = new Hammer(document.getElementById("scalebar"));
+mczoom.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+mczoom.on("panleft panright panup pandown tap press", function(ev) {
+
+document.getElementById("feed").getElementsByClassName("feedimage")[feedindex].style.width = (2*ev.deltaX + feed[feedindex].image.w*gvmArray[feedindex].width).toString() +  "px";
+
+});    
+
+
+
+mcrotate = new Hammer(document.getElementById("rotatebar"));
+mcrotate.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+mcrotate.on("panleft panright panup pandown tap press", function(ev) {
+
+    
+    document.getElementById("feed").getElementsByClassName("feedimage")[feedindex].style.transform = "rotate(" + (feed[feedindex].image.angle + ev.deltaX*Math.PI/5).toString() + "deg)";
+
+
+});    
 
 
 </script>
@@ -469,6 +500,27 @@ mc.on("panleft panright panup pandown tap press rotate", function(ev) {
     width:300px;
     background-color:grey;
     bottom:200px;
+}
+#rotatezoombox{
+    position:absolute;
+    left:300px;
+    height:300px;
+    right:0px;
+    background-color:#ffe0e0;
+    bottom:200px;
+}
+#rotatezoombox img{
+    position:absolute;
+    left:0px;
+    right:0px;
+    height:50%;
+    width:100%;
+}
+#scalebar{
+    top:0px;
+}
+#rotatebar{
+    bottom:0px;
 }
 </style>
 </body>
