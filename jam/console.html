@@ -499,6 +499,12 @@ document.getElementById("imageurlinput").onchange = function(){
     }
 }
 
+
+document.getElementById("copybutton").onclick  = function(){
+    var tempelement = JSON.parse(JSON.stringify(feed[feedindex]));
+    feed.push(tempelement);
+    loadfeed();
+}
 </script>
 <style>
 #controlbox{
