@@ -157,6 +157,8 @@
         "feed.txt",
         "font.txt",
         "geometronfeed.txt",
+        "localcube.txt",
+        "localfont.txt",
         "marker.txt",
         "poetry.txt",
         "robot.txt",

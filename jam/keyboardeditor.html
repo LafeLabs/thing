@@ -16,6 +16,33 @@
 <table id = "keyboardtable">
 </table>
 
+<div id = "symbolbox">
+    <canvas id = "mainsymbol"></canvas>
+</div>
+<div id = "keybox"></div>
+<table>
+    <tr>
+        <td>key:</td>
+        <td>
+            <input id = "keyinput"/>
+        </td>
+    </tr>
+    <tr>
+        <td>Action:</td>
+        <td>
+            <input id = "actioninput"/>
+        </td>
+    </tr>
+</table>
+
+<table id = "buttontable">
+    <tr>
+        <td id = "savebutton" class = "button">SAVE</td>
+        <td id = "importbutton" class = "button">IMPORT</td>
+        <td id = "resetbutton" class = "button">RESET</td>
+    </tr>
+</table>
+<textarea id = "textio"></textarea>
 <script>
 newgeometron = {
   "glyph": "",
@@ -53,50 +80,90 @@ newgeometron = {
 };
 
 
-lc = ["`1234567890-=","qwertyuiop[]\\","asdfghjkl;\'","zxcvbnm,./"];
-uc = ["~!@#$%^&*()_+","QWERTYUIOP{}|","ASDFGHJKL:\"","ZXCVBNM<>?"];
+lc = ["`1234567890-= "," qwertyuiop[]\\"," asdfghjkl;\'"," zxcvbnm,./"];
+uc = ["~!@#$%^&*()_+"," QWERTYUIOP{}|"," ASDFGHJKL:\""," ZXCVBNM<>?"];
+
+
+currentKeyCode = 0141;
+
+var mainGVM = new GVM(newgeometron,document.getElementById("mainsymbol"),hypercube,200,200);
+
+mainGVM.action(parseInt(mainGVM.hypercube[currentKeyCode],8) + 01000);
+document.getElementById("keybox").innerHTML = String.fromCharCode(currentKeyCode);
 
 function redraw(){
-    
-}
-
-cansize = 40;
-for(var row = 0;row < lc.length;row++){
-    var newtr = document.createElement("TR");
-    document.getElementById("keyboardtable").appendChild(newtr);
-    for(var col = 0;col < lc[row].length;col++){
-        var newtd = document.createElement("TD");
-        newtr.appendChild(newtd);
-        var newtable = document.createElement("TABLE");
-        newtd.appendChild(newtable);
-        var newtr2 = document.createElement("TR");
-        var newtr3 = document.createElement("TR");
-        var upperkey = document.createElement("TD");
-        var upperaction = document.createElement("TD");
-        var lowerkey = document.createElement("TD");
-        var loweraction = document.createElement("TD");
-        newtable.appendChild(newtr2);
-        newtable.appendChild(newtr3);
-        newtr2.appendChild(upperkey);
-        newtr2.appendChild(upperaction);
-        newtr3.appendChild(lowerkey);
-        newtr3.appendChild(loweraction);
-        var newcan1 = document.createElement("CANVAS");
-        var newcan2 = document.createElement("CANVAS");
-        upperkey.innerHTML = uc[row].charAt(col);
-        lowerkey.innerHTML = lc[row].charAt(col);
-        upperaction.appendChild(newcan1);
-        loweraction.appendChild(newcan2);
-        var newGVM = new GVM(newgeometron,newcan1,hypercube,cansize,cansize);
-        newGVM.action(parseInt(newGVM.hypercube[uc[row].charCodeAt(col)],8)+01000);
-        var newGVM2 = new GVM(newgeometron,newcan2,hypercube,cansize,cansize);
-        newGVM2.action(parseInt(newGVM.hypercube[lc[row].charCodeAt(col)],8)+01000);
-
-  //      newGVM2.action(newGVM2.hypercube[parseInt("0" + lc[row].charCodeAt(col).toString(8),8)+01000]);
-
+    document.getElementById("keyboardtable").innerHTML = "";
+    cansize = 40;
+    for(var row = 0;row < lc.length;row++){
+        var newtr = document.createElement("TR");
+        newtr.id = "row" + row.toString();
+        document.getElementById("keyboardtable").appendChild(newtr);
+        for(var col = 0;col < lc[row].length;col++){
+            var newtd = document.createElement("TD");
+            newtr.appendChild(newtd);
+            var newtable = document.createElement("TABLE");
+            newtd.appendChild(newtable);
+            var newtr2 = document.createElement("TR");
+            var newtr3 = document.createElement("TR");
+            var upperkey = document.createElement("TD");
+            var upperaction = document.createElement("TD");
+            var lowerkey = document.createElement("TD");
+            var loweraction = document.createElement("TD");
+            newtable.appendChild(newtr2);
+            newtable.appendChild(newtr3);
+            newtr2.appendChild(upperkey);
+            newtr2.appendChild(upperaction);
+            newtr3.appendChild(lowerkey);
+            newtr3.appendChild(loweraction);
+            var newcan1 = document.createElement("CANVAS");
+            var newcan2 = document.createElement("CANVAS");
+            upperkey.innerHTML = uc[row].charAt(col);
+            lowerkey.innerHTML = lc[row].charAt(col);
+            upperaction.appendChild(newcan1);
+            loweraction.appendChild(newcan2);
+            var newGVM = new GVM(newgeometron,newcan1,hypercube,cansize,cansize);
+            newGVM.hypercube = mainGVM.hypercube;
+            newGVM.action(parseInt(newGVM.hypercube[uc[row].charCodeAt(col)],8)+01000);
+            var newGVM2 = new GVM(newgeometron,newcan2,hypercube,cansize,cansize);
+        //    newGVM2.hypercube = mainGVM.hypercube;
+            
+            newGVM2.action(parseInt(newGVM.hypercube[lc[row].charCodeAt(col)],8)+01000);
+            if(lc[row].charCodeAt(col) == 040){
+                newtable.style.border = "none";
+            }
+        }
     }
 }
 
+
+document.getElementById("keyinput").select();
+
+document.getElementById("keyinput").onkeypress = function(a) {
+    currentKeyCode = a.keyCode || a.which;
+    mainGVM.drawGlyph("0300,");
+    mainGVM.action(parseInt(mainGVM.hypercube[currentKeyCode],8) + 01000);
+    document.getElementById("keybox").innerHTML = String.fromCharCode(currentKeyCode);
+    document.getElementById("keyinput").value = "";
+    document.getElementById("actioninput").value = mainGVM.hypercube[currentKeyCode].split(",")[0];
+}
+document.getElementById("actioninput").value = mainGVM.hypercube[currentKeyCode];
+
+document.getElementById("actioninput").onchange = function(){
+    var thisaction = parseInt(this.value,8);
+    mainGVM.hypercube[currentKeyCode] = "0" + thisaction.toString(8) + ",";
+    redraw();
+    mainGVM.drawGlyph("0300,");
+    mainGVM.action(parseInt(mainGVM.hypercube[currentKeyCode],8) + 01000);    
+}
+redraw();
+
+
+
+
+//draw 8x8 array of 03xx to select
+//draw 8x8 array of 02xx to select
+
+//make the key input determine what is displayed, one letter and one symbol
 </script>
 <style>
 .button{
@@ -108,13 +175,32 @@ for(var row = 0;row < lc.length;row++){
 .button:active{
     background-color: yellow;
 }
+tr{
+    text-align:right;
+}
 table{
     border:solid;
     width:50px;
     height:50px;
 }
 canvas{
-    background-color:#e0e0e0;
+    background-color:#f0f0f0;
+}
+#symbolbox{
+    position:absolute;
+    right:0px;
+    top:0px;
+    background-color:#ffafaf;
+}
+#keybox{
+    font-size:5em;
+}
+#buttontable{
+    border:none;
+}
+#buttontable .button{
+    border:solid;
+    text-align:center;
 }
 </style>
 </body>
