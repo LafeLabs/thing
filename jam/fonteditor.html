@@ -58,6 +58,10 @@ bootstrap is whole big thing that does lots of things, but what we use it for he
 <body>    
 <img src = "iconsymbols/save.svg" id = "savebutton" class = "button"/>
 
+<img src = "iconsymbols/clearicon.svg" id = "resetbutton" class = "button"/>
+
+<div id = "importbutton" class = "button">IMPORT</div>
+
 <div id = "displaybox">
     <canvas id=  "maincanvas"></canvas>
 </div>
@@ -68,25 +72,23 @@ bootstrap is whole big thing that does lots of things, but what we use it for he
 
 <table id = "shapetable"></table>
 
+<textarea id = "textio"></textarea>
 
 
 <table id = "controltable"></table>
     
     <input id = "actioninput"/>
     <input id = "spellinput"/>
-    <img id = "modebutton" src= "iconsymbols/cursor.svg"/>
+    <img id = "modebutton" src= "iconsymbols/robotsymbolmode.svg"/>
 
 <script>
-shapes = [
-    "0220:0314,0336,0313,0333,0331,0331,0337,0337,0321,0332,0362,0203,0336,0336,0333,0350,0334,0345,0335,0330,0335,0335,0337,0337,0203,0336,0336,0335,0333,0334,0334,0345,0335,0330,0335,0335,0337,0337,0203,0335,0336,0336,0333,0334,0334,0345,0335,0330,0335,0335,0337,0337,0203,0335,0336,0336,0333,0334,0334,0345,0333,0364,0335,0335,0335,0304,0337,0330,0333,0336,0333,0314,0337,0313,0320,",
-    "0221:0220,0350,0335,0313,0304,0336,0331,0336,0336,0332,0337,0337,0337,0362,0203,0335,0336,0336,0203,0335,0337,0337,0203,0335,0336,0336,0203,0363,0335,0336,0333,0337,0337,0337,0330,0336,0336,0336,0336,0330,0337,0362,0346,0363,0336,0331,0337,0337,0337,0337,0331,0336,0336,0336,0335,0335,0336,0330,0335,0337,0330,0334,0334,0337,0306,0362,0203,0335,0335,0203,0335,0335,0203,0363,0334,0304,0335,0336,0333,0336,0330,0337,0337,0337,0337,0336,0330,0337,0350,0334,0304,0331,0331,0336,0330,0336,0332,0332,0337,0330,0330,0330,0333,0337,",
-    "01220:0333,0200,0336,0330,0332,0210,0220,0211,0333,0331,0337,",
-    "01221:0333,0200,0336,0330,0332,0210,0221,0211,0333,0331,0337,"
- ];
 
+fontfile = "data/localfont.txt";
+
+shapes = [];
 
 newgeometron = {
-  "glyph": "0341,",
+  "glyph": "",
   "shapes": shapes,
   "x0": 0.05,
   "y0": 0.95,
@@ -124,11 +126,8 @@ newgeometron = {
 
 
 controls  = [
-    "020,010,021,0500,",
-    "0334,0330,0335,0501,",
-    "0332,0330,0333,0502,",
-    "0336,0331,0337,0503,",
-    "0341,0201,0200,0547,",
+    "020,010,021,0340,",
+    "0500,0501,0502,0503,",
     "0504,0505,0506,0507,"
 ];
 
@@ -141,10 +140,10 @@ mainGVM.x0 = mainGVM.width*0.2;
 mainGVM.y0 = mainGVM.width*0.75;
 mainGVM.unit = mainGVM.width*0.5;
 
-mainGVM.cleanGlyph = "01101,";
-mainGVM.glyph = mainGVM.cleanGlyph + "0207,";
+//mainGVM.cleanGlyph = "01101,";
+//mainGVM.glyph = mainGVM.cleanGlyph + "0207,";
 
-mainGVM.drawGlyph(mainGVM.glyph);
+//mainGVM.drawGlyph(mainGVM.glyph);
 
 spellgeometron = JSON.parse(JSON.stringify(newgeometron));
 
@@ -174,6 +173,7 @@ for(var index = 0;index < controls.length;index++){
                 var localaction = parseInt(this.getElementsByClassName("data")[0].innerHTML,8);
                 mainGVM.cursorAction(localaction);
                 mainGVM.saveGlyph();
+                spellGVM.spellGlyph(mainGVM.glyph);
             }
         }
     }
@@ -227,26 +227,37 @@ for(var row = 0;row < 12;row++){
     }
 }
 
-mainGVM.address = 01060;
-mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
-mainGVM.drawGlyph(mainGVM.glyph);
+//mainGVM.address = 01060;
+//mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
+//mainGVM.drawGlyph(mainGVM.glyph);
+
 
 var httpc = new XMLHttpRequest();
 httpc.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        mainGVM.hypercube = JSON.parse(this.responseText);
+        localfont = JSON.parse(this.responseText);
+        mainGVM.importbytecode(localfont);
+        mainGVM.address = 01101;
+        mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
+        mainGVM.saveGlyph();
+        mainGVM.drawGlyph(mainGVM.glyph);
         redraw();
     }
 };
-httpc.open("GET", "fileloader.php?filename=data/localcube.txt", true);
+httpc.open("GET", "fileloader.php?filename=" + fontfile, true);
 httpc.send();    
 
 
-function savecube(){
+
+function savefont(){
+    
+    mainGVM.saveGlyph();
     var httpc = new XMLHttpRequest();
     httpc.open("POST", "filesaver.php", true);
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc.send("data="+encodeURIComponent(JSON.stringify(mainGVM.hypercube,null,"  "))+"&filename=data/localcube.txt");//send text to filesaver.php
+    httpc.send("data=" + encodeURIComponent(mainGVM.bytecode(01040,01176))+"&filename=" + fontfile);//send text to filesaver.php 
+    document.getElementById("textio").value = mainGVM.bytecode(01040,01176);
+
 }
 
 function redraw(){
@@ -260,7 +271,8 @@ function redraw(){
 }
 
 document.getElementById("savebutton").onclick  = function(){
-    savecube();
+    savefont();
+    
 }
 
 
@@ -300,6 +312,7 @@ document.getElementById("actioninput").onkeydown = function(a) {
     }
     if(charCode == 050){
         //down arrow: next symbol
+        
         mainGVM.saveGlyph();    
         gvmArray[mainGVM.address - 01040].drawGlyph(mainGVM.hypercube[mainGVM.address]);            
         mainGVM.saveGlyph();
@@ -349,7 +362,8 @@ document.getElementById("actioninput").onkeypress = function(a) {
        // spellGVM.spellGlyph(currentGVM.glyph);    
         this.value = "";
         mainGVM.saveGlyph();
-        document.getElementById("spellinput").value = currentGVM.cleanGlyph;
+        mainGVM.hypercube[mainGVM.address] = mainGVM.cleanGlyph;
+        document.getElementById("spellinput").value = mainGVM.cleanGlyph;
 
 //        savejson();
   //      document.getElementById("spellinput").value = currentjson.glyph;
@@ -359,25 +373,72 @@ document.getElementById("actioninput").onkeypress = function(a) {
 
 }
 
+
+robotkeyboard = [
+    "0161:0547,",
+    "0167:0550,",
+    "0145:0551,",
+    "0162:0552,",
+    "0164:0553,",
+    "0141:0500,",
+    "0163:0501,",
+    "0144:0502,",
+    "0146:0503,",
+    "0172:0504,",
+    "0170:0505,",
+    "0143:0506,",
+    "0166:0507,"
+];
+
+symbolkeyboard = [
+    "0161:0362,",
+    "0167:0203,",
+    "0141:0330,",
+    "0163:0331,",
+    "0144:0332,",
+    "0146:0333,",
+    "0172:0340,",
+    "0170:0341,",
+    "0143:0342,",
+    "0166:0343,"
+];
+
+robotkeyboardmode = true;
+mainGVM.importbytecode(robotkeyboard);
+
 mode = 0;//0 is action, 1, is spelling, 2 is stack.
 document.getElementById("modebutton").onclick = function(){
     modeswitch();
 }
 function modeswitch(){
-    mode++;
-    mode = mode%3;
-    if(mode == 0){
+    robotkeyboardmode = !robotkeyboardmode;
+    if(robotkeyboardmode){
+        document.getElementById("modeindicator").src = "iconsymbols/robotsymbolmode.svg";
+        mainGVM.importbytecode(robotkeyboard);
+
+    }
+    else{
         document.getElementById("modebutton").src = "iconsymbols/cursor.svg";
-    }
-    if(mode == 1){
-        document.getElementById("modebutton").src = "iconsymbols/abcfont.svg";
-    }
-    if(mode == 2){
-        document.getElementById("modebutton").src = "iconsymbols/abcstack.svg";
+        mainGVM.importbytecode(symbolkeyboard);
     }
     document.getElementById("actioninput").select();
 }
 
+
+document.getElementById("resetbutton").onclick = function(){
+    mainGVM.importbytecode(hypercube);
+    redraw();
+}
+
+
+document.getElementById("importbutton").onclick =  function(){
+//    var importcode = JSON.parse(this.value);
+//    mainGVM.importbytecode(importcode);
+ //   mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
+  //  mainGVM.saveGlyph();
+//    mainGVM.drawGlyph(mainGVM.glyph);
+  //  redraw();
+}
 
 </script>
 <style>
@@ -455,11 +516,36 @@ body{
     position:absolute;
     left:50px;
     bottom:50px;
+    width:50px;
+}
+#resetbutton{
+    position:absolute;
+    left:150px;
+    bottom:50px;
+    width:50px;
+}
+#textio{
+    position:absolute;
+    bottom:1em;
+    left:50%;
+    width:300px;
+    height:100px;
+}
+#importbutton{
+    position:absolute;
+    bottom:1em;
+    width:6em;
+    left:40%;
 }
 .button{
     cursor:pointer;
     background-color:white;
-    
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
 }
 </style>
 </body>
