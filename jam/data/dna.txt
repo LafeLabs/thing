@@ -4,6 +4,7 @@
         "appeditor.html",
         "buttonsetup.sh",
         "canvas2png.html",
+        "console.html",
         "duality.html",
         "feed.html",
         "feededitor.html",

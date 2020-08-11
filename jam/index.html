@@ -67,7 +67,6 @@ function loadfeed(){
         newGVM.drawGlyph(feed[index].glyph);    
         if(feed[index].image.src.length > 0){
             var newimg = document.createElement("IMG");
-            console.log(feed[index].image.src);
             newimg.src = feed[index].image.src;
             newdiv.appendChild(newimg);
             newimg.className = "feedimage";
