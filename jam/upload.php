@@ -34,6 +34,7 @@ else{
     <a href = "canvas2png.html">
     <img src = "iconsymbols/pngcode.svg"/>
     </a>
+    <a href = "console.html">console.html</a>
 
 </p>
 

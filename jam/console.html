@@ -28,11 +28,11 @@
 <a href = "index.html" id = "editlink">
     <img src = "iconsymbols/feed.svg"/>
 </a>
-
 <div id = "controlbox">
-    <div id = "mainbox">
-        <img id = "mainimage"/>
+    <div id = "spellbox">
+        <canvas id = "spellcanvas"></canvas>
     </div>
+    <input id = "actioninput"/>
 </div>
 
 <div id = "feed">
@@ -64,6 +64,16 @@ function loadfeedurl(url){
         if (this.readyState == 4 && this.status == 200) {
             feed = JSON.parse(this.responseText);
             loadfeed();
+            
+            var spellGVM = new GVM(feed[feedindex],document.getElementById("spellcanvas"),hypercube,innerWidth*0.5 - 100,300);
+            gvmArray[feedindex].glyph = gvmArray[feedindex].glyph + "0207,";
+            spellGVM.unit = 26;
+            spellGVM.x0 = 26;
+            spellGVM.y0 = 40;
+            
+            spellGVM.spellGlyph(gvmArray[feedindex].glyph);
+            gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
+            
         }
     };
     httpc.open("GET", "fileloader.php?filename=" + url, true);
@@ -74,6 +84,7 @@ feedwidth = innerWidth*0.25;
 feedlinkwidth = feedwidth - 50;
 
 function loadfeed(){
+    gvmArray = [];
     document.getElementById("feed").innerHTML = "";
     for(var index = 0;index < feed.length;index++){
         var newdiv = document.createElement("DIV");
@@ -85,7 +96,7 @@ function loadfeed(){
         newdiv.className = "feedelement";
         document.getElementById("feed").appendChild(newdiv);
         var newGVM = new GVM(feed[index],newcan,hypercube,feedlinkwidth,feedlinkwidth);
-        
+        gvmArray.push(newGVM);
         newGVM.drawGlyph(feed[index].glyph);    
         if(feed[index].image.src.length > 0){
             var newimg = document.createElement("IMG");
@@ -98,7 +109,7 @@ function loadfeed(){
             newimg.style.transform = "rotate(" + feed[index].image.angle.toString() + "deg)";
         }
     }    
-    loadgeometron();
+
 }
 
 
@@ -146,22 +157,11 @@ var httpc = new XMLHttpRequest();
 httpc.open("GET", "dir.php?filename=uploadimages", true);
 httpc.send();
 
+//after these are loaded also load up the images in data/imagefeed.txt.
 
 feedindex = 0;
 
-function redraw(){
-    
-}
-
-
-function loadgeometron(){
-    document.getElementById("mainimage").src = feed[feedindex].image.src;
-    document.getElementById("mainimage").style.width = (feed[feedindex].image.w*feedlinkwidth).toString() + "px";
-    document.getElementById("mainimage").style.left = (feed[feedindex].image.x*feedlinkwidth).toString() + "px";
-    document.getElementById("mainimage").style.top = (feed[feedindex].image.y*feedlinkwidth).toString() + "px";
-    document.getElementById("mainimage").style.transform = "rotate(" + feed[feedindex].image.angle.toString() + "deg)";    
-    
-}
+document.getElementById("actioninput").select();
 
 </script>
 <style>
@@ -171,23 +171,20 @@ function loadgeometron(){
     top:0px;
     width:50%;
     bottom:0px;
-    background-color:#ffdfdf;
 }
-#mainbox{
+#spellbox{
     position:absolute;
     border:solid;
-    right:10px;
-    top:10px;
+    left:10px;
+    top:80px;
     width:250px;
     height:250px;
     overflow:hidden;
-
 }
-#mainimage{
+#spellcanvas{
     position:absolute;
     left:0px;
     top:0px;
-    width:200px;
 }
 #textio{
     position:relative;
@@ -255,6 +252,12 @@ function loadgeometron(){
 }
 .button:active{
     background-color:yellow;
+}
+#actioninput{
+    position:absolute;
+    left:0px;
+    bottom:0px;
+    width:1em;
 }
 </style>
 </body>
