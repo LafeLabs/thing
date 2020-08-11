@@ -56,6 +56,7 @@ bootstrap is whole big thing that does lots of things, but what we use it for he
 
 </head>
 <body>    
+<img src = "iconsymbols/save.svg" id = "savebutton" class = "button"/>
 
 <div id = "displaybox">
     <canvas id=  "maincanvas"></canvas>
@@ -206,6 +207,7 @@ for(var row = 0;row < 12;row++){
             mainGVM.address = thisaddress;
             mainGVM.saveGlyph();
             gvmArray[thisindex].drawGlyph(mainGVM.cleanGlyph);
+            redraw();
         }
         address++;
     }
@@ -214,6 +216,34 @@ for(var row = 0;row < 12;row++){
 mainGVM.address = 01060;
 mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
 mainGVM.drawGlyph(mainGVM.glyph);
+
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        mainGVM.hypercube = JSON.parse(this.responseText);
+        redraw();
+    }
+};
+httpc.open("GET", "fileloader.php?filename=data/localcube.txt", true);
+httpc.send();    
+
+
+function savecube(){
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", "filesaver.php", true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(JSON.stringify(mainGVM.hypercube,null,"  "))+"&filename=data/localcube.txt");//send text to filesaver.php
+}
+
+function redraw(){
+    for(var index = 0;index < gvmArray.length;index++){
+        gvmArray[index].drawGlyph(mainGVM.hypercube[01040 + index]);
+    }
+}
+
+document.getElementById("savebutton").onclick  = function(){
+    savecube();
+}
 
 </script>
 <style>
@@ -275,6 +305,16 @@ body{
 }
 .data{
     display:none;
+}
+#savebutton{
+    position:absolute;
+    left:50px;
+    bottom:50px;
+}
+.button{
+    cursor:pointer;
+    background-color:white;
+    
 }
 </style>
 </body>
