@@ -55,30 +55,20 @@ bootstrap is whole big thing that does lots of things, but what we use it for he
     <script src="jscode/geometron.js"></script>
 
 </head>
-<body>    
-<div id = "bigbox">
-    <div id = "mediumbox">
-        <div class = "littlebox" id = "icon1"></div>
-        <div class = "littlebox" id = "icon3"></div>
-    </div>
-    <div class = "littlebox" id = "icon2"></div>
+<body>
+<div id  "header"></div>
+<div id = "feed">
 
-    <input id = "actioninput"/>
-    <input id = "spellinput"/>
-    <img id = "modebutton" src= "iconsymbols/cursor.svg"/>
+</div>
+<div id = "scroll">
+    
 </div>
 <script>
 
-
-shapes = [
-    "0220:0314,0336,0313,0333,0331,0331,0337,0337,0321,0332,0362,0203,0336,0336,0333,0350,0334,0345,0335,0330,0335,0335,0337,0337,0203,0336,0336,0335,0333,0334,0334,0345,0335,0330,0335,0335,0337,0337,0203,0335,0336,0336,0333,0334,0334,0345,0335,0330,0335,0335,0337,0337,0203,0335,0336,0336,0333,0334,0334,0345,0333,0364,0335,0335,0335,0304,0337,0330,0333,0336,0333,0314,0337,0313,0320,",
-    "0221:0220,0350,0335,0313,0304,0336,0331,0336,0336,0332,0337,0337,0337,0362,0203,0335,0336,0336,0203,0335,0337,0337,0203,0335,0336,0336,0203,0363,0335,0336,0333,0337,0337,0337,0330,0336,0336,0336,0336,0330,0337,0362,0346,0363,0336,0331,0337,0337,0337,0337,0331,0336,0336,0336,0335,0335,0336,0330,0335,0337,0330,0334,0334,0337,0306,0362,0203,0335,0335,0203,0335,0335,0203,0363,0334,0304,0335,0336,0333,0336,0330,0337,0337,0337,0337,0336,0330,0337,0350,0334,0304,0331,0331,0336,0330,0336,0332,0332,0337,0330,0330,0330,0333,0337,",
-    "01220:0333,0200,0336,0330,0332,0210,0220,0211,0333,0331,0337,",
-    "01221:0333,0200,0336,0330,0332,0210,0221,0211,0333,0331,0337,"
- ];
+shapes = [];
 
 newgeometron = {
-  "glyph": "0221,0207,",
+  "glyph": "0321,0341,0340,",
   "shapes": shapes,
   "x0": 0.5,
   "y0": 0.5,
@@ -108,204 +98,95 @@ newgeometron = {
     "color7": "purple",
     "fill7": "purple",
     "line7": 1
-  },
-  "controlGlyph": "020,010,021,0330,0331,0332,0333,0341,0320,0322,0323,0324,0325,0326,0327,"
+  }
 };
 
+newimage = {
+    "src":"https://i.imgur.com/JgWqwxU.jpg",
+    "w":1.0,
+    "angle":0,
+    "x":0.0,
+    "y":0.0
+}
 
-var newcan = document.createElement("CANVAS");
-document.getElementById("icon1").appendChild(newcan);
-newcan.style.backgroundColor = "red";
+newlink = {
+    "href":"scrolls/foo",
+    "type":"scrolllink"
+}
 
-var newGVM = new GVM(newgeometron,newcan,hypercube,250,250);
-newGVM.saveGlyph();
-newGVM.drawGlyph(newGVM.cleanGlyph);
-
-
-var newcan2 = document.createElement("CANVAS");
-document.getElementById("icon2").appendChild(newcan2)
-newcan2.style.backgroundColor = "#bfffff";
-
-var newcan3 = document.createElement("CANVAS");
-document.getElementById("icon3").appendChild(newcan3)
-newcan3.style.backgroundColor = "#bfffff";
-
-var newGVM3 = new GVM(newgeometron,newcan3,hypercube,250,250);
-newGVM3.drawGlyph(newGVM3.glyph);
-
-
-spellgeometron = JSON.parse(JSON.stringify(newgeometron));
-
-spellgeometron.unit = 0.05;
-
-var spellGVM= new GVM(spellgeometron,newcan2,hypercube,500,200);
-spellGVM.spellGlyph(newGVM.glyph);
-
-
-document.getElementById("actioninput").select();
-
-currentGVM = newGVM3;
-
-gvmindex = 0;
-
-document.getElementById("actioninput").onkeydown = function(a) {
-    var charCode = a.keyCode || a.which;
-
-    if(charCode == 015) {
-        modeswitch();
-    }
-
-    if(charCode == 010) {
-        currentGVM.cursorAction(010);
-    }
-    if(charCode == 045){
-        currentGVM.cursorAction(020);             
-    }
-    if(charCode == 047){
-        currentGVM.cursorAction(021);   
-    }
-
-    if(charCode == 046){
-        //up arrow: prev symbol
-            currentGVM.drawGlyph(currentGVM.cleanGlyph);
-            currentGVM = newGVM;
-            currentGVM.drawGlyph(currentGVM.glyph);
-    }
-    if(charCode == 050){
-        //down arrow: next symbol
-            currentGVM.drawGlyph(currentGVM.cleanGlyph);
-            currentGVM = newGVM3;
-            currentGVM.drawGlyph(currentGVM.glyph);
- 
-    }
-
-
-    spellGVM.spellGlyph(currentGVM.glyph);    
-  //  savejson();//
-    currentGVM.saveGlyph();
-    document.getElementById("spellinput").value = currentGVM.cleanGlyph;
- //   document.getElementById("spellinput").style.width = 0.8*currentjson.glyph.length.toString() + "em";
-
+newfeedelement = {
+    "geometron":newgeometron,
+    "image":newimage,
+    "link":newlink,
+    "text":"first link"
 }
 
 
-document.getElementById("actioninput").onkeypress = function(a) {
-    var charCode = a.keyCode || a.which;
 
-    if(charCode != 015){
-        if(mode == 0){
-            localCursorAction = parseInt(currentGVM.hypercube[charCode],8);   
-        }    
-        if(mode == 1){
-            localCursorAction = charCode + 01000;     
-        }    
-        if(mode == 2){
-            localCursorAction = charCode;     
-        }    
+feed = [];
+newfeedelement2 = JSON.parse(JSON.stringify(newfeedelement));
+newfeedelement2.geometron.glyph = "0200,";
+feed.push(newfeedelement);
+feed.push(newfeedelement2); 
 
-        currentGVM.cursorAction(localCursorAction);   
-        spellGVM.spellGlyph(currentGVM.glyph);    
-        this.value = "";
-        currentGVM.saveGlyph();
-        document.getElementById("spellinput").value = currentGVM.cleanGlyph;
+feed[0].image.src = "";
+feed[1].image.text = "";
 
-//        savejson();
-  //      document.getElementById("spellinput").value = currentjson.glyph;
-   //     document.getElementById("spellinput").style.width = 0.8*currentjson.glyph.length.toString() + "em";    
+feedwidth = innerWidth;
+
+for(var index = 0;index < feed.length;index++){
+    var newdiv = document.createElement("DIV");
+    var newcan = document.createElement("CANVAS");
+    newcan.className = "feedcan";
+    newdiv.style.marginTop = 0.05*innerWidth + "px";
+    newdiv.style.marginBottom = 0.05*innerWidth + "px";
+    newdiv.appendChild(newcan);
+    newdiv.className = "feedelement";
+    document.getElementById("feed").appendChild(newdiv);
+    var newGVM = new GVM(feed[index].geometron,newcan,hypercube,feedwidth - 500,feedwidth - 500);
+    newGVM.drawGlyph(feed[index].geometron.glyph);    
+    if(feed[index].image.src.length > 0){
+        var newimg = document.createElement("IMG");
+        console.log(feed[index].image.src);
+        newimg.src = feed[index].image.src;
+        newdiv.appendChild(newimg);
+        newimg.className = "feedimage";
     }
-
-
-}
-
-
-mode = 0;//0 is action, 1, is spelling, 2 is stack.
-document.getElementById("modebutton").onclick = function(){
-    modeswitch();
-}
-function modeswitch(){
-    mode++;
-    mode = mode%3;
-    if(mode == 0){
-        document.getElementById("modebutton").src = "iconsymbols/cursor.svg";
-    }
-    if(mode == 1){
-        document.getElementById("modebutton").src = "iconsymbols/abcfont.svg";
-    }
-    if(mode == 2){
-        document.getElementById("modebutton").src = "iconsymbols/abcstack.svg";
-    }
-    document.getElementById("actioninput").select();
-}
-
-    newGVM.saveGlyph();
-    document.getElementById("spellinput").value = newGVM.cleanGlyph;
-
-document.getElementById("spellinput").onchange = function(){
-    currentGVM.cleanGlyph = this.value;
-    currentGVM.glyph = this.value + "0207,";
-    currentGVM.drawGlyph(currentGVM.glyph);
-    spellGVM.spellGlyph(currentGVM.glyph);
-    document.getElementById("spellinput").select();
 }
 
 
 </script>
 <style>
 body{
-    background-color:blue;
 }
-#icon2{
-    position:absolute;
-    left:100px;
-    bottom:100px;
-    background-color:purple;
-    width:100px;
-    height:200px;
-    cursor:pointer;
+#header{
+    
 }
-
-
-
-#bigbox{
-    background-color:#afafff;
+#scroll{
+    
+}
+#feed{
     position:absolute;
-    right:0px;
-    top:0px;
     left:0px;
     bottom:0px;
+    width:100%;
+    top:50px;
+    overflow:scroll;
 }
-#modebutton{
+.feedelement{
+    margin-top:100px;
+    margin:auto;
+    border:solid;
+    overflow:hidden;
+}
+.feedcan{
     position:absolute;
-    right:2em;
-    bottom:0px;
-    width:2em;
-    z-index:2;
-    background-color:yellow;
+    
 }
-#actioninput{
+.feedimage{
     position:absolute;
-    right:0px;
-    bottom:0px;
-    width:1em;
-}
-#spellinput{
-    font-family:courier;
-    width:90%;
-    position:absolute;
-    top:10px;
-    left:10px;
-    font-size:12px;
-}
-#mediumbox{
-    position:absolute;
-    right:100px;
-    bottom:100px;
-    width:500px;
-    height:700px;
-    background-color:#404040;
-}
-#mediumbox .littlebox{
-    margin:1em 1em 1em 1em;
+    max-width:400px;
+    z-index:-1;
 }
 </style>
 </body>
