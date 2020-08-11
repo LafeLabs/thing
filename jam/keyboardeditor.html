@@ -7,186 +7,98 @@
     <META NAME="robots" CONTENT="noindex,nofollow">
 
     <script src="jscode/geometron.js"></script>
-    <script src="jscode/hypercube.js"></script>
-    <script src="jscode/keyboard.js"></script>
-    <script src="jscode/font.js"></script>
 
 <!--
     this is how shape table editor should be, totally focused on 3 rows, with symbols in a tablet that is automatically saved
 -->
 </head>
 <body> 
-<div id = "keyboardbox"></div>
-<table>
-    <tr>
-        <td>
-            <input id = "key"/>
-        </td>
-        <td>
-            <input id = "action"/>
-        </td>
-        <td>
-            <canvas id = "symbol"></canvas>
-        </td>
-    </tr>
+<table id = "keyboardtable">
 </table>
-<img  class = "button" id = "savebutton" src = "iconsymbols/save.svg"/>
-<a href = "iconsymbols/keyboard.svg">keyboard.svg</a>
-
-<a href = "symbol.html">
-    <img src = "iconsymbols/geometron.svg"/>
-</a>
-        <a href = "map.html">
-            <img src = "../iconsymbols/map.svg"/>
-        </a>
 
 <script>
-
-lc = "`1234567890-=qwertyuiop[]\\asdfghjkl;\'zxcvbnm,./";
-uc = "~!@#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:\"ZXCVBNM<>?";
-
-keywidth = innerWidth/20;
-document.getElementById("savebutton").style.width = keywidth + "px";
-
-var newcan = document.createElement("canvas");
-document.getElementById("keyboardbox").appendChild(newcan);
-
-var newg = new GVM(0.125*keywidth,keywidth + 0.125*keywidth,keywidth,-Math.PI/2,newcan,keywidth*16.5,keywidth*5,hypercube);
-
-newg.importbytecode(font);
-newg.importbytecode(keyboard);
-
-function redraw() {
-
-    var ctxlocal = newg.canvas2d.getContext("2d");
-    ctxlocal.clearRect(0,0,newg.width,newg.height);
-    ctxlocal.strokeStyle = newg.style.color0;
-    ctxlocal.fillStyle = newg.style.fill0;
-    ctxlocal.lineWidth = newg.style.line0;
-    newg.svgString = "<svg width=\"" + newg.width.toString() + "\" height=\"" + newg.height.toString() + "\" viewbox = \"0 0 " + newg.width.toString() + " " + newg.height.toString() + "\"  xmlns=\"http://www.w3.org/2000/svg\">\n";
-    newg.action(0300);
-
-    for(var index = 0;index < 13;index++) {
-        newg.actionSequence("0300,");
-        for(var subindex = 0;subindex< index;subindex++){
-            newg.actionSequence("0333,0336,0336,0336,0333,0337,0337,0337,");
-        }
-        newg.actionSequence("0314,0336,0336,0333,0337,0337,0333,0200,0332,0336,0336,0330,0333,0337,");
-        newg.actionSequence( (lc.charCodeAt(index)).toString(8) + ",0365,0333,0336,0333,0337,0313,");
-        newg.actionSequence("0" + (01000 + parseInt(newg.hypercube[lc.charCodeAt(index)],8)).toString(8) + ",0314,0330,0332,0332,0336,0330,0332,0337,");
-        newg.actionSequence( (uc.charCodeAt(index)).toString(8) +  ",0365,0333,0336,0333,0337,0313,");
-        newg.actionSequence("0" + (01000 +parseInt(newg.hypercube[uc.charCodeAt(index)],8)).toString(8) + ",0314,0330,0336,0330,0333,0337,0337,0331,");
-    }
-
-    for(var index = 13;index < 26;index++) {
-        newg.actionSequence("0300,0331,0336,0336,0336,0331,0337,0333,0333,0337,0337,0333,");
-        for(var subindex = 13;subindex< index;subindex++){
-            newg.actionSequence("0333,0336,0336,0336,0333,0337,0337,0337,");
-        }
-        newg.actionSequence("0314,0336,0336,0333,0337,0337,0333,0200,0332,0336,0336,0330,0333,0337,");
-        newg.actionSequence( (lc.charCodeAt(index)).toString(8) + ",0365,0333,0336,0333,0337,0313,");
-        newg.actionSequence("0" + (01000 + parseInt(newg.hypercube[lc.charCodeAt(index)],8)).toString(8) + ",0314,0330,0332,0332,0336,0330,0332,0337,");
-        newg.actionSequence( (uc.charCodeAt(index)).toString(8) +  ",0365,0333,0336,0333,0337,0313,");
-        newg.actionSequence("0" + (01000 +parseInt(newg.hypercube[uc.charCodeAt(index)],8)).toString(8) + ",0314,0330,0336,0330,0333,0337,0337,0331,");
-    }
-
-    for(var index = 26;index < 37;index++) {
-        newg.actionSequence("0300,0331,0331,0336,0336,0336,0331,0331,0337,0333,0333,0337,0333,0337,0333,");
-        for(var subindex = 26;subindex< index;subindex++){
-            newg.actionSequence("0333,0336,0336,0336,0333,0337,0337,0337,");
-        }
-        newg.actionSequence("0314,0336,0336,0333,0337,0337,0333,0200,0332,0336,0336,0330,0333,0337,");
-        newg.actionSequence( (lc.charCodeAt(index)).toString(8) + ",0365,0333,0336,0333,0337,0313,");
-        newg.actionSequence("0" + (01000 + parseInt(newg.hypercube[lc.charCodeAt(index)],8)).toString(8) + ",0314,0330,0332,0332,0336,0330,0332,0337,");
-        newg.actionSequence( (uc.charCodeAt(index)).toString(8) +  ",0365,0333,0336,0333,0337,0313,");
-        newg.actionSequence("0" + (01000 +parseInt(newg.hypercube[uc.charCodeAt(index)],8)).toString(8) + ",0314,0330,0336,0330,0333,0337,0337,0331,");
-    }
-
-
-    for(var index = 37;index < 47;index++) {
-        newg.actionSequence("0300,0331,0331,0331,0336,0336,0336,0331,0331,0331,0337,0333,0333,0337,0333,0333,0337,0333,");
-        for(var subindex = 37;subindex< index;subindex++){
-            newg.actionSequence("0333,0336,0336,0336,0333,0337,0337,0337,");
-        }
-        newg.actionSequence("0314,0336,0336,0333,0337,0337,0333,0200,0332,0336,0336,0330,0333,0337,");
-        newg.actionSequence( (lc.charCodeAt(index)).toString(8) + ",0365,0333,0336,0333,0337,0313,");
-        newg.actionSequence("0" + (01000 + parseInt(newg.hypercube[lc.charCodeAt(index)],8)).toString(8) + ",0314,0330,0332,0332,0336,0330,0332,0337,");
-        newg.actionSequence( (uc.charCodeAt(index)).toString(8) +  ",0365,0333,0336,0333,0337,0313,");
-        newg.actionSequence("0" + (01000 +parseInt(newg.hypercube[uc.charCodeAt(index)],8)).toString(8) + ",0314,0330,0336,0330,0333,0337,0337,0331,");
-    }
-    newg.svgString += "</svg>";
-}
-
-
-
-var symbolg = new GVM(1,keywidth - 1,keywidth - 2,-Math.PI/2,document.getElementById("symbol"),keywidth,keywidth,hypercube);
-symbolg.drawGlyph("0300,");
-symbolg.actionSequence("01330,");
-
-document.getElementById("key").value = "a";
-document.getElementById("action").value = "0330";
-document.getElementById("key").select();
-
-document.getElementById("key").onkeypress = function(a) {
-    var charCode = a.keyCode || a.which;
-    var localaction = parseInt(newg.hypercube[charCode],8);
-    document.getElementById("action").value = "0" + localaction.toString(8);
-    this.value = "";
-    symbolg.drawGlyph("0300,");
-    symbolg.action(01000 + localaction);
-}
-
-document.getElementById("action").onchange = function() {
-    var localaction = parseInt(this.value,8);
-    localaddress = document.getElementById("key").value.charCodeAt(0);
-    if(localaction > 0 && localaction < 01777) {
-        newg.hypercube[localaddress] = "0" + localaction.toString(8) + ",";
-        symbolg.drawGlyph("0300,");
-        symbolg.action(01000 + localaction);
-        redraw();
-    }
-}
-
-document.getElementById("savebutton").onclick = function() {
-    redraw();
-
-    var httpc = new XMLHttpRequest();
-    httpc.open("POST","filesaver.php", true);
-    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc.send("data="+encodeURIComponent(newg.svgString) +"&filename=iconsymbols/keyboard.svg");//send text to filesaver.php
-
-    var httpc2 = new XMLHttpRequest();
-    httpc2.open("POST","filesaver.php", true);
-    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    
-    keyboard = [];
-    for(var index = 040;index < 0177;index++){
-        keyboard.push("0" + index.toString(8) + ":" + newg.hypercube[index]);
-    }
-
-    httpc2.send("data="+encodeURIComponent("keyboard = " + JSON.stringify(keyboard,null,"  ") +  ";")+"&filename=jscode/keyboard.js");//send text to filesaver.php
-
-}
-
-
-var httpc = new XMLHttpRequest();
-httpc.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        currentjson = JSON.parse(this.responseText);
-        newg.importbytecode(currentjson.shapes);
-        newg.style.line0 = 1;
-        symbolg.importbytecode(currentjson.shapes);
-        redraw();
-
-    }
+newgeometron = {
+  "glyph": "",
+  "shapes": [],
+  "x0": 0.05,
+  "y0": 0.95,
+  "unit": 0.9,
+  "style": {
+    "color0": "black",
+    "fill0": "black",
+    "line0": 1,
+    "color1": "black",
+    "fill1": "black",
+    "line1": 5,
+    "color2": "red",
+    "fill2": "red",
+    "line2": 1,
+    "color3": "#FF7900",
+    "fill3": "#FF7900",
+    "line3": 1,
+    "color4": "yellow",
+    "fill4": "yellow",
+    "line4": 1,
+    "color5": "green",
+    "fill5": "green",
+    "line5": 1,
+    "color6": "blue",
+    "fill6": "blue",
+    "line6": 1,
+    "color7": "purple",
+    "fill7": "purple",
+    "line7": 1
+  },
+  "controlGlyph": "020,010,021,0330,0331,0332,0333,0341,0320,0322,0323,0324,0325,0326,0327,"
 };
-httpc.open("GET", "fileloader.php?filename=data/currentjson.txt", true);
-httpc.send();   
 
+
+lc = ["`1234567890-=","qwertyuiop[]\\","asdfghjkl;\'","zxcvbnm,./"];
+uc = ["~!@#$%^&*()_+","QWERTYUIOP{}|","ASDFGHJKL:\"","ZXCVBNM<>?"];
+
+function redraw(){
+    
+}
+
+cansize = 40;
+for(var row = 0;row < lc.length;row++){
+    var newtr = document.createElement("TR");
+    document.getElementById("keyboardtable").appendChild(newtr);
+    for(var col = 0;col < lc[row].length;col++){
+        var newtd = document.createElement("TD");
+        newtr.appendChild(newtd);
+        var newtable = document.createElement("TABLE");
+        newtd.appendChild(newtable);
+        var newtr2 = document.createElement("TR");
+        var newtr3 = document.createElement("TR");
+        var upperkey = document.createElement("TD");
+        var upperaction = document.createElement("TD");
+        var lowerkey = document.createElement("TD");
+        var loweraction = document.createElement("TD");
+        newtable.appendChild(newtr2);
+        newtable.appendChild(newtr3);
+        newtr2.appendChild(upperkey);
+        newtr2.appendChild(upperaction);
+        newtr3.appendChild(lowerkey);
+        newtr3.appendChild(loweraction);
+        var newcan1 = document.createElement("CANVAS");
+        var newcan2 = document.createElement("CANVAS");
+        upperkey.innerHTML = uc[row].charAt(col);
+        lowerkey.innerHTML = lc[row].charAt(col);
+        upperaction.appendChild(newcan1);
+        loweraction.appendChild(newcan2);
+        var newGVM = new GVM(newgeometron,newcan1,hypercube,cansize,cansize);
+        newGVM.action(parseInt(newGVM.hypercube[uc[row].charCodeAt(col)],8)+01000);
+        var newGVM2 = new GVM(newgeometron,newcan2,hypercube,cansize,cansize);
+        newGVM2.action(parseInt(newGVM.hypercube[lc[row].charCodeAt(col)],8)+01000);
+
+  //      newGVM2.action(newGVM2.hypercube[parseInt("0" + lc[row].charCodeAt(col).toString(8),8)+01000]);
+
+    }
+}
 
 </script>
 <style>
-
 .button{
     cursor:pointer;
 }
@@ -196,18 +108,13 @@ httpc.send();
 .button:active{
     background-color: yellow;
 }
-canvas{
+table{
     border:solid;
+    width:50px;
+    height:50px;
 }
-table,input,span{
-    font-family:courier;
-    font-size:2em;
-}
-#key{
-    width:0.5em;
-}
-#action{
-    width:4em;
+canvas{
+    background-color:#e0e0e0;
 }
 </style>
 </body>
