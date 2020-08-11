@@ -103,10 +103,10 @@ newgeometron = {
 
 newimage = {
     "src":"https://i.imgur.com/JgWqwxU.jpg",
-    "w":1.0,
-    "angle":0,
-    "x":0.0,
-    "y":0.0
+    "w":0.8,
+    "angle":30,
+    "x":0.1,
+    "y":0.1
 }
 
 newlink = {
@@ -117,33 +117,33 @@ newlink = {
 newfeedelement = {
     "geometron":newgeometron,
     "image":newimage,
-    "link":newlink,
-    "text":"first link"
+    "link":newlink
 }
 
 
 
 feed = [];
 newfeedelement2 = JSON.parse(JSON.stringify(newfeedelement));
-newfeedelement2.geometron.glyph = "0200,";
+newfeedelement2.geometron.glyph = "0200,0336,0336,0332,0332,0101,0103,0101,0102,0365,";
 feed.push(newfeedelement);
 feed.push(newfeedelement2); 
 
-feed[0].image.src = "";
-feed[1].image.text = "";
+feed[0].image.src = "https://acdn.list25.com/wp-content/uploads/2012/05/tumblr_nfodzdlXuk1r6q4zxo1_1280.gif";
 
 feedwidth = innerWidth;
+feedlinkwidth = feedwidth - 500;
 
 for(var index = 0;index < feed.length;index++){
     var newdiv = document.createElement("DIV");
     var newcan = document.createElement("CANVAS");
     newcan.className = "feedcan";
-    newdiv.style.marginTop = 0.05*innerWidth + "px";
-    newdiv.style.marginBottom = 0.05*innerWidth + "px";
+    newdiv.style.marginTop = 0.05*feedwidth + "px";
+    newdiv.style.marginBottom = 0.05*feedwidth + "px";
     newdiv.appendChild(newcan);
     newdiv.className = "feedelement";
     document.getElementById("feed").appendChild(newdiv);
-    var newGVM = new GVM(feed[index].geometron,newcan,hypercube,feedwidth - 500,feedwidth - 500);
+    var newGVM = new GVM(feed[index].geometron,newcan,hypercube,feedlinkwidth,feedlinkwidth);
+    
     newGVM.drawGlyph(feed[index].geometron.glyph);    
     if(feed[index].image.src.length > 0){
         var newimg = document.createElement("IMG");
@@ -151,6 +151,10 @@ for(var index = 0;index < feed.length;index++){
         newimg.src = feed[index].image.src;
         newdiv.appendChild(newimg);
         newimg.className = "feedimage";
+        newimg.style.width = (feed[index].image.w*feedlinkwidth).toString() + "px";
+        newimg.style.left = (feed[index].image.x*feedlinkwidth).toString() + "px";
+        newimg.style.top = (feed[index].image.y*feedlinkwidth).toString() + "px";
+        newimg.style.transform = "rotate(" + feed[index].image.angle.toString() + "deg)";
     }
 }
 
@@ -184,8 +188,7 @@ body{
     
 }
 .feedimage{
-    position:absolute;
-    max-width:400px;
+    position:relative;
     z-index:-1;
 }
 </style>
