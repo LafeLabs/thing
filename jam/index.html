@@ -130,7 +130,6 @@ var newcan3 = document.createElement("CANVAS");
 document.getElementById("icon3").appendChild(newcan3)
 newcan3.style.backgroundColor = "#bfffff";
 
-
 var newGVM3 = new GVM(newgeometron,newcan3,hypercube,250,250);
 newGVM3.drawGlyph(newGVM3.glyph);
 
@@ -242,10 +241,11 @@ function modeswitch(){
     document.getElementById("spellinput").value = newGVM.cleanGlyph;
 
 document.getElementById("spellinput").onchange = function(){
-    newGVM.cleanGlyph = this.value;
-    newGVM.glyph = this.value + "0207,";
-    newGVM.drawGlyph(newGVM.glyph);
-    spellGVM.spellGlyph(newGVM.glyph);
+    currentGVM.cleanGlyph = this.value;
+    currentGVM.glyph = this.value + "0207,";
+    currentGVM.drawGlyph(currentGVM.glyph);
+    spellGVM.spellGlyph(currentGVM.glyph);
+    document.getElementById("spellinput").select();
 }
 
 

@@ -8,7 +8,6 @@
         "feed.html",
         "feededitor.html",
         "fonteditor.html",
-        "fork.html",
         "geometronfeed.html",
         "hypercube.html",
         "index.html",
@@ -36,6 +35,7 @@
         "scrolldelete.html",
         "scrolleditor.html",
         "setup.html",
+        "shapeeditor.html",
         "shapetableeditor.html",
         "styleeditor.html",
         "symbol.html",
@@ -234,7 +234,6 @@
         "scrollscroll.md",
         "srs.md",
         "symbolmagic",
-        "trashrobotdotorg",
-        "zdrive-arduino"
+        "trashrobotdotorg"
     ]
 }
