@@ -35,6 +35,21 @@
     <input id = "spellinput"/>
 
     <input id = "actioninput"/>
+    <img class = "button" id = "modeindicator" src= "iconsymbols/robotsymbolmode.svg"/>
+    <table id = "buttontable">
+        <tr>
+            <td id = "savebutton" class = "button">SAVE FEED</td>
+            <td id = "importbutton" class = "button">IMPORT FEED</td>
+            <td id="saverobotbutton" class = "button">SAVE ROBOT GLYPH</td>
+        </tr>
+        <tr>
+            <td id = "copybutton" class = "button">COPY ELEMENT</td>
+            <td id = "deletebutton" class = "button">DELETE ELEMENT</td>
+            <td id = "resetbutton" class = "button">RESET FEED</td>
+        </tr>
+    </table>
+    <textarea id = "textio"></textarea>
+
 </div>
 
 <div id = "feed">
@@ -54,7 +69,6 @@
             </tr>
         </table>
 </div>
-<textarea id = "textio"></textarea>
 <script>
 
 feedurl = "data/geometronfeed.txt";
@@ -168,7 +182,7 @@ mode = 0;
 document.getElementById("actioninput").onkeypress = function(a) {
     var charCode = a.keyCode || a.which;
     if(charCode != 015){
-        if(mode == 0){
+        if(mode == 0 || mode == 3){
             localCursorAction = parseInt(gvmArray[feedindex].hypercube[charCode],8);   
         }    
         if(mode == 1){
@@ -236,10 +250,70 @@ document.getElementById("actioninput").onkeydown = function(a) {
 
 }
 
+robotkeyboard = [
+    "0161:0547,",
+    "0167:0550,",
+    "0145:0551,",
+    "0162:0552,",
+    "0164:0553,",
+    "0141:0500,",
+    "0163:0501,",
+    "0144:0502,",
+    "0146:0503,",
+    "0172:0504,",
+    "0170:0505,",
+    "0143:0506,",
+    "0166:0507,"
+];
 
+symbolkeyboard = [
+    "0161:0362,",
+    "0167:0203,",
+    "0141:0330,",
+    "0163:0331,",
+    "0144:0332,",
+    "0146:0333,",
+    "0172:0340,",
+    "0170:0341,",
+    "0143:0342,",
+    "0166:0343,"
+];
+
+robotkeyboardmode = false;
+
+
+mode = 0;
 function modeswitch(){
-    
+    mode++;
+    mode = mode%4;
+    if(mode == 0){
+        document.getElementById("modeindicator").src = "iconsymbols/cursor.svg";
+        gvmArray[feedindex].importbytecode(symbolkeyboard);
+    }
+    if(mode == 1){
+        document.getElementById("modeindicator").src = "iconsymbols/abcfont.svg";
+    }
+    if(mode == 2){
+        document.getElementById("modeindicator").src = "iconsymbols/abcstack.svg";
+    }
+    if(mode == 3){
+        document.getElementById("modeindicator").src = "iconsymbols/robotsymbolmode.svg";
+        gvmArray[feedindex].importbytecode(robotkeyboard);
+    }    
 }
+
+
+document.getElementById("savebutton").onclick = function(){
+    savejson();
+}
+function savejson(){
+    var url = "filesaver.php";        
+    var httpc2 = new XMLHttpRequest();
+    httpc2.open("POST", url, true);
+    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc2.send("data="+encodeURIComponent(JSON.stringify(feed,null,"    "))+"&filename=" + feedurl);//send text to filesaver.php
+}
+
 </script>
 <style>
 #controlbox{
@@ -272,9 +346,9 @@ function modeswitch(){
     right:0px;
 }
 #textio{
-    position:relative;
-    z-index:2;
-    display:none;
+    position:absolute;
+    right:0px;
+    bottom:0px;
 }
 #editlink{
     position:absolute;
@@ -343,6 +417,21 @@ function modeswitch(){
     left:0px;
     bottom:0px;
     width:1em;
+}
+#modeindicator{
+    position:absolute;
+    width:40px;
+    left:50px;
+    bottom:0px;
+}
+#buttontable{
+    position:absolute;
+    bottom:100px;
+    left:10px;
+}
+#buttontable .button{
+    text-align:center;
+    border:solid;
 }
 </style>
 </body>
