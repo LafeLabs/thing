@@ -78,6 +78,7 @@
                 </td>
             </tr>
         </table>
+        <img id = "deleteimagebutton" src ="iconsymbols/deleteimage.svg" class = "button"/>
 </div>
 <script>
 feedindex = 0;
@@ -140,7 +141,7 @@ function loadfeedurl(url){
             
             spellGVM.spellGlyph(gvmArray[feedindex].glyph);
             gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
-            
+            document.getElementById("spellinput").value = gvmArray[feedindex].cleanGlyph;
         }
     };
     httpc.open("GET", "fileloader.php?filename=" + url, true);
@@ -299,7 +300,7 @@ document.getElementById("actioninput").onkeydown = function(a) {
     }
 
     spellGVM.spellGlyph(gvmArray[feedindex].glyph);
-
+document.getElementById("spellinput").value = gvmArray[feedindex].cleanGlyph;
 }
 
 stoprelativekeys = [
@@ -583,6 +584,20 @@ document.getElementById("importbutton").onclick = function(){
     gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);    
     
 }
+
+document.getElementById("spellinput").onchange = function(){
+    gvmArray[feedindex].glyph = this.value + "0207,";
+    gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);    
+    feed[feedindex].glyph = this.value; 
+}
+
+document.getElementById("deleteimagebutton").onclick = function(){
+
+    feed[feedindex].image.src = "";
+    loadfeed();
+
+}
+
 </script>
 <style>
 #controlbox{
