@@ -81,6 +81,47 @@
 </div>
 <script>
 
+resetelement = {
+    "glyph": "",
+    "shapes": [],
+    "x0": 0.5,
+    "y0": 0.5,
+    "unit": 0.12,
+    "style": {
+        "color0": "black",
+        "fill0": "black",
+        "line0": 1,
+        "color1": "black",
+        "fill1": "black",
+        "line1": 5,
+        "color2": "red",
+        "fill2": "red",
+        "line2": 1,
+        "color3": "#FF7900",
+        "fill3": "#FF7900",
+        "line3": 1,
+        "color4": "yellow",
+        "fill4": "yellow",
+        "line4": 1,
+        "color5": "green",
+        "fill5": "green",
+        "line5": 1,
+        "color6": "blue",
+        "fill6": "blue",
+        "line6": 1,
+        "color7": "purple",
+        "fill7": "purple",
+        "line7": 1
+    },
+    "image": {
+        "src": "",
+        "w": 1.0,
+        "angle": 0,
+        "x": 0.0,
+        "y": 0.0
+    }
+};
+
 feedurl = "data/geometronfeed.txt";
 loadfeedurl(feedurl);
 
@@ -516,8 +557,22 @@ document.getElementById("deletebutton").onclick  = function(){
     feed = tempfeed;
     feedindex = 0;
     loadfeed();
+    gvmArray[feedindex].glyph = gvmArray[feedindex].glyph + "0207,";
+    gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);    
+    
 }
 
+
+document.getElementById("resetbutton").onclick = function(){
+    feed  =[];
+    feed.push(resetelement);
+    feedlink = 0;
+    loadfeed();
+    document.getElementById("actioninput").select();
+    gvmArray[feedindex].glyph = gvmArray[feedindex].glyph + "0207,";
+    gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);    
+
+}
 </script>
 <style>
 #controlbox{
