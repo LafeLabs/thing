@@ -58,6 +58,9 @@
             <td id = "resetbutton" class = "button">RESET FEED</td>
         </tr>
     </table>
+    
+    <table id = "geometroncontroltable">
+    </table>
     <textarea id = "textio"></textarea>
 
 </div>
@@ -589,6 +592,8 @@ document.getElementById("spellinput").onchange = function(){
     gvmArray[feedindex].glyph = this.value + "0207,";
     gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);    
     feed[feedindex].glyph = this.value; 
+    spellGVM.spellGlyph(gvmArray[feedindex].glyph);
+
 }
 
 document.getElementById("deleteimagebutton").onclick = function(){
@@ -598,8 +603,66 @@ document.getElementById("deleteimagebutton").onclick = function(){
 
 }
 
+controlglyph = "0500,0501,0502,0503,"; 
+controlglyph += "0504,0505,0506,0507,";
+controlglyph += "020,010,021,0341,";
+
+
+controlgeometron = JSON.parse(JSON.stringify(resetelement));
+controlgeometron.unit = 0.9;
+controlgeometron.x0 = 0.05;
+controlgeometron.y0 = 0.95;
+
+
+drawcontrols(document.getElementById("geometroncontroltable"),4,4,controlglyph);
+
+function drawcontrols(table,rows,columns,controls){
+    for(var row = 0;row < rows;row++){
+        var newtr = document.createElement("TR");
+        table.appendChild(newtr);
+        for(var col = 0;col < columns;col++){
+            var newtd = document.createElement("TD");
+            newtr.appendChild(newtd);
+        }
+    }
+    var controlArray = controls.split(",");
+    var tdArray = table.getElementsByTagName("TD");
+    for(var index = 0;index < controlArray.length;index++){
+        if(index < tdArray.length && controlArray[index].length > 0){
+            var localaction = parseInt(controlArray[index],8);
+            var newcan = document.createElement("CANVAS");
+            newcan.className = "geometronactionbutton";
+            newcan.classList.add("button");
+            tdArray[index].appendChild(newcan);
+            newgvm = new GVM(controlgeometron,newcan,hypercube,40,40); 
+            newgvm.drawGlyph(newgvm.hypercube[localaction + 01000]);
+            var newbox = document.createElement("DIV");
+            newbox.className = "databox";
+            newbox.innerHTML = "0" + localaction.toString(8);
+            tdArray[index].appendChild(newbox);
+            newcan.onclick = function(){
+                var localdata = this.parentElement.getElementsByClassName("databox")[0].innerHTML;
+                var localaction = parseInt(localdata,8);
+                gvmArray[feedindex].cursorAction(localaction);
+                spellGVM.spellGlyph(gvmArray[feedindex].glyph);
+                document.getElementById("spellinput").value = gvmArray[feedindex].cleanGlyph;
+            }
+        }
+    }
+    
+}
+
 </script>
 <style>
+.databox{
+    display:none;
+}
+#geometroncontroltable{
+    position:absolute;
+    right:0px;
+    bottom:60px;
+    border:solid;
+}
 #controlbox{
     position:absolute;
     left:0px;
@@ -705,13 +768,14 @@ document.getElementById("deleteimagebutton").onclick = function(){
 #modeindicator{
     position:absolute;
     width:40px;
-    left:50px;
+    left:20px;
     bottom:0px;
 }
 #buttontable{
     position:absolute;
-    bottom:100px;
-    left:10px;
+    bottom:10px;
+    left:100px;
+    font-size:12px;
 }
 #buttontable .button{
     text-align:center;
@@ -721,17 +785,17 @@ document.getElementById("deleteimagebutton").onclick = function(){
     position:absolute;
     left:0px;
     height:300px;
-    width:300px;
+    width:300px;    
     background-color:grey;
-    bottom:200px;
+    bottom:250px;
 }
 #rotatezoombox{
     position:absolute;
-    left:300px;
-    height:300px;
-    right:0px;
+    left:0px;
+    height:100px;
+    width:300px;
     background-color:#ffe0e0;
-    bottom:200px;
+    bottom:80px;
 }
 #rotatezoombox img{
     position:absolute;
