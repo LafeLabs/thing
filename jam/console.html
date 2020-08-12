@@ -80,7 +80,7 @@
         </table>
 </div>
 <script>
-
+feedindex = 0;
 resetelement = {
     "glyph": "",
     "shapes": [],
@@ -166,16 +166,16 @@ function loadfeed(){
         newGVM.importbytecode(stoprelativekeys);
         gvmArray.push(newGVM);
         newGVM.drawGlyph(feed[index].glyph);    
-        if(feed[index].image.src.length > 0){
-            var newimg = document.createElement("IMG");
-            newimg.src = feed[index].image.src;
-            newdiv.appendChild(newimg);
-            newimg.className = "feedimage";
-            newimg.style.width = (feed[index].image.w*feedlinkwidth).toString() + "px";
-            newimg.style.left = (feed[index].image.x*feedlinkwidth).toString() + "px";
-            newimg.style.top = (feed[index].image.y*feedlinkwidth).toString() + "px";
-            newimg.style.transform = "rotate(" + feed[index].image.angle.toString() + "deg)";
-        }
+        
+        var newimg = document.createElement("IMG");
+        newimg.src = feed[index].image.src;
+        newdiv.appendChild(newimg);
+        newimg.className = "feedimage";
+        newimg.style.width = (feed[index].image.w*feedlinkwidth).toString() + "px";
+        newimg.style.left = (feed[index].image.x*feedlinkwidth).toString() + "px";
+        newimg.style.top = (feed[index].image.y*feedlinkwidth).toString() + "px";
+        newimg.style.transform = "rotate(" + feed[index].image.angle.toString() + "deg)";
+        
     }    
 
 }
@@ -384,7 +384,7 @@ function savejson(){
 //    feed[feedindex].image.x = parseInt(document.getElementById("feed").getElementsByClassName("feedimage")[feedindex].style.left.substring(0,document.getElementById("feed").getElementsByClassName("feedimage")[feedindex].style.left.length-2))/feed[feedindex].width;
     
     
-    
+    document.getElementById("textio").value = JSON.stringify(feed,null,"    ");
     var url = "filesaver.php";        
     var httpc2 = new XMLHttpRequest();
     httpc2.open("POST", url, true);
@@ -566,12 +566,22 @@ document.getElementById("deletebutton").onclick  = function(){
 document.getElementById("resetbutton").onclick = function(){
     feed  =[];
     feed.push(resetelement);
-    feedlink = 0;
+    feedindex = 0;
     loadfeed();
     document.getElementById("actioninput").select();
     gvmArray[feedindex].glyph = gvmArray[feedindex].glyph + "0207,";
     gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);    
 
+}
+
+document.getElementById("importbutton").onclick = function(){
+    feed = JSON.parse(document.getElementById("textio").value);
+    feedindex = 0;
+    loadfeed();
+    document.getElementById("actioninput").select();
+    gvmArray[feedindex].glyph = gvmArray[feedindex].glyph + "0207,";
+    gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);    
+    
 }
 </script>
 <style>
