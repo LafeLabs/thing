@@ -12,6 +12,7 @@
         "fork.html",
         "geometronfeed.html",
         "hypercube.html",
+        "imagefeed.html",
         "index.html",
         "keyboardeditor.html",
         "listen-for-go-button.py",
