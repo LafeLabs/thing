@@ -94,27 +94,38 @@ resetelement = {
 };
 
 
-var httpc666 = new XMLHttpRequest();
-httpc666.onreadystatechange = function(){
+var httpc777 = new XMLHttpRequest();
+httpc777.onreadystatechange = function(){
     if (this.readyState == 4 && this.status == 200) {
-        feed = JSON.parse(this.responseText);
-        loadfeed();
-        spellGVM = new GVM(document.getElementById("spellcanvas"),0.05,0.95,1.0,innerWidth*0.5 - 100,200);
+        hypercube = JSON.parse(this.responseText);
+        var httpc666 = new XMLHttpRequest();
+        httpc666.onreadystatechange = function(){
+            if (this.readyState == 4 && this.status == 200) {
+                feed = JSON.parse(this.responseText);
+                loadfeed();
+                spellGVM = new GVM(document.getElementById("spellcanvas"),0.05,0.95,1.0,innerWidth*0.5 - 100,200);
+                
+                spellGVM.x0 = 10;
+                spellGVM.y0 = 50;
+                spellGVM.unit = 36;
+                spellGVM.importbytecode(hypercube);
+                    //GVM(canvas2d,x0,y0,unit,width,height)
         
-        spellGVM.x0 = 10;
-        spellGVM.y0 = 50;
-        spellGVM.unit = 36;
-        spellGVM.importbytecode(hypercube);
-            //GVM(canvas2d,x0,y0,unit,width,height)
-        gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
-        gvmArray[feedindex].clean();
-        spellGVM.spellGlyph(gvmArray[feedindex].glyph);
-        gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
-        document.getElementById("spellinput").value = gvmArray[feedindex].cleanGlyph;
+                gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
+                gvmArray[feedindex].clean();
+                spellGVM.spellGlyph(gvmArray[feedindex].glyph);
+                gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
+                document.getElementById("spellinput").value = gvmArray[feedindex].cleanGlyph;
+            }
+        };
+        httpc666.open("GET", "fileloader.php?filename=data/feed.txt", true);
+        httpc666.send();
+
     }
 };
-httpc666.open("GET", "fileloader.php?filename=data/feed.txt", true);
-httpc666.send();
+httpc777.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
+httpc777.send();
+
 
 feedwidth = innerWidth*0.25;
 feedlinkwidth = feedwidth - 50;
@@ -147,6 +158,8 @@ function loadfeed(){
         newimg.style.top = (feed[index].image.y*feedlinkwidth).toString() + "px";
         newimg.style.transform = "rotate(" + feed[index].image.angle.toString() + "deg)";
     }    
+
+        
 
 }
 
@@ -196,7 +209,6 @@ httpc.send();
 
 //after these are loaded also load up the images in data/imagefeed.txt.
 
-feedindex = 0;
 
 document.getElementById("actioninput").select();
 
@@ -247,12 +259,13 @@ document.getElementById("actioninput").onkeydown = function(a) {
         //up arrow: prev symbol
        
        gvmArray[feedindex].clean();
+       feed[feedindex].glyph = gvmArray[feedindex].cleanGlyph;
        gvmArray[feedindex].drawGlyph(gvmArray[feedindex].cleanGlyph);
        feedindex--;
        if(feedindex<0){
            feedindex = feed.length - 1;
        }
-       gvmArray[feedindex].glyph =  feed.glyph + "0207,";
+       gvmArray[feedindex].glyph =  feed[feedindex].glyph + "0207,";
        gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
     
     }
@@ -270,6 +283,9 @@ document.getElementById("actioninput").onkeydown = function(a) {
 
     spellGVM.spellGlyph(gvmArray[feedindex].glyph);
 document.getElementById("spellinput").value = gvmArray[feedindex].cleanGlyph;
+       gvmArray[feedindex].clean();
+       feed[feedindex].glyph = gvmArray[feedindex].cleanGlyph;
+
 }
 
 stoprelativekeys = [
