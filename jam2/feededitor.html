@@ -127,7 +127,7 @@ httpc777.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
 httpc777.send();
 
 
-feedwidth = innerWidth*0.25;
+feedwidth = innerWidth*0.2;
 feedlinkwidth = feedwidth - 50;
 
 function loadfeed(){
@@ -525,6 +525,7 @@ document.getElementById("copybutton").onclick  = function(){
     feedindex = feed.length - 1;
     gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
     gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
+    spellGVM.spellGlyph(gvmArray[feedindex].glyph);    
 }
 
 document.getElementById("deletebutton").onclick  = function(){
@@ -539,7 +540,7 @@ document.getElementById("deletebutton").onclick  = function(){
     loadfeed();
     gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
     gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
-    
+    spellGVM.spellGlyph(gvmArray[feedindex].glyph);       
 }
 
 
@@ -551,6 +552,7 @@ document.getElementById("resetbutton").onclick = function(){
     document.getElementById("actioninput").select();
     gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
     gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
+    spellGVM.spellGlyph(gvmArray[feedindex].glyph);    
 }
 
 document.getElementById("importbutton").onclick = function(){
@@ -561,13 +563,14 @@ document.getElementById("importbutton").onclick = function(){
     
     gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
     gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);    
-    
+    spellGVM.spellGlyph(gvmArray[feedindex].glyph);        
 }
 
 document.getElementById("spellinput").onchange = function(){
     gvmArray[feedindex].glyph = this.value + "0207,";
     gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);    
     feed[feedindex].glyph = this.value; 
+    spellGVM.spellGlyph(gvmArray[feedindex].glyph);    
 }
 
 document.getElementById("deleteimagebutton").onclick = function(){
@@ -627,9 +630,9 @@ document.getElementById("deleteimagebutton").onclick = function(){
 }
 #feed{
     position:absolute;
-    left:50%;
-    bottom:0px;
-    width:25%;
+    right:0px;
+    bottom:50%;
+    width:20%;
     top:0px;
     overflow:scroll;
 }
@@ -650,9 +653,9 @@ document.getElementById("deleteimagebutton").onclick = function(){
 #imagefeed{
     position:absolute;
     right:0px;
-    top:0px;
+    top:50%;
     bottom:0px;
-    width:24%;
+    width:20%;
     overflow:scroll;
     background-color:#f0f0ff;
 }
