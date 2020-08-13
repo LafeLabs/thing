@@ -189,7 +189,7 @@ function GVM(canvas2d,x0,y0,unit,width,height) {
 
     }
 
-    this.saveGlyph = function(){
+    this.clean = function(){
         var glyphArray = this.glyph.split(",");
         var cleanGlyph = "";
         for(var index = 0;index < glyphArray.length;index++) {

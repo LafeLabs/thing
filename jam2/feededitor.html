@@ -99,13 +99,15 @@ httpc666.onreadystatechange = function(){
     if (this.readyState == 4 && this.status == 200) {
         feed = JSON.parse(this.responseText);
         loadfeed();
-        spellGVM = new GVM(document.getElementById("spellcanvas"),26,40,26,innerWidth*0.5 - 100,200);
+        spellGVM = new GVM(document.getElementById("spellcanvas"),0.05,0.95,1.0,innerWidth*0.5 - 100,200);
+        
+        spellGVM.x0 = 10;
+        spellGVM.y0 = 50;
+        spellGVM.unit = 36;
         spellGVM.importbytecode(hypercube);
             //GVM(canvas2d,x0,y0,unit,width,height)
-        gvmArray[feedindex].glyph = gvmArray[feedindex].glyph + "0207,";
-        spellGVM.unit = 26;
-        spellGVM.x0 = 26;
-        spellGVM.y0 = 40;
+        gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
+        gvmArray[feedindex].clean();
         spellGVM.spellGlyph(gvmArray[feedindex].glyph);
         gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
         document.getElementById("spellinput").value = gvmArray[feedindex].cleanGlyph;
@@ -144,7 +146,6 @@ function loadfeed(){
         newimg.style.left = (feed[index].image.x*feedlinkwidth).toString() + "px";
         newimg.style.top = (feed[index].image.y*feedlinkwidth).toString() + "px";
         newimg.style.transform = "rotate(" + feed[index].image.angle.toString() + "deg)";
-        
     }    
 
 }
@@ -216,7 +217,7 @@ document.getElementById("actioninput").onkeypress = function(a) {
         gvmArray[feedindex].cursorAction(localCursorAction);   
         spellGVM.spellGlyph(gvmArray[feedindex].glyph);    
         this.value = "";
-        gvmArray[feedindex].saveGlyph();
+        gvmArray[feedindex].clean();
         document.getElementById("spellinput").value = gvmArray[feedindex].cleanGlyph;
         feed[feedindex].glyph = gvmArray[feedindex].cleanGlyph;
         
@@ -245,26 +246,26 @@ document.getElementById("actioninput").onkeydown = function(a) {
     if(charCode == 046){
         //up arrow: prev symbol
        
-       gvmArray[feedindex].saveGlyph();
+       gvmArray[feedindex].clean();
        gvmArray[feedindex].drawGlyph(gvmArray[feedindex].cleanGlyph);
        feedindex--;
        if(feedindex<0){
            feedindex = feed.length - 1;
        }
-        gvmArray[feedindex].glyph =  gvmArray[feedindex].cleanGlyph + "0207,";
-        gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
+       gvmArray[feedindex].glyph =  feed.glyph + "0207,";
+       gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
     
     }
     if(charCode == 050){
         //down arrow: next symbol
-       gvmArray[feedindex].saveGlyph();
+       gvmArray[feedindex].clean();
        gvmArray[feedindex].drawGlyph(gvmArray[feedindex].cleanGlyph);
        feedindex++;
        if(feedindex > feed.length - 1){
            feedindex = 0;
        }
-        gvmArray[feedindex].glyph =  gvmArray[feedindex].cleanGlyph + "0207,";
-        gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);        
+       gvmArray[feedindex].glyph =  feed[feedindex].glyph + "0207,";
+       gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);        
     }
 
     spellGVM.spellGlyph(gvmArray[feedindex].glyph);
@@ -350,9 +351,6 @@ function savejson(){
     feed[feedindex].image.w = imagewidthpx/parentwidthpx;
     feed[feedindex].image.x = imagexpx/parentwidthpx;
     feed[feedindex].image.y = imageypx/parentwidthpx;
-    
-    
-//    feed[feedindex].image.x = parseInt(document.getElementById("feed").getElementsByClassName("feedimage")[feedindex].style.left.substring(0,document.getElementById("feed").getElementsByClassName("feedimage")[feedindex].style.left.length-2))/feed[feedindex].width;
     
     
     document.getElementById("textio").value = JSON.stringify(feed,null,"    ");
