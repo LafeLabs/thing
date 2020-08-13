@@ -103,7 +103,7 @@ httpc777.onreadystatechange = function(){
             if (this.readyState == 4 && this.status == 200) {
                 feed = JSON.parse(this.responseText);
                 loadfeed();
-                spellGVM = new GVM(document.getElementById("spellcanvas"),0.05,0.95,1.0,innerWidth*0.5 - 100,200);
+                spellGVM = new GVM(document.getElementById("spellcanvas"),innerWidth*0.5 - 100,200);
                 
                 spellGVM.x0 = 10;
                 spellGVM.y0 = 50;
@@ -142,7 +142,7 @@ function loadfeed(){
         newdiv.appendChild(newcan);
         newdiv.className = "feedelement";
         document.getElementById("feed").appendChild(newdiv);
-        var newGVM = new GVM(newcan,0.5,0.5,0.12,feedlinkwidth,feedlinkwidth);
+        var newGVM = new GVM(newcan,feedlinkwidth,feedlinkwidth);
         newGVM.importbytecode(hypercube);
         //GVM(canvas2d,x0,y0,unit,width,height)
         newGVM.importbytecode(stoprelativekeys);

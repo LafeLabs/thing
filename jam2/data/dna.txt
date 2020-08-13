@@ -38,6 +38,7 @@
         "scrolleditor.html",
         "setup.html",
         "shapeeditor.html",
+        "shapestack.html",
         "shapetableeditor.html",
         "styleeditor.html",
         "symbol.html",

@@ -37,7 +37,7 @@ A Geometron is a geometric virtual machine which has two 8x8x8 cubes of operatio
     */
 
 
-function GVM(canvas2d,x0,y0,unit,width,height) {
+function GVM(canvas2d,width,height) {
     //x0,y0 and unit are scaled to width
     //width and height are in px
     this.address = 0277;
@@ -52,11 +52,11 @@ function GVM(canvas2d,x0,y0,unit,width,height) {
     canvas2d.parentElement.style.height = this.height.toString() + "px";
     this.canvas2d = canvas2d;
     this.ctx = canvas2d.getContext("2d"); 
-    this.x0 = x0*width;//convert from fractional to px
+    this.x0 = 0.5*width;//convert from fractional to px set default
     this.x = this.x0;
-    this.y0 = y0*width;
+    this.y0 = 0.5*width;//default, fractional
     this.y = this.y0;
-    this.unit = unit*width;//convert to px from relative
+    this.unit = 0.12*width;//convert to px from relative set default
     this.side = this.unit;
     this.theta0 = -Math.PI/2;
     this.theta = this.theta0;

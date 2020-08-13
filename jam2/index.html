@@ -60,9 +60,6 @@ function loaddata(){
 function loadfeed(){
     feedwidth = innerWidth;
     feedlinkwidth = feedwidth - 500;
-    x0 = 0.5;
-    y0 = 0.5;
-    unit = 0.12;
     for(var index = 0;index < feed.length;index++){
         var newdiv = document.createElement("DIV");
         var newcan = document.createElement("CANVAS");
@@ -72,7 +69,7 @@ function loadfeed(){
         newdiv.appendChild(newcan);
         newdiv.className = "feedelement";
         document.getElementById("feed").appendChild(newdiv);
-        var newGVM = new GVM(newcan,x0,y0,unit,feedlinkwidth,feedlinkwidth);
+        var newGVM = new GVM(newcan,feedlinkwidth,feedlinkwidth);
         newGVM.importbytecode(hypercube);
         //GVM(canvas2d,x0,y0,unit,width,height)
         newGVM.drawGlyph(feed[index].glyph);    
