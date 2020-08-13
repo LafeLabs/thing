@@ -184,6 +184,8 @@ var httpc = new XMLHttpRequest();
                 var localsrc = "uploadimages" + this.src.split("uploadimages")[1];
                 feed[feedindex].image.src = localsrc;
                 loadfeed();
+                gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
+                gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
             }
             var newimg = document.createElement("IMG");
             newimg.src = "iconsymbols/delete.svg";
@@ -430,6 +432,8 @@ httpc99.onreadystatechange = function(){
                     var localsrc = this.src;
                     feed[feedindex].image.src = localsrc;
                     loadfeed();
+                    gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
+                    gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
                 }
                 var newimg = document.createElement("IMG");
                 newimg.src = "iconsymbols/delete.svg";
@@ -516,6 +520,11 @@ document.getElementById("copybutton").onclick  = function(){
     var tempelement = JSON.parse(JSON.stringify(feed[feedindex]));
     feed.push(tempelement);
     loadfeed();
+    gvmArray[feedindex].clean();
+    feed[feedindex].glyph = gvmArray[feedindex].cleanGlyph;
+    feedindex = feed.length - 1;
+    gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
+    gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
 }
 
 document.getElementById("deletebutton").onclick  = function(){
@@ -528,8 +537,8 @@ document.getElementById("deletebutton").onclick  = function(){
     feed = tempfeed;
     feedindex = 0;
     loadfeed();
-    gvmArray[feedindex].glyph = gvmArray[feedindex].glyph + "0207,";
-    gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);    
+    gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
+    gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
     
 }
 
@@ -540,9 +549,8 @@ document.getElementById("resetbutton").onclick = function(){
     feedindex = 0;
     loadfeed();
     document.getElementById("actioninput").select();
-    gvmArray[feedindex].glyph = gvmArray[feedindex].glyph + "0207,";
-    gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);    
-
+    gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
+    gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
 }
 
 document.getElementById("importbutton").onclick = function(){
@@ -550,7 +558,8 @@ document.getElementById("importbutton").onclick = function(){
     feedindex = 0;
     loadfeed();
     document.getElementById("actioninput").select();
-    gvmArray[feedindex].glyph = gvmArray[feedindex].glyph + "0207,";
+    
+    gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
     gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);    
     
 }
@@ -565,7 +574,9 @@ document.getElementById("deleteimagebutton").onclick = function(){
 
     feed[feedindex].image.src = "";
     loadfeed();
-
+    gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
+    gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
+    
 }
 
 </script>

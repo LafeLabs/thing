@@ -1,3 +1,4 @@
 [
-    "https://i.imgur.com/JgWqwxU.jpg"
+    "https://i.imgur.com/JgWqwxU.jpg",
+    "https://i.imgur.com/u42Ua4d.jpg"
 ]
