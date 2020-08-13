@@ -44,40 +44,6 @@
 </table>
 <textarea id = "textio"></textarea>
 <script>
-newgeometron = {
-  "glyph": "",
-  "shapes": [],
-  "x0": 0.05,
-  "y0": 0.95,
-  "unit": 0.9,
-  "style": {
-    "color0": "black",
-    "fill0": "black",
-    "line0": 1,
-    "color1": "black",
-    "fill1": "black",
-    "line1": 5,
-    "color2": "red",
-    "fill2": "red",
-    "line2": 1,
-    "color3": "#FF7900",
-    "fill3": "#FF7900",
-    "line3": 1,
-    "color4": "yellow",
-    "fill4": "yellow",
-    "line4": 1,
-    "color5": "green",
-    "fill5": "green",
-    "line5": 1,
-    "color6": "blue",
-    "fill6": "blue",
-    "line6": 1,
-    "color7": "purple",
-    "fill7": "purple",
-    "line7": 1
-  },
-  "controlGlyph": "020,010,021,0330,0331,0332,0333,0341,0320,0322,0323,0324,0325,0326,0327,"
-};
 
 
 lc = ["`1234567890-= "," qwertyuiop[]\\"," asdfghjkl;\'"," zxcvbnm,./"];
@@ -86,10 +52,26 @@ uc = ["~!@#$%^&*()_+"," QWERTYUIOP{}|"," ASDFGHJKL:\""," ZXCVBNM<>?"];
 
 currentKeyCode = 0141;
 
-var mainGVM = new GVM(newgeometron,document.getElementById("mainsymbol"),hypercube,200,200);
+var mainGVM = new GVM(document.getElementById("mainsymbol"),200,200);
+mainGVM.x0 = 1;
+mainGVM.y0 = 199;
+mainGVM.unit = 198;
 
-mainGVM.action(parseInt(mainGVM.hypercube[currentKeyCode],8) + 01000);
-document.getElementById("keybox").innerHTML = String.fromCharCode(currentKeyCode);
+
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function(){
+    if (this.readyState == 4 && this.status == 200) {
+        var localhypercube = JSON.parse(this.responseText);
+        mainGVM.importbytecode(localhypercube);
+        mainGVM.drawGlyph("0300,");
+        mainGVM.action(parseInt(mainGVM.hypercube[currentKeyCode],8) + 01000);
+        document.getElementById("keybox").innerHTML = String.fromCharCode(currentKeyCode);
+        redraw();
+    }
+};
+httpc.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
+httpc.send();
+
 
 function redraw(){
     document.getElementById("keyboardtable").innerHTML = "";
@@ -121,13 +103,20 @@ function redraw(){
             lowerkey.innerHTML = lc[row].charAt(col);
             upperaction.appendChild(newcan1);
             loweraction.appendChild(newcan2);
-            var newGVM = new GVM(newgeometron,newcan1,hypercube,cansize,cansize);
+            var newGVM = new GVM(newcan1,cansize,cansize);
+            newGVM.x0 = 1;
+            newGVM.y0 = cansize - 1;
+            newGVM.unit = cansize - 2;
             newGVM.hypercube = mainGVM.hypercube;
+            newGVM.drawGlyph("0300,");
             newGVM.action(parseInt(newGVM.hypercube[uc[row].charCodeAt(col)],8)+01000);
-            var newGVM2 = new GVM(newgeometron,newcan2,hypercube,cansize,cansize);
-        //    newGVM2.hypercube = mainGVM.hypercube;
-            
-            newGVM2.action(parseInt(newGVM.hypercube[lc[row].charCodeAt(col)],8)+01000);
+            var newGVM2 = new GVM(newcan2,cansize,cansize);
+            newGVM2.hypercube = mainGVM.hypercube;
+            newGVM2.x0 = 1;
+            newGVM2.y0 = cansize - 1;
+            newGVM2.unit = cansize - 2;
+            newGVM2.drawGlyph("0300,");
+            newGVM2.action(parseInt(newGVM2.hypercube[lc[row].charCodeAt(col)],8)+01000);
             if(lc[row].charCodeAt(col) == 040){
                 newtable.style.border = "none";
             }
@@ -155,22 +144,6 @@ document.getElementById("actioninput").onchange = function(){
     mainGVM.drawGlyph("0300,");
     mainGVM.action(parseInt(mainGVM.hypercube[currentKeyCode],8) + 01000);    
 }
-redraw();
-
-
-
-keyboardfile = "data/localkeyboard.txt";
-var httpc = new XMLHttpRequest();
-httpc.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        localkeyboard = JSON.parse(this.responseText);
-        mainGVM.importbytecode(localkeyboard);
-        redraw();
-        document.getElementById("keyinput").select();
-    }
-};
-httpc.open("GET", "fileloader.php?filename=" + keyboardfile, true);
-httpc.send();    
 
 
 
@@ -179,7 +152,7 @@ function savekeyboard(){
     var httpc = new XMLHttpRequest();
     httpc.open("POST", "filesaver.php", true);
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc.send("data=" + encodeURIComponent(mainGVM.bytecode(040,0176))+"&filename=" + keyboardfile);//send text to filesaver.php 
+    httpc.send("data=" + encodeURIComponent(mainGVM.bytecode(0,01777))+"&filename=data/hypercube.txt");//send text to filesaver.php
     document.getElementById("textio").value = mainGVM.bytecode(040,0176);
 
 }

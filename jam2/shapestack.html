@@ -34,8 +34,12 @@
     <canvas id = "spellcanvas"></canvas>
 </div>
 
+<img id = "modebutton" src = "iconsymbols/cursor.svg"/>
 <input id = "actioninput"/>
 <input id = "spellinput"/>
+
+<div id = "savebutton" class = "button">SAVE</div>
+<textarea id = "textio"></textarea>
 
 <!--
 
@@ -78,8 +82,8 @@ httpc.onreadystatechange = function(){
 httpc.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
 httpc.send();
 
-gvmArray = [];
 function loadstack(){
+    gvmArray = [];
     document.getElementById("shapetable").innerHTML = "";
     var localaddress = 0220;
     for(var row = 0;row < 4;row++){
@@ -92,7 +96,7 @@ function loadstack(){
             newtd.appendChild(newcan);
             var newGVM = new GVM(newcan,60,60);
             gvmArray.push(newGVM);
-            newGVM.importbytecode(hypercube);
+            newGVM.hypercube = mainGVM.hypercube;
             newGVM.x0 = 1;
             newGVM.y0 = 59;
             newGVM.unit = 58;
@@ -143,10 +147,17 @@ document.getElementById("actioninput").onkeypress = function(a) {
         if(mode == 2){
             localCursorAction = charCode;     
         }    
-
-        mainGVM.cursorAction(localCursorAction);   
-       // spellGVM.spellGlyph(currentGVM.glyph);    
+        mainGVM.cursorAction(localCursorAction); 
    }
+   
+    this.value = "";
+    mainGVM.clean();
+    mainGVM.hypercube[mainGVM.address] = mainGVM.cleanGlyph;
+    document.getElementById("spellinput").value = mainGVM.cleanGlyph;
+    spellGVM.spellGlyph(mainGVM.glyph);
+    gvmArray[mainGVM.address - 0220].drawGlyph("0300," + mainGVM.hypercube[mainGVM.address + 01000]);
+
+    
 }
 
 document.getElementById("actioninput").onkeydown = function(a) {
@@ -191,21 +202,31 @@ document.getElementById("actioninput").onkeydown = function(a) {
         mainGVM.drawGlyph(mainGVM.glyph);
         mainGVM.clean();
     }
-
-    
     this.value = "";
     mainGVM.clean();
     mainGVM.hypercube[mainGVM.address] = mainGVM.cleanGlyph;
     document.getElementById("spellinput").value = mainGVM.cleanGlyph;
     spellGVM.spellGlyph(mainGVM.glyph);
-
-    
+    gvmArray[mainGVM.address - 0220].drawGlyph("0300," + mainGVM.hypercube[mainGVM.address + 01000]);
 }
-
 
 function modeswitch(){
     
 }
+
+document.getElementById("savebutton").onclick  = function(){
+    document.getElementById("textio").value = mainGVM.bytecode(0220,0237);
+
+    hypercube = mainGVM.bytecode(0,01777);
+    var url = "filesaver.php";        
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(hypercube)+"&filename=data/hypercube.txt");//send text to filesaver.php    
+
+}
+
+
 /*
 //mainGVM.address = 01060;
 //mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
@@ -446,19 +467,35 @@ input{
     font-family:courier;
     font-size:12px;
 }
+#modebutton{
+    position:absolute;
+    left:5px;
+    bottom:5px;
+    width:30px;
+}
 #actioninput{
     position:absolute;
-    left:10px;
+    left:50px;
     width:10px;
     bottom:10px;
 }
 #spellinput{
     position:absolute;
-    left:25px;
+    left:70px;
     width:500px;
     bottom:10px;
 }
-
+#textio{
+    position:absolute;
+    bottom:50px;
+    left:10px;
+}
+#savebutton{
+    position:absolute;
+    left:20px;
+    bottom:150px;
+    border:solid;
+}
 .data{
     display:none;
 }
