@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+    <head>
+     <meta charset="utf-8"/>
+
+<!--
+NO MONEY
+NO MINING
+NO PROPERTY
+EVERYTHING IS PHYSICAL
+EVERYTHING IS RECURSIVE
+EVERYTHING IS FRACTAL
+LOOK AT THE INSECTS
+LOOK AT THE FUNGI
+LANGUGE IS HOW THE MIND PARSES REALITY
+
+-->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADf+wAA3/sAAAfgAACv9QAAoAUAAK/1AACv9QAAqBUAAK/1AACoFQAAr/UAAKAFAACv9QAAB+AAAN/7AADf+wAA" rel="icon" type="image/x-icon" />
+            <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+
+<!--       un comment to use math
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>
+            MathJax.Hub.Config({
+                tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                processEscapes: true,
+                processClass: "mathjax",
+                ignoreClass: "no-mathjax"
+                }
+            });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
+        </script>
+    -->
+
+<!-- 
+
+showdown is a javascript library which converts markdown to html.
+it lives here on the internet:
+http://showdownjs.com/
+
+Markdown is a lightweight language for creating formatted text on a computer, see the wikipedia entry here
+
+https://en.wikipedia.org/wiki/Markdown
+
+bootstrap is whole big thing that does lots of things, but what we use it for here is just to make things look good on a mobile device. 
+
+-->
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    </head>
+<body>
+    
+<div class = "mainscrollarea" id = "scrollscroll"></div>
+
+<div id = "margin">
+    <input id = "scrollinput"/>
+    <a href = "scrolleditor.html">
+         <img src = "iconsymbols/edit.svg"/>
+    </a>
+    <a href = "map.html">
+        <img src = "iconsymbols/map.svg"/>
+    </a>
+        <a href = "scrolldelete.html">
+            <img src = "iconsymbols/delete.svg"/>
+        </a>
+
+</div>
+
+<script>
+
+    
+    //get readme.md, convert to html and display
+    var converter = new showdown.Converter();
+    // for more on options see here:
+    // https://github.com/showdownjs/showdown/wiki/Showdown-Options
+    converter.setOption('literalMidWordUnderscores', 'true');
+    converter.setOption('tables', 'true');
+
+
+    scroll = "";
+    rawhtml = "";
+    loadscroll("scroll.md");
+    
+
+scrolls = [];
+var httpc2 = new XMLHttpRequest();
+    httpc2.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        scrolls = JSON.parse(this.responseText);
+        for(var index = scrolls.length - 1;index >= 0;index--) {
+            if(scrolls[index].substr(-3) == ".md"){
+    //            console.log(scrolls[index]);
+                var newscrollbutton = document.createElement("div");
+                newscrollbutton.className = "scrollbutton";
+                newscrollbutton.innerHTML = scrolls[index];
+                document.getElementById("margin").appendChild(newscrollbutton);
+                newscrollbutton.onclick = function(){
+                    var scrollname = this.innerHTML;
+                    //console.log(scrollname);
+                    loadscroll(scrollname);
+                }
+            }
+        }
+    }
+};
+
+httpc2.open("GET", "dir.php", true);
+httpc2.send();
+
+
+scrolls2 = [];
+var httpc3 = new XMLHttpRequest();
+    httpc3.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        scrolls2 = JSON.parse(this.responseText);
+        for(var index = scrolls2.length - 1;index >= 0;index--) {
+            var newscrollbutton = document.createElement("div");
+            newscrollbutton.className = "scrollbutton";
+            newscrollbutton.innerHTML = "scrolls/" + scrolls2[index];
+            document.getElementById("margin").appendChild(newscrollbutton);
+            newscrollbutton.onclick = function(){
+                var scrollname = this.innerHTML;
+                loadscroll(scrollname);
+            }
+        }
+    }
+};
+
+httpc3.open("GET", "dir.php?filename=scrolls", true);
+httpc3.send();
+
+document.getElementById("scrollinput").value = "";
+document.getElementById("scrollinput").onchange = function(){
+    loadscroll(this.value);
+    
+}
+
+function loadscroll(scrollname){
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        scroll = this.responseText;
+        rawhtml = converter.makeHtml(scroll);
+        document.getElementById("scrollscroll").innerHTML = rawhtml;
+        }
+        document.getElementById("scrollinput").value = "";
+
+    };
+    httpc.open("GET", "fileloader.php?filename=" + scrollname, true);
+    httpc.send();
+    //MathJax.Hub.Typeset();//tell Mathjax to update the math
+}
+
+</script>
+<style>
+input{
+    margin-bottom:1.5em;
+    font-family:courier;
+    font-size:16px;
+}
+#extscrollr{
+    border:solid;
+    border-width:0.5px;
+}
+.button{
+    width:10em;
+    border:solid;
+    text-align:center;
+    margin:auto;
+    border-radius:5px;
+    cursor:pointer;
+    font-family:courier;
+    background-color:#e0e0e0;
+    margin-top:1em;
+    margin-bottom:1em;
+ }
+    .scrollbutton{
+        cursor:pointer;
+        color:blue;
+        margin-bottom:0.5em;
+    }
+    body{
+        overflow:hidden;
+    }
+    .mainscrollarea{
+        position:absolute;
+        left:0px;
+        right:20%;
+        top:0px;
+        bottom:0px;
+    }
+    #scrollscroll{
+        overflow:scroll;
+        border-right:solid;
+        border-width:0.1px;
+        border-color:red;
+        padding-left:1em;
+        padding-right:1em;
+        padding-bottom:5em;
+    }
+    #scrollscroll img{
+        max-width:80%;
+        display:block;
+        margin:auto;
+    }
+    #scrollscroll h1,h2,h3,h4{
+        margin:auto;
+        text-align:center;
+    }
+    #margin{
+        position:absolute;
+        right:0px;
+        bottom:0px;
+        top:0px;
+        width:18%;
+        overflow:scroll;
+    }
+    @media only screen and (orientation: portrait) {
+        .mainscrollarea{
+            position:absolute;
+            left:0px;
+            top:10%;
+            right:0px;
+            bottom:0px;
+            font-size:3em;
+        }
+        h1{
+            font-size:1.5em;
+        }
+        h2{
+            font-size:1.25em;
+        }
+        h3{
+            font-size:1em;
+        }
+        h4{
+            font-size:0.8em;
+        }
+        #margin{
+            position:absolute;
+            right:0px;
+            left:0px;
+            top:0px;
+            width:100%;
+            height:10%;
+            overflow:scroll;
+        }
+    }
+</style>
+</body>
+</html>

@@ -1,0 +1,112 @@
+[
+    {
+        "x": 0.3448687350835322,
+        "y": 0.17780429594272076,
+        "w": 0.32100238663484487,
+        "angle": 0,
+        "text": "Electronics Kit",
+        "href": "",
+        "src": "https://i.imgur.com/LgcLdus.png",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.017899761336515514,
+        "y": -0.002386634844868735,
+        "w": 0.9343675417661098,
+        "angle": 0,
+        "text": "Bridge Tool Kit",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.8389021479713604,
+        "y": -0.02386634844868735,
+        "w": 0.8890214797136038,
+        "angle": 0,
+        "text": "kits",
+        "href": "maps/kits",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.36992840095465396,
+        "y": 0.5047732696897375,
+        "w": 0.2828162291169451,
+        "angle": 0,
+        "text": "thick stiff plastic(ABS/nylon/PP)",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.383054892601432,
+        "y": 0.15513126491646778,
+        "w": 0.26610978520286394,
+        "angle": 0,
+        "text": "thin HDPE from milk jug",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.13126491646778043,
+        "y": 0.24463007159904535,
+        "w": 0.23269689737470167,
+        "angle": 0,
+        "text": "Electronics Kit",
+        "href": "",
+        "src": "https://i.imgur.com/OvP6zkt.png",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.6443914081145584,
+        "y": 0.23627684964200477,
+        "w": 0.23269689737470167,
+        "angle": 0,
+        "text": "Electronics Kit",
+        "href": "",
+        "src": "https://i.imgur.com/OvP6zkt.png",
+        "maplinkmode": true
+    },
+    {
+        "x": -0.002386634844868735,
+        "y": 0.548926014319809,
+        "w": 0.5119331742243437,
+        "angle": 0,
+        "text": "Electronics Kit",
+        "href": "",
+        "src": "https://i.imgur.com/B31p7Fz.png",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.4964200477326969,
+        "y": 0.5501193317422435,
+        "w": 0.5119331742243437,
+        "angle": 0,
+        "text": "Electronics Kit",
+        "href": "",
+        "src": "https://i.imgur.com/B31p7Fz.png",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.08233890214797136,
+        "y": 0.6670644391408115,
+        "w": 0.8317422434367542,
+        "angle": 0,
+        "text": "Electronics Kit",
+        "href": "",
+        "src": "https://i.imgur.com/p8QfdkY.png",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.19331742243436753,
+        "y": 0.8257756563245824,
+        "w": 0.301909307875895,
+        "angle": -30,
+        "text": "joints are duct taped",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    }
+]
