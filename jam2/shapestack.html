@@ -22,17 +22,21 @@
     <META NAME="robots" CONTENT="noindex,nofollow">
 
     <script src="jscode/geometron.js"></script>
-
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"></script>
+    
 </head>
 <body>    
 
 <table id = "shapetable"></table>
 <div id = "displaybox">
+    <img id = "mainimage"/>
     <canvas id=  "maincanvas"></canvas>
+    <div id = "hammerxy"></div>
 </div>
 <div id = "spellbox">
     <canvas id = "spellcanvas"></canvas>
 </div>
+<input id = "srcinput"/>
 
 <img id = "modeindicator" src = "iconsymbols/cursor.svg"/>
 <input id = "actioninput"/>
@@ -233,6 +237,31 @@ document.getElementById("savebutton").onclick  = function(){
 
 }
 
+document.getElementById("srcinput").value = "";
+document.getElementById("srcinput").onchange = function(){
+    document.getElementById("mainimage").src = this.value;
+    document.getElementById("actioninput").select();
+}
+
+document.getElementById("spellinput").onchange =  function(){
+    mainGVM.hypercube[mainGVM.address] = this.value;
+    mainGVM.glyph = this.value + "0207,";
+    mainGVM.drawGlyph(mainGVM.glyph);
+    mainGVM.clean();
+    spellGVM.spellGlyph(mainGVM.glyph);
+    gvmArray[mainGVM.address - 0220].drawGlyph("0300," + mainGVM.hypercube[mainGVM.address + 01000]);
+    
+}
+
+
+mc = new Hammer(document.getElementById("hammerxy"));
+mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+mc.on("panleft panright panup pandown tap press rotate", function(ev) {
+    document.getElementById("mainimage").style.left = (ev.deltaX).toString() +  "px";
+    document.getElementById("mainimage").style.top = (ev.deltaY).toString() +  "px";
+
+});    
+
 
 document.getElementById("actioninput").select();
 </script>
@@ -242,6 +271,21 @@ document.getElementById("actioninput").select();
     left:300px;
     top:15px;
     border:solid;
+}
+#mainimage{
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:100%;
+    z-index:-2;
+}
+#hammerxy{
+    position:absolute;
+    left:0px;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    z-index:2;
 }
 #shapetable{
     position:absolute;
@@ -263,6 +307,11 @@ input{
     left:5px;
     bottom:5px;
     width:30px;
+}
+#srcinput{
+    position:absolute;
+    right:0px;
+    top:0px;
 }
 #actioninput{
     position:absolute;
