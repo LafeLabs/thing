@@ -25,9 +25,14 @@
 
 </head>
 <body>
-<a href = "feededitor.html" id = "editlink">
-    <img src = "iconsymbols/edit.svg"/>
+<a href = "imagefeed.html" id = "editlink">
+    <img src = "iconsymbols/image.svg"/>
 </a>
+
+<a href = "glyphfeed.html" id = "glyphlink">
+    <img src = "iconsymbols/cursor.svg"/>
+</a>
+
 
 <div id = "feed">
 </div>
@@ -102,6 +107,16 @@ function loadfeed(){
     top:5px;
     width:50px;
     z-index:1;
+}
+#glyphlink{
+    position:absolute;
+    left:5px;
+    top:60px;
+    width:50px;
+    z-index:1;
+}
+#glyphlink img{
+    width:100%;
 }
 #editlink img{
     width:100%;
