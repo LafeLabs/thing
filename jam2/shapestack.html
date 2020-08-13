@@ -36,7 +36,21 @@
 <div id = "spellbox">
     <canvas id = "spellcanvas"></canvas>
 </div>
-<input id = "srcinput"/>
+
+<div id = "zoomrotatebox">
+    <img src = "iconsymbols/scale.svg" id = "scalebar"/>
+    <img src = "iconsymbols/rotate.svg" id = "rotatebar"/>
+</div>
+
+<table id = "srcinputtable">
+    <tr>
+        <td>Image Url:</td>
+        <td>
+            <input id = "srcinput"/>    
+        </td>
+    </tr>
+</table>
+
 
 <img id = "modeindicator" src = "iconsymbols/cursor.svg"/>
 <input id = "actioninput"/>
@@ -263,6 +277,27 @@ mc.on("panleft panright panup pandown tap press rotate", function(ev) {
 });    
 
 
+
+mczoom = new Hammer(document.getElementById("scalebar"));
+mczoom.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+mczoom.on("panleft panright panup pandown tap press", function(ev) {
+
+document.getElementById("mainimage").style.width = (2*ev.deltaX).toString() +  "px";
+
+});    
+
+
+
+mcrotate = new Hammer(document.getElementById("rotatebar"));
+mcrotate.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+mcrotate.on("panleft panright panup pandown tap press", function(ev) {
+
+    document.getElementById("mainimage").style.transform = "rotate(" + (ev.deltaX*Math.PI/5).toString() + "deg)";
+
+
+});    
+
+
 document.getElementById("actioninput").select();
 </script>
 <style>
@@ -287,6 +322,28 @@ document.getElementById("actioninput").select();
     bottom:0px;
     z-index:2;
 }
+#zoomrotatebox{
+    position:absolute;
+    left:600px;
+    top:40px;
+    height:100px;
+    width:250px;
+    background-color:#dfdfdf;
+}
+#scalebar{
+    position:absolute;
+    width:100%;
+    height:50%;
+    left:0px;
+    top:0px;
+}
+#rotatebar{
+    position:absolute;
+    width:100%;
+    height:50%;
+    left:0px;
+    bottom:0px;
+}
 #shapetable{
     position:absolute;
     left:10px;
@@ -308,10 +365,13 @@ input{
     bottom:5px;
     width:30px;
 }
-#srcinput{
+#srcinputtable{
     position:absolute;
-    right:0px;
+    left:600px;
     top:0px;
+}
+#srcinput{
+    width:200px;
 }
 #actioninput{
     position:absolute;
