@@ -87,15 +87,7 @@
 </div>
 <div id = "controlbox">
     <table id = "buttontable">
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+        <tr id = "buttontr">
         </tr>
     </table>
     <table id = "controltable">
@@ -131,6 +123,20 @@ controls  = [
     "0504,0505,0506,0507,"
 ];
 
+
+
+function loadbuttontable(){
+    var newtr = document.getElementById("buttontr");
+    var newtd = document.createElement("TD");
+    newtr.appendChild(newtd);
+    newtd.innerHTML = "save feed";
+    newtd.classList.add("tablebutton");
+    newtd.classList.add("button");
+    newtd.onclick = function(){
+        //save feed
+    }
+    
+}
 
 function loadcontroltable(){
     document.getElementById("controltable").innerHTML = "";
@@ -254,6 +260,7 @@ httpcHypercube.onreadystatechange = function(){
                 feedElement = feed[feedindex];
                 drawmain();
                 loadcontroltable();
+                loadbuttontable();
             }
         };
         httpcFeed.open("GET", "fileloader.php?filename=data/feed.txt", true);
@@ -554,7 +561,7 @@ document.getElementById("pngimage").onload = function() {
     feed[feedindex].image.src = pngcode;
     feedElement.image.src = pngcode;
     document.getElementById("mainimage").src = pngcode;
-    console.log(pngcode);
+//    console.log(pngcode);
 //    foo = canvas.toDataURL('image/jpeg', 0.1);
     
 };
@@ -929,6 +936,15 @@ function saverobot(){
 }
 #pngimage{
     width:200px;
+}
+.tablebutton{
+    border:solid;
+    font-family:courier;
+    font-size:12px;
+    width:40px;
+    text-align:center;
+    border:solid;
+    border-color:blue;
 }
 </style>
 </body>
