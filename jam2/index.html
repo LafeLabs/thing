@@ -14,6 +14,7 @@
         LOOK AT THE FUNGI
         LANGUAGE IS HOW THE MIND PARSES REALITY
 
+    
     -->
     
     <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/wAAAAD//wAA/wAAAAD/AP8A/wAApv8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFUAAARGAAIxFVUABEYAAjMRFQAARGYiIjMRAABERmZiIzEAAARERGZiMwAAAARERGYiAAAAAABERiL4PwAA+78AAPu/AAD33wAA9V8AAPVfAAD1XwAA998AAOADAADhAAAA4AAAAPAAAADwAAAA+AAAAP4AAAD/wAAA" rel="icon" type="image/x-icon" />
@@ -22,126 +23,358 @@
     <META NAME="robots" CONTENT="noindex,nofollow">
 <!--geometron javascript library-->
     <script src="jscode/geometron.js"></script>
-
 </head>
 <body>
-<a href = "imagefeed.html" id = "editlink">
-    <img src = "iconsymbols/image.svg"/>
-</a>
 
-<a href = "glyphfeed.html" id = "glyphlink">
-    <img src = "iconsymbols/glyphfeed.svg"/>
-</a>
-
-
-<div id = "feed">
+<div id = "mainbox">
+    main box
+    <div id = "maincanvasbox">
+        <canvas id = "maincanvas"></canvas>
+    </div>
 </div>
-<textarea id = "textio"></textarea>
+<div id = "spellbox">
+    spell box
+</div>
+<div id = "imagefeedbox">
+    <div id = "imagefeedheader">
+        <div id = "zoomrotatebox">
+            <img src = "iconsymbols/scale.svg" id = "scalebar"/>
+            <img src = "iconsymbols/rotate.svg" id = "rotatebar"/>
+        </div>
+        <form id = "uploadform" style = "margin-top:10px" action="upload.php" method="post" enctype="multipart/form-data">
+                Select image to upload:
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <input type="submit" value="Upload Image" name="submit">
+        </form>        
+        <table id  = "imagecontroltable">
+            <tr>
+                <td><img src = "iconsymbols/deleteimage.svg" id = "deleteimagebutton"/></td>
+                <td>Image url:</td>
+                <td>
+                    <input id = "imageurlinput"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id = "imagefeed"></div>
+</div>
+<div id = "shapestackbox">
+    shape stack box
+    <table id = "shapestacktable"></table>
+</div>
+<div id ="mainfeedbox">
+    <div id = "mainfeedheader">
+        <img id = "mainimage"/>
+        <a href = "data/feed.txt">data/feed.txt</a>
+        <table id = "feedbuttontable"></table>
+        <textarea id  = "textio"></textarea>
+    </div>
+    <div id = "mainfeed"></div>
+</div>
+<div id = "controlbox">
+    <table id = "controltable">
+    </table>
+</div>
+<div id = "robotconfigbox">
+    <table>
+        <tr>
+            <td id = "polarity1button" class = "button">POLARITY1 = <span id = "polarity1">0</span></td>
+        </tr>
+        <tr>
+            <td id = "polarity2button" class = "button">POLARITY2 = <span id = "polarity2">0</span></td>
+        </tr>
+        <tr>
+            <td id = "polarity3button" class = "button">POLARITY3 = <span id = "polarity3">0</span></td>
+        </tr>
+        <tr>
+            <td id = "upsidedownbutton" class = "button">UPSIDEDOWN = <span id = "upsidedown">0</span></td>
+        </tr>
+        
+    </table>
+</div>
+
 <script>
+//load 4 files: data/feed.txt, data/imagefeed.txt data/robot.txt, and data/hypercube.txt
 
-loaddata();
 
-function loaddata(){
-    var httpc = new XMLHttpRequest();
-    httpc.onreadystatechange = function(){
+
+
+
+//****************************************************************
+//below this line is the image feed, followed by robot config
+//*******************************************************************
+
+imagefeed = [];
+var httpcImagefeed = new XMLHttpRequest();
+httpcImagefeed.onreadystatechange = function(){
         if (this.readyState == 4 && this.status == 200) {
-            hypercube = JSON.parse(this.responseText);
-            var httpc2 = new XMLHttpRequest();
-            httpc2.onreadystatechange = function(){
-                if (this.readyState == 4 && this.status == 200) {
-                    feed = JSON.parse(this.responseText);
-                    loadfeed();
+            imagefeed = JSON.parse(this.responseText);
+            for(var index = imagefeed.length - 1;index >= 0;index--){
+                var newbox = document.createElement("DIV");
+                newbox.classList.add("imagebox");
+                var newimg = document.createElement("IMG");
+                newimg.src = imagefeed[index];
+                newimg.classList.add("uploadimage");
+                newimg.classList.add("button");
+                newbox.appendChild(newimg);
+                document.getElementById("imagefeed").appendChild(newbox);
+                newimg.onclick = function() {
+                    var localsrc = this.src;
+                    document.getElementById("mainimage").src = localsrc;
+                    document.getElementById("imageurlinput").value = localsrc;
+//                    feed[feedindex].image.src = localsrc;
+  //                  loadfeed();
+    //                gvmArray[feedindex].glyph = feed[feedindex].glyph;
+      //              gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
                 }
-            };
-            httpc2.open("GET", "fileloader.php?filename=data/feed.txt", true);
-            httpc2.send();
-
+                var newimg = document.createElement("IMG");
+                newimg.src = "iconsymbols/delete.svg";
+                newuploadbox.appendChild(newimg);
+                newimg.classList.add("button");
+                newimg.classList.add("deletebutton");
+                newimg.id = "if" + index.toString();
+                newimg.onclick = function(){
+                    //find the index and remove that from the feed 
+                    var thisindex = parseInt(this.id.substring(2));
+                    var tempimagefeed = [];
+                    for(var imageindex=0;imageindex<imagefeed.length;imageindex++){
+                        if(imageindex != thisindex){
+                            tempimagefeed.push(imagefeed[imageindex]);
+                        }
+                        imagefeed = tempimagefeed;
+                    }
+                    this.parentElement.parentElement.removeChild(this.parentElement);
+                    saveimagefeed();
+                }
+            }
         }
     };
-    httpc.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
-    httpc.send();
+httpcImagefeed.open("GET", "fileloader.php?filename=data/imagefeed.txt", true);
+httpcImagefeed.send();
+
+
+function saveimagefeed(){
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", "filesaver.php", true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(JSON.stringify(imagefeed,null,"  "))+"&filename=data/imagefeed.txt");//send text to filesaver.php   
 }
 
-function loadfeed(){
-    feedwidth = innerWidth;
-    feedlinkwidth = feedwidth - 500;
-    for(var index = 0;index < feed.length;index++){
-        var newdiv = document.createElement("DIV");
-        var newcan = document.createElement("CANVAS");
-        newcan.className = "feedcan";
-        newdiv.style.marginTop = 0.05*feedwidth + "px";
-        newdiv.style.marginBottom = 0.05*feedwidth + "px";
-        newdiv.appendChild(newcan);
-        newdiv.className = "feedelement";
-        document.getElementById("feed").appendChild(newdiv);
-        var newGVM = new GVM(newcan,feedlinkwidth,feedlinkwidth);
-        newGVM.importbytecode(hypercube);
-        //GVM(canvas2d,x0,y0,unit,width,height)
-        newGVM.drawGlyph(feed[index].glyph);    
-        if(feed[index].image.src.length > 0){
-            var newimg = document.createElement("IMG");
-            newimg.src = feed[index].image.src;
-            newdiv.appendChild(newimg);
-            newimg.className = "feedimage";
-            newimg.style.width = (feed[index].image.w*feedlinkwidth).toString() + "px";
-            newimg.style.left = (feed[index].image.x*feedlinkwidth).toString() + "px";
-            newimg.style.top = (feed[index].image.y*feedlinkwidth).toString() + "px";
-            newimg.style.transform = "rotate(" + feed[index].image.angle.toString() + "deg)";
-        }
+//*********************************************************
+//everything below this line is the robot config editor
+//**********************************************************
+
+document.getElementById("polarity1button").onclick = function(){
+    robot.polarity1 = robot.polarity1^1;
+    if(robot.polarity1 == 0){
+        document.getElementById("polarity1").innerHTML = "0";
     }    
+    else{
+        document.getElementById("polarity1").innerHTML = "1";
+    }
+    saverobot();
+}
+
+document.getElementById("polarity2button").onclick = function(){
+    robot.polarity2 = robot.polarity2^1;
+    if(robot.polarity2 == 0){
+        document.getElementById("polarity2").innerHTML = "0";
+    }    
+    else{
+        document.getElementById("polarity2").innerHTML = "1";
+    }
+    saverobot();
 }
 
 
-//document.getElementById("textio").value = JSON.stringify(feed,null,"    ");
+document.getElementById("polarity3button").onclick = function(){
+    robot.polarity3 = robot.polarity3^1;
+    if(robot.polarity3 == 0){
+        document.getElementById("polarity3").innerHTML = "0";
+    }    
+    else{
+        document.getElementById("polarity3").innerHTML = "1";
+    }
+    saverobot();
+}
+
+document.getElementById("upsidedownbutton").onclick = function(){
+    robot.upsidedown = robot.upsidedown^1;
+    if(robot.upsidedown == 0){
+        document.getElementById("upsidedown").innerHTML = "0";
+    }    
+    else{
+        document.getElementById("upsidedown").innerHTML = "1";
+    }
+    saverobot();
+}
+
+
+var httpcRobot = new XMLHttpRequest();
+httpcRobot.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        robot = JSON.parse(this.responseText);
+
+        if(robot.polarity1 == 0){
+            document.getElementById("polarity1").innerHTML = "0";
+        }    
+        else{
+            document.getElementById("polarity1").innerHTML = "1";
+        }
+        if(robot.polarity2 == 0){
+            document.getElementById("polarity2").innerHTML = "0";
+        }    
+        else{
+            document.getElementById("polarity2").innerHTML = "1";
+        }
+        if(robot.polarity3 == 0){
+            document.getElementById("polarity3").innerHTML = "0";
+        }    
+        else{
+            document.getElementById("polarity3").innerHTML = "1";
+        }
+        if(robot.upsidedown == 0){
+            document.getElementById("upsidedown").innerHTML = "0";
+        }    
+        else{
+            document.getElementById("upsidedown").innerHTML = "1";
+        }
+
+    }
+};
+httpcRobot.open("GET", "fileloader.php?filename=data/robot.txt", true);
+httpcRobot.send();    
+
+function saverobot(){
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", "filesaver.php", true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(JSON.stringify(robot,null,"  "))+"&filename=data/robot.txt");//send text to filesaver.php
+}
 
 </script>
 <style>
-#textio{
-    position:relative;
-    z-index:2;
-    display:none;
-}
-#editlink{
+#mainbox{
     position:absolute;
-    left:5px;
-    top:5px;
-    width:50px;
-    z-index:1;
+    right:0px;
+    top:0px;
+    width:250px;
+    height:250px;
+    border:solid;
+    border-color:blue;
 }
-#glyphlink{
+#mainimage{
     position:absolute;
-    left:5px;
-    top:60px;
-    width:50px;
-    z-index:1;
-}
-#glyphlink img{
+    left:0px;
+    top:0px;
     width:100%;
+    z-index:-2;
 }
-#editlink img{
+#spellbox{
+    position:absolute;
+    right:0px;
+    top:250px;
+    width:250px;
+    height:250px;
+    border:solid;
+    border-color:green;
+}
+#imagefeedbox{
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:250px;
+    height:50%;
+    border:solid;
+    border-color:blue;   
+}
+#imagefeedheader{
+    position:absolute;
+    top:0px;
+    left:0px;
+    right:0px;
+    height:200px;
+}
+#imagefeed{
+    position:absolute;
+    top:200px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    overflow:scroll;
+}
+#zoomrotatebox{
+    position:absolute;
+    top:0px;
+    left:0px;
+    right:0px;
+    height:100px;
+}
+#scalebar{
     width:100%;
+    height:50%;
 }
-#feed{
+#rotatebar{
+    width:100%;
+    height:50%;
+}
+#mainfeedbox{
     position:absolute;
     left:0px;
     bottom:0px;
-    width:100%;
-    top:0px;
-    overflow:scroll;
-}
-.feedelement{
-    margin-top:100px;
-    margin:auto;
+    width:250px;
+    height:49%;
     border:solid;
-    overflow:hidden;
+    border-color:blue;   
 }
-.feedcan{
+#controlbox{
     position:absolute;
-    
+    right:260px;
+    width:300px;
+    overflow:scroll;
+    height:500px;
+    top:0px;
+    border:solid;
+    border-color:red;
 }
-.feedimage{
-    position:relative;
-    z-index:-1;
+#shapestackbox{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    border:solid;
+    border-color:yellow;
+    width:250px;
+    height:250px;
+}
+#robotconfigbox{
+    position:absolute;
+    bottom:0px;
+    right:500px;
+    width:200px;
+    height:200px;
+    border:solid;
+    border-color:purple;
+}
+#deleteimagebutton{
+    width:20px;
+}
+#imagecontroltable{
+    position:absolute;
+    bottom:0px;
+}
+#uploadform{
+    position:absolute;
+    top:100px;
+}
+.button{
+    border:solid;
+    cursor:pointer;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
 }
 </style>
 </body>
