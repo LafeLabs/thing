@@ -191,6 +191,19 @@ function loadbuttontable(){
     newtd.classList.add("button");
     newtd.onclick = function(){
         //save feed
+        var imagewidthpx = parseInt(document.getElementById("mainimage").style.width);
+        var imagexpx = parseInt(document.getElementById("mainimage").style.left);
+        var imageypx = parseInt(document.getElementById("mainimage").style.top);
+        var parentwidthpx = mainGVM.width;
+        var rotatedeg = parseInt(document.getElementById("mainimage").style.transform.substring(7));
+        feed[feedindex].glyph = mainGVM.cleanGlyph;
+        feed[feedindex].image.angle = rotatedeg;
+        feed[feedindex].image.w = imagewidthpx/parentwidthpx;
+        feed[feedindex].image.x = imagexpx/parentwidthpx;
+        feed[feedindex].image.y = imageypx/parentwidthpx;
+        feed[feedindex].src = document.getElementById("mainimage").src;
+                        
+                        
         var httpc = new XMLHttpRequest();
         httpc.open("POST", "filesaver.php", true);
         httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -224,7 +237,7 @@ function loadbuttontable(){
         var httpc = new XMLHttpRequest();
         httpc.open("POST", "filesaver.php", true);
         httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        httpc.send("data="+encodeURIComponent(JSON.stringify(mainGVM.bytecode(0,01777),null,"  "))+"&filename=data/feed.txt");//send text to filesaver.php
+        httpc.send("data="+encodeURIComponent(JSON.stringify(mainGVM.bytecode(0,01777),null,"  "))+"&filename=data/hypercube.txt");//send text to filesaver.php
         document.getElementById("textio").value = JSON.stringify(mainGVM.bytecode(0,01777),null,"  ");
     }    
     var newtd = document.createElement("TD");
@@ -280,6 +293,15 @@ function loadbuttontable(){
         //remove image from element
     }        
 
+    var newtd = document.createElement("TD");
+    newtr2.appendChild(newtd);
+    newtd.innerHTML = "load robot";
+    newtd.classList.add("tablebutton");
+    newtd.classList.add("button");
+    newtd.onclick = function(){
+        //save robot glyph
+        alert("robot");
+    }        
     
     
 }
