@@ -131,7 +131,7 @@ stackButtonArray = [];
 
 stackbuttonsize = 30;
 
-stackMode = false;
+stackMode = false;//if true, edit a "stack" in the Hypercube, if false, by default one is editing the feed's geometron glyphs
 
 for(var row = 0;row < 4; row++){
     var newtr = document.createElement("TR");
@@ -153,19 +153,22 @@ for(var row = 0;row < 4; row++){
         newdiv.className = "data";
         newdiv.innerHTML = "0220";
         newtd.appendChild(newdiv);
-        newdiv.id = "stackdata" + col + row*4;
+        newtd.id = "stackcans" + (col + row*4).toString();
         stackButtonArray.push(newtd);
         newtd.onclick = function(){
-            var localaddress = parseInt(this.getElementsByClassName("data")[0].innerHTML,8);
-            console.log(localaddress.toString(8));
             stackMode = true;
-
+            var localaddress = parseInt(this.getElementsByClassName("data")[0].innerHTML,8);            
+            var oldstackbuttonindex = (mainGVM.address)%020;
+            stackButtonArray[oldstackbuttonindex].getElementsByTagName("canvas")[0].style.backgroundColor = "white";
+            stackMode = true;
             mainGVM.address = localaddress;
+
             mainGVM.glyph = mainGVM.hypercube[localaddress] + "0207,";
             mainGVM.clean();
             mainGVM.drawGlyph(mainGVM.glyph);
             spellGVM.spellGlyph(mainGVM.glyph);
             document.getElementById("spellinput").value = mainGVM.cleanGlyph;    
+            this.getElementsByTagName("canvas")[0].style.backgroundColor = "#c0c0c0";
         }
     }
 }
@@ -479,6 +482,13 @@ function loadfeed(){
         newimg.style.transform = "rotate(" + feed[index].image.angle.toString() + "deg)";
         newdiv.id = "fd" + index.toString();
         newdiv.onclick = function(){
+            if(stackMode){
+                //make the backtround white
+                var oldstackbuttonindex = (mainGVM.address)%020;
+                stackButtonArray[oldstackbuttonindex].getElementsByTagName("canvas")[0].style.backgroundColor = "white";        
+            }
+            stackMode = false;//if a feed element is selected we are editing the feed not the hypercube
+            
             mainGVM.clean();
             var imagewidthpx = parseInt(document.getElementById("mainimage").style.width);
             var imagexpx = parseInt(document.getElementById("mainimage").style.left);
