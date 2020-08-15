@@ -370,8 +370,8 @@ function saveimagefeed(){
 document.getElementById("imageurlinput").value = "";
 document.getElementById("imageurlinput").onchange = function(){
     imagefeed.push(this.value);
+
     saveimagefeed();
-    
     var newuploadbox = document.createElement("DIV");
     newuploadbox.classList.add("uploadbox");
     var newimg = document.createElement("IMG");
