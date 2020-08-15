@@ -86,6 +86,18 @@
     <div id = "feed"></div>
 </div>
 <div id = "controlbox">
+    <table id = "buttontable">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
     <table id = "controltable">
     </table>
 </div>
@@ -106,9 +118,100 @@
         
     </table>
 </div>
-
+<div id = "pngcanvasbox">
+    <canvas id = "pngcanvas"></canvas>
+    <img id = "pngimage">
+</div>
 <script>
 //load 4 files: data/feed.txt, data/imagefeed.txt data/robot.txt, and data/hypercube.txt
+
+controls  = [
+    "020,010,021,0340,0220,0221,022,023,",
+    "0500,0501,0502,0503,",
+    "0504,0505,0506,0507,"
+];
+
+
+function loadcontroltable(){
+    document.getElementById("controltable").innerHTML = "";
+    for(var index = 0;index < controls.length;index++){
+        var newtr = document.createElement("TR");
+        document.getElementById("controltable").appendChild(newtr);
+        rowarray = controls[index].split(",");
+        for(var rowindex = 0;rowindex < rowarray.length;rowindex++){
+            if(rowarray[rowindex].length > 0){
+                var newtd = document.createElement("TD");
+                newtr.appendChild(newtd);
+                var newcan = document.createElement("CANVAS");
+                newtd.appendChild(newcan);
+                var datadiv = document.createElement("div");
+                datadiv.innerHTML = rowarray[rowindex];
+                datadiv.className = "data";
+                newtd.appendChild(datadiv);
+                var newGVM = new GVM(newcan,30,30);
+                newGVM.unit = 28;
+                newGVM.x0 = 1;
+                newGVM.y0 = 29;
+                newGVM.importbytecode(hypercube);
+                newGVM.action(0300);
+                newGVM.action(parseInt(rowarray[rowindex],8)+01000);
+                newtd.onclick = function(){
+                    var localaction = parseInt(this.getElementsByClassName("data")[0].innerHTML,8);
+                    if(localaction != 022 && localaction != 023){
+                        mainGVM.cursorAction(localaction);
+                    }
+                    if(localaction == 022){
+                        mainGVM.clean();
+                        var imagewidthpx = parseInt(document.getElementById("mainimage").style.width);
+                        var imagexpx = parseInt(document.getElementById("mainimage").style.left);
+                        var imageypx = parseInt(document.getElementById("mainimage").style.top);
+                        var parentwidthpx = mainGVM.width;
+                        var rotatedeg = parseInt(document.getElementById("mainimage").style.transform.substring(7));
+                            
+                        feed[feedindex].glyph = mainGVM.cleanGlyph;
+                        feed[feedindex].image.angle = rotatedeg;
+                        feed[feedindex].image.w = imagewidthpx/parentwidthpx;
+                        feed[feedindex].image.x = imagexpx/parentwidthpx;
+                        feed[feedindex].image.y = imageypx/parentwidthpx;
+                        feed[feedindex].src = document.getElementById("mainimage").src;
+                        feedindex--;
+                        if(feedindex < 0){
+                           feedindex = feed.length - 1;
+                        }
+                        feedElement = feed[feedindex];
+                        drawmain();
+                    }
+                    if(localaction == 023){
+                        mainGVM.clean();
+                        var imagewidthpx = parseInt(document.getElementById("mainimage").style.width);
+                        var imagexpx = parseInt(document.getElementById("mainimage").style.left);
+                        var imageypx = parseInt(document.getElementById("mainimage").style.top);
+                        var parentwidthpx = mainGVM.width;
+                        var rotatedeg = parseInt(document.getElementById("mainimage").style.transform.substring(7));
+                            
+                        feed[feedindex].glyph = mainGVM.cleanGlyph;
+                        feed[feedindex].image.angle = rotatedeg;
+                        feed[feedindex].image.w = imagewidthpx/parentwidthpx;
+                        feed[feedindex].image.x = imagexpx/parentwidthpx;
+                        feed[feedindex].image.y = imageypx/parentwidthpx;
+                        feed[feedindex].src = document.getElementById("mainimage").src;
+                        feedindex++;
+                        if(feedindex > feed.length - 1){
+                           feedindex = 0;
+                        }
+                        feedElement = feed[feedindex];
+                        drawmain();
+                    }
+                    mainGVM.clean();
+                    spellGVM.spellGlyph(mainGVM.glyph);
+                    document.getElementById("spellinput").value = mainGVM.cleanGlyph;
+                }
+                newcan.classList.add("button");
+            }
+        }
+    }
+}
+
 
 feed = [];
 feedindex = 0;
@@ -130,7 +233,7 @@ var spellGVM = new GVM(document.getElementById("spellcanvas"),420,800);
 
 spellGVM.x0 = 5;
 spellGVM.y0 = 35;
-spellGVM.unit = 26;
+spellGVM.unit = 20;
 
 gvmArray = [];
 
@@ -150,6 +253,7 @@ httpcHypercube.onreadystatechange = function(){
                 loadfeed();
                 feedElement = feed[feedindex];
                 drawmain();
+                loadcontroltable();
             }
         };
         httpcFeed.open("GET", "fileloader.php?filename=data/feed.txt", true);
@@ -338,6 +442,14 @@ if(innerWidth > innerHeight){
     document.getElementById("actioninput").select();
 }
 
+document.getElementById("spellinput").onchange = function(){
+    mainGVM.glyph = this.value + "0207,";
+    mainGVM.clean();
+    feed[feedindex].glyph = mainGVM.cleanGlyph;
+    drawmain();
+    
+}
+
 //****************************************************************
 //below this line is the image feed, followed by robot config
 //*******************************************************************
@@ -400,10 +512,13 @@ var httpcUpload = new XMLHttpRequest();
             document.getElementById("imagefeed").appendChild(newuploadbox);
             newimg.onclick = function() {
                 var localsrc = "uploadimages" + this.src.split("uploadimages")[1];
+                
+                //put the image into 
                 document.getElementById("imageurlinput").value = localsrc;    
-                feed[feedindex].image.src = localsrc;
+                document.getElementById("pngimage").src = localsrc;
+//                feed[feedindex].image.src = localsrc;
           
-                document.getElementById("mainimage").src = localsrc;
+  //              document.getElementById("mainimage").src = localsrc;
 
             }
             var newimg = document.createElement("IMG");
@@ -428,6 +543,22 @@ var httpcUpload = new XMLHttpRequest();
 httpcUpload.open("GET", "dir.php?filename=uploadimages", true);
 httpcUpload.send();
 
+
+document.getElementById("pngimage").onload = function() {
+    canvas = document.getElementById("pngcanvas");
+    ctx = canvas.getContext("2d");
+    canvas.width = this.width;
+    canvas.height = this.height;
+    img = document.getElementById("pngimage");
+    img.crossOrigin = 'Anonymous';
+    ctx.drawImage(img, 0,0,this.width,this.height);
+    var pngcode = canvas.toDataURL();
+    feed[feedindex].src = pngcode;
+    document.getElementById("mainimage").src = pngcode;
+    feedElement.image.src = pngcode;
+//    foo = canvas.toDataURL('image/jpeg', 0.1);
+    
+};
 
 imagefeed = [];
 var httpcImagefeed = new XMLHttpRequest();
@@ -739,8 +870,8 @@ function saverobot(){
     position:absolute;
     bottom:0px;
     right:500px;
-    width:200px;
-    height:200px;
+    width:180px;
+    height:140px;
     border:solid;
     border-color:purple;
 }
@@ -756,7 +887,6 @@ function saverobot(){
     top:100px;
 }
 .button{
-    border:solid;
     cursor:pointer;
 }
 .button:hover{
@@ -794,6 +924,13 @@ function saverobot(){
 }
 #modeindicator{
     width:25px;
+}
+#pngcanvasbox{
+    display:none;
+}
+#pngimage{
+    width:200px;
+    height:200px;
 }
 </style>
 </body>
