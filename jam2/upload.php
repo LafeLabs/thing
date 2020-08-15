@@ -29,7 +29,7 @@ else{
 </p>-->
 <p style = "font-size:5em">
 
-    <a href = "imagefeed.html">imagefeed.html</a>
+    <a href = "index.html">index.html</a>
 
 </p>
 

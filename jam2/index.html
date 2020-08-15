@@ -514,11 +514,9 @@ var httpcUpload = new XMLHttpRequest();
                 var localsrc = "uploadimages" + this.src.split("uploadimages")[1];
                 
                 //put the image into 
+                
                 document.getElementById("imageurlinput").value = localsrc;    
                 document.getElementById("pngimage").src = localsrc;
-//                feed[feedindex].image.src = localsrc;
-          
-  //              document.getElementById("mainimage").src = localsrc;
 
             }
             var newimg = document.createElement("IMG");
@@ -553,9 +551,10 @@ document.getElementById("pngimage").onload = function() {
     img.crossOrigin = 'Anonymous';
     ctx.drawImage(img, 0,0,this.width,this.height);
     var pngcode = canvas.toDataURL();
-    feed[feedindex].src = pngcode;
-    document.getElementById("mainimage").src = pngcode;
+    feed[feedindex].image.src = pngcode;
     feedElement.image.src = pngcode;
+    document.getElementById("mainimage").src = pngcode;
+    console.log(pngcode);
 //    foo = canvas.toDataURL('image/jpeg', 0.1);
     
 };
@@ -930,7 +929,6 @@ function saverobot(){
 }
 #pngimage{
     width:200px;
-    height:200px;
 }
 </style>
 </body>
