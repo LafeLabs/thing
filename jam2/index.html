@@ -134,7 +134,21 @@ function loadbuttontable(){
     newtd.classList.add("button");
     newtd.onclick = function(){
         //save feed
+        var httpc = new XMLHttpRequest();
+        httpc.open("POST", "filesaver.php", true);
+        httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        httpc.send("data="+encodeURIComponent(JSON.stringify(feed,null,"  "))+"&filename=data/feed.txt");//send text to filesaver.php
     }
+    var newtd = document.createElement("TD");
+    newtr.appendChild(newtd);
+    newtd.innerHTML = "load feed";
+    newtd.classList.add("tablebutton");
+    newtd.classList.add("button");
+    newtd.onclick = function(){
+        //load feed
+
+    }    
+
     
 }
 
@@ -329,6 +343,7 @@ function loadfeed(){
         }
     }    
 }
+
 
 function drawmain(){
     mainGVM.glyph = feedElement.glyph + "0207,";
