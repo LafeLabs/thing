@@ -237,11 +237,12 @@ function loadbuttontable(){
     newtd.onclick = function(){
         //save cube
         hypercube = mainGVM.bytecode(0,01777);
+        var url = "filesaver.php";        
         var httpc = new XMLHttpRequest();
-        httpc.open("POST", "filesaver.php", true);
+        httpc.open("POST", url, true);
         httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        httpc.send("data="+encodeURIComponent(JSON.stringify(mainGVM.bytecode(0,01777),null,"  "))+"&filename=data/hypercube.txt");//send text to filesaver.php
-        document.getElementById("textio").value = JSON.stringify(mainGVM.bytecode(0,01777),null,"  ");
+        httpc.send("data="+encodeURIComponent(hypercube)+"&filename=data/hypercube.txt");//send text to filesaver.php
+    
     }    
     var newtd = document.createElement("TD");
     newtr.appendChild(newtd);
@@ -277,6 +278,20 @@ function loadbuttontable(){
     newtd.classList.add("button");
     newtd.onclick = function(){
         //delete element from feed
+        var tempfeed = [];
+        for(var index = 0;index < feed.length;index++){
+            if(index != feedindex){
+                tempfeed.push(feed[index]);
+            }
+        }
+        feed = tempfeed;
+        feedindex = 0;
+        loadfeed();
+        mainGVM.glyph = feed[feedindex].glyph + "0207,";
+        mainGVM.cleanGlyph = feed[feedindex].glyph;
+        drawmain();
+        document.getElementById("spellinput").value = feed[feedindex].glyph;
+        
     }        
     var newtd = document.createElement("TD");
     newtr.appendChild(newtd);
@@ -285,6 +300,15 @@ function loadbuttontable(){
     newtd.classList.add("button");
     newtd.onclick = function(){
         //copy element to top of feed
+        var tempelement = JSON.parse(JSON.stringify(feed[feedindex]));
+        feed.push(tempelement);
+        feedindex = feed.length - 1;
+        loadfeed();
+        mainGVM.glyph = feed[feedindex].glyph + "0207,";
+        mainGVM.cleanGlyph = feed[feedindex].glyph;
+        drawmain();
+        document.getElementById("spellinput").value = feed[feedindex].glyph;
+        
     }        
     
     var newtd = document.createElement("TD");
@@ -294,6 +318,16 @@ function loadbuttontable(){
     newtd.classList.add("button");
     newtd.onclick = function(){
         //remove image from element
+        feed[feedindex].image.src = "";
+        feed[feedindex].image.x = 0.0;
+        feed[feedindex].image.y = 0.0;
+        feed[feedindex].image.w = 1.0;
+        feed[feedindex].image.angle = 0;
+        document.getElementById("mainimage").src = "";
+        loadfeed();
+        gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
+        gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
+
     }        
 
     var newtd = document.createElement("TD");
@@ -303,7 +337,9 @@ function loadbuttontable(){
     newtd.classList.add("button");
     newtd.onclick = function(){
         //save robot glyph
-        alert("robot");
+        mainGVM.clean();
+        robot.glyph = mainGVM.cleanGlyph;
+        saverobot();
     }        
     
     
