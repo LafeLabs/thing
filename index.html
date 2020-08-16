@@ -366,6 +366,36 @@ function loadbuttontable(){
         //save symbol file
         savesymbolfile();
     }        
+
+    var newtd = document.createElement("TD");
+    newtr2.appendChild(newtd);
+    newtd.innerHTML = "edit hypercube";
+    newtd.classList.add("tablebutton");
+    newtd.classList.add("button");
+    newtd.onclick = function(){
+        //point browser to hypercube.html
+        window.location.href = "hypercube.html";
+    }        
+
+    var newtd = document.createElement("TD");
+    newtr2.appendChild(newtd);
+    newtd.innerHTML = "edit font";
+    newtd.classList.add("tablebutton");
+    newtd.classList.add("button");
+    newtd.onclick = function(){
+        //point browser to hypercube.html
+        window.location.href = "font.html";
+    }        
+
+    var newtd = document.createElement("TD");
+    newtr2.appendChild(newtd);
+    newtd.innerHTML = "edit keyboard";
+    newtd.classList.add("tablebutton");
+    newtd.classList.add("button");
+    newtd.onclick = function(){
+        //point browser to hypercube.html
+        window.location.href = "keyboard.html";
+    }        
     
     
 }
