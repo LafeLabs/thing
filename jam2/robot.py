@@ -383,23 +383,16 @@ robotjson = json.loads(robotfile.read())
 robotfile.close()
 
 if robotExists:
-    hypercubefile = open("/var/www/html/jscode/hypercube.js", "r")
-    robotfontfile = open("/var/www/html/jscode/robotfont.js", "r")
+    hypercubefile = open("/var/www/html/data/hypercube.txt", "r")
 else:
-    hypercubefile = open("jscode/hypercube.js", "r")
-    robotfontfile = open("jscode/robotfont.js", "r")
-
+    hypercubefile = open("data/hypercube.txt", "r")
 
 hypercubestring = hypercubefile.read();
-robotfontstring = robotfontfile.read();
 
 hypercuberaw = "[" + hypercubestring.split("[")[1].split("]")[0] + "]"
 bytecode = json.loads(hypercuberaw)
 hypercubefile.close()
 
-robotfontraw = "[" + robotfontstring.split("[")[1].split("]")[0] + "]"
-robotfontbytecode = json.loads(robotfontraw)
-robotfontfile.close()
 
 polarity1 = robotjson["polarity1"]
 polarity2 = robotjson["polarity2"]
@@ -426,12 +419,6 @@ for index in range(1024):
     hypercube.append("")
 
 for row in bytecode:
-    splitrow = row.split(":")
-    if len(splitrow) > 0:
-        address = int(splitrow[0],8)
-        hypercube[address] = splitrow[1]
-
-for row in robotfontbytecode:
     splitrow = row.split(":")
     if len(splitrow) > 0:
         address = int(splitrow[0],8)
