@@ -72,17 +72,9 @@
     </div>
     <div id = "imagefeed"></div>
 </div>
-<div id = "shapestackbox">
-    <table id = "stacktable"></table>
-</div>
-<div id ="mainfeedbox">
-    <div id = "mainfeedheader">
-        <a href = "data/feed.txt">data/feed.txt</a>
-        <table id = "feedbuttontable"></table>
-        <textarea id  = "textio"></textarea>
-    </div>
-    <div id = "feed"></div>
-</div>
+
+<div id = "feed"></div>
+
 <div id = "controlbox">
     <table id = "buttontable">
         <tr id = "buttontr">
@@ -91,6 +83,7 @@
     </table>
     <table id = "controltable">
     </table>
+    <table id = "stacktable"></table>
 
     <table>
         <tr>
@@ -105,8 +98,11 @@
         <tr>
             <td id = "upsidedownbutton" class = "button">UPSIDEDOWN = <span id = "upsidedown">0</span></td>
         </tr>
-        
     </table>
+    
+    <a href = "data/feed.txt">data/feed.txt</a>
+    <table id = "feedbuttontable"></table>
+    <textarea id  = "textio"></textarea>
 </div>
 
 <div id = "pngcanvasbox">
@@ -1080,14 +1076,19 @@ function saverobot(){
     border:color:blue;
     top:40px;
 }
+#imagefeedbox input{
+        font-size:12px;
+        font-family:courier;
+}
 #imagefeedbox{
     position:absolute;
-    left:0px;
-    top:0px;
+    right:0px;
+    bottom:0px;
     width:250px;
-    height:50%;
+    height:35%;
     border:solid;
     border-color:blue;   
+    font-size:12px;
 }
 #imagefeedheader{
     position:absolute;
@@ -1115,7 +1116,7 @@ function saverobot(){
     top:0px;
     left:0px;
     right:0px;
-    height:100px;
+    height:75px;
 }
 #scalebar{
     width:100%;
@@ -1125,28 +1126,14 @@ function saverobot(){
     width:100%;
     height:50%;
 }
-#mainfeedbox{
-    position:absolute;
-    left:0px;
-    bottom:0px;
-    width:250px;
-    height:49%;
-    border:solid;
-    border-color:blue;   
-}
-#feedheader{
-    position:absolute;
-    top:0px;
-    height:100px;
-    left:0px;
-    right:0px;
-}
 #feed{
     position:absolute;
-    top:100px;
     left:0px;
-    right:0px;
     bottom:0px;
+    width:400px;
+    top:0px;
+    border:solid;
+    border-color:blue;   
     overflow:scroll;
 }
 #controlbox{
@@ -1154,20 +1141,12 @@ function saverobot(){
     right:0px;
     width:400px;
     overflow:scroll;
-    height:250px;
+    height:200px;
     top:270px;
     border:solid;
     border-color:red;
 }
-#shapestackbox{
-    position:absolute;
-    right:400px;
-    top:270px;
-    border:solid;
-    border-color:yellow;
-    width:250px;
-    height:250px;
-}
+
 #imagecontroltable{
     position:absolute;
     bottom:0px;
