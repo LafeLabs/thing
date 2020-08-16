@@ -26,60 +26,68 @@
 
 </head>
 <body>
-<a href = "index.html" id = "editlink">
-    <img src = "iconsymbols/feed.svg"/>
-</a>
-<div id = "controlbox">
-    <div id = "spellbox">
-        <canvas id = "spellcanvas"></canvas>
+<div id = "lefthalf">
+    <div id = "mainbox">
+        <img id = "mainimage"/>
+        <canvas id = "maincanvas"></canvas>
+        <div id = "hammerxy"></div>
     </div>
-    <input id = "spellinput"/>
+    
+    <a href= "index.html">
+        <img src = "iconsymbols/feed.svg" style = "width:50px"/>
+    </a>
+    <a href = "glyphfeed.html">
+        <img src = "iconsymbols/glyphfeed.svg" style = "width:50px"/>
+    </a>
 
-    <input id = "actioninput"/>
-    <img class = "button" id = "modeindicator" src= "iconsymbols/robotsymbolmode.svg"/>
-    
-    <div id = "hammerxy"></div>
-    
-    
     <div id = "rotatezoombox">
         <img src = "iconsymbols/scale.svg" id = "scalebar"/>
         <img src = "iconsymbols/rotate.svg" id = "rotatebar"/>
-    </div>
+    </div>    
     
-    <table id = "buttontable">
-        <tr>
-            <td id = "savebutton" class = "button">SAVE FEED</td>
-            <td id = "importbutton" class = "button">IMPORT FEED</td>
-            <td id="saverobotbutton" class = "button">SAVE ROBOT GLYPH</td>
-        </tr>
-        <tr>
-            <td id = "copybutton" class = "button">COPY ELEMENT</td>
-            <td id = "deletebutton" class = "button">DELETE ELEMENT</td>
-            <td id = "resetbutton" class = "button">RESET FEED</td>
-        </tr>
-    </table>
     <textarea id = "textio"></textarea>
 
+    <table id = "buttontable">
+        <tr>
+            <td id = "savebutton" class = "button">SAVE</td>
+
+            <td id = "importbutton" class = "button">IMPORT</td>
+            <td id = "copybutton" class = "button">COPY</td>
+
+            <td id = "deletebutton" class = "button">DELETE</td>
+
+            <td id = "resetbutton" class = "button">RESET</td>
+        </tr>
+    </table>
+
+    <div id = "feed">
+    </div>
 </div>
 
-<div id = "feed">
-</div>
 <div id = "imagefeed">
-        <form id = "uploadform" style = "margin-top:10px" action="upload.php" method="post" enctype="multipart/form-data">
+    <form id = "uploadform" style = "margin-top:10px" action="upload.php" method="post" enctype="multipart/form-data">
                 Select image to upload:
-            <input type="file" name="fileToUpload" id="fileToUpload">
+        <input type="file" name="fileToUpload" id="fileToUpload">
             <input type="submit" value="Upload Image" name="submit">
-        </form>        
-        <table>
-            <tr>
-                <td>remote image url:</td>
-                <td>
-                    <input id = "imageurlinput"/>
-                </td>
-            </tr>
-        </table>
-        <img id = "deleteimagebutton" src ="iconsymbols/deleteimage.svg" class = "button"/>
+    </form>        
+    <table>
+        <tr>
+            <td>Image url:</td>
+            <td>
+                <input id = "imageurlinput"/>
+            </td>
+        </tr>
+    </table>
+    <img id = "deleteimagebutton" src ="iconsymbols/deleteimage.svg" class = "button"/>
 </div>
+
+<div id = "controlbox">
+
+    
+
+</div>
+
+
 <script>
 feedindex = 0;
 resetelement = {
@@ -94,6 +102,13 @@ resetelement = {
 };
 
 
+mainwidth = 250;
+
+var mainGVM = new GVM(document.getElementById("maincanvas"),mainwidth,mainwidth);
+
+
+
+
 var httpc777 = new XMLHttpRequest();
 httpc777.onreadystatechange = function(){
     if (this.readyState == 4 && this.status == 200) {
@@ -103,19 +118,17 @@ httpc777.onreadystatechange = function(){
             if (this.readyState == 4 && this.status == 200) {
                 feed = JSON.parse(this.responseText);
                 loadfeed();
-                spellGVM = new GVM(document.getElementById("spellcanvas"),innerWidth*0.5 - 100,200);
+                mainGVM.importbytecode(hypercube);
                 
-                spellGVM.x0 = 10;
-                spellGVM.y0 = 50;
-                spellGVM.unit = 36;
-                spellGVM.importbytecode(hypercube);
-                    //GVM(canvas2d,x0,y0,unit,width,height)
-        
-                gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
-                gvmArray[feedindex].clean();
-                spellGVM.spellGlyph(gvmArray[feedindex].glyph);
-                gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
-                document.getElementById("spellinput").value = gvmArray[feedindex].cleanGlyph;
+                document.getElementById("mainimage").src = feed[feedindex].image.src;
+                document.getElementById("imageurlinput").value = feed[feedindex].image.src;
+                mainGVM.drawGlyph(feed[feedindex].glyph);
+
+                document.getElementById("mainimage").style.width = (feed[feedindex].image.w*mainGVM.width).toString() + "px";
+                document.getElementById("mainimage").style.left = (feed[feedindex].image.x*mainGVM.width).toString() + "px";
+                document.getElementById("mainimage").style.top = (feed[feedindex].image.y*mainGVM.width).toString() + "px";
+                document.getElementById("mainimage").style.transform = "rotate(" + feed[feedindex].image.angle.toString() + "deg)";
+
             }
         };
         httpc666.open("GET", "fileloader.php?filename=data/feed.txt", true);
@@ -137,6 +150,20 @@ function loadfeed(){
         var newdiv = document.createElement("DIV");
         var newcan = document.createElement("CANVAS");
         newcan.className = "feedcan";
+        newcan.id = "can" + index.toString();
+        newcan.onclick  = function(){
+            feedindex = this.id.substring(3);
+            document.getElementById("mainimage").src = feed[feedindex].image.src;
+            document.getElementById("mainimage").style.width = (feed[feedindex].image.w*mainGVM.width).toString() + "px";
+            document.getElementById("mainimage").style.left = (feed[feedindex].image.x*mainGVM.width).toString() + "px";
+            document.getElementById("mainimage").style.top = (feed[feedindex].image.y*mainGVM.width).toString() + "px";
+            document.getElementById("mainimage").style.transform = "rotate(" + feed[feedindex].image.angle.toString() + "deg)";
+        
+            
+            document.getElementById("imageurlinput").value = feed[feedindex].image.src;
+            mainGVM.drawGlyph(feed[feedindex].glyph);
+            
+        }
         newdiv.style.marginTop = 0.05*feedwidth + "px";
         newdiv.style.marginBottom = 0.05*feedwidth + "px";
         newdiv.appendChild(newcan);
@@ -145,7 +172,6 @@ function loadfeed(){
         var newGVM = new GVM(newcan,feedlinkwidth,feedlinkwidth);
         newGVM.importbytecode(hypercube);
         //GVM(canvas2d,x0,y0,unit,width,height)
-        newGVM.importbytecode(stoprelativekeys);
         gvmArray.push(newGVM);
         newGVM.drawGlyph(feed[index].glyph);    
         
@@ -183,9 +209,12 @@ var httpc = new XMLHttpRequest();
             newimg.onclick = function() {
                 var localsrc = "uploadimages" + this.src.split("uploadimages")[1];
                 feed[feedindex].image.src = localsrc;
+                document.getElementById("imageurlinput").value = localsrc;
                 loadfeed();
                 gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
                 gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
+                document.getElementById("mainimage").src = localsrc;
+
             }
             var newimg = document.createElement("IMG");
             newimg.src = "iconsymbols/delete.svg";
@@ -210,146 +239,6 @@ httpc.open("GET", "dir.php?filename=uploadimages", true);
 httpc.send();
 
 //after these are loaded also load up the images in data/imagefeed.txt.
-
-
-document.getElementById("actioninput").select();
-
-mode = 0;
-document.getElementById("actioninput").onkeypress = function(a) {
-    var charCode = a.keyCode || a.which;
-    if(charCode != 015){
-        if(mode == 0 || mode == 3){
-            localCursorAction = parseInt(gvmArray[feedindex].hypercube[charCode],8);   
-        }    
-        if(mode == 1){
-            localCursorAction = charCode + 01000;     
-        }    
-        if(mode == 2){
-            localCursorAction = charCode;     
-        }    
-        
-        gvmArray[feedindex].cursorAction(localCursorAction);   
-        spellGVM.spellGlyph(gvmArray[feedindex].glyph);    
-        this.value = "";
-        gvmArray[feedindex].clean();
-        document.getElementById("spellinput").value = gvmArray[feedindex].cleanGlyph;
-        feed[feedindex].glyph = gvmArray[feedindex].cleanGlyph;
-        
-    }
-
-}
-
-
-document.getElementById("actioninput").onkeydown = function(a) {
-    var charCode = a.keyCode || a.which;
-
-    if(charCode == 015) {
-        modeswitch();
-    }
-
-    if(charCode == 010) {
-        gvmArray[feedindex].cursorAction(010);
-    }
-    if(charCode == 045){
-        gvmArray[feedindex].cursorAction(020);             
-    }
-    if(charCode == 047){
-        gvmArray[feedindex].cursorAction(021);   
-    }
-
-    if(charCode == 046){
-        //up arrow: prev symbol
-       
-       gvmArray[feedindex].clean();
-       feed[feedindex].glyph = gvmArray[feedindex].cleanGlyph;
-       gvmArray[feedindex].drawGlyph(gvmArray[feedindex].cleanGlyph);
-       feedindex--;
-       if(feedindex<0){
-           feedindex = feed.length - 1;
-       }
-       gvmArray[feedindex].glyph =  feed[feedindex].glyph + "0207,";
-       gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
-    
-    }
-    if(charCode == 050){
-        //down arrow: next symbol
-       gvmArray[feedindex].clean();
-       gvmArray[feedindex].drawGlyph(gvmArray[feedindex].cleanGlyph);
-       feedindex++;
-       if(feedindex > feed.length - 1){
-           feedindex = 0;
-       }
-       gvmArray[feedindex].glyph =  feed[feedindex].glyph + "0207,";
-       gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);        
-    }
-
-    spellGVM.spellGlyph(gvmArray[feedindex].glyph);
-document.getElementById("spellinput").value = gvmArray[feedindex].cleanGlyph;
-       gvmArray[feedindex].clean();
-       feed[feedindex].glyph = gvmArray[feedindex].cleanGlyph;
-
-}
-
-stoprelativekeys = [
-    "0154:",
-    "073:",    
-    "0156:",    
-    "0155:",    
-    "054:",    
-    "056:"    
-]
-
-robotkeyboard = [
-    "0161:0547,",
-    "0167:0550,",
-    "0145:0551,",
-    "0162:0552,",
-    "0164:0553,",
-    "0141:0500,",
-    "0163:0501,",
-    "0144:0502,",
-    "0146:0503,",
-    "0172:0504,",
-    "0170:0505,",
-    "0143:0506,",
-    "0166:0507,"
-];
-
-symbolkeyboard = [
-    "0161:0362,",
-    "0167:0203,",
-    "0141:0330,",
-    "0163:0331,",
-    "0144:0332,",
-    "0146:0333,",
-    "0172:0340,",
-    "0170:0341,",
-    "0143:0342,",
-    "0166:0343,"
-];
-
-robotkeyboardmode = false;
-
-
-mode = 0;
-function modeswitch(){
-    mode++;
-    mode = mode%4;
-    if(mode == 0){
-        document.getElementById("modeindicator").src = "iconsymbols/cursor.svg";
-        gvmArray[feedindex].importbytecode(symbolkeyboard);
-    }
-    if(mode == 1){
-        document.getElementById("modeindicator").src = "iconsymbols/abcfont.svg";
-    }
-    if(mode == 2){
-        document.getElementById("modeindicator").src = "iconsymbols/abcstack.svg";
-    }
-    if(mode == 3){
-        document.getElementById("modeindicator").src = "iconsymbols/robotsymbolmode.svg";
-        gvmArray[feedindex].importbytecode(robotkeyboard);
-    }    
-}
 
 
 document.getElementById("savebutton").onclick = function(){
@@ -386,7 +275,10 @@ mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
 mc.on("panleft panright panup pandown tap press rotate", function(ev) {
     document.getElementById("feed").getElementsByClassName("feedimage")[feedindex].style.left = (ev.deltaX + feed[feedindex].image.x*gvmArray[feedindex].width).toString() +  "px";
     document.getElementById("feed").getElementsByClassName("feedimage")[feedindex].style.top = (ev.deltaY + feed[feedindex].image.y*gvmArray[feedindex].width).toString() +  "px";
-
+    
+    
+    document.getElementById("mainimage").style.left = (ev.deltaX + feed[feedindex].image.x*gvmArray[feedindex].width).toString() +  "px";
+    document.getElementById("mainimage").style.top = (ev.deltaY + feed[feedindex].image.y*gvmArray[feedindex].width).toString() +  "px";
 
 });    
 
@@ -398,6 +290,8 @@ mczoom.on("panleft panright panup pandown tap press", function(ev) {
 
 document.getElementById("feed").getElementsByClassName("feedimage")[feedindex].style.width = (2*ev.deltaX + feed[feedindex].image.w*gvmArray[feedindex].width).toString() +  "px";
 
+document.getElementById("mainimage").style.width = (2*ev.deltaX + feed[feedindex].image.w*gvmArray[feedindex].width).toString() +  "px";
+
 });    
 
 
@@ -408,7 +302,8 @@ mcrotate.on("panleft panright panup pandown tap press", function(ev) {
 
     
     document.getElementById("feed").getElementsByClassName("feedimage")[feedindex].style.transform = "rotate(" + (feed[feedindex].image.angle + ev.deltaX*Math.PI/5).toString() + "deg)";
-
+    
+    document.getElementById("mainimage").style.transform = "rotate(" + (feed[feedindex].image.angle + ev.deltaX*Math.PI/5).toString() + "deg)";
 
 });    
 
@@ -419,7 +314,7 @@ var httpc99 = new XMLHttpRequest();
 httpc99.onreadystatechange = function(){
         if (this.readyState == 4 && this.status == 200) {
             imagefeed = JSON.parse(this.responseText);
-            for(var index =0;index< imagefeed.length;index++){
+            for(var index = imagefeed.length - 1;index >= 0;index--){
                 var newuploadbox = document.createElement("DIV");
                 newuploadbox.classList.add("uploadbox");
                 var newimg = document.createElement("IMG");
@@ -430,9 +325,11 @@ httpc99.onreadystatechange = function(){
                 document.getElementById("imagefeed").appendChild(newuploadbox);
                 newimg.onclick = function() {
                     var localsrc = this.src;
+                    document.getElementById("mainimage").src = localsrc;
+                    document.getElementById("imageurlinput").value = localsrc;
                     feed[feedindex].image.src = localsrc;
                     loadfeed();
-                    gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
+                    gvmArray[feedindex].glyph = feed[feedindex].glyph;
                     gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
                 }
                 var newimg = document.createElement("IMG");
@@ -461,11 +358,6 @@ httpc99.open("GET", "fileloader.php?filename=data/imagefeed.txt", true);
 httpc99.send();
 
 
-document.getElementById("saverobotbutton").onclick = function(){
-
-}
-
-
 
 function saveimagefeed(){
     var url = "filesaver.php";        
@@ -478,8 +370,8 @@ function saveimagefeed(){
 document.getElementById("imageurlinput").value = "";
 document.getElementById("imageurlinput").onchange = function(){
     imagefeed.push(this.value);
+
     saveimagefeed();
-    
     var newuploadbox = document.createElement("DIV");
     newuploadbox.classList.add("uploadbox");
     var newimg = document.createElement("IMG");
@@ -492,6 +384,8 @@ document.getElementById("imageurlinput").onchange = function(){
         var localsrc = this.src;
         feed[feedindex].image.src = localsrc;
         loadfeed();
+        document.getElementById("mainimage").src = localsrc;
+        document.getElementById("imageurlinput").value = localsrc;
     }
     var newimg = document.createElement("IMG");
     newimg.src = "iconsymbols/delete.svg";
@@ -523,9 +417,8 @@ document.getElementById("copybutton").onclick  = function(){
     gvmArray[feedindex].clean();
     feed[feedindex].glyph = gvmArray[feedindex].cleanGlyph;
     feedindex = feed.length - 1;
-    gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
+    gvmArray[feedindex].glyph = feed[feedindex].glyph;
     gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
-    spellGVM.spellGlyph(gvmArray[feedindex].glyph);    
 }
 
 document.getElementById("deletebutton").onclick  = function(){
@@ -538,9 +431,8 @@ document.getElementById("deletebutton").onclick  = function(){
     feed = tempfeed;
     feedindex = 0;
     loadfeed();
-    gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
+    gvmArray[feedindex].glyph = feed[feedindex].glyph;
     gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
-    spellGVM.spellGlyph(gvmArray[feedindex].glyph);       
 }
 
 
@@ -550,7 +442,7 @@ document.getElementById("resetbutton").onclick = function(){
     feedindex = 0;
     loadfeed();
     document.getElementById("actioninput").select();
-    gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
+    gvmArray[feedindex].glyph = feed[feedindex].glyph;
     gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
     spellGVM.spellGlyph(gvmArray[feedindex].glyph);    
 }
@@ -561,80 +453,77 @@ document.getElementById("importbutton").onclick = function(){
     loadfeed();
     document.getElementById("actioninput").select();
     
-    gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
+    gvmArray[feedindex].glyph = feed[feedindex].glyph;
     gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);    
     spellGVM.spellGlyph(gvmArray[feedindex].glyph);        
 }
 
-document.getElementById("spellinput").onchange = function(){
-    gvmArray[feedindex].glyph = this.value + "0207,";
-    gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);    
-    feed[feedindex].glyph = this.value; 
-    spellGVM.spellGlyph(gvmArray[feedindex].glyph);    
-}
 
 document.getElementById("deleteimagebutton").onclick = function(){
 
     feed[feedindex].image.src = "";
+    document.getElementById("mainimage").src = "";
+    
     loadfeed();
-    gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
+    gvmArray[feedindex].glyph = feed[feedindex].glyph;
     gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
     
 }
 
 </script>
 <style>
-#controlbox{
-    position:absolute;
-    left:0px;
-    top:0px;
-    width:50%;
-    bottom:0px;
-}
-#spellbox{
-    position:absolute;
+#buttontable td{
     border:solid;
-    left:10px;
-    top:80px;
+    border-radius:4px;
+    text-align:center;
+    font-family:courier;
+}
+#mainbox{
+    position:absolute;
+    top:0px;
+    right:0px;
     width:250px;
     height:250px;
-    overflow:hidden;
+    border:solid;
 }
-#spellcanvas{
+#maincanvas{
+    position:absolute;
+    right:0px;
+    top:0px;
+    z-index:1;
+}
+#hammerxy{
+    position:absolute;
+    left:0px;
+    right:0px;
+    top:0px;
+    bottom:0px;
+    z-index:2;
+}
+#mainimage{
+    position:absolute;
+    left:0px;
+    right:0px;
+    top:0px;
+    width:100%;
+    z-index:-1;
+}
+
+#lefthalf{
     position:absolute;
     left:0px;
     top:0px;
-}
-#spellinput{
-    width:85%;
-    position:absolute;
-    font-size:16px;
-    font-family:courier;
-    top:5px;
-    right:0px;
-}
-#textio{
-    position:absolute;
-    right:0px;
     bottom:0px;
-}
-#editlink{
-    position:absolute;
-    left:5px;
-    top:5px;
-    width:50px;
-    z-index:1;
-}
-#editlink img{
-    width:100%;
+    width:50%;
 }
 #feed{
     position:absolute;
     right:0px;
-    bottom:50%;
-    width:20%;
-    top:0px;
+    bottom:0px;
+    left:0px;
+    top:50%;
     overflow:scroll;
+    border-top:solid;
 }
 .feedelement{
     margin-top:100px;
@@ -653,9 +542,9 @@ document.getElementById("deleteimagebutton").onclick = function(){
 #imagefeed{
     position:absolute;
     right:0px;
-    top:50%;
+    top:0px;
     bottom:0px;
-    width:20%;
+    width:50%;
     overflow:scroll;
     background-color:#f0f0ff;
 }
@@ -680,42 +569,13 @@ document.getElementById("deleteimagebutton").onclick = function(){
 .button:active{
     background-color:yellow;
 }
-#actioninput{
-    position:absolute;
-    left:0px;
-    bottom:0px;
-    width:1em;
-}
-#modeindicator{
-    position:absolute;
-    width:40px;
-    left:50px;
-    bottom:0px;
-}
-#buttontable{
-    position:absolute;
-    bottom:100px;
-    left:10px;
-}
-#buttontable .button{
-    text-align:center;
-    border:solid;
-}
-#hammerxy{
-    position:absolute;
-    left:0px;
-    height:300px;
-    width:300px;
-    background-color:grey;
-    bottom:200px;
-}
 #rotatezoombox{
     position:absolute;
-    left:300px;
-    height:300px;
+    left:0px;
     right:0px;
+    height:150px;
     background-color:#ffe0e0;
-    bottom:200px;
+    bottom:50%;
 }
 #rotatezoombox img{
     position:absolute;

@@ -84,6 +84,36 @@
 feedindex = 0;
 resetelement = {
     "glyph": "",
+    "shapes": [],
+    "x0": 0.5,
+    "y0": 0.5,
+    "unit": 0.12,
+    "style": {
+        "color0": "black",
+        "fill0": "black",
+        "line0": 1,
+        "color1": "black",
+        "fill1": "black",
+        "line1": 5,
+        "color2": "red",
+        "fill2": "red",
+        "line2": 1,
+        "color3": "#FF7900",
+        "fill3": "#FF7900",
+        "line3": 1,
+        "color4": "yellow",
+        "fill4": "yellow",
+        "line4": 1,
+        "color5": "green",
+        "fill5": "green",
+        "line5": 1,
+        "color6": "blue",
+        "fill6": "blue",
+        "line6": 1,
+        "color7": "purple",
+        "fill7": "purple",
+        "line7": 1
+    },
     "image": {
         "src": "",
         "w": 1.0,
@@ -93,41 +123,32 @@ resetelement = {
     }
 };
 
+feedurl = "data/geometronfeed.txt";
+loadfeedurl(feedurl);
 
-var httpc777 = new XMLHttpRequest();
-httpc777.onreadystatechange = function(){
-    if (this.readyState == 4 && this.status == 200) {
-        hypercube = JSON.parse(this.responseText);
-        var httpc666 = new XMLHttpRequest();
-        httpc666.onreadystatechange = function(){
-            if (this.readyState == 4 && this.status == 200) {
-                feed = JSON.parse(this.responseText);
-                loadfeed();
-                spellGVM = new GVM(document.getElementById("spellcanvas"),innerWidth*0.5 - 100,200);
-                
-                spellGVM.x0 = 10;
-                spellGVM.y0 = 50;
-                spellGVM.unit = 36;
-                spellGVM.importbytecode(hypercube);
-                    //GVM(canvas2d,x0,y0,unit,width,height)
-        
-                gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
-                gvmArray[feedindex].clean();
-                spellGVM.spellGlyph(gvmArray[feedindex].glyph);
-                gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
-                document.getElementById("spellinput").value = gvmArray[feedindex].cleanGlyph;
-            }
-        };
-        httpc666.open("GET", "fileloader.php?filename=data/feed.txt", true);
-        httpc666.send();
+function loadfeedurl(url){
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200) {
+            feed = JSON.parse(this.responseText);
+            loadfeed();
+            
+            spellGVM = new GVM(feed[feedindex],document.getElementById("spellcanvas"),hypercube,innerWidth*0.5 - 100,200);
+            gvmArray[feedindex].glyph = gvmArray[feedindex].glyph + "0207,";
+            spellGVM.unit = 26;
+            spellGVM.x0 = 26;
+            spellGVM.y0 = 40;
+            
+            spellGVM.spellGlyph(gvmArray[feedindex].glyph);
+            gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
+            document.getElementById("spellinput").value = gvmArray[feedindex].cleanGlyph;
+        }
+    };
+    httpc.open("GET", "fileloader.php?filename=" + url, true);
+    httpc.send();
+}
 
-    }
-};
-httpc777.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
-httpc777.send();
-
-
-feedwidth = innerWidth*0.2;
+feedwidth = innerWidth*0.25;
 feedlinkwidth = feedwidth - 50;
 
 function loadfeed(){
@@ -142,9 +163,7 @@ function loadfeed(){
         newdiv.appendChild(newcan);
         newdiv.className = "feedelement";
         document.getElementById("feed").appendChild(newdiv);
-        var newGVM = new GVM(newcan,feedlinkwidth,feedlinkwidth);
-        newGVM.importbytecode(hypercube);
-        //GVM(canvas2d,x0,y0,unit,width,height)
+        var newGVM = new GVM(feed[index],newcan,hypercube,feedlinkwidth,feedlinkwidth);
         newGVM.importbytecode(stoprelativekeys);
         gvmArray.push(newGVM);
         newGVM.drawGlyph(feed[index].glyph);    
@@ -157,9 +176,8 @@ function loadfeed(){
         newimg.style.left = (feed[index].image.x*feedlinkwidth).toString() + "px";
         newimg.style.top = (feed[index].image.y*feedlinkwidth).toString() + "px";
         newimg.style.transform = "rotate(" + feed[index].image.angle.toString() + "deg)";
-    }    
-
         
+    }    
 
 }
 
@@ -184,8 +202,6 @@ var httpc = new XMLHttpRequest();
                 var localsrc = "uploadimages" + this.src.split("uploadimages")[1];
                 feed[feedindex].image.src = localsrc;
                 loadfeed();
-                gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
-                gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
             }
             var newimg = document.createElement("IMG");
             newimg.src = "iconsymbols/delete.svg";
@@ -211,6 +227,7 @@ httpc.send();
 
 //after these are loaded also load up the images in data/imagefeed.txt.
 
+feedindex = 0;
 
 document.getElementById("actioninput").select();
 
@@ -231,7 +248,7 @@ document.getElementById("actioninput").onkeypress = function(a) {
         gvmArray[feedindex].cursorAction(localCursorAction);   
         spellGVM.spellGlyph(gvmArray[feedindex].glyph);    
         this.value = "";
-        gvmArray[feedindex].clean();
+        gvmArray[feedindex].saveGlyph();
         document.getElementById("spellinput").value = gvmArray[feedindex].cleanGlyph;
         feed[feedindex].glyph = gvmArray[feedindex].cleanGlyph;
         
@@ -260,34 +277,30 @@ document.getElementById("actioninput").onkeydown = function(a) {
     if(charCode == 046){
         //up arrow: prev symbol
        
-       gvmArray[feedindex].clean();
-       feed[feedindex].glyph = gvmArray[feedindex].cleanGlyph;
+       gvmArray[feedindex].saveGlyph();
        gvmArray[feedindex].drawGlyph(gvmArray[feedindex].cleanGlyph);
        feedindex--;
        if(feedindex<0){
            feedindex = feed.length - 1;
        }
-       gvmArray[feedindex].glyph =  feed[feedindex].glyph + "0207,";
-       gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
+        gvmArray[feedindex].glyph =  gvmArray[feedindex].cleanGlyph + "0207,";
+        gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
     
     }
     if(charCode == 050){
         //down arrow: next symbol
-       gvmArray[feedindex].clean();
+       gvmArray[feedindex].saveGlyph();
        gvmArray[feedindex].drawGlyph(gvmArray[feedindex].cleanGlyph);
        feedindex++;
        if(feedindex > feed.length - 1){
            feedindex = 0;
        }
-       gvmArray[feedindex].glyph =  feed[feedindex].glyph + "0207,";
-       gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);        
+        gvmArray[feedindex].glyph =  gvmArray[feedindex].cleanGlyph + "0207,";
+        gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);        
     }
 
     spellGVM.spellGlyph(gvmArray[feedindex].glyph);
 document.getElementById("spellinput").value = gvmArray[feedindex].cleanGlyph;
-       gvmArray[feedindex].clean();
-       feed[feedindex].glyph = gvmArray[feedindex].cleanGlyph;
-
 }
 
 stoprelativekeys = [
@@ -355,8 +368,6 @@ function modeswitch(){
 document.getElementById("savebutton").onclick = function(){
     savejson();
 }
-
-
 function savejson(){
     var imagewidthpx = parseInt(document.getElementById("feed").getElementsByClassName("feedimage")[feedindex].style.width);
     var imagexpx = parseInt(document.getElementById("feed").getElementsByClassName("feedimage")[feedindex].style.left);
@@ -371,15 +382,17 @@ function savejson(){
     feed[feedindex].image.y = imageypx/parentwidthpx;
     
     
+//    feed[feedindex].image.x = parseInt(document.getElementById("feed").getElementsByClassName("feedimage")[feedindex].style.left.substring(0,document.getElementById("feed").getElementsByClassName("feedimage")[feedindex].style.left.length-2))/feed[feedindex].width;
+    
+    
     document.getElementById("textio").value = JSON.stringify(feed,null,"    ");
     var url = "filesaver.php";        
     var httpc2 = new XMLHttpRequest();
     httpc2.open("POST", url, true);
     httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc2.send("data="+encodeURIComponent(JSON.stringify(feed,null,"    "))+"&filename=data/feed.txt");//send text to filesaver.php
-
+    httpc2.send("data="+encodeURIComponent(JSON.stringify(feed,null,"    "))+"&filename=" + feedurl);//send text to filesaver.php
 }
-document.getElementById("textio").value = "";
+
 
 mc = new Hammer(document.getElementById("hammerxy"));
 mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
@@ -413,6 +426,15 @@ mcrotate.on("panleft panright panup pandown tap press", function(ev) {
 });    
 
 
+robotfeed = [];
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200) {
+            robotfeed = JSON.parse(this.responseText);
+        }
+    };
+httpc.open("GET", "fileloader.php?filename=data/robotfeed.txt", true);
+httpc.send();
 
 imagefeed = [];
 var httpc99 = new XMLHttpRequest();
@@ -432,8 +454,6 @@ httpc99.onreadystatechange = function(){
                     var localsrc = this.src;
                     feed[feedindex].image.src = localsrc;
                     loadfeed();
-                    gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
-                    gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
                 }
                 var newimg = document.createElement("IMG");
                 newimg.src = "iconsymbols/delete.svg";
@@ -462,7 +482,13 @@ httpc99.send();
 
 
 document.getElementById("saverobotbutton").onclick = function(){
-
+    robotfeed.push(feed[feedindex].glyph);
+    var url = "filesaver.php";        
+    var httpc2 = new XMLHttpRequest();
+    httpc2.open("POST", url, true);
+    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc2.send("data="+encodeURIComponent(JSON.stringify(robotfeed,null,"    "))+"&filename=data/robotfeed.txt");//send text to filesaver.php
+    //save robot feed
 }
 
 
@@ -520,12 +546,6 @@ document.getElementById("copybutton").onclick  = function(){
     var tempelement = JSON.parse(JSON.stringify(feed[feedindex]));
     feed.push(tempelement);
     loadfeed();
-    gvmArray[feedindex].clean();
-    feed[feedindex].glyph = gvmArray[feedindex].cleanGlyph;
-    feedindex = feed.length - 1;
-    gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
-    gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
-    spellGVM.spellGlyph(gvmArray[feedindex].glyph);    
 }
 
 document.getElementById("deletebutton").onclick  = function(){
@@ -538,9 +558,9 @@ document.getElementById("deletebutton").onclick  = function(){
     feed = tempfeed;
     feedindex = 0;
     loadfeed();
-    gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
-    gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
-    spellGVM.spellGlyph(gvmArray[feedindex].glyph);       
+    gvmArray[feedindex].glyph = gvmArray[feedindex].glyph + "0207,";
+    gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);    
+    
 }
 
 
@@ -550,9 +570,9 @@ document.getElementById("resetbutton").onclick = function(){
     feedindex = 0;
     loadfeed();
     document.getElementById("actioninput").select();
-    gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
-    gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
-    spellGVM.spellGlyph(gvmArray[feedindex].glyph);    
+    gvmArray[feedindex].glyph = gvmArray[feedindex].glyph + "0207,";
+    gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);    
+
 }
 
 document.getElementById("importbutton").onclick = function(){
@@ -560,26 +580,22 @@ document.getElementById("importbutton").onclick = function(){
     feedindex = 0;
     loadfeed();
     document.getElementById("actioninput").select();
-    
-    gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
+    gvmArray[feedindex].glyph = gvmArray[feedindex].glyph + "0207,";
     gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);    
-    spellGVM.spellGlyph(gvmArray[feedindex].glyph);        
+    
 }
 
 document.getElementById("spellinput").onchange = function(){
     gvmArray[feedindex].glyph = this.value + "0207,";
     gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);    
     feed[feedindex].glyph = this.value; 
-    spellGVM.spellGlyph(gvmArray[feedindex].glyph);    
 }
 
 document.getElementById("deleteimagebutton").onclick = function(){
 
     feed[feedindex].image.src = "";
     loadfeed();
-    gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
-    gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
-    
+
 }
 
 </script>
@@ -630,9 +646,9 @@ document.getElementById("deleteimagebutton").onclick = function(){
 }
 #feed{
     position:absolute;
-    right:0px;
-    bottom:50%;
-    width:20%;
+    left:50%;
+    bottom:0px;
+    width:25%;
     top:0px;
     overflow:scroll;
 }
@@ -653,9 +669,9 @@ document.getElementById("deleteimagebutton").onclick = function(){
 #imagefeed{
     position:absolute;
     right:0px;
-    top:50%;
+    top:0px;
     bottom:0px;
-    width:20%;
+    width:24%;
     overflow:scroll;
     background-color:#f0f0ff;
 }

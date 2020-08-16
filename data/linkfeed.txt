@@ -1,0 +1,12 @@
+[
+    {
+        "href": "editor.php",
+        "src": "",
+        "text": "editor.php"
+    },
+    {
+        "href": "linkfeededitor.html",
+        "src": "",
+        "text": "operator screen"
+    }
+]

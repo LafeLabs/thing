@@ -36,28 +36,33 @@ A Geometron is a geometric virtual machine which has two 8x8x8 cubes of operatio
 
     */
 
-    
-function GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode) {
-    this.pendown = false;
+
+function GVM(canvas2d,width,height) {
+    //x0,y0 and unit are scaled to width
+    //width and height are in px
     this.address = 0277;
     this.glyph = "";
     this.cleanGlyph = "";
-    this.width = width;
-    this.height = height;
-    canvas2d.width = width;
-    canvas2d.height = height;
+    this.width = width;//width in px
+    this.height = height;//width in px
+    this.shapes = [];
+    canvas2d.width = this.width;//px
+    canvas2d.height = this.height;//px
+    canvas2d.parentElement.style.width = this.width.toString() + "px";
+    canvas2d.parentElement.style.height = this.height.toString() + "px";
     this.canvas2d = canvas2d;
     this.ctx = canvas2d.getContext("2d"); 
-    this.x0 = x0;
-    this.x = x0;
-    this.y0 = y0;
-    this.y = y0;
-    this.unit = unit;
-    this.side = unit;
-    this.theta0 = theta0;
-    this.theta = theta0;
+    this.x0 = 0.5*width;//convert from fractional to px set default
+    this.x = this.x0;
+    this.y0 = 0.5*width;//default, fractional
+    this.y = this.y0;
+    this.unit = 0.12*width;//convert to px from relative set default
+    this.side = this.unit;
+    this.theta0 = -Math.PI/2;
+    this.theta = this.theta0;
     this.scaleFactor = 2;
     this.thetaStep = Math.PI/2;
+    this.spellMode = false;
     this.word = "";
     this.font = "Arial";
     this.unicodemode = false;
@@ -71,46 +76,46 @@ function GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode) {
             "character":"上"
         }
         ];
-    this.cpy1 = y0;
-    this.cpx2 = x0;
-    this.cpy2 = y0;
-    this.x1 = x0;
-    this.y1 = y0;
-    this.x2 = x0;
-    this.y2 = y0;
-    this.xOne = x0;
-    this.yOne = y0;
+    this.cpy1 = this.y0;
+    this.cpx2 = this.x0;
+    this.cpy2 = this.y0;
+    this.x1 = this.x0;
+    this.y1 = this.y0;
+    this.x2 = this.x0;
+    this.y2 = this.y0;
+    this.xOne = this.x0;
+    this.yOne = this.y0;
     this.thetaOne = this.theta;
     this.sideOne = this.side;
     this.thetaStepOne = this.thetaStep;
     this.scaleFactorOne = this.scaleFactor;
  
     this.style = {
-        color0: "black",
-        fill0: "black",
-        line0: 2,
-        color1: "black",
-        fill1: "black",
-        line1: 3,
-        color2: "red",
-        fill2: "red",
-        line2: 1,
-        color3: "#FF7900",
-        fill3: "#FF7900",
-        line3: 1,
-        color4: "yellow",
-        fill4: "yellow",
-        line4: 1,
-        color5: "green",
-        fill5: "green",
-        line5: 1,
-        color6: "blue",
-        fill6: "blue",
-        line6: 1,
-        color7: "purple",
-        fill7: "purple",
-        line7: 1
-    };
+            "color0": "black",
+            "fill0": "black",
+            "line0": 1,
+            "color1": "black",
+            "fill1": "black",
+            "line1": 5,
+            "color2": "red",
+            "fill2": "red",
+            "line2": 1,
+            "color3": "#FF7900",
+            "fill3": "#FF7900",
+            "line3": 1,
+            "color4": "yellow",
+            "fill4": "yellow",
+            "line4": 1,
+            "color5": "green",
+            "fill5": "green",
+            "line5": 1,
+            "color6": "blue",
+            "fill6": "blue",
+            "line6": 1,
+            "color7": "purple",
+            "fill7": "purple",
+            "line7": 1
+        };
     this.strokeStyle = this.style.color0;
     this.fillStyle = this.style.fill0;
     this.lineWidth = this.style.line0;
@@ -118,20 +123,20 @@ function GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode) {
     this.viewStep = 50;
     this.svgString = "<svg width=\"" + this.width.toString() + "\" height=\"" + this.height.toString() + "\" viewbox = \"0 0 " + this.width.toString() + " " + this.height.toString() + "\"  xmlns=\"http://www.w3.org/2000/svg\">\n";
 
-    //    this.svgString += "\n<!--\n<json>\n" + JSON.stringify(currentJSON,null,"    ") + "\n</json>\n-->\n";
 
     this.hypercube = [];
     for(var index = 0;index < 1024;index++){
         this.hypercube.push("");
     }
 
-    for(var index = 0;index < bytecode.length;index++) {
-        if(hypercube[index].length > 1){
-            var localaddress = parseInt(hypercube[index].split(":")[0],8);
-            var localglyph = hypercube[index].split(":")[1];
+    
+    for(var index = 0;index < this.shapes.length;index++) {
+        if(this.shapes[index].length > 1){
+            var localaddress = parseInt(this.shapes[index].split(":")[0],8);
+            var localglyph = this.shapes[index].split(":")[1];
             this.hypercube[localaddress] = localglyph;
         }
-    }
+    }    
 
     this.bytecode = function(start,stop) {
         var jsonarray = [];
@@ -171,7 +176,7 @@ function GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode) {
     }
 
     this.drawGlyph = function(glyph) {
-        
+        this.spellMode = false;
         this.ctx.clearRect(0,0,this.width,this.height);
         this.ctx.strokeStyle = this.style.color0;
         this.ctx.fillStyle = this.style.fill0;
@@ -184,7 +189,7 @@ function GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode) {
 
     }
 
-    this.saveGlyph = function(){
+    this.clean = function(){
         var glyphArray = this.glyph.split(",");
         var cleanGlyph = "";
         for(var index = 0;index < glyphArray.length;index++) {
@@ -197,8 +202,8 @@ function GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode) {
     }
     
     
-
     this.spellGlyph = function(glyph) {
+        this.spellMode = true;
         var localGlyph = "";
         var glyphArray = glyph.split(",");
         for(var index = 0; index < glyphArray.length; index++){
@@ -211,12 +216,10 @@ function GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode) {
             }
         }
         glyph = localGlyph;
-        this.canvas2d.height = this.unit + 2;
-        this.canvas2d.width = this.unit*(glyphArray.length - 1 ) + 4;
-        this.height = this.unit + 2;
-        this.x0 = 1;
-        this.y0 = this.unit +1;
         this.side = this.unit;
+        this.x0 = this.unit;
+        this.y0 = this.unit*1.5;
+
         this.ctx.clearRect(0,0,this.width,this.height);
         this.ctx.strokeStyle = this.style.color0;
         this.ctx.fillStyle = this.style.fill0;
@@ -385,6 +388,12 @@ function GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode) {
 
         //02xx,05xx,06xx
         if( (address >= 0200 && address <= 0277) || (address >= 01000 && address <= 01777) || (address >= 0500 && address <= 0677)){
+            
+            if(address >= 01000 && address <= 01777 && this.spellMode && this.x > this.width - 1.5*this.unit){
+                this.y += this.unit*1.2;
+                this.x = this.x0;
+            }
+            
             this.actionSequence(this.hypercube[address]);
 
         }
@@ -398,6 +407,9 @@ function GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode) {
             this.theta = this.theta0;
             this.scaleFactor = 2;      
             this.word = "";
+            this.ctx.strokeStyle = this.style.color0;
+            this.ctx.fillStyle = this.style.fill0;
+            this.ctx.lineWidth = this.style.line0;    
         }
         if(address == 0304) {
             this.thetaStep = Math.PI/2;
@@ -782,224 +794,6 @@ function GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode) {
             this.scaleFactor = this.scaleFactorOne;    
         }
     }
-}
-
-function Map(w,h,div) {
-
-    this.w = w;//width of div element map will be drawn in
-    this.h = h;//height of div element
-    this.div = div; //div element in document
-    this.div.style.width = this.w.toString() + "px"; //set width of div
-    this.div.style.height = this.h.toString() + "px";//set height of div
-    this.array = [];
-    this.linkArray = [];
-    this.linkindex = 0;
-    //MapLink(x,y,w,aspectRatio,angle,text,href,src,maplinkmode)
-    var newLink  = new MapLink(0.1,0.1,0.2,0.2,0,"text","","",false,{});
-    this.array.push(newLink);
-
-    this.draw = function() {
-        this.div.innerHTML = "";
-        this.linkArray = [];
-        for(var index = 0;index < this.array.length;index++){
-            
-            var newa = document.createElement("A");
-            newa.style.position = "absolute";
-            this.div.appendChild(newa);
-            newa.style.left = (this.array[index].x*this.w).toString() + "px";
-            newa.style.top  = (this.array[index].y*this.w).toString() + "px";
-            newa.style.width  = (this.array[index].w*this.w).toString() + "px";
-            newa.style.height  = (this.array[index].h*this.w).toString() + "px";
-            newa.style.transform  = "rotate(" + (this.array[index].angle).toString() + "deg)";
-            if(this.array[index].href.length == 0){
-                newa.style.color = "black";
-            }
-            if(this.array[index].src.length > 0) {
-                var newimg = document.createElement("IMG");
-                newimg.style.position = "absolute";
-                newimg.style.left = "0px";
-                newimg.style.top = "0px";
-                newimg.style.width = "100%";
-                
-                newa.appendChild(newimg);
-                newimg.src = this.array[index].src;
-                newimg.alt = this.array[index].text;
-                newimg.onload = function(){
-                    this.parentElement.style.height = this.height + "px";
-                }
-            }
-            else{
-                newa.innerHTML = this.array[index].text;
-                newa.style.fontSize = (0.1*this.array[index].w*this.w).toString() + "px"; 
-            }
-            if(this.array[index].href.length > 0){
-                if(this.array[index].maplinkmode == true){
-                    var newspan = document.createElement("SPAN");
-                    newspan.innerHTML = this.array[index].href;
-                    newspan.className = "maplink";
-                    newspan.style.display = "none";
-                    newa.style.color = "brown";
-                    newa.style.cursor = "pointer";
-                    newa.appendChild(newspan);
-                }
-                else{
-                    newa.href = this.array[index].href;
-                }
-            }
-            if(JSON.stringify(this.array[index].geometron) != "{}" && this.array[index].geometron != undefined){
-               
-                var newcan = document.createElement("CANVAS");
-                newa.appendChild(newcan);
-                newcan.style.position = "absolute";
-                newcan.style.left = "0px";
-                newcan.style.top = "0px";
-                newcan.class = "geometroncanvas";
-                //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
-                var newg = new GVM(this.array[index].geometron.x0rel*this.array[index].w*this.w,this.array[index].geometron.y0rel*this.array[index].w*this.w,this.array[index].geometron.unitrel*this.array[index].w*this.w,this.array[index].geometron.theta0,newcan,this.array[index].w*this.w,this.array[index].w*this.array[index].geometron.height*this.w/this.array[index].geometron.width,hypercube);
-//                newg.importbytecode(this.array[index].geometron.shapes);
-                var thisstyle = this.array[index].geometron.style;
-                newg.style = thisstyle;
-                newg.drawGlyph(this.array[index].geometron.glyph);
-                newa.style.height = (this.array[index].w*this.array[index].geometron.height*this.w/this.array[index].geometron.width).toString() + "px";
-                
-                
-            }
-
-            this.linkArray.push(newa);
-        }
-    }
-
-    this.deletelink = function () {
-        var localArray = [];
-        for(var index = 0;index < this.array.length;index++){
-            if(index != this.linkindex) {
-                localArray.push(this.array[index]);
-            }
-        }
-        this.array = localArray;
-        this.draw();
-        this.linkindex--;
-        if(this.linkindex < 0){
-            this.linkindex = 0;
-        }    
-        this.linkArray[this.linkindex].style.border = "solid";
-        this.linkArray[this.linkindex].style.borderWidth = "0.1px";
-
-    }
-
-    this.newlink = function() {
-        
-        if(this.array.length > 0 ){
-            this.linkArray[this.linkindex].style.border = "none";
-            var newLink  = new MapLink(this.array[this.linkindex].x + this.array[linkindex].w*0.05,this.array[this.linkindex].y + this.array[this.linkindex].w*0.05,this.array[this.linkindex].w,this.array[this.linkindex].h,this.array[this.linkindex].angle,this.array[this.linkindex].text,this.array[this.linkindex].href,this.array[this.linkindex].src,this.array[this.linkindex].maplinkmode,this.array[this.linkindex].geometron);
-        }
-        else{
-            var newLink  = new MapLink(0.1,0.1,0.1,0.1,0,"text","","",false,{});
-            this.linkindex = 0;
-        }
-        this.array.push(newLink);
-        this.linkindex = this.array.length - 1;
-        this.draw();
-        this.linkArray[this.linkindex].style.border = "solid";
-        this.linkArray[this.linkindex].style.borderWidth = "0.1px";
-
-    }
-
-    this.nextlink = function() {
-
-        this.linkArray[this.linkindex].style.border = "none";
-        this.array[this.linkindex].x = parseInt(this.linkArray[this.linkindex].style.left.substring(0,this.linkArray[this.linkindex].style.left.length-2))/this.w;
-        this.array[this.linkindex].y = parseInt(this.linkArray[this.linkindex].style.top.substring(0,this.linkArray[this.linkindex].style.top.length-2))/this.w;
-        this.array[this.linkindex].w = parseInt(this.linkArray[this.linkindex].style.width.substring(0,this.linkArray[this.linkindex].style.width.length-2))/this.w;
-        this.array[this.linkindex].angle = parseInt(this.linkArray[this.linkindex].style.transform.substring(7,this.linkArray[this.linkindex].style.transform.length - 4));
-    
-        this.linkindex++;
-        if(this.linkindex > this.array.length - 1){
-            this.linkindex = 0;
-        }
-        this.linkArray[this.linkindex].style.border = "solid";
-        this.linkArray[this.linkindex].style.borderWidth = "0.1px";
-    }
-    this.prevlink = function() {
-
-        this.linkArray[this.linkindex].style.border = "none";
-        this.array[this.linkindex].x = parseInt(this.linkArray[this.linkindex].style.left.substring(0,this.linkArray[this.linkindex].style.left.length-2))/this.w;
-        this.array[this.linkindex].y = parseInt(this.linkArray[this.linkindex].style.top.substring(0,this.linkArray[this.linkindex].style.top.length-2))/this.w;
-        this.array[this.linkindex].w = parseInt(this.linkArray[this.linkindex].style.width.substring(0,this.linkArray[this.linkindex].style.width.length-2))/this.w;
-        this.array[this.linkindex].angle = parseInt(this.linkArray[this.linkindex].style.transform.substring(7,this.linkArray[this.linkindex].style.transform.length - 4));
-    
-        this.linkindex--;
-        if(this.linkindex < 0){
-            this.linkindex = this.array.length - 1;
-        }
-        
-        this.linkArray[this.linkindex].style.border = "solid";
-        this.linkArray[this.linkindex].style.borderWidth = "0.1px";
-    
-    }
-
-    this.movelinkup = function() {
-        if(this.linkindex < this.array.length - 1) {
-            var localArray = [];
-            for(var index = 0;index < this.array.length;index++){
-                if(index < this.linkindex || index > this.linkindex + 1) {
-                    localArray.push(this.array[index]);
-                }
-                if(index == this.linkindex) {
-                    localArray.push(this.array[this.linkindex + 1]);
-                }
-                if(index == this.linkindex + 1) {
-                    localArray.push(this.array[this.linkindex]);
-                }
-            }
-            this.array = localArray;
-            this.linkindex++;
-            this.draw();
-            this.linkArray[this.linkindex].style.border = "solid";
-            this.linkArray[this.linkindex].style.borderWidth = "0.1px";
-
-        }
-    }
-
-    this.movelinkdown = function() {
-        if(this.linkindex > 0) {
-            var localArray = [];
-            for(var index = 0;index < this.array.length;index++){
-                if(index < this.linkindex - 1 || index > this.linkindex) {
-                    localArray.push(this.array[index]);
-                }
-                if(index == this.linkindex - 1) {
-                    localArray.push(this.array[this.linkindex]);
-                }
-                if(index == this.linkindex) {
-                    localArray.push(this.array[this.linkindex - 1]);
-                }
-            }
-            this.array = localArray;
-            this.linkindex--;
-            this.draw();
-            this.linkArray[this.linkindex].style.border = "solid";
-            this.linkArray[this.linkindex].style.borderWidth = "0.1px";
-
-        }
-    }
-
-}
-
-
-function MapLink(x,y,w,h,angle,text,href,src,maplinkmode,geometron) {
- 
-    this.x = x;
-    this.y = y;
-    this.w = w;
-    this.h = h;
-    this.angle = angle;
-    this.text = text;
-    this.href = href;//either an href property of an anchor element or the url of a json file with another map in it with which to load
-    this.src = src;
-    this.maplinkmode = maplinkmode;
-    this.geometron = geometron;
-
 }
 
 hypercube = [

@@ -28,12 +28,8 @@ else{
     <a href = "pageeditor.html">PAGE EDITOR</a>
 </p>-->
 <p style = "font-size:5em">
-    <a href = "mapeditor.html">
-    <img src = "iconsymbols/edit.svg"/>
-    </a>
-    <a href = "canvas2png.html">
-    <img src = "iconsymbols/pngcode.svg"/>
-    </a>
+
+    <a href = "index.html">index.html</a>
 
 </p>
 

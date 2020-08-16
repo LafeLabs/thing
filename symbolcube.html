@@ -72,17 +72,6 @@ bootstrap is whole big thing that does lots of things, but what we use it for he
 
 <table id = "shapetable"></table>
 
-<table id = "selecttable">
-    <tr><td></td><td class = "button">01700</td></tr>
-    <tr><td class = "button">0600</td><td class = "button">01600</td></tr>
-    <tr><td class = "button">0500</td><td class = "button">01500</td></tr>
-    <tr><td></td><td class = "button">01400</td></tr>
-    <tr><td></td><td class = "button">01300</td></tr>
-    <tr><td class = "button">0200</td><td class = "button">01200</td></tr>
-    <tr><td></td><td class = "button">01100</td></tr>
-    <tr><td></td><td class = "button">01000</td></tr>
-</table>
-
 <textarea id = "textio"></textarea>
 
 
@@ -104,9 +93,9 @@ controls  = [
 
 maincanvas = document.getElementById("maincanvas");
 var mainGVM = new GVM(maincanvas,200,200);
-mainGVM.x0 = 10;
-mainGVM.y0 = 190;
-mainGVM.unit = 180;
+mainGVM.x0 = mainGVM.width*0.2;
+mainGVM.y0 = mainGVM.width*0.75;
+mainGVM.unit = mainGVM.width*0.5;
 var spellGVM = new GVM(document.getElementById("spellcanvas"),500,500);
 
 spellglyphsize = 26;
@@ -150,19 +139,12 @@ function loadcontrols(){
     
 }
 
-base = 01200;
-cansize = 36;
-symbolMode = true;
+base = 01300;
+cansize = 30;
 
 function loadtablet(){
-    document.getElementById("shapetable").innerHTML = "";
     gvmArray = [];
-    if(symbolMode){
-        address = base;
-    }
-    else{
-        address = base + 01000;
-    }
+    address = base;
     for(var row = 0;row < 8;row++){
         var newtr = document.createElement("TR");
         document.getElementById("shapetable").appendChild(newtr);
@@ -171,11 +153,11 @@ function loadtablet(){
             newtr.appendChild(newtd);
             var newcan = document.createElement("CANVAS");
             newtd.appendChild(newcan);
-            var newGVM = new GVM(newcan,cansize,cansize);
+            var newGVM = new GVM(newcan,36,36);
             newGVM.hypercube = mainGVM.hypercube;
-            newGVM.x0 = 1;
-            newGVM.y0 = cansize - 1;
-            newGVM.unit = cansize-2;
+            newGVM.x0 = cansize ;
+            newGVM.y0 = 30;
+            newGVM.unit = 20;
             newGVM.action(0300);
             newGVM.action(address);
             gvmArray.push(newGVM);
@@ -199,7 +181,7 @@ function loadtablet(){
                 gvmArray[mainGVM.address - base].canvas2d.style.backgroundColor = "white";
                 mainGVM.address = thisaddress;
                 gvmArray[mainGVM.address - base].canvas2d.style.backgroundColor = "#a0a0a0";
-                mainGVM.clean();
+                mainGVM.saveGlyph();
                 gvmArray[thisindex].drawGlyph(mainGVM.cleanGlyph);
                 redraw();
             }
@@ -208,35 +190,6 @@ function loadtablet(){
     }    
 }
 
-selectbuttons = document.getElementById("selecttable").getElementsByClassName("button");
-
-
-for(var index = 0;index < selectbuttons.length;index++){
-    selectbuttons[index].onclick = function(){
-        base = parseInt(this.innerHTML,8);
-        if(base<01000){
-            symbolMode = false;
-        }
-        else{
-            symbolMode = true;
-        }
-        loadtablet();
-        if(innerWidth>innerHeight){
-            document.getElementById("actioninput").select();
-        }
-        mainGVM.address = base;
-        mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
-        mainGVM.clean();
-        mainGVM.drawGlyph(mainGVM.glyph);
-        redraw();       
-        for(var index = 0;index < selectbuttons.length;index++){
-            selectbuttons[index].style.backgroundColor = "white";
-        }
-        this.style.backgroundColor = "#a0a0a0";
-    }
-}
-
-selectbuttons[8].style.backgroundColor = "#a0a0a0";
 
 //mainGVM.address = 01060;
 //mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
@@ -275,27 +228,11 @@ function savecube(){
 }
 
 function redraw(){
-    if(base >= 01000){
-        for(var index = 0;index < gvmArray.length;index++){
-            gvmArray[index].drawGlyph(mainGVM.hypercube[base + index]);
-        }
-        gvmArray[mainGVM.address - base].canvas2d.style.backgroundColor = "#a0a0a0";
-        mainGVM.x0 = 10;
-        mainGVM.y0 = 190;
-        mainGVM.unit = 180;
-    }
-    else{
-        for(var index = 0;index < gvmArray.length;index++){
-            gvmArray[index].drawGlyph(mainGVM.hypercube[base + index + 01000]);
-        }
-        gvmArray[mainGVM.address - base].canvas2d.style.backgroundColor = "#a0a0a0";
-        mainGVM.x0 = 100;
-        mainGVM.y0 = 100;
-        mainGVM.unit = 25;
-        
+    for(var index = 0;index < gvmArray.length;index++){
+        gvmArray[index].drawGlyph(mainGVM.hypercube[base + index]);
     }
     
-    
+    gvmArray[mainGVM.address - base].canvas2d.style.backgroundColor = "#a0a0a0";
     spellGVM.spellGlyph(mainGVM.glyph);
 
 }
@@ -381,7 +318,7 @@ document.getElementById("actioninput").onkeypress = function(a) {
 
         mainGVM.cursorAction(localCursorAction);   
         this.value = "";
-        mainGVM.clean();
+        mainGVM.saveGlyph();
         mainGVM.hypercube[mainGVM.address] = mainGVM.cleanGlyph;
         document.getElementById("spellinput").value = mainGVM.cleanGlyph;
     }
@@ -395,7 +332,7 @@ document.getElementById("importbutton").onclick =  function(){
     var importcode = JSON.parse(document.getElementById("textio").value);
     mainGVM.importbytecode(importcode);
     mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
-    mainGVM.clean();
+    mainGVM.saveGlyph();
     mainGVM.drawGlyph(mainGVM.glyph);
     redraw();
 }
@@ -506,14 +443,6 @@ body{
 .button:active{
     background-color:yellow;
 }
-#selecttable{
-    position:absolute;
-    right:50px;
-    bottom:50px;
-    border:solid;
-}
-
-
 </style>
 </body>
 </html>
