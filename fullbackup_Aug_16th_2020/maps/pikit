@@ -1,0 +1,102 @@
+[
+    {
+        "x": 0.1515513126491647,
+        "y": 0.06921241050119331,
+        "w": 0.9463007159904535,
+        "angle": 0,
+        "text": "Raspberry Pi Kit",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.8448687350835322,
+        "y": -0.01909307875894988,
+        "w": 0.8890214797136038,
+        "angle": 0,
+        "text": "kits",
+        "href": "maps/kits",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.010739856801909307,
+        "y": 0.22792362768496421,
+        "w": 0.2828162291169451,
+        "angle": 0,
+        "text": "raspberry pi 3 B +",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.021479713603818614,
+        "y": 0.2637231503579952,
+        "w": 0.2828162291169451,
+        "angle": 0,
+        "text": "sd card",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.017899761336515514,
+        "y": 0.3138424821002387,
+        "w": 0.2828162291169451,
+        "angle": 0,
+        "text": "sd card reader",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.013126491646778043,
+        "y": 0.360381861575179,
+        "w": 0.2828162291169451,
+        "angle": 0,
+        "text": "usb keyboard",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.016706443914081145,
+        "y": 0.4033412887828162,
+        "w": 0.2828162291169451,
+        "angle": 0,
+        "text": "usb mouse",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.014319809069212411,
+        "y": 0.4486873508353222,
+        "w": 0.2828162291169451,
+        "angle": 0,
+        "text": "HDMI display and cable",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.01909307875894988,
+        "y": 0.5405727923627685,
+        "w": 0.2828162291169451,
+        "angle": 0,
+        "text": "2.5 A or more USB B micro power cable",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.017899761336515514,
+        "y": 0.6885441527446301,
+        "w": 0.2828162291169451,
+        "angle": 0,
+        "text": "big 5V/12V usb power pack",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    }
+]

@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">    
+<head>
+     <meta charset="utf-8"/>
+
+    <!--
+
+        EVERYTHING IS PHYSICAL 
+        EVERYTHING IS FRACTAL
+        EVERYTHING IS RECURSIVE
+        NO MONEY 
+        MO MINING 
+        NO PROPERTY
+        LOOK AT THE INSECTS
+        LOOK AT THE FUNGI
+        LANGUAGE IS HOW THE MIND PARSES REALITY
+
+    -->
+
+    <!--Stop Google:-->
+
+    <META NAME="robots" CONTENT="noindex,nofollow">
+
+    <script src="jscode/geometron.js"></script>
+    <script src="jscode/hypercube.js"></script>
+    <script src="jscode/robotfont.js"></script>
+    <script src="jscode/keyboard.js"></script>
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/wAAAAD//wAA/wAAAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMzMzQREREAAzMzRBEREQAAMzNEQREQAAAzNERBERAAAAM0REQRAAAAAEREREAAAAAAREREQAAAAAACIiIAAAAAAAIiIgAAAAAAACIgAAAAAAAAIiAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAQAAwAEAAOADAADgAwAA8AcAAPgPAAD4DwAA/B8AAPwfAAD+PwAA/j8AAP9/AAD//wAA" rel="icon" type="image/x-icon" />
+</head>
+<body> 
+
+    <!--
+        symbol.html:
+
+        this is a custom language, specific to this node in the Universe of Things.  Hypercube BUILDS languages. This is apure implementation of 
+        ONE language, with absolute minimum number of actions, cleaned up glyphs, large and simple buttons, just a few.
+    
+    -->
+
+<div id = "square">
+    <canvas id = "maincanvas"></canvas>
+    <canvas id = "invisiblecanvas"></canvas>
+</div>
+
+<div id = "margin">            
+    <div id = "linkdiv">
+        <a href = "scroll.html">
+            <img style = "width:50px;" src = "iconsymbols/scroll.svg"/>
+        </a>
+        <a href = "map.html">
+            <img style = "width:50px;" src = "../iconsymbols/map.svg"/>
+        </a>
+        <a href = "symbol.html">
+            <img style = "width:50px;" src = "iconsymbols/geometron.svg"/>
+        </a>  
+        <img id = "savebutton" class = "button" style = "width:50px;" src = "iconsymbols/save.svg"/>
+        
+    </div>    
+    <table id = "controltable">
+        <tr><td>Start address:</td><td><input id = "startinput"/></td></tr>
+        <tr><td>End address:</td><td><input id = "stopinput"/></td></tr>
+        <tr><td>Glyph Size[px]:</td><td><input id = "sideinput"/></td></tr>
+        <tr><td>Tablet Width[px]:</td><td><input id = "widthinput"/></td></tr>
+        <tr><td>Tablet Height[px]:</td><td><input id = "heightinput"/></td></tr>
+    </table>
+
+</div>
+
+<script>
+
+startaddress = 0220;
+endaddress = 0227;
+numcols = 10;
+glyphsize = 28;
+tabletwidth = 800;
+tabletheight = 800;
+
+controlinputs = document.getElementById("controltable").getElementsByTagName("input");
+
+controlinputs[0].value = "0" + startaddress.toString(8);
+controlinputs[1].value = "0" + endaddress.toString(8);
+controlinputs[2].value = glyphsize.toString();
+controlinputs[3].value = tabletwidth.toString();
+controlinputs[4].value = tabletheight.toString();
+
+controlinputs[0].onchange = function(){
+    startaddress = parseInt(this.value,8);
+    drawtablet();
+}
+controlinputs[1].onchange = function(){
+    endaddress = parseInt(this.value,8);
+    drawtablet();
+}
+controlinputs[2].onchange = function(){
+    glyphsize = parseFloat(this.value);
+    drawtablet();
+}
+controlinputs[3].onchange = function(){
+    tabletwidth = parseFloat(this.value);
+    drawtablet();
+}
+controlinputs[4].onchange = function(){
+    tabletheight = parseFloat(this.value);
+    drawtablet();
+    
+}
+
+
+landscape = false;
+
+if(innerWidth > innerHeight){
+    squareWidth = innerHeight;
+    document.getElementById("margin").style.width = (innerWidth - squareWidth).toString() + "px";
+    document.getElementById("margin").style.height = innerHeight.toString() + "px";
+    document.getElementById("square").style.width = squareWidth.toString() + "px";
+    document.getElementById("square").style.height = squareWidth.toString() + "px";
+    marginWidth = innerWidth - squareWidth;
+    landscape = true;
+}
+else{
+    squareWidth = innerWidth;
+    document.getElementById("margin").style.height = (innerHeight - squareWidth).toString() + "px";
+    document.getElementById("margin").style.width = (innerWidth).toString() + "px";
+    document.getElementById("square").style.height = squareWidth.toString() + "px";
+    document.getElementById("square").style.width = squareWidth.toString() + "px";
+    marginWidth = innerHeight - squareWidth;
+}
+
+var newGVM = new GVM(glyphsize,glyphsize,glyphsize,-Math.PI/2,document.getElementById("maincanvas"),tabletwidth,tabletheight,hypercube);
+
+for(var index = 0;index < 01377;index++){
+    if(newGVM.hypercube[index].length  > 0 ){
+        hypercube.push( "0" + index.toString(8) +  ":" + newGVM.hypercube[index]);
+    }
+}
+
+newGVM.importbytecode(font);
+newGVM.importbytecode(keyboard);
+
+
+
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        currentjson = JSON.parse(this.responseText);
+        currentstyle = currentjson.style;
+        newGVM.style = currentstyle;
+        newGVM.importbytecode(currentjson.shapes);
+
+        drawtablet();
+
+    }
+};
+httpc.open("GET", "fileloader.php?filename=data/currentjson.txt", true);
+httpc.send();    
+
+
+function spellGlyph(glyph){
+    var localGlyph = "";
+    var glyphArray = glyph.split(",");
+    for(var index = 0; index < glyphArray.length; index++){
+        if(glyphArray[index].length > 1){
+            var localAddress = parseInt(glyphArray[index],8);
+            if(localAddress < 01000){
+                localAddress += 01000;
+            }
+            newGVM.action(localAddress);
+            if(newGVM.x > tabletwidth - 2*glyphsize){
+               newGVM.x = newGVM.unit;
+               newGVM.y += 1.5*newGVM.unit;
+            }
+        }
+    }
+}
+
+function drawtablet(){
+    newGVM.canvas2d.width = tabletwidth;
+    newGVM.width = tabletwidth;    
+    newGVM.canvas2d.height = tabletheight;
+    newGVM.width = tabletheight;    
+    newGVM.x0 = 2*glyphsize;
+    newGVM.y0 = 2*glyphsize;    
+    newGVM.unit = glyphsize;    
+    newGVM.theta0 = currentjson.theta0;
+    newGVM.glyph = currentjson.glyph + ",0207,";  
+    newGVM.ctx.clearRect(0,0,newGVM.width,newGVM.height);
+
+    newGVM.action(0300);
+    for(var index = startaddress;index <= endaddress;index++){
+        if(newGVM.hypercube[index].length>1){
+                    if(index < 01000){
+                newGVM.action(01000 + index);
+            }
+            else{
+                newGVM.action(index);
+            }
+            newGVM.action(01000 + 072);
+            spellGlyph(newGVM.hypercube[index]);
+            newGVM.action(01000 + 056);
+            newGVM.x = 2*glyphsize;
+            newGVM.y += 2*glyphsize;
+    
+        }
+    }
+}
+
+
+document.getElementById("savebutton").onclick = function(){
+    
+    var timestamp = Math.round((new Date().getTime())/1000).toString();
+    newGVM.svgString += "</svg>";
+    var httpc4 = new XMLHttpRequest();
+    httpc4.open("POST","filesaver.php", true);
+    httpc4.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc4.send("data="+encodeURIComponent(newGVM.svgString) +"&filename=symbolfeed/tablet" + timestamp +  ".svg");//send text to filesaver.php
+    
+    var httpc = new XMLHttpRequest();
+    var url = "pngsave.php";        
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(newGVM.pngcode(newGVM).substring(22))+"&filename=symbolfeed/tablet" + timestamp +  ".png");//send text to filesaver.php
+    
+    
+}
+
+
+</script>
+<style>
+body{
+    overflow:hidden;
+}
+#square{
+    position:absolute;
+    left:0px;
+    top:0px;
+    border:solid;
+    border-width:0.1px;
+    border-color:blue;
+    overflow:scroll;
+}
+#margin{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    border:solid;
+    border-width:0.1px;
+    border-color:red;
+}
+#spelldiv{
+    width:100%;
+    height:80px;
+    overflow:scroll;
+    position:absolute;
+    top:90px;
+    left:0px;
+}
+#spellinput{
+    font-family:courier;
+    font-size:16px;
+}
+#controldiv{
+    position:absolute;
+    bottom:1em;
+    left:0px;
+    right:0px;
+    top:200px;
+}
+#linkdiv{
+    width:100%;
+    height:80px;
+    overflow:scroll;
+}
+#maincanvas{
+    border:solid;
+}
+#spellcanvas{
+    border:solid;
+}
+#actioninput{
+    width:1em;
+    position:absolute;
+    right:0px;
+    bottom:0px;
+}
+
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
+}
+.button{
+    cursor:pointer;
+}
+#invisiblecanvas{
+    display:none;
+}
+#controltable{
+    font-family:courier;
+}
+input{
+    font-family:courier;
+}
+
+</style>
+</body>
+</html>
