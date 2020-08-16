@@ -63,7 +63,6 @@
         </form>        
         <table id  = "imagecontroltable">
             <tr>
-                <td><img src = "iconsymbols/deleteimage.svg" id = "deleteimagebutton"/></td>
                 <td>Image url:</td>
                 <td>
                     <input id = "imageurlinput"/>
@@ -118,9 +117,24 @@
 //load 4 files: data/feed.txt, data/imagefeed.txt data/robot.txt, and data/hypercube.txt
 
 controls  = [
-    "020,010,021,0340,0220,0221,022,023,",
-    "0500,0501,0502,0503,",
-    "0504,0505,0506,0507,"
+    "0320,0321,0322,0323,0324,0325,0326,0327,",
+    "020,010,021,022,023,0334,0330,0335,",
+    "0500,0501,0502,0503,0404,0332,0341,0333,",
+    "0504,0505,0506,0507,0405,0336,0331,0337,",
+    "0401,0400,0403,0402,0217,0406,0407,",
+    "0547,040,041,042,043,044,045,046,050,",
+    "051,052,053,054,055,056,057,060,",
+    "061,062,063,064,065,066,067,070,",
+    "071,072,073,074,075,076,077,0100,",
+    "0101,0102,0103,0104,0105,0106,0107,0110,",
+    "0111,0112,0113,0114,0115,0116,0117,0120,",
+    "0121,0122,0123,0124,0125,0126,0127,0130,",
+    "0131,0132,0133,0134,0135,0136,0137,0140,",
+    "0141,0142,0143,0144,0145,0146,0147,0150,",
+    "0151,0152,0153,0154,0155,0156,0157,0160,",
+    "0161,0162,0163,0164,0165,0166,0167,0170,",
+    "0171,0172,0173,0174,0175,0176,",
+
 ];
 
 
@@ -129,7 +143,7 @@ document.getElementById("textio").value = "";
 stackArray = [];
 stackButtonArray = [];
 
-stackbuttonsize = 30;
+stackbuttonsize = 40;
 
 stackMode = false;//if true, edit a "stack" in the Hypercube, if false, by default one is editing the feed's geometron glyphs
 
@@ -345,6 +359,7 @@ function loadbuttontable(){
     
 }
 
+controlbuttonsize = 40;
 function loadcontroltable(){
     document.getElementById("controltable").innerHTML = "";
     for(var index = 0;index < controls.length;index++){
@@ -361,16 +376,23 @@ function loadcontroltable(){
                 datadiv.innerHTML = rowarray[rowindex];
                 datadiv.className = "data";
                 newtd.appendChild(datadiv);
-                var newGVM = new GVM(newcan,30,30);
-                newGVM.unit = 28;
+                var newGVM = new GVM(newcan,controlbuttonsize,controlbuttonsize);
+                newGVM.unit = controlbuttonsize - 2;
                 newGVM.x0 = 1;
-                newGVM.y0 = 29;
+                newGVM.y0 = controlbuttonsize-1;
                 newGVM.importbytecode(hypercube);
                 newGVM.action(0300);
+                if(parseInt(rowarray[rowindex],8) >= 040 && parseInt(rowarray[rowindex],8) < 0177){
+                    newGVM.drawGlyph("0300,0336,0336,0330,0333,0337,");
+                }
                 newGVM.action(parseInt(rowarray[rowindex],8)+01000);
+
                 newtd.onclick = function(){
                     var localaction = parseInt(this.getElementsByClassName("data")[0].innerHTML,8);
                     if(localaction != 022 && localaction != 023){
+                        if(localaction >= 040 && localaction < 0177){
+                            localaction += 01000;
+                        }
                         mainGVM.cursorAction(localaction);
                     }
                     if(localaction == 022){
@@ -652,9 +674,9 @@ function previous(){
         var oldstackbuttonindex = (mainGVM.address)%020;
         var localstackbase = mainGVM.address - mainGVM.address%020;
         stackButtonArray[oldstackbuttonindex].getElementsByTagName("canvas")[0].style.backgroundColor = "white";
-        mainGVM.address++;
-        if(mainGVM.address > localstackbase + 017){
-            mainGVM.address = localstackbase;
+        mainGVM.address--;
+        if(mainGVM.address < localstackbase){
+            mainGVM.address = localstackbase + 017;
         }
         mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
         mainGVM.clean();
