@@ -26,7 +26,7 @@
 </head>
 <body>
 <div id = "header">
-    <a style = "font-size:1.5em" href = "index.html">link back to index.html</a>
+    <a style = "font-size:1.5em" href = "linkfeed.html">link back to link feed.html</a>
 
     <h2>feed operator console</h2>
 
@@ -106,7 +106,7 @@ var httpc = new XMLHttpRequest();
         redraw();
     }
 };
-httpc.open("GET", "fileloader.php?filename=data/feed.txt", true);
+httpc.open("GET", "fileloader.php?filename=data/linkfeed.txt", true);
 httpc.send();
 
 
@@ -311,6 +311,28 @@ document.getElementById("src2wall").onclick = function(){
     document.getElementById("wall").value += "\n![](" + document.getElementById("srcinput").value + ")";
 }
 
+textfeed = {};
+var httpc10 = new XMLHttpRequest();
+    httpc10.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        textfeed = JSON.parse(this.responseText);
+
+        for(var index = textfeed.src.length - 1;index >= 0;index--) {
+            var newimg = document.createElement("IMG");
+            newimg.src = textfeed.src[index];
+            newimg.classList.add("button");
+            document.getElementById("imagefeed").appendChild(newimg);
+            newimg.onclick = function() {
+                document.getElementById("headerimage").src = this.src;
+                document.getElementById("srcinput").value = this.src;
+            }
+            
+        }
+
+    }
+};
+httpc10.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
+httpc10.send();
 
 
 </script>
