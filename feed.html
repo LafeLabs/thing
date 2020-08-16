@@ -84,7 +84,6 @@
     <div id = "feed"></div>
 </div>
 <div id = "controlbox">
-    <a href = "fonteditor.html">fonteditor.html</a>
     <table id = "buttontable">
         <tr id = "buttontr">
         </tr>
@@ -122,8 +121,8 @@ controls  = [
     "020,010,021,022,023,0334,0330,0335,",
     "0500,0501,0502,0503,0404,0332,0341,0333,",
     "0504,0505,0506,0507,0405,0336,0331,0337,",
-    "0401,0400,0403,0402,0217,0406,0407,",
-    "0547,040,041,042,043,044,045,046,050,",
+    "0401,0400,0403,0402,0217,0406,0407,0547,",
+    "040,041,042,043,044,045,046,050,",
     "051,052,053,054,055,056,057,060,",
     "061,062,063,064,065,066,067,070,",
     "071,072,073,074,075,076,077,0100,",
@@ -309,7 +308,7 @@ function loadbuttontable(){
         
     }        
     var newtd = document.createElement("TD");
-    newtr.appendChild(newtd);
+    newtr2.appendChild(newtd);
     newtd.innerHTML = "copy element";
     newtd.classList.add("tablebutton");
     newtd.classList.add("button");
@@ -327,7 +326,7 @@ function loadbuttontable(){
     }        
     
     var newtd = document.createElement("TD");
-    newtr.appendChild(newtd);
+    newtr2.appendChild(newtd);
     newtd.innerHTML = "remove image";
     newtd.classList.add("tablebutton");
     newtd.classList.add("button");
@@ -345,19 +344,66 @@ function loadbuttontable(){
 
     }        
 
+
     var newtd = document.createElement("TD");
     newtr2.appendChild(newtd);
-    newtd.innerHTML = "load robot";
+    newtd.innerHTML = "save symbol file";
     newtd.classList.add("tablebutton");
     newtd.classList.add("button");
     newtd.onclick = function(){
-        //save robot glyph
-        mainGVM.clean();
-        robot.glyph = mainGVM.cleanGlyph;
-        saverobot();
+        //save symbol file
+        savesymbolfile();
+    }        
+
+    var newtd = document.createElement("TD");
+    newtr2.appendChild(newtd);
+    newtd.innerHTML = "edit hypercube";
+    newtd.classList.add("tablebutton");
+    newtd.classList.add("button");
+    newtd.onclick = function(){
+        //point browser to hypercube.html
+        window.location.href = "hypercube.html";
+    }        
+
+    var newtd = document.createElement("TD");
+    newtr2.appendChild(newtd);
+    newtd.innerHTML = "edit font";
+    newtd.classList.add("tablebutton");
+    newtd.classList.add("button");
+    newtd.onclick = function(){
+        //point browser to hypercube.html
+        window.location.href = "font.html";
+    }        
+
+    var newtd = document.createElement("TD");
+    newtr2.appendChild(newtd);
+    newtd.innerHTML = "edit keyboard";
+    newtd.classList.add("tablebutton");
+    newtd.classList.add("button");
+    newtd.onclick = function(){
+        //point browser to hypercube.html
+        window.location.href = "keyboard.html";
     }        
     
     
+}
+
+function savesymbolfile(){
+    mainGVM.clean();
+    mainGVM.drawGlyph(mainGVM.cleanGlyph);
+        
+    var timestamp = Math.round((new Date().getTime())/1000).toString();
+    var httpc = new XMLHttpRequest();
+    var url = "pngsave.php";        
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(mainGVM.pngcode(mainGVM).substring(22))+"&filename=symbolfeed/symbol" + timestamp +  ".png");//send text to filesaver.php
+
+    var httpc2 = new XMLHttpRequest();
+    httpc2.open("POST","filesaver.php", true);
+    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc2.send("data="+encodeURIComponent(mainGVM.svgString) +"&filename=symbolfeed/symbol" + timestamp +  ".svg");//send text to filesaver.php
+
 }
 
 controlbuttonsize = 40;
@@ -406,7 +452,8 @@ function loadcontroltable(){
                     mainGVM.clean();
                     spellGVM.spellGlyph(mainGVM.glyph);
                     document.getElementById("spellinput").value = mainGVM.cleanGlyph;
-
+                    robot.glyph = mainGVM.cleanGlyph;
+                    saverobot();
 
                 }
                 newcan.classList.add("button");
@@ -571,7 +618,9 @@ document.getElementById("actioninput").onkeypress = function(a) {
         mainGVM.clean();
         document.getElementById("spellinput").value = mainGVM.cleanGlyph;
         feed[feedindex].glyph = mainGVM.cleanGlyph;
-        
+        robot.glyph = mainGVM.cleanGlyph;
+        saverobot();
+
     }
 
 }
