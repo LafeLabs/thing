@@ -48,6 +48,7 @@
         "styleeditor.html",
         "symbol.html",
         "symbolapp.html",
+        "symbolcube.html",
         "symbolfeed.html",
         "tablet.html",
         "textfeed.html",
