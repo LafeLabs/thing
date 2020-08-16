@@ -14,44 +14,12 @@
 <div id = "margin">
 <div id = "linkdiv">
     <img id = "rawimg"/>
-<a href = "symbolapp.html">
-    <img  src = "iconsymbols/symbolapp.svg"/>
-</a>
-<a href = "symbol.html">
-    <img src = "iconsymbols/geometron.svg"/>
-</a>
-<a href = "robot.html">
-    <img src = "iconsymbols/robot.svg"/>
-</a>
-<a href = "scroll.html">
-    <img src = "iconsymbols/scroll.svg"/>
-</a>
-<a href = "map.html">
-    <img src = "../iconsymbols/map.svg"/>
-</a>
-<a href = "canvas2png.html">
-    <img src = "../iconsymbols/pngcode.svg"/>
+<a href = "index.html">
+index.html
 </a>
 
 </div>
 
-<div id = "filediv">
-<table>
-    <tr>
-        <td>File To Edit</td>
-        <td><input id = "urlinput"/></td>
-        <td>
-            <img style = "width:3em" id = "editbutton" class=  "button" src = "iconsymbols/edit.svg"/>
-        </td>
-    </tr>
-</table>
-
-<form id = "uploadform"  action="uploadsymbol.php" method="post" enctype="multipart/form-data">
-                Select symbol file to upload:
-    <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit">
-</form>
-</div>
 
 
 </div>
@@ -76,11 +44,6 @@ httpc4.onreadystatechange = function() {
             document.getElementById("symbolscroll").appendChild(newp);
             newp.appendChild(newimg);
                          
-            newimg.onclick = function() {
-                var localurl = "symbolfeed" + this.src.split("symbolfeed")[1];
-                document.getElementById("urlinput").value = localurl;
-            }
-
             var newlabel = document.createElement("P");
             newlabel.className = "typelabel";
             if(symbols[index].substr(-4) == ".png"){
@@ -118,36 +81,7 @@ httpc4.onreadystatechange = function() {
 httpc4.open("GET", "dir.php?filename=symbolfeed", true);
 httpc4.send();
 
-currentjson = {};
 
-document.getElementById("editbutton").onclick = function() {
-
-    thisurl = document.getElementById("urlinput").value;
-    if(thisurl.substr(-4) == ".svg"){
-        imagename = thisurl.split("symbolfeed/")[1];
-        imageurl = "symbolfeed/" + imagename;
-        var httpc2 = new XMLHttpRequest();
-        httpc2.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                svgraw = this.responseText;
-                jsondata = svgraw.split("<json>")[1].split("</json>")[0];
-                currentjson = JSON.parse(jsondata);
-                data = encodeURIComponent(jsondata);
-     
-                var httpc = new XMLHttpRequest();
-                var url = "filesaver.php";        
-                httpc.open("POST", url, true);
-                httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
-                httpc.send("data="+data+"&filename=data/currentjson.txt");//send text to filesaver.php
-               // window.location.href = "symbol.html";
-            }
-        };
-        httpc2.open("GET", "fileloader.php?filename=" + imageurl, true);
-        httpc2.send();
-
-    }
-
-}
 
 </script>
 <style>

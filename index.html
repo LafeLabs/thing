@@ -356,8 +356,36 @@ function loadbuttontable(){
         robot.glyph = mainGVM.cleanGlyph;
         saverobot();
     }        
+
+    var newtd = document.createElement("TD");
+    newtr2.appendChild(newtd);
+    newtd.innerHTML = "save symbol file";
+    newtd.classList.add("tablebutton");
+    newtd.classList.add("button");
+    newtd.onclick = function(){
+        //save symbol file
+        savesymbolfile();
+    }        
     
     
+}
+
+function savesymbolfile(){
+    mainGVM.clean();
+    mainGVM.drawGlyph(mainGVM.cleanGlyph);
+        
+    var timestamp = Math.round((new Date().getTime())/1000).toString();
+    var httpc = new XMLHttpRequest();
+    var url = "pngsave.php";        
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(mainGVM.pngcode(mainGVM).substring(22))+"&filename=symbolfeed/symbol" + timestamp +  ".png");//send text to filesaver.php
+
+    var httpc2 = new XMLHttpRequest();
+    httpc2.open("POST","filesaver.php", true);
+    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc2.send("data="+encodeURIComponent(mainGVM.svgString) +"&filename=symbolfeed/symbol" + timestamp +  ".svg");//send text to filesaver.php
+
 }
 
 controlbuttonsize = 40;
