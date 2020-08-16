@@ -33,7 +33,7 @@
     <div id = "hammerxy"></div>
 </div>
 <div id = "spellbox">
-    <table id = "spellinputtalbe">
+    <table id = "spellinputtable">
         <tr>
             <td>
                 <img id = "modeindicator" class = "button" src = "iconsymbols/cursor.svg"/>
@@ -110,6 +110,22 @@
     <img id = "pngimage">
 </div>
 <script>
+
+document.getElementById("controlbox").style.height = (0.5*(0.6*innerHeight - 250)).toString() + "px";
+document.getElementById("controlbox").style.bottom = (0.4*innerHeight+5).toString() + "px";
+
+document.getElementById("spellbox").style.height = (0.5*(0.6*innerHeight - 250) - 10).toString() + "px";
+document.getElementById("spellbox").style.bottom = (0.5*(0.6*innerHeight - 250) + 0.4*innerHeight+5).toString() + "px";
+
+if(innerWidth > innerHeight){
+    
+}
+else{
+    //in mobile, set various style.right, style.top, style.width,style.heights 
+    
+}
+
+
 //load 4 files: data/feed.txt, data/imagefeed.txt data/robot.txt, and data/hypercube.txt
 
 controls  = [
@@ -744,7 +760,13 @@ if(innerWidth > innerHeight){
 document.getElementById("spellinput").onchange = function(){
     mainGVM.glyph = this.value + "0207,";
     mainGVM.clean();
-    feed[feedindex].glyph = mainGVM.cleanGlyph;
+    if(stackMode){
+        mainGVM.hypercube[mainGVM.address] = this.value;
+    }
+    else{
+        feed[feedindex].glyph = mainGVM.cleanGlyph;
+    }
+
     drawmain();
     
 }
@@ -1061,8 +1083,7 @@ function saverobot(){
 }
 #spellbox{
     position:absolute;
-    right:300px;
-    top:0px;
+    right:0px;
     width:450px;
     height:250px;
     border:solid;
@@ -1084,8 +1105,8 @@ function saverobot(){
     position:absolute;
     right:0px;
     bottom:0px;
-    width:250px;
-    height:35%;
+    width:40%;
+    height:40%;
     border:solid;
     border-color:blue;   
     font-size:12px;
@@ -1095,11 +1116,11 @@ function saverobot(){
     top:0px;
     left:0px;
     right:0px;
-    height:200px;
+    height:80px;
 }
 #imagefeed{
     position:absolute;
-    top:200px;
+    top:150px;
     left:0px;
     right:0px;
     bottom:0px;
@@ -1116,7 +1137,7 @@ function saverobot(){
     top:0px;
     left:0px;
     right:0px;
-    height:75px;
+    height:50px;
 }
 #scalebar{
     width:100%;
@@ -1141,8 +1162,8 @@ function saverobot(){
     right:0px;
     width:400px;
     overflow:scroll;
-    height:200px;
-    top:270px;
+    height:130px;
+    bottom:51%;
     border:solid;
     border-color:red;
 }

@@ -150,7 +150,7 @@ function loadcontrols(){
     
 }
 
-base = 01200;
+base = 0200;
 cansize = 36;
 symbolMode = true;
 
@@ -189,16 +189,23 @@ function loadtablet(){
             newtd.appendChild(datadiv2);
     
             newtd.onclick = function(){
+                
                 var thisaddress = parseInt(this.getElementsByClassName("data")[0].innerHTML,8);
                 var thisindex = parseInt(this.getElementsByClassName("data")[1].innerHTML,8); 
+                if(thisaddress < 01000){
+                    symbolMode = false;
+                }
+                else{
+                    symbolMode = true;
+                }
                 mainGVM.clean();
                 gvmArray[thisindex].drawGlyph(mainGVM.hypercube[mainGVM.address]);            
                 mainGVM.clean();
                 mainGVM.glyph = mainGVM.hypercube[thisaddress] + "0207,";
                 mainGVM.drawGlyph(mainGVM.glyph);
-                gvmArray[mainGVM.address - base].canvas2d.style.backgroundColor = "white";
+                gvmArray[thisindex].canvas2d.style.backgroundColor = "white";
                 mainGVM.address = thisaddress;
-                gvmArray[mainGVM.address - base].canvas2d.style.backgroundColor = "#a0a0a0";
+                gvmArray[thisindex].canvas2d.style.backgroundColor = "#a0a0a0";
                 mainGVM.clean();
                 gvmArray[thisindex].drawGlyph(mainGVM.cleanGlyph);
                 redraw();
@@ -209,6 +216,7 @@ function loadtablet(){
 }
 
 selectbuttons = document.getElementById("selecttable").getElementsByClassName("button");
+
 
 
 for(var index = 0;index < selectbuttons.length;index++){
@@ -236,7 +244,7 @@ for(var index = 0;index < selectbuttons.length;index++){
     }
 }
 
-selectbuttons[8].style.backgroundColor = "#a0a0a0";
+selectbuttons[7].style.backgroundColor = "#a0a0a0";
 
 //mainGVM.address = 01060;
 //mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
@@ -400,10 +408,24 @@ document.getElementById("importbutton").onclick =  function(){
     redraw();
 }
 
+document.getElementById("spellinput").onchange = function(){
+    mainGVM.hypercube[mainGVM.address] = this.value;
+    mainGVM.glyph = this.value + "0207,"; 
+    mainGVM.clean();
+    spellGVM.spellGlyph(mainGVM.glyph);
+    mainGVM.drawGlyph(mainGVM.glyph);
+    
+}
+
 </script>
 <style>
 body{
     background-color:#afafff;
+}
+#address{
+    position:absolute;
+    left:10px;
+    bottom:100px;
 }
 #spellbox{
     position:absolute;
