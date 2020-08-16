@@ -72,6 +72,17 @@ bootstrap is whole big thing that does lots of things, but what we use it for he
 
 <table id = "shapetable"></table>
 
+<table id = "selecttable">
+    <tr><td class = "button">01700</td></tr>
+    <tr><td class = "button">01600</td></tr>
+    <tr><td class = "button">01500</td></tr>
+    <tr><td class = "button">01400</td></tr>
+    <tr><td class = "button">01300</td></tr>
+    <tr><td class = "button">01200</td></tr>
+    <tr><td class = "button">01100</td></tr>
+    <tr><td class = "button">01000</td></tr>
+</table>
+
 <textarea id = "textio"></textarea>
 
 
@@ -143,6 +154,7 @@ base = 01300;
 cansize = 36;
 
 function loadtablet(){
+    document.getElementById("shapetable").innerHTML = "";
     gvmArray = [];
     address = base;
     for(var row = 0;row < 8;row++){
@@ -189,6 +201,25 @@ function loadtablet(){
         }
     }    
 }
+
+selectbuttons = document.getElementById("selecttable").getElementsByClassName("button");
+
+
+for(var index = 0;index < selectbuttons.length;index++){
+    selectbuttons[index].onclick = function(){
+        base = parseInt(this.innerHTML,8);
+        loadtablet();
+        if(innerWidth>innerHeight){
+            document.getElementById("actioninput").select();
+        }
+        mainGVM.address = base;
+        mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
+        mainGVM.clean();
+        mainGVM.drawGlyph(mainGVM.glyph);
+        redraw();        
+    }
+}
+
 
 
 //mainGVM.address = 01060;
@@ -443,6 +474,13 @@ body{
 .button:active{
     background-color:yellow;
 }
+#selecttable{
+    position:absolute;
+    right:0px;
+    bottom:50px;
+}
+
+
 </style>
 </body>
 </html>
