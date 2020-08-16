@@ -103,7 +103,6 @@ spellGVM.x0 = 2;
 spellGVM.y0 = spellglyphsize - 1;
 spellGVM.unit = spellglyphsize - 2;
 
-
 function loadcontrols(){
     for(var index = 0;index < controls.length;index++){
         var newtr = document.createElement("TR");
@@ -137,15 +136,15 @@ function loadcontrols(){
         
     }
     
+
+    
 }
 
-base = 01300;
-cansize = 30;
 
-function loadtablet(){
+function loadfont(){
     gvmArray = [];
-    address = base;
-    for(var row = 0;row < 8;row++){
+    address = 01040;
+    for(var row = 0;row < 12;row++){
         var newtr = document.createElement("TR");
         document.getElementById("shapetable").appendChild(newtr);
         for(var col = 0;col < 8;col++){
@@ -155,7 +154,7 @@ function loadtablet(){
             newtd.appendChild(newcan);
             var newGVM = new GVM(newcan,36,36);
             newGVM.hypercube = mainGVM.hypercube;
-            newGVM.x0 = cansize ;
+            newGVM.x0 = 5;
             newGVM.y0 = 30;
             newGVM.unit = 20;
             newGVM.action(0300);
@@ -178,10 +177,10 @@ function loadtablet(){
                 mainGVM.clean();
                 mainGVM.glyph = mainGVM.hypercube[thisaddress] + "0207,";
                 mainGVM.drawGlyph(mainGVM.glyph);
-                gvmArray[mainGVM.address - base].canvas2d.style.backgroundColor = "white";
+                gvmArray[mainGVM.address - 01040].canvas2d.style.backgroundColor = "white";
                 mainGVM.address = thisaddress;
-                gvmArray[mainGVM.address - base].canvas2d.style.backgroundColor = "#a0a0a0";
-                mainGVM.saveGlyph();
+                gvmArray[mainGVM.address - 01040].canvas2d.style.backgroundColor = "#a0a0a0";
+                mainGVM.clean();
                 gvmArray[thisindex].drawGlyph(mainGVM.cleanGlyph);
                 redraw();
             }
@@ -202,9 +201,9 @@ httpc.onreadystatechange = function() {
         hypercube = JSON.parse(this.responseText);
         mainGVM.importbytecode(hypercube);
         spellGVM.hypercube = mainGVM.hypercube;
-        loadtablet();
+        loadfont();
         loadcontrols();
-        mainGVM.address = base;
+        mainGVM.address = 01101;
         mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
         mainGVM.clean();
         mainGVM.drawGlyph(mainGVM.glyph);
@@ -229,10 +228,10 @@ function savecube(){
 
 function redraw(){
     for(var index = 0;index < gvmArray.length;index++){
-        gvmArray[index].drawGlyph(mainGVM.hypercube[base + index]);
+        gvmArray[index].drawGlyph(mainGVM.hypercube[01040 + index]);
     }
     
-    gvmArray[mainGVM.address - base].canvas2d.style.backgroundColor = "#a0a0a0";
+    gvmArray[mainGVM.address - 01040].canvas2d.style.backgroundColor = "#a0a0a0";
     spellGVM.spellGlyph(mainGVM.glyph);
 
 }
@@ -263,36 +262,36 @@ document.getElementById("actioninput").onkeydown = function(a) {
     if(charCode == 046){
         //up arrow: prev symbol
         mainGVM.clean();    
-        gvmArray[mainGVM.address - base].drawGlyph(mainGVM.hypercube[mainGVM.address]);            
+        gvmArray[mainGVM.address - 01040].drawGlyph(mainGVM.hypercube[mainGVM.address]);            
         mainGVM.clean();
-        gvmArray[mainGVM.address - base].canvas2d.style.backgroundColor = "white";        
+        gvmArray[mainGVM.address - 01040].canvas2d.style.backgroundColor = "white";        
         mainGVM.address--;
-        if(mainGVM.address < base){
-            mainGVM.address = base + 077;
+        if(mainGVM.address < 01040){
+            mainGVM.address = 01176;
         }
-        gvmArray[mainGVM.address - base].canvas2d.style.backgroundColor = "#a0a0a0";        
+        gvmArray[mainGVM.address - 01040].canvas2d.style.backgroundColor = "#a0a0a0";        
         mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
         mainGVM.drawGlyph(mainGVM.glyph);
         mainGVM.clean();
-        gvmArray[mainGVM.address - base].drawGlyph(mainGVM.cleanGlyph);
+        gvmArray[mainGVM.address - 01040].drawGlyph(mainGVM.cleanGlyph);
         redraw();
     }
     if(charCode == 050){
         //down arrow: next symbol
         
         mainGVM.clean();    
-        gvmArray[mainGVM.address - base].drawGlyph(mainGVM.hypercube[mainGVM.address]);            
+        gvmArray[mainGVM.address - 01040].drawGlyph(mainGVM.hypercube[mainGVM.address]);            
         mainGVM.clean();
-        gvmArray[mainGVM.address - base].canvas2d.style.backgroundColor = "white";        
+        gvmArray[mainGVM.address - 01040].canvas2d.style.backgroundColor = "white";        
         mainGVM.address++;
-        if(mainGVM.address > base + 077){
-            mainGVM.address = base;
+        if(mainGVM.address > 01176){
+            mainGVM.address = 01040;
         }
-        gvmArray[mainGVM.address - base].canvas2d.style.backgroundColor = "#a0a0a0";        
+        gvmArray[mainGVM.address - 01040].canvas2d.style.backgroundColor = "#a0a0a0";        
         mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
         mainGVM.drawGlyph(mainGVM.glyph);
         mainGVM.clean();
-        gvmArray[mainGVM.address - base].drawGlyph(mainGVM.cleanGlyph);
+        gvmArray[mainGVM.address - 01040].drawGlyph(mainGVM.cleanGlyph);
         redraw();
     }
 
@@ -318,7 +317,7 @@ document.getElementById("actioninput").onkeypress = function(a) {
 
         mainGVM.cursorAction(localCursorAction);   
         this.value = "";
-        mainGVM.saveGlyph();
+        mainGVM.clean();
         mainGVM.hypercube[mainGVM.address] = mainGVM.cleanGlyph;
         document.getElementById("spellinput").value = mainGVM.cleanGlyph;
     }
@@ -332,7 +331,7 @@ document.getElementById("importbutton").onclick =  function(){
     var importcode = JSON.parse(document.getElementById("textio").value);
     mainGVM.importbytecode(importcode);
     mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
-    mainGVM.saveGlyph();
+    mainGVM.clean();
     mainGVM.drawGlyph(mainGVM.glyph);
     redraw();
 }

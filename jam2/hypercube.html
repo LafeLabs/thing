@@ -150,7 +150,7 @@ function loadcontrols(){
     
 }
 
-base = 01300;
+base = 01200;
 cansize = 36;
 symbolMode = true;
 
@@ -228,11 +228,15 @@ for(var index = 0;index < selectbuttons.length;index++){
         mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
         mainGVM.clean();
         mainGVM.drawGlyph(mainGVM.glyph);
-        redraw();        
+        redraw();       
+        for(var index = 0;index < selectbuttons.length;index++){
+            selectbuttons[index].style.backgroundColor = "white";
+        }
+        this.style.backgroundColor = "#a0a0a0";
     }
 }
 
-
+selectbuttons[8].style.backgroundColor = "#a0a0a0";
 
 //mainGVM.address = 01060;
 //mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
