@@ -194,6 +194,10 @@ function setscreen(){
         else{
          //mobile here   
             document.getElementById("feed").style.width = "50%";
+            document.getElementById("feed").style.bottom = "40px";
+            document.getElementById("feed").style.top = "40px";     
+            document.getElementById("feed").style.height = (innerHeight - 80).toString() + "px";
+            
             document.getElementById("imagefeedbox").style.display = "block";
             document.getElementById("imagefeedbox").style.width = "50%";
             document.getElementById("imagefeedbox").style.right = "0px";
@@ -240,6 +244,32 @@ function setscreen(){
         }
         else{
          //mobile here   
+            document.getElementById("feed").style.width = "50%";
+            document.getElementById("feed").style.top = (0.5*innerHeight - 40).toString() + "px";
+            document.getElementById("feed").style.height = (innerHeight*0.5 - 40).toString() + "px";        
+            document.getElementById("feed").style.bottom = "40px";
+    
+            document.getElementById("spellbox").style.top = "40px";
+            document.getElementById("spellbox").style.left = "0px";
+            document.getElementById("spellbox").style.width = "50%";
+            document.getElementById("spellbox").style.height = (innerHeight*0.5 - 40 - 40).toString() + "px";
+
+            document.getElementById("controlbox").style.right = "0px";
+            document.getElementById("controlbox").style.width = "50%";
+            document.getElementById("controlbox").style.top = (innerWidth*0.5 + 40 + 100).toString() + "px";    
+            document.getElementById("controlbox").style.height = (innerHeight - 40 - 40 - 0.5*innerWidth - 80).toString() + "px";
+            
+            document.getElementById("zoomrotatebox").style.top = (innerWidth*0.5 + 40).toString() + "px";
+            document.getElementById("zoomrotatebox").style.display = "block";            
+            document.getElementById("zoomrotatebox").style.width = (innerWidth*0.5-10).toString() + "px";
+            document.getElementById("zoomrotatebox").style.right =  "0px";       
+            document.getElementById("zoomrotatebox").style.height = (100).toString() + "px";
+            
+            
+            feedwidth = 0.5*innerWidth;
+            feedlinkwidth = feedwidth-50;
+            loadfeed();
+            
         }        
         
     }
