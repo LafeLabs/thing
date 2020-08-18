@@ -382,8 +382,8 @@ function loadstack(stackbottom){
 function loadbuttontable(){
     var newtr = document.getElementById("buttontr");
     var newtr2 = document.getElementById("buttontr2");
-    var newtd = document.createElement("TD");
-    newtr.appendChild(newtd);
+    var newtd = document.createElement("span");
+    document.getElementById("header").appendChild(newtd);
 //      newtd.innerHTML = "save feed";
     newtd.innerHTML = "";
     newcan = document.createElement("CANVAS");
@@ -391,9 +391,8 @@ function loadbuttontable(){
     var newg = new GVM(newcan,26,26);
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0240,");
-    newtd.classList.add("tablebutton");
-    newtd.classList.add("button");
-    newtd.onclick = function(){
+    newcan.classList.add("button");
+    newcan.onclick = function(){
         //save feed
         var imagewidthpx = parseInt(document.getElementById("mainimage").style.width);
         var imagexpx = parseInt(document.getElementById("mainimage").style.left);
@@ -411,14 +410,12 @@ function loadbuttontable(){
         }
         feed[feedindex].image.src = localsrc;
                         
-                        
-        var httpc = new XMLHttpRequest();
-        httpc.open("POST", "filesaver.php", true);
-        httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        httpc.send("data="+encodeURIComponent(JSON.stringify(feed,null,"  "))+"&filename=data/feed.txt");//send text to filesaver.php
-        document.getElementById("textio").value = JSON.stringify(feed,null,"  ");
-        
+        savecube();
+        savefeed();
+        saverobot();
+        loadfeed();
     }
+    
     var newtd = document.createElement("TD");
     newtr.appendChild(newtd);
     newtd.innerHTML = "load feed";
@@ -1248,6 +1245,23 @@ httpcRobot.onreadystatechange = function() {
 httpcRobot.open("GET", "fileloader.php?filename=data/robot.txt", true);
 httpcRobot.send();    
 
+
+function savefeed(){
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", "filesaver.php", true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(JSON.stringify(feed,null,"  "))+"&filename=data/feed.txt");//send text to filesaver.php
+    document.getElementById("textio").value = JSON.stringify(feed,null,"  ");
+}
+
+function savecube(){
+    hypercube = mainGVM.bytecode(0,01777);
+    var url = "filesaver.php";        
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(hypercube)+"&filename=data/hypercube.txt");//send text to filesaver.php
+}
 function saverobot(){
     var httpc = new XMLHttpRequest();
     httpc.open("POST", "filesaver.php", true);
@@ -1438,6 +1452,8 @@ function saverobot(){
     right:0px;
     top:0px;
 }
+#headerbutton{
+}
 #footer{
     font-size:24px;
     height:40px;
@@ -1447,9 +1463,8 @@ function saverobot(){
     right:0px;
     bottom:0px;
 }
-#footer .button{
-    border:solid;
-    border-radius:5px;
+#header .button{
+    margin: 8px 8px 8px 8px;
 }
 
 </style>
