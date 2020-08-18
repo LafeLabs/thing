@@ -59,7 +59,7 @@ bootstrap is whole big thing that does lots of things, but what we use it for he
 <a href = "index.html" id = "indexlink">index.html</a>
 <div id = "savebutton" class = "button">SAVE</div>
 
-
+<img id = "modeindicator" class = "button" src = "iconsymbols/cursor.svg"/>
 <div id = "importbutton" class = "button">IMPORT</div>
 
 <div id = "displaybox">
@@ -318,7 +318,7 @@ document.getElementById("actioninput").onkeydown = function(a) {
     var charCode = a.keyCode || a.which;
 
     if(charCode == 015) {
-
+        modeswitch();
     }
 
     if(charCode == 010) {
@@ -385,7 +385,17 @@ document.getElementById("actioninput").onkeypress = function(a) {
     var charCode = a.keyCode || a.which;
 
     if(charCode != 015){
-        localCursorAction = parseInt(mainGVM.hypercube[charCode],8);   
+        
+        if(mode == 0 || mode == 3){
+            localCursorAction = parseInt(mainGVM.hypercube[charCode],8);   
+        }    
+        if(mode == 1){
+            localCursorAction = charCode + 01000;     
+        }    
+        if(mode == 2){
+            localCursorAction = charCode;     
+        }    
+        
 
         mainGVM.cursorAction(localCursorAction);   
         this.value = "";
@@ -415,6 +425,23 @@ document.getElementById("spellinput").onchange = function(){
     spellGVM.spellGlyph(mainGVM.glyph);
     mainGVM.drawGlyph(mainGVM.glyph);
     
+}
+
+
+mode = 0;
+function modeswitch(){
+    mode++;
+    mode = mode%3;
+    if(mode == 0){
+        document.getElementById("modeindicator").src = "iconsymbols/cursor.svg";
+    }
+    if(mode == 1){
+        document.getElementById("modeindicator").src = "iconsymbols/abcfont.svg";
+    }
+    if(mode == 2){
+        document.getElementById("modeindicator").src = "iconsymbols/abcstack.svg";
+    }
+    document.getElementById("actioninput").select();   
 }
 
 </script>
@@ -461,6 +488,12 @@ body{
     right:0px;
     bottom:0px;
     width:1em;
+}
+#modeindicator{
+    position:absolute;
+    right:2em;
+    bottom:0px;
+    width:30px;
 }
 #spellinput{
     font-family:courier;
