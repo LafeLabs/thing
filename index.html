@@ -26,7 +26,12 @@
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"></script>
 </head>
 <body>
-<div id = "header"></div>
+<div id = "header">
+    <table id = "buttontable">
+        <tr id = "buttontr">
+        </tr>
+    </table>
+</div>
 
 <div id = "mainbox">
     <canvas id = "maincanvas"></canvas>
@@ -78,11 +83,6 @@
 <div id = "feed"></div>
 
 <div id = "controlbox">
-    <table id = "buttontable">
-        <tr id = "buttontr">
-        </tr>
-        <tr id = "buttontr2"></tr>
-    </table>
     <table id = "controltable">
     </table>
     <table id = "stacktable"></table>
@@ -103,7 +103,12 @@
     </table>
     
     <a href = "data/feed.txt">data/feed.txt</a>
-    <table id = "feedbuttontable"></table>
+    <table id = "feedbuttontable">
+        <tr>
+            <td class = "button" id = "importhypercubebutton">IMPORT HYPERCUBE</td>
+            <td class = "button" id = "importfeedbutton">IMPORT FEED</td>
+        </tr>
+    </table>
     <textarea id  = "textio"></textarea>
 </div>
 
@@ -118,6 +123,27 @@
     <span class = "button" id= "mode2button">mode 2</span>
 </div>
 <script>
+
+document.getElementById("importfeedbutton").onclick = function(){
+        //load feed
+        if(document.getElementById("textio").value.length > 0){
+            feed = JSON.parse(document.getElementById("textio").value);
+            feedindex = 0;
+            loadfeed();
+            feedElement = feed[feedindex];
+            drawmain();
+        }    
+}
+
+document.getElementById("importhypercubebutton").onclick = function(){
+    //load cube
+        if(document.getElementById("textio").value.length > 0){
+            hypercube = JSON.parse(document.getElementById("textio").value);
+            mainGVM.importbytecode(hypercube);
+            drawmain();
+        }    
+}
+
 
 document.getElementById("mode0button").onclick = function(){
     screenmode = 0;
@@ -149,6 +175,7 @@ setscreen();
 function setscreen(){
     if(screenmode == 0){
         //mode 0 is just reading the feed, no edit
+        document.getElementById("buttontable").style.display = "none";
         document.getElementById("controlbox").style.display = "none";
         document.getElementById("spellbox").style.display = "none";
         document.getElementById("mainbox").style.display = "none";
@@ -167,6 +194,7 @@ function setscreen(){
 
     }
     if(screenmode == 1){
+        document.getElementById("buttontable").style.display = "block";
         
         //mode 1 is editing the images of the feed, not geometron
         document.getElementById("controlbox").style.display = "none";
@@ -217,6 +245,7 @@ function setscreen(){
     }
     if(screenmode == 2){
         //geometron edit mode
+                document.getElementById("buttontable").style.display = "block";
         document.getElementById("mainbox").style.display = "block";
         document.getElementById("imagefeedbox").style.display = "none";
         document.getElementById("zoomrotatebox").style.display = "block";            
@@ -381,9 +410,8 @@ function loadstack(stackbottom){
 
 function loadbuttontable(){
     var newtr = document.getElementById("buttontr");
-    var newtr2 = document.getElementById("buttontr2");
     var newtd = document.createElement("span");
-    document.getElementById("header").appendChild(newtd);
+    newtr.appendChild(newtd);
 //      newtd.innerHTML = "save feed";
     newtd.innerHTML = "";
     newcan = document.createElement("CANVAS");
@@ -416,56 +444,16 @@ function loadbuttontable(){
         loadfeed();
     }
     
-    var newtd = document.createElement("TD");
-    newtr.appendChild(newtd);
-    newtd.innerHTML = "load feed";
-    newtd.classList.add("tablebutton");
-    newtd.classList.add("button");
-    newtd.onclick = function(){
-        //load feed
-        if(document.getElementById("textio").value.length > 0){
-            feed = JSON.parse(document.getElementById("textio").value);
-            feedindex = 0;
-            loadfeed();
-            feedElement = feed[feedindex];
-            drawmain();
-        }
-    }    
-    var newtd = document.createElement("TD");
-    newtr.appendChild(newtd);
-    newtd.innerHTML = "save cube";
-    newtd.classList.add("tablebutton");
-    newtd.classList.add("button");
-    newtd.onclick = function(){
-        //save cube
-        hypercube = mainGVM.bytecode(0,01777);
-        var url = "filesaver.php";        
-        var httpc = new XMLHttpRequest();
-        httpc.open("POST", url, true);
-        httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        httpc.send("data="+encodeURIComponent(hypercube)+"&filename=data/hypercube.txt");//send text to filesaver.php
-    
-    }    
-    var newtd = document.createElement("TD");
-    newtr.appendChild(newtd);
-    newtd.innerHTML = "load cube";
-    newtd.classList.add("tablebutton");
-    newtd.classList.add("button");
-    newtd.onclick = function(){
-        //load cube
-        if(document.getElementById("textio").value.length > 0){
-            hypercube = JSON.parse(document.getElementById("textio").value);
-            mainGVM.importbytecode(hypercube);
-            drawmain();
-        }
 
-    }        
     var newtd = document.createElement("TD");
     newtr.appendChild(newtd);
-    newtd.innerHTML = "clear glyph";
-    newtd.classList.add("tablebutton");
-    newtd.classList.add("button");
-    newtd.onclick = function(){
+    newcan = document.createElement("CANVAS");
+    newtd.appendChild(newcan);
+    var newg = new GVM(newcan,26,26);
+    newg.hypercube= mainGVM.hypercube;
+    newg.drawGlyph("0246,");
+    newcan.classList.add("button");
+    newcan.onclick = function(){
         //clear glyph
         mainGVM.glyph = "0207,";
         mainGVM.cleanGlyph = "";
@@ -475,10 +463,13 @@ function loadbuttontable(){
     }        
     var newtd = document.createElement("TD");
     newtr.appendChild(newtd);
-    newtd.innerHTML = "delete element";
-    newtd.classList.add("tablebutton");
-    newtd.classList.add("button");
-    newtd.onclick = function(){
+    newcan = document.createElement("CANVAS");
+    newtd.appendChild(newcan);
+    var newg = new GVM(newcan,26,26);
+    newg.hypercube= mainGVM.hypercube;
+    newg.drawGlyph("0242,");
+    newcan.classList.add("button");
+    newcan.onclick = function(){
         //delete element from feed
         var tempfeed = [];
         for(var index = 0;index < feed.length;index++){
@@ -496,11 +487,14 @@ function loadbuttontable(){
         
     }        
     var newtd = document.createElement("TD");
-    newtr2.appendChild(newtd);
-    newtd.innerHTML = "copy element";
-    newtd.classList.add("tablebutton");
-    newtd.classList.add("button");
-    newtd.onclick = function(){
+    newtr.appendChild(newtd);
+    var newcan = document.createElement("CANVAS");
+    newtd.appendChild(newcan);
+    var newg = new GVM(newcan,26,26);
+    newg.hypercube= mainGVM.hypercube;
+    newg.drawGlyph("0243,");
+    newcan.classList.add("button");
+    newcan.onclick = function(){
         //copy element to top of feed
         var tempelement = JSON.parse(JSON.stringify(feed[feedindex]));
         feed.push(tempelement);
@@ -514,11 +508,14 @@ function loadbuttontable(){
     }        
     
     var newtd = document.createElement("TD");
-    newtr2.appendChild(newtd);
-    newtd.innerHTML = "remove image";
-    newtd.classList.add("tablebutton");
-    newtd.classList.add("button");
-    newtd.onclick = function(){
+    newtr.appendChild(newtd);
+    var newcan = document.createElement("CANVAS");
+    newtd.appendChild(newcan);
+    var newg = new GVM(newcan,26,26);
+    newg.hypercube= mainGVM.hypercube;
+    newg.drawGlyph("0245,");
+    newcan.classList.add("button");
+    newcan.onclick = function(){
         //remove image from element
         feed[feedindex].image.src = "";
         feed[feedindex].image.x = 0.0;
@@ -534,41 +531,57 @@ function loadbuttontable(){
 
 
     var newtd = document.createElement("TD");
-    newtr2.appendChild(newtd);
-    newtd.innerHTML = "save symbol file";
-    newtd.classList.add("tablebutton");
-    newtd.classList.add("button");
-    newtd.onclick = function(){
+    newtr.appendChild(newtd);
+    newcan = document.createElement("CANVAS");
+    newtd.appendChild(newcan);
+    var newg = new GVM(newcan,26,26);
+    newg.hypercube= mainGVM.hypercube;
+    newg.drawGlyph("0241,");
+    newcan.classList.add("button");
+    newcan.onclick = function(){
         //save symbol file
         savesymbolfile();
     }        
 
     var newtd = document.createElement("TD");
-    newtr2.appendChild(newtd);
-    newtd.innerHTML = "edit hypercube";
-    newtd.classList.add("tablebutton");
-    newtd.classList.add("button");
-    newtd.onclick = function(){
+    newtr.appendChild(newtd);
+    
+    newcan = document.createElement("CANVAS");
+    newtd.appendChild(newcan);
+    var newg = new GVM(newcan,26,26);
+    newg.hypercube= mainGVM.hypercube;
+    newg.drawGlyph("0251,");
+    newcan.classList.add("button");
+
+    newcan.onclick = function(){
         //point browser to hypercube.html
         window.location.href = "hypercube.html";
     }        
 
     var newtd = document.createElement("TD");
-    newtr2.appendChild(newtd);
-    newtd.innerHTML = "edit font";
-    newtd.classList.add("tablebutton");
-    newtd.classList.add("button");
-    newtd.onclick = function(){
+    newtr.appendChild(newtd);
+    newcan = document.createElement("CANVAS");
+    newtd.appendChild(newcan);
+    var newg = new GVM(newcan,26,26);
+    newg.hypercube= mainGVM.hypercube;
+    newg.drawGlyph("0253,");
+    newcan.classList.add("button");
+
+    newcan.onclick = function(){
         //point browser to hypercube.html
         window.location.href = "font.html";
     }        
 
     var newtd = document.createElement("TD");
-    newtr2.appendChild(newtd);
-    newtd.innerHTML = "edit keyboard";
-    newtd.classList.add("tablebutton");
-    newtd.classList.add("button");
-    newtd.onclick = function(){
+    newtr.appendChild(newtd);
+    newcan = document.createElement("CANVAS");
+    newtd.appendChild(newcan);
+    var newg = new GVM(newcan,26,26);
+    newg.hypercube= mainGVM.hypercube;
+    newg.drawGlyph("0251,");
+    newcan.classList.add("button");
+    
+    newcan.onclick = function(){
         //point browser to hypercube.html
         window.location.href = "keyboard.html";
     }        
@@ -1464,7 +1477,8 @@ function saverobot(){
     bottom:0px;
 }
 #header .button{
-    margin: 8px 8px 8px 8px;
+
+    
 }
 
 </style>
