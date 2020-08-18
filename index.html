@@ -58,12 +58,12 @@
 </div>
 <div id = "imagefeedbox">
     <div id = "imagefeedheader">
-        <form id = "uploadform" style = "margin-top:10px" action="upload.php" method="post" enctype="multipart/form-data">
+        <form style = "margin-top:10px" id = "uploadform" action="upload.php" method="post" enctype="multipart/form-data">
                 Select image to upload:
             <input type="file" name="fileToUpload" id="fileToUpload">
             <input type="submit" value="Upload Image" name="submit">
         </form>        
-        <table id  = "imagecontroltable">
+        <table  style = "margin-top:10px" id  = "imagecontroltable">
             <tr>
                 <td>Image url:</td>
                 <td>
@@ -193,6 +193,22 @@ function setscreen(){
         }
         else{
          //mobile here   
+            document.getElementById("feed").style.width = "50%";
+            document.getElementById("imagefeedbox").style.display = "block";
+            document.getElementById("imagefeedbox").style.width = "50%";
+            document.getElementById("imagefeedbox").style.right = "0px";
+            document.getElementById("imagefeedbox").style.bottom = "44px";            
+            document.getElementById("imagefeedbox").style.top = (innerWidth*0.5 + 40 + 100).toString() + "px";            
+            document.getElementById("zoomrotatebox").style.top = (innerWidth*0.5 + 40).toString() + "px";
+            document.getElementById("zoomrotatebox").style.display = "block";            
+            document.getElementById("zoomrotatebox").style.width = (innerWidth*0.5-10).toString() + "px";
+            document.getElementById("zoomrotatebox").style.right =  "0px";       
+            document.getElementById("zoomrotatebox").style.height = (100).toString() + "px";
+            feedwidth = 0.5*innerWidth;
+            feedlinkwidth = feedwidth-50;
+            loadfeed();
+            
+         
         }
     }
     if(screenmode == 2){
@@ -1259,11 +1275,11 @@ function saverobot(){
     top:0px;
     left:0px;
     right:0px;
-    height:80px;
+    height:100px;
 }
 #imagefeed{
     position:absolute;
-    top:150px;
+    top:100px;
     left:0px;
     right:0px;
     bottom:0px;
@@ -1316,14 +1332,6 @@ function saverobot(){
     border-color:red;
 }
 
-#imagecontroltable{
-    position:absolute;
-    bottom:0px;
-}
-#uploadform{
-    position:absolute;
-    top:100px;
-}
 .button{
     cursor:pointer;
 }
