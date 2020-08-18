@@ -833,11 +833,10 @@ var httpcUpload = new XMLHttpRequest();
             document.getElementById("imagefeed").appendChild(newuploadbox);
             newimg.onclick = function() {
                 var localsrc = "uploadimages" + this.src.split("uploadimages")[1];
-                
-                //put the image into 
-                
+                feed[feedindex].image.src = localsrc;
+
                 document.getElementById("imageurlinput").value = localsrc;    
-                document.getElementById("pngimage").src = localsrc;
+                document.getElementById("mainimage").src = localsrc;
 
             }
             var newimg = document.createElement("IMG");
@@ -900,7 +899,7 @@ httpcImagefeed.onreadystatechange = function(){
                 document.getElementById("mainimage").src = localsrc;
                 document.getElementById("imageurlinput").value = localsrc;
                 feed[feedindex].image.src = localsrc;
-
+                loadfeed();
             }
             var newimg = document.createElement("IMG");
             newimg.src = "iconsymbols/delete.svg";
