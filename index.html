@@ -118,9 +118,9 @@
     <img id = "pngimage">
 </div>
 <div id = "footer">
-    <span class = "button" id= "mode0button">mode 0</span>
-    <span class = "button" id= "mode1button">mode 1</span>
-    <span class = "button" id= "mode2button">mode 2</span>
+    <span class = "button" id= "mode0button"></span>
+    <span class = "button" id= "mode1button"></span>
+    <span class = "button" id= "mode2button"></span>
 </div>
 <script>
 
@@ -145,19 +145,6 @@ document.getElementById("importhypercubebutton").onclick = function(){
 }
 
 
-document.getElementById("mode0button").onclick = function(){
-    screenmode = 0;
-    setscreen();
-}
-
-document.getElementById("mode1button").onclick = function(){
-    screenmode = 1;
-    setscreen();
-}
-document.getElementById("mode2button").onclick = function(){
-    screenmode = 2;
-    setscreen();
-}
 
 feedwidth = 100;
 
@@ -574,16 +561,52 @@ function loadbuttontable(){
 
     var newtd = document.createElement("TD");
     newtr.appendChild(newtd);
+
     newcan = document.createElement("CANVAS");
     newtd.appendChild(newcan);
     var newg = new GVM(newcan,26,26);
     newg.hypercube= mainGVM.hypercube;
-    newg.drawGlyph("0251,");
+    newg.drawGlyph("0252,");
     newcan.classList.add("button");
     
     newcan.onclick = function(){
         //point browser to hypercube.html
         window.location.href = "keyboard.html";
+    }        
+
+
+    newcan = document.createElement("CANVAS");
+    document.getElementById("mode0button").appendChild(newcan);
+    var newg = new GVM(newcan,26,26);
+    newg.hypercube= mainGVM.hypercube;
+    newg.drawGlyph("0250,");
+    newcan.classList.add("button");
+    newcan.onclick = function(){
+        screenmode = 0;
+        setscreen();
+    }        
+
+    var newcan = document.createElement("CANVAS");
+    document.getElementById("mode1button").appendChild(newcan);
+    var newg = new GVM(newcan,26,26);
+    newg.hypercube= mainGVM.hypercube;
+    newg.drawGlyph("0244,");
+    newcan.classList.add("button");
+    newcan.onclick = function(){
+        screenmode = 1;
+        setscreen();
+
+
+    }        
+    var newcan = document.createElement("CANVAS");
+    document.getElementById("mode2button").appendChild(newcan);
+    var newg = new GVM(newcan,26,26);
+    newg.hypercube= mainGVM.hypercube;
+    newg.drawGlyph("0247,");
+    newcan.classList.add("button");
+    newcan.onclick = function(){
+        screenmode = 2;
+        setscreen();
     }        
     
     
