@@ -33,6 +33,11 @@
     <img id = "mainimage"/>
     <div id = "hammerxy"></div>
 </div>
+<div id = "zoomrotatebox">
+    <img src = "iconsymbols/scale.svg" id = "scalebar"/>
+    <img src = "iconsymbols/rotate.svg" id = "rotatebar"/>
+</div>
+
 <div id = "spellbox">
     <table id = "spellinputtable">
         <tr>
@@ -53,10 +58,6 @@
 </div>
 <div id = "imagefeedbox">
     <div id = "imagefeedheader">
-        <div id = "zoomrotatebox">
-            <img src = "iconsymbols/scale.svg" id = "scalebar"/>
-            <img src = "iconsymbols/rotate.svg" id = "rotatebar"/>
-        </div>
         <form id = "uploadform" style = "margin-top:10px" action="upload.php" method="post" enctype="multipart/form-data">
                 Select image to upload:
             <input type="file" name="fileToUpload" id="fileToUpload">
@@ -132,6 +133,7 @@ document.getElementById("mode2button").onclick = function(){
     setscreen();
 }
 
+feedwidth = 100;
 
 if(innerWidth > innerHeight){
     feedwidth = innerWidth*0.5- 100;
@@ -146,21 +148,83 @@ screenmode = 0;
 setscreen();
 function setscreen(){
     if(screenmode == 0){
+        //mode 0 is just reading the feed, no edit
         document.getElementById("controlbox").style.display = "none";
         document.getElementById("spellbox").style.display = "none";
         document.getElementById("mainbox").style.display = "none";
         document.getElementById("imagefeedbox").style.display = "none";
+        document.getElementById("zoomrotatebox").style.display = "none";        
         document.getElementById("feed").style.width = "100%";
+        
+        if(innerWidth > innerHeight){
+            feedwidth = innerWidth*0.5- 100;
+        }
+        else{
+            feedwidth = innerWidth - 100;
+        }
+        feedlinkwidth  = feedwidth;
+        loadfeed();
 
     }
     if(screenmode == 1){
+        
+        //mode 1 is editing the images of the feed, not geometron
         document.getElementById("controlbox").style.display = "none";
         document.getElementById("spellbox").style.display = "none";
         document.getElementById("mainbox").style.display = "block";
-        document.getElementById("imagefeedbox").style.display = "block";
-        document.getElementById("feed").style.width = "50%";        
-        var mainboxwidth = innerWidth*0.5;
         
+        if(innerWidth > innerHeight){
+            document.getElementById("feed").style.width = "25%";
+            document.getElementById("imagefeedbox").style.display = "block";
+            document.getElementById("imagefeedbox").style.width = "25%";
+            document.getElementById("imagefeedbox").style.left = "25%";
+
+            document.getElementById("imagefeedbox").style.top = "40px";            
+            document.getElementById("imagefeedbox").style.bottom = "44px";                        
+            document.getElementById("zoomrotatebox").style.top = (innerWidth*0.5 + 40).toString() + "px";
+            document.getElementById("zoomrotatebox").style.display = "block";            
+            document.getElementById("zoomrotatebox").style.width = (innerWidth*0.5-10).toString() + "px";
+            document.getElementById("zoomrotatebox").style.right =  "0px";       
+            document.getElementById("zoomrotatebox").style.height = (innerHeight - innerWidth*0.5 - 80).toString() + "px";
+            feedwidth = 0.25*innerWidth;
+            feedlinkwidth = feedwidth-50;
+            loadfeed();
+            
+        }
+        else{
+         //mobile here   
+        }
+    }
+    if(screenmode == 2){
+        //geometron edit mode
+        document.getElementById("mainbox").style.display = "block";
+        document.getElementById("imagefeedbox").style.display = "none";
+        document.getElementById("zoomrotatebox").style.display = "block";            
+        document.getElementById("controlbox").style.display = "block";            
+        document.getElementById("spellbox").style.display = "block";                
+        if(innerWidth > innerHeight){
+            document.getElementById("feed").style.width = "25%";
+            document.getElementById("spellbox").style.top = "40px";
+            document.getElementById("spellbox").style.left = "25%";
+            document.getElementById("spellbox").style.width = "25%";
+            document.getElementById("spellbox").style.height = (innerHeight*0.5 - 45).toString() + "px";
+            document.getElementById("controlbox").style.bottom = "40px";
+            document.getElementById("controlbox").style.left = "25%";
+            document.getElementById("controlbox").style.width = "25%";
+            document.getElementById("controlbox").style.height = (innerHeight*0.5 - 45).toString() + "px";     
+            document.getElementById("zoomrotatebox").style.top = (innerWidth*0.5 + 40).toString() + "px";
+            document.getElementById("zoomrotatebox").style.display = "block";            
+            document.getElementById("zoomrotatebox").style.width = (innerWidth*0.5-10).toString() + "px";
+            document.getElementById("zoomrotatebox").style.right =  "0px";       
+            document.getElementById("zoomrotatebox").style.height = (innerHeight - innerWidth*0.5 - 80).toString() + "px";            
+            feedwidth = 0.25*innerWidth;
+            feedlinkwidth = feedwidth-50;
+            loadfeed();
+            
+        }
+        else{
+         //mobile here   
+        }        
         
     }
     
@@ -182,13 +246,7 @@ document.getElementById("spellbox").style.height = (252).toString() + "px";
 
 */
 
-if(innerWidth > innerHeight){
-    
-}
-else{
-    //in mobile, set various style.right, style.top, style.width,style.heights 
-    
-}
+
 
 
 //load 4 files: data/feed.txt, data/imagefeed.txt data/robot.txt, and data/hypercube.txt
@@ -565,7 +623,7 @@ feedElement = {
 hypercube = [];
 
 maincanvas = document.getElementById("maincanvas");
-var mainGVM = new GVM(maincanvas,0.5*innerWidth,0.5*innerWidth);
+var mainGVM = new GVM(maincanvas,0.5*innerWidth - 10,0.5*innerWidth -10);
 var spellGVM = new GVM(document.getElementById("spellcanvas"),420,800);
 
 spellGVM.x0 = 5;
@@ -1192,8 +1250,6 @@ function saverobot(){
     position:absolute;
     right:0px;
     bottom:0px;
-    width:50%;
-    height:40%;
     border:solid;
     border-color:blue;   
     font-size:12px;
@@ -1221,18 +1277,25 @@ function saverobot(){
 }
 #zoomrotatebox{
     position:absolute;
-    top:0px;
-    left:0px;
     right:0px;
-    height:50px;
+    z-index:2;
 }
 #scalebar{
     width:100%;
     height:50%;
+    position:absolute;
+    left:0px;
+    top:0px;
+    right:0px;
 }
 #rotatebar{
     width:100%;
     height:50%;
+    position:absolute;
+    left:0px;
+    bottom:0px;
+    right:0px;
+    
 }
 #feed{
     position:absolute;
