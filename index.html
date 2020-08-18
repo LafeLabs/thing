@@ -292,24 +292,6 @@ function setscreen(){
     
 }
 
-/*
-document.getElementById("controlbox").style.height = (0.5*innerHeight - 250).toString() + "px";
-
-document.getElementById("controlbox").style.top = "250px";
-
-document.getElementById("spellbox").style.height = (0.5*(0.6*innerHeight - 250) - 10).toString() + "px";
-//document.getElementById("spellbox").style.bottom = (0.5*(0.6*innerHeight - 250) + 0.4*innerHeight+5).toString() + "px";
-
-document.getElementById("spellbox").style.top ="0px";
-document.getElementById("spellbox").style.width = (0.5*innerWidth - 255).toString() + "px";
-document.getElementById("spellbox").style.right = (252).toString() + "px";
-document.getElementById("spellbox").style.height = (252).toString() + "px";
-
-
-*/
-
-
-
 
 //load 4 files: data/feed.txt, data/imagefeed.txt data/robot.txt, and data/hypercube.txt
 
@@ -403,7 +385,7 @@ function loadbuttontable(){
     newtd.innerHTML = "";
     newcan = document.createElement("CANVAS");
     newtd.appendChild(newcan);
-    var newg = new GVM(newcan,26,26);
+    var newg = new GVM(newcan,36,36);
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0240,");
     newcan.classList.add("button");
@@ -436,7 +418,7 @@ function loadbuttontable(){
     newtr.appendChild(newtd);
     newcan = document.createElement("CANVAS");
     newtd.appendChild(newcan);
-    var newg = new GVM(newcan,26,26);
+    var newg = new GVM(newcan,36,36);
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0246,");
     newcan.classList.add("button");
@@ -452,7 +434,7 @@ function loadbuttontable(){
     newtr.appendChild(newtd);
     newcan = document.createElement("CANVAS");
     newtd.appendChild(newcan);
-    var newg = new GVM(newcan,26,26);
+    var newg = new GVM(newcan,36,36);
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0242,");
     newcan.classList.add("button");
@@ -477,7 +459,7 @@ function loadbuttontable(){
     newtr.appendChild(newtd);
     var newcan = document.createElement("CANVAS");
     newtd.appendChild(newcan);
-    var newg = new GVM(newcan,26,26);
+    var newg = new GVM(newcan,36,36);
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0243,");
     newcan.classList.add("button");
@@ -498,7 +480,7 @@ function loadbuttontable(){
     newtr.appendChild(newtd);
     var newcan = document.createElement("CANVAS");
     newtd.appendChild(newcan);
-    var newg = new GVM(newcan,26,26);
+    var newg = new GVM(newcan,36,36);
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0245,");
     newcan.classList.add("button");
@@ -521,7 +503,7 @@ function loadbuttontable(){
     newtr.appendChild(newtd);
     newcan = document.createElement("CANVAS");
     newtd.appendChild(newcan);
-    var newg = new GVM(newcan,26,26);
+    var newg = new GVM(newcan,36,36);
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0241,");
     newcan.classList.add("button");
@@ -535,7 +517,7 @@ function loadbuttontable(){
     
     newcan = document.createElement("CANVAS");
     newtd.appendChild(newcan);
-    var newg = new GVM(newcan,26,26);
+    var newg = new GVM(newcan,36,36);
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0251,");
     newcan.classList.add("button");
@@ -549,7 +531,7 @@ function loadbuttontable(){
     newtr.appendChild(newtd);
     newcan = document.createElement("CANVAS");
     newtd.appendChild(newcan);
-    var newg = new GVM(newcan,26,26);
+    var newg = new GVM(newcan,36,36);
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0253,");
     newcan.classList.add("button");
@@ -564,7 +546,7 @@ function loadbuttontable(){
 
     newcan = document.createElement("CANVAS");
     newtd.appendChild(newcan);
-    var newg = new GVM(newcan,26,26);
+    var newg = new GVM(newcan,36,36);
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0252,");
     newcan.classList.add("button");
@@ -577,7 +559,7 @@ function loadbuttontable(){
 
     newcan = document.createElement("CANVAS");
     document.getElementById("mode0button").appendChild(newcan);
-    var newg = new GVM(newcan,26,26);
+    var newg = new GVM(newcan,36,36);
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0250,");
     newcan.classList.add("button");
@@ -588,7 +570,7 @@ function loadbuttontable(){
 
     var newcan = document.createElement("CANVAS");
     document.getElementById("mode1button").appendChild(newcan);
-    var newg = new GVM(newcan,26,26);
+    var newg = new GVM(newcan,36,36);
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0244,");
     newcan.classList.add("button");
@@ -600,7 +582,7 @@ function loadbuttontable(){
     }        
     var newcan = document.createElement("CANVAS");
     document.getElementById("mode2button").appendChild(newcan);
-    var newg = new GVM(newcan,26,26);
+    var newg = new GVM(newcan,36,36);
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0247,");
     newcan.classList.add("button");
