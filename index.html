@@ -111,11 +111,17 @@
 </div>
 <script>
 
-document.getElementById("controlbox").style.height = (0.5*(0.6*innerHeight - 250)).toString() + "px";
-document.getElementById("controlbox").style.bottom = (0.4*innerHeight+5).toString() + "px";
+document.getElementById("controlbox").style.height = (0.5*innerHeight - 250).toString() + "px";
+
+document.getElementById("controlbox").style.top = "250px";
 
 document.getElementById("spellbox").style.height = (0.5*(0.6*innerHeight - 250) - 10).toString() + "px";
-document.getElementById("spellbox").style.bottom = (0.5*(0.6*innerHeight - 250) + 0.4*innerHeight+5).toString() + "px";
+//document.getElementById("spellbox").style.bottom = (0.5*(0.6*innerHeight - 250) + 0.4*innerHeight+5).toString() + "px";
+
+document.getElementById("spellbox").style.top ="0px";
+document.getElementById("spellbox").style.width = (0.5*innerWidth - 255).toString() + "px";
+document.getElementById("spellbox").style.right = (252).toString() + "px";
+document.getElementById("spellbox").style.height = (252).toString() + "px";
 
 if(innerWidth > innerHeight){
     
@@ -547,8 +553,8 @@ stoprelativekeys = [
     "056:"    
 ]
 
-feedwidth = 200;
-feedlinkwidth  = 200;
+feedwidth = innerWidth*0.5- 100;
+feedlinkwidth  = innerWidth*0.5 - 100;
 function loadfeed(){
     gvmArray = [];
     document.getElementById("feed").innerHTML = "";
@@ -1128,7 +1134,7 @@ function saverobot(){
     position:absolute;
     right:0px;
     bottom:0px;
-    width:40%;
+    width:50%;
     height:40%;
     border:solid;
     border-color:blue;   
@@ -1174,7 +1180,7 @@ function saverobot(){
     position:absolute;
     left:0px;
     bottom:0px;
-    width:400px;
+    width:50%;
     top:0px;
     border:solid;
     border-color:blue;   
