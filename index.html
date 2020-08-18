@@ -215,7 +215,13 @@ function loadbuttontable(){
     var newtr2 = document.getElementById("buttontr2");
     var newtd = document.createElement("TD");
     newtr.appendChild(newtd);
-    newtd.innerHTML = "save feed";
+//      newtd.innerHTML = "save feed";
+    newtd.innerHTML = "";
+    newcan = document.createElement("CANVAS");
+    newtd.appendChild(newcan);
+    var newg = new GVM(newcan,26,26);
+    newg.hypercube= mainGVM.hypercube;
+    newg.drawGlyph("0240,");
     newtd.classList.add("tablebutton");
     newtd.classList.add("button");
     newtd.onclick = function(){
