@@ -981,7 +981,18 @@ function previous(){
 }
 
 function modeswitch(){
-    
+    mode++;
+    mode = mode%3;
+    if(mode == 0){
+        document.getElementById("modeindicator").src = "iconsymbols/cursor.svg";
+    }
+    if(mode == 1){
+        document.getElementById("modeindicator").src = "iconsymbols/abcfont.svg";
+    }
+    if(mode == 2){
+        document.getElementById("modeindicator").src = "iconsymbols/abcstack.svg";
+    }
+    document.getElementById("actioninput").select();   
 }
 
 if(innerWidth > innerHeight){
