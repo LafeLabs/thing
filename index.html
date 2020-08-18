@@ -363,6 +363,8 @@ for(var row = 0;row < 4; row++){
             spellGVM.spellGlyph(mainGVM.glyph);
             document.getElementById("spellinput").value = mainGVM.cleanGlyph;    
             this.getElementsByTagName("canvas")[0].style.backgroundColor = "#c0c0c0";
+            robot.glyph = mainGVM.hypercube[localaddress];
+            saverobot();
         }
     }
 }
