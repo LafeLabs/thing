@@ -392,22 +392,21 @@ function loadbuttontable(){
     newcan.classList.add("button");
     newcan.onclick = function(){
         //save feed
-        var imagewidthpx = parseInt(document.getElementById("mainimage").style.width);
-        var imagexpx = parseInt(document.getElementById("mainimage").style.left);
-        var imageypx = parseInt(document.getElementById("mainimage").style.top);
-        var parentwidthpx = mainGVM.width;
-        var rotatedeg = parseInt(document.getElementById("mainimage").style.transform.substring(7));
+        mainGVM.clean();
         feed[feedindex].glyph = mainGVM.cleanGlyph;
-        feed[feedindex].image.angle = rotatedeg;
-        feed[feedindex].image.w = imagewidthpx/parentwidthpx;
-        feed[feedindex].image.x = imagexpx/parentwidthpx;
-        feed[feedindex].image.y = imageypx/parentwidthpx;
-        var localsrc =  document.getElementById("mainimage").src;
-        if(localsrc.includes("uploadimages")){
-            localsrc = "uploadimages" + localsrc.split("uploadimages")[1];
+        if(feed[feedindex].image.src.length > 0){
+            var imagewidthpx = parseInt(document.getElementById("mainimage").style.width);
+            var imagexpx = parseInt(document.getElementById("mainimage").style.left);
+            var imageypx = parseInt(document.getElementById("mainimage").style.top);
+            var parentwidthpx = mainGVM.width;
+            var rotatedeg = parseInt(document.getElementById("mainimage").style.transform.substring(7));
+            
+            feed[feedindex].image.angle = rotatedeg;
+            feed[feedindex].image.w = imagewidthpx/parentwidthpx;
+            feed[feedindex].image.x = imagexpx/parentwidthpx;
+            feed[feedindex].image.y = imageypx/parentwidthpx;   
         }
-        feed[feedindex].image.src = localsrc;
-                        
+
         savecube();
         savefeed();
         saverobot();
@@ -497,7 +496,6 @@ function loadbuttontable(){
         feed[feedindex].image.w = 1.0;
         feed[feedindex].image.angle = 0;
         document.getElementById("mainimage").src = "";
-        loadfeed();
         gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
         gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
 
