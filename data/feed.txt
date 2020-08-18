@@ -22,7 +22,7 @@
   {
     "glyph": "0341,0342,0335,0342,0335,0342,0335,0342,0335,",
     "image": {
-      "src": "http://localhost/uploadimages/image3.PNG",
+      "src": "uploadimages/image3.PNG",
       "w": 0.5934718100890207,
       "angle": 0,
       "x": 0.14540059347181009,
@@ -32,7 +32,7 @@
   {
     "glyph": "0341,0342,0335,0342,0335,0342,0335,0342,0335,",
     "image": {
-      "src": "http://localhost/uploadimages/image3.PNG",
+      "src": "uploadimages/image3.PNG",
       "w": 1.8338278931750742,
       "angle": 0,
       "x": -0.7166172106824926,

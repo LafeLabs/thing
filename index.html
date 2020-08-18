@@ -758,7 +758,13 @@ function loadfeed(){
             var imageypx = parseInt(document.getElementById("mainimage").style.top);
             var parentwidthpx = mainGVM.width;
             var rotatedeg = parseInt(document.getElementById("mainimage").style.transform.substring(7));
-            feed[feedindex].image.src = document.getElementById("mainimage").src;
+            
+            var localsrc =  document.getElementById("mainimage").src;
+            if(localsrc.includes("uploadimages")){
+                localsrc = "uploadimages" + localsrc.split("uploadimages")[1];
+            }
+            feed[feedindex].image.src = localsrc;            
+            
             feed[feedindex].glyph = mainGVM.cleanGlyph;
             feed[feedindex].image.angle = rotatedeg;
             feed[feedindex].image.w = imagewidthpx/parentwidthpx;
@@ -982,6 +988,10 @@ document.getElementById("imageurlinput").onchange  = function(){
     document.getElementById("imagefeed").appendChild(newuploadbox);
     newimg.onclick = function() {
         var localsrc = this.src;
+        if(localsrc.includes("uploadimages")){
+            localsrc = "uploadimages" + localsrc.split("uploadimages")[1];
+        }
+        feed[feedindex].image.src = localsrc;
         feed[feedindex].image.src = localsrc;
         document.getElementById("mainimage").src = localsrc;
         document.getElementById("imageurlinput").value = localsrc;
