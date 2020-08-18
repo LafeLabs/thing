@@ -282,6 +282,11 @@ function GVM(canvas2d,width,height) {
                 }
             }
         }        
+        if(address == 011){
+            //clear
+            this.glyph = "0207,";
+            this.cleanGlyph = "";
+        }
         if(address == 020) {
             //cursor back
             var currentGlyph = this.glyph;
