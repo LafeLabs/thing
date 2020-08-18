@@ -230,7 +230,11 @@ function loadbuttontable(){
         feed[feedindex].image.w = imagewidthpx/parentwidthpx;
         feed[feedindex].image.x = imagexpx/parentwidthpx;
         feed[feedindex].image.y = imageypx/parentwidthpx;
-        feed[feedindex].src = document.getElementById("mainimage").src;
+        var localsrc =  document.getElementById("mainimage").src;
+        if(localsrc.includes("uploadimages")){
+            localsrc = "uploadimages" + localsrc.split("uploadimages")[1];
+        }
+        feed[feedindex].image.src = localsrc;
                         
                         
         var httpc = new XMLHttpRequest();
@@ -580,7 +584,7 @@ function loadfeed(){
             var imageypx = parseInt(document.getElementById("mainimage").style.top);
             var parentwidthpx = mainGVM.width;
             var rotatedeg = parseInt(document.getElementById("mainimage").style.transform.substring(7));
-            feed[feedindex].src = document.getElementById("mainimage").src;
+            feed[feedindex].image.src = document.getElementById("mainimage").src;
             feed[feedindex].glyph = mainGVM.cleanGlyph;
             feed[feedindex].image.angle = rotatedeg;
             feed[feedindex].image.w = imagewidthpx/parentwidthpx;
@@ -686,7 +690,14 @@ function next(){
         feed[feedindex].image.w = imagewidthpx/parentwidthpx;
         feed[feedindex].image.x = imagexpx/parentwidthpx;
         feed[feedindex].image.y = imageypx/parentwidthpx;
-        feed[feedindex].src = document.getElementById("mainimage").src;
+        
+        var localsrc =  document.getElementById("mainimage").src;
+        if(localsrc.includes("uploadimages")){
+            localsrc = "uploadimages" + localsrc.split("uploadimages")[1];
+        }
+        feed[feedindex].image.src = localsrc;
+
+
        feedindex++;
        if(feedindex > feed.length - 1){
            feedindex = 0;
@@ -724,7 +735,14 @@ function previous(){
         feed[feedindex].image.w = imagewidthpx/parentwidthpx;
         feed[feedindex].image.x = imagexpx/parentwidthpx;
         feed[feedindex].image.y = imageypx/parentwidthpx;
-        feed[feedindex].src = document.getElementById("mainimage").src;
+        
+        var localsrc =  document.getElementById("mainimage").src;
+        if(localsrc.includes("uploadimages")){
+            localsrc = "uploadimages" + localsrc.split("uploadimages")[1];
+        }
+        feed[feedindex].image.src = localsrc;
+
+        
         feedindex--;
         if(feedindex<0){
            feedindex = feed.length - 1;
@@ -837,7 +855,7 @@ var httpcUpload = new XMLHttpRequest();
 
                 document.getElementById("imageurlinput").value = localsrc;    
                 document.getElementById("mainimage").src = localsrc;
-
+                loadfeed();
             }
             var newimg = document.createElement("IMG");
             newimg.src = "iconsymbols/delete.svg";

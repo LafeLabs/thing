@@ -2,12 +2,11 @@
   {
     "glyph": "0341,0342,0335,0342,0335,0342,0335,0342,0335,",
     "image": {
-      "src": "https://i.imgur.com/u42Ua4d.jpg",
+      "src": "uploadimages/image3.PNG",
       "w": 1,
       "angle": 0,
       "x": 0.004,
       "y": -0.016
-    },
-    "src": "https://i.imgur.com/u42Ua4d.jpg"
+    }
   }
 ]
