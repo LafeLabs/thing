@@ -540,7 +540,6 @@ function loadbuttontable(){
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0253,");
     newcan.classList.add("button");
-
     newcan.onclick = function(){
         //point browser to hypercube.html
         window.location.href = "font.html";
@@ -548,7 +547,20 @@ function loadbuttontable(){
 
     var newtd = document.createElement("TD");
     newtr.appendChild(newtd);
+    newcan = document.createElement("CANVAS");
+    newtd.appendChild(newcan);
+    var newg = new GVM(newcan,36,36);
+    newg.hypercube= mainGVM.hypercube;
+    newg.drawGlyph("0254,");
+    newcan.classList.add("button");
+    newcan.onclick = function(){
+        //convert image to base 64 encoding 
+        document.getElementById("pngimage").src = feed[feedindex].image.src;
+    }        
 
+
+    var newtd = document.createElement("TD");
+    newtr.appendChild(newtd);
     newcan = document.createElement("CANVAS");
     newtd.appendChild(newcan);
     var newg = new GVM(newcan,36,36);
@@ -585,6 +597,8 @@ function loadbuttontable(){
 
 
     }        
+    
+    
     var newcan = document.createElement("CANVAS");
     document.getElementById("mode2button").appendChild(newcan);
     var newg = new GVM(newcan,36,36);
