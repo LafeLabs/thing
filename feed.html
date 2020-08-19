@@ -23,448 +23,20 @@
     <META NAME="robots" CONTENT="noindex,nofollow">
 <!--geometron javascript library-->
     <script src="jscode/geometron.js"></script>
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"></script>
+
 </head>
 <body>
+<div id = "header">
+<input id = "urlinput"/>
+</div>
 
-<div id = "mainbox">
-    <canvas id = "maincanvas"></canvas>
-    <img id = "mainimage"/>
-    <div id = "hammerxy"></div>
-</div>
-<div id = "spellbox">
-    <table id = "spellinputtalbe">
-        <tr>
-            <td>
-                <img id = "modeindicator" class = "button" src = "iconsymbols/cursor.svg"/>
-            </td>
-            <td>
-                <input id = "actioninput"/>
-            </td>
-            <td>
-                <input id = "spellinput"/>
-            </td>
-        </tr>
-    </table>
-    <div id = "spellcanvasbox">
-        <canvas id = "spellcanvas"></canvas>
-    </div>
-</div>
-<div id = "imagefeedbox">
-    <div id = "imagefeedheader">
-        <div id = "zoomrotatebox">
-            <img src = "iconsymbols/scale.svg" id = "scalebar"/>
-            <img src = "iconsymbols/rotate.svg" id = "rotatebar"/>
-        </div>
-        <form id = "uploadform" style = "margin-top:10px" action="upload.php" method="post" enctype="multipart/form-data">
-                Select image to upload:
-            <input type="file" name="fileToUpload" id="fileToUpload">
-            <input type="submit" value="Upload Image" name="submit">
-        </form>        
-        <table id  = "imagecontroltable">
-            <tr>
-                <td>Image url:</td>
-                <td>
-                    <input id = "imageurlinput"/>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div id = "imagefeed"></div>
-</div>
-<div id = "shapestackbox">
-    <table id = "stacktable"></table>
-</div>
-<div id ="mainfeedbox">
-    <div id = "mainfeedheader">
-        <a href = "data/feed.txt">data/feed.txt</a>
-        <table id = "feedbuttontable"></table>
-        <textarea id  = "textio"></textarea>
-    </div>
-    <div id = "feed"></div>
-</div>
-<div id = "controlbox">
-    <table id = "buttontable">
-        <tr id = "buttontr">
-        </tr>
-        <tr id = "buttontr2"></tr>
-    </table>
-    <table id = "controltable">
-    </table>
-</div>
-<div id = "robotconfigbox">
-    <table>
-        <tr>
-            <td id = "polarity1button" class = "button">POLARITY1 = <span id = "polarity1">0</span></td>
-        </tr>
-        <tr>
-            <td id = "polarity2button" class = "button">POLARITY2 = <span id = "polarity2">0</span></td>
-        </tr>
-        <tr>
-            <td id = "polarity3button" class = "button">POLARITY3 = <span id = "polarity3">0</span></td>
-        </tr>
-        <tr>
-            <td id = "upsidedownbutton" class = "button">UPSIDEDOWN = <span id = "upsidedown">0</span></td>
-        </tr>
-        
-    </table>
-</div>
-<div id = "pngcanvasbox">
-    <canvas id = "pngcanvas"></canvas>
-    <img id = "pngimage">
+
+<div id = "feed"></div>
+
+
+<div id = "footer">
 </div>
 <script>
-//load 4 files: data/feed.txt, data/imagefeed.txt data/robot.txt, and data/hypercube.txt
-
-controls  = [
-    "0320,0321,0322,0323,0324,0325,0326,0327,",
-    "020,010,021,022,023,0334,0330,0335,",
-    "0500,0501,0502,0503,0404,0332,0341,0333,",
-    "0504,0505,0506,0507,0405,0336,0331,0337,",
-    "0401,0400,0403,0402,0217,0406,0407,0547,",
-    "040,041,042,043,044,045,046,050,",
-    "051,052,053,054,055,056,057,060,",
-    "061,062,063,064,065,066,067,070,",
-    "071,072,073,074,075,076,077,0100,",
-    "0101,0102,0103,0104,0105,0106,0107,0110,",
-    "0111,0112,0113,0114,0115,0116,0117,0120,",
-    "0121,0122,0123,0124,0125,0126,0127,0130,",
-    "0131,0132,0133,0134,0135,0136,0137,0140,",
-    "0141,0142,0143,0144,0145,0146,0147,0150,",
-    "0151,0152,0153,0154,0155,0156,0157,0160,",
-    "0161,0162,0163,0164,0165,0166,0167,0170,",
-    "0171,0172,0173,0174,0175,0176,",
-
-];
-
-
-document.getElementById("textio").value = "";
-
-stackArray = [];
-stackButtonArray = [];
-
-stackbuttonsize = 40;
-
-stackMode = false;//if true, edit a "stack" in the Hypercube, if false, by default one is editing the feed's geometron glyphs
-
-for(var row = 0;row < 4; row++){
-    var newtr = document.createElement("TR");
-    document.getElementById("stacktable").appendChild(newtr);
-    for(var col = 0; col < 4; col++){
-        var newtd = document.createElement("TD");
-        newtr.appendChild(newtd);
-        var newcan = document.createElement("CANVAS");
-        newtd.appendChild(newcan);
-        var newGVM = new GVM(newcan,stackbuttonsize,stackbuttonsize);
-        
-        stackArray.push(newGVM);
-        newGVM.x0 = 1;
-        newGVM.y0 = stackbuttonsize - 1;
-        newGVM.unit = stackbuttonsize - 2;
-        newGVM.drawGlyph("0300,341,");
-        newcan.classList.add("button");
-        var newdiv = document.createElement("DIV");
-        newdiv.className = "data";
-        newdiv.innerHTML = "0220";
-        newtd.appendChild(newdiv);
-        newtd.id = "stackcans" + (col + row*4).toString();
-        stackButtonArray.push(newtd);
-        newtd.onclick = function(){
-            stackMode = true;
-            var localaddress = parseInt(this.getElementsByClassName("data")[0].innerHTML,8);            
-            var oldstackbuttonindex = (mainGVM.address)%020;
-            stackButtonArray[oldstackbuttonindex].getElementsByTagName("canvas")[0].style.backgroundColor = "white";
-            stackMode = true;
-            mainGVM.address = localaddress;
-
-            mainGVM.glyph = mainGVM.hypercube[localaddress] + "0207,";
-            mainGVM.clean();
-            mainGVM.drawGlyph(mainGVM.glyph);
-            spellGVM.spellGlyph(mainGVM.glyph);
-            document.getElementById("spellinput").value = mainGVM.cleanGlyph;    
-            this.getElementsByTagName("canvas")[0].style.backgroundColor = "#c0c0c0";
-        }
-    }
-}
-
-function loadstack(stackbottom){
-    //load 16 elements into table starting at stackbottom, which is an integer, generally put in in base 8 but doesn't have to be
-    for(var index= 0;index < 16;index++){
-        stackArray[index].hypercube = mainGVM.hypercube;
-        stackArray[index].drawGlyph("0300,");
-        stackArray[index].action(stackbottom + index + 01000);
-        stackButtonArray[index].getElementsByClassName("data")[0].innerHTML = "0" + (stackbottom + index).toString(8);
-    }
-}
-
-
-function loadbuttontable(){
-    var newtr = document.getElementById("buttontr");
-    var newtr2 = document.getElementById("buttontr2");
-    var newtd = document.createElement("TD");
-    newtr.appendChild(newtd);
-    newtd.innerHTML = "save feed";
-    newtd.classList.add("tablebutton");
-    newtd.classList.add("button");
-    newtd.onclick = function(){
-        //save feed
-        var imagewidthpx = parseInt(document.getElementById("mainimage").style.width);
-        var imagexpx = parseInt(document.getElementById("mainimage").style.left);
-        var imageypx = parseInt(document.getElementById("mainimage").style.top);
-        var parentwidthpx = mainGVM.width;
-        var rotatedeg = parseInt(document.getElementById("mainimage").style.transform.substring(7));
-        feed[feedindex].glyph = mainGVM.cleanGlyph;
-        feed[feedindex].image.angle = rotatedeg;
-        feed[feedindex].image.w = imagewidthpx/parentwidthpx;
-        feed[feedindex].image.x = imagexpx/parentwidthpx;
-        feed[feedindex].image.y = imageypx/parentwidthpx;
-        feed[feedindex].src = document.getElementById("mainimage").src;
-                        
-                        
-        var httpc = new XMLHttpRequest();
-        httpc.open("POST", "filesaver.php", true);
-        httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        httpc.send("data="+encodeURIComponent(JSON.stringify(feed,null,"  "))+"&filename=data/feed.txt");//send text to filesaver.php
-        document.getElementById("textio").value = JSON.stringify(feed,null,"  ");
-        
-    }
-    var newtd = document.createElement("TD");
-    newtr.appendChild(newtd);
-    newtd.innerHTML = "load feed";
-    newtd.classList.add("tablebutton");
-    newtd.classList.add("button");
-    newtd.onclick = function(){
-        //load feed
-        if(document.getElementById("textio").value.length > 0){
-            feed = JSON.parse(document.getElementById("textio").value);
-            feedindex = 0;
-            loadfeed();
-            feedElement = feed[feedindex];
-            drawmain();
-        }
-    }    
-    var newtd = document.createElement("TD");
-    newtr.appendChild(newtd);
-    newtd.innerHTML = "save cube";
-    newtd.classList.add("tablebutton");
-    newtd.classList.add("button");
-    newtd.onclick = function(){
-        //save cube
-        hypercube = mainGVM.bytecode(0,01777);
-        var url = "filesaver.php";        
-        var httpc = new XMLHttpRequest();
-        httpc.open("POST", url, true);
-        httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        httpc.send("data="+encodeURIComponent(hypercube)+"&filename=data/hypercube.txt");//send text to filesaver.php
-    
-    }    
-    var newtd = document.createElement("TD");
-    newtr.appendChild(newtd);
-    newtd.innerHTML = "load cube";
-    newtd.classList.add("tablebutton");
-    newtd.classList.add("button");
-    newtd.onclick = function(){
-        //load cube
-        if(document.getElementById("textio").value.length > 0){
-            hypercube = JSON.parse(document.getElementById("textio").value);
-            mainGVM.importbytecode(hypercube);
-            drawmain();
-        }
-
-    }        
-    var newtd = document.createElement("TD");
-    newtr.appendChild(newtd);
-    newtd.innerHTML = "clear glyph";
-    newtd.classList.add("tablebutton");
-    newtd.classList.add("button");
-    newtd.onclick = function(){
-        //clear glyph
-        mainGVM.glyph = "0207,";
-        mainGVM.cleanGlyph = "";
-        feed[feedindex].glyph = "";
-        drawmain();
-        document.getElementById("spellinput").value = "";
-    }        
-    var newtd = document.createElement("TD");
-    newtr.appendChild(newtd);
-    newtd.innerHTML = "delete element";
-    newtd.classList.add("tablebutton");
-    newtd.classList.add("button");
-    newtd.onclick = function(){
-        //delete element from feed
-        var tempfeed = [];
-        for(var index = 0;index < feed.length;index++){
-            if(index != feedindex){
-                tempfeed.push(feed[index]);
-            }
-        }
-        feed = tempfeed;
-        feedindex = 0;
-        loadfeed();
-        mainGVM.glyph = feed[feedindex].glyph + "0207,";
-        mainGVM.cleanGlyph = feed[feedindex].glyph;
-        drawmain();
-        document.getElementById("spellinput").value = feed[feedindex].glyph;
-        
-    }        
-    var newtd = document.createElement("TD");
-    newtr2.appendChild(newtd);
-    newtd.innerHTML = "copy element";
-    newtd.classList.add("tablebutton");
-    newtd.classList.add("button");
-    newtd.onclick = function(){
-        //copy element to top of feed
-        var tempelement = JSON.parse(JSON.stringify(feed[feedindex]));
-        feed.push(tempelement);
-        feedindex = feed.length - 1;
-        loadfeed();
-        mainGVM.glyph = feed[feedindex].glyph + "0207,";
-        mainGVM.cleanGlyph = feed[feedindex].glyph;
-        drawmain();
-        document.getElementById("spellinput").value = feed[feedindex].glyph;
-        
-    }        
-    
-    var newtd = document.createElement("TD");
-    newtr2.appendChild(newtd);
-    newtd.innerHTML = "remove image";
-    newtd.classList.add("tablebutton");
-    newtd.classList.add("button");
-    newtd.onclick = function(){
-        //remove image from element
-        feed[feedindex].image.src = "";
-        feed[feedindex].image.x = 0.0;
-        feed[feedindex].image.y = 0.0;
-        feed[feedindex].image.w = 1.0;
-        feed[feedindex].image.angle = 0;
-        document.getElementById("mainimage").src = "";
-        loadfeed();
-        gvmArray[feedindex].glyph = feed[feedindex].glyph + "0207,";
-        gvmArray[feedindex].drawGlyph(gvmArray[feedindex].glyph);
-
-    }        
-
-
-    var newtd = document.createElement("TD");
-    newtr2.appendChild(newtd);
-    newtd.innerHTML = "save symbol file";
-    newtd.classList.add("tablebutton");
-    newtd.classList.add("button");
-    newtd.onclick = function(){
-        //save symbol file
-        savesymbolfile();
-    }        
-
-    var newtd = document.createElement("TD");
-    newtr2.appendChild(newtd);
-    newtd.innerHTML = "edit hypercube";
-    newtd.classList.add("tablebutton");
-    newtd.classList.add("button");
-    newtd.onclick = function(){
-        //point browser to hypercube.html
-        window.location.href = "hypercube.html";
-    }        
-
-    var newtd = document.createElement("TD");
-    newtr2.appendChild(newtd);
-    newtd.innerHTML = "edit font";
-    newtd.classList.add("tablebutton");
-    newtd.classList.add("button");
-    newtd.onclick = function(){
-        //point browser to hypercube.html
-        window.location.href = "font.html";
-    }        
-
-    var newtd = document.createElement("TD");
-    newtr2.appendChild(newtd);
-    newtd.innerHTML = "edit keyboard";
-    newtd.classList.add("tablebutton");
-    newtd.classList.add("button");
-    newtd.onclick = function(){
-        //point browser to hypercube.html
-        window.location.href = "keyboard.html";
-    }        
-    
-    
-}
-
-function savesymbolfile(){
-    mainGVM.clean();
-    mainGVM.drawGlyph(mainGVM.cleanGlyph);
-        
-    var timestamp = Math.round((new Date().getTime())/1000).toString();
-    var httpc = new XMLHttpRequest();
-    var url = "pngsave.php";        
-    httpc.open("POST", url, true);
-    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc.send("data="+encodeURIComponent(mainGVM.pngcode(mainGVM).substring(22))+"&filename=symbolfeed/symbol" + timestamp +  ".png");//send text to filesaver.php
-
-    var httpc2 = new XMLHttpRequest();
-    httpc2.open("POST","filesaver.php", true);
-    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc2.send("data="+encodeURIComponent(mainGVM.svgString) +"&filename=symbolfeed/symbol" + timestamp +  ".svg");//send text to filesaver.php
-
-}
-
-controlbuttonsize = 40;
-function loadcontroltable(){
-    document.getElementById("controltable").innerHTML = "";
-    for(var index = 0;index < controls.length;index++){
-        var newtr = document.createElement("TR");
-        document.getElementById("controltable").appendChild(newtr);
-        rowarray = controls[index].split(",");
-        for(var rowindex = 0;rowindex < rowarray.length;rowindex++){
-            if(rowarray[rowindex].length > 0){
-                var newtd = document.createElement("TD");
-                newtr.appendChild(newtd);
-                var newcan = document.createElement("CANVAS");
-                newtd.appendChild(newcan);
-                var datadiv = document.createElement("div");
-                datadiv.innerHTML = rowarray[rowindex];
-                datadiv.className = "data";
-                newtd.appendChild(datadiv);
-                var newGVM = new GVM(newcan,controlbuttonsize,controlbuttonsize);
-                newGVM.unit = controlbuttonsize - 2;
-                newGVM.x0 = 1;
-                newGVM.y0 = controlbuttonsize-1;
-                newGVM.importbytecode(hypercube);
-                newGVM.action(0300);
-                if(parseInt(rowarray[rowindex],8) >= 040 && parseInt(rowarray[rowindex],8) < 0177){
-                    newGVM.drawGlyph("0300,0336,0336,0330,0333,0337,");
-                }
-                newGVM.action(parseInt(rowarray[rowindex],8)+01000);
-
-                newtd.onclick = function(){
-                    var localaction = parseInt(this.getElementsByClassName("data")[0].innerHTML,8);
-                    if(localaction != 022 && localaction != 023){
-                        if(localaction >= 040 && localaction < 0177){
-                            localaction += 01000;
-                        }
-                        mainGVM.cursorAction(localaction);
-                    }
-                    if(localaction == 022){
-                        previous();
-                    }
-                    if(localaction == 023){
-                        next();
-                    }
-                                                        
-                    mainGVM.clean();
-                    spellGVM.spellGlyph(mainGVM.glyph);
-                    document.getElementById("spellinput").value = mainGVM.cleanGlyph;
-                    robot.glyph = mainGVM.cleanGlyph;
-                    saverobot();
-
-                }
-                newcan.classList.add("button");
-            }
-        }
-    }
-}
-
-
-feed = [];
-feedindex = 0;
 feedElement = {
     "glyph": "0321,0341,0332,0337,0341,0333,0341,",
     "image": {
@@ -475,24 +47,19 @@ feedElement = {
         "y": 0.0
     }
 };
+
+
+feedwidth = innerWidth - 100;
+feedlinkwidth  = feedwidth;
+
+
+feed = [];
 hypercube = [];
-
-maincanvas = document.getElementById("maincanvas");
-var mainGVM = new GVM(maincanvas,250,250);
-var spellGVM = new GVM(document.getElementById("spellcanvas"),420,800);
-
-spellGVM.x0 = 5;
-spellGVM.y0 = 35;
-spellGVM.unit = 20;
-
-gvmArray = [];
 
 var httpcHypercube = new XMLHttpRequest();
 httpcHypercube.onreadystatechange = function(){
     if (this.readyState == 4 && this.status == 200) {
         hypercube = JSON.parse(this.responseText);
-        spellGVM.importbytecode(hypercube);
-        mainGVM.importbytecode(hypercube);    
         var httpcFeed = new XMLHttpRequest();
         httpcFeed.onreadystatechange = function(){
             if (this.readyState == 4 && this.status == 200) {
@@ -501,11 +68,6 @@ httpcHypercube.onreadystatechange = function(){
                     feed.push(feedElement);
                 }
                 loadfeed();
-                feedElement = feed[feedindex];
-                drawmain();
-                loadcontroltable();
-                loadbuttontable();
-                loadstack(0220);
             }
         };
         httpcFeed.open("GET", "fileloader.php?filename=data/feed.txt", true);
@@ -516,17 +78,8 @@ httpcHypercube.onreadystatechange = function(){
 httpcHypercube.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
 httpcHypercube.send();
 
-stoprelativekeys = [
-    "0154:",
-    "073:",    
-    "0156:",    
-    "0155:",    
-    "054:",    
-    "056:"    
-]
 
-feedwidth = 200;
-feedlinkwidth  = 200;
+
 function loadfeed(){
     gvmArray = [];
     document.getElementById("feed").innerHTML = "";
@@ -541,7 +94,6 @@ function loadfeed(){
         document.getElementById("feed").appendChild(newdiv);
         var newGVM = new GVM(newcan,feedlinkwidth,feedlinkwidth);
         newGVM.importbytecode(hypercube);
-        newGVM.importbytecode(stoprelativekeys);
         gvmArray.push(newGVM);
         newGVM.drawGlyph(feed[index].glyph);    
         
@@ -554,648 +106,47 @@ function loadfeed(){
         newimg.style.top = (feed[index].image.y*feedlinkwidth).toString() + "px";
         newimg.style.transform = "rotate(" + feed[index].image.angle.toString() + "deg)";
         newdiv.id = "fd" + index.toString();
-        newdiv.onclick = function(){
-            if(stackMode){
-                //make the backtround white
-                var oldstackbuttonindex = (mainGVM.address)%020;
-                stackButtonArray[oldstackbuttonindex].getElementsByTagName("canvas")[0].style.backgroundColor = "white";        
-            }
-            stackMode = false;//if a feed element is selected we are editing the feed not the hypercube
-            
-            mainGVM.clean();
-            var imagewidthpx = parseInt(document.getElementById("mainimage").style.width);
-            var imagexpx = parseInt(document.getElementById("mainimage").style.left);
-            var imageypx = parseInt(document.getElementById("mainimage").style.top);
-            var parentwidthpx = mainGVM.width;
-            var rotatedeg = parseInt(document.getElementById("mainimage").style.transform.substring(7));
-            feed[feedindex].src = document.getElementById("mainimage").src;
-            feed[feedindex].glyph = mainGVM.cleanGlyph;
-            feed[feedindex].image.angle = rotatedeg;
-            feed[feedindex].image.w = imagewidthpx/parentwidthpx;
-            feed[feedindex].image.x = imagexpx/parentwidthpx;
-            feed[feedindex].image.y = imageypx/parentwidthpx;
-    
-            feedindex = parseInt(this.id.substring(2));
-            feedElement = feed[feedindex];
-            drawmain();
-        }
     }    
 }
 
-
-function drawmain(){
-    mainGVM.glyph = feedElement.glyph + "0207,";
-    mainGVM.clean();
-    mainGVM.drawGlyph(mainGVM.glyph);
-    document.getElementById("mainimage").src = feedElement.image.src;
-    document.getElementById("mainimage").style.width = (feedElement.image.w*mainGVM.width).toString() + "px";
-    document.getElementById("mainimage").style.left = (feedElement.image.x*mainGVM.width).toString() + "px";
-    document.getElementById("mainimage").style.top = (feedElement.image.y*mainGVM.width).toString() + "px";
-    document.getElementById("mainimage").style.transform = "rotate(" + feedElement.image.angle.toString() + "deg)";   
-    spellGVM.spellGlyph(mainGVM.glyph);
-    document.getElementById("spellinput").value = mainGVM.cleanGlyph;
-}
-
-
-
-mode = 0;
-document.getElementById("actioninput").onkeypress = function(a) {
-    var charCode = a.keyCode || a.which;
-    if(charCode != 015){
-        if(mode == 0 || mode == 3){
-            localCursorAction = parseInt(mainGVM.hypercube[charCode],8);   
-        }    
-        if(mode == 1){
-            localCursorAction = charCode + 01000;     
-        }    
-        if(mode == 2){
-            localCursorAction = charCode;     
-        }    
-        
-        mainGVM.cursorAction(localCursorAction);   
-        spellGVM.spellGlyph(mainGVM.glyph);    
-        this.value = "";
-        mainGVM.clean();
-        document.getElementById("spellinput").value = mainGVM.cleanGlyph;
-        feed[feedindex].glyph = mainGVM.cleanGlyph;
-        robot.glyph = mainGVM.cleanGlyph;
-        saverobot();
-
-    }
-
-}
-
-
-document.getElementById("actioninput").onkeydown = function(a) {
-    var charCode = a.keyCode || a.which;
-
-    if(charCode == 015) {
-        modeswitch();
-    }
-
-    if(charCode == 010) {
-        mainGVM.cursorAction(010);
-    }
-    if(charCode == 045){
-        mainGVM.cursorAction(020);             
-    }
-    if(charCode == 047){
-        mainGVM.cursorAction(021);   
-    }
-
-    if(charCode == 046){
-        //up arrow: prev symbol
-        previous();
-    
-    }
-    if(charCode == 050){
-        //down arrow: next symbol
-        next();
-    }
-
-    spellGVM.spellGlyph(mainGVM.glyph);
-    document.getElementById("spellinput").value = mainGVM.cleanGlyph;
-    mainGVM.clean();
-    feed[feedindex].glyph = mainGVM.cleanGlyph;
-
-}
-
-function next(){
-    if(!stackMode){
-        mainGVM.clean();
-        var imagewidthpx = parseInt(document.getElementById("mainimage").style.width);
-        var imagexpx = parseInt(document.getElementById("mainimage").style.left);
-        var imageypx = parseInt(document.getElementById("mainimage").style.top);
-        var parentwidthpx = mainGVM.width;
-        var rotatedeg = parseInt(document.getElementById("mainimage").style.transform.substring(7));
-            
-        feed[feedindex].glyph = mainGVM.cleanGlyph;
-        feed[feedindex].image.angle = rotatedeg;
-        feed[feedindex].image.w = imagewidthpx/parentwidthpx;
-        feed[feedindex].image.x = imagexpx/parentwidthpx;
-        feed[feedindex].image.y = imageypx/parentwidthpx;
-        feed[feedindex].src = document.getElementById("mainimage").src;
-       feedindex++;
-       if(feedindex > feed.length - 1){
-           feedindex = 0;
+document.getElementById("urlinput").onchange = function(){
+    feedurl = this.value;
+    var httpcFeed = new XMLHttpRequest();
+    httpcFeed.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200) {
+            feed = JSON.parse(this.responseText);
+            loadfeed();
         }
-        feedElement = feed[feedindex];
-        drawmain();    
-    }
-    else{
-        var oldstackbuttonindex = (mainGVM.address)%020;
-        var localstackbase = mainGVM.address - mainGVM.address%020;
-        stackButtonArray[oldstackbuttonindex].getElementsByTagName("canvas")[0].style.backgroundColor = "white";
-        mainGVM.address++;
-        if(mainGVM.address > localstackbase + 017){
-            mainGVM.address = localstackbase;
-        }
-        mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
-        mainGVM.clean();
-        mainGVM.drawGlyph(mainGVM.glyph);
-        spellGVM.spellGlyph(mainGVM.glyph);
-        document.getElementById("spellinput").value = mainGVM.cleanGlyph;    
-        stackButtonArray[mainGVM.address - localstackbase].getElementsByTagName("canvas")[0].style.backgroundColor = "#c0c0c0";
-    }
-}
-function previous(){
-    if(!stackMode){
-        mainGVM.clean();
-        var imagewidthpx = parseInt(document.getElementById("mainimage").style.width);
-        var imagexpx = parseInt(document.getElementById("mainimage").style.left);
-        var imageypx = parseInt(document.getElementById("mainimage").style.top);
-        var parentwidthpx = mainGVM.width;
-        var rotatedeg = parseInt(document.getElementById("mainimage").style.transform.substring(7));
-            
-        feed[feedindex].glyph = mainGVM.cleanGlyph;
-        feed[feedindex].image.angle = rotatedeg;
-        feed[feedindex].image.w = imagewidthpx/parentwidthpx;
-        feed[feedindex].image.x = imagexpx/parentwidthpx;
-        feed[feedindex].image.y = imageypx/parentwidthpx;
-        feed[feedindex].src = document.getElementById("mainimage").src;
-        feedindex--;
-        if(feedindex<0){
-           feedindex = feed.length - 1;
-        }
-        feedElement = feed[feedindex];
-        drawmain();
-    }
-    else{
-        var oldstackbuttonindex = (mainGVM.address)%020;
-        var localstackbase = mainGVM.address - mainGVM.address%020;
-        stackButtonArray[oldstackbuttonindex].getElementsByTagName("canvas")[0].style.backgroundColor = "white";
-        mainGVM.address--;
-        if(mainGVM.address < localstackbase){
-            mainGVM.address = localstackbase + 017;
-        }
-        mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
-        mainGVM.clean();
-        mainGVM.drawGlyph(mainGVM.glyph);
-        spellGVM.spellGlyph(mainGVM.glyph);
-        document.getElementById("spellinput").value = mainGVM.cleanGlyph;    
-        stackButtonArray[mainGVM.address - localstackbase].getElementsByTagName("canvas")[0].style.backgroundColor = "#c0c0c0";
-    }
-}
-
-function modeswitch(){
-    
-}
-
-if(innerWidth > innerHeight){
-    document.getElementById("actioninput").select();
-}
-
-document.getElementById("spellinput").onchange = function(){
-    mainGVM.glyph = this.value + "0207,";
-    mainGVM.clean();
-    feed[feedindex].glyph = mainGVM.cleanGlyph;
-    drawmain();
-    
-}
-
-//****************************************************************
-//below this line is the image feed, followed by robot config
-//*******************************************************************
-
-document.getElementById("imageurlinput").value = "";
-
-document.getElementById("imageurlinput").onchange  = function(){
-    imagefeed.push(this.value);
-    saveimagefeed();
-    var newuploadbox = document.createElement("DIV");
-    newuploadbox.classList.add("uploadbox");
-    var newimg = document.createElement("IMG");
-    newimg.src = this.value;
-    newimg.classList.add("uploadimage");
-    newimg.classList.add("button");
-    newuploadbox.appendChild(newimg);
-    document.getElementById("imagefeed").appendChild(newuploadbox);
-    newimg.onclick = function() {
-        var localsrc = this.src;
-        feed[feedindex].image.src = localsrc;
-        document.getElementById("mainimage").src = localsrc;
-        document.getElementById("imageurlinput").value = localsrc;
-    }
-    var newimg = document.createElement("IMG");
-    newimg.src = "iconsymbols/delete.svg";
-    newuploadbox.appendChild(newimg);
-    newimg.classList.add("button");
-    newimg.classList.add("deletebutton");
-    newimg.id = "if" + (imagefeed.length - 1).toString();
-    newimg.onclick = function(){
-        //find the index and remove that from the feed 
-        var thisindex = parseInt(this.id.substring(2));
-        var tempimagefeed = [];
-        for(var imageindex=0;imageindex<imagefeed.length;imageindex++){
-            if(imageindex != thisindex){
-                tempimagefeed.push(imagefeed[imageindex]);
-            }
-            imagefeed = tempimagefeed;
-        }
-        this.parentElement.parentElement.removeChild(this.parentElement);
-        saveimagefeed();
-    }    
-    saveimagefeed();
-}
-
-
-uploadImages = [];
-var httpcUpload = new XMLHttpRequest();
-    httpcUpload.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        uploadImages = JSON.parse(this.responseText);
-        for(var index = uploadImages.length - 1;index >= 0;index--) {
-            var newuploadbox = document.createElement("DIV");
-            newuploadbox.classList.add("uploadbox");
-            var newimg = document.createElement("IMG");
-            newimg.src = "uploadimages/" + uploadImages[index];
-            newimg.classList.add("uploadimage");
-            newimg.classList.add("button");
-            newuploadbox.appendChild(newimg);
-            document.getElementById("imagefeed").appendChild(newuploadbox);
-            newimg.onclick = function() {
-                var localsrc = "uploadimages" + this.src.split("uploadimages")[1];
-                
-                //put the image into 
-                
-                document.getElementById("imageurlinput").value = localsrc;    
-                document.getElementById("pngimage").src = localsrc;
-
-            }
-            var newimg = document.createElement("IMG");
-            newimg.src = "iconsymbols/delete.svg";
-            newuploadbox.appendChild(newimg);
-            newimg.classList.add("button");
-            newimg.classList.add("deletebutton");
-            newimg.onclick = function(){
-                var imageurl =this.parentElement.getElementsByClassName("uploadimage")[0].src; 
-                var imagename = "uploadimages/" + imageurl.split("uploadimages/")[1];
-                var httpc = new XMLHttpRequest();
-                var url = "deletefile.php";         
-                httpc.open("POST", url, true);
-                httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
-                httpc.send("filename=" + imagename);//send text to deletefile.php
-                this.parentElement.parentElement.removeChild(this.parentElement);
-            }
-        }
-    }
-};
-
-httpcUpload.open("GET", "dir.php?filename=uploadimages", true);
-httpcUpload.send();
-
-
-document.getElementById("pngimage").onload = function() {
-    canvas = document.getElementById("pngcanvas");
-    ctx = canvas.getContext("2d");
-    canvas.width = this.width;
-    canvas.height = this.height;
-    img = document.getElementById("pngimage");
-    img.crossOrigin = 'Anonymous';
-    ctx.drawImage(img, 0,0,this.width,this.height);
-    var pngcode = canvas.toDataURL();
-    feed[feedindex].image.src = pngcode;
-    feedElement.image.src = pngcode;
-    document.getElementById("mainimage").src = pngcode;
-//    console.log(pngcode);
-//    foo = canvas.toDataURL('image/jpeg', 0.1);
-    
-};
-
-imagefeed = [];
-var httpcImagefeed = new XMLHttpRequest();
-httpcImagefeed.onreadystatechange = function(){
-    if (this.readyState == 4 && this.status == 200) {
-        imagefeed = JSON.parse(this.responseText);
-        
-        for(var index = imagefeed.length - 1;index >= 0;index--){
-            var newbox = document.createElement("DIV");
-            newbox.classList.add("imagebox");
-            var newimg = document.createElement("IMG");
-            newimg.src = imagefeed[index];
-            newimg.classList.add("uploadimage");
-            newimg.classList.add("button");
-            newbox.appendChild(newimg);
-            document.getElementById("imagefeed").appendChild(newbox);
-            newimg.onclick = function() {
-                var localsrc = this.src;
-                document.getElementById("mainimage").src = localsrc;
-                document.getElementById("imageurlinput").value = localsrc;
-                feed[feedindex].image.src = localsrc;
-
-            }
-            var newimg = document.createElement("IMG");
-            newimg.src = "iconsymbols/delete.svg";
-            newbox.appendChild(newimg);
-            newimg.classList.add("button");
-            newimg.classList.add("deletebutton");
-            newimg.id = "if" + index.toString();
-            newimg.onclick = function(){
-                //find the index and remove that from the feed 
-                var thisindex = parseInt(this.id.substring(2));
-                var tempimagefeed = [];
-                for(var imageindex=0;imageindex<imagefeed.length;imageindex++){
-                    if(imageindex != thisindex){
-                        tempimagefeed.push(imagefeed[imageindex]);
-                    }
-                    imagefeed = tempimagefeed;
-                }
-                this.parentElement.parentElement.removeChild(this.parentElement);
-                saveimagefeed();
-            }
-        }
-    }
-};
-httpcImagefeed.open("GET", "fileloader.php?filename=data/imagefeed.txt", true);
-httpcImagefeed.send();
-
-
-function saveimagefeed(){
-    var httpc = new XMLHttpRequest();
-    httpc.open("POST", "filesaver.php", true);
-    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc.send("data="+encodeURIComponent(JSON.stringify(imagefeed,null,"  "))+"&filename=data/imagefeed.txt");//send text to filesaver.php   
-}
-
-mc = new Hammer(document.getElementById("hammerxy"));
-mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
-mc.on("panleft panright panup pandown tap press rotate", function(ev) {
-    
-    document.getElementById("mainimage").style.left = (ev.deltaX + feedElement.image.x*mainGVM.width).toString() +  "px";
-    document.getElementById("mainimage").style.top = (ev.deltaY + feedElement.image.y*mainGVM.width).toString() +  "px";
-
-});    
-
-mczoom = new Hammer(document.getElementById("scalebar"));
-mczoom.get('pan').set({ direction: Hammer.DIRECTION_ALL });
-mczoom.on("panleft panright panup pandown tap press", function(ev) {
-
-    document.getElementById("mainimage").style.width = (2*ev.deltaX + feedElement.image.w*mainGVM.width).toString() +  "px";
-
-});    
-
-mcrotate = new Hammer(document.getElementById("rotatebar"));
-mcrotate.get('pan').set({ direction: Hammer.DIRECTION_ALL });
-mcrotate.on("panleft panright panup pandown tap press", function(ev) {
-
-    document.getElementById("mainimage").style.transform = "rotate(" + (feedElement.image.angle + ev.deltaX*Math.PI/5).toString() + "deg)";
-
-});    
-
-
-
-//*********************************************************
-//everything below this line is the robot config editor
-//**********************************************************
-
-document.getElementById("polarity1button").onclick = function(){
-    robot.polarity1 = robot.polarity1^1;
-    if(robot.polarity1 == 0){
-        document.getElementById("polarity1").innerHTML = "0";
-    }    
-    else{
-        document.getElementById("polarity1").innerHTML = "1";
-    }
-    saverobot();
-}
-
-document.getElementById("polarity2button").onclick = function(){
-    robot.polarity2 = robot.polarity2^1;
-    if(robot.polarity2 == 0){
-        document.getElementById("polarity2").innerHTML = "0";
-    }    
-    else{
-        document.getElementById("polarity2").innerHTML = "1";
-    }
-    saverobot();
-}
-
-
-document.getElementById("polarity3button").onclick = function(){
-    robot.polarity3 = robot.polarity3^1;
-    if(robot.polarity3 == 0){
-        document.getElementById("polarity3").innerHTML = "0";
-    }    
-    else{
-        document.getElementById("polarity3").innerHTML = "1";
-    }
-    saverobot();
-}
-
-document.getElementById("upsidedownbutton").onclick = function(){
-    robot.upsidedown = robot.upsidedown^1;
-    if(robot.upsidedown == 0){
-        document.getElementById("upsidedown").innerHTML = "0";
-    }    
-    else{
-        document.getElementById("upsidedown").innerHTML = "1";
-    }
-    saverobot();
-}
-
-
-var httpcRobot = new XMLHttpRequest();
-httpcRobot.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        robot = JSON.parse(this.responseText);
-
-        if(robot.polarity1 == 0){
-            document.getElementById("polarity1").innerHTML = "0";
-        }    
-        else{
-            document.getElementById("polarity1").innerHTML = "1";
-        }
-        if(robot.polarity2 == 0){
-            document.getElementById("polarity2").innerHTML = "0";
-        }    
-        else{
-            document.getElementById("polarity2").innerHTML = "1";
-        }
-        if(robot.polarity3 == 0){
-            document.getElementById("polarity3").innerHTML = "0";
-        }    
-        else{
-            document.getElementById("polarity3").innerHTML = "1";
-        }
-        if(robot.upsidedown == 0){
-            document.getElementById("upsidedown").innerHTML = "0";
-        }    
-        else{
-            document.getElementById("upsidedown").innerHTML = "1";
-        }
-
-    }
-};
-httpcRobot.open("GET", "fileloader.php?filename=data/robot.txt", true);
-httpcRobot.send();    
-
-function saverobot(){
-    var httpc = new XMLHttpRequest();
-    httpc.open("POST", "filesaver.php", true);
-    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc.send("data="+encodeURIComponent(JSON.stringify(robot,null,"  "))+"&filename=data/robot.txt");//send text to filesaver.php
+    };
+    httpcFeed.open("GET", "fileloader.php?filename=" + feedurl, true);
+    httpcFeed.send();    
 }
 
 </script>
 <style>
-#mainbox{
-    position:absolute;
-    right:0px;
-    top:0px;
-    width:250px;
-    height:250px;
-    border:solid;
-    border-color:blue;
-    overflow:hidden;
-}
-#mainimage{
-    position:absolute;
-    left:0px;
-    top:0px;
-    width:100%;
-    z-index:-2;
-}
-#hammerxy{
-    position:absolute;
-    left:0px;
-    right:0px;
-    top:0px;
-    bottom:0px;
-    z-index:2;
-}
-#spellbox{
-    position:absolute;
-    right:300px;
-    top:0px;
-    width:450px;
-    height:250px;
-    border:solid;
-    border-color:green;
-    overflow:scroll;
-}
-#spellcanvasbox{
-    position:absolute;
-    left:0px;
-    border-top:solid;
-    border:color:blue;
-    top:40px;
-}
-#imagefeedbox{
-    position:absolute;
-    left:0px;
-    top:0px;
-    width:250px;
-    height:50%;
-    border:solid;
-    border-color:blue;   
-}
-#imagefeedheader{
-    position:absolute;
-    top:0px;
-    left:0px;
-    right:0px;
-    height:200px;
-}
-#imagefeed{
-    position:absolute;
-    top:200px;
-    left:0px;
-    right:0px;
-    bottom:0px;
-    overflow:scroll;
-}
 .uploadimage{
     max-width:50%;
 }
-.deletebutton{
-    width:40px;
-}
-#zoomrotatebox{
-    position:absolute;
-    top:0px;
-    left:0px;
-    right:0px;
-    height:100px;
-}
-#scalebar{
-    width:100%;
-    height:50%;
-}
-#rotatebar{
-    width:100%;
-    height:50%;
-}
-#mainfeedbox{
-    position:absolute;
-    left:0px;
-    bottom:0px;
-    width:250px;
-    height:49%;
-    border:solid;
-    border-color:blue;   
-}
-#feedheader{
-    position:absolute;
-    top:0px;
-    height:100px;
-    left:0px;
-    right:0px;
-}
+
 #feed{
     position:absolute;
-    top:100px;
+    left:0px;
+    bottom:0px;
+    right:0px;
+    top:80px;
+    overflow:scroll;
+}
+
+#header{
+    font-size:12px;
+    height:80px;
+    background-color:black;
+    color:#00ff00;
+    font-family:courier;
+    position:absolute;
     left:0px;
     right:0px;
-    bottom:0px;
-    overflow:scroll;
-}
-#controlbox{
-    position:absolute;
-    right:0px;
-    width:400px;
-    overflow:scroll;
-    height:250px;
-    top:300px;
-    border:solid;
-    border-color:red;
-}
-#shapestackbox{
-    position:absolute;
-    right:0px;
-    bottom:0px;
-    border:solid;
-    border-color:yellow;
-    width:250px;
-    height:250px;
-}
-#robotconfigbox{
-    position:absolute;
-    bottom:0px;
-    right:500px;
-    width:180px;
-    height:140px;
-    border:solid;
-    border-color:purple;
-}
-#deleteimagebutton{
-    width:20px;
-}
-#imagecontroltable{
-    position:absolute;
-    bottom:0px;
-}
-#uploadform{
-    position:absolute;
-    top:100px;
-}
-.button{
-    cursor:pointer;
-}
-.button:hover{
-    background-color:green;
-}
-.button:active{
-    background-color:yellow;
+    top:0px;
 }
 .feedelement{
     margin-top:100px;
@@ -1211,39 +162,17 @@ function saverobot(){
     position:relative;
     z-index:-1;
 }
-.data{
-    display:none;
-}
-#spellbox input{
-    font-size:12px;
+#urlinput{
+    position:absoolute;
+    left:2px;
+    top:2px;
+    width:30%;
+    color:#00ff00;
+    background-color:black;
+    font-size:26px;
     font-family:courier;
-}
-#actioninput{
-    width:10px;
-}
-#spellinput{
-    width:400px;
-}
-#modeindicator{
-    width:25px;
-}
-#pngcanvasbox{
-    display:none;
-}
-#pngimage{
-    width:200px;
-}
-.tablebutton{
     border:solid;
-    font-family:courier;
-    font-size:12px;
-    width:30px;
-    text-align:center;
-    border:solid;
-    border-color:blue;
-}
-#stacktable{
-    border:solid;
+    border-color:#ed5db7;
 }
 </style>
 </body>
