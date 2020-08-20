@@ -57,16 +57,18 @@
 
 <textarea id = "textio"></textarea>
 <a href ="three.html" id = "three">three.html</a>
-
+<div id = "savebutton" class = "button">SAVE</div>
 <script>
 
 controlbuttonsize = 40;
+spellwidth = 300;
 
 if(innerWidth > innerHeight){
     marginWidth = innerWidth - innerHeight;
     controlbuttonsize = marginWidth*0.1;
     document.getElementById("square").style.width = innerHeight.toString() +  "px";
     document.getElementById("square").style.height = innerHeight.toString() +  "px";    
+    spellwidth = marginWidth;
     document.getElementById("actioninput").select();
 }
 else{
@@ -75,7 +77,7 @@ else{
     document.getElementById("actioninput").style.display = "none";
 }
 
-mainGVM = new GVM(document.getElementById("spellcanvas"),400,400);
+mainGVM = new GVM(document.getElementById("spellcanvas"),spellwidth,400);
 mainGVM.x0 = 5;
 mainGVM.y0 = 25;
 mainGVM.unit = 20;
@@ -402,6 +404,11 @@ function loadcontroltable(){
         }
     }
 }
+
+
+document.getElementById("savebutton").onclick = function(){
+    save();
+}
 </script>
 <style>
 body{
@@ -470,14 +477,20 @@ input{
 }
 #three{
     position:absolute;
-    top:0px;
+    bottom:0px;
     right:130px;
     border:solid;
 }
 #controltable{
     position:absolute;
     right:0px;
-    bottom:10px;
+    bottom:50px;
+    border:solid;
+}
+#savebutton{
+    position:absolute;
+    right:0px;
+    bottom:0px;
     border:solid;
 }
 </style>
