@@ -22,9 +22,6 @@
     <META NAME="robots" CONTENT="noindex,nofollow">
 
     <script src="jscode/geometron.js"></script>
-    <script src="jscode/hypercube.js"></script>
-    <script src="jscode/font.js"></script>
-    <script src="jscode/keyboard.js"></script>
 
 <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/wAAAAD/AAAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAiIAAAAAARAAIAAAAAABEAAgAAAAAAABACAAAAAAAAAQIAAAAAAwAAEgAAADAzMzMwMzMzMwMAAAIQAAAwAAAAAgEAAAAAAAACABAAAAAAAAIAAQAAAAAAAgAAEQAAAAACAAARAAAAACIgAAAAAAAAAgAAAAD+/wAA/H8AAM7/AADO/wAA9v8AAPr/AAC8/QAAAAAAAL59AAD+vwAA/t8AAP7vAAD+8wAA/vMAAPx/AAD+/wAA" rel="icon" type="image/x-icon" />
 
@@ -44,396 +41,160 @@
     -->
 
 <div id = "square">
-    <canvas id = "invisiblecanvas"></canvas>
     <x3d id = "mainx3d">
         <scene id = "main">
         </scene>
     </x3d>
 </div>
 
-<div id = "margin">            
-    <div id = "linkdiv">
-        <a href = "scroll.html">
-            <img style = "width:50px;" src = "iconsymbols/scroll.svg"/>
-        </a>
-        <a href = "map.html">
-            <img style = "width:50px;" src = "../iconsymbols/map.svg"/>
-        </a>
-
-
-        <span class = "editbutton button" id = "edit0">0</span>
-        <span class = "editbutton button" id = "edit1">1</span>
-        <span class = "editbutton button" id = "edit2">2</span>
-        <span class = "editbutton button" id = "edit3">3</span>
-        <span class = "editbutton button" id = "edit4">4</span>
-        <span class = "editbutton button" id = "edit5">5</span>
-        <span class = "editbutton button" id = "edit6">6</span>
-        <span class = "editbutton button" id = "edit7">7</span>
-
-<!--        <img id = "savebutton" class = "button" style = "width:50px;" src = "iconsymbols/save.svg"/>-->
-
-    </div>    
-    <div id = "spelldiv">
-        <canvas id = "spellcanvas"></canvas>
-        <input id = "spellinput"/>
-    </div>
-    <div id = "controldiv">
-        <table id = "controltable">
-            <tr><td>Action:</td><td><input id = "actioninput"/></td></tr>
-            <tr><td>Address:</td><td><input id ="addressinput"/></td></tr>
-        </table>
-
-    </div>        
-    
+<div id = "spellcanvasbox">
+    <canvas id = "spellcanvas"></canvas>
 </div>
 
 <script>
 
-editbuttons = document.getElementsByClassName("editbutton");
-editvalue = 0;
-
-landscape = false;
 
 if(innerWidth > innerHeight){
-    squareWidth = innerHeight;
-    document.getElementById("margin").style.width = (innerWidth - squareWidth).toString() + "px";
-    document.getElementById("margin").style.height = innerHeight.toString() + "px";
-    document.getElementById("square").style.width = squareWidth.toString() + "px";
-    document.getElementById("square").style.height = squareWidth.toString() + "px";
-    marginWidth = innerWidth - squareWidth;
-    landscape = true;
+    document.getElementById("square").style.width = innerHeight.toString() +  "px";
+    document.getElementById("square").style.height = innerHeight.toString() +  "px";    
 }
 else{
-    squareWidth = innerWidth;
-    document.getElementById("margin").style.height = (innerHeight - squareWidth).toString() + "px";
-    document.getElementById("margin").style.width = (innerWidth).toString() + "px";
-    document.getElementById("square").style.height = squareWidth.toString() + "px";
-    document.getElementById("square").style.width = squareWidth.toString() + "px";
-    marginWidth = innerHeight - squareWidth;
+    document.getElementById("square").style.width = innerWidth.toString() +  "px";
+    document.getElementById("square").style.height = innerWidth.toString() +  "px";    
 }
 
-//GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
+mainGVM = new GVM(document.getElementById("spellcanvas"),300,300);
+mainGVM.x0 = 5;
+mainGVM.y0 = 25;
+mainGVM.unit = 20;
+mainGVM.glyph = "0720,0740,0730,0721,0740,0730,0722,0740,0730,0723,0740,0730,0724,0740,0730,0725,0740,0732,0720,0741,0732,0721,0741,0732,0722,0741,0732,0723,0741,0732,0724,0741,0732,0725,0741,0732,0207,";
 
-
-var newGVM = new GVM(0.98*squareWidth,0.98*squareWidth,0.96*squareWidth,-Math.PI/2,document.getElementById("invisiblecanvas"),squareWidth,squareWidth,hypercube);
-
-for(var index = 0;index < 01377;index++){
-    if(newGVM.hypercube[index].length  > 0 ){
-        hypercube.push( "0" + index.toString(8) +  ":" + newGVM.hypercube[index]);
-    }
-}
-
-newGVM.importbytecode(font);
-newGVM.importbytecode(keyboard);
-
-var spellGVM = new GVM(10,100,50,-Math.PI/2,document.getElementById("spellcanvas"),200,200,hypercube);
-spellGVM.importbytecode(font);
-spellGVM.importbytecode(keyboard);
-
-spellGVM.hypercube = newGVM.hypercube;
-
-document.getElementById("actioninput").onkeydown = function(a) {
-    var charCode = a.keyCode || a.which;
-
-
-    if(charCode == 010) {
-        newGVM.cursorAction(010,newGVM);   
-    }
-    if(charCode == 045){
-        newGVM.cursorAction(020,newGVM);             
-    }
-    if(charCode == 047){
-        newGVM.cursorAction(021,newGVM);   
-    }
-
-    if(charCode == 046){
-        //up arrow: prev symbol
-        editbuttons[editvalue].style.backgroundColor = "white";
-
-        spellGVM.saveGlyph();
-        newGVM.saveGlyph();
-        spellGVM.address++;
-        if(spellGVM.address > 0607) {
-            spellGVM.address = 0600;
-        }
-        newGVM.address = spellGVM.address;
-        editvalue = spellGVM.address - 0600;
-
-        spellGVM.glyph = spellGVM.hypercube[spellGVM.address] + "0207,";
-        newGVM.glyph = spellGVM.glyph;
-        newGVM.hypercube = spellGVM.hypercube;
-        redraw3d();
-        newGVM.saveGlyph();
-        spellGVM.saveGlyph();
-        
-    }
-    if(charCode == 050){
-        //down arrow: next symbol
-        editbuttons[editvalue].style.backgroundColor = "white";
-    
-        spellGVM.saveGlyph();
-        newGVM.saveGlyph();
-        spellGVM.address--;
-        if(spellGVM.address < 0600) {
-            spellGVM.address = 0607;
-        }
-        
-        newGVM.address = spellGVM.address;
-        editvalue = spellGVM.address - 0600;
-        
-        spellGVM.glyph = spellGVM.hypercube[spellGVM.address] + "0207,";
-        newGVM.glyph = spellGVM.glyph;
-
-        newGVM.hypercube = spellGVM.hypercube;
-        redraw3d(); 
-        spellGVM.saveGlyph();
-        newGVM.saveGlyph();
-
-    }
-
-    spellGVM.spellGlyph(newGVM.glyph,spellGVM);    
-    savejson();
-    document.getElementById("spellinput").value = spellGVM.hypercube[spellGVM.address];
-    document.getElementById("spellinput").style.width = 0.8*spellGVM.hypercube[spellGVM.address].length.toString() + "em";
-    
-    redraw3d();
-
-}
-
-
-symbolEditMode = false;
-
-
-mode = 0;//0 is action, 1, is spelling, 2 is stack.
-
-actionmode = "action";//"spelling","stack"
-
-
-document.getElementById("actioninput").onkeypress = function(a) {
-
-    var charCode = a.keyCode || a.which;
-
-    localCursorAction = parseInt(newGVM.hypercube[charCode],8);     
-    newGVM.cursorAction(localCursorAction);   
-    spellGVM.spellGlyph(newGVM.glyph);    
-    this.value = "";
-    newGVM.saveGlyph();
-
-    document.getElementById("spellinput").value = currentjson.glyph;
-    document.getElementById("spellinput").style.width = 0.8*currentjson.glyph.length.toString() + "em";
-
-    redraw3d();
-}
-
-
-buttonSize = marginWidth/6;
-
-controlbuttons = [0640,0641,0642,0643,0644,0645,0700,0701,0702,0703,0704,0705,0601,0602,0603,0604,0605,0606,0607,020,010,021];
-
-function loadcontrolbuttons(){
-    
-    for(var index = 0;index < controlbuttons.length; index++) {    
-        var newcan = document.createElement("canvas");
-        document.getElementById("controldiv").appendChild(newcan);
-        newcan.classList.add("button");
-        //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
-        var newg = new GVM(1,buttonSize - 1,buttonSize-2,-Math.PI/2,newcan,buttonSize,buttonSize,hypercube);
-        newg.importbytecode(currentjson.shapes);
-        newg.importbytecode(font);
-
-        newg.drawGlyph("0300,0" + (controlbuttons[index] + 01000).toString(8) + ",",newg);
-
-        newcan.id = "button0" + controlbuttons[index].toString(8);
-        newcan.onclick = function(){
-            var thisaction = parseInt(this.id.substring(6),8);
-            if(thisaction >= 040 && thisaction < 0177) {
-                newGVM.cursorAction(thisaction + 01000);
-            }
-            else{
-                newGVM.cursorAction(thisaction);
-            }
-                    
-            spellGVM.spellGlyph(newGVM.glyph);
-            newGVM.saveGlyph();
-            savejson();
-            
-            document.getElementById("spellinput").value = currentjson.glyph;
-            document.getElementById("spellinput").style.width = 0.8*currentjson.glyph.length.toString() + "em";
-            redraw3d();
-            
-        }
-
-
-    }
-}
-
-
-
-//document.getElementById("savebutton").onclick = function() {
-    //save an x3d file for import to blender and export to .stl
-//}
-
-var httpc = new XMLHttpRequest();
-httpc.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        currentjson = JSON.parse(this.responseText);
-        currentstyle = currentjson.style;
-        newGVM.style = currentstyle;
-        newGVM.canvas2d.width = currentjson.width;
-        newGVM.canvas2d.height = currentjson.height;
-        newGVM.width = currentjson.width;
-        newGVM.height = currentjson.height;
-        newGVM.x0 = currentjson.x0rel*newGVM.width;
-        newGVM.y0 = currentjson.y0rel*newGVM.height;    
-        newGVM.unit = currentjson.unitrel*newGVM.width;    
-        newGVM.theta0 = currentjson.theta0;
-        
-        spellGVM.importbytecode(currentjson.shapes);
-        newGVM.importbytecode(currentjson.shapes);
-        
-        newGVM.glyph = newGVM.hypercube[0600] + ",0207,";
-        
-        newGVM.drawGlyph(newGVM.glyph);
-        spellGVM.spellGlyph(newGVM.glyph);
-        
-        newGVM.address = 0600;
-        spellGVM.address = 0600;
-        
-        document.getElementById("spellinput").value = currentjson.glyph;
-        document.getElementById("spellinput").style.width = 0.8*currentjson.glyph.length.toString() + "em";
-        
-
-        loadcontrolbuttons();
-        redraw3d();
-    }
-};
-httpc.open("GET", "fileloader.php?filename=data/currentjson.txt", true);
-httpc.send();    
-
-
-document.getElementById("actioninput").select();
-
-document.getElementById("spellinput").onchange = function() {
-    currentjson.glyph = this.value;
-    newGVM.glyph = currentjson.glyph + ",0207,";    
-    newGVM.drawGlyph(newGVM.glyph);
-    spellGVM.spellGlyph(newGVM.glyph);
-    savejson();
-//    redraw3d();
-
-}
-
-function savejson(){
-    
-//    currentjson.glyph = newGVM.hypercube[0600];
-    newGVM.saveGlyph();
-
-    if(newGVM.address >= 0600 && newGVM.address <= 0607){
-        
-        currentjson.shapes = [];
-
-        for(var index = 0600;index < 0610;index++){
-            currentjson.shapes.push("0" + index.toString(8) + ":" + spellGVM.hypercube[index]);
-        }        
-        for(var index = 0220;index < 0250;index++){
-            currentjson.shapes.push("0" + index.toString(8) + ":" + spellGVM.hypercube[index]);
-        }
-        for(var index = 01220;index < 01250;index++){
-            currentjson.shapes.push("0" + index.toString(8) + ":" + spellGVM.hypercube[index]);
-        }
-        newGVM.hypercube = spellGVM.hypercube;
-        
-    }    
-    
-
-    var httpc = new XMLHttpRequest();
-    httpc.open("POST", "filesaver.php", true);
-    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc.send("data="+encodeURIComponent(JSON.stringify(currentjson,null,"  "))+"&filename=data/currentjson.txt");//send text to filesaver.php
-
-}
-
-
-x_3d = 0.0;
-y_3d = 0.0;
-z_3d = 0.0;
-side3d = 0.1;
+x = 0.0;
+y = 0.0;
+z = 0.0;
+side = 0.25;
 solidColor = "1 0 0";
 currentTrans = 0.0;
-
 main = document.getElementById("main");
 
 
+var httpcHypercube = new XMLHttpRequest();
+httpcHypercube.onreadystatechange = function(){
+    if (this.readyState == 4 && this.status == 200) {
+        hypercube = JSON.parse(this.responseText);
+        mainGVM.importbytecode(hypercube);    
+        redraw();
+    }
+};
+httpcHypercube.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
+httpcHypercube.send();
 
-function redraw3d(){
+
+
+function redraw(){
     main.innerHTML = "";
-    x_3d = 0.0;
-    y_3d = 0.0;
-    z_3d = 0.0;
-
-    glyph3d(newGVM.glyph);
-    document.getElementById("addressinput").value = "0" + newGVM.address.toString(8);
+    x = 0.0;
+    y = 0.0;
+    z = 0.0;
+    drawGlyph(mainGVM.glyph);
     
-    editbuttons[editvalue].style.backgroundColor = "blue";
 }
 
-function glyph3d(localString){
+
+function drawGlyph(localString){
     var tempArray = localString.split(',');
     for(var index = 0;index < tempArray.length;index++){
-        action3d(parseInt(tempArray[index],8));
+        action(parseInt(tempArray[index],8));
     }
 }
 
-function action3d(localCommand){
-    if(localCommand >= 0600 && localCommand <= 0677){//shapes 
-        if(!(localCommand == 0207)){
-            glyph3d(newGVM.hypercube[localCommand]);    	    
-        }
-    }
+function action(localCommand){
+
     if(localCommand == 0207){
         drawcursor();
     }
-    if(localCommand == 0700){
-        x_3d += side3d;
+
+    if(localCommand == 0720){
+        //red
         solidColor = "1 0 0";
-        drawsphere();
     }
-    if(localCommand == 0701){
-        x_3d -= side3d;
-        solidColor = "1 0 0";
-        drawsphere();
+    if(localCommand == 0721){
+        //orange
+        solidColor = "1 0.5 0";
     }
-    if(localCommand == 0702){
-        y_3d += side3d;
-        solidColor = "0 0 1";
-        drawsphere();
+    if(localCommand == 0722){
+        solidColor = "1 1 0";
+        //yellow
     }
-    if(localCommand == 0703){
-        y_3d -= side3d;
-        solidColor = "0 0 1";
-        drawsphere();
-    }
-    if(localCommand == 0704){
-        z_3d += side3d;
+    if(localCommand == 0723){
+        //green
         solidColor = "0 1 0";
+    }
+    if(localCommand == 0724){
+        //blue
+        solidColor = "0 0 1";
+    }
+    if(localCommand == 0725){
+        //purple
+        solidColor = "1 0 1";
+    }
+
+
+    if(localCommand == 0730){
+        x += side;
+    }
+    if(localCommand == 0731){
+        x -= side;
+    }
+    if(localCommand == 0732){
+        y += side;
+    }
+    if(localCommand == 0733){
+        y -= side;
+    }
+    if(localCommand == 0734){
+        z += side;
+    }
+    if(localCommand == 0735){
+        z -= side;
+    }
+    if(localCommand == 0736){
+        side /= 2;
+    }
+    if(localCommand == 0737){
+        side *= 2;
+    }
+
+    if(localCommand == 0740){
         drawsphere();
     }
-    if(localCommand == 0705){
-        z_3d -= side3d;
-        solidColor = "0 1 0";
-        drawsphere();
+    if(localCommand == 0741){
+        drawcube();
     }
     
+    if(localCommand == 0742){
+//draw cylinder x
+    }
+    if(localCommand == 0743){
+//draw cylinder y
+    }
+    if(localCommand == 0744){
+//draw cylinder z
+    }
+
+
 }
+
+
 
 function drawsphere(){
     var news = document.createElement("shape");
     var newt = document.createElement("transform");
     main.appendChild(newt);
-    newt.setAttribute("translation",x_3d.toString() + " " + y_3d.toString() + " " + z_3d.toString() );
+    newt.setAttribute("translation",x.toString() + " " + y.toString() + " " + z.toString() );
     var newt2 = document.createElement("transform");
     newt.appendChild(newt2);
-    newt2.setAttribute("scale",(side3d).toString() + " " + (side3d).toString() + " " + (side3d).toString());
+    newt2.setAttribute("scale",(side).toString() + " " + (side).toString() + " " + (side).toString());
     newt2.appendChild(news);
     var newa = document.createElement("appearance");
     news.appendChild(newa);
@@ -445,14 +206,33 @@ function drawsphere(){
     news.appendChild(newb);
 }
 
+function drawcube(){
+    var news = document.createElement("shape");
+    var newt = document.createElement("transform");
+    main.appendChild(newt);
+    newt.setAttribute("translation",x.toString() + " " + y.toString() + " " + z.toString() );
+    var newt2 = document.createElement("transform");
+    newt.appendChild(newt2);
+    newt2.setAttribute("scale",(0.5*side).toString() + " " + (0.5*side).toString() + " " + (0.5*side).toString());
+    newt2.appendChild(news);
+    var newa = document.createElement("appearance");
+    news.appendChild(newa);
+    var newm = document.createElement("material");
+    newm.setAttribute("diffuseColor",solidColor);
+    newm.setAttribute("transparency",currentTrans);
+    newa.appendChild(newm);
+    var newb = document.createElement("box");
+    news.appendChild(newb);    
+}
+
 function drawcursor(){
     var news = document.createElement("shape");
     var newt = document.createElement("transform");
     main.appendChild(newt);
-    newt.setAttribute("translation",x_3d.toString() + " " + y_3d.toString() + " " + z_3d.toString() );
+    newt.setAttribute("translation",x.toString() + " " + y.toString() + " " + z.toString() );
     var newt2 = document.createElement("transform");
     newt.appendChild(newt2);
-    newt2.setAttribute("scale",(side3d).toString() + " " + (side3d).toString() + " " + (side3d).toString());
+    newt2.setAttribute("scale",(side).toString() + " " + (side).toString() + " " + (side).toString());
     newt2.appendChild(news);
     var newa = document.createElement("appearance");
     news.appendChild(newa);
@@ -464,187 +244,6 @@ function drawcursor(){
     news.appendChild(newb);
 }
 
-editbuttons[0].onclick = function(){
-    editbuttons[editvalue].style.backgroundColor = "white";
-    spellGVM.saveGlyph();
-    newGVM.saveGlyph();
-    spellGVM.address = 0600;
-    newGVM.address = spellGVM.address;
-    editvalue = spellGVM.address - 0600;
-
-    spellGVM.glyph = spellGVM.hypercube[spellGVM.address] + "0207,";
-    newGVM.glyph = spellGVM.glyph;
-    newGVM.hypercube = spellGVM.hypercube;
-    redraw3d();
-    newGVM.saveGlyph();
-    spellGVM.saveGlyph();
-    spellGVM.spellGlyph(newGVM.glyph,spellGVM);    
-    savejson();
-    document.getElementById("spellinput").value = spellGVM.hypercube[spellGVM.address];
-    document.getElementById("spellinput").style.width = 0.8*spellGVM.hypercube[spellGVM.address].length.toString() + "em";
-    redraw3d();
-
-}
-editbuttons[1].onclick = function(){
-    editbuttons[editvalue].style.backgroundColor = "white";
-    spellGVM.saveGlyph();
-    newGVM.saveGlyph();
-    spellGVM.address = 0601;
-    newGVM.address = spellGVM.address;
-    editvalue = spellGVM.address - 0600;
-
-    spellGVM.glyph = spellGVM.hypercube[spellGVM.address] + "0207,";
-    newGVM.glyph = spellGVM.glyph;
-    newGVM.hypercube = spellGVM.hypercube;
-    redraw3d();
-    newGVM.saveGlyph();
-    spellGVM.saveGlyph();
-        spellGVM.spellGlyph(newGVM.glyph,spellGVM);    
-    savejson();
-
-    document.getElementById("spellinput").value = spellGVM.hypercube[spellGVM.address];
-    document.getElementById("spellinput").style.width = 0.8*spellGVM.hypercube[spellGVM.address].length.toString() + "em";
-    
-    redraw3d();
-
-}
-editbuttons[2].onclick = function(){
-    editbuttons[editvalue].style.backgroundColor = "white";
-    spellGVM.saveGlyph();
-    newGVM.saveGlyph();
-    spellGVM.address = 0602;
-    newGVM.address = spellGVM.address;
-    editvalue = spellGVM.address - 0600;
-
-    spellGVM.glyph = spellGVM.hypercube[spellGVM.address] + "0207,";
-    newGVM.glyph = spellGVM.glyph;
-    newGVM.hypercube = spellGVM.hypercube;
-    redraw3d();
-    newGVM.saveGlyph();
-    spellGVM.saveGlyph();
-    spellGVM.spellGlyph(newGVM.glyph,spellGVM);    
-    savejson();
-    
-    document.getElementById("spellinput").value = spellGVM.hypercube[spellGVM.address];
-    document.getElementById("spellinput").style.width = 0.8*spellGVM.hypercube[spellGVM.address].length.toString() + "em";
-
-    redraw3d();
-
-}
-editbuttons[3].onclick = function(){
-    editbuttons[editvalue].style.backgroundColor = "white";
-    spellGVM.saveGlyph();
-    newGVM.saveGlyph();
-    spellGVM.address = 0603;
-    newGVM.address = spellGVM.address;
-    editvalue = spellGVM.address - 0600;
-
-    spellGVM.glyph = spellGVM.hypercube[spellGVM.address] + "0207,";
-    newGVM.glyph = spellGVM.glyph;
-    newGVM.hypercube = spellGVM.hypercube;
-    redraw3d();
-    newGVM.saveGlyph();
-    spellGVM.saveGlyph();
-    spellGVM.spellGlyph(newGVM.glyph,spellGVM);    
-    savejson();
-
-    document.getElementById("spellinput").value = spellGVM.hypercube[spellGVM.address];
-    document.getElementById("spellinput").style.width = 0.8*spellGVM.hypercube[spellGVM.address].length.toString() + "em";
-
-    redraw3d();
-
-}
-editbuttons[4].onclick = function(){
-    editbuttons[editvalue].style.backgroundColor = "white";
-    spellGVM.saveGlyph();
-    newGVM.saveGlyph();
-    spellGVM.address = 0604;
-    newGVM.address = spellGVM.address;
-    editvalue = spellGVM.address - 0600;
-
-    spellGVM.glyph = spellGVM.hypercube[spellGVM.address] + "0207,";
-    newGVM.glyph = spellGVM.glyph;
-    newGVM.hypercube = spellGVM.hypercube;
-    redraw3d();
-    newGVM.saveGlyph();
-    spellGVM.saveGlyph();
-    spellGVM.spellGlyph(newGVM.glyph,spellGVM);    
-    savejson();
-
-    document.getElementById("spellinput").value = spellGVM.hypercube[spellGVM.address];
-    document.getElementById("spellinput").style.width = 0.8*spellGVM.hypercube[spellGVM.address].length.toString() + "em";
-
-    redraw3d();
-
-}
-editbuttons[5].onclick = function(){
-    editbuttons[editvalue].style.backgroundColor = "white";
-    spellGVM.saveGlyph();
-    newGVM.saveGlyph();
-    spellGVM.address = 0605;
-    newGVM.address = spellGVM.address;
-    editvalue = spellGVM.address - 0600;
-
-    spellGVM.glyph = spellGVM.hypercube[spellGVM.address] + "0207,";
-    newGVM.glyph = spellGVM.glyph;
-    newGVM.hypercube = spellGVM.hypercube;
-    redraw3d();
-    newGVM.saveGlyph();
-    spellGVM.saveGlyph();
-    spellGVM.spellGlyph(newGVM.glyph,spellGVM);    
-    savejson();
-    
-    document.getElementById("spellinput").value = spellGVM.hypercube[spellGVM.address];
-    document.getElementById("spellinput").style.width = 0.8*spellGVM.hypercube[spellGVM.address].length.toString() + "em";
-    
-    redraw3d();
-
-}
-editbuttons[6].onclick = function(){
-    editbuttons[editvalue].style.backgroundColor = "white";
-    spellGVM.saveGlyph();
-    newGVM.saveGlyph();
-    spellGVM.address = 0606;
-    newGVM.address = spellGVM.address;
-    editvalue = spellGVM.address - 0600;
-
-    spellGVM.glyph = spellGVM.hypercube[spellGVM.address] + "0207,";
-    newGVM.glyph = spellGVM.glyph;
-    newGVM.hypercube = spellGVM.hypercube;
-    redraw3d();
-    newGVM.saveGlyph();
-    spellGVM.saveGlyph();
-    spellGVM.spellGlyph(newGVM.glyph,spellGVM);    
-    savejson();
-    document.getElementById("spellinput").value = spellGVM.hypercube[spellGVM.address];
-    document.getElementById("spellinput").style.width = 0.8*spellGVM.hypercube[spellGVM.address].length.toString() + "em";
-    redraw3d();
-
-}
-editbuttons[7].onclick = function(){
-    editbuttons[editvalue].style.backgroundColor = "white";
-    spellGVM.saveGlyph();
-    newGVM.saveGlyph();
-    spellGVM.address = 0607;
-    newGVM.address = spellGVM.address;
-    editvalue = spellGVM.address - 0600;
-
-    spellGVM.glyph = spellGVM.hypercube[spellGVM.address] + "0207,";
-    newGVM.glyph = spellGVM.glyph;
-    newGVM.hypercube = spellGVM.hypercube;
-    redraw3d();
-    newGVM.saveGlyph();
-    spellGVM.saveGlyph();
-    
-    spellGVM.spellGlyph(newGVM.glyph,spellGVM);    
-    savejson();
-    
-    document.getElementById("spellinput").value = spellGVM.hypercube[spellGVM.address];
-    document.getElementById("spellinput").style.width = 0.8*spellGVM.hypercube[spellGVM.address].length.toString() + "em";
-    
-    redraw3d();
-    
-}
 
 </script>
 <style>
@@ -662,41 +261,8 @@ input{
     border-width:0.1px;
     border-color:blue;
     overflow:hidden;
-}
-#margin{
-    position:absolute;
-    right:0px;
-    bottom:0px;
-    border:solid;
-    border-width:0.1px;
-    border-color:red;
-}
-#spelldiv{
-    width:100%;
-    height:80px;
-    overflow:scroll;
-    position:absolute;
-    top:90px;
-    left:0px;
-}
-#spellinput{
-    font-family:courier;
-    font-size:16px;
-}
-#controldiv{
-    position:absolute;
-    bottom:1em;
-    left:0px;
-    right:0px;
-    top:200px;
-}
-#linkdiv{
-    width:100%;
-    height:80px;
-    overflow:scroll;
-    position:absolute;
-    top:0px;
-    left:0px;
+    width:500px;
+    height:500px;
 }
 #maincanvas{
     border:solid;
@@ -717,36 +283,21 @@ input{
 .button{
     cursor:pointer;
 }
-#invisiblecanvas{
-    display:none;
-}
-#backgroundimage{
-    position:absolute;
-    display:none;
-    left:0px;
-    top:0px;
-    z-index:-2;
-    width:100%;
-    overflow:hidden;
-}
+
 #mainx3d{
     position:absolute;
     left:0px;
     top:0px;
     right:0px;
     bottom:0px;
+    background-color:grey;
 }
-#addressinput{
-    width:4em;
-}
-.editbutton{
-    width:50px;
-    font-size:30px;
-    height:50px;
-    border:solid;
-    border-radius:10px;
-    font-family:courier;
-    text-align:center;
+#spellcanvasbox{
+    position:absolute;
+    right:0px;
+    top:100px;
+    width:300px;
+    height:300px;
 }
 </style>
 </body>
