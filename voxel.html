@@ -62,6 +62,7 @@
 
 controlbuttonsize = 40;
 spellwidth = 300;
+spellheight = 400;
 
 if(innerWidth > innerHeight){
     marginWidth = innerWidth - innerHeight;
@@ -72,12 +73,17 @@ if(innerWidth > innerHeight){
     document.getElementById("actioninput").select();
 }
 else{
+    document.getElementById("controltable").style.bottom = "20px";
+    controlbuttonsize = innerWidth*0.1;    
+    document.getElementById("spellcanvasbox").style.top = innerWidth.toString() + "px";
+    spellwidth = innerWidth;
+    spellheight = innerWidth*0.25;
     document.getElementById("square").style.width = innerWidth.toString() +  "px";
     document.getElementById("square").style.height = innerWidth.toString() +  "px";    
     document.getElementById("actioninput").style.display = "none";
 }
 
-mainGVM = new GVM(document.getElementById("spellcanvas"),spellwidth,400);
+mainGVM = new GVM(document.getElementById("spellcanvas"),spellwidth,spellheight);
 mainGVM.x0 = 5;
 mainGVM.y0 = 25;
 mainGVM.unit = 20;
@@ -363,7 +369,10 @@ function save(){
     var httpc = new XMLHttpRequest();
     httpc.open("POST", url, true);
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc.send("data="+encodeURIComponent(filetop + "<scene>" + x3dcode + "</scene></x3d>" + "</scene></x3d>\n<a style = \"position:absolute;right:0px;bottom:0px;\" href = \"voxel.html\">back to voxel</a></body></html>")+"&filename=three.html");//send text to filesaver.php    
+    httpc.send("data="+encodeURIComponent(filetop + "<scene>" + x3dcode + "</scene></x3d>" + "</scene></x3d>\n<a style = \"position:absolute;right:0px;bottom:0px;font-size:2em;\" href = \"voxel.html\">back to voxel</a></body></html>")+"&filename=three.html");//send text to filesaver.php    
+
+    editmode = true;
+    redraw();
     
 }
 
@@ -492,6 +501,7 @@ input{
     right:0px;
     bottom:0px;
     border:solid;
+    font-size:2em;
 }
 </style>
 </body>
