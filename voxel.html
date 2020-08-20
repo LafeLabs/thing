@@ -47,9 +47,13 @@
     </x3d>
 </div>
 
+<input id = "actioninput"/>
 <div id = "spellcanvasbox">
     <canvas id = "spellcanvas"></canvas>
 </div>
+
+<textarea id = "textio"></textarea>
+<a href ="three.html" id = "three">three.html</a>
 
 <script>
 
@@ -57,17 +61,19 @@
 if(innerWidth > innerHeight){
     document.getElementById("square").style.width = innerHeight.toString() +  "px";
     document.getElementById("square").style.height = innerHeight.toString() +  "px";    
+    document.getElementById("actioninput").select();
 }
 else{
     document.getElementById("square").style.width = innerWidth.toString() +  "px";
     document.getElementById("square").style.height = innerWidth.toString() +  "px";    
+    document.getElementById("actioninput").style.display = "none";
 }
 
-mainGVM = new GVM(document.getElementById("spellcanvas"),300,300);
+mainGVM = new GVM(document.getElementById("spellcanvas"),400,400);
 mainGVM.x0 = 5;
 mainGVM.y0 = 25;
 mainGVM.unit = 20;
-mainGVM.glyph = "0720,0740,0730,0721,0740,0730,0722,0740,0730,0723,0740,0730,0724,0740,0730,0725,0740,0732,0720,0741,0732,0721,0741,0732,0722,0741,0732,0723,0741,0732,0724,0741,0732,0725,0741,0732,0207,";
+mainGVM.glyph = "0207,";
 
 x = 0.0;
 y = 0.0;
@@ -78,17 +84,100 @@ currentTrans = 0.0;
 main = document.getElementById("main");
 
 
+//a(left) w(up) s(down) d(right) define left right up down
+//q and e are shrink grow
+//in is up f is out
+
+
+keyboard3d  = [
+    "0141:0701,",
+    "0163:0703,",
+    "0144:0700,",
+    "0167:0702,",
+    "0145:0707,",
+    "0161:0706,",
+    "0162:0705,",
+    "0146:0704,",
+    "0172:0710,",
+    "0170:0711,",
+    "062:0720,",
+    "063:0721,",
+    "064:0722,",
+    "065:0723,",
+    "066:0724,",
+    "067:0725,"
+]
+
+controls = [
+    "020,010,021,011,",
+    "0710,0711,0704,0705,",
+    "0701,0700,0702,0703,",
+    "0706,0707,0720,0721,",
+    "0722,0723,0724,0725,"
+];
+
+
 var httpcHypercube = new XMLHttpRequest();
 httpcHypercube.onreadystatechange = function(){
     if (this.readyState == 4 && this.status == 200) {
         hypercube = JSON.parse(this.responseText);
         mainGVM.importbytecode(hypercube);    
+        mainGVM.importbytecode(keyboard3d);
+        mainGVM.glyph = mainGVM.hypercube[0600] + "0207,";
+        mainGVM.clean();
         redraw();
     }
 };
 httpcHypercube.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
 httpcHypercube.send();
 
+document.getElementById("actioninput").onkeypress = function(a) {
+    var charCode = a.keyCode || a.which;
+    if(charCode != 015){
+        localCursorAction = parseInt(mainGVM.hypercube[charCode],8);   
+        mainGVM.cursorAction(localCursorAction);   
+        this.value = "";
+        mainGVM.clean();
+        redraw();
+//        document.getElementById("spellinput").value = mainGVM.cleanGlyph;
+  
+  
+    }
+
+}
+
+
+document.getElementById("actioninput").onkeydown = function(a) {
+    var charCode = a.keyCode || a.which;
+
+    if(charCode == 015) {
+        //do something on "return" maybe save the 3d file?
+        save();
+    }
+
+    if(charCode == 010) {
+        mainGVM.cursorAction(010);
+    }
+    if(charCode == 045){
+        mainGVM.cursorAction(020);             
+    }
+    if(charCode == 047){
+        mainGVM.cursorAction(021);   
+    }
+
+    if(charCode == 046){
+        //up arrow: prev symbol
+
+    }
+    if(charCode == 050){
+        //down arrow: next symbol
+    }
+
+//    document.getElementById("spellinput").value = mainGVM.cleanGlyph;
+    mainGVM.clean();
+    redraw();
+      
+}
 
 
 function redraw(){
@@ -96,8 +185,12 @@ function redraw(){
     x = 0.0;
     y = 0.0;
     z = 0.0;
-    drawGlyph(mainGVM.glyph);
+    side = 0.25;
+    solidColor = "1 0 0";
+    currentTrans = 0.0;
     
+    drawGlyph(mainGVM.glyph);
+    mainGVM.spellGlyph(mainGVM.glyph);
 }
 
 
@@ -108,12 +201,47 @@ function drawGlyph(localString){
     }
 }
 
+editmode = true;
 function action(localCommand){
 
+    
     if(localCommand == 0207){
-        drawcursor();
+        if(editmode){
+            drawcursor();
+        }
     }
 
+    if(localCommand == 0700){
+        x += side;
+    }
+    if(localCommand == 0701){
+        x -= side;
+    }
+    if(localCommand == 0702){
+        y += side;
+    }
+    if(localCommand == 0703){
+        y -= side;
+    }
+    if(localCommand == 0704){
+        z += side;
+    }
+    if(localCommand == 0705){
+        z -= side;
+    }
+    if(localCommand == 0706){
+        side /= 2;
+    }
+    if(localCommand == 0707){
+        side *= 2;
+    }
+    if(localCommand == 0710){
+        drawsphere();
+    }
+    if(localCommand == 0711){
+        drawcube();
+    }
+    
     if(localCommand == 0720){
         //red
         solidColor = "1 0 0";
@@ -137,49 +265,6 @@ function action(localCommand){
     if(localCommand == 0725){
         //purple
         solidColor = "1 0 1";
-    }
-
-
-    if(localCommand == 0730){
-        x += side;
-    }
-    if(localCommand == 0731){
-        x -= side;
-    }
-    if(localCommand == 0732){
-        y += side;
-    }
-    if(localCommand == 0733){
-        y -= side;
-    }
-    if(localCommand == 0734){
-        z += side;
-    }
-    if(localCommand == 0735){
-        z -= side;
-    }
-    if(localCommand == 0736){
-        side /= 2;
-    }
-    if(localCommand == 0737){
-        side *= 2;
-    }
-
-    if(localCommand == 0740){
-        drawsphere();
-    }
-    if(localCommand == 0741){
-        drawcube();
-    }
-    
-    if(localCommand == 0742){
-//draw cylinder x
-    }
-    if(localCommand == 0743){
-//draw cylinder y
-    }
-    if(localCommand == 0744){
-//draw cylinder z
     }
 
 
@@ -245,6 +330,36 @@ function drawcursor(){
 }
 
 
+filetop = "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"/><script src=\"https://cdn.jsdelivr.net/npm/x3dom@1.7.2/x3dom.js\">";
+filetop += "<\/script><link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/x3dom@1.7.2/x3dom.css\"></head><body><x3d>";
+
+
+function save(){
+    mainGVM.clean();
+    mainGVM.hypercube[0600] = mainGVM.cleanGlyph;
+    //save the hypercube
+    editmode = false;
+    redraw();
+    x3dcode = main.innerHTML;
+    //this is an html file not an x3d file, because xml is the language of Mordor, which I shall not utter here
+    document.getElementById("textio").value = filetop + "<scene>" + x3dcode + "</scene></x3d>\n<a style = \"position:absolute;right:0px;bottom:0px;\" href = \"voxel.html\">back to voxel</a></body></html>";
+    
+    //save the file as 3d.html
+    hypercube = mainGVM.bytecode(0,01777);
+    var url = "filesaver.php";        
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(hypercube)+"&filename=data/hypercube.txt");//send text to filesaver.php
+    
+    var url = "filesaver.php";        
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(filetop + "<scene>" + x3dcode + "</scene></x3d>" + "</scene></x3d>\n<a style = \"position:absolute;right:0px;bottom:0px;\" href = \"voxel.html\">back to voxel</a></body></html>")+"&filename=three.html");//send text to filesaver.php    
+    
+}
+
 </script>
 <style>
 body{
@@ -295,9 +410,25 @@ input{
 #spellcanvasbox{
     position:absolute;
     right:0px;
-    top:100px;
+    top:60px;
     width:300px;
     height:300px;
+}
+#actioninput{
+    position:absolute;
+    right:0px;
+    top:0px;
+}
+#textio{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+}
+#three{
+    position:absolute;
+    top:0px;
+    right:130px;
+    border:solid;
 }
 </style>
 </body>
