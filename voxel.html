@@ -47,7 +47,6 @@
     </x3d>
 </div>
 
-<div id = "savebutton" class=  "button">SAVE</div>
 <input id = "actioninput"/>
 <div id = "spellcanvasbox">
     <canvas id = "spellcanvas"></canvas>
@@ -61,8 +60,11 @@
 
 <script>
 
+controlbuttonsize = 40;
 
 if(innerWidth > innerHeight){
+    marginWidth = innerWidth - innerHeight;
+    controlbuttonsize = marginWidth*0.1;
     document.getElementById("square").style.width = innerHeight.toString() +  "px";
     document.getElementById("square").style.height = innerHeight.toString() +  "px";    
     document.getElementById("actioninput").select();
@@ -113,10 +115,8 @@ keyboard3d  = [
 ]
 
 controls = [
-    "020,010,021,011,",
-    "0710,0711,0704,0705,",
-    "0701,0700,0702,0703,",
-    "0706,0707,0720,0721,",
+    "020,010,021,011,0710,0711,0704,0705,",
+    "0701,0700,0702,0703,0706,0707,0720,0721,",
     "0722,0723,0724,0725,"
 ];
 
@@ -338,9 +338,6 @@ function drawcursor(){
 filetop = "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"/><script src=\"https://cdn.jsdelivr.net/npm/x3dom@1.7.2/x3dom.js\">";
 filetop += "<\/script><link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/x3dom@1.7.2/x3dom.css\"></head><body><x3d>";
 
-document.getElementById("savebutton").onclick = function(){
-    save();
-}
 
 function save(){
     mainGVM.clean();
@@ -368,7 +365,6 @@ function save(){
     
 }
 
-controlbuttonsize = 40;
 function loadcontroltable(){
     document.getElementById("controltable").innerHTML = "";
     for(var index = 0;index < controls.length;index++){
@@ -399,9 +395,7 @@ function loadcontroltable(){
                 newtd.onclick = function(){
                     var localaction = parseInt(this.getElementsByClassName("data")[0].innerHTML,8);
                     mainGVM.cursorAction(localaction);
-
                     redraw();
-
                 }
                 newcan.classList.add("button");
             }
@@ -485,13 +479,6 @@ input{
     right:0px;
     bottom:10px;
     border:solid;
-}
-#savebutton{
-    position:absolute;
-    right:1.5em;
-    top:0px;
-    border:solid;
-    border-radius:5px;
 }
 </style>
 </body>
