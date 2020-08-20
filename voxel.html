@@ -47,10 +47,14 @@
     </x3d>
 </div>
 
+<div id = "savebutton" class=  "button">SAVE</div>
 <input id = "actioninput"/>
 <div id = "spellcanvasbox">
     <canvas id = "spellcanvas"></canvas>
 </div>
+<table id ="controltable">
+    
+</table>
 
 <textarea id = "textio"></textarea>
 <a href ="three.html" id = "three">three.html</a>
@@ -125,6 +129,7 @@ httpcHypercube.onreadystatechange = function(){
         mainGVM.importbytecode(keyboard3d);
         mainGVM.glyph = mainGVM.hypercube[0600] + "0207,";
         mainGVM.clean();
+        loadcontroltable();
         redraw();
     }
 };
@@ -333,6 +338,9 @@ function drawcursor(){
 filetop = "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"/><script src=\"https://cdn.jsdelivr.net/npm/x3dom@1.7.2/x3dom.js\">";
 filetop += "<\/script><link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/x3dom@1.7.2/x3dom.css\"></head><body><x3d>";
 
+document.getElementById("savebutton").onclick = function(){
+    save();
+}
 
 function save(){
     mainGVM.clean();
@@ -360,6 +368,46 @@ function save(){
     
 }
 
+controlbuttonsize = 40;
+function loadcontroltable(){
+    document.getElementById("controltable").innerHTML = "";
+    for(var index = 0;index < controls.length;index++){
+        var newtr = document.createElement("TR");
+        document.getElementById("controltable").appendChild(newtr);
+        rowarray = controls[index].split(",");
+        for(var rowindex = 0;rowindex < rowarray.length;rowindex++){
+            if(rowarray[rowindex].length > 0){
+                var newtd = document.createElement("TD");
+                newtr.appendChild(newtd);
+                var newcan = document.createElement("CANVAS");
+                newtd.appendChild(newcan);
+                var datadiv = document.createElement("div");
+                datadiv.innerHTML = rowarray[rowindex];
+                datadiv.className = "data";
+                newtd.appendChild(datadiv);
+                var newGVM = new GVM(newcan,controlbuttonsize,controlbuttonsize);
+                newGVM.unit = controlbuttonsize - 2;
+                newGVM.x0 = 1;
+                newGVM.y0 = controlbuttonsize-1;
+                newGVM.importbytecode(hypercube);
+                newGVM.action(0300);
+                if(parseInt(rowarray[rowindex],8) >= 040 && parseInt(rowarray[rowindex],8) < 0177){
+                    newGVM.drawGlyph("0300,0336,0336,0330,0333,0337,");
+                }
+                newGVM.action(parseInt(rowarray[rowindex],8)+01000);
+
+                newtd.onclick = function(){
+                    var localaction = parseInt(this.getElementsByClassName("data")[0].innerHTML,8);
+                    mainGVM.cursorAction(localaction);
+
+                    redraw();
+
+                }
+                newcan.classList.add("button");
+            }
+        }
+    }
+}
 </script>
 <style>
 body{
@@ -423,12 +471,27 @@ input{
     position:absolute;
     right:0px;
     bottom:0px;
+    display:none;
+    z-index:-1;
 }
 #three{
     position:absolute;
     top:0px;
     right:130px;
     border:solid;
+}
+#controltable{
+    position:absolute;
+    right:0px;
+    bottom:10px;
+    border:solid;
+}
+#savebutton{
+    position:absolute;
+    right:1.5em;
+    top:0px;
+    border:solid;
+    border-radius:5px;
 }
 </style>
 </body>
