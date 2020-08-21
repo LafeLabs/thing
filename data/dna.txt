@@ -45,6 +45,8 @@
         "symbolfeed.html",
         "tablet.html",
         "textfeed.html",
+        "three.html",
+        "threejs.html",
         "trashrobotdotorg.html",
         "voxel.html",
         "wall.html"
