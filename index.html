@@ -726,7 +726,6 @@ httpcHypercube.onreadystatechange = function(){
                     feed.push(feedElement);
                 }
                 loadfeed();
-                feedElement = feed[feedindex];
                 drawmain();
                 loadcontroltable();
                 loadbuttontable();
@@ -817,14 +816,15 @@ function loadfeed(){
 
 
 function drawmain(){
-    mainGVM.glyph = feedElement.glyph + "0207,";
+    feedElement = feed[feedindex];
+    mainGVM.glyph = feed[feedindex].glyph + "0207,";
     mainGVM.clean();
     mainGVM.drawGlyph(mainGVM.glyph);
-    document.getElementById("mainimage").src = feedElement.image.src;
-    document.getElementById("mainimage").style.width = (feedElement.image.w*mainGVM.width).toString() + "px";
-    document.getElementById("mainimage").style.left = (feedElement.image.x*mainGVM.width).toString() + "px";
-    document.getElementById("mainimage").style.top = (feedElement.image.y*mainGVM.width).toString() + "px";
-    document.getElementById("mainimage").style.transform = "rotate(" + feedElement.image.angle.toString() + "deg)";   
+    document.getElementById("mainimage").src = feed[feedindex].image.src;
+    document.getElementById("mainimage").style.width = (feed[feedindex].image.w*mainGVM.width).toString() + "px";
+    document.getElementById("mainimage").style.left = (feed[feedindex].image.x*mainGVM.width).toString() + "px";
+    document.getElementById("mainimage").style.top = (feed[feedindex].image.y*mainGVM.width).toString() + "px";
+    document.getElementById("mainimage").style.transform = "rotate(" + feed[feedindex].image.angle.toString() + "deg)";   
     spellGVM.spellGlyph(mainGVM.glyph);
     document.getElementById("spellinput").value = mainGVM.cleanGlyph;
 }
