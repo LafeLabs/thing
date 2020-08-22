@@ -167,64 +167,11 @@ THREE.STLExporter.prototype = {
 </head>
 <body>
     <a href = "data/three.stl">data/three.stl</a>
+    <a href = "voxel.html">voxel.html</a>
 <script>
             
 var camera, scene, renderer;
 var geometry, material, mesh;
-
-/*
-function init() {
-    camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 10 );
-    camera.position.z = 3;
-    scene = new THREE.Scene();
-    scene.background = new THREE.Color( 0xffffff );
-    cube = new THREE.CubeGeometry( 1 );
-    cube.translate(0.5,0.0,0);
-    sphere = new THREE.SphereGeometry(1,8,8);
-    sphere.translate(-0.5,0.0,0.0);
-    sphere2 = new THREE.SphereGeometry(1,8,8);
-    sphere2.translate(0.5,0.0,0.0);
-    
-    material = new THREE.MeshNormalMaterial( { color: 0x000000, wireframe: false } );
-    material2 = new THREE.MeshBasicMaterial( { color: 0xa0a0a0, wireframe: true } )
-    
-    spheremesh = new THREE.Mesh( sphere, material );
-    spheremesh2 = new THREE.Mesh( sphere2, material );
-    cubemesh = new THREE.Mesh( cube, material);
-
-
-    spheremesh.scale.x /= 2;            
-    spheremesh.scale.y /= 2;            
-    spheremesh.scale.z /= 2;            
-    spheremesh2.scale.x /= 2;            
-    spheremesh2.scale.y /= 2;            
-    spheremesh2.scale.z /= 2;            
-
-    group = new THREE.Group();
-    group.add( spheremesh );
-    group.add( spheremesh2 );
-    scene.add(group);
-    renderer = new THREE.WebGLRenderer( { antialias: true } );
-    renderer.setSize( window.innerWidth, window.innerHeight );
-    document.body.appendChild( renderer.domElement );       
-    
-    var exporter = new THREE.STLExporter();
-    var str = exporter.parse(scene);
-
-    var httpc = new XMLHttpRequest();
-    httpc.open("POST", "filesaver.php", true);
-    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc.send("data="+encodeURIComponent(str)+"&filename=data/three.stl");//send text to filesaver.php
-    
-}
-
-init();
-renderer.render( scene, camera );
-
-*/
-
-
-
 
 x=0;
 y=0;
