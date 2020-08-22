@@ -152,11 +152,16 @@ document.getElementById("importhypercubebutton").onclick = function(){
 
 feedwidth = 100;
 
+headerbuttonsize = 36;
 if(innerWidth > innerHeight){
     feedwidth = innerWidth*0.5- 100;
+    footerbuttonsize = 36;
+    headerbuttonsize = 36;    
 }
 else{
     feedwidth = innerWidth - 100;
+    footerbuttonsize = 85;
+    headerbuttonsize = 85;
 }
 feedlinkwidth  = feedwidth;
 
@@ -166,6 +171,9 @@ setscreen();
 function setscreen(){
     if(screenmode == 0){
         //mode 0 is just reading the feed, no edit
+        document.getElementById("feed").style.top = "40px";     
+        document.getElementById("feed").style.bottom = "40px";     
+
         document.getElementById("buttontable").style.display = "none";
         document.getElementById("controlbox").style.display = "none";
         document.getElementById("spellbox").style.display = "none";
@@ -179,12 +187,15 @@ function setscreen(){
         }
         else{
             feedwidth = innerWidth - 100;
+            document.getElementById("feed").style.top = "140px";     
+            document.getElementById("feed").style.bottom = "140px";       
         }
         feedlinkwidth  = feedwidth;
         loadfeed();
 
     }
     if(screenmode == 1){
+
         document.getElementById("buttontable").style.display = "block";
         
         //mode 1 is editing the images of the feed, not geometron
@@ -192,7 +203,14 @@ function setscreen(){
         document.getElementById("spellbox").style.display = "none";
         document.getElementById("mainbox").style.display = "block";
         
+        topbuttons[4].style.display = "none";
+        topbuttons[5].style.display = "none";
+        topbuttons[6].style.display = "none";
+        topbuttons[7].style.display = "none";
+        topbuttons[8].style.display = "none";
+        
         if(innerWidth > innerHeight){
+            document.getElementById("feed").style.top = "40px";     
             document.getElementById("feed").style.width = "25%";
             document.getElementById("imagefeedbox").style.display = "block";
             document.getElementById("imagefeedbox").style.width = "25%";
@@ -213,16 +231,16 @@ function setscreen(){
         else{
          //mobile here   
             document.getElementById("feed").style.width = "50%";
-            document.getElementById("feed").style.bottom = "40px";
-            document.getElementById("feed").style.top = "40px";     
-            document.getElementById("feed").style.height = (innerHeight - 80).toString() + "px";
+            document.getElementById("feed").style.bottom = "140px";
+            document.getElementById("feed").style.top = "140px";     
+            document.getElementById("feed").style.height = (innerHeight - 280).toString() + "px";
             
             document.getElementById("imagefeedbox").style.display = "block";
             document.getElementById("imagefeedbox").style.width = "50%";
             document.getElementById("imagefeedbox").style.right = "0px";
-            document.getElementById("imagefeedbox").style.bottom = "44px";            
-            document.getElementById("imagefeedbox").style.top = (innerWidth*0.5 + 40 + 100).toString() + "px";            
-            document.getElementById("zoomrotatebox").style.top = (innerWidth*0.5 + 40).toString() + "px";
+            document.getElementById("imagefeedbox").style.bottom = "144px";            
+            document.getElementById("imagefeedbox").style.top = (innerWidth*0.5 + 140 + 100).toString() + "px";            
+            document.getElementById("zoomrotatebox").style.top = (innerWidth*0.5 + 140).toString() + "px";
             document.getElementById("zoomrotatebox").style.display = "block";            
             document.getElementById("zoomrotatebox").style.width = (innerWidth*0.5-10).toString() + "px";
             document.getElementById("zoomrotatebox").style.right =  "0px";       
@@ -235,6 +253,12 @@ function setscreen(){
         }
     }
     if(screenmode == 2){
+        topbuttons[4].style.display = "inline";
+        topbuttons[5].style.display = "inline";
+        topbuttons[6].style.display = "inline";
+        topbuttons[7].style.display = "inline";
+        topbuttons[8].style.display = "inline";
+    
         //geometron edit mode
                 document.getElementById("buttontable").style.display = "block";
         document.getElementById("mainbox").style.display = "block";
@@ -265,21 +289,21 @@ function setscreen(){
         else{
          //mobile here   
             document.getElementById("feed").style.width = "50%";
-            document.getElementById("feed").style.top = (0.5*innerHeight - 40).toString() + "px";
-            document.getElementById("feed").style.height = (innerHeight*0.5 - 40).toString() + "px";        
-            document.getElementById("feed").style.bottom = "40px";
+            document.getElementById("feed").style.top = (0.5*innerHeight - 140).toString() + "px";
+            document.getElementById("feed").style.height = (innerHeight*0.5 - 140).toString() + "px";        
+            document.getElementById("feed").style.bottom = "140px";
     
-            document.getElementById("spellbox").style.top = "40px";
+            document.getElementById("spellbox").style.top = "140px";
             document.getElementById("spellbox").style.left = "0px";
             document.getElementById("spellbox").style.width = "50%";
-            document.getElementById("spellbox").style.height = (innerHeight*0.5 - 40 - 40).toString() + "px";
+            document.getElementById("spellbox").style.height = (innerHeight*0.5 - 140 - 140).toString() + "px";
 
             document.getElementById("controlbox").style.right = "0px";
             document.getElementById("controlbox").style.width = "50%";
-            document.getElementById("controlbox").style.top = (innerWidth*0.5 + 40 + 100).toString() + "px";    
-            document.getElementById("controlbox").style.height = (innerHeight - 40 - 40 - 0.5*innerWidth - 80).toString() + "px";
+            document.getElementById("controlbox").style.top = (innerWidth*0.5 + 140 + 100).toString() + "px";    
+            document.getElementById("controlbox").style.height = (innerHeight - 140 - 140 - 0.5*innerWidth - 80).toString() + "px";
             
-            document.getElementById("zoomrotatebox").style.top = (innerWidth*0.5 + 40).toString() + "px";
+            document.getElementById("zoomrotatebox").style.top = (innerWidth*0.5 + 140).toString() + "px";
             document.getElementById("zoomrotatebox").style.display = "block";            
             document.getElementById("zoomrotatebox").style.width = (innerWidth*0.5-10).toString() + "px";
             document.getElementById("zoomrotatebox").style.right =  "0px";       
@@ -392,7 +416,7 @@ function loadbuttontable(){
     newtd.innerHTML = "";
     newcan = document.createElement("CANVAS");
     newtd.appendChild(newcan);
-    var newg = new GVM(newcan,36,36);
+    var newg = new GVM(newcan,headerbuttonsize,headerbuttonsize);
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0240,");
     newcan.classList.add("button");
@@ -420,31 +444,12 @@ function loadbuttontable(){
     }
     
 
-    var newtd = document.createElement("TD");
-    newtr.appendChild(newtd);
-    newcan = document.createElement("CANVAS");
-    newtd.appendChild(newcan);
-    var newg = new GVM(newcan,36,36);
-    newg.hypercube= mainGVM.hypercube;
-    newg.drawGlyph("0246,");
-    newcan.classList.add("button");
-    newcan.onclick = function(){
-        //clear glyph
-        mainGVM.glyph = "0207,";
-        mainGVM.cleanGlyph = "";
-        feed[feedindex].glyph = "";
-        drawmain();
-        document.getElementById("spellinput").value = "";
-        
-        robot.glyph = mainGVM.cleanGlyph;
-        saverobot();
 
-    }        
     var newtd = document.createElement("TD");
     newtr.appendChild(newtd);
     newcan = document.createElement("CANVAS");
     newtd.appendChild(newcan);
-    var newg = new GVM(newcan,36,36);
+    var newg = new GVM(newcan,headerbuttonsize,headerbuttonsize);
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0242,");
     newcan.classList.add("button");
@@ -469,7 +474,7 @@ function loadbuttontable(){
     newtr.appendChild(newtd);
     var newcan = document.createElement("CANVAS");
     newtd.appendChild(newcan);
-    var newg = new GVM(newcan,36,36);
+    var newg = new GVM(newcan,headerbuttonsize,headerbuttonsize);
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0243,");
     newcan.classList.add("button");
@@ -490,7 +495,7 @@ function loadbuttontable(){
     newtr.appendChild(newtd);
     var newcan = document.createElement("CANVAS");
     newtd.appendChild(newcan);
-    var newg = new GVM(newcan,36,36);
+    var newg = new GVM(newcan,headerbuttonsize,headerbuttonsize);
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0245,");
     newcan.classList.add("button");
@@ -512,7 +517,7 @@ function loadbuttontable(){
     newtr.appendChild(newtd);
     newcan = document.createElement("CANVAS");
     newtd.appendChild(newcan);
-    var newg = new GVM(newcan,36,36);
+    var newg = new GVM(newcan,headerbuttonsize,headerbuttonsize);
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0241,");
     newcan.classList.add("button");
@@ -526,7 +531,7 @@ function loadbuttontable(){
     
     newcan = document.createElement("CANVAS");
     newtd.appendChild(newcan);
-    var newg = new GVM(newcan,36,36);
+    var newg = new GVM(newcan,headerbuttonsize,headerbuttonsize);
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0251,");
     newcan.classList.add("button");
@@ -540,7 +545,7 @@ function loadbuttontable(){
     newtr.appendChild(newtd);
     newcan = document.createElement("CANVAS");
     newtd.appendChild(newcan);
-    var newg = new GVM(newcan,36,36);
+    var newg = new GVM(newcan,headerbuttonsize,headerbuttonsize);
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0253,");
     newcan.classList.add("button");
@@ -553,7 +558,7 @@ function loadbuttontable(){
     newtr.appendChild(newtd);
     newcan = document.createElement("CANVAS");
     newtd.appendChild(newcan);
-    var newg = new GVM(newcan,36,36);
+    var newg = new GVM(newcan,headerbuttonsize,headerbuttonsize);
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0254,");
     newcan.classList.add("button");
@@ -567,7 +572,7 @@ function loadbuttontable(){
     newtr.appendChild(newtd);
     newcan = document.createElement("CANVAS");
     newtd.appendChild(newcan);
-    var newg = new GVM(newcan,36,36);
+    var newg = new GVM(newcan,headerbuttonsize,headerbuttonsize);
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0252,");
     newcan.classList.add("button");
@@ -580,7 +585,9 @@ function loadbuttontable(){
 
     newcan = document.createElement("CANVAS");
     document.getElementById("mode0button").appendChild(newcan);
-    var newg = new GVM(newcan,36,36);
+    
+    var newg = new GVM(newcan,footerbuttonsize,footerbuttonsize);
+    
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0250,");
     newcan.classList.add("button");
@@ -591,7 +598,7 @@ function loadbuttontable(){
 
     var newcan = document.createElement("CANVAS");
     document.getElementById("mode1button").appendChild(newcan);
-    var newg = new GVM(newcan,36,36);
+    var newg = new GVM(newcan,footerbuttonsize,footerbuttonsize);
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0244,");
     newcan.classList.add("button");
@@ -605,7 +612,7 @@ function loadbuttontable(){
     
     var newcan = document.createElement("CANVAS");
     document.getElementById("mode2button").appendChild(newcan);
-    var newg = new GVM(newcan,36,36);
+    var newg = new GVM(newcan,footerbuttonsize,footerbuttonsize);
     newg.hypercube= mainGVM.hypercube;
     newg.drawGlyph("0247,");
     newcan.classList.add("button");
@@ -614,7 +621,7 @@ function loadbuttontable(){
         setscreen();
     }        
     
-    
+    topbuttons = document.getElementById("buttontr").getElementsByClassName("button");
 }
 
 function savesymbolfile(){
@@ -1332,6 +1339,9 @@ function saverobot(){
 
 </script>
 <style>
+body{
+    overflow:hidden;
+}
 #mainbox{
     position:absolute;
     right:0px;
@@ -1535,6 +1545,27 @@ function saverobot(){
     height:16px;
     display:none;
 }
+@media only screen and (orientation: portrait) {
+    #mainbox{
+        top:140px;
+    }
+    #footer span{
+        margin-left:25px;
+        margin-right:25px;
+    }
+    #header{
+        height:140px;
+    }
+    #footer{
+        height:140px;
+        padding-top:25px;
+    }
+    #feed{
+        top:140px;
+        bottom:140px;
+    }
+}
+
 </style>
 </body>
 </html>
