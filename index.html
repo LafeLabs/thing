@@ -63,11 +63,13 @@
 </div>
 <div id = "imagefeedbox">
     <div id = "imagefeedheader">
+        <textarea id = "imageio"></textarea>
         <form style = "margin-top:10px" id = "uploadform" action="upload.php" method="post" enctype="multipart/form-data">
                 Select image to upload:
             <input type="file" name="fileToUpload" id="fileToUpload">
             <input type="submit" value="Upload Image" name="submit">
         </form>        
+        <a href = "data/imagefeed.txt">data/imagefeed.txt</a>
         <table  style = "margin-top:10px" id  = "imagecontroltable">
             <tr>
                 <td>Image url:</td>
@@ -765,7 +767,8 @@ function loadfeed(){
         newdiv.className = "feedelement";
         document.getElementById("feed").appendChild(newdiv);
         var newGVM = new GVM(newcan,feedlinkwidth,feedlinkwidth);
-        newGVM.importbytecode(hypercube);
+//        newGVM.importbytecode(hypercube);
+        newGVM.hypercube = mainGVM.hypercube;
         newGVM.importbytecode(stoprelativekeys);
         gvmArray.push(newGVM);
         newGVM.drawGlyph(feed[index].glyph);    
@@ -1523,9 +1526,15 @@ function saverobot(){
 }
 #header .button{
 
-    
 }
-
+#imageio{
+    position:absolute;
+    bottom:0px;
+    right:0px;
+    width:100px;
+    height:16px;
+    display:none;
+}
 </style>
 </body>
 </html>
