@@ -377,7 +377,6 @@ function loadbuttontable(){
             feed[feedindex].image.y = imageypx/parentwidthpx;   
         }
 
-        savecube();
         savefeed();
         saverobot();
         loadfeed();
@@ -1223,14 +1222,7 @@ function savefeed(){
     document.getElementById("textio").value = JSON.stringify(feed,null,"  ");
 }
 
-function savecube(){
-    hypercube = mainGVM.bytecode(0,01777);
-    var url = "filesaver.php";        
-    var httpc = new XMLHttpRequest();
-    httpc.open("POST", url, true);
-    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc.send("data="+encodeURIComponent(hypercube)+"&filename=data/hypercube.txt");//send text to filesaver.php
-}
+
 function saverobot(){
     var httpc = new XMLHttpRequest();
     httpc.open("POST", "filesaver.php", true);
