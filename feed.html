@@ -87,7 +87,6 @@
 <div id = "controlbox">
     <table id = "controltable">
     </table>
-    <table id = "stacktable"></table>
 
     <table>
         <tr>
@@ -111,6 +110,9 @@
         <tr>
             <td class = "button" id = "importhypercubebutton">IMPORT HYPERCUBE</td>
             <td class = "button" id = "importfeedbutton">IMPORT FEED</td>
+        </tr>
+        <tr>
+            <td class= "button" id = "importimagefeedbutton">IMPORT IMAGE FEED</td>
         </tr>
     </table>
     <textarea id  = "textio"></textarea>
@@ -146,6 +148,14 @@ document.getElementById("importhypercubebutton").onclick = function(){
             mainGVM.importbytecode(hypercube);
             drawmain();
         }    
+}
+document.getElementById("importimagefeedbutton").onclick = function(){
+    if(document.getElementById("textio").value.length > 0){
+        imagefeed = JSON.parse(document.getElementById("textio").value);
+        loadimagefeed();
+        saveimagefeed();
+            
+    }    
 }
 
 
@@ -325,15 +335,16 @@ function setscreen(){
 
 controls  = [
     "011,0550,0551,0220,0221,0222,0223,0201,",
-    "0320,0321,0322,0323,0324,0325,0326,0327,011,",
-    "020,010,021,022,023,0334,0330,0335,0270,",
-    "0500,0501,0502,0503,0404,0332,0341,0333,0310,",
-    "0504,0505,0506,0507,0405,0336,0331,0337,0311,",
-    "0401,0400,0403,0402,0217,0406,0407,0547,0312,",
-    "040,041,042,043,044,045,046,050,0313,",
-    "051,052,053,054,055,056,057,060,0304,",
-    "061,062,063,064,065,066,067,070,0305,",
-    "071,072,073,074,075,076,077,0100,0306,",
+    "0320,0321,0322,0323,0324,0325,0326,0327,",
+    "020,010,021,022,023,0334,0330,0335,",
+    "0310,0311,0312,0313,0304,0305,0306,0350,",
+    "0500,0501,0502,0503,0404,0332,0341,0333,",
+    "0504,0505,0506,0507,0405,0336,0331,0337,",
+    "0401,0400,0403,0402,0217,0406,0407,0547,",
+    "040,041,042,043,044,045,046,050,",
+    "051,052,053,054,055,056,057,060,",
+    "061,062,063,064,065,066,067,070,",
+    "071,072,073,074,075,076,077,0100,",
     "0101,0102,0103,0104,0105,0106,0107,0110,",
     "0111,0112,0113,0114,0115,0116,0117,0120,",
     "0121,0122,0123,0124,0125,0126,0127,0130,",
@@ -341,71 +352,12 @@ controls  = [
     "0141,0142,0143,0144,0145,0146,0147,0150,",
     "0151,0152,0153,0154,0155,0156,0157,0160,",
     "0161,0162,0163,0164,0165,0166,0167,0170,",
-    "0171,0172,0173,0174,0175,0176,",
-
+    "0171,0172,0173,0174,0175,0176,0234,0235,",
+    "0224,0225,0226,0227,0230,0231,0232,0233,"
 ];
 
 
 document.getElementById("textio").value = "";
-
-stackArray = [];
-stackButtonArray = [];
-
-stackbuttonsize = 40;
-
-stackMode = false;//if true, edit a "stack" in the Hypercube, if false, by default one is editing the feed's geometron glyphs
-
-for(var row = 0;row < 4; row++){
-    var newtr = document.createElement("TR");
-    document.getElementById("stacktable").appendChild(newtr);
-    for(var col = 0; col < 4; col++){
-        var newtd = document.createElement("TD");
-        newtr.appendChild(newtd);
-        var newcan = document.createElement("CANVAS");
-        newtd.appendChild(newcan);
-        var newGVM = new GVM(newcan,stackbuttonsize,stackbuttonsize);
-        
-        stackArray.push(newGVM);
-        newGVM.x0 = 1;
-        newGVM.y0 = stackbuttonsize - 1;
-        newGVM.unit = stackbuttonsize - 2;
-        newGVM.drawGlyph("0300,341,");
-        newcan.classList.add("button");
-        var newdiv = document.createElement("DIV");
-        newdiv.className = "data";
-        newdiv.innerHTML = "0220";
-        newtd.appendChild(newdiv);
-        newtd.id = "stackcans" + (col + row*4).toString();
-        stackButtonArray.push(newtd);
-        newtd.onclick = function(){
-            stackMode = true;
-            var localaddress = parseInt(this.getElementsByClassName("data")[0].innerHTML,8);            
-            var oldstackbuttonindex = (mainGVM.address)%020;
-            stackButtonArray[oldstackbuttonindex].getElementsByTagName("canvas")[0].style.backgroundColor = "white";
-            stackMode = true;
-            mainGVM.address = localaddress;
-
-            mainGVM.glyph = mainGVM.hypercube[localaddress] + "0207,";
-            mainGVM.clean();
-            mainGVM.drawGlyph(mainGVM.glyph);
-            spellGVM.spellGlyph(mainGVM.glyph);
-            document.getElementById("spellinput").value = mainGVM.cleanGlyph;    
-            this.getElementsByTagName("canvas")[0].style.backgroundColor = "#c0c0c0";
-            robot.glyph = mainGVM.hypercube[localaddress];
-            saverobot();
-        }
-    }
-}
-
-function loadstack(stackbottom){
-    //load 16 elements into table starting at stackbottom, which is an integer, generally put in in base 8 but doesn't have to be
-    for(var index= 0;index < 16;index++){
-        stackArray[index].hypercube = mainGVM.hypercube;
-        stackArray[index].drawGlyph("0300,");
-        stackArray[index].action(stackbottom + index + 01000);
-        stackButtonArray[index].getElementsByClassName("data")[0].innerHTML = "0" + (stackbottom + index).toString(8);
-    }
-}
 
 
 function loadbuttontable(){
@@ -437,7 +389,6 @@ function loadbuttontable(){
             feed[feedindex].image.y = imageypx/parentwidthpx;   
         }
 
-        savecube();
         savefeed();
         saverobot();
         loadfeed();
@@ -740,7 +691,6 @@ httpcHypercube.onreadystatechange = function(){
                 drawmain();
                 loadcontroltable();
                 loadbuttontable();
-                loadstack(0220);
             }
         };
         httpcFeed.open("GET", "fileloader.php?filename=data/feed.txt", true);
@@ -789,38 +739,33 @@ function loadfeed(){
         newimg.style.top = (feed[index].image.y*feedlinkwidth).toString() + "px";
         newimg.style.transform = "rotate(" + feed[index].image.angle.toString() + "deg)";
         newdiv.id = "fd" + index.toString();
+        if(feed[index].image.src.length == 0){
+            newimg.style.display = "none";
+        }
         newdiv.onclick = function(){
-            if(stackMode){
-                //make the backtround white
-                var oldstackbuttonindex = (mainGVM.address)%020;
-                stackButtonArray[oldstackbuttonindex].getElementsByTagName("canvas")[0].style.backgroundColor = "white";        
-            }
-            stackMode = false;//if a feed element is selected we are editing the feed not the hypercube
-            
             mainGVM.clean();
-            var imagewidthpx = parseInt(document.getElementById("mainimage").style.width);
-            var imagexpx = parseInt(document.getElementById("mainimage").style.left);
-            var imageypx = parseInt(document.getElementById("mainimage").style.top);
-            var parentwidthpx = mainGVM.width;
-            var rotatedeg = parseInt(document.getElementById("mainimage").style.transform.substring(7));
             
-            var localsrc =  document.getElementById("mainimage").src;
-            if(localsrc.includes("uploadimages")){
-                localsrc = "uploadimages" + localsrc.split("uploadimages")[1];
+            if(feed[feedindex].image.src.length > 0){
+                var imagewidthpx = parseInt(document.getElementById("mainimage").style.width);
+                var imagexpx = parseInt(document.getElementById("mainimage").style.left);
+                var imageypx = parseInt(document.getElementById("mainimage").style.top);
+                var parentwidthpx = mainGVM.width;
+                var rotatedeg = parseInt(document.getElementById("mainimage").style.transform.substring(7));    
+                var localsrc =  document.getElementById("mainimage").src;
+                if(localsrc.includes("uploadimages")){
+                    localsrc = "uploadimages" + localsrc.split("uploadimages")[1];
+                }
+                feed[feedindex].image.src = localsrc;            
+                feed[feedindex].image.angle = rotatedeg;
+                feed[feedindex].image.w = imagewidthpx/parentwidthpx;
+                feed[feedindex].image.x = imagexpx/parentwidthpx;
+                feed[feedindex].image.y = imageypx/parentwidthpx;
             }
-            feed[feedindex].image.src = localsrc;            
-            
+
             feed[feedindex].glyph = mainGVM.cleanGlyph;
             robot.glyph = mainGVM.cleanGlyph;
             saverobot();
-
-            feed[feedindex].image.angle = rotatedeg;
-            feed[feedindex].image.w = imagewidthpx/parentwidthpx;
-            feed[feedindex].image.x = imagexpx/parentwidthpx;
-            feed[feedindex].image.y = imageypx/parentwidthpx;
-    
             feedindex = parseInt(this.id.substring(2));
-            feedElement = feed[feedindex];
             drawmain();
         }
     }    
@@ -832,11 +777,18 @@ function drawmain(){
     mainGVM.glyph = feed[feedindex].glyph + "0207,";
     mainGVM.clean();
     mainGVM.drawGlyph(mainGVM.glyph);
-    document.getElementById("mainimage").src = feed[feedindex].image.src;
-    document.getElementById("mainimage").style.width = (feed[feedindex].image.w*mainGVM.width).toString() + "px";
-    document.getElementById("mainimage").style.left = (feed[feedindex].image.x*mainGVM.width).toString() + "px";
-    document.getElementById("mainimage").style.top = (feed[feedindex].image.y*mainGVM.width).toString() + "px";
-    document.getElementById("mainimage").style.transform = "rotate(" + feed[feedindex].image.angle.toString() + "deg)";   
+    if(feed[feedindex].image.src.length > 0){
+        document.getElementById("mainimage").style.display = "block";
+        document.getElementById("mainimage").src = feed[feedindex].image.src;
+        document.getElementById("mainimage").style.width = (feed[feedindex].image.w*mainGVM.width).toString() + "px";
+        document.getElementById("mainimage").style.left = (feed[feedindex].image.x*mainGVM.width).toString() + "px";
+        document.getElementById("mainimage").style.top = (feed[feedindex].image.y*mainGVM.width).toString() + "px";
+        document.getElementById("mainimage").style.transform = "rotate(" + feed[feedindex].image.angle.toString() + "deg)";   
+    }
+    else{
+        document.getElementById("mainimage").style.display = "none";
+        document.getElementById("mainimage").src = "";
+    }
     spellGVM.spellGlyph(mainGVM.glyph);
     document.getElementById("spellinput").value = mainGVM.cleanGlyph;
 }
@@ -906,7 +858,6 @@ document.getElementById("actioninput").onkeydown = function(a) {
 }
 
 function next(){
-    if(!stackMode){
         mainGVM.clean();
         var imagewidthpx = parseInt(document.getElementById("mainimage").style.width);
         var imagexpx = parseInt(document.getElementById("mainimage").style.left);
@@ -936,69 +887,35 @@ function next(){
         }
         feedElement = feed[feedindex];
         drawmain();    
-    }
-    else{
-        var oldstackbuttonindex = (mainGVM.address)%020;
-        var localstackbase = mainGVM.address - mainGVM.address%020;
-        stackButtonArray[oldstackbuttonindex].getElementsByTagName("canvas")[0].style.backgroundColor = "white";
-        mainGVM.address++;
-        if(mainGVM.address > localstackbase + 017){
-            mainGVM.address = localstackbase;
-        }
-        mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
-        mainGVM.clean();
-        mainGVM.drawGlyph(mainGVM.glyph);
-        spellGVM.spellGlyph(mainGVM.glyph);
-        document.getElementById("spellinput").value = mainGVM.cleanGlyph;    
-        stackButtonArray[mainGVM.address - localstackbase].getElementsByTagName("canvas")[0].style.backgroundColor = "#c0c0c0";
-    }
+
 }
 function previous(){
-    if(!stackMode){
-        mainGVM.clean();
-        var imagewidthpx = parseInt(document.getElementById("mainimage").style.width);
-        var imagexpx = parseInt(document.getElementById("mainimage").style.left);
-        var imageypx = parseInt(document.getElementById("mainimage").style.top);
-        var parentwidthpx = mainGVM.width;
-        var rotatedeg = parseInt(document.getElementById("mainimage").style.transform.substring(7));
+    mainGVM.clean();
+    var imagewidthpx = parseInt(document.getElementById("mainimage").style.width);
+    var imagexpx = parseInt(document.getElementById("mainimage").style.left);
+    var imageypx = parseInt(document.getElementById("mainimage").style.top);
+    var parentwidthpx = mainGVM.width;
+    var rotatedeg = parseInt(document.getElementById("mainimage").style.transform.substring(7));
             
-        feed[feedindex].glyph = mainGVM.cleanGlyph;
-        robot.glyph = mainGVM.cleanGlyph;
-        saverobot();
-        feed[feedindex].image.angle = rotatedeg;
-        feed[feedindex].image.w = imagewidthpx/parentwidthpx;
-        feed[feedindex].image.x = imagexpx/parentwidthpx;
-        feed[feedindex].image.y = imageypx/parentwidthpx;
+    feed[feedindex].glyph = mainGVM.cleanGlyph;
+    robot.glyph = mainGVM.cleanGlyph;
+    saverobot();
+    feed[feedindex].image.angle = rotatedeg;
+    feed[feedindex].image.w = imagewidthpx/parentwidthpx;
+    feed[feedindex].image.x = imagexpx/parentwidthpx;
+    feed[feedindex].image.y = imageypx/parentwidthpx;
         
-        var localsrc =  document.getElementById("mainimage").src;
-        if(localsrc.includes("uploadimages")){
-            localsrc = "uploadimages" + localsrc.split("uploadimages")[1];
-        }
-        feed[feedindex].image.src = localsrc;
-
-        
-        feedindex--;
-        if(feedindex<0){
-           feedindex = feed.length - 1;
-        }
-        feedElement = feed[feedindex];
-        drawmain();
+    var localsrc =  document.getElementById("mainimage").src;
+    if(localsrc.includes("uploadimages")){
+        localsrc = "uploadimages" + localsrc.split("uploadimages")[1];
     }
-    else{
-        var oldstackbuttonindex = (mainGVM.address)%020;
-        var localstackbase = mainGVM.address - mainGVM.address%020;
-        stackButtonArray[oldstackbuttonindex].getElementsByTagName("canvas")[0].style.backgroundColor = "white";
-        mainGVM.address--;
-        if(mainGVM.address < localstackbase){
-            mainGVM.address = localstackbase + 017;
-        }
-        mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
-        mainGVM.clean();
-        mainGVM.drawGlyph(mainGVM.glyph);
-        spellGVM.spellGlyph(mainGVM.glyph);
-        document.getElementById("spellinput").value = mainGVM.cleanGlyph;    
-        stackButtonArray[mainGVM.address - localstackbase].getElementsByTagName("canvas")[0].style.backgroundColor = "#c0c0c0";
+    feed[feedindex].image.src = localsrc;
+    feedindex--;
+    if(feedindex<0){
+        feedindex = feed.length - 1;
     }
+    feedElement = feed[feedindex];
+    drawmain();
 }
 
 function modeswitch(){
@@ -1023,12 +940,7 @@ if(innerWidth > innerHeight){
 document.getElementById("spellinput").onchange = function(){
     mainGVM.glyph = this.value + "0207,";
     mainGVM.clean();
-    if(stackMode){
-        mainGVM.hypercube[mainGVM.address] = this.value;
-    }
-    else{
-        feed[feedindex].glyph = mainGVM.cleanGlyph;
-    }
+    feed[feedindex].glyph = mainGVM.cleanGlyph;
 
     drawmain();
     
@@ -1043,90 +955,10 @@ document.getElementById("imageurlinput").value = "";
 document.getElementById("imageurlinput").onchange  = function(){
     imagefeed.push(this.value);
     saveimagefeed();
-    var newuploadbox = document.createElement("DIV");
-    newuploadbox.classList.add("uploadbox");
-    var newimg = document.createElement("IMG");
-    newimg.src = this.value;
-    newimg.classList.add("uploadimage");
-    newimg.classList.add("button");
-    newuploadbox.appendChild(newimg);
-    document.getElementById("imagefeed").appendChild(newuploadbox);
-    newimg.onclick = function() {
-        var localsrc = this.src;
-        if(localsrc.includes("uploadimages")){
-            localsrc = "uploadimages" + localsrc.split("uploadimages")[1];
-        }
-        feed[feedindex].image.src = localsrc;
-        feed[feedindex].image.src = localsrc;
-        document.getElementById("mainimage").src = localsrc;
-        document.getElementById("imageurlinput").value = localsrc;
-    }
-    var newimg = document.createElement("IMG");
-    newimg.src = "iconsymbols/delete.svg";
-    newuploadbox.appendChild(newimg);
-    newimg.classList.add("button");
-    newimg.classList.add("deletebutton");
-    newimg.id = "if" + (imagefeed.length - 1).toString();
-    newimg.onclick = function(){
-        //find the index and remove that from the feed 
-        var thisindex = parseInt(this.id.substring(2));
-        var tempimagefeed = [];
-        for(var imageindex=0;imageindex<imagefeed.length;imageindex++){
-            if(imageindex != thisindex){
-                tempimagefeed.push(imagefeed[imageindex]);
-            }
-            imagefeed = tempimagefeed;
-        }
-        this.parentElement.parentElement.removeChild(this.parentElement);
-        saveimagefeed();
-    }    
-    saveimagefeed();
+    loadimagefeed();
 }
 
 
-uploadImages = [];
-var httpcUpload = new XMLHttpRequest();
-    httpcUpload.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        uploadImages = JSON.parse(this.responseText);
-        for(var index = uploadImages.length - 1;index >= 0;index--) {
-            var newuploadbox = document.createElement("DIV");
-            newuploadbox.classList.add("uploadbox");
-            var newimg = document.createElement("IMG");
-            newimg.src = "uploadimages/" + uploadImages[index];
-            newimg.classList.add("uploadimage");
-            newimg.classList.add("button");
-            newuploadbox.appendChild(newimg);
-            document.getElementById("imagefeed").appendChild(newuploadbox);
-            newimg.onclick = function() {
-                var localsrc = "uploadimages" + this.src.split("uploadimages")[1];
-                feed[feedindex].image.src = localsrc;
-
-                document.getElementById("imageurlinput").value = localsrc;    
-                document.getElementById("mainimage").src = localsrc;
-                loadfeed();
-            }
-            var newimg = document.createElement("IMG");
-            newimg.src = "iconsymbols/delete.svg";
-            newuploadbox.appendChild(newimg);
-            newimg.classList.add("button");
-            newimg.classList.add("deletebutton");
-            newimg.onclick = function(){
-                var imageurl =this.parentElement.getElementsByClassName("uploadimage")[0].src; 
-                var imagename = "uploadimages/" + imageurl.split("uploadimages/")[1];
-                var httpc = new XMLHttpRequest();
-                var url = "deletefile.php";         
-                httpc.open("POST", url, true);
-                httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
-                httpc.send("filename=" + imagename);//send text to deletefile.php
-                this.parentElement.parentElement.removeChild(this.parentElement);
-            }
-        }
-    }
-};
-
-httpcUpload.open("GET", "dir.php?filename=uploadimages", true);
-httpcUpload.send();
 
 
 document.getElementById("pngimage").onload = function() {
@@ -1146,53 +978,101 @@ document.getElementById("pngimage").onload = function() {
     
 };
 
+uploadImages = [];
 imagefeed = [];
 var httpcImagefeed = new XMLHttpRequest();
 httpcImagefeed.onreadystatechange = function(){
     if (this.readyState == 4 && this.status == 200) {
         imagefeed = JSON.parse(this.responseText);
-        
-        for(var index = imagefeed.length - 1;index >= 0;index--){
-            var newbox = document.createElement("DIV");
-            newbox.classList.add("imagebox");
-            var newimg = document.createElement("IMG");
-            newimg.src = imagefeed[index];
-            newimg.classList.add("uploadimage");
-            newimg.classList.add("button");
-            newbox.appendChild(newimg);
-            document.getElementById("imagefeed").appendChild(newbox);
-            newimg.onclick = function() {
-                var localsrc = this.src;
-                document.getElementById("mainimage").src = localsrc;
-                document.getElementById("imageurlinput").value = localsrc;
-                feed[feedindex].image.src = localsrc;
-                loadfeed();
-            }
-            var newimg = document.createElement("IMG");
-            newimg.src = "iconsymbols/delete.svg";
-            newbox.appendChild(newimg);
-            newimg.classList.add("button");
-            newimg.classList.add("deletebutton");
-            newimg.id = "if" + index.toString();
-            newimg.onclick = function(){
-                //find the index and remove that from the feed 
-                var thisindex = parseInt(this.id.substring(2));
-                var tempimagefeed = [];
-                for(var imageindex=0;imageindex<imagefeed.length;imageindex++){
-                    if(imageindex != thisindex){
-                        tempimagefeed.push(imagefeed[imageindex]);
-                    }
-                    imagefeed = tempimagefeed;
-                }
-                this.parentElement.parentElement.removeChild(this.parentElement);
-                saveimagefeed();
-            }
+        var httpcUpload = new XMLHttpRequest();
+        httpcUpload.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            uploadImages = JSON.parse(this.responseText);
+            loadimagefeed();
         }
+    };
+    httpcUpload.open("GET", "dir.php?filename=uploadimages", true);
+    httpcUpload.send();
     }
 };
+
 httpcImagefeed.open("GET", "fileloader.php?filename=data/imagefeed.txt", true);
 httpcImagefeed.send();
 
+function loadimagefeed(){
+    document.getElementById("imagefeed").innerHTML = "";
+    for(var index = imagefeed.length - 1;index >= 0;index--){
+        var newbox = document.createElement("DIV");
+        newbox.classList.add("imagebox");
+        var newimg = document.createElement("IMG");
+        newimg.src = imagefeed[index];
+        newimg.classList.add("uploadimage");
+        newimg.classList.add("button");
+        newbox.appendChild(newimg);
+        document.getElementById("imagefeed").appendChild(newbox);
+        newimg.onclick = function() {
+            var localsrc = this.src;
+            document.getElementById("mainimage").style.display = "block";
+            document.getElementById("mainimage").src = localsrc;
+            document.getElementById("imageurlinput").value = localsrc;
+            feed[feedindex].image.src = localsrc;
+            loadfeed();
+        }
+        var newimg = document.createElement("IMG");
+        newimg.src = "iconsymbols/delete.svg";
+        newbox.appendChild(newimg);
+        newimg.classList.add("button");
+        newimg.classList.add("deletebutton");
+        newimg.id = "if" + index.toString();
+        newimg.onclick = function(){
+            //find the index and remove that from the feed 
+            var thisindex = parseInt(this.id.substring(2));
+            var tempimagefeed = [];
+            for(var imageindex=0;imageindex<imagefeed.length;imageindex++){
+                if(imageindex != thisindex){
+                    tempimagefeed.push(imagefeed[imageindex]);
+                }
+                imagefeed = tempimagefeed;
+            }
+            this.parentElement.parentElement.removeChild(this.parentElement);
+            saveimagefeed();
+        }
+    }    
+    for(var index = uploadImages.length - 1;index >= 0;index--) {
+        var newuploadbox = document.createElement("DIV");
+        newuploadbox.classList.add("uploadbox");
+        var newimg = document.createElement("IMG");
+        newimg.src = "uploadimages/" + uploadImages[index];
+        newimg.classList.add("uploadimage");
+        newimg.classList.add("button");
+        newuploadbox.appendChild(newimg);
+        document.getElementById("imagefeed").appendChild(newuploadbox);
+        newimg.onclick = function() {
+            var localsrc = "uploadimages" + this.src.split("uploadimages")[1];
+            feed[feedindex].image.src = localsrc;
+
+            document.getElementById("imageurlinput").value = localsrc;    
+            document.getElementById("mainimage").style.display = "block";                
+            document.getElementById("mainimage").src = localsrc;
+                loadfeed();
+        }
+        var newimg = document.createElement("IMG");
+        newimg.src = "iconsymbols/delete.svg";
+        newuploadbox.appendChild(newimg);
+        newimg.classList.add("button");
+        newimg.classList.add("deletebutton");
+        newimg.onclick = function(){
+            var imageurl =this.parentElement.getElementsByClassName("uploadimage")[0].src; 
+            var imagename = "uploadimages/" + imageurl.split("uploadimages/")[1];
+            var httpc = new XMLHttpRequest();
+            var url = "deletefile.php";         
+            httpc.open("POST", url, true);
+            httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+            httpc.send("filename=" + imagename);//send text to deletefile.php
+            this.parentElement.parentElement.removeChild(this.parentElement);
+        }
+    }    
+}
 
 function saveimagefeed(){
     var httpc = new XMLHttpRequest();
@@ -1322,14 +1202,7 @@ function savefeed(){
     document.getElementById("textio").value = JSON.stringify(feed,null,"  ");
 }
 
-function savecube(){
-    hypercube = mainGVM.bytecode(0,01777);
-    var url = "filesaver.php";        
-    var httpc = new XMLHttpRequest();
-    httpc.open("POST", url, true);
-    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc.send("data="+encodeURIComponent(hypercube)+"&filename=data/hypercube.txt");//send text to filesaver.php
-}
+
 function saverobot(){
     var httpc = new XMLHttpRequest();
     httpc.open("POST", "filesaver.php", true);
@@ -1510,9 +1383,6 @@ body{
     text-align:center;
     border:solid;
     border-color:blue;
-}
-#stacktable{
-    border:solid;
 }
 #header{
     font-size:12px;
