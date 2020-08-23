@@ -1,4 +1,6 @@
 [
   "https://i.imgur.com/JgWqwxU.jpg",
-  "https://i.imgur.com/zWa1KSu.jpg"
+  "https://i.imgur.com/zWa1KSu.jpg",
+  "https://i.imgur.com/5VaiyzU.jpg",
+  "https://i.imgur.com/hdC8B6K.jpg"
 ]
