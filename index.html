@@ -732,29 +732,28 @@ function loadfeed(){
         }
         newdiv.onclick = function(){
             mainGVM.clean();
-            var imagewidthpx = parseInt(document.getElementById("mainimage").style.width);
-            var imagexpx = parseInt(document.getElementById("mainimage").style.left);
-            var imageypx = parseInt(document.getElementById("mainimage").style.top);
-            var parentwidthpx = mainGVM.width;
-            var rotatedeg = parseInt(document.getElementById("mainimage").style.transform.substring(7));
             
-            var localsrc =  document.getElementById("mainimage").src;
-            if(localsrc.includes("uploadimages")){
-                localsrc = "uploadimages" + localsrc.split("uploadimages")[1];
+            if(feed[feedindex].image.src.length > 0){
+                var imagewidthpx = parseInt(document.getElementById("mainimage").style.width);
+                var imagexpx = parseInt(document.getElementById("mainimage").style.left);
+                var imageypx = parseInt(document.getElementById("mainimage").style.top);
+                var parentwidthpx = mainGVM.width;
+                var rotatedeg = parseInt(document.getElementById("mainimage").style.transform.substring(7));    
+                var localsrc =  document.getElementById("mainimage").src;
+                if(localsrc.includes("uploadimages")){
+                    localsrc = "uploadimages" + localsrc.split("uploadimages")[1];
+                }
+                feed[feedindex].image.src = localsrc;            
+                feed[feedindex].image.angle = rotatedeg;
+                feed[feedindex].image.w = imagewidthpx/parentwidthpx;
+                feed[feedindex].image.x = imagexpx/parentwidthpx;
+                feed[feedindex].image.y = imageypx/parentwidthpx;
             }
-            feed[feedindex].image.src = localsrc;            
-            
+
             feed[feedindex].glyph = mainGVM.cleanGlyph;
             robot.glyph = mainGVM.cleanGlyph;
             saverobot();
-
-            feed[feedindex].image.angle = rotatedeg;
-            feed[feedindex].image.w = imagewidthpx/parentwidthpx;
-            feed[feedindex].image.x = imagexpx/parentwidthpx;
-            feed[feedindex].image.y = imageypx/parentwidthpx;
-    
             feedindex = parseInt(this.id.substring(2));
-            feedElement = feed[feedindex];
             drawmain();
         }
     }    
@@ -776,6 +775,7 @@ function drawmain(){
     }
     else{
         document.getElementById("mainimage").style.display = "none";
+        document.getElementById("mainimage").src = "";
     }
     spellGVM.spellGlyph(mainGVM.glyph);
     document.getElementById("spellinput").value = mainGVM.cleanGlyph;
@@ -958,6 +958,7 @@ document.getElementById("imageurlinput").onchange  = function(){
         }
         feed[feedindex].image.src = localsrc;
         feed[feedindex].image.src = localsrc;
+        document.getElementById("mainimage").style.display = "block";        
         document.getElementById("mainimage").src = localsrc;
         document.getElementById("imageurlinput").value = localsrc;
     }
@@ -1003,6 +1004,7 @@ var httpcUpload = new XMLHttpRequest();
                 feed[feedindex].image.src = localsrc;
 
                 document.getElementById("imageurlinput").value = localsrc;    
+                document.getElementById("mainimage").style.display = "block";                
                 document.getElementById("mainimage").src = localsrc;
                 loadfeed();
             }
@@ -1063,6 +1065,7 @@ httpcImagefeed.onreadystatechange = function(){
             document.getElementById("imagefeed").appendChild(newbox);
             newimg.onclick = function() {
                 var localsrc = this.src;
+                document.getElementById("mainimage").style.display = "block";
                 document.getElementById("mainimage").src = localsrc;
                 document.getElementById("imageurlinput").value = localsrc;
                 feed[feedindex].image.src = localsrc;
