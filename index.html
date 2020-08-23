@@ -533,6 +533,20 @@ function loadbuttontable(){
         window.location.href = "keyboard.html";
     }        
 
+    var newtd = document.createElement("TD");
+    newtr.appendChild(newtd);
+    newcan = document.createElement("CANVAS");
+    newtd.appendChild(newcan);
+    var newg = new GVM(newcan,headerbuttonsize,headerbuttonsize);
+    newg.hypercube= mainGVM.hypercube;
+    newg.drawGlyph("0255,");
+    newcan.classList.add("button");
+    
+    newcan.onclick = function(){
+        //point browser to hypercube.html
+        window.location.href = "symbolfeed.html";
+    }        
+
 
     newcan = document.createElement("CANVAS");
     document.getElementById("mode0button").appendChild(newcan);
@@ -571,8 +585,10 @@ function loadbuttontable(){
         screenmode = 2;
         setscreen();
     }        
+
     
     topbuttons = document.getElementById("buttontr").getElementsByClassName("button");
+    
 }
 
 function savesymbolfile(){
