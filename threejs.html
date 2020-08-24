@@ -181,18 +181,25 @@ side=0.2;
 init();
 
 
+hypercube = [];
+for(var index = 0;index < 02000;index++){
+    hypercube.push("");
+}
+
 var httpcHypercube = new XMLHttpRequest();
 httpcHypercube.onreadystatechange = function(){
     if (this.readyState == 4 && this.status == 200) {
-        hypercube = JSON.parse(this.responseText);
-        glyph = "";
-        for(var index = 0;index < hypercube.length;index++){
-            var address = parseInt(hypercube[index].split(":")[0],8);
-            if(address == 0600){
-                glyph = hypercube[index].split(":")[1];
+        hypercubedata = JSON.parse(this.responseText);
+        for(var index = 0;index < hypercubedata.length;index++){
+            if(hypercubedata.length > 0){
+                var localaddress = parseInt(hypercubedata[index].split(":")[0],8);
+                var localglyph = hypercubedata[index].split(":")[1];
+                hypercube[localaddress] = localglyph;
             }
         }
-        //console.log(glyph);
+
+        glyph = hypercube[0600];
+        
         drawGlyph(glyph);
         savestl();
     }
@@ -219,6 +226,8 @@ function drawcube(){
 function init(){
     camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 10 );
     camera.position.z = 3;
+    camera.position.x = 2;
+
     scene = new THREE.Scene();
     scene.background = new THREE.Color( 0xffffff );
     material = new THREE.MeshNormalMaterial( { color: 0x000000, wireframe: false } );
@@ -237,13 +246,30 @@ side=0.2;
     for(var index = 0;index < tempArray.length;index++){
         action(parseInt(tempArray[index],8));
     }
+
     renderer.render( scene, camera );
     
 }
 
+function actionSequence(localString){
+    var tempArray = localString.split(',');
+    for(var index = 0;index < tempArray.length;index++){
+        action(parseInt(tempArray[index],8));
+    }
+}
 
 function action(localCommand){
 
+    if(localCommand >= 0500 && localCommand <0700){
+        actionSequence(hypercube[localCommand]);
+    }
+    if(localCommand >= 0220 && localCommand <0300){
+        actionSequence(hypercube[localCommand]);
+    }
+
+    if(localCommand > 01000){
+        actionSequence(hypercube[localCommand]);
+    }
     
     if(localCommand == 0700){
         x += side;

@@ -48,6 +48,7 @@
 </div>
 
 <input id = "actioninput"/>
+<input id = "spellinput"/>
 <div id = "spellcanvasbox">
     <canvas id = "spellcanvas"></canvas>
 </div>
@@ -65,6 +66,7 @@
 </table>
 <div id = "savebutton" class = "button">SAVE</div>
 <script>
+
 
 controlbuttonsize = 40;
 spellwidth = 300;
@@ -211,9 +213,10 @@ keyboard2d = [
 ];
   
 controls = [
+    "0500,0501,0502,0503,0504,0505,0506,0507,",
     "020,010,021,011,0710,0711,0704,0705,",
     "0701,0700,0702,0703,0706,0707,0720,0721,",
-    "0722,0723,0724,0725,"
+    "0722,0723,0724,0725,0601,"
 ];
 
 
@@ -223,6 +226,7 @@ httpcHypercube.onreadystatechange = function(){
         hypercube = JSON.parse(this.responseText);
         mainGVM.importbytecode(hypercube);    
         mainGVM.importbytecode(keyboard3d);
+        mainGVM.importbytecode(cube3d);
         mainGVM.glyph = mainGVM.hypercube[0600] + "0207,";
         mainGVM.clean();
         loadcontroltable();
@@ -240,8 +244,7 @@ document.getElementById("actioninput").onkeypress = function(a) {
         this.value = "";
         mainGVM.clean();
         redraw();
-//        document.getElementById("spellinput").value = mainGVM.cleanGlyph;
-  
+    //    document.getElementById("spellinput").value = mainGVM.cleanGlyph;
   
     }
 
@@ -281,6 +284,12 @@ document.getElementById("actioninput").onkeydown = function(a) {
 }
 
 
+document.getElementById("spellinput").onchange = function(){
+    mainGVM.glyph = this.value + "0207,";
+    mainGVM.clean();
+    redraw();
+}
+
 function redraw(){
     main.innerHTML = "";
     x = 0.0;
@@ -292,6 +301,7 @@ function redraw(){
     
     drawGlyph(mainGVM.glyph);
     mainGVM.spellGlyph(mainGVM.glyph);
+    document.getElementById("spellinput").value = mainGVM.cleanGlyph;
 }
 
 
@@ -305,6 +315,15 @@ function drawGlyph(localString){
 editmode = true;
 function action(localCommand){
 
+    if(localCommand >= 0500 && localCommand < 0700){
+        drawGlyph(mainGVM.hypercube[localCommand]);
+    }
+    if(localCommand > 01000){
+        drawGlyph(mainGVM.hypercube[localCommand]);
+    }
+    if(localCommand >= 0220 && localCommand < 0300){
+        drawGlyph(mainGVM.hypercube[localCommand]);
+    }
     
     if(localCommand == 0207){
         if(editmode){
@@ -487,6 +506,7 @@ function loadcontroltable(){
                 newGVM.x0 = 1;
                 newGVM.y0 = controlbuttonsize-1;
                 newGVM.importbytecode(hypercube);
+                newGVM.importbytecode(cube3d);
                 newGVM.action(0300);
                 if(parseInt(rowarray[rowindex],8) >= 040 && parseInt(rowarray[rowindex],8) < 0177){
                     newGVM.drawGlyph("0300,0336,0336,0330,0333,0337,");
@@ -534,19 +554,27 @@ input{
     border:solid;
 }
 #actioninput{
+    position:absolute;
+    right:0px;
+    top:0px;
     width:1em;
 }
-
+#spellinput{
+    position:absolute;
+    right:2em;
+    top:0px;
+    width:300px;
+}
 .button:hover{
     background-color:green;
 }
 .button:active{
     background-color:yellow;
 }
-.button{
-    cursor:pointer;
-}
-
+.button{n
+    cursor:pointer;n
+}n
+n
 #mainx3d{
     position:absolute;
     left:0px;
@@ -561,11 +589,6 @@ input{
     top:60px;
     width:300px;
     height:300px;
-}
-#actioninput{
-    position:absolute;
-    right:0px;
-    top:0px;
 }
 #textio{
     position:absolute;
