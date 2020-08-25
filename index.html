@@ -133,7 +133,10 @@
 document.getElementById("importfeedbutton").onclick = function(){
         //load feed
         if(document.getElementById("textio").value.length > 0){
-            feed = JSON.parse(document.getElementById("textio").value);
+            inputfeed = JSON.parse(document.getElementById("textio").value);
+            for(var index = inputfeed.length - 1;index >= 0;index--){
+                feed.unshift(inputfeed[index]);
+            }
             feedindex = 0;
             loadfeed();
             feedElement = feed[feedindex];
