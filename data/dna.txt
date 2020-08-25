@@ -172,6 +172,7 @@
         "robotfeed.txt",
         "symbolapp.txt",
         "textfeed.txt",
+        "three.stl",
         "token.txt",
         "wall.txt"
     ],
