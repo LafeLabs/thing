@@ -25,19 +25,23 @@
 
 </head>
 <body>
-<a href = "imagefeed.html" id = "editlink">
-    <img src = "iconsymbols/image.svg"/>
-</a>
-
-<a href = "glyphfeed.html" id = "glyphlink">
-    <img src = "iconsymbols/glyphfeed.svg"/>
-</a>
-
-
-<div id = "feed">
-</div>
-<textarea id = "textio"></textarea>
+    <div id = "upperleft"><canvas id = "leftcan"></canvas></div>
+    <h2 id = "title">Geometron: <i>look around you!</i></h1>
+    <div id = "upperright"><canvas id = "rightcan"></canvas></div>
+    <div id = "feed"></div>
 <script>
+
+mobileline = 150;
+desktopline = 100;
+
+if(innerWidth > innerHeight){
+    topline = 100;
+}
+else{
+    topline = 150;
+}
+
+document.getElementById("feed").style.top = topline.toString() + "px";
 
 loaddata();
 
@@ -55,6 +59,12 @@ function loaddata(){
             };
             httpc2.open("GET", "fileloader.php?filename=data/feed.txt", true);
             httpc2.send();
+            gvmleft = new GVM(document.getElementById("leftcan"),topline,topline);
+            gvmright = new GVM(document.getElementById("rightcan"),topline,topline);
+            gvmleft.importbytecode(hypercube);
+            gvmright.importbytecode(hypercube);
+            gvmleft.drawGlyph(gvmleft.hypercube[0220]);
+            gvmright.drawGlyph(gvmleft.hypercube[0221]);
 
         }
     };
@@ -92,34 +102,27 @@ function loadfeed(){
 }
 
 
-//document.getElementById("textio").value = JSON.stringify(feed,null,"    ");
 
 </script>
 <style>
-#textio{
-    position:relative;
-    z-index:2;
-    display:none;
-}
-#editlink{
+#upperleft{
     position:absolute;
-    left:5px;
-    top:5px;
-    width:50px;
-    z-index:1;
+    left:0px;
+    top:0px;
+    z-index:-1;
 }
-#glyphlink{
+#upperright{
     position:absolute;
-    left:5px;
-    top:60px;
-    width:50px;
-    z-index:1;
+    right:0px;
+    top:0px;
+    z-index:-1;
 }
-#glyphlink img{
-    width:100%;
-}
-#editlink img{
-    width:100%;
+#title{
+    position:absolute;
+    top:0px;
+    left:0px;
+    right:0px;
+    text-align:center;
 }
 #feed{
     position:absolute;

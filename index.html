@@ -272,12 +272,13 @@ function setscreen(){
         topbuttons[9].style.display = "inline";
     
         //geometron edit mode
-                document.getElementById("buttontable").style.display = "block";
+        document.getElementById("buttontable").style.display = "block";
         document.getElementById("mainbox").style.display = "block";
         document.getElementById("imagefeedbox").style.display = "none";
         document.getElementById("zoomrotatebox").style.display = "block";            
         document.getElementById("controlbox").style.display = "block";            
-        document.getElementById("spellbox").style.display = "block";                
+        document.getElementById("spellbox").style.display = "block";
+        document.getElementById("actioninput").select();
         if(innerWidth > innerHeight){
             document.getElementById("feed").style.width = "25%";
             document.getElementById("spellbox").style.top = "40px";
@@ -435,8 +436,8 @@ function loadbuttontable(){
     newcan.onclick = function(){
         //copy element to top of feed
         var tempelement = JSON.parse(JSON.stringify(feed[feedindex]));
-        feed.push(tempelement);
-        feedindex = feed.length - 1;
+        feed.unshift(tempelement);
+        feedindex = 0;
         loadfeed();
         mainGVM.glyph = feed[feedindex].glyph + "0207,";
         mainGVM.cleanGlyph = feed[feedindex].glyph;
