@@ -3,5 +3,5 @@
   "polarity2": 0,
   "polarity3": 1,
   "upsidedown": 1,
-  "glyph": "0231,"
+  "glyph": "0221,"
 }

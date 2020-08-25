@@ -878,58 +878,60 @@ document.getElementById("actioninput").onkeydown = function(a) {
 }
 
 function next(){
-        mainGVM.clean();
+    mainGVM.clean();
+    if(feed[feedindex].image.src.length > 0){
         var imagewidthpx = parseInt(document.getElementById("mainimage").style.width);
         var imagexpx = parseInt(document.getElementById("mainimage").style.left);
         var imageypx = parseInt(document.getElementById("mainimage").style.top);
         var parentwidthpx = mainGVM.width;
         var rotatedeg = parseInt(document.getElementById("mainimage").style.transform.substring(7));
-            
-        feed[feedindex].glyph = mainGVM.cleanGlyph;
-        robot.glyph = mainGVM.cleanGlyph;
-        saverobot();
-        
         feed[feedindex].image.angle = rotatedeg;
         feed[feedindex].image.w = imagewidthpx/parentwidthpx;
         feed[feedindex].image.x = imagexpx/parentwidthpx;
         feed[feedindex].image.y = imageypx/parentwidthpx;
+        var localsrc =  document.getElementById("mainimage").src;
+        if(localsrc.includes("uploadimages")){
+            localsrc = "uploadimages" + localsrc.split("uploadimages")[1];
+        }
+        feed[feedindex].image.src = localsrc;  
+    }
         
+    feed[feedindex].glyph = mainGVM.cleanGlyph;
+    robot.glyph = mainGVM.cleanGlyph;
+    saverobot();
+        
+    feedindex++;
+    if(feedindex > feed.length - 1){
+       feedindex = 0;
+    }
+    feedElement = feed[feedindex];
+    drawmain();    
+}
+
+function previous(){
+    mainGVM.clean();
+    
+    if(feed[feedindex].image.src.length > 0){
+        var imagewidthpx = parseInt(document.getElementById("mainimage").style.width);
+        var imagexpx = parseInt(document.getElementById("mainimage").style.left);
+        var imageypx = parseInt(document.getElementById("mainimage").style.top);
+        var parentwidthpx = mainGVM.width;
+        var rotatedeg = parseInt(document.getElementById("mainimage").style.transform.substring(7));
+        feed[feedindex].image.angle = rotatedeg;
+        feed[feedindex].image.w = imagewidthpx/parentwidthpx;
+        feed[feedindex].image.x = imagexpx/parentwidthpx;
+        feed[feedindex].image.y = imageypx/parentwidthpx;
         var localsrc =  document.getElementById("mainimage").src;
         if(localsrc.includes("uploadimages")){
             localsrc = "uploadimages" + localsrc.split("uploadimages")[1];
         }
         feed[feedindex].image.src = localsrc;
-
-
-       feedindex++;
-       if(feedindex > feed.length - 1){
-           feedindex = 0;
-        }
-        feedElement = feed[feedindex];
-        drawmain();    
-
-}
-function previous(){
-    mainGVM.clean();
-    var imagewidthpx = parseInt(document.getElementById("mainimage").style.width);
-    var imagexpx = parseInt(document.getElementById("mainimage").style.left);
-    var imageypx = parseInt(document.getElementById("mainimage").style.top);
-    var parentwidthpx = mainGVM.width;
-    var rotatedeg = parseInt(document.getElementById("mainimage").style.transform.substring(7));
+    }   
             
     feed[feedindex].glyph = mainGVM.cleanGlyph;
     robot.glyph = mainGVM.cleanGlyph;
     saverobot();
-    feed[feedindex].image.angle = rotatedeg;
-    feed[feedindex].image.w = imagewidthpx/parentwidthpx;
-    feed[feedindex].image.x = imagexpx/parentwidthpx;
-    feed[feedindex].image.y = imageypx/parentwidthpx;
         
-    var localsrc =  document.getElementById("mainimage").src;
-    if(localsrc.includes("uploadimages")){
-        localsrc = "uploadimages" + localsrc.split("uploadimages")[1];
-    }
-    feed[feedindex].image.src = localsrc;
     feedindex--;
     if(feedindex<0){
         feedindex = feed.length - 1;
