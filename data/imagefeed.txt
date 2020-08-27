@@ -18,5 +18,11 @@
   "https://i.imgur.com/aDXWKdz.jpg",
   "https://i.imgur.com/inJHml4.jpg",
   "https://i.imgur.com/22wLHHv.jpg",
-  "https://i.imgur.com/cyOWbBM.jpg"
+  "https://i.imgur.com/cyOWbBM.jpg",
+  "https://www.emojirequest.com/images/CrossEyedEmoji.jpg",
+  "https://i.imgur.com/KLRd8EW.jpg",
+  "https://i.imgur.com/bwsbxM3.jpg",
+  "https://i.imgur.com/cZn83wt.jpg",
+  "https://i.imgur.com/gxrxAhY.jpg",
+  "https://i.imgur.com/CG8dXNS.jpg"
 ]
