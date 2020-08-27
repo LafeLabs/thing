@@ -23,6 +23,8 @@
     <META NAME="robots" CONTENT="noindex,nofollow">
 <!--geometron javascript library-->
     <script src="jscode/geometron.js"></script>
+    <script src="jscode/robotfont.js"></script>    
+    <script src="jscode/lasercutfont.js"></script>    
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"></script>
 </head>
 <body>
@@ -114,6 +116,12 @@
         <tr>
             <td class= "button" id = "importimagefeedbutton">IMPORT IMAGE FEED</td>
         </tr>
+        <tr>
+            <td class = "button" id = "laserfontbutton">LASER FONT</td>
+        </tr>
+        <tr>
+            <td class = "button" id = "robotfontbutton">ROBOT FONT</td>
+        </tr>        
     </table>
     <textarea id  = "textio"></textarea>
 </div>
@@ -161,6 +169,15 @@ document.getElementById("importimagefeedbutton").onclick = function(){
     }    
 }
 
+document.getElementById("laserfontbutton").onclick = function(){
+    mainGVM.importbytecode(laserfont);
+    drawmain();
+}
+
+document.getElementById("robotfontbutton").onclick = function(){
+    mainGVM.importbytecode(robotfont);
+    drawmain();
+}
 
 
 feedwidth = 100;
