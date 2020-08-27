@@ -40,7 +40,7 @@ A Geometron is a geometric virtual machine which has two 8x8x8 cubes of operatio
 function GVM(canvas2d,width,height) {
     //x0,y0 and unit are scaled to width
     //width and height are in px
-    this.address = 0277;
+    this.address = 0177;
     this.glyph = "";
     this.cleanGlyph = "";
     this.width = width;//width in px
