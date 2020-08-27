@@ -226,7 +226,6 @@ httpcHypercube.onreadystatechange = function(){
         hypercube = JSON.parse(this.responseText);
         mainGVM.importbytecode(hypercube);    
         mainGVM.importbytecode(keyboard3d);
-        mainGVM.importbytecode(cube3d);
         mainGVM.glyph = mainGVM.hypercube[0600] + "0207,";
         mainGVM.clean();
         loadcontroltable();
@@ -506,7 +505,6 @@ function loadcontroltable(){
                 newGVM.x0 = 1;
                 newGVM.y0 = controlbuttonsize-1;
                 newGVM.importbytecode(hypercube);
-                newGVM.importbytecode(cube3d);
                 newGVM.action(0300);
                 if(parseInt(rowarray[rowindex],8) >= 040 && parseInt(rowarray[rowindex],8) < 0177){
                     newGVM.drawGlyph("0300,0336,0336,0330,0333,0337,");
@@ -571,10 +569,9 @@ input{
 .button:active{
     background-color:yellow;
 }
-.button{n
-    cursor:pointer;n
-}n
-n
+.button{
+    cursor:pointer;
+}
 #mainx3d{
     position:absolute;
     left:0px;
