@@ -402,6 +402,9 @@ document.getElementById("actioninput").onkeypress = function(a) {
         mainGVM.clean();
         mainGVM.hypercube[mainGVM.address] = mainGVM.cleanGlyph;
         document.getElementById("spellinput").value = mainGVM.cleanGlyph;
+        spellGVM.spellGlyph(mainGVM.glyph);
+     
+     
     }
 
 
