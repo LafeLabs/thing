@@ -154,6 +154,7 @@
         "xyzcube.svg"
     ],
     "data": [
+        "coin.txt",
         "currentMap.txt",
         "currentjson.txt",
         "dna.txt",
