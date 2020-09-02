@@ -208,7 +208,19 @@ document.getElementById("textio").value = "";
 
 function loadbuttontable(){
     var newtr = document.getElementById("buttontr");
+    var newtd = document.createElement("span");
+    newtr.appendChild(newtd);
+    newtd.innerHTML = "";
+    newcan = document.createElement("CANVAS");
+    newtd.appendChild(newcan);
+    var newg = new GVM(newcan,headerbuttonsize,headerbuttonsize);
+    newg.hypercube= mainGVM.hypercube;
+    newg.drawGlyph("0240,");
+    newcan.classList.add("button");
+    newcan.onclick = function(){
+        //save 
 
+    }
 
     var newtd = document.createElement("TD");
     newtr.appendChild(newtd);
@@ -281,18 +293,13 @@ function loadcontroltable(){
                         }
                         mainGVM.cursorAction(localaction);
                     }
-                    if(localaction == 022){
-                        previous();
-                    }
-                    if(localaction == 023){
-                        next();
-                    }
-                                                        
+
                     mainGVM.clean();
                     spellGVM.spellGlyph(mainGVM.glyph);
                     document.getElementById("spellinput").value = mainGVM.cleanGlyph;
-                    robot.glyph = mainGVM.cleanGlyph;
-                    saverobot();
+                    coin = mainGVM.cleanGlyph;
+                    savecoin();
+
 
                 }
                 newcan.classList.add("button");
@@ -319,11 +326,28 @@ httpcHypercube.onreadystatechange = function(){
         hypercube = JSON.parse(this.responseText);
         spellGVM.importbytecode(hypercube);
         mainGVM.importbytecode(hypercube);    
-
-        drawmain();
+        
         loadcontroltable();
         loadbuttontable();
+        var httpcCoin = new XMLHttpRequest();
+        httpcCoin.onreadystatechange = function(){
+            if (this.readyState == 4 && this.status == 200) {
+                coin = this.responseText;
+                drawmain();
+            }
+        };
+        httpcCoin.open("GET", "fileloader.php?filename=data/coin.txt", true);
+        httpcCoin.send();
+/*        
+        httpcCoin.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200) {
+            coin = this.responseText;
+        }
+
+  */
+  
     }
+        
 };
 httpcHypercube.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
 httpcHypercube.send();
