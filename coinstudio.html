@@ -220,6 +220,7 @@ function loadbuttontable(){
     newcan.onclick = function(){
         //save 
             //load robot feed, push current element onto feeed, then save it again
+        pushcoin();
     }
 
     var newtd = document.createElement("TD");
@@ -229,12 +230,12 @@ function loadbuttontable(){
     newtd.appendChild(newcan);
     var newg = new GVM(newcan,headerbuttonsize,headerbuttonsize);
     newg.hypercube= mainGVM.hypercube;
-    newg.drawGlyph("0251,");
+    newg.drawGlyph("0337,0337,0342,0330,0335,0335,0336,0350,0335,0342,0334,0334,0342,0335,0337,0330,0334,0334,0322,0201,0335,0335,0335,0336,0342,0335,0335,0342,0334,0337,0330,0334,0325,0201,0335,0335,0335,0336,0342,0335,0335,0342,0334,0337,0330,0334,0304,0320,0337,0331,0333,0337,");
     newcan.classList.add("button");
 
     newcan.onclick = function(){
         //point browser to hypercube.html
-        window.location.href = "hypercube.html";
+        window.location.href = "robot.html";
     }        
 
     var newtd = document.createElement("TD");
@@ -626,6 +627,26 @@ function savecoin(){
     httpc.send("data="+encodeURIComponent(coin)+"&filename=data/coin.txt");//send text to filesaver.php
 }
 
+
+function pushcoin(){
+    
+    var httpcrobotfeed = new XMLHttpRequest();
+    httpcrobotfeed.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200) {
+            robotfeed = JSON.parse(this.responseText);
+            robotfeed.push(coin);
+            var httpc = new XMLHttpRequest();
+            httpc.open("POST", "filesaver.php", true);
+            httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            httpc.send("data="+encodeURIComponent(JSON.stringify(feed,null,"  "))+"&filename=data/robotfeed.txt");//send text to filesaver.php
+
+        }
+        
+    };
+    httpcrobotfeed.open("GET", "fileloader.php?filename=data/robotfeed.txt", true);
+    httpcrobotfeed.send();
+    
+}
 </script>
 <style>
 body{
@@ -683,7 +704,7 @@ body{
     border:solid;
     border-color:blue;   
     font-size:12px;
-    width:25%;
+    width:22%;
     top:150px;
     z-index:3;
 }
