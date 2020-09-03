@@ -186,9 +186,11 @@ function setscreen(){
 //load 4 files: data/feed.txt, data/imagefeed.txt data/robot.txt, and data/hypercube.txt
 
 controls  = [
-    "0320,0321,0322,0323,0324,0325,0326,0327,",
+    "0500,0501,0502,0503,",
+    "0504,0505,0506,0507,",
     "011,020,010,021,",
-    "0500,0501,0502,0503,0504,0505,0506,0507,",
+    "0320,0321,0322,0323,",
+    "0324,0325,0326,0327,",
     "040,041,042,043,044,045,046,050,",
     "051,052,053,054,055,056,057,060,",
     "061,062,063,064,065,066,067,070,",
@@ -260,7 +262,7 @@ function loadbuttontable(){
     
 }
 
-controlbuttonsize = 40;
+controlbuttonsize = 80;
 function loadcontroltable(){
     document.getElementById("controltable").innerHTML = "";
     for(var index = 0;index < controls.length;index++){
@@ -334,7 +336,15 @@ robotkeys = [
     "0172:0504,",
     "0170:0505,",
     "0143:0506,",
-    "0166:0507,"
+    "0166:0507,",
+    "0140:0320,",
+    "061:0321,",
+    "062:0322,",
+    "063:0323,",
+    "064:0324,",
+    "065:0325,",
+    "066:0326,",
+    "067:0327,"
 ];
 
 var httpcHypercube = new XMLHttpRequest();
@@ -343,7 +353,7 @@ httpcHypercube.onreadystatechange = function(){
         hypercube = JSON.parse(this.responseText);
         spellGVM.importbytecode(hypercube);
         mainGVM.importbytecode(hypercube);    
-        mainGVM.importbytecode(robotkey)
+        mainGVM.importbytecode(robotkeys);
         loadcontroltable();
         loadbuttontable();
         var httpcCoin = new XMLHttpRequest();
@@ -459,10 +469,16 @@ document.getElementById("actioninput").onkeydown = function(a) {
 
     if(charCode == 046){
         //up arrow: prev symbol
-
+        mainGVM.clean();
+        mainGVM.glyph = "0207," + mainGVM.cleanGlyph;
+        mainGVM.drawGlyph(mainGVM.glyph);
     }
     if(charCode == 050){
         //down arrow: next symbol
+        mainGVM.clean();
+        mainGVM.glyph = mainGVM.cleanGlyph + "0207,";
+        mainGVM.drawGlyph(mainGVM.glyph);
+
     }
 
     spellGVM.spellGlyph(mainGVM.glyph);
@@ -473,16 +489,14 @@ document.getElementById("actioninput").onkeydown = function(a) {
 
 function modeswitch(){
     mode++;
-    mode = mode%3;
+    mode = mode%2;
     if(mode == 0){
         document.getElementById("modeindicator").src = "iconsymbols/cursor.svg";
     }
     if(mode == 1){
         document.getElementById("modeindicator").src = "iconsymbols/abcfont.svg";
     }
-    if(mode == 2){
-        document.getElementById("modeindicator").src = "iconsymbols/abcstack.svg";
-    }
+
     document.getElementById("actioninput").select();   
 }
 
