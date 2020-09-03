@@ -34,6 +34,7 @@
 </div>
 
 <div id = "mainbox">
+    <canvas id = "gridcanvas"></canvas>
     <canvas id = "maincanvas"></canvas>
     <img id = "mainimage"/>
     <div id = "hammerxy"></div>
@@ -186,7 +187,7 @@ function setscreen(){
 
 controls  = [
     "0320,0321,0322,0323,0324,0325,0326,0327,",
-    "011,020,010,021,0524,",
+    "011,020,010,021,",
     "0500,0501,0502,0503,0504,0505,0506,0507,",
     "040,041,042,043,044,045,046,050,",
     "051,052,053,054,055,056,057,060,",
@@ -315,12 +316,26 @@ hypercube = [];
 
 maincanvas = document.getElementById("maincanvas");
 var mainGVM = new GVM(maincanvas,0.5*innerWidth - 10,0.5*innerWidth -10);
+
+var gridGVM = new GVM(gridcanvas,0.5*innerWidth - 10,0.5*innerWidth -10);
+gridGVM.drawGlyph("0337,0337,0342,0334,0342,0334,0342,0334,0342,0341,");
+
 var spellGVM = new GVM(document.getElementById("spellcanvas"),420,800);
 
 spellGVM.x0 = 5;
 spellGVM.y0 = 35;
 spellGVM.unit = 20;
 
+robotkeys = [
+    "0141:0500,",
+    "0163:0501,",
+    "0144:0502,",
+    "0146:0503,",
+    "0172:0504,",
+    "0170:0505,",
+    "0143:0506,",
+    "0166:0507,"
+];
 
 var httpcHypercube = new XMLHttpRequest();
 httpcHypercube.onreadystatechange = function(){
@@ -328,7 +343,7 @@ httpcHypercube.onreadystatechange = function(){
         hypercube = JSON.parse(this.responseText);
         spellGVM.importbytecode(hypercube);
         mainGVM.importbytecode(hypercube);    
-        
+        mainGVM.importbytecode(robotkey)
         loadcontroltable();
         loadbuttontable();
         var httpcCoin = new XMLHttpRequest();
@@ -361,7 +376,9 @@ stoprelativekeys = [
     "0155:",    
     "054:",    
     "056:"    
-]
+];
+
+
 
 image = {
     "w":1.0,
@@ -670,7 +687,14 @@ body{
     left:0px;
     top:0px;
     width:100%;
+    z-index:-3;
+}
+#gridcanvas{
     z-index:-2;
+    position:absolute;
+    left:0px;
+    top:0px;
+    
 }
 #hammerxy{
     position:absolute;
