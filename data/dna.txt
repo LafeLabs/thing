@@ -4,6 +4,7 @@
         "appeditor.html",
         "buttonsetup.sh",
         "canvas2png.html",
+        "coinfeed.html",
         "coinstudio.html",
         "console.html",
         "duality.html",

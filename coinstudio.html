@@ -242,20 +242,6 @@ function loadbuttontable(){
         window.location.href = "robot.html";
     }        
 
-    var newtd = document.createElement("TD");
-    newtr.appendChild(newtd);
-    newcan = document.createElement("CANVAS");
-    newtd.appendChild(newcan);
-    var newg = new GVM(newcan,headerbuttonsize,headerbuttonsize);
-    newg.hypercube= mainGVM.hypercube;
-    newg.drawGlyph("0252,");
-    newcan.classList.add("button");
-    
-    newcan.onclick = function(){
-        //point browser to hypercube.html
-        window.location.href = "keyboard.html";
-    }        
-
 
 
     topbuttons = document.getElementById("buttontr").getElementsByClassName("button");
@@ -668,7 +654,7 @@ function pushcoin(){
             robotfeed = JSON.parse(this.responseText);
             
             mainGVM.clean();
-            robotfeed.push(mainGVM.cleanGlyph);
+            robotfeed.unshift(mainGVM.cleanGlyph);
             var httpc = new XMLHttpRequest();
             httpc.open("POST", "filesaver.php", true);
             httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
