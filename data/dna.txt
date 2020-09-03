@@ -31,6 +31,7 @@
         "robot.html",
         "robot.py",
         "robot2css.html",
+        "robotsetup.html",
         "scroll.html",
         "scroll.md",
         "scrolldelete.html",

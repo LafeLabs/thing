@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--
+
+        EVERYTHING IS PHYSICAL 
+        EVERYTHING IS FRACTAL
+        EVERYTHING IS RECURSIVE
+        NO MONEY 
+        MO MINING 
+        NO PROPERTY
+        LOOK AT THE INSECTS
+        LOOK AT THE FUNGI
+        LANGUAGE IS HOW THE MIND PARSES REALITY
+
+    
+    -->
+    
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/wAAAAD//wAA/wAAAAD/AP8A/wAApv8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFUAAARGAAIxFVUABEYAAjMRFQAARGYiIjMRAABERmZiIzEAAARERGZiMwAAAARERGYiAAAAAABERiL4PwAA+78AAPu/AAD33wAA9V8AAPVfAAD1XwAA998AAOADAADhAAAA4AAAAPAAAADwAAAA+AAAAP4AAAD/wAAA" rel="icon" type="image/x-icon" />
+    
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+<!--geometron javascript library-->
+    <script src="jscode/geometron.js"></script>
+
+</head>
+<h2><a href = "robot.html">robot.html</a></h2>
+<h2><a href = "editor.php">editor.php</a></h2>
+
+<body>
+    <table>
+        <tr>
+            <td id = "polarity1button" class = "button">POLARITY1 = <span id = "polarity1">0</span></td>
+        </tr>
+        <tr>
+            <td id = "polarity2button" class = "button">POLARITY2 = <span id = "polarity2">0</span></td>
+        </tr>
+        <tr>
+            <td id = "polarity3button" class = "button">POLARITY3 = <span id = "polarity3">0</span></td>
+        </tr>
+        <tr>
+            <td id = "upsidedownbutton" class = "button">UPSIDEDOWN = <span id = "upsidedown">0</span></td>
+        </tr>
+    </table>
+    
+
+<script>
+
+
+//*********************************************************
+//everything below this line is the robot config editor
+//**********************************************************
+
+document.getElementById("polarity1button").onclick = function(){
+    robot.polarity1 = robot.polarity1^1;
+    if(robot.polarity1 == 0){
+        document.getElementById("polarity1").innerHTML = "0";
+    }    
+    else{
+        document.getElementById("polarity1").innerHTML = "1";
+    }
+    saverobot();
+}
+
+document.getElementById("polarity2button").onclick = function(){
+    robot.polarity2 = robot.polarity2^1;
+    if(robot.polarity2 == 0){
+        document.getElementById("polarity2").innerHTML = "0";
+    }    
+    else{
+        document.getElementById("polarity2").innerHTML = "1";
+    }
+    saverobot();
+}
+
+
+document.getElementById("polarity3button").onclick = function(){
+    robot.polarity3 = robot.polarity3^1;
+    if(robot.polarity3 == 0){
+        document.getElementById("polarity3").innerHTML = "0";
+    }    
+    else{
+        document.getElementById("polarity3").innerHTML = "1";
+    }
+    saverobot();
+}
+
+document.getElementById("upsidedownbutton").onclick = function(){
+    robot.upsidedown = robot.upsidedown^1;
+    if(robot.upsidedown == 0){
+        document.getElementById("upsidedown").innerHTML = "0";
+    }    
+    else{
+        document.getElementById("upsidedown").innerHTML = "1";
+    }
+    saverobot();
+}
+
+
+var httpcRobot = new XMLHttpRequest();
+httpcRobot.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        robot = JSON.parse(this.responseText);
+
+        if(robot.polarity1 == 0){
+            document.getElementById("polarity1").innerHTML = "0";
+        }    
+        else{
+            document.getElementById("polarity1").innerHTML = "1";
+        }
+        if(robot.polarity2 == 0){
+            document.getElementById("polarity2").innerHTML = "0";
+        }    
+        else{
+            document.getElementById("polarity2").innerHTML = "1";
+        }
+        if(robot.polarity3 == 0){
+            document.getElementById("polarity3").innerHTML = "0";
+        }    
+        else{
+            document.getElementById("polarity3").innerHTML = "1";
+        }
+        if(robot.upsidedown == 0){
+            document.getElementById("upsidedown").innerHTML = "0";
+        }    
+        else{
+            document.getElementById("upsidedown").innerHTML = "1";
+        }
+
+    }
+};
+httpcRobot.open("GET", "fileloader.php?filename=data/robot.txt", true);
+httpcRobot.send();    
+
+
+
+function saverobot(){
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", "filesaver.php", true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(JSON.stringify(robot,null,"  "))+"&filename=data/robot.txt");//send text to filesaver.php
+}
+
+</script>
+<style>
+body{
+    overflow:hidden;
+}
+#mainbox{
+    position:absolute;
+    right:0px;
+    top:40px;
+    width:250px;
+    height:250px;
+    border:solid;
+    border-color:blue;
+    overflow:hidden;
+}
+#mainimage{
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:100%;
+    z-index:-2;
+}
+#hammerxy{
+    position:absolute;
+    left:0px;
+    right:0px;
+    top:0px;
+    bottom:0px;
+    z-index:2;
+}
+#spellbox{
+    position:absolute;
+    right:0px;
+    width:450px;
+    height:250px;
+    border:solid;
+    border-color:green;
+    overflow:scroll;
+}
+#spellcanvasbox{
+    position:absolute;
+    left:0px;
+    border-top:solid;
+    border:color:blue;
+    top:40px;
+}
+#imagefeedbox input{
+        font-size:12px;
+        font-family:courier;
+}
+#imagefeedbox{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    border:solid;
+    border-color:blue;   
+    font-size:12px;
+}
+#imagefeedheader{
+    position:absolute;
+    top:0px;
+    left:0px;
+    right:0px;
+    height:100px;
+}
+#imagefeed{
+    position:absolute;
+    top:100px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    overflow:scroll;
+}
+.uploadimage{
+    max-width:50%;
+}
+.deletebutton{
+    width:40px;
+}
+#zoomrotatebox{
+    position:absolute;
+    right:0px;
+    z-index:2;
+}
+#scalebar{
+    width:100%;
+    height:50%;
+    position:absolute;
+    left:0px;
+    top:0px;
+    right:0px;
+}
+#rotatebar{
+    width:100%;
+    height:50%;
+    position:absolute;
+    left:0px;
+    bottom:0px;
+    right:0px;
+    
+}
+#feed{
+    position:absolute;
+    left:0px;
+    bottom:40px;
+    width:50%;
+    top:40px;
+    overflow:scroll;
+}
+#controlbox{
+    position:absolute;
+    right:0px;
+    width:400px;
+    overflow:scroll;
+    height:130px;
+    bottom:51%;
+    border:solid;
+    border-color:red;
+}
+
+.button{
+    cursor:pointer;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
+}
+.feedelement{
+    margin-top:100px;
+    margin:auto;
+    border:solid;
+    overflow:hidden;
+}
+.feedcan{
+    position:absolute;
+    
+}
+.feedimage{
+    position:relative;
+    z-index:-1;
+}
+.data{
+    display:none;
+}
+#spellbox input{
+    font-size:12px;
+    font-family:courier;
+}
+#actioninput{
+    width:10px;
+}
+#spellinput{
+    width:400px;
+}
+#modeindicator{
+    width:25px;
+}
+#pngcanvasbox{
+    display:none;
+}
+#pngimage{
+    width:200px;
+}
+.tablebutton{
+    border:solid;
+    font-family:courier;
+    font-size:12px;
+    width:30px;
+    text-align:center;
+    border:solid;
+    border-color:blue;
+}
+#header{
+    font-size:12px;
+    height:40px;
+    background-color:#afffaf;
+    position:absolute;
+    left:0px;
+    right:0px;
+    top:0px;
+}
+#headerbutton{
+}
+#footer{
+    font-size:24px;
+    height:40px;
+    background-color:#afffaf;
+    position:absolute;
+    left:0px;
+    right:0px;
+    bottom:0px;
+}
+#header .button{
+
+}
+#imageio{
+    position:absolute;
+    bottom:0px;
+    right:0px;
+    width:100px;
+    height:16px;
+    display:none;
+}
+@media only screen and (orientation: portrait) {
+    #mainbox{
+        top:140px;
+    }
+    #footer span{
+        margin-left:25px;
+        margin-right:25px;
+    }
+    #header{
+        height:140px;
+    }
+    #footer{
+        height:140px;
+        padding-top:25px;
+    }
+    #feed{
+        top:140px;
+        bottom:140px;
+    }
+}
+
+</style>
+</body>
+</html>

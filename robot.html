@@ -27,8 +27,9 @@
 <div id = "mainbox">
     <canvas id = "maincanvas"></canvas>
 </div>
-<input id = "glyphinput"/>
+<table id = "controltable"></table>
 <a href = "coinstudio.html">coin studio</a>
+<a href = "coinfeed.html">coinfeed.html[does not exist]</a>
 <div id = "feed"></div>
 
 <script>
@@ -47,10 +48,11 @@ else{
     footerbuttonsize = 85;
     headerbuttonsize = 85;
 }
-feedwidth = 50;
+feedwidth = 100;
 
 feedlinkwidth  = feedwidth;
 
+mainsize = 0.5*innerWidth - 10;
 
 
 maincanvas = document.getElementById("maincanvas");
@@ -69,6 +71,7 @@ httpcHypercube.onreadystatechange = function(){
             if (this.readyState == 4 && this.status == 200) {
                 robotfeed = JSON.parse(this.responseText);
                 loadfeed();
+                loadcontrolbuttons();
             }
         };
         httpcFeed.open("GET", "fileloader.php?filename=data/robotfeed.txt", true);
@@ -110,7 +113,6 @@ function loadfeed(){
             coin = glyph;
             savecoin();
             saverobot();
-            document.getElementById("glyphinput").value = glyph;
         }
     }    
 }
@@ -120,6 +122,42 @@ function drawmain(){
 }
 
 
+controlbuttons = "0550,0551,0504,0505,0506,0507,";
+buttonsize = 0.125*mainsize;
+
+function loadcontrolbuttons(){
+    var newtr = document.createElement("TR");
+    document.getElementById("controltable").appendChild(newtr);
+    buttonArray = controlbuttons.split(",");
+    for(var index = 0;index< buttonArray.length;index++){
+        if(buttonArray[index].length> 0 ){
+            var localrobotaction = parseInt(buttonArray[index],8);
+            var newtd = document.createElement("TD");
+            newtr.appendChild(newtd);
+            var datadiv = document.createElement("DIV");
+            datadiv.className = "data";
+            datadiv.innerHTML = "0" + localrobotaction.toString(8);
+            newtd.appendChild(datadiv);
+            var newcan = document.createElement("CANVAS");
+            newtd.appendChild(newcan);
+            newcan.className = "button";
+            var newGVM = new GVM(newcan,buttonsize,buttonsize);
+            newGVM.hypercube = mainGVM.hypercube;
+            newGVM.x0 = 1;
+            newGVM.y0 = buttonsize - 1;
+            newGVM.unit = buttonsize - 2;
+            newGVM.drawGlyph("0300,");
+            newGVM.action(localrobotaction + 01000);
+            newtd.onclick = function(){
+                var localrobotaction = parseInt(this.getElementsByClassName("data")[0].innerHTML,8);
+                robot.glyph = "0" + localrobotaction.toString(8) + ",";
+                mainGVM.drawGlyph("0300,0331,0332,0337,");
+                mainGVM.action(localrobotaction + 01000);
+                saverobot();
+            }
+        }
+    }
+}
 
 
 //*********************************************************
@@ -136,14 +174,6 @@ httpcRobot.onreadystatechange = function() {
 httpcRobot.open("GET", "fileloader.php?filename=data/robot.txt", true);
 httpcRobot.send();    
 
-
-function savefeed(){
-    var httpc = new XMLHttpRequest();
-    httpc.open("POST", "filesaver.php", true);
-    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc.send("data="+encodeURIComponent(JSON.stringify(robotfeed,null,"  "))+"&filename=data/robotfeed.txt");//send text to filesaver.php
-
-}
 
 
 function saverobot(){
@@ -203,7 +233,11 @@ body{
     display:none;
 }
 
-
+#controltable{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+}
 </style>
 </body>
 </html>
