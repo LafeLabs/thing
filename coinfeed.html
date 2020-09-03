@@ -27,8 +27,15 @@
     <div style = "display:none"><canvas id = "maincanvas"></canvas></div>
     
 <div id = "header">
-<a href = "coinstudio.html">coin studio</a>
-<a href = "robot.html">robot.html</a>
+
+<a href = "coinstudio.html">
+    <img src = "iconsymbols/edit.svg" style = "width:40px"/>
+</a>
+<a href = "robot.html">
+    <img src = "iconsymbols/robot.svg" style = "width:40px"/>
+</a>
+
+
 <input id = "glyphinput"/>
 </div>
 <div id = "feed"></div>
@@ -150,8 +157,13 @@ function saverobotfeed(){
 }
 
 document.getElementById("importbutton").onclick = function(){
-
-    
+    if(document.getElementById("textio").value.length > 0){
+        inputfeed = JSON.parse(document.getElementById("textio").value);
+        for(var index = inputfeed.length - 1;index >= 0;index--){
+                robotfeed.unshift(inputfeed[index]);
+        }
+        loadfeed();
+    }    
 }
 
 document.getElementById("textio").value = "";
@@ -232,6 +244,10 @@ body{
     width:90%;
     font-family:courier;
     font-size:12px;
+}
+#exportbutton,#importbutton{
+    border:solid;
+    text-align:center;
 }
 </style>
 </body>

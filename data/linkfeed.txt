@@ -8,5 +8,10 @@
         "href": "linkfeededitor.html",
         "src": "",
         "text": "operator screen"
+    },
+    {
+        "href": "robot.html",
+        "src": "",
+        "text": "robot.html"
     }
 ]

@@ -27,10 +27,13 @@
 </head>
 <body>
 <div id = "header">
-    <table id = "buttontable">
-        <tr id = "buttontr">
-        </tr>
-    </table>
+    <img class = "button" src = "iconsymbols/save.svg" style = "width:40px" id = "savebutton"/>
+    <a href = "coinfeed.html">
+        <img src = "iconsymbols/feed.svg" style = "width:40px"/>      
+    </a>
+    <a href = "robot.html">
+        <img src = "iconsymbols/robot.svg" style = "width:40px"/>      
+    </a>
 </div>
 
 <div id = "mainbox">
@@ -132,7 +135,6 @@ function setscreen(){
     if(true){
 
         //geometron edit mode
-        document.getElementById("buttontable").style.display = "block";
         document.getElementById("mainbox").style.display = "block";
         document.getElementById("imagefeedbox").style.display = "block";
         document.getElementById("zoomrotatebox").style.display = "block";            
@@ -209,44 +211,10 @@ controls  = [
 document.getElementById("textio").value = "";
 
 
-function loadbuttontable(){
-    var newtr = document.getElementById("buttontr");
-    var newtd = document.createElement("span");
-    newtr.appendChild(newtd);
-    newtd.innerHTML = "";
-    newcan = document.createElement("CANVAS");
-    newtd.appendChild(newcan);
-    var newg = new GVM(newcan,headerbuttonsize,headerbuttonsize);
-    newg.hypercube= mainGVM.hypercube;
-    newg.drawGlyph("0240,");
-    newcan.classList.add("button");
-    newcan.onclick = function(){
-        //save 
-            //load robot feed, push current element onto feeed, then save it again
-        pushcoin();
-        
-    }
-
-    var newtd = document.createElement("TD");
-    newtr.appendChild(newtd);
-    
-    newcan = document.createElement("CANVAS");
-    newtd.appendChild(newcan);
-    var newg = new GVM(newcan,headerbuttonsize,headerbuttonsize);
-    newg.hypercube= mainGVM.hypercube;
-    newg.drawGlyph("0337,0337,0342,0330,0335,0335,0336,0350,0335,0342,0334,0334,0342,0335,0337,0330,0334,0334,0322,0201,0335,0335,0335,0336,0342,0335,0335,0342,0334,0337,0330,0334,0325,0201,0335,0335,0335,0336,0342,0335,0335,0342,0334,0337,0330,0334,0304,0320,0337,0331,0333,0337,");
-    newcan.classList.add("button");
-
-    newcan.onclick = function(){
-        //point browser to hypercube.html
-        window.location.href = "robot.html";
-    }        
-
-
-
-    topbuttons = document.getElementById("buttontr").getElementsByClassName("button");
-    
+document.getElementById("savebutton").onclick  = function(){
+    pushcoin();
 }
+
 
 controlbuttonsize = 80;
 function loadcontroltable(){
@@ -341,7 +309,6 @@ httpcHypercube.onreadystatechange = function(){
         mainGVM.importbytecode(hypercube);    
         mainGVM.importbytecode(robotkeys);
         loadcontroltable();
-        loadbuttontable();
         var httpcCoin = new XMLHttpRequest();
         httpcCoin.onreadystatechange = function(){
             if (this.readyState == 4 && this.status == 200) {
