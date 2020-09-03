@@ -221,6 +221,7 @@ function loadbuttontable(){
         //save 
             //load robot feed, push current element onto feeed, then save it again
         pushcoin();
+        
     }
 
     var newtd = document.createElement("TD");
@@ -473,11 +474,11 @@ if(innerWidth > innerHeight){
 }
 
 document.getElementById("spellinput").onchange = function(){
-    mainGVM.glyph = this.value + "0207,";
-    mainGVM.clean();
-
-    drawmain();
     
+    coin = this.value;
+    savecoin();
+    drawmain();
+        
 }
 
 //****************************************************************
@@ -634,11 +635,13 @@ function pushcoin(){
     httpcrobotfeed.onreadystatechange = function(){
         if (this.readyState == 4 && this.status == 200) {
             robotfeed = JSON.parse(this.responseText);
-            robotfeed.push(coin);
+            
+            mainGVM.clean();
+            robotfeed.push(mainGVM.cleanGlyph);
             var httpc = new XMLHttpRequest();
             httpc.open("POST", "filesaver.php", true);
             httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            httpc.send("data="+encodeURIComponent(JSON.stringify(feed,null,"  "))+"&filename=data/robotfeed.txt");//send text to filesaver.php
+            httpc.send("data="+encodeURIComponent(JSON.stringify(robotfeed,null,"  "))+"&filename=data/robotfeed.txt");//send text to filesaver.php
 
         }
         

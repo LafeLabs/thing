@@ -27,6 +27,8 @@
 <div id = "mainbox">
     <canvas id = "maincanvas"></canvas>
 </div>
+<input id = "glyphinput"/>
+<a href = "coinstudio.html">coin studio</a>
 <div id = "feed"></div>
 
 <script>
@@ -78,7 +80,6 @@ httpcHypercube.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
 httpcHypercube.send();
 
 
-
 function loadfeed(){
     gvmArray = [];
     document.getElementById("feed").innerHTML = "";
@@ -105,8 +106,11 @@ function loadfeed(){
             glyph = this.getElementsByClassName("data")[0].innerHTML;
             mainGVM.glyph = glyph;
             mainGVM.drawGlyph(mainGVM.glyph);
-           // robot.glyph = glyph;
-//            saverobot();
+            robot.glyph = glyph;
+            coin = glyph;
+            savecoin();
+            saverobot();
+            document.getElementById("glyphinput").value = glyph;
         }
     }    
 }
@@ -147,6 +151,14 @@ function saverobot(){
     httpc.open("POST", "filesaver.php", true);
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc.send("data="+encodeURIComponent(JSON.stringify(robot,null,"  "))+"&filename=data/robot.txt");//send text to filesaver.php
+}
+
+coin = "";
+function savecoin(){
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", "filesaver.php", true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(coin)+"&filename=data/coin.txt");//send text to filesaver.php
 }
 
 </script>
