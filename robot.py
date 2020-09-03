@@ -53,7 +53,7 @@ controlpin12 = 17
 
 stopPin = 4
 
-stepTime = 0.001
+stepTime = 0.0006
 
 
 if robotExists:
