@@ -61,20 +61,6 @@ function Map(w,h,div) {
                     newa.href = this.array[index].href;
                 }
             }
-            if(JSON.stringify(this.array[index].geometron) != "{}" && this.array[index].geometron != undefined){
-                var newcan = document.createElement("CANVAS");
-                newa.appendChild(newcan);
-                newcan.style.position = "absolute";
-                newcan.style.left = "0px";
-                newcan.style.top = "0px";
-                newcan.class = "geometroncanvas";
-                //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
-                var newg = new GVM(this.array[index].geometron.x0rel*this.array[index].w*this.w,this.array[index].geometron.y0rel*this.array[index].w*this.w,this.array[index].geometron.unitrel*this.array[index].w*this.w,this.array[index].geometron.theta0,newcan,this.array[index].w*this.w,this.array[index].w*this.array[index].geometron.height*this.w/this.array[index].geometron.width,hypercube);
-                newg.importbytecode(this.array[index].geometron.shapes);
-                newg.drawGlyph(this.array[index].geometron.glyph);
-                newa.style.height = (this.array[index].w*this.array[index].geometron.height*this.w/this.array[index].geometron.width).toString() + "px";
-            }
-
             this.linkArray.push(newa);
         }
     }
@@ -101,7 +87,7 @@ function Map(w,h,div) {
         
         if(this.array.length > 0 ){
             this.linkArray[this.linkindex].style.border = "none";
-            var newLink  = new MapLink(this.array[this.linkindex].x + this.array[linkindex].w*0.05,this.array[this.linkindex].y + this.array[this.linkindex].w*0.05,this.array[this.linkindex].w,this.array[this.linkindex].h,this.array[this.linkindex].angle,this.array[this.linkindex].text,this.array[this.linkindex].href,this.array[this.linkindex].src,this.array[this.linkindex].maplinkmode,this.array[this.linkindex].geometron);
+            var newLink  = new MapLink(this.array[this.linkindex].x + this.array[linkindex].w*0.05,this.array[this.linkindex].y + this.array[this.linkindex].w*0.05,this.array[this.linkindex].w,this.array[this.linkindex].h,this.array[this.linkindex].angle,this.array[this.linkindex].text,this.array[this.linkindex].href,this.array[this.linkindex].src,this.array[this.linkindex].maplinkmode);
         }
         else{
             var newLink  = new MapLink(0.1,0.1,0.1,0.1,0,"text","","",false,{});
@@ -197,7 +183,7 @@ function Map(w,h,div) {
 }
 
 
-function MapLink(x,y,w,h,angle,text,href,src,maplinkmode,geometron) {
+function MapLink(x,y,w,h,angle,text,href,src,maplinkmode) {
  
     this.x = x;
     this.y = y;
@@ -208,7 +194,6 @@ function MapLink(x,y,w,h,angle,text,href,src,maplinkmode,geometron) {
     this.href = href;//either an href property of an anchor element or the url of a json file with another map in it with which to load
     this.src = src;
     this.maplinkmode = maplinkmode;
-    this.geometron = geometron;
 
 }
 

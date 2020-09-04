@@ -19,7 +19,8 @@
     <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD+fwAA/T8AAP0/AAD9PwAA+x8AAPMPAACDcQAAAH4AAH6AAACMwQAA8M8AAPjfAAD8vwAA/L8AAPy/AAD+fwAA" rel="icon" type="image/x-icon" />
     <!--Stop Google:-->
     <META NAME="robots" CONTENT="noindex,nofollow">
-    <script src="jscode/geometron.js"></script>
+    <script src="jscode/mapfactory.js"></script>
+
 <!--
     <script src="jscode/font.js"></script>
     <script src="jscode/keyboard.js"></script>
@@ -62,8 +63,7 @@
         <img id = "newbutton" src = "iconsymbols/add.svg" class = "button" />
         <img id = "deleteimagebutton" src = "iconsymbols/deleteimage.svg" class = "button" />
         <img id = "deletelinkbutton" src = "iconsymbols/deletelink.svg" class = "button" />
-        <img id = "deletegeometronbutton" src = "iconsymbols/deletegeometron.svg" class = "button" />
-        
+
         <img id = "textbutton" src = "iconsymbols/text.svg" class = "button" />
         <img id = "imagebutton" src = "iconsymbols/image.svg" class = "button" />                
         <img id = "linkbutton" src = "iconsymbols/link.svg" class = "button" />              
@@ -116,12 +116,6 @@
     <div id = "feedscroll">
         <a href = "textfeed.html">
             <img class = "button" src = "iconsymbols/feed.svg"/>
-        </a>
-        <a href = "canvas2png.html">
-            <img src = "iconsymbols/pngcode.svg"/>
-        </a>
-        <a href = "token.html">
-            <img src = "iconsymbols/token.svg"/>
         </a>
 
         <form id = "uploadform" style = "margin-top:10px" action="upload.php" method="post" enctype="multipart/form-data">
@@ -323,8 +317,7 @@ document.getElementById("resetbutton").onclick  = function(){
         "text": "Map",
         "href": "",
         "src": "",
-        "maplinkmode":false,
-        "geometron":{}
+        "maplinkmode":false
     }
     ];
     mainmap.draw();
@@ -546,66 +539,6 @@ var httpc = new XMLHttpRequest();
 
 httpc.open("GET", "dir.php?filename=uploadimages", true);
 httpc.send();
-/*
-
-symbolhere = [];
-var httpc5 = new XMLHttpRequest();
-httpc5.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        symbolhere = JSON.parse(this.responseText);
-        for(var index = symbolhere.length - 1;index >= 0;index--) {
-
-            var newimg = document.createElement("IMG");
-            newimg.src = "symbolfeed/" + symbolhere[index];
-            newimg.classList.add("uploadimage");
-            newimg.classList.add("button");
-
-            document.getElementById("feedscroll").appendChild(newimg);
-            newimg.onclick = function() {
-                var localurl = "symbolfeed/" + this.src.split("symbolfeed/")[1];
-                mainmap.array[mainmap.linkindex].src = localurl;
-                mainmap.draw();
-                    document.getElementById("imginput").value = mainmap.array[mainmap.linkindex].src;
-    
-            }
-            
-        }
-    }
-};
-
-httpc5.open("GET", "dir.php?filename=symbolfeed", true);
-httpc5.send();
-
-
-
-icons = [];
-var httpc6 = new XMLHttpRequest();
-httpc6.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        icons = JSON.parse(this.responseText);
-        for(var index = 0;index < icons.length;index++) {
-
-            var newimg = document.createElement("IMG");
-            newimg.src = "iconsymbols/" + icons[index];
-            newimg.classList.add("uploadimage");
-            newimg.classList.add("button");
-
-            document.getElementById("feedscroll").appendChild(newimg);
-            newimg.onclick = function() {
-                var localurl = "iconsymbols/" + this.src.split("iconsymbols/")[1];
-                mainmap.array[mainmap.linkindex].src = localurl;
-                mainmap.draw();
-                    document.getElementById("imginput").value = mainmap.array[mainmap.linkindex].src;
-    
-            }
-            
-        }
-    }
-};
-
-httpc6.open("GET", "dir.php?filename=iconsymbols", true);
-httpc6.send();
-*/
 
 textfeed = {};
 var httpc10 = new XMLHttpRequest();
@@ -637,45 +570,6 @@ httpc10.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
 httpc10.send();
 
 
-geometronfeed = [];
-var httpc99 = new XMLHttpRequest();
-    httpc99.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        geometronfeed = JSON.parse(this.responseText);
-        for(var index = geometronfeed.length - 1;index >= 0;index--) {
-            var newdiv = document.createElement("DIV");
-            newdiv.className = "gbox";
-            newdiv.classList.add("button");
-            var newdatadiv = document.createElement("DIV");
-            newdatadiv.className = "datadiv";
-            newdatadiv.innerHTML = JSON.stringify(geometronfeed[index]);
-            newdiv.appendChild(newdatadiv);
-            var newcan = document.createElement("CANVAS");
-            newdiv.appendChild(newcan);
-
-            newcan.class = "geometroncanvas";
-                //GVM(x0,y0,unit,theta0,canvas2d,width,height,bytecode)
-                
-            var newg = new GVM(100,100,20,geometronfeed[index].theta0,newcan,200,200,hypercube);
-            newg.importbytecode(geometronfeed[index].shapes);
-            currentstyle = geometronfeed[index].style;
-            newg.style = currentstyle;
-            newg.drawGlyph("0300,0321," + geometronfeed[index].glyph);
-
-                    
-        //use geometron to put the geometron in here
-            document.getElementById("feedscroll").appendChild(newdiv);
-            newdiv.onclick = function() {
-                mainmap.array[mainmap.linkindex].geometron = JSON.parse(this.getElementsByClassName("datadiv")[0].innerHTML);
-                mainmap.draw();
-            }
-            
-        }
-
-    }
-};
-httpc99.open("GET", "fileloader.php?filename=data/geometronfeed.txt", true);
-httpc99.send();
 
 function loadtextfeed(){
     text = textfeed.text;
@@ -740,11 +634,6 @@ document.getElementById("deletelinkbutton").onclick = function(){
     document.getElementById("linkbox").innerHTML = mainmap.linkArray[mainmap.linkindex].href;
 }
 
-document.getElementById("deletegeometronbutton").onclick = function(){
-    mainmap.array[mainmap.linkindex].geometron = {};
-    mainmap.draw();
-
-}
 
 document.getElementById("textinput").onchange = function(){
     mainmap.array[mainmap.linkindex].text = this.value;
@@ -1108,9 +997,6 @@ input,table,select{
     margin:auto;
 }
 .box{
-}
-.geometroncanvas{
-    border:solid;
 }
 </style>
 </body>
