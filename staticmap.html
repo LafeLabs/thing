@@ -5,7 +5,16 @@
 <script src="jscode/mapfactory.js"></script>
 </head>
 <body>    
-<div id = "mainmap"></div>
+<!--
+prototype of static map
+-->
+<div id = "mainmap">
+    <a id = "a0" href = "mapuser.html">
+        <img src = "https://i.imgur.com/aVv6NP8.jpg"/>
+    </a>
+    <a id = "a1">text</a>
+    <a id = "a2" href = "index.html">text link</a>
+</div>
 <script>
 mapjson = [
     {
@@ -54,8 +63,13 @@ mainmap.array = mapjson;
 mainmap.draw();
 </script>
 <style>
-#mainmap{position:absolute;left:0px;top:0px;overflow:hidden;}
-a{font-family:Helvetica;}
+a{font-family:Helvetica;position:absolute;}
+#mainmap{position:absolute;left:0px;top:0px;width:100%;}
+#a0{
+    left:50%;
+    top:2%;
+    width:50%;
+}
 </style>
 </body>
 </html>
