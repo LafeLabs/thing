@@ -56,6 +56,7 @@
         <td class = "button" id = "importbutton">IMPORT</td>
         <td class = "button" id = "resetbutton">CLEAR</td>
         <td class = "button" id = "exportbutton">EXPORT</td>
+        <td class = "button" id = "pagebutton">PAGE</td>
     </tr>
     </table>
     <textarea id = "textio"></textarea>
@@ -262,6 +263,26 @@ var httpcimagefeed = new XMLHttpRequest();
 };
 httpcimagefeed.open("GET", "fileloader.php?filename=data/imagefeed.txt", true);
 httpcimagefeed.send();
+
+
+
+document.getElementById("pagebutton").onclick = function(){
+    
+    document.getElementById("textio").value = staticheader + "\n<script>\nfeed = " + JSON.stringify(feed,null,"    ") + ";\n<\/script>" + staticfooter;
+    
+}
+
+var httpcstatic = new XMLHttpRequest();
+httpcstatic.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        foo = this.responseText;
+        staticheader = foo.split("<!--<jsondata>-->")[0];
+        staticfooter = foo.split("<!--</jsondata>-->")[1];
+    }
+};
+httpcstatic.open("GET", "fileloader.php?filename=staticlinkfeed.html", true);
+httpcstatic.send();
+
 
 </script>
 <style>

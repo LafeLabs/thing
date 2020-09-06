@@ -46,21 +46,6 @@
 <script>
 
 
-if(innerWidth > innerHeight){
-    document.getElementById("header").style.width = (0.5*innerWidth-50).toString() + "px";
-    document.getElementById("feed").style.width = (0.5*innerWidth-50).toString() + "px";
-
-    document.getElementById("feed").style.height = (innerHeight).toString() + "px";
- 
-
-}
-else{
-
-    document.getElementById("header").style.width = innerWidth.toString() + "px";
-    document.getElementById("feed").style.width = innerWidth.toString() + "px";
-    document.getElementById("feed").style.height = (0.7*innerHeight - 150).toString() + "px";
-    
-}
 
 feed = [];
 
@@ -122,28 +107,16 @@ function loadfeed(){
 }
 
 
-
 </script>
 <style>
 body{
     background-color:white;
     overflow:hidden;
 }
-#wall{
-    font-size:1.5em;
-    position:absolute;
-    overflow:scroll;
-    right:0px;
-    bottom:0px;
-    top:0px;
-    padding:1em 1em 1em 1em;
-}
-#wall img{
-    max-width:90%;
-}
 #header{
     position:absolute;
     left:0px;
+    right:0px;
     top:0px;
     height:80px;
     background-color:black;
@@ -164,7 +137,7 @@ body{
 #feed{
     position:absolute;
     left:0px;
-    width:48%;
+    right:0px;
     top:100px;
     bottom:0px;
     overflow:scroll;

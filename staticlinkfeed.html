@@ -2,49 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <!--
-
-        EVERYTHING IS PHYSICAL 
-        EVERYTHING IS FRACTAL
-        EVERYTHING IS RECURSIVE
-        NO MONEY 
-        MO MINING 
-        NO PROPERTY
-        LOOK AT THE INSECTS
-        LOOK AT THE FUNGI
-        LANGUAGE IS HOW THE MIND PARSES REALITY
-
-    -->
-    
-    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/wAAAAD//wAA/wAAAAD/AP8A/wAApv8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFUAAARGAAIxFVUABEYAAjMRFQAARGYiIjMRAABERmZiIzEAAARERGZiMwAAAARERGYiAAAAAABERiL4PwAA+78AAPu/AAD33wAA9V8AAPVfAAD1XwAA998AAOADAADhAAAA4AAAAPAAAADwAAAA+AAAAP4AAAD/wAAA" rel="icon" type="image/x-icon" />
-    
-    <!--Stop Google:-->
-    <META NAME="robots" CONTENT="noindex,nofollow">
-
-
-<!--un-comment to add math: -->
-<!--
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script>
-            MathJax.Hub.Config({
-                tex2jax: {
-                inlineMath: [['$','$'], ['\\(','\\)']],
-                processEscapes: true,
-                processClass: "mathjax",
-                ignoreClass: "no-mathjax"
-                }
-            });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
-        </script>
-
--->
-
 </head>
 <body>    
 <div id = "header"><input id = "feedurlinput"/></div>
 <div id = "feed"></div>
 
 <!--<jsondata>--><script>
-feed = [];    
+feed = [
+    {
+        "href": "editor.php",
+        "src": "",
+        "text": "editor.php"
+    },
+    {
+        "href": "linkfeededitor.html",
+        "src": "",
+        "text": "operator screen"
+    },
+    {
+        "href": "robot.html",
+        "src": "",
+        "text": "robot.html"
+    },
+    {
+        "href": "",
+        "src": "https://acdn.list25.com/wp-content/uploads/2012/05/tumblr_nfodzdlXuk1r6q4zxo1_1280.gif",
+        "text": ""
+    },
+    {
+        "href": "",
+        "src": "",
+        "text": "here is some random text with no link"
+    },
+    {
+        "href": "linkfeededitor.html",
+        "src": "",
+        "text": "operator screen"
+    }
+];    
 </script><!--</jsondata>-->
 <script>
 loadfeed();
@@ -82,7 +77,7 @@ body{
 #feed{
     position:absolute;
     left:0px;
-    width:right:0px;
+    right:0px;
     top:0px;
     bottom:0px;
     overflow:scroll;
