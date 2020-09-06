@@ -85,6 +85,7 @@
             <tr>
                 <td id = "importbutton" class = "button">IMPORT</td>
                 <td id = "resetbutton" class = "button">RESET</td>
+                <td id = "pagebutton" class ="button">CREATE PAGE</td>
             </tr>
         </table>
         <textarea id = "textio"></textarea>
@@ -298,7 +299,11 @@ document.getElementById("savebutton").onclick = function() {
         
 }
 
-
+document.getElementById("pagebutton").onclick = function(){
+    
+    document.getElementById("textio").value = staticheader + "\n<script>\nmapjson = " + JSON.stringify(mainmap.array,null,"    ") + ";\n<\/script>" + staticfooter;
+    
+}
 
 document.getElementById("importbutton").onclick  = function(){
     mainmap.array = JSON.parse(document.getElementById("textio").value);
@@ -767,7 +772,8 @@ var httpcstatic = new XMLHttpRequest();
 httpcstatic.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         foo = this.responseText;
-        foo.split("<!--<jsondata>-->")[0];
+        staticheader = foo.split("<!--<jsondata>-->")[0];
+        staticfooter = foo.split("<!--</jsondata>-->")[1];
     }
 };
 httpcstatic.open("GET", "fileloader.php?filename=staticmap.html", true);
