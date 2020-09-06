@@ -761,6 +761,18 @@ document.getElementById("hmodebutton").onclick = function(){
         this.style.backgroundColor = "white";
     }
 }
+
+
+var httpcstatic = new XMLHttpRequest();
+httpcstatic.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        foo = this.responseText;
+        foo.split("<!--<jsondata>-->")[0];
+    }
+};
+httpcstatic.open("GET", "fileloader.php?filename=staticmap.html", true);
+httpcstatic.send();
+
 </script>
 <style>
 #iotable .button{
