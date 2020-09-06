@@ -4,6 +4,9 @@
      <meta charset="utf-8"/>
 
     <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADf+wAA3/sAAAfgAACv9QAAoAUAAK/1AACv9QAAqBUAAK/1AACoFQAAr/UAAKAFAACv9QAAB+AAAN/7AADf+wAA" rel="icon" type="image/x-icon" />
+        
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>
+
             <!--Stop Google:-->
     <META NAME="robots" CONTENT="noindex,nofollow">
 
@@ -30,10 +33,9 @@
 
     <textarea id = "maintextarea"></textarea>
 
-
-
     <div id = "feedscroll">
-
+        <div id  = "saveindex" class = "button" style = "border:Solid;text-align:center">save index</div>
+        
         <a href = "scroll.html">
             <img src = "iconsymbols/scroll.svg"/>
         </a>
@@ -54,7 +56,7 @@
                 <td><input id = "newscrollinput"/></td>
             </tr>
         </table>
-
+<textarea id = "htmlout"></textarea>
     </div>
         
 <div id = "reloadbar">
@@ -73,6 +75,14 @@
 </div>
 
 <script>
+
+    //get readme.md, convert to html and display
+    var converter = new showdown.Converter();
+    // for more on options see here:
+    // https://github.com/showdownjs/showdown/wiki/Showdown-Options
+    converter.setOption('literalMidWordUnderscores', 'true');
+    converter.setOption('tables', 'true');
+
 
 currentfile = "scroll.md";
 
@@ -189,6 +199,20 @@ document.getElementById("newscrollinput").onchange = function(){
     };
     httpc.open("GET", "fileloader.php?filename=" + currentfile, true);
     httpc.send();
+}
+
+
+outputheader = "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\"/>\n<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css\"></head>\n<body>\n";
+
+outputfooter = "\n<style>\nbody{margin-left:3em;margin-right:3em;font-size:3em}\nimg{max-width:80%;display:block;margin:auto;}\nh1,h2,h3,h4{margin:auto;text-align:center;}\n</style>\n</body>\n</html>";
+
+
+document.getElementById("htmlout").value = "";
+
+document.getElementById("saveindex").onclick = function(){
+    scroll = document.getElementById("maintextarea").value;
+    rawhtml = converter.makeHtml(scroll);
+    document.getElementById("htmlout").value = outputheader + rawhtml + outputfooter;
 }
 
 </script>

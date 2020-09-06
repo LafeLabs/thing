@@ -25,5 +25,6 @@
   "https://i.imgur.com/cZn83wt.jpg",
   "https://i.imgur.com/gxrxAhY.jpg",
   "https://i.imgur.com/CG8dXNS.jpg",
-  "https://i.imgur.com/gDaRlXO.png"
+  "https://i.imgur.com/gDaRlXO.png",
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Tux.png/220px-Tux.png"
 ]
