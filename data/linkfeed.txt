@@ -13,5 +13,20 @@
         "href": "robot.html",
         "src": "",
         "text": "robot.html"
+    },
+    {
+        "href": "",
+        "src": "https://acdn.list25.com/wp-content/uploads/2012/05/tumblr_nfodzdlXuk1r6q4zxo1_1280.gif",
+        "text": ""
+    },
+    {
+        "href": "",
+        "src": "",
+        "text": "here is some random text with no link"
+    },
+    {
+        "href": "linkfeededitor.html",
+        "src": "",
+        "text": "operator screen"
     }
 ]
