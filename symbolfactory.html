@@ -93,13 +93,12 @@
 <script>
 
 controls  = [
-    "011,0550,0551,0220,0221,0222,0223,0201,",
+    "020,010,021,011,0201,",
     "0320,0321,0322,0323,0324,0325,0326,0327,",
-    "020,010,021,022,023,0334,0330,0335,",
     "0310,0311,0312,0313,0304,0305,0306,0350,",
-    "0500,0501,0502,0503,0404,0332,0341,0333,",
-    "0504,0505,0506,0507,0405,0336,0331,0337,",
-    "0401,0400,0403,0402,0217,0406,0407,0547,",
+    "0334,0330,0335,",
+    "0332,0341,0333,",
+    "0336,0331,0337,",
     "040,041,042,043,044,045,046,050,",
     "051,052,053,054,055,056,057,060,",
     "061,062,063,064,065,066,067,070,",
@@ -131,13 +130,20 @@ function savesymbolfile(){
     var url = "pngsave.php";        
     httpc.open("POST", url, true);
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc.send("data="+encodeURIComponent(mainGVM.pngcode(mainGVM).substring(22))+"&filename=symbolfeed/symbol" + timestamp +  ".png");//send text to filesaver.php
+    httpc.send("data="+encodeURIComponent(mainGVM.pngcode().substring(22))+"&filename=symbolfeed/symbol" + timestamp +  ".png");//send text to filesaver.php
 
     var httpc2 = new XMLHttpRequest();
     httpc2.open("POST","filesaver.php", true);
     httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc2.send("data="+encodeURIComponent(mainGVM.svgString) +"&filename=symbolfeed/symbol" + timestamp +  ".svg");//send text to filesaver.php
-
+    
+    textfeed.src.push(mainGVM.pngcode());
+    var url = "filesaver.php";        
+    var httpc3 = new XMLHttpRequest();
+    httpc3.open("POST", url, true);
+    httpc3.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc3.send("data="+encodeURIComponent(JSON.stringify(textfeed,null,"    "))+"&filename=data/textfeed.txt");//send text to filesaver.php
+    
 }
 
 controlbuttonsize = 40;
@@ -356,6 +362,17 @@ document.getElementById("hinput").onchange = function(){
         document.getElementById("actioninput").select();
     }    
 }
+
+
+textfeed = {};
+var httpc10 = new XMLHttpRequest();
+    httpc10.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        textfeed = JSON.parse(this.responseText);
+    }
+};
+httpc10.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
+httpc10.send();
 
 </script>
 <style>
