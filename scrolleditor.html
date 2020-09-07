@@ -212,8 +212,20 @@ document.getElementById("htmlout").value = "";
 document.getElementById("saveindex").onclick = function(){
     scroll = document.getElementById("maintextarea").value;
     rawhtml = converter.makeHtml(scroll);
-    document.getElementById("htmlout").value = outputheader + rawhtml + outputfooter;
+    document.getElementById("htmlout").value = staticheader + rawhtml + staticfooter;
 }
+
+
+var httpcstatic = new XMLHttpRequest();
+httpcstatic.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        foo = this.responseText;
+        staticheader = foo.split("<!--<scrolldata>-->")[0];
+        staticfooter = foo.split("<!--</scrolldata>-->")[1];
+    }
+};
+httpcstatic.open("GET", "fileloader.php?filename=staticscroll.html", true);
+httpcstatic.send();
 
 </script>
 <style>

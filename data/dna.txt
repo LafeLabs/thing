@@ -43,6 +43,7 @@
         "shapetableeditor.html",
         "staticlinkfeed.html",
         "staticmap.html",
+        "staticscroll.html",
         "styleeditor.html",
         "symbol.html",
         "symbolapp.html",
