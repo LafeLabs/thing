@@ -47,6 +47,7 @@
         "symbol.html",
         "symbolapp.html",
         "symbolcube.html",
+        "symbolfactory.html",
         "symbolfeed.html",
         "tablet.html",
         "textfeed.html",
