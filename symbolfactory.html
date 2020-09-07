@@ -14,7 +14,6 @@
         LOOK AT THE FUNGI
         LANGUAGE IS HOW THE MIND PARSES REALITY
 
-    
     -->
     
     <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/wAAAAD//wAA/wAAAAD/AP8A/wAApv8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFUAAARGAAIxFVUABEYAAjMRFQAARGYiIjMRAABERmZiIzEAAARERGZiMwAAAARERGYiAAAAAABERiL4PwAA+78AAPu/AAD33wAA9V8AAPVfAAD1XwAA998AAOADAADhAAAA4AAAAPAAAADwAAAA+AAAAP4AAAD/wAAA" rel="icon" type="image/x-icon" />
@@ -34,6 +33,17 @@
         </tr>
     </table>
 </div>
+
+<table id = "sizetable">
+    <tr>
+        <td>width[px]:</td>
+        <td><input id = "winput"/></td>
+    </tr>
+    <tr>
+        <td>height[px]:</td>
+        <td><input id = "hinput"/></td>
+    </tr>
+</table>
 
 <div id = "mainbox">
     <canvas id = "maincanvas"></canvas>
@@ -59,11 +69,9 @@
 </div>
 
 
-
 <div id = "controlbox">
     <table id = "controltable">
     </table>
-    <textarea id  = "textio"></textarea>
 </div>
 <div id = "pngcanvasbox">
     <canvas id = "pngcanvas"></canvas>
@@ -97,10 +105,7 @@ controls  = [
 ];
 
 
-document.getElementById("textio").value = "";
-
-
-headerbuttonsize  =50;
+headerbuttonsize = 50;
 function loadbuttontable(){
     var newtr = document.getElementById("buttontr");
 
@@ -403,24 +408,10 @@ body{
     border-color:blue;
     overflow:hidden;
 }
-#mainimage{
-    position:absolute;
-    left:0px;
-    top:0px;
-    width:100%;
-    z-index:-2;
-}
-#hammerxy{
-    position:absolute;
-    left:0px;
-    right:0px;
-    top:0px;
-    bottom:0px;
-    z-index:2;
-}
 #spellbox{
     position:absolute;
-    right:0px;
+    left:0px;
+    bottom:0px;
     width:450px;
     height:250px;
     border:solid;
@@ -434,76 +425,20 @@ body{
     border:color:blue;
     top:40px;
 }
-#imagefeedbox input{
-        font-size:12px;
-        font-family:courier;
-}
-#imagefeedbox{
-    position:absolute;
-    right:0px;
-    bottom:0px;
-    border:solid;
-    border-color:blue;   
-    font-size:12px;
-}
-#imagefeedheader{
-    position:absolute;
-    top:0px;
-    left:0px;
-    right:0px;
-    height:100px;
-}
-#imagefeed{
-    position:absolute;
-    top:100px;
-    left:0px;
-    right:0px;
-    bottom:0px;
-    overflow:scroll;
-}
 .uploadimage{
     max-width:50%;
 }
 .deletebutton{
     width:40px;
 }
-#zoomrotatebox{
-    position:absolute;
-    right:0px;
-    z-index:2;
-}
-#scalebar{
-    width:100%;
-    height:50%;
-    position:absolute;
-    left:0px;
-    top:0px;
-    right:0px;
-}
-#rotatebar{
-    width:100%;
-    height:50%;
-    position:absolute;
-    left:0px;
-    bottom:0px;
-    right:0px;
-    
-}
-#feed{
-    position:absolute;
-    left:0px;
-    bottom:40px;
-    width:50%;
-    top:40px;
-    overflow:scroll;
-}
+
 #controlbox{
     position:absolute;
-    right:0px;
+    left:0px;
     width:400px;
     overflow:scroll;
-    height:130px;
-    bottom:51%;
+    height:400px;
+    top:150px;
     border:solid;
     border-color:red;
 }
@@ -517,20 +452,7 @@ body{
 .button:active{
     background-color:yellow;
 }
-.feedelement{
-    margin-top:100px;
-    margin:auto;
-    border:solid;
-    overflow:hidden;
-}
-.feedcan{
-    position:absolute;
-    
-}
-.feedimage{
-    position:relative;
-    z-index:-1;
-}
+
 .data{
     display:none;
 }
@@ -612,6 +534,12 @@ body{
         top:140px;
         bottom:140px;
     }
+}
+
+#sizetable{
+    position:absolute;
+    left:0px;
+    top:100px;
 }
 
 </style>

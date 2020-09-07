@@ -28,5 +28,10 @@
         "href": "linkfeededitor.html",
         "src": "",
         "text": "operator screen"
+    },
+    {
+        "href": "symbolfactory.html",
+        "src": "",
+        "text": "symbol factory"
     }
 ]
