@@ -28,10 +28,23 @@
 </head>
 <body>
 <div id = "header">
-    <table id = "buttontable">
-        <tr id = "buttontr">
-        </tr>
-    </table>
+    <img id = "savebutton" class = "button" src = "iconsymbols/save.svg"/>
+    <a href = "index.html">
+        <img src = "iconsymbols/feed.svg"/> 
+    </a>        
+
+<!--
+    <a href = "keyboard.html">
+        <img src = "iconsymbols/keyboardicon.svg"/> 
+    </a>        
+    <a href = "hypercube.html">
+        <img src = "iconsymbols/hypercube.svg"/> 
+    </a>        
+    <a href = "font.html">
+        <img src = "iconsymbols/fonteditor.svg"/> 
+    </a>        
+    -->
+    
 </div>
 
 <table id = "sizetable">
@@ -104,84 +117,10 @@ controls  = [
     "0270,0271,0272,0273,0274,0275,"
 ];
 
-
-headerbuttonsize = 50;
-function loadbuttontable(){
-    var newtr = document.getElementById("buttontr");
-
-
-    var newtd = document.createElement("TD");
-    newtr.appendChild(newtd);
-    newcan = document.createElement("CANVAS");
-    newtd.appendChild(newcan);
-    var newg = new GVM(newcan,headerbuttonsize,headerbuttonsize);
-    newg.hypercube= mainGVM.hypercube;
-    newg.drawGlyph("0241,");
-    newcan.classList.add("button");
-    newcan.onclick = function(){
-        //save symbol file
-        savesymbolfile();
-    }        
-    
-    
-    var newtd = document.createElement("TD");
-    newtr.appendChild(newtd);
-    newcan = document.createElement("CANVAS");
-    newtd.appendChild(newcan);
-    var newg = new GVM(newcan,headerbuttonsize,headerbuttonsize);
-    newg.hypercube= mainGVM.hypercube;
-    newg.drawGlyph("0251,");
-    newcan.classList.add("button");
-
-    newcan.onclick = function(){
-        //point browser to hypercube.html
-        window.location.href = "hypercube.html";
-    }        
-
-    var newtd = document.createElement("TD");
-    newtr.appendChild(newtd);
-    newcan = document.createElement("CANVAS");
-    newtd.appendChild(newcan);
-    var newg = new GVM(newcan,headerbuttonsize,headerbuttonsize);
-    newg.hypercube= mainGVM.hypercube;
-    newg.drawGlyph("0253,");
-    newcan.classList.add("button");
-    newcan.onclick = function(){
-        //point browser to font.html
-        window.location.href = "font.html";
-    }        
-
-
-    var newtd = document.createElement("TD");
-    newtr.appendChild(newtd);
-    newcan = document.createElement("CANVAS");
-    newtd.appendChild(newcan);
-    var newg = new GVM(newcan,headerbuttonsize,headerbuttonsize);
-    newg.hypercube= mainGVM.hypercube;
-    newg.drawGlyph("0252,");
-    newcan.classList.add("button");
-    
-    newcan.onclick = function(){
-        //point browser to hypercube.html
-        window.location.href = "keyboard.html";
-    }        
-
-    var newtd = document.createElement("TD");
-    newtr.appendChild(newtd);
-    newcan = document.createElement("CANVAS");
-    newtd.appendChild(newcan);
-    var newg = new GVM(newcan,headerbuttonsize,headerbuttonsize);
-    newg.hypercube= mainGVM.hypercube;
-    newg.drawGlyph("0255,");
-    newcan.classList.add("button");
-    
-    newcan.onclick = function(){
-        //point browser to hypercube.html
-        window.location.href = "symbolfeed.html";
-    }        
-
-    
+document.getElementById("savebutton").onclick = function(){
+    savesymbolfile();
 }
+
 
 function savesymbolfile(){
     mainGVM.clean();
@@ -247,8 +186,6 @@ function loadcontroltable(){
                     mainGVM.clean();
                     spellGVM.spellGlyph(mainGVM.glyph);
                     document.getElementById("spellinput").value = mainGVM.cleanGlyph;
-                    robot.glyph = mainGVM.cleanGlyph;
-                    saverobot();
 
                 }
                 newcan.classList.add("button");
@@ -276,10 +213,11 @@ httpcHypercube.onreadystatechange = function(){
         hypercube = JSON.parse(this.responseText);
         spellGVM.importbytecode(hypercube);
         mainGVM.importbytecode(hypercube);    
+        mainGVM.importbytecode(laserfont);    
+
         mainGVM.glyph = "0207,";
         drawmain();
         loadcontroltable();
-        loadbuttontable();
     }
 };
 httpcHypercube.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
@@ -323,9 +261,6 @@ document.getElementById("actioninput").onkeypress = function(a) {
         this.value = "";
         mainGVM.clean();
         document.getElementById("spellinput").value = mainGVM.cleanGlyph;
-        feed[feedindex].glyph = mainGVM.cleanGlyph;
-        robot.glyph = mainGVM.cleanGlyph;
-        saverobot();
 
     }
 
@@ -351,16 +286,22 @@ document.getElementById("actioninput").onkeydown = function(a) {
 
     if(charCode == 046){
         //up arrow: prev symbol
-
+        mainGVM.clean();
+        mainGVM.glyph = "0207," + mainGVM.cleanGlyph;
+        mainGVM.drawGlyph(mainGVM.glyph);
     }
     if(charCode == 050){
         //down arrow: next symbol
+        mainGVM.clean();
+        mainGVM.glyph = mainGVM.cleanGlyph + "0207,";
+        mainGVM.drawGlyph(mainGVM.glyph);
+
     }
+
 
     spellGVM.spellGlyph(mainGVM.glyph);
     document.getElementById("spellinput").value = mainGVM.cleanGlyph;
     mainGVM.clean();
-    feed[feedindex].glyph = mainGVM.cleanGlyph;
 
 }
 
@@ -386,12 +327,35 @@ if(innerWidth > innerHeight){
 document.getElementById("spellinput").onchange = function(){
     mainGVM.glyph = this.value + "0207,";
     mainGVM.clean();
-    feed[feedindex].glyph = mainGVM.cleanGlyph;
 
     drawmain();
     
 }
 
+document.getElementById("winput").value = "";
+document.getElementById("winput").onchange = function(){
+    width = parseInt(this.value);
+    mainGVM.width = width;
+    document.getElementById("maincanvas").width = width;
+    document.getElementById("mainbox").style.width = width.toString() + "px";    
+    mainGVM.x0 = 0.5*width;
+    drawmain();
+    if(innerWidth>innerHeight){
+        document.getElementById("actioninput").select();
+    }
+}
+document.getElementById("hinput").value = "";
+document.getElementById("hinput").onchange = function(){
+    height = parseInt(this.value);
+    mainGVM.height = height;
+    document.getElementById("maincanvas").height = height;
+    document.getElementById("mainbox").style.height = height.toString() + "px";
+    mainGVM.y0 = 0.5*height;
+    drawmain();
+    if(innerWidth>innerHeight){
+        document.getElementById("actioninput").select();
+    }    
+}
 
 </script>
 <style>
@@ -452,7 +416,6 @@ body{
 .button:active{
     background-color:yellow;
 }
-
 .data{
     display:none;
 }
@@ -475,15 +438,7 @@ body{
 #pngimage{
     width:200px;
 }
-.tablebutton{
-    border:solid;
-    font-family:courier;
-    font-size:12px;
-    width:30px;
-    text-align:center;
-    border:solid;
-    border-color:blue;
-}
+
 #header{
     font-size:12px;
     height:40px;
@@ -493,47 +448,8 @@ body{
     right:0px;
     top:0px;
 }
-#headerbutton{
-}
-#footer{
-    font-size:24px;
-    height:40px;
-    background-color:#afffaf;
-    position:absolute;
-    left:0px;
-    right:0px;
-    bottom:0px;
-}
-#header .button{
 
-}
-#imageio{
-    position:absolute;
-    bottom:0px;
-    right:0px;
-    width:100px;
-    height:16px;
-    display:none;
-}
 @media only screen and (orientation: portrait) {
-    #mainbox{
-        top:140px;
-    }
-    #footer span{
-        margin-left:25px;
-        margin-right:25px;
-    }
-    #header{
-        height:140px;
-    }
-    #footer{
-        height:140px;
-        padding-top:25px;
-    }
-    #feed{
-        top:140px;
-        bottom:140px;
-    }
 }
 
 #sizetable{
@@ -541,7 +457,9 @@ body{
     left:0px;
     top:100px;
 }
-
+#header img{
+    width:40px;
+}
 </style>
 </body>
 </html>
