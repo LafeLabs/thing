@@ -1,7 +1,7 @@
 {
-  "polarity1": 1,
+  "polarity1": 0,
   "polarity2": 0,
-  "polarity3": 1,
-  "upsidedown": 1,
+  "polarity3": 0,
+  "upsidedown": 0,
   "glyph": "0551,"
 }
