@@ -207,6 +207,7 @@ function loadcontroltable(){
                     mainGVM.clean();
                     spellGVM.spellGlyph(mainGVM.glyph);
                     document.getElementById("spellinput").value = mainGVM.cleanGlyph;
+                    savejson();
 
                 }
                 newcan.classList.add("button");
@@ -235,10 +236,29 @@ httpcHypercube.onreadystatechange = function(){
         spellGVM.importbytecode(hypercube);
         mainGVM.importbytecode(hypercube);    
         mainGVM.importbytecode(laserfont);    
-
-        mainGVM.glyph = "0207,";
-        drawmain();
         loadcontroltable();
+        currentjson = {};
+        var httpcjson = new XMLHttpRequest();
+            httpcjson.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                currentjson = JSON.parse(this.responseText);
+                mainGVM.glyph = currentjson.glyph + "0207,";
+                mainGVM.x0 = currentjson.x0;
+                mainGVM.y0 = currentjson.y0;
+                mainGVM.unit = currentjson.unit;
+                mainGVM.width = currentjson.width;
+                mainGVM.height = currentjson.height;
+                mainGVM.style = currentjson.style;
+                document.getElementById("maincanvas").width = currentjson.width;
+                document.getElementById("mainbox").style.width = currentjson.width.toString() + "px";         
+                document.getElementById("maincanvas").height = currentjson.height;
+                document.getElementById("mainbox").style.height = currentjson.height.toString() + "px";        
+                drawmain();
+                
+            }
+        };
+        httpcjson.open("GET", "fileloader.php?filename=data/currentjson.txt", true);
+        httpcjson.send();
     }
 };
 httpcHypercube.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
@@ -323,7 +343,7 @@ document.getElementById("actioninput").onkeydown = function(a) {
     spellGVM.spellGlyph(mainGVM.glyph);
     document.getElementById("spellinput").value = mainGVM.cleanGlyph;
     mainGVM.clean();
-
+    savejson();
 }
 
 function modeswitch(){
@@ -365,6 +385,7 @@ document.getElementById("winput").onchange = function(){
         document.getElementById("actioninput").select();
     }
 }
+
 document.getElementById("hinput").value = "";
 document.getElementById("hinput").onchange = function(){
     height = parseInt(this.value);
@@ -388,6 +409,24 @@ var httpc10 = new XMLHttpRequest();
 };
 httpc10.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
 httpc10.send();
+
+
+function savejson(){
+   // mainGVM.clean();
+    currentjson.glyph = mainGVM.cleanGlyph;
+    currentjson.x0 = mainGVM.x0;
+    currentjson.y0 = mainGVM.y0;
+    currentjson.unit = mainGVM.unit;
+    currentjson.width = mainGVM.width;
+    currentjson.height = mainGVM.height;
+    currentjson.style = mainGVM.style;
+    
+    var url = "filesaver.php";        
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(JSON.stringify(currentjson,null,"    "))+"&filename=data/currentjson.txt");//send text to filesaver.php
+}
 
 </script>
 <style>
@@ -485,7 +524,7 @@ body{
 #sizetable{
     position:absolute;
     left:0px;
-    top:100px;
+    top:50px;
 }
 #header img{
     width:40px;
