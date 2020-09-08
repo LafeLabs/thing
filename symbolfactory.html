@@ -58,7 +58,9 @@
 
 
 <div id = "mainbox">
-    <canvas id = "maincanvas"></canvas>
+    <div id = "geometronbox">
+        <canvas id = "maincanvas"></canvas>
+    </div>
 </div>
 
 <div id = "spellbox">
@@ -79,15 +81,9 @@
         <canvas id = "spellcanvas"></canvas>
     </div>
 </div>
-
-
 <div id = "controlbox">
     <table id = "controltable">
     </table>
-</div>
-<div id = "pngcanvasbox">
-    <canvas id = "pngcanvas"></canvas>
-    <img id = "pngimage">
 </div>
 <script>
 
@@ -246,9 +242,9 @@ httpcHypercube.onreadystatechange = function(){
                 mainGVM.height = currentjson.height;
                 mainGVM.style = currentjson.style;
                 document.getElementById("maincanvas").width = currentjson.width;
-                document.getElementById("mainbox").style.width = currentjson.width.toString() + "px";         
+                document.getElementById("geometronbox").style.width = currentjson.width.toString() + "px";         
                 document.getElementById("maincanvas").height = currentjson.height;
-                document.getElementById("mainbox").style.height = currentjson.height.toString() + "px";        
+                document.getElementById("geometronbox").style.height = currentjson.height.toString() + "px";        
                 drawmain();
                 
             }
@@ -402,22 +398,49 @@ function savejson(){
 body{
     overflow:hidden;
 }
-#mainbox{
+#header{
+    height:40px;
+    position:absolute;
+    left:0px;
+    width:100%;
+    top:0px;
+}
+#header img{
+    width:36px;
+}
+#geometronbox{
     position:absolute;
     right:0px;
     top:0px;
-    width:250px;
-    height:250px;
     border:solid;
+}
+#mainbox{
+    position:absolute;
+    right:0px;
+    top:40px;
+    bottom:0px;
+    width:50%;
+    border-left:solid;
     border-color:blue;
-    overflow:hidden;
+    overflow:scroll;
+}
+#controlbox{
+    position:absolute;
+    top:40px;
+    left:0px;
+    width:50%;
+    overflow:scroll;
+    bottom:50%;
+    border-bottom:solid;
+    border-top:solid;
+    border-color:red;
 }
 #spellbox{
     position:absolute;
     left:0px;
     bottom:0px;
-    width:450px;
-    height:250px;
+    width:50%;
+    top:50%;
     border:solid;
     border-color:green;
     overflow:scroll;
@@ -429,24 +452,13 @@ body{
     border:color:blue;
     top:40px;
 }
+
 .uploadimage{
     max-width:50%;
 }
 .deletebutton{
     width:40px;
 }
-
-#controlbox{
-    position:absolute;
-    left:0px;
-    width:400px;
-    overflow:scroll;
-    height:400px;
-    top:150px;
-    border:solid;
-    border-color:red;
-}
-
 .button{
     cursor:pointer;
 }
@@ -467,31 +479,52 @@ body{
     width:10px;
 }
 #spellinput{
-    width:400px;
+    width:40em;
 }
 #modeindicator{
     width:25px;
 }
-#pngcanvasbox{
-    display:none;
-}
-#pngimage{
-    width:200px;
-}
-
-#header{
-    height:40px;
-    position:absolute;
-    left:0px;
-    width:300px;
-    top:0px;
-}
-
 @media only screen and (orientation: portrait) {
-}
-
-#header img{
-    width:40px;
+    #header{
+        height:80px;
+        position:absolute;
+        left:0px;
+        width:100%;
+        top:0px;
+    }
+    #header img{
+        width:70px;
+    }
+    #mainbox{
+        position:absolute;
+        right:0px;
+        top:80px;
+        bottom:50%;
+        width:100%;
+        border-bottom:solid;
+        border-color:blue;
+        overflow:scroll;
+    }
+    #controlbox{
+        position:absolute;
+        top:50%;
+        left:0px;
+        width:100%;
+        overflow:scroll;
+        bottom:25%;
+        border-bottom:solid;
+        border-color:red;
+    }
+    #spellbox{
+        position:absolute;
+        left:0px;
+        bottom:0px;
+        width:100%;
+        top:75%;
+        border:solid;
+        border-color:green;
+        overflow:scroll;
+    }
 }
 </style>
 </body>

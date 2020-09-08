@@ -1,10 +1,10 @@
 {
     "glyph": "",
-    "x0": 300,
-    "y0": 300,
-    "unit": 80,
-    "width": 600,
-    "height": 600,
+    "x0": 150,
+    "y0": 150,
+    "unit": 50,
+    "width": 300,
+    "height": 300,
     "style": {
         "color0": "black",
         "fill0": "black",
