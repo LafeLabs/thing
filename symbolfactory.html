@@ -38,6 +38,9 @@
     <a href = "styleeditor.html">
         <img src = "iconsymbols/style.svg"/> 
     </a>        
+    <a href = "setup.html">
+        <img src = "iconsymbols/setup.svg"/> 
+    </a>        
 
 <!--
     <a href = "keyboard.html">
@@ -53,16 +56,6 @@
     
 </div>
 
-<table id = "sizetable">
-    <tr>
-        <td>width[px]:</td>
-        <td><input id = "winput"/></td>
-    </tr>
-    <tr>
-        <td>height[px]:</td>
-        <td><input id = "hinput"/></td>
-    </tr>
-</table>
 
 <div id = "mainbox">
     <canvas id = "maincanvas"></canvas>
@@ -373,35 +366,8 @@ document.getElementById("spellinput").onchange = function(){
     mainGVM.clean();
 
     drawmain();
-    
+    savejson();
 }
-
-document.getElementById("winput").value = "";
-document.getElementById("winput").onchange = function(){
-    width = parseInt(this.value);
-    mainGVM.width = width;
-    document.getElementById("maincanvas").width = width;
-    document.getElementById("mainbox").style.width = width.toString() + "px";    
-    mainGVM.x0 = 0.5*width;
-    drawmain();
-    if(innerWidth>innerHeight){
-        document.getElementById("actioninput").select();
-    }
-}
-
-document.getElementById("hinput").value = "";
-document.getElementById("hinput").onchange = function(){
-    height = parseInt(this.value);
-    mainGVM.height = height;
-    document.getElementById("maincanvas").height = height;
-    document.getElementById("mainbox").style.height = height.toString() + "px";
-    mainGVM.y0 = 0.5*height;
-    drawmain();
-    if(innerWidth>innerHeight){
-        document.getElementById("actioninput").select();
-    }    
-}
-
 
 textfeed = {};
 var httpc10 = new XMLHttpRequest();
@@ -524,11 +490,6 @@ body{
 @media only screen and (orientation: portrait) {
 }
 
-#sizetable{
-    position:absolute;
-    left:0px;
-    top:50px;
-}
 #header img{
     width:40px;
 }
