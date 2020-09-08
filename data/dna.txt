@@ -7,6 +7,7 @@
         "coinfeed.html",
         "coinstudio.html",
         "console.html",
+        "controls.html",
         "duality.html",
         "feed.html",
         "feededitor.html",
@@ -161,6 +162,7 @@
     ],
     "data": [
         "coin.txt",
+        "controls.txt",
         "currentMap.txt",
         "currentjson.txt",
         "dna.txt",
