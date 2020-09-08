@@ -123,6 +123,7 @@ document.getElementById("savebutton").onclick = function(){
     savesymbolfile();
 }
 
+currentjson = {};
 
 function savesymbolfile(){
     mainGVM.clean();
@@ -134,6 +135,16 @@ function savesymbolfile(){
     httpc.open("POST", url, true);
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc.send("data="+encodeURIComponent(mainGVM.pngcode().substring(22))+"&filename=symbolfeed/symbol" + timestamp +  ".png");//send text to filesaver.php
+
+    currentjson.glyph = mainGVM.cleanGlyph;
+    currentjson.x0 = mainGVM.x0;
+    currentjson.y0 = mainGVM.y0;
+    currentjson.unit = mainGVM.unit;
+    currentjson.width = mainGVM.width;
+    currentjson.height = mainGVM.height;
+    currentjson.style = mainGVM.style;
+    
+    mainGVM.svgString = mainGVM.svgString.split("<json>")[0] + "<json>" + JSON.stringify(currentjson,null,"  ") + "</json>" + mainGVM.svgString.split("</json>")[1];
 
     var httpc2 = new XMLHttpRequest();
     httpc2.open("POST","filesaver.php", true);

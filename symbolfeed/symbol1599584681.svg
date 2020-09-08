@@ -1,0 +1,40 @@
+<svg width="400" height="400" viewbox = "0 0 400 400"  xmlns="http://www.w3.org/2000/svg">
+<!--<json>{
+  "glyph": "0337,0341,0336,0333,0341,0336,0333,0341,0336,0333,0341,0336,0333,0341,",
+  "x0": 200,
+  "y0": 200,
+  "unit": 80.88,
+  "width": 400,
+  "height": 400,
+  "style": {
+    "color0": "black",
+    "fill0": "black",
+    "line0": 1,
+    "color1": "black",
+    "fill1": "black",
+    "line1": 5,
+    "color2": "red",
+    "fill2": "red",
+    "line2": 1,
+    "color3": "#FF7900",
+    "fill3": "#FF7900",
+    "line3": 1,
+    "color4": "yellow",
+    "fill4": "yellow",
+    "line4": 1,
+    "color5": "green",
+    "fill5": "green",
+    "line5": 1,
+    "color6": "blue",
+    "fill6": "blue",
+    "line6": 1,
+    "color7": "purple",
+    "fill7": "purple",
+    "line7": 1
+  }
+}</json>--><circle cx="200" cy = "200" r = "161.76" stroke = "#000000" stroke-width = "1" fill = "none" />
+<circle cx="281" cy = "200" r = "80.88" stroke = "#000000" stroke-width = "1" fill = "none" />
+<circle cx="321" cy = "200" r = "40.44" stroke = "#000000" stroke-width = "1" fill = "none" />
+<circle cx="342" cy = "200" r = "20.22" stroke = "#000000" stroke-width = "1" fill = "none" />
+<circle cx="352" cy = "200" r = "10.11" stroke = "#000000" stroke-width = "1" fill = "none" />
+</svg>
