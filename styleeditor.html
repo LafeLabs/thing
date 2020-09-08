@@ -4,17 +4,13 @@
     <meta charset="utf-8">
     <!--Stop Google:-->
     <META NAME="robots" CONTENT="noindex,nofollow">
-            <script src="jscode/geometron.js"></script>
-            <script src="jscode/hypercube.js"></script>
-
+    <script src="jscode/geometron.js"></script>
     <title>Style Editor</title>
-    <a href = "symbol.html">
+</head>
+<body>    
+    <a href = "symbolfactory.html">
         <img src = "iconsymbols/geometron.svg"/>
     </a>
-        <a href = "map.html">
-            <img src = "../iconsymbols/map.svg"/>
-        </a>
-
     <table id = "styletable">
         <tr>
             <th>Layer</th>
@@ -107,6 +103,7 @@ httpc.onreadystatechange = function() {
         inputs[21].value = currentstyle.color7;
         inputs[22].value = currentstyle.fill7;
         inputs[23].value = currentstyle.line7;
+        redraw();
     }
 };
 httpc.open("GET", "fileloader.php?filename=data/currentjson.txt", true);
@@ -222,37 +219,24 @@ function savestyle(){
     redraw();
 }
 
+styleglyph = "0320,0341,0333,0333,0336,0333,0337,0347,0331,0332,0331,0332,0336,0332,0331,0337,0321,0341,0333,0333,0336,0333,0337,0347,0331,0332,0331,0332,0336,0332,0331,0337,0322,0341,0333,0333,0336,0333,0337,0347,0331,0332,0331,0332,0336,0332,0331,0337,0323,0341,0333,0333,0336,0333,0337,0347,0331,0332,0331,0332,0336,0332,0331,0337,0324,0341,0333,0333,0336,0333,0337,0347,0331,0332,0331,0332,0336,0332,0331,0337,0325,0341,0333,0333,0336,0333,0337,0347,0331,0332,0331,0332,0336,0332,0331,0337,0326,0341,0333,0333,0336,0333,0337,0347,0331,0332,0331,0332,0336,0332,0331,0337,0327,0341,0333,0333,0336,0333,0337,0347,0331,0332,0331,0332,0336,0332,0331,0337,";
 
-newcan = document.getElementById("outputcanvas");
-newg = new GVM(10,420,50,-Math.PI/2,newcan,80,440,hypercube);
+h = innerHeight - 100;
+newg = new GVM(document.getElementById("outputcanvas"),0.25*h,h);
+newg.x0 = h/16;
+newg.y0 = h/16;
+newg.unit = h/20;
 
-ctxlocal = newg.canvas2d.getContext("2d");
-ctxlocal.clearRect(0,0,newg.width,newg.height);
-ctxlocal.strokeStyle = newg.style.color0;
-ctxlocal.fillStyle = newg.style.fill0;
-ctxlocal.lineWidth = newg.style.line0;
-newg.actionSequence("0300,01327,0330,0332,01326,0330,0332,01325,0330,0332,01324,0330,0332,01323,0330,0332,01322,0330,0332,01321,0330,0332,01320,");
-
+newg.drawGlyph(styleglyph);
 
 function redraw(){
-
-    ctxlocal.clearRect(0,0,newg.width,newg.height);
-    ctxlocal.strokeStyle = currentstyle.color0;
-    ctxlocal.fillStyle = currentstyle.fill0;
-    ctxlocal.lineWidth = currentstyle.line0;
     newg.style = currentstyle;
-    newg.actionSequence("0300,01327,0330,0332,01326,0330,0332,01325,0330,0332,01324,0330,0332,01323,0330,0332,01322,0330,0332,01321,0330,0332,01320,");
+    newg.drawGlyph(styleglyph);
     
 }
 
 </script>
-</head>
-<body>    
 
-<script>
-
-
-</script>
 <style>
 #outputcanvas{
     position:absolute;

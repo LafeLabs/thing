@@ -1,0 +1,39 @@
+<svg width="600" height="600" viewbox = "0 0 600 600"  xmlns="http://www.w3.org/2000/svg">
+<!--<json>{
+  "glyph": "0327,0341,0330,0341,0333,0341,0331,0341,0332,",
+  "x0": 300,
+  "y0": 300,
+  "unit": 80,
+  "width": 600,
+  "height": 600,
+  "style": {
+    "color0": "black",
+    "fill0": "black",
+    "line0": 1,
+    "color1": "black",
+    "fill1": "black",
+    "line1": 5,
+    "color2": "red",
+    "fill2": "red",
+    "line2": 1,
+    "color3": "#FF7900",
+    "fill3": "#FF7900",
+    "line3": 1,
+    "color4": "yellow",
+    "fill4": "yellow",
+    "line4": 1,
+    "color5": "green",
+    "fill5": "green",
+    "line5": 1,
+    "color6": "blue",
+    "fill6": "blue",
+    "line6": 1,
+    "color7": "purple",
+    "fill7": "purple",
+    "line7": 1
+  }
+}</json>--><circle cx="300" cy = "300" r = "80" stroke = "#800080" stroke-width = "1" fill = "none" />
+<circle cx="300" cy = "220" r = "80" stroke = "#800080" stroke-width = "1" fill = "none" />
+<circle cx="380" cy = "220" r = "80" stroke = "#800080" stroke-width = "1" fill = "none" />
+<circle cx="380" cy = "300" r = "80" stroke = "#800080" stroke-width = "1" fill = "none" />
+</svg>

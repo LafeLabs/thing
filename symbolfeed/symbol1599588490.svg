@@ -1,4 +1,5 @@
-{
+<svg width="600" height="600" viewbox = "0 0 600 600"  xmlns="http://www.w3.org/2000/svg">
+<!--<json>{
   "glyph": "0327,0347,0330,0347,0333,0347,0331,0347,0332,0330,",
   "x0": 300,
   "y0": 300,
@@ -31,4 +32,8 @@
     "fill7": "pink",
     "line7": 8
   }
-}
+}</json>-->    <circle cx="300" cy = "300" r = "80" stroke = "#800080" stroke-width = "8" fill = "#ffc0cb" />
+    <circle cx="300" cy = "220" r = "80" stroke = "#800080" stroke-width = "8" fill = "#ffc0cb" />
+    <circle cx="380" cy = "220" r = "80" stroke = "#800080" stroke-width = "8" fill = "#ffc0cb" />
+    <circle cx="380" cy = "300" r = "80" stroke = "#800080" stroke-width = "8" fill = "#ffc0cb" />
+</svg>

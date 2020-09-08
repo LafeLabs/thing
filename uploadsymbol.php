@@ -25,7 +25,7 @@ else{
 
 ?>
 <p style = "font-size:5em">
-    <a href = "index.html">BACK</a>
+    <a href = "symbolfactory.html">BACK</a>
 </p>
 
 
