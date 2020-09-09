@@ -230,7 +230,17 @@ httpcHypercube.onreadystatechange = function(){
         spellGVM.importbytecode(hypercube);
         mainGVM.importbytecode(hypercube);    
         mainGVM.importbytecode(laserfont);    
-        loadcontroltable();
+//        loadcontroltable();
+        var httpccontrols = new XMLHttpRequest();
+        httpccontrols.onreadystatechange = function(){
+            if (this.readyState == 4 && this.status == 200) {
+                controls = JSON.parse(this.responseText);
+                loadcontroltable();
+            }
+        };
+        httpccontrols.open("GET", "fileloader.php?filename=data/controls.txt", true);
+        httpccontrols.send();        
+        
         currentjson = {};
         var httpcjson = new XMLHttpRequest();
             httpcjson.onreadystatechange = function() {

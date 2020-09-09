@@ -2,7 +2,7 @@
     "glyph": "",
     "x0": 300,
     "y0": 300,
-    "unit": 80,
+    "unit": 96.8,
     "width": 600,
     "height": 600,
     "style": {
