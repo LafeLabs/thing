@@ -94,8 +94,8 @@ function loadcontroltable(){
                 newGVM.action(parseInt(rowarray[rowindex],8)+01000);
                 buttons.push(newtd);
                 newtd.onclick = function(){
-                    row = this.getElementsByClassName("data")[0].innerHTML;
-                    column = this.getElementsByClassName("data")[1].innerHTML;            
+                    row = parseInt(this.getElementsByClassName("data")[0].innerHTML);
+                    column = parseInt(this.getElementsByClassName("data")[1].innerHTML);            
                     buttonindex = 8*row + column;
                     for(var index = 0;index < buttons.length;index++){
                         buttons[index].style.border = "none";
@@ -110,16 +110,16 @@ function loadcontroltable(){
 
 
 function loadhypercube(){
-    for(var row = 0;row < 040;row++){
+    for(var localrow = 0;localrow < 040;localrow++){
         var newtr = document.createElement("TR");
         document.getElementById("hypercubetable").appendChild(newtr);
-        for(var column = 0;column < 010;column++){
+        for(var localcolumn = 0;localcolumn < 010;localcolumn++){
             var newtd = document.createElement("TD");
             newtr.appendChild(newtd);
             var newcan = document.createElement("CANVAS");
             newtd.appendChild(newcan);
             var datadiv = document.createElement("div");
-            datadiv.innerHTML = "0" + (010*row + column).toString(8);
+            datadiv.innerHTML = "0" + (010*localrow + localcolumn).toString(8);
             datadiv.className = "data";
             newtd.appendChild(datadiv);
             var newGVM = new GVM(newcan,controlbuttonsize,controlbuttonsize);
@@ -128,15 +128,14 @@ function loadhypercube(){
             newGVM.y0 = controlbuttonsize-1;
             newGVM.importbytecode(hypercube);
             newGVM.action(0300);
-            newGVM.action(01000 + 010*row + column);    
+            newGVM.action(01000 + 010*localrow + localcolumn);    
             newtd.classList.add("button");
             newtd.onclick = function(){
                 var localaction = parseInt(this.getElementsByClassName("data")[0].innerHTML,8);
-                console.log(row);
-//            console.log(row.toString() + "," column.toString());
-//                replacecontrol(row,column,localaction);
+                replacecontrol(row,column,localaction);
                 gvmarray[buttonindex].drawGlyph("0300,");
                 gvmarray[buttonindex].action(01000 + localaction);
+                savecontrols();
             }
         }    
     }
