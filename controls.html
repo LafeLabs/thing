@@ -51,6 +51,12 @@
 
 <script>
 
+buttonindex = 0;
+buttons = [];
+
+row = 0;
+column = 0;
+gvmarray = [];
 
 controlbuttonsize = 40;
 function loadcontroltable(){
@@ -65,11 +71,18 @@ function loadcontroltable(){
                 newtr.appendChild(newtd);
                 var newcan = document.createElement("CANVAS");
                 newtd.appendChild(newcan);
+                
                 var datadiv = document.createElement("div");
-                datadiv.innerHTML = rowarray[rowindex];
+                datadiv.innerHTML = index.toString();
                 datadiv.className = "data";
                 newtd.appendChild(datadiv);
+                var datadiv2 = document.createElement("div");
+                datadiv2.innerHTML = rowindex.toString();
+                datadiv2.className = "data";
+                newtd.appendChild(datadiv2);
+                
                 var newGVM = new GVM(newcan,controlbuttonsize,controlbuttonsize);
+                gvmarray.push(newGVM);
                 newGVM.unit = controlbuttonsize - 2;
                 newGVM.x0 = 1;
                 newGVM.y0 = controlbuttonsize-1;
@@ -79,9 +92,15 @@ function loadcontroltable(){
                     newGVM.drawGlyph("0300,0336,0336,0330,0333,0337,");
                 }
                 newGVM.action(parseInt(rowarray[rowindex],8)+01000);
-
+                buttons.push(newtd);
                 newtd.onclick = function(){
-                    var localaction = parseInt(this.getElementsByClassName("data")[0].innerHTML,8);
+                    row = this.getElementsByClassName("data")[0].innerHTML;
+                    column = this.getElementsByClassName("data")[1].innerHTML;            
+                    buttonindex = 8*row + column;
+                    for(var index = 0;index < buttons.length;index++){
+                        buttons[index].style.border = "none";
+                    }
+                    this.style.border = "solid";
                 }
                 newcan.classList.add("button");
             }
@@ -110,8 +129,15 @@ function loadhypercube(){
             newGVM.importbytecode(hypercube);
             newGVM.action(0300);
             newGVM.action(01000 + 010*row + column);    
-            
-            
+            newtd.classList.add("button");
+            newtd.onclick = function(){
+                var localaction = parseInt(this.getElementsByClassName("data")[0].innerHTML,8);
+                console.log(row);
+//            console.log(row.toString() + "," column.toString());
+//                replacecontrol(row,column,localaction);
+                gvmarray[buttonindex].drawGlyph("0300,");
+                gvmarray[buttonindex].action(01000 + localaction);
+            }
         }    
     }
 }
@@ -140,8 +166,28 @@ httpcHypercube.send();
 
 
 function savecontrols(){
-    
+    var url = "filesaver.php";        
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(JSON.stringify(controls,null,"    "))+"&filename=data/controls.txt");//send text to filesaver.php
 }
+
+
+function replacecontrol(localrow,localcolumn,action){
+    //all three inputs are integers
+    
+    var rowarray = controls[localrow].split(",");
+    rowarray[localcolumn] = "0" + action.toString(8);//replace element
+    newrow = "";
+    for(var index = 0;index < rowarray.length;index++){
+        if(rowarray[index].length > 0){
+            newrow += rowarray[index] + ",";
+        }
+    }
+    controls[localrow] = newrow;
+}
+
 
 </script>
 <style>
