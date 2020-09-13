@@ -1,4 +1,9 @@
 [
   "https://i.imgur.com/JgWqwxU.jpg",
-  "https://www.nist.gov/sites/default/files/images/2017/09/20/645px-nist_logo-svg_1.png"
+  "https://www.nist.gov/sites/default/files/images/2017/09/20/645px-nist_logo-svg_1.png",
+  "https://cdn.cnn.com/cnnnext/dam/assets/200424060716-nasa-worm-logo-super-169.jpg",
+  "https://upload.wikimedia.org/wikipedia/en/thumb/1/1e/KlingonInsignia.svg/1200px-KlingonInsignia.svg.png",
+  "https://p1.hiclipart.com/preview/479/432/6/microsoft-windows-8-logo-microsoft-windows-logo-png-clipart.jpg",
+  "https://www-cdn.cctexas.com/sites/default/files/rec2.png",
+  "https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/thumbs-up.png"
 ]
