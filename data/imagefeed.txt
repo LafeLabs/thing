@@ -5,5 +5,6 @@
   "https://upload.wikimedia.org/wikipedia/en/thumb/1/1e/KlingonInsignia.svg/1200px-KlingonInsignia.svg.png",
   "https://p1.hiclipart.com/preview/479/432/6/microsoft-windows-8-logo-microsoft-windows-logo-png-clipart.jpg",
   "https://www-cdn.cctexas.com/sites/default/files/rec2.png",
-  "https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/thumbs-up.png"
+  "https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/thumbs-up.png",
+  "https://i.pinimg.com/474x/78/18/17/78181707bc125446879258d37cd0eafa.jpg"
 ]
