@@ -1,3 +1,4 @@
 [
-  "https://i.imgur.com/JgWqwxU.jpg"
+  "https://i.imgur.com/JgWqwxU.jpg",
+  "http://localhost/symbolfeed/symbol1600203752.svg"
 ]

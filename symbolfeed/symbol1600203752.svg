@@ -1,0 +1,50 @@
+<svg width="600" height="600" viewbox = "0 0 600 600"  xmlns="http://www.w3.org/2000/svg">
+<!--<json>{
+  "glyph": "0337,0341,0336,0333,0341,0336,0333,0341,0336,0333,0341,0336,0333,0341,0336,0333,0341,0334,0331,0337,0337,0337,0337,0337,0337,0342,0336,0336,0333,0341,0333,0337,0341,0332,0332,0341,0336,0333,0341,0336,0333,0341,0333,0333,0341,0333,0333,0333,0337,0333,0333,0337,0337,0341,0332,0332,0341,",
+  "x0": 300,
+  "y0": 300,
+  "unit": 117.12800000000001,
+  "width": 600,
+  "height": 600,
+  "style": {
+    "color0": "black",
+    "fill0": "black",
+    "line0": 1,
+    "color1": "black",
+    "fill1": "black",
+    "line1": 5,
+    "color2": "red",
+    "fill2": "red",
+    "line2": 1,
+    "color3": "#FF7900",
+    "fill3": "#FF7900",
+    "line3": 1,
+    "color4": "yellow",
+    "fill4": "yellow",
+    "line4": 1,
+    "color5": "green",
+    "fill5": "green",
+    "line5": 1,
+    "color6": "blue",
+    "fill6": "blue",
+    "line6": 1,
+    "color7": "purple",
+    "fill7": "purple",
+    "line7": 1
+  }
+}</json>--><circle cx="300" cy = "300" r = "234.25600000000003" stroke = "#000000" stroke-width = "1" fill = "none" />
+<circle cx="417" cy = "300" r = "117.12800000000001" stroke = "#000000" stroke-width = "1" fill = "none" />
+<circle cx="476" cy = "300" r = "58.56400000000001" stroke = "#000000" stroke-width = "1" fill = "none" />
+<circle cx="505" cy = "300" r = "29.282000000000004" stroke = "#000000" stroke-width = "1" fill = "none" />
+<circle cx="520" cy = "300" r = "14.641000000000002" stroke = "#000000" stroke-width = "1" fill = "none" />
+<circle cx="527" cy = "300" r = "7.320500000000001" stroke = "#000000" stroke-width = "1" fill = "none" />
+    <line x1="534" y1="300" x2="66" y2="300" style="stroke:#000000;stroke-width:1" />
+<circle cx="534" cy = "183" r = "117.12800000000001" stroke = "#000000" stroke-width = "1" fill = "none" />
+<circle cx="534" cy = "66" r = "234.25600000000003" stroke = "#000000" stroke-width = "1" fill = "none" />
+<circle cx="534" cy = "534" r = "234.25600000000003" stroke = "#000000" stroke-width = "1" fill = "none" />
+<circle cx="534" cy = "417" r = "117.12800000000001" stroke = "#000000" stroke-width = "1" fill = "none" />
+<circle cx="534" cy = "359" r = "58.56400000000001" stroke = "#000000" stroke-width = "1" fill = "none" />
+<circle cx="534" cy = "241" r = "58.56400000000001" stroke = "#000000" stroke-width = "1" fill = "none" />
+<circle cx="534" cy = "-169" r = "468.51200000000006" stroke = "#000000" stroke-width = "1" fill = "none" />
+<circle cx="534" cy = "769" r = "468.51200000000006" stroke = "#000000" stroke-width = "1" fill = "none" />
+</svg>
