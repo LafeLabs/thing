@@ -33,5 +33,10 @@
         "href": "symbolfactory.html",
         "src": "",
         "text": "symbol factory"
+    },
+    {
+        "href": "coinstudio.html",
+        "src": "",
+        "text": "coinstudio.html"
     }
 ]
