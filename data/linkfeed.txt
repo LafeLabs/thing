@@ -15,16 +15,6 @@
         "text": ""
     },
     {
-        "href": "",
-        "src": "",
-        "text": "here is some random text with no link"
-    },
-    {
-        "href": "linkfeededitor.html",
-        "src": "",
-        "text": "operator screen"
-    },
-    {
         "href": "symbolfactory.html",
         "src": "",
         "text": "symbol factory"

@@ -16,6 +16,7 @@
         "font.html",
         "fonteditor.html",
         "fork.html",
+        "hash.html",
         "hypercube.html",
         "index.html",
         "keyboard.html",
