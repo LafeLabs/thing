@@ -1,5 +1,4 @@
 [
-    "only way to be sure",
-    "nuke it from orbit",
+    "<a href = \"index.html\">index.html</a>",
     "chaos feed"
 ]

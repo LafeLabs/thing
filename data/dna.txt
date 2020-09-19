@@ -198,6 +198,7 @@
         "editor.txt",
         "fileloader.txt",
         "filesaver.txt",
+        "hash.txt",
         "ipaddress.txt",
         "mkdir.txt",
         "pngsave.txt",
