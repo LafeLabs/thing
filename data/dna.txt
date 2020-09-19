@@ -4,6 +4,7 @@
         "appeditor.html",
         "buttonsetup.sh",
         "canvas2png.html",
+        "chaosfeed.html",
         "coinfeed.html",
         "coinstudio.html",
         "console.html",
@@ -161,6 +162,7 @@
         "xyzcube.svg"
     ],
     "data": [
+        "chaosfeed.txt",
         "coin.txt",
         "controls.txt",
         "currentMap.txt",

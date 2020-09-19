@@ -5,11 +5,6 @@
         "text": "editor.php"
     },
     {
-        "href": "linkfeededitor.html",
-        "src": "",
-        "text": "operator screen"
-    },
-    {
         "href": "robot.html",
         "src": "",
         "text": "robot.html"
@@ -38,5 +33,25 @@
         "href": "coinstudio.html",
         "src": "",
         "text": "coinstudio.html"
+    },
+    {
+        "href": "robotsetup.html",
+        "src": "",
+        "text": "robotsetup.html"
+    },
+    {
+        "href": "robot.html",
+        "src": "",
+        "text": "robot.html"
+    },
+    {
+        "href": "chaosfeed.html",
+        "src": "",
+        "text": "chaosfeed.html"
+    },
+    {
+        "href": "linkfeededitor.html",
+        "src": "",
+        "text": "operator screen"
     }
 ]

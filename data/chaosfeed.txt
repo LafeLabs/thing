@@ -1,0 +1,5 @@
+[
+    "only way to be sure",
+    "nuke it from orbit",
+    "chaos feed"
+]
