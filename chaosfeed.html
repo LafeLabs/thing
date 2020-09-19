@@ -127,11 +127,14 @@ function deletetext(){
     httpc.send();    
 }
 
+resetfeed = [
+    "chaos feed"
+];
+
 document.getElementById("nuke").onclick = function(){
-    feed = ["chaos feed"];
+    feed = resetfeed;
     redraw();
     savejson();
-    
 }
 
 </script>
