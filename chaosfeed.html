@@ -107,6 +107,7 @@ function redraw(){
         textspan.innerHTML = feed[index];
         newbox.appendChild(textspan);
     }
+    document.getElementById("textinput").select();
 }
 
 oldfeed =[];
@@ -182,11 +183,16 @@ document.getElementById("textinput").onkeydown = function(a) {
 </script>
 <style>
 body{
-    background-color:black;
     overflow:hidden;
+    font-family:arial;
 }
 a{
     color:blue;
+}
+.box{
+    border:solid;
+    margin-top:1em;
+    border-width:0.1px;
 }
 #header{
     position:absolute;
@@ -194,7 +200,6 @@ a{
     right:0px;
     top:0px;
     height:80px;
-    background-color:black;
     border-bottom:solid;
     border-color:purple;
 }
@@ -203,10 +208,8 @@ a{
     height:50px;
     border:solid;
     border-color:#f9429e;
-    background-color:black;
     font-size:26px;
     font-family:courier;
-    color:#00ff00;
     display:block;
     margin:auto;
     margin-top:5px;
@@ -218,10 +221,8 @@ a{
     top:100px;
     bottom:0px;
     overflow:scroll;
-    background-color:black;
-    font-family:courier;
-    color:#00ff00;
     font-size:2em;
+    padding:1em 1em 1em 1em;
 }
 .deletebutton{
     border:solid;
