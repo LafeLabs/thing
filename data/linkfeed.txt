@@ -40,6 +40,11 @@
         "text": "chaosfeed.html"
     },
     {
+        "href": "imagefeed.html",
+        "src": "",
+        "text": "imagefeed.html"
+    },
+    {
         "href": "linkfeededitor.html",
         "src": "",
         "text": "operator screen"
