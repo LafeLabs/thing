@@ -1,3 +1,3 @@
 [
-    "chaos feed"
+    "Chaos Feed!! Type in box and hit enter to post. Red x's delete.💥 button resets feed.  Let the chaos ensue."
 ]

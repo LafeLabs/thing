@@ -85,6 +85,7 @@ function savejson(){
     httpc2.send("data="+encodeURIComponent(JSON.stringify(feed,null,"    "))+"&filename=data/chaosfeed.txt");//send text to filesaver.php
 }
 
+boxindex = 0;
 
 function redraw(){
     document.getElementById("feed").innerHTML = "";
@@ -92,12 +93,13 @@ function redraw(){
         var newbox = document.createElement("DIV");
         document.getElementById("feed").appendChild(newbox);
         newbox.className = "box";
+        newbox.id = "box" + index.toString();
         var deletebutton = document.createElement("IMG");
         deletebutton.className = "deletebutton";
         deletebutton.src = "iconsymbols/delete.svg";
         newbox.appendChild(deletebutton);
         deletebutton.onclick = function(){
-            text = this.parentElement.getElementsByClassName("textspan")[0].innerHTML;
+            boxindex = parseInt(this.parentElement.id.substring(3));
             deletetext();
         }
         var textspan = document.createElement("span");
@@ -107,14 +109,16 @@ function redraw(){
     }
 }
 
+oldfeed =[];
 function deletetext(){
     var httpc = new XMLHttpRequest();
         httpc.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
+            oldfeed = feed;
             feed = JSON.parse(this.responseText);
             var tempfeed = [];
             for(var index = 0;index < feed.length;index++){
-                if(feed[index] != text){
+                if(feed[index] != oldfeed[boxindex]){
                     tempfeed.push(feed[index]);
                 }
             }
@@ -128,7 +132,7 @@ function deletetext(){
 }
 
 resetfeed = [
-    "chaos feed"
+    "Chaos Feed!! Type in box and hit enter to post. Red x's delete.💥 button resets feed.  Let the chaos ensue."
 ];
 
 document.getElementById("nuke").onclick = function(){
@@ -136,6 +140,44 @@ document.getElementById("nuke").onclick = function(){
     redraw();
     savejson();
 }
+
+
+document.getElementById("textinput").value = "";
+document.getElementById("textinput").select();
+
+textfieldindex = 0;
+
+document.getElementById("textinput").onkeydown = function(a) {
+    var charCode = a.keyCode || a.which;
+
+    if(charCode == 046){
+        //up arrow: next
+        textfieldindex++;
+        if(textfieldindex >= feed.length){
+            textfieldindex = -1;
+        }
+        if(textfieldindex != -1){
+            this.value = feed[textfieldindex];
+        }
+        else{
+            this.value = "";
+        }
+    }
+    if(charCode == 050){
+        //down arrow: prev
+        textfieldindex--;
+        if(textfieldindex < -1){
+            textfieldindex = feed.length - 1;
+        }
+        if(textfieldindex != -1){
+            this.value = feed[textfieldindex];
+        }
+        else{
+            this.value = "";
+        }
+    }
+}
+
 
 </script>
 <style>
