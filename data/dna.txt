@@ -18,6 +18,7 @@
         "fork.html",
         "hash.html",
         "hypercube.html",
+        "imagefeed.html",
         "index.html",
         "keyboard.html",
         "linkfeed.html",
