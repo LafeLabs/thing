@@ -19,5 +19,5 @@
         "color": "yellow",
         "opacity": "1"
     },
-    "text": "Marker wall\n\n\n"
+    "text": "Marker wall\n"
 }

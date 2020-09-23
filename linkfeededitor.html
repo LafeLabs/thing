@@ -68,6 +68,89 @@
 
 <script>
 
+resetfeed = [
+    {
+        "href": "editor.php",
+        "src": "",
+        "text": "editor.php"
+    },
+    {
+        "href": "robot.html",
+        "src": "",
+        "text": "robot.html"
+    },
+    {
+        "href": "",
+        "src": "https://acdn.list25.com/wp-content/uploads/2012/05/tumblr_nfodzdlXuk1r6q4zxo1_1280.gif",
+        "text": ""
+    },
+    {
+        "href": "symbolfactory.html",
+        "src": "",
+        "text": "symbol factory"
+    },
+    {
+        "href": "coinstudio.html",
+        "src": "",
+        "text": "coinstudio.html"
+    },
+    {
+        "href": "robotsetup.html",
+        "src": "",
+        "text": "robotsetup.html"
+    },
+    {
+        "href": "robot.html",
+        "src": "",
+        "text": "robot.html"
+    },
+    {
+        "href": "chaosfeed.html",
+        "src": "",
+        "text": "chaosfeed.html"
+    },
+    {
+        "href": "imagefeed.html",
+        "src": "",
+        "text": "imagefeed.html"
+    },
+    {
+        "href": "linkfeededitor.html",
+        "src": "",
+        "text": "operator screen"
+    },
+    {
+        "href": "scroll.html",
+        "src": "",
+        "text": "scroll.html"
+    },
+    {
+        "href": "map.html",
+        "src": "",
+        "text": "map.html"
+    },
+    {
+        "href": "poetryengine.html",
+        "src": "",
+        "text": "poetry engine"
+    },
+    {
+        "href": "duality.html",
+        "src": "",
+        "text": "duality"
+    },
+    {
+        "href": "fork.html",
+        "src": "",
+        "text": "fork"
+    },
+    {
+        "href": "feed.html",
+        "src": "",
+        "text": "geometron feed"
+    }
+];
+
 feedindex = 0;
 
 feed = [];
@@ -99,7 +182,7 @@ document.getElementById("textinput").onchange = function(){
 }
 
 document.getElementById("resetbutton").onclick = function(){
-    feed = [];
+    feed = resetfeed;
     var newlink = {};
     newlink.href = "feededitor.html";
     newlink.src = "";

@@ -5,11 +5,6 @@
         "text": "editor.php"
     },
     {
-        "href": "robot.html",
-        "src": "",
-        "text": "robot.html"
-    },
-    {
         "href": "",
         "src": "https://acdn.list25.com/wp-content/uploads/2012/05/tumblr_nfodzdlXuk1r6q4zxo1_1280.gif",
         "text": ""
@@ -35,18 +30,48 @@
         "text": "robot.html"
     },
     {
-        "href": "chaosfeed.html",
-        "src": "",
-        "text": "chaosfeed.html"
-    },
-    {
         "href": "imagefeed.html",
         "src": "",
         "text": "imagefeed.html"
     },
     {
+        "href": "scroll.html",
+        "src": "",
+        "text": "scroll.html"
+    },
+    {
+        "href": "map.html",
+        "src": "",
+        "text": "map.html"
+    },
+    {
+        "href": "poetryengine.html",
+        "src": "",
+        "text": "poetry engine"
+    },
+    {
+        "href": "duality.html",
+        "src": "",
+        "text": "duality"
+    },
+    {
+        "href": "fork.html",
+        "src": "",
+        "text": "fork"
+    },
+    {
+        "href": "feed.html",
+        "src": "",
+        "text": "geometron feed"
+    },
+    {
         "href": "linkfeededitor.html",
         "src": "",
         "text": "operator screen"
+    },
+    {
+        "href": "chaosfeed.html",
+        "src": "",
+        "text": "chaosfeed.html"
     }
 ]

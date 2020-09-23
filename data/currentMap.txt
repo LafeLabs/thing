@@ -54,5 +54,16 @@
         "href": "",
         "src": "",
         "maplinkmode": false
+    },
+    {
+        "x": 0.007159904534606206,
+        "y": -0.00954653937947494,
+        "w": 0.4236276849642005,
+        "h": 0.5668257756563246,
+        "angle": 0,
+        "text": "index.html",
+        "href": "index.html",
+        "src": "",
+        "maplinkmode": false
     }
 ]
