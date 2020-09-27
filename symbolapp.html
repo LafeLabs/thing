@@ -97,6 +97,12 @@ portrait = false;
 
 if(innerWidth < innerHeight){
     portrait = true;
+    document.getElementById("mainbox").style.height = innerWidth.toString() + "px";
+    document.getElementById("spellbox").style.height = ((innerHeight - innerWidth - 60)*0.5).toString() + "px";    
+    document.getElementById("spellbox").style.top = (innerWidth + 60).toString() + "px";
+
+    document.getElementById("controlbox").style.height = ((innerHeight - innerWidth - 60)*0.5).toString() + "px";
+    
 }
 
 controls  = [
@@ -143,7 +149,13 @@ function savesymbolfile(){
     
 }
 
-controlbuttonsize = 40;
+if(portrait){
+    controlbuttonsize = innerWidth/8;
+}
+else{
+    controlbuttonsize = 40;
+}
+
 function loadcontroltable(){
     document.getElementById("controltable").innerHTML = "";
     for(var index = 0;index < controls.length;index++){
@@ -439,28 +451,28 @@ body{
 }
 @media only screen and (orientation: portrait) {
     #header{
-        height:80px;
+        height:60px;
         position:absolute;
         left:0px;
         width:100%;
         top:0px;
     }
     #header img{
-        width:70px;
+        width:40px;
     }
     #mainbox{
         position:absolute;
         right:0px;
-        top:80px;
+        top:60px;
         bottom:50%;
         width:100%;
         border-bottom:solid;
         border-color:blue;
-        overflow:scroll;
+        overflow:hidden;
     }
     #controlbox{
         position:absolute;
-        top:50%;
+        bottom:0px;
         left:0px;
         width:100%;
         overflow:scroll;
