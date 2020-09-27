@@ -106,11 +106,21 @@ if(innerWidth < innerHeight){
 }
 
 controls  = [
-    "0220,0221,0222,0223,",
+    "0332,0222,0223,0333,",
+    "0220,0221,036,037,",
     "020,010,021,011,",
     "0320,0321,0322,0323,",
     "0324,0325,0326,0327,"
 ];
+
+widestrow = 4;
+for(var index = 0;index < controls.length;index++){
+    var rowarray = controls[index].split(",");
+    if(rowarray.length > widestrow){
+        widestrow = rowarray.length;
+    }
+}
+
 
 document.getElementById("savebutton").onclick = function(){
     savesymbolfile();
@@ -148,7 +158,7 @@ function savesymbolfile(){
 }
 
 if(portrait){
-    controlbuttonsize = innerWidth/8;
+    controlbuttonsize = innerWidth/widestrow;
 }
 else{
     controlbuttonsize = 40;

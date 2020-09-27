@@ -1,0 +1,35 @@
+<svg width="452" height="452" viewbox = "0 0 452 452"  xmlns="http://www.w3.org/2000/svg">
+<!--<json>{
+  "glyph": "0322,0221,0223,0221,0223,0221,0223,0221,0223,0221,0223,0221,0223,0221,0221,0223,0221,0223,0221,0223,0221,0333,0221,0223,0221,0333,0222,0223,0223,0223,0223,0223,0333,0222,0222,0222,0222,0221,0223,0221,0333,0222,0223,0223,0223,0223,0223,0333,0222,0222,0222,0222,0222,0223,0221,0223,0221,",
+  "x0": 226,
+  "y0": 226,
+  "unit": 72.19344000000001,
+  "width": 452,
+  "height": 452,
+  "style": {
+    "color0": "black",
+    "fill0": "black",
+    "line0": 1,
+    "color1": "black",
+    "fill1": "black",
+    "line1": 5,
+    "color2": "black",
+    "fill2": "red",
+    "line2": 1,
+    "color3": "#FF7900",
+    "fill3": "#FF7900",
+    "line3": 1,
+    "color4": "yellow",
+    "fill4": "yellow",
+    "line4": 1,
+    "color5": "green",
+    "fill5": "green",
+    "line5": 1,
+    "color6": "blue",
+    "fill6": "blue",
+    "line6": 1,
+    "color7": "purple",
+    "fill7": "purple",
+    "line7": 1
+  }
+}</json>-->	<path d = "M226 226 L204 157 L226 89 L248 157 L226 226 Z" stroke = "#000000" stroke-width = "1" fill = "#ff0000" />	<path d = "M226 226 L248 157 L307 115 L284 184 L226 226 Z" stroke = "#000000" stroke-width = "1" fill = "#ff0000" />	<path d = "M226 226 L284 184 L357 184 L298 226 L226 226 Z" stroke = "#000000" stroke-width = "1" fill = "#ff0000" />	<path d = "M226 226 L298 226 L357 268 L284 268 L226 226 Z" stroke = "#000000" stroke-width = "1" fill = "#ff0000" />	<path d = "M226 226 L284 268 L307 337 L248 295 L226 226 Z" stroke = "#000000" stroke-width = "1" fill = "#ff0000" />	<path d = "M226 226 L248 295 L226 363 L204 295 L226 226 Z" stroke = "#000000" stroke-width = "1" fill = "#ff0000" />	<path d = "M226 226 L204 295 L145 337 L168 268 L226 226 Z" stroke = "#000000" stroke-width = "1" fill = "#ff0000" />	<path d = "M226 226 L204 295 L145 337 L168 268 L226 226 Z" stroke = "#000000" stroke-width = "1" fill = "#ff0000" />	<path d = "M226 226 L168 268 L95 268 L154 226 L226 226 Z" stroke = "#000000" stroke-width = "1" fill = "#ff0000" />	<path d = "M226 226 L154 226 L95 184 L168 184 L226 226 Z" stroke = "#000000" stroke-width = "1" fill = "#ff0000" />	<path d = "M226 226 L168 184 L145 115 L204 157 L226 226 Z" stroke = "#000000" stroke-width = "1" fill = "#ff0000" />	<path d = "M204 157 L145 115 L123 46 L181 89 L204 157 Z" stroke = "#000000" stroke-width = "1" fill = "#ff0000" />	<path d = "M204 157 L181 89 L204 20 L226 89 L204 157 Z" stroke = "#000000" stroke-width = "1" fill = "#ff0000" />	<path d = "M248 157 L226 89 L248 20 L271 89 L248 157 Z" stroke = "#000000" stroke-width = "1" fill = "#ff0000" />	<path d = "M248 157 L271 89 L329 46 L307 115 L248 157 Z" stroke = "#000000" stroke-width = "1" fill = "#ff0000" />	<path d = "M284 184 L307 115 L365 72 L343 141 L284 184 Z" stroke = "#000000" stroke-width = "1" fill = "#ff0000" />	<path d = "M284 184 L343 141 L415 141 L357 184 L284 184 Z" stroke = "#000000" stroke-width = "1" fill = "#ff0000" /></svg>
