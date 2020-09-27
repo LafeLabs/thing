@@ -98,20 +98,18 @@ portrait = false;
 if(innerWidth < innerHeight){
     portrait = true;
     document.getElementById("mainbox").style.height = innerWidth.toString() + "px";
-    document.getElementById("spellbox").style.height = ((innerHeight - innerWidth - 60)*0.5).toString() + "px";    
+    document.getElementById("spellbox").style.height = ((innerHeight - innerWidth - 60)*0.25).toString() + "px";    
     document.getElementById("spellbox").style.top = (innerWidth + 60).toString() + "px";
 
-    document.getElementById("controlbox").style.height = ((innerHeight - innerWidth - 60)*0.5).toString() + "px";
-    
+    document.getElementById("controlbox").style.height = ((innerHeight - innerWidth - 65)*0.75).toString() + "px";
+    document.getElementById("controlbox").style.bottom = "0px";
 }
 
 controls  = [
-    "020,010,021,011,0201,0217,",
-    "0320,0321,0322,0323,0324,0325,0326,0327,",
-    "0310,0311,0312,0313,0304,0305,0306,0350,",
-    "0334,0330,0335,",
-    "0332,0341,0333,",
-    "0336,0331,0337,",
+    "0220,0221,0222,0223,",
+    "020,010,021,011,",
+    "0320,0321,0322,0323,",
+    "0324,0325,0326,0327,"
 ];
 
 document.getElementById("savebutton").onclick = function(){
@@ -215,8 +213,15 @@ function loadcontroltable(){
 hypercube = [];
 
 maincanvas = document.getElementById("maincanvas");
-var mainGVM = new GVM(maincanvas,0.5*innerWidth - 10,0.5*innerWidth -10);
-var spellGVM = new GVM(document.getElementById("spellcanvas"),420,800);
+
+if(portrait){
+    mainGVM = new GVM(maincanvas,innerWidth,innerWidth);
+}
+else{
+    mainGVM = new GVM(maincanvas,0.5*innerWidth - 10,0.5*innerWidth -10);
+}
+
+spellGVM = new GVM(document.getElementById("spellcanvas"),420,800);
 
 spellGVM.x0 = 5;
 spellGVM.y0 = 35;
@@ -389,17 +394,6 @@ body{
     border-color:blue;
     overflow:scroll;
 }
-#controlbox{
-    position:absolute;
-    top:40px;
-    left:0px;
-    width:50%;
-    overflow:scroll;
-    bottom:50%;
-    border-bottom:solid;
-    border-top:solid;
-    border-color:red;
-}
 #spellbox{
     position:absolute;
     left:0px;
@@ -449,6 +443,21 @@ body{
 #modeindicator{
     width:25px;
 }
+@media only screen and (orientation: landscape) {
+#controlbox{
+    position:absolute;
+    top:40px;
+    left:0px;
+    width:50%;
+    overflow:scroll;
+    bottom:50%;
+    border-bottom:solid;
+    border-top:solid;
+    border-color:red;
+}
+
+    
+}
 @media only screen and (orientation: portrait) {
     #header{
         height:60px;
@@ -476,7 +485,6 @@ body{
         left:0px;
         width:100%;
         overflow:scroll;
-        bottom:25%;
         border-bottom:solid;
         border-color:red;
     }
