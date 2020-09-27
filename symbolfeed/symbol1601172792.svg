@@ -1,0 +1,41 @@
+<svg width="674" height="674" viewbox = "0 0 674 674"  xmlns="http://www.w3.org/2000/svg">
+<!--<json>{
+  "glyph": "0321,0226,0226,",
+  "x0": 155.49999999999997,
+  "y0": 337,
+  "unit": 173.37346295280014,
+  "width": 674,
+  "height": 674,
+  "style": {
+    "color0": "black",
+    "fill0": "black",
+    "line0": 1,
+    "color1": "black",
+    "fill1": "black",
+    "line1": 5,
+    "color2": "red",
+    "fill2": "red",
+    "line2": 1,
+    "color3": "#FF7900",
+    "fill3": "#FF7900",
+    "line3": 1,
+    "color4": "yellow",
+    "fill4": "yellow",
+    "line4": 1,
+    "color5": "green",
+    "fill5": "green",
+    "line5": 1,
+    "color6": "blue",
+    "fill6": "blue",
+    "line6": 1,
+    "color7": "purple",
+    "fill7": "purple",
+    "line7": 1
+  }
+}</json>-->    <line x1="155" y1="337" x2="199" y2="337" style="stroke:#000000;stroke-width:5" />
+    <line x1="286" y1="337" x2="329" y2="337" style="stroke:#000000;stroke-width:5" />
+	<path d = "M286 380 L286 294 L199 294 L199 380 L286 380 Z" stroke = "#000000" stroke-width = "5" fill = "none" />    <text x="231" y = "348" fill = "#000000" font-size = "43.343365738200035px" font-family = "Arial">x</text>
+    <line x1="329" y1="337" x2="372" y2="337" style="stroke:#000000;stroke-width:5" />
+    <line x1="459" y1="337" x2="502" y2="337" style="stroke:#000000;stroke-width:5" />
+	<path d = "M459 380 L459 294 L372 294 L372 380 L459 380 Z" stroke = "#000000" stroke-width = "5" fill = "none" />    <text x="405" y = "348" fill = "#000000" font-size = "43.343365738200035px" font-family = "Arial">x</text>
+</svg>
