@@ -37,31 +37,11 @@
     <canvas id = "spellcanvas"></canvas>
 </div>
 
-<div id = "zoomrotatebox">
-    <img src = "iconsymbols/scale.svg" id = "scalebar"/>
-    <img src = "iconsymbols/rotate.svg" id = "rotatebar"/>
-</div>
-
-<table id = "srcinputtable">
-    <tr>
-        <td>Image Url:</td>
-        <td>
-            <input id = "srcinput"/>    
-        </td>
-    </tr>
-</table>
-
-<div id  = "imagefeed">
-    
-</div>
-
 <img id = "modeindicator" src = "iconsymbols/cursor.svg"/>
 <input id = "actioninput"/>
 <input id = "spellinput"/>
 
-<div id = "exportbutton" class = "button">EXPORT</div>
-<div id = "importbutton" class = "button">IMPORT</div>
-
+<div id = "savebutton" class = "button">SAVE</div>
 <textarea id = "textio"></textarea>
 
 
@@ -72,10 +52,9 @@
     <a href = "symbolfactory.html">
         <img src = "iconsymbols/geometron.svg" style = "width:50px"/>
     </a>    
-    <a href = "shapestacksymbols.html">
+    <a href = "shapestack.html">
         <img src = "iconsymbols/hypercube.svg" style = "width:50px"/>
     </a>    
-    
 </div>
 
 
@@ -91,6 +70,11 @@
 maincanvas = document.getElementById("maincanvas");
 var mainGVM = new GVM(maincanvas,250,250);
 //GVM(canvas2d,width,height)
+
+
+mainGVM.unit = 200;
+mainGVM.x0 = 25;
+mainGVM.y0 = 225;
 
 var spellGVM = new GVM(document.getElementById("spellcanvas"),innerWidth - 100,300);
 
@@ -109,12 +93,12 @@ httpc.onreadystatechange = function(){
         spellGVM.importbytecode(hypercube);
         mainGVM.importbytecode(hypercube);
         loadstack();
-        mainGVM.address = 0220;
+        mainGVM.address = 01220;
         mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
         mainGVM.drawGlyph(mainGVM.glyph);
         spellGVM.spellGlyph(mainGVM.glyph);
         document.getElementById("spellinput").value = mainGVM.hypercube[mainGVM.address];
-        gvmArray[mainGVM.address - 0220].canvas2d.style.backgroundColor = "#c0c0c0";        
+        gvmArray[mainGVM.address - 01220].canvas2d.style.backgroundColor = "#c0c0c0";        
     }
 };
 httpc.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
@@ -208,12 +192,12 @@ document.getElementById("actioninput").onkeydown = function(a) {
 
     if(charCode == 046){
         //up arrow: prev symbol
-        gvmArray[mainGVM.address - 0220].canvas2d.style.backgroundColor = "rgba(0,0,0,0)";
+        gvmArray[mainGVM.address - 01220].canvas2d.style.backgroundColor = "rgba(0,0,0,0)";
         mainGVM.address--;
-        if(mainGVM.address < 0220){
-            mainGVM.address = 0237;
+        if(mainGVM.address < 01220){
+            mainGVM.address = 01237;
         }
-        gvmArray[mainGVM.address - 0220].canvas2d.style.backgroundColor = "#c0c0c0";        
+        gvmArray[mainGVM.address - 01220].canvas2d.style.backgroundColor = "#c0c0c0";        
         mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
 
         mainGVM.drawGlyph(mainGVM.glyph);
@@ -221,12 +205,12 @@ document.getElementById("actioninput").onkeydown = function(a) {
     }
     if(charCode == 050){
         //down arrow: next symbol
-        gvmArray[mainGVM.address - 0220].canvas2d.style.backgroundColor = "rgba(0,0,0,0)";        
+        gvmArray[mainGVM.address - 01220].canvas2d.style.backgroundColor = "rgba(0,0,0,0)";        
         mainGVM.address++;
-        if(mainGVM.address > 0237){
-            mainGVM.address = 0220;
+        if(mainGVM.address > 01237){
+            mainGVM.address = 01220;
         }
-        gvmArray[mainGVM.address - 0220].canvas2d.style.backgroundColor = "#c0c0c0";        
+        gvmArray[mainGVM.address - 01220].canvas2d.style.backgroundColor = "#c0c0c0";        
         mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
         mainGVM.drawGlyph(mainGVM.glyph);
         mainGVM.clean();
@@ -234,10 +218,10 @@ document.getElementById("actioninput").onkeydown = function(a) {
     this.value = "";
     mainGVM.clean();
     mainGVM.hypercube[mainGVM.address] = mainGVM.cleanGlyph;
+    spellGVM.hypercube[mainGVM.address] =  mainGVM.hypercube[mainGVM.address];
     document.getElementById("spellinput").value = mainGVM.cleanGlyph;
     spellGVM.spellGlyph(mainGVM.glyph);
-    gvmArray[mainGVM.address - 0220].drawGlyph("0300," + mainGVM.hypercube[mainGVM.address + 01000]);
-    
+    gvmArray[mainGVM.address - 01220].drawGlyph("0300," + mainGVM.hypercube[mainGVM.address]);
     savecube();
 }
 
@@ -254,31 +238,6 @@ function modeswitch(){
 
 }
 
-
-
-document.getElementById("exportbutton").onclick  = function(){
-
-    document.getElementById("textio").value = mainGVM.bytecode(0220,0237);
-    savecube();
-
-}
-
-document.getElementById("textio").value = "";
-document.getElementById("importbutton").onclick = function(){
-    if(document.getElementById("textio").value.length > 0){
-        inputbytecode = JSON.parse(document.getElementById("textio").value);
-        spellGVM.importbytecode(inputbytecode);
-        mainGVM.importbytecode(inputbytecode);
-        loadstack();
-        mainGVM.address = 0220;
-        mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
-        mainGVM.drawGlyph(mainGVM.glyph);
-        spellGVM.spellGlyph(mainGVM.glyph);
-        document.getElementById("spellinput").value = mainGVM.hypercube[mainGVM.address];
-        gvmArray[mainGVM.address - 0220].canvas2d.style.backgroundColor = "#c0c0c0";            
-    }
-}
-
 function savecube(){
     hypercube = mainGVM.bytecode(0,01777);
     var url = "filesaver.php";        
@@ -288,11 +247,12 @@ function savecube(){
     httpc.send("data="+encodeURIComponent(hypercube)+"&filename=data/hypercube.txt");//send text to filesaver.php    
 }
 
-document.getElementById("srcinput").value = "";
-document.getElementById("srcinput").onchange = function(){
-    document.getElementById("mainimage").src = this.value;
-    document.getElementById("actioninput").select();
+document.getElementById("savebutton").onclick  = function(){
+    document.getElementById("textio").value = mainGVM.bytecode(0220,0237);
+savecube();
+
 }
+
 
 document.getElementById("spellinput").onchange =  function(){
     mainGVM.hypercube[mainGVM.address] = this.value;
@@ -305,57 +265,7 @@ document.getElementById("spellinput").onchange =  function(){
 }
 
 
-mc = new Hammer(document.getElementById("hammerxy"));
-mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
-mc.on("panleft panright panup pandown tap press rotate", function(ev) {
-    document.getElementById("mainimage").style.left = (ev.deltaX).toString() +  "px";
-    document.getElementById("mainimage").style.top = (ev.deltaY).toString() +  "px";
-
-});    
-
-
-
-mczoom = new Hammer(document.getElementById("scalebar"));
-mczoom.get('pan').set({ direction: Hammer.DIRECTION_ALL });
-mczoom.on("panleft panright panup pandown tap press", function(ev) {
-
-document.getElementById("mainimage").style.width = (2*ev.deltaX).toString() +  "px";
-
-});    
-
-
-
-mcrotate = new Hammer(document.getElementById("rotatebar"));
-mcrotate.get('pan').set({ direction: Hammer.DIRECTION_ALL });
-mcrotate.on("panleft panright panup pandown tap press", function(ev) {
-
-    document.getElementById("mainimage").style.transform = "rotate(" + (ev.deltaX*Math.PI/5).toString() + "deg)";
-
-
-});    
-
 //load image feed
-
-imagefeed = [];
-var httpc99 = new XMLHttpRequest();
-httpc99.onreadystatechange = function(){
-    if (this.readyState == 4 && this.status == 200) {
-        imagefeed = JSON.parse(this.responseText);
-        for(var index =0;index< imagefeed.length;index++){
-            var newimg = document.createElement("IMG");
-            newimg.src = imagefeed[index];
-            newimg.classList.add("button");
-            document.getElementById("imagefeed").appendChild(newimg);
-            newimg.onclick = function() {
-                document.getElementById("mainimage").src = this.src;
-                document.getElementById("srcinput").value = this.src;
-            }
-        }
-    }
-};
-httpc99.open("GET", "fileloader.php?filename=data/imagefeed.txt", true);
-httpc99.send();
-
 
 document.getElementById("actioninput").select();
 </script>
@@ -464,19 +374,12 @@ input{
     bottom:50px;
     left:10px;
 }
-#exportbutton{
+#savebutton{
     position:absolute;
     left:20px;
     bottom:150px;
     border:solid;
 }
-#importbutton{
-    position:absolute;
-    left:20px;
-    bottom:125px;
-    border:solid;
-}
-
 .data{
     display:none;
 }

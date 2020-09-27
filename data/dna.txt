@@ -44,6 +44,7 @@
         "setup.html",
         "shapeeditor.html",
         "shapestack.html",
+        "shapestacksymbols.html",
         "shapetableeditor.html",
         "staticlinkfeed.html",
         "staticmap.html",
