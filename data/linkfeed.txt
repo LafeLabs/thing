@@ -65,6 +65,11 @@
         "text": "chaosfeed.html"
     },
     {
+        "href": "symbolapp.html",
+        "src": "",
+        "text": "symbolapp.html"
+    },
+    {
         "href": "linkfeededitor.html",
         "src": "",
         "text": "operator screen"

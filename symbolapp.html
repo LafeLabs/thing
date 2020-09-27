@@ -94,7 +94,10 @@
 <script>
 
 portrait = false;
-if
+
+if(innerWidth < innerHeight){
+    portrait = true;
+}
 
 controls  = [
     "020,010,021,011,0201,0217,",
@@ -137,12 +140,6 @@ function savesymbolfile(){
     httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc2.send("data="+encodeURIComponent(mainGVM.svgString) +"&filename=symbolfeed/symbol" + timestamp +  ".svg");//send text to filesaver.php
     
-    textfeed.src.push(mainGVM.pngcode());
-    var url = "filesaver.php";        
-    var httpc3 = new XMLHttpRequest();
-    httpc3.open("POST", url, true);
-    httpc3.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc3.send("data="+encodeURIComponent(JSON.stringify(textfeed,null,"    "))+"&filename=data/textfeed.txt");//send text to filesaver.php
     
 }
 
@@ -223,30 +220,20 @@ httpcHypercube.onreadystatechange = function(){
         mainGVM.importbytecode(hypercube);    
         mainGVM.importbytecode(laserfont);    
         loadcontroltable();
-        
-        
+        mainGVM.glyph = "0207,";
+        drawmain();
         currentjson = {};
         var httpcjson = new XMLHttpRequest();
             httpcjson.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 currentjson = JSON.parse(this.responseText);
                 mainGVM.glyph = currentjson.glyph + "0207,";
-                mainGVM.x0 = currentjson.x0;
-                mainGVM.y0 = currentjson.y0;
-                mainGVM.unit = currentjson.unit;
-                mainGVM.width = currentjson.width;
-                mainGVM.height = currentjson.height;
                 mainGVM.style = currentjson.style;
-                document.getElementById("maincanvas").width = currentjson.width;
-                document.getElementById("geometronbox").style.width = currentjson.width.toString() + "px";         
-                document.getElementById("maincanvas").height = currentjson.height;
-                document.getElementById("geometronbox").style.height = currentjson.height.toString() + "px";        
                 drawmain();
-                
             }
         };
         httpcjson.open("GET", "fileloader.php?filename=data/currentjson.txt", true);
-        httpcjson.send();
+        httpcjson.send();                
     }
 };
 httpcHypercube.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
@@ -331,7 +318,6 @@ document.getElementById("actioninput").onkeydown = function(a) {
     spellGVM.spellGlyph(mainGVM.glyph);
     document.getElementById("spellinput").value = mainGVM.cleanGlyph;
     mainGVM.clean();
-    savejson();
 }
 
 function modeswitch(){
@@ -358,35 +344,6 @@ document.getElementById("spellinput").onchange = function(){
     mainGVM.clean();
 
     drawmain();
-    savejson();
-}
-
-textfeed = {};
-var httpc10 = new XMLHttpRequest();
-    httpc10.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        textfeed = JSON.parse(this.responseText);
-    }
-};
-httpc10.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
-httpc10.send();
-
-
-function savejson(){
-   // mainGVM.clean();
-    currentjson.glyph = mainGVM.cleanGlyph;
-    currentjson.x0 = mainGVM.x0;
-    currentjson.y0 = mainGVM.y0;
-    currentjson.unit = mainGVM.unit;
-    currentjson.width = mainGVM.width;
-    currentjson.height = mainGVM.height;
-    currentjson.style = mainGVM.style;
-    
-    var url = "filesaver.php";        
-    var httpc = new XMLHttpRequest();
-    httpc.open("POST", url, true);
-    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc.send("data="+encodeURIComponent(JSON.stringify(currentjson,null,"    "))+"&filename=data/currentjson.txt");//send text to filesaver.php
 }
 
 </script>

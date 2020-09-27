@@ -1,0 +1,35 @@
+<svg width="674" height="674" viewbox = "0 0 674 674"  xmlns="http://www.w3.org/2000/svg">
+<!--<json>{
+  "glyph": "0335,0335,0322,0224,0335,0335,0224,0335,0335,0224,",
+  "x0": 337,
+  "y0": 337,
+  "unit": 230.76007919017704,
+  "width": 674,
+  "height": 674,
+  "style": {
+    "color0": "black",
+    "fill0": "black",
+    "line0": 1,
+    "color1": "black",
+    "fill1": "black",
+    "line1": 5,
+    "color2": "black",
+    "fill2": "red",
+    "line2": 1,
+    "color3": "#FF7900",
+    "fill3": "#FF7900",
+    "line3": 1,
+    "color4": "yellow",
+    "fill4": "yellow",
+    "line4": 1,
+    "color5": "green",
+    "fill5": "green",
+    "line5": 1,
+    "color6": "blue",
+    "fill6": "blue",
+    "line6": 1,
+    "color7": "purple",
+    "fill7": "purple",
+    "line7": 1
+  }
+}</json>-->	<path d = "M337 337 L137 452 L537 452 L337 337 Z" stroke = "#000000" stroke-width = "1" fill = "#ff0000" />	<path d = "M337 337 L337 106 L137 452 L337 337 Z" stroke = "#000000" stroke-width = "1" fill = "#ff0000" />	<path d = "M337 337 L537 452 L337 106 L337 337 Z" stroke = "#000000" stroke-width = "1" fill = "#ff0000" /></svg>
