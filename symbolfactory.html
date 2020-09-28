@@ -93,6 +93,17 @@
 </div>
 <script>
 
+portrait = false;
+if(innerWidth < innerHeight){
+    portrait = true;
+    document.getElementById("mainbox").style.height = innerWidth.toString() + "px";
+    document.getElementById("spellbox").style.height = ((innerHeight - innerWidth - 60)*0.25).toString() + "px";    
+    document.getElementById("spellbox").style.top = (innerWidth + 60).toString() + "px";
+
+    document.getElementById("controlbox").style.height = ((innerHeight - innerWidth - 65)*0.75).toString() + "px";
+    document.getElementById("controlbox").style.bottom = "0px";    
+}
+
 controls  = [
     "020,010,021,011,0201,0217,",
     "0320,0321,0322,0323,0324,0325,0326,0327,",
@@ -116,6 +127,7 @@ controls  = [
     "0277,0276,0275,0262,0263,0264,0266,0267,",
     "0270,0271,0272,0273,0274,0275,"
 ];
+
 
 document.getElementById("savebutton").onclick = function(){
     savesymbolfile();
@@ -158,7 +170,14 @@ function savesymbolfile(){
     
 }
 
+
+
 controlbuttonsize = 40;
+
+if(portrait){
+    controlbuttonsize = innerWidth/9;
+}
+
 function loadcontroltable(){
     document.getElementById("controltable").innerHTML = "";
     for(var index = 0;index < controls.length;index++){
@@ -218,8 +237,15 @@ function loadcontroltable(){
 hypercube = [];
 
 maincanvas = document.getElementById("maincanvas");
-var mainGVM = new GVM(maincanvas,0.5*innerWidth - 10,0.5*innerWidth -10);
-var spellGVM = new GVM(document.getElementById("spellcanvas"),420,800);
+
+if(portrait){
+    mainGVM = new GVM(maincanvas,innerWidth,innerWidth);
+}
+else{
+    mainGVM = new GVM(maincanvas,0.5*innerWidth - 10,0.5*innerWidth -10);
+}
+
+spellGVM = new GVM(document.getElementById("spellcanvas"),420,800);
 
 spellGVM.x0 = 5;
 spellGVM.y0 = 35;
@@ -251,16 +277,18 @@ httpcHypercube.onreadystatechange = function(){
             if (this.readyState == 4 && this.status == 200) {
                 currentjson = JSON.parse(this.responseText);
                 mainGVM.glyph = currentjson.glyph + "0207,";
-                mainGVM.x0 = currentjson.x0;
-                mainGVM.y0 = currentjson.y0;
-                mainGVM.unit = currentjson.unit;
-                mainGVM.width = currentjson.width;
-                mainGVM.height = currentjson.height;
+                if(!portrait){
+                    mainGVM.x0 = currentjson.x0;
+                    mainGVM.y0 = currentjson.y0;
+                    mainGVM.unit = currentjson.unit;
+                    mainGVM.width = currentjson.width;
+                    mainGVM.height = currentjson.height;
+                    document.getElementById("maincanvas").width = currentjson.width;
+                    document.getElementById("geometronbox").style.width = currentjson.width.toString() + "px";         
+                    document.getElementById("maincanvas").height = currentjson.height;
+                    document.getElementById("geometronbox").style.height = currentjson.height.toString() + "px";
+                }
                 mainGVM.style = currentjson.style;
-                document.getElementById("maincanvas").width = currentjson.width;
-                document.getElementById("geometronbox").style.width = currentjson.width.toString() + "px";         
-                document.getElementById("maincanvas").height = currentjson.height;
-                document.getElementById("geometronbox").style.height = currentjson.height.toString() + "px";        
                 drawmain();
                 
             }
@@ -440,17 +468,6 @@ body{
     border-color:blue;
     overflow:scroll;
 }
-#controlbox{
-    position:absolute;
-    top:40px;
-    left:0px;
-    width:50%;
-    overflow:scroll;
-    bottom:50%;
-    border-bottom:solid;
-    border-top:solid;
-    border-color:red;
-}
 #spellbox{
     position:absolute;
     left:0px;
@@ -500,30 +517,45 @@ body{
 #modeindicator{
     width:25px;
 }
+@media only screen and (orientation: landscape) {
+
+    #controlbox{
+    position:absolute;
+    top:40px;
+    left:0px;
+    width:50%;
+    overflow:scroll;
+    bottom:50%;
+    border-bottom:solid;
+    border-top:solid;
+    border-color:red;
+}
+
+}
 @media only screen and (orientation: portrait) {
     #header{
-        height:80px;
+        height:60px;
         position:absolute;
         left:0px;
         width:100%;
         top:0px;
     }
     #header img{
-        width:70px;
+        width:40px;
     }
     #mainbox{
         position:absolute;
         right:0px;
-        top:80px;
+        top:60px;
         bottom:50%;
         width:100%;
         border-bottom:solid;
         border-color:blue;
-        overflow:scroll;
+        overflow:hidden;
     }
     #controlbox{
         position:absolute;
-        top:50%;
+        bottom:0px;
         left:0px;
         width:100%;
         overflow:scroll;
