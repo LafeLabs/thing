@@ -264,8 +264,25 @@ function modeswitch(){
 
 document.getElementById("exportbutton").onclick  = function(){
 
-    document.getElementById("textio").value = mainGVM.bytecode(0220,0237);
-    savecube();
+
+    var jsonarray = [];
+    for(var index = 0220;index < 0240;index++) {
+        if(mainGVM.hypercube[index].length > 1) {
+            var bytecodestring = "0" + index.toString(8) + ":" + mainGVM.hypercube[index];
+            jsonarray.push(bytecodestring); 
+        }
+    }
+    for(var index = 01220;index < 01240;index++) {
+        if(mainGVM.hypercube[index].length > 1) {
+                var bytecodestring = "0" + index.toString(8) + ":" + mainGVM.hypercube[index];
+                jsonarray.push(bytecodestring); 
+        }
+    }
+    
+
+    document.getElementById("textio").value = JSON.stringify(jsonarray,null,"    ");
+    
+//    savecube();
 
 }
 
