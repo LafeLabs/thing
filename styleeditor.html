@@ -68,7 +68,18 @@
         </tr>
 
     </table>
-    
+<table>
+    <tr>
+        <td class = "button" id = "importbutton">IMPORT</td>
+    </tr>
+    <tr>
+        <td class = "button" id = "exportbutton">EXPORT</td>
+    </tr>
+    <tr>
+        <td class = "button" id = "resetbutton">RESET</td>
+    </tr>
+</table>
+    <textarea id = "textio"></textarea>
     <canvas id = "outputcanvas"></canvas>
 <script>    
 
@@ -235,6 +246,51 @@ function redraw(){
     
 }
 
+
+document.getElementById("exportbutton").onclick = function(){
+    document.getElementById("textio").value = JSON.stringify(currentstyle,null,"    ");
+}
+
+document.getElementById("importbutton").onclick = function(){
+    currentstyle = JSON.parse(document.getElementById("textio").value);
+    redraw();
+    savestyle();    
+}
+
+resetstyle = {
+    "color0": "black",
+    "fill0": "black",
+    "line0": 1,
+    "color1": "black",
+    "fill1": "black",
+    "line1": 5,
+    "color2": "red",
+    "fill2": "red",
+    "line2": 1,
+    "color3": "#FF7900",
+    "fill3": "#FF7900",
+    "line3": 1,
+    "color4": "yellow",
+    "fill4": "yellow",
+    "line4": 1,
+    "color5": "green",
+    "fill5": "green",
+    "line5": 1,
+    "color6": "blue",
+    "fill6": "blue",
+    "line6": 1,
+    "color7": "purple",
+    "fill7": "purple",
+    "line7": 1
+};
+
+document.getElementById("resetbutton").onclick = function(){
+    currentstyle = resetstyle;
+    document.getElementById("textio").value = JSON.stringify(currentstyle,null,"    ");    
+    redraw();
+    savestyle();
+}
+document.getElementById("textio").value = "";
 </script>
 
 <style>
@@ -244,6 +300,19 @@ function redraw(){
     top:0px;
     border:solid;
     z-index:2;
+}
+.button{
+    cursor:pointer;
+    border:solid;
+    text-align:center;
+    border-radius:3px;
+    margin-top:10px;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
 }
 </style>
 </body>

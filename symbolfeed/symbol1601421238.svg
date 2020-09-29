@@ -1,0 +1,35 @@
+<svg width="452" height="452" viewbox = "0 0 452 452"  xmlns="http://www.w3.org/2000/svg">
+<!--<json>{
+  "glyph": "0322,0221,0335,0323,0335,0221,0335,0324,0335,0221,0325,0335,0335,0221,0335,0326,0335,0221,0335,0335,0327,0221,0335,0335,0322,0221,0335,0335,0323,0221,0335,0335,0325,0221,0335,0335,0327,0221,",
+  "x0": 226,
+  "y0": 226,
+  "unit": 87.35406240000002,
+  "width": 452,
+  "height": 452,
+  "style": {
+    "color0": "black",
+    "fill0": "black",
+    "line0": 1,
+    "color1": "black",
+    "fill1": "black",
+    "line1": 5,
+    "color2": "black",
+    "fill2": "#ffc0cb",
+    "line2": 5,
+    "color3": "black",
+    "fill3": "#ffe4e1",
+    "line3": 5,
+    "color4": "black",
+    "fill4": "#ffb6c1",
+    "line4": 5,
+    "color5": "black",
+    "fill5": "#ff69b4",
+    "line5": 5,
+    "color6": "black",
+    "fill6": "#db7093",
+    "line6": 5,
+    "color7": "black",
+    "fill7": "#ff1493",
+    "line7": 5
+  }
+}</json>-->	<path d = "M226 226 L199 143 L226 60 L253 143 L226 226 Z" stroke = "#000000" stroke-width = "5" fill = "#ffc0cb" />	<path d = "M226 226 L253 143 L324 92 L297 175 L226 226 Z" stroke = "#000000" stroke-width = "5" fill = "#ffe4e1" />	<path d = "M226 226 L297 175 L384 175 L313 226 L226 226 Z" stroke = "#000000" stroke-width = "5" fill = "#ffb6c1" />	<path d = "M226 226 L313 226 L384 277 L297 277 L226 226 Z" stroke = "#000000" stroke-width = "5" fill = "#ff69b4" />	<path d = "M226 226 L297 277 L324 360 L253 309 L226 226 Z" stroke = "#000000" stroke-width = "5" fill = "#db7093" />	<path d = "M226 226 L253 309 L226 392 L199 309 L226 226 Z" stroke = "#000000" stroke-width = "5" fill = "#ff1493" />	<path d = "M226 226 L199 309 L128 360 L155 277 L226 226 Z" stroke = "#000000" stroke-width = "5" fill = "#ffc0cb" />	<path d = "M226 226 L155 277 L68 277 L139 226 L226 226 Z" stroke = "#000000" stroke-width = "5" fill = "#ffe4e1" />	<path d = "M226 226 L139 226 L68 175 L155 175 L226 226 Z" stroke = "#000000" stroke-width = "5" fill = "#ff69b4" />	<path d = "M226 226 L155 175 L128 92 L199 143 L226 226 Z" stroke = "#000000" stroke-width = "5" fill = "#ff1493" /></svg>
