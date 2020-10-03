@@ -165,6 +165,7 @@
         "xyzcube.svg"
     ],
     "data": [
+        "appcontrols.txt",
         "chaosfeed.txt",
         "coin.txt",
         "controls.txt",
@@ -263,6 +264,7 @@
         "srs.md",
         "symbolmagic",
         "trashrobotdotorg",
+        "webpage",
         "zdrive-arduino"
     ]
 }
