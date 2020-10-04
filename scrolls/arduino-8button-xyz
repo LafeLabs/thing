@@ -1,0 +1,323 @@
+<pre>
+
+String glyph =  String("iHHD");//glyph to run on go button
+String aString = String("GGAHH");//0500 
+String bString = String("GGBHH");//0501
+String cString = String("GGCHH");//0502
+String dString = String("GGDHH");//0503
+String eString = String("GGEHH");//0504
+String fString = String("GGFHH");//0505
+String gString = String("ABGGCHH");//0506
+String hString = String("ABGGDHH");//0507
+String iString = String("HHHABGCHABGCHABGC");//0510 
+String jString = String("");//0511
+String kString = String("");//0512
+String lString = String("");//0513
+String mString = String("");//0514
+String nString = String("");//0515
+String oString = String("");//0516
+String pString = String("");//0517
+
+
+
+int goPin = 5;
+int stopPin = 6;
+int xleftPin = 7;
+int xrightPin = 8;
+int yawayPin = 9;
+int ytowardsPin = 10;
+int zdownPin = 11;
+int zupPin = 12;
+
+int dirPin1 = 19;
+int stepPin1 = 18;
+int enPin1 = 17;
+int dirPin3 = 16;
+int stepPin3 = 15;
+int enPin3 = 14;
+int dirPin2 = 2;
+int stepPin2 = 3;
+int enPin2 = 4;
+
+int side = 16;//number of steps in one unit to start off
+
+boolean goBool = false;
+boolean stopBool = false;
+boolean xleftBool = false;
+boolean xrightBool = false;
+boolean yawayBool = false;
+boolean ytowardsBool = false;
+boolean zdownBool = false;
+boolean zupBool = false;
+
+void setup() {
+
+    pinMode(goPin,INPUT_PULLUP); 
+    pinMode(stopPin,INPUT_PULLUP); 
+    pinMode(xleftPin,INPUT_PULLUP); 
+    pinMode(xrightPin,INPUT_PULLUP); 
+    pinMode(yawayPin,INPUT_PULLUP); 
+    pinMode(ytowardsPin,INPUT_PULLUP); 
+    pinMode(zdownPin,INPUT_PULLUP); 
+    pinMode(zupPin,INPUT_PULLUP); 
+
+    pinMode(dirPin1,OUTPUT);
+    pinMode(stepPin1,OUTPUT);
+    pinMode(enPin1,OUTPUT);
+    pinMode(dirPin2,OUTPUT);
+    pinMode(stepPin2,OUTPUT);
+    pinMode(enPin2,OUTPUT);
+    pinMode(dirPin3,OUTPUT);
+    pinMode(stepPin3,OUTPUT);
+    pinMode(enPin3,OUTPUT);
+
+    digitalWrite(dirPin1,LOW);
+    digitalWrite(stepPin1,LOW);
+    digitalWrite(enPin1,HIGH);
+    digitalWrite(dirPin2,LOW);
+    digitalWrite(stepPin2,LOW);
+    digitalWrite(enPin2,HIGH);
+    digitalWrite(dirPin3,LOW);
+    digitalWrite(stepPin3,LOW);
+    digitalWrite(enPin3,HIGH);
+    
+    Serial.begin(9600);
+
+}
+
+void loop() { 
+
+  
+  goBool = !digitalRead(goPin);
+  xleftBool = !digitalRead(xleftPin);
+  xrightBool = !digitalRead(xrightPin);
+  yawayBool = !digitalRead(yawayPin);
+  ytowardsBool = !digitalRead(ytowardsPin);
+  zdownBool = !digitalRead(zdownPin);
+  zupBool = !digitalRead(zupPin);
+   //Serial.println(goBool); 
+
+  if(xleftBool){
+     moveLeft(1);
+  }
+  if(xrightBool){
+     moveRight(1);
+  }
+  if(zdownBool){
+    moveDown(1); 
+  }
+  if(zupBool){
+    moveUp(1); 
+  }
+  if(yawayBool){
+    moveAway(1);
+  }
+  if(ytowardsBool){
+    moveTowards(1);
+ }
+
+ if(goBool){
+  side = 16;
+  actionSequence(glyph);
+ }
+}
+
+void moveLeft(int nSteps){
+     digitalWrite(dirPin1,HIGH);
+     digitalWrite(dirPin3,HIGH);
+     digitalWrite(enPin1,LOW);
+     digitalWrite(enPin3,LOW);
+     
+     for(int index = 0;index < nSteps;index++){
+       digitalWrite(stepPin1,HIGH);
+       delay(1);
+       digitalWrite(stepPin1,LOW);
+       delay(1);
+       digitalWrite(stepPin3,HIGH);
+       delay(1);
+       digitalWrite(stepPin3,LOW);
+       delay(1);
+     }
+          
+     digitalWrite(enPin1,HIGH);   
+     digitalWrite(enPin3,HIGH);    
+}
+
+void moveRight(int nSteps){
+     digitalWrite(dirPin1,LOW);
+     digitalWrite(dirPin3,LOW);
+     digitalWrite(enPin1,LOW);
+     digitalWrite(enPin3,LOW);
+     
+     for(int index = 0;index < nSteps;index++){
+       digitalWrite(stepPin1,HIGH);
+       delay(1);
+       digitalWrite(stepPin1,LOW);
+       delay(1);
+       digitalWrite(stepPin3,HIGH);
+       delay(1);
+       digitalWrite(stepPin3,LOW);
+       delay(1);
+     }
+          
+     digitalWrite(enPin1,HIGH);   
+     digitalWrite(enPin3,HIGH);    
+}
+
+void moveDown(int nSteps){
+     digitalWrite(dirPin1,HIGH);
+     digitalWrite(dirPin3,LOW);
+     digitalWrite(enPin1,LOW);
+     digitalWrite(enPin3,LOW);
+     
+     for(int index = 0;index < nSteps;index++){
+       digitalWrite(stepPin1,HIGH);
+       delay(1);
+       digitalWrite(stepPin1,LOW);
+       delay(1);
+       digitalWrite(stepPin3,HIGH);
+       delay(1);
+       digitalWrite(stepPin3,LOW);
+       delay(1);
+     }
+          
+     digitalWrite(enPin1,HIGH);   
+     digitalWrite(enPin3,HIGH);    
+}
+
+void moveUp(int nSteps){
+     digitalWrite(dirPin1,LOW);
+     digitalWrite(dirPin3,HIGH);
+     digitalWrite(enPin1,LOW);
+     digitalWrite(enPin3,LOW);
+     
+     for(int index = 0;index < nSteps;index++){
+       digitalWrite(stepPin1,HIGH);
+       delay(1);
+       digitalWrite(stepPin1,LOW);
+       delay(1);
+       digitalWrite(stepPin3,HIGH);
+       delay(1);
+       digitalWrite(stepPin3,LOW);
+       delay(1);
+     }
+          
+     digitalWrite(enPin1,HIGH);   
+     digitalWrite(enPin3,HIGH);    
+}
+
+void moveAway(int nSteps){
+     digitalWrite(dirPin2,LOW);
+     digitalWrite(enPin2,LOW);
+     
+     for(int index = 0;index < nSteps;index++){
+       digitalWrite(stepPin2,HIGH);
+       delay(1);
+       digitalWrite(stepPin2,LOW);
+       delay(1);
+     }          
+     digitalWrite(enPin2,HIGH);   
+}
+
+void moveTowards(int nSteps){
+     digitalWrite(dirPin2,HIGH);
+     digitalWrite(enPin2,LOW);
+     
+     for(int index = 0;index < nSteps;index++){
+       digitalWrite(stepPin2,HIGH);
+       delay(1);
+       digitalWrite(stepPin2,LOW);
+       delay(1);
+     }          
+     digitalWrite(enPin2,HIGH);   
+}
+
+void actionSequence(String actionString){
+  for(int index = 0;index < actionString.length();index++){
+    action(actionString.charAt(index));
+  }
+}
+
+//each action test for stop boolean, only runs if it's false, and tests for stop button, sets boolean to true  if it's pressed 
+
+void action(char a){
+  stopBool = !digitalRead(stopPin);
+  if(!stopBool){
+    if(a == 'A'){
+      moveRight(side);
+    }
+    if(a == 'B'){
+      moveLeft(side);
+    }
+    if(a == 'C'){
+      moveAway(side);
+    }
+    if(a == 'D'){
+      moveTowards(side);
+    }
+    if(a == 'E'){
+      moveUp(side);
+    }
+    if(a == 'F'){
+      moveDown(side);
+    }
+    if(a == 'G'){
+      side /= 2;
+    }
+    if(a =='H'){
+      side *= 2;
+    }
+    if(a == 'a'){
+      actionSequence(aString);
+    }
+    if(a == 'b'){
+      actionSequence(bString);
+    }
+    if(a == 'c'){
+      actionSequence(cString);
+    }
+    if(a == 'd'){
+      actionSequence(dString);
+    }
+    if(a == 'e'){
+      actionSequence(eString);
+    }
+    if(a == 'f'){
+      actionSequence(fString);
+    }
+    if(a == 'g'){
+      actionSequence(gString);
+    }
+    if(a == 'h'){
+      actionSequence(hString);
+    }
+    if(a == 'i'){
+      actionSequence(iString);
+    }
+    if(a == 'j'){
+      actionSequence(jString);
+    }
+    if(a == 'k'){
+      actionSequence(kString);
+    }
+    if(a == 'l'){
+      actionSequence(lString);
+    }
+    if(a == 'm'){
+      actionSequence(mString);
+    }
+    if(a == 'n'){
+      actionSequence(nString);
+    }
+    if(a == 'o'){
+      actionSequence(oString);
+    }
+    if(a == 'p'){
+      actionSequence(pString);
+    }
+        
+  }
+}
+
+
+</pre>

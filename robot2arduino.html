@@ -71,13 +71,6 @@
 <div id = "controlbox">
     <table id = "controltable">
     </table>
-
-    <table id = "feedbuttontable">
-        <tr>
-            <td class= "button" id = "importimagefeedbutton">IMPORT IMAGE FEED</td>
-        </tr>
-    </table>
-    <textarea id  = "textio"></textarea>
 </div>
 
 
@@ -108,7 +101,7 @@ symbols015xx = [
 
 
 arduinorobot = {
-    "glyph":"0510,0510,",
+    "glyph":"0510,0510,0400,",
     "stack":[
         "0400,0401,",
         "0401,0400,",
@@ -127,8 +120,33 @@ arduinorobot = {
         "",
         ""
     ]
-}
+};
 
+arduinoCode();
+
+function arduinoCode(){
+
+    code = "";
+    code += "String glyph =  String(\"" + geometron2arduino(arduinorobot.glyph) +"\");//glyph to run on go button\n";
+    code += "String aString = String(\"" + geometron2arduino(arduinorobot.stack[0]) + "\");//0500\n";
+    code += "String bString = String(\"" + geometron2arduino(arduinorobot.stack[1]) + "\");//0501\n";    
+    code += "String cString = String(\"" + geometron2arduino(arduinorobot.stack[2]) + "\");//0502\n";
+    code += "String dString = String(\"" + geometron2arduino(arduinorobot.stack[3]) + "\");//0503\n";
+    code += "String eString = String(\"" + geometron2arduino(arduinorobot.stack[4]) + "\");//0504\n";
+    code += "String fString = String(\"" + geometron2arduino(arduinorobot.stack[5]) + "\");//0505\n";
+    code += "String gString = String(\"" + geometron2arduino(arduinorobot.stack[6]) + "\");//0506\n";
+    code += "String hString = String(\"" + geometron2arduino(arduinorobot.stack[7]) + "\");//0507\n";
+    code += "String iString = String(\"" + geometron2arduino(arduinorobot.stack[8]) + "\");//0510\n";
+    code += "String jString = String(\"" + geometron2arduino(arduinorobot.stack[9]) + "\");//0511\n";
+    code += "String kString = String(\"" + geometron2arduino(arduinorobot.stack[10]) + "\");//0512\n";
+    code += "String lString = String(\"" + geometron2arduino(arduinorobot.stack[11]) + "\");//0513\n";
+    code += "String mString = String(\"" + geometron2arduino(arduinorobot.stack[12]) + "\");//0514\n";
+    code += "String nString = String(\"" + geometron2arduino(arduinorobot.stack[13]) + "\");//0515\n";
+    code += "String oString = String(\"" + geometron2arduino(arduinorobot.stack[14]) + "\");//0516\n";
+    code += "String pString = String(\"" + geometron2arduino(arduinorobot.stack[15]) + "\");//0517\n";    
+
+    document.getElementById("arduinocode").value = code;
+}
 
 function geometron2arduino(geometronString){
     var arduinoString = "";
@@ -210,7 +228,10 @@ function geometron2arduino(geometronString){
             
         }
     }
+    return arduinoString;
 }
+
+
 
 function string2glyph(inputstring){
     localglyph = "";    
@@ -346,11 +367,8 @@ controls  = [
 ];
 
 
-document.getElementById("textio").value = "";
-
 
 document.getElementById("savebutton").onclick  = function(){
-    pushcoin();
 }
 
 
@@ -394,8 +412,6 @@ function loadcontroltable(){
                     mainGVM.clean();
                     spellGVM.spellGlyph(mainGVM.glyph);
                     document.getElementById("spellinput").value = mainGVM.cleanGlyph;
-                    coin = mainGVM.cleanGlyph;
-                    savecoin();
 
 
                 }
@@ -410,9 +426,9 @@ hypercube = [];
 
 maincanvas = document.getElementById("maincanvas");
 var mainGVM = new GVM(maincanvas,0.5*innerWidth - 10,0.5*innerWidth -10);
-
-//var gridGVM = new GVM(gridcanvas,0.5*innerWidth - 10,0.5*innerWidth -10);
-///gridGVM.drawGlyph("0337,0337,0342,0334,0342,0334,0342,0334,0342,0341,");
+mainGVM.x0 = 5;
+mainGVM.y0 = 35;
+mainGVM.unit = 20;
 
 var spellGVM = new GVM(document.getElementById("spellcanvas"),420,800);
 
@@ -446,29 +462,41 @@ httpcHypercube.onreadystatechange = function(){
         spellGVM.importbytecode(hypercube);
         mainGVM.importbytecode(hypercube);    
         mainGVM.importbytecode(robotkeys);
+        mainGVM.importbytecode(symbols015xx);
         loadcontroltable();
-        var httpcCoin = new XMLHttpRequest();
-        httpcCoin.onreadystatechange = function(){
+        var httpcarduino = new XMLHttpRequest();
+        httpcarduino.onreadystatechange = function(){
             if (this.readyState == 4 && this.status == 200) {
-                coin = this.responseText;
-                drawmain();
+                arduinorobot = JSON.parse(this.responseText);
+                mainGVM.hypercube[0520] = arduinorobot.glyph;
+                for(var index = 0;index < arduinorobot.stack.length;index++){
+                    mainGVM.hypercube[0500 + index] = arduinorobot.stack[index];
+                }
+                drawMain();
             }
         };
-        httpcCoin.open("GET", "fileloader.php?filename=data/coin.txt", true);
-        httpcCoin.send();
-/*        
-        httpcCoin.onreadystatechange = function(){
-        if (this.readyState == 4 && this.status == 200) {
-            coin = this.responseText;
-        }
-
-  */
-  
+        httpcarduino.open("GET", "fileloader.php?filename=data/arduinorobot.txt", true);
+        httpcarduino.send();
     }
         
 };
 httpcHypercube.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
 httpcHypercube.send();
+
+function drawMain(){
+    mainGVM.spellGlyph(arduinorobot.glyph);
+    mainGVM.actionSequence("0300,0331,0331,");
+    spellSequence(arduinorobot.stack[0]);
+    
+}
+function spellSequence(localSequence){
+    var localArray = localSequence.split(",");
+    for(var index = 0;index < localArray.length;index++){
+        if(localArray[index].length > 0){
+            mainGVM.action(parseInt(localArray[index],8) + 01000);
+        }
+    }
+}
 
 stoprelativekeys = [
     "0154:",
@@ -478,40 +506,6 @@ stoprelativekeys = [
     "054:",    
     "056:"    
 ];
-
-
-
-image = {
-    "w":1.0,
-    "x":0.0,
-    "y":0.0,
-    "angle":0,
-    "src":""
-};
-
-
-coin  = "";
-
-function drawmain(){
-    mainGVM.glyph = coin + "0207,";
-    mainGVM.clean();
-    mainGVM.drawGlyph(mainGVM.glyph);
-    if(image.src.length > 0){
-        document.getElementById("mainimage").style.display = "block";
-        document.getElementById("mainimage").src = image.src;
-        document.getElementById("mainimage").style.width = (image.w*mainGVM.width).toString() + "px";
-        document.getElementById("mainimage").style.left = (image.x*mainGVM.width).toString() + "px";
-        document.getElementById("mainimage").style.top = (image.y*mainGVM.width).toString() + "px";
-        document.getElementById("mainimage").style.transform = "rotate(" + image.angle.toString() + "deg)";   
-    }
-    else{
-        document.getElementById("mainimage").style.display = "none";
-        document.getElementById("mainimage").src = "";
-    }
-    spellGVM.spellGlyph(mainGVM.glyph);
-    document.getElementById("spellinput").value = mainGVM.cleanGlyph;
-}
-
 
 
 mode = 0;
@@ -597,12 +591,16 @@ if(innerWidth > innerHeight){
 
 document.getElementById("spellinput").onchange = function(){
     
-    coin = this.value;
     drawmain();
         
 }
 
-
+function savearduinorobot(){
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", "filesaver.php", true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(JSON.stringify(arduinorobot,null,"  "))+"&filename=data/arduinorobot.txt");//send text to filesaver.php   
+}
 
 </script>
 <style>

@@ -167,6 +167,7 @@
     ],
     "data": [
         "appcontrols.txt",
+        "arduinorobot.txt",
         "chaosfeed.txt",
         "coin.txt",
         "controls.txt",
