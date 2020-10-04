@@ -584,12 +584,7 @@ document.getElementById("actioninput").onkeydown = function(a) {
         //up arrow: prev symbol
         mainGVM.clean();
         mainGVM.hypercube[mainGVM.address] = mainGVM.cleanGlyph;
-        if(mainGVM.address == 0520){
-            arduinorobot.glyph = mainGVM.cleanGlyph;
-        }
-        else{
-            arduinorobot.stack[mainGVM.address - 0500] = mainGVM.cleanGlyph;
-        }
+
         mainGVM.address--;
         if(mainGVM.address < 0500){
             mainGVM.address = 0520;
@@ -599,13 +594,7 @@ document.getElementById("actioninput").onkeydown = function(a) {
     }
     if(charCode == 050){
         //down arrow: next symbol
-        mainGVM.clean();
-        if(mainGVM.address == 0520){
-            arduinorobot.glyph = mainGVM.cleanGlyph;
-        }
-        else{
-            arduinorobot.stack[mainGVM.address - 0500] = mainGVM.cleanGlyph;
-        }        
+ 
         mainGVM.hypercube[mainGVM.address] = mainGVM.cleanGlyph;
         mainGVM.address++;
         if(mainGVM.address > 0520){
@@ -619,6 +608,13 @@ document.getElementById("actioninput").onkeydown = function(a) {
     mainGVM.clean();
     drawMain();
 
+        if(mainGVM.address == 0520){
+            arduinorobot.glyph = mainGVM.cleanGlyph;
+        }
+        else{
+            arduinorobot.stack[mainGVM.address - 0500] = mainGVM.cleanGlyph;
+        }           
+    savearduinorobot();
 }
 
 function modeswitch(){
