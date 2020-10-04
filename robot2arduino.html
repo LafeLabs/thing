@@ -103,11 +103,11 @@ symbols015xx = [
 arduinorobot = {
     "glyph":"0510,0510,0400,",
     "stack":[
+        "0406,0406,0400,0407,0407,",
+        "0406,0406,0401,0407,0407,",
+        "0406,0406,0402,0407,0407,",
         "0400,0401,",
         "0401,0400,",
-        "",
-        "",
-        "",
         "",
         "",
         "",
@@ -425,10 +425,13 @@ function loadcontroltable(){
 hypercube = [];
 
 maincanvas = document.getElementById("maincanvas");
-var mainGVM = new GVM(maincanvas,0.5*innerWidth - 10,0.5*innerWidth -10);
+var mainGVM = new GVM(maincanvas,0.5*innerWidth - 10,0.8*innerWidth -10);
 mainGVM.x0 = 5;
 mainGVM.y0 = 35;
 mainGVM.unit = 20;
+
+mainGVM.address = 0520;
+
 
 var spellGVM = new GVM(document.getElementById("spellcanvas"),420,800);
 
@@ -472,7 +475,10 @@ httpcHypercube.onreadystatechange = function(){
                 for(var index = 0;index < arduinorobot.stack.length;index++){
                     mainGVM.hypercube[0500 + index] = arduinorobot.stack[index];
                 }
+                mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
                 drawMain();
+
+                spellGVM.spellGlyph(mainGVM.glyph);
             }
         };
         httpcarduino.open("GET", "fileloader.php?filename=data/arduinorobot.txt", true);
@@ -484,16 +490,51 @@ httpcHypercube.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
 httpcHypercube.send();
 
 function drawMain(){
-    mainGVM.spellGlyph(arduinorobot.glyph);
-    mainGVM.actionSequence("0300,0331,0331,");
-    spellSequence(arduinorobot.stack[0]);
+    mainGVM.drawGlyph("0300,");
+    if(mainGVM.address == 0520){
+        mainGVM.actionSequence("0322,");
+    }
+
+    mainGVM.actionSequence("0147,0154,0171,0160,0150,072,0365,0333,0333,0333,0333,0320,");
     
+    if(mainGVM.address == 0520){
+        spellSequence(mainGVM.glyph);
+    }
+    else{
+        spellSequence(arduinorobot.glyph);
+    }
+
+    for(var stackIndex = 0;stackIndex < 16;stackIndex++){
+        mainGVM.actionSequence("0300,0331,0331,");
+        for(var lineIndex = 0;lineIndex < stackIndex;lineIndex++){
+            mainGVM.actionSequence("0331,0331,");
+        }
+        mainGVM.action(01500 + stackIndex);
+        if(mainGVM.address == 0500 + stackIndex){
+            mainGVM.actionSequence("0322,");
+        }
+        mainGVM.actionSequence("0333,072,0365,0333,0320,");
+        if(mainGVM.address == 0500 + stackIndex){
+            spellSequence(mainGVM.glyph);
+        }
+        else{
+            spellSequence(arduinorobot.stack[stackIndex]);
+        }
+    }
+
 }
+
 function spellSequence(localSequence){
     var localArray = localSequence.split(",");
     for(var index = 0;index < localArray.length;index++){
         if(localArray[index].length > 0){
-            mainGVM.action(parseInt(localArray[index],8) + 01000);
+            if(parseInt(localArray[index],8) < 01000){
+                mainGVM.action(parseInt(localArray[index],8) + 01000);
+            }
+            else{
+                mainGVM.action(parseInt(localArray[index],8));
+
+            }
         }
     }
 }
@@ -527,11 +568,8 @@ document.getElementById("actioninput").onkeypress = function(a) {
         this.value = "";
         mainGVM.clean();
         document.getElementById("spellinput").value = mainGVM.cleanGlyph;
-        coin = mainGVM.cleanGlyph;
-        savecoin();
-
     }
-
+    drawMain();
 }
 
 
@@ -569,6 +607,7 @@ document.getElementById("actioninput").onkeydown = function(a) {
     spellGVM.spellGlyph(mainGVM.glyph);
     document.getElementById("spellinput").value = mainGVM.cleanGlyph;
     mainGVM.clean();
+    drawMain();
 
 }
 
