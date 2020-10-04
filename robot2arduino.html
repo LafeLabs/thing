@@ -23,7 +23,7 @@
     <META NAME="robots" CONTENT="noindex,nofollow">
 <!--geometron javascript library-->
     <script src="jscode/geometron.js"></script>
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"></script>
+
 </head>
 <body>
 <div id = "header">
@@ -31,22 +31,13 @@
     <a href = "index.html">
         <img src = "iconsymbols/home.svg" style = "width:40px"/>      
     </a>
-    <a href = "coinfeed.html">
-        <img src = "iconsymbols/feed.svg" style = "width:40px"/>      
-    </a>
-    <a href = "robot.html">
-        <img src = "iconsymbols/robot.svg" style = "width:40px"/>      
-    </a>
 </div>
 <div id = "textareabox">
     <textarea id = "arduinocode"></textarea>
 </div>
     
 <div id = "mainbox">
-    <canvas id = "gridcanvas"></canvas>
     <canvas id = "maincanvas"></canvas>
-    <img id = "mainimage"/>
-    <div id = "hammerxy"></div>
 </div>
 <div id = "spellbox">
     <table id = "spellinputtable">
@@ -62,9 +53,6 @@
             </td>
         </tr>
     </table>
-    <div id = "spellcanvasbox">
-        <canvas id = "spellcanvas"></canvas>
-    </div>
 </div>
 
 
@@ -315,11 +303,11 @@ function setscreen(){
             document.getElementById("spellbox").style.top = "40px";
             document.getElementById("spellbox").style.left = "25%";
             document.getElementById("spellbox").style.width = "25%";
-            document.getElementById("spellbox").style.height = (innerHeight*0.5 - 45).toString() + "px";
+            document.getElementById("spellbox").style.height = (innerHeight*0.15 - 45).toString() + "px";
             document.getElementById("controlbox").style.bottom = "40px";
             document.getElementById("controlbox").style.left = "25%";
             document.getElementById("controlbox").style.width = "25%";
-            document.getElementById("controlbox").style.height = (innerHeight*0.5 - 45).toString() + "px";     
+            document.getElementById("controlbox").style.height = (innerHeight*0.75 - 45).toString() + "px";     
           
 
         }
@@ -347,23 +335,14 @@ function setscreen(){
 //load 4 files: data/feed.txt, data/imagefeed.txt data/robot.txt, and data/hypercube.txt
 
 controls  = [
+    "020,010,021,011,",
+    "022,023,",
+    "0400,0401,0402,0403,",
+    "0404,0405,0406,0407,",
     "0500,0501,0502,0503,",
     "0504,0505,0506,0507,",
-    "011,020,010,021,",
-    "0320,0321,0322,0323,",
-    "0324,0325,0326,0327,",
-    "040,041,042,043,044,045,046,050,",
-    "051,052,053,054,055,056,057,060,",
-    "061,062,063,064,065,066,067,070,",
-    "071,072,073,074,075,076,077,0100,",
-    "0101,0102,0103,0104,0105,0106,0107,0110,",
-    "0111,0112,0113,0114,0115,0116,0117,0120,",
-    "0121,0122,0123,0124,0125,0126,0127,0130,",
-    "0131,0132,0133,0134,0135,0136,0137,0140,",
-    "0141,0142,0143,0144,0145,0146,0147,0150,",
-    "0151,0152,0153,0154,0155,0156,0157,0160,",
-    "0161,0162,0163,0164,0165,0166,0167,0170,",
-    "0171,0172,0173,0174,0175,0176,"
+    "0510,0511,0512,0513,",
+    "0514,0515,0516,0517,"
 ];
 
 
@@ -394,6 +373,7 @@ function loadcontroltable(){
                 newGVM.x0 = 1;
                 newGVM.y0 = controlbuttonsize-1;
                 newGVM.importbytecode(hypercube);
+                newGVM.importbytecode(symbols015xx);
                 newGVM.action(0300);
                 if(parseInt(rowarray[rowindex],8) >= 040 && parseInt(rowarray[rowindex],8) < 0177){
                     newGVM.drawGlyph("0300,0336,0336,0330,0333,0337,");
@@ -408,10 +388,53 @@ function loadcontroltable(){
                         }
                         mainGVM.cursorAction(localaction);
                     }
+                    else{
+                        if(localaction == 022){
+                            mainGVM.clean();
+                            mainGVM.hypercube[mainGVM.address] = mainGVM.cleanGlyph;
+                            if(mainGVM.address == 0520){
+                                arduinorobot.glyph = mainGVM.cleanGlyph;
+                            }
+                            else{
+                                arduinorobot.stack[mainGVM.address - 0500] = mainGVM.cleanGlyph;
+                            }               
+                            mainGVM.address--;
+                            if(mainGVM.address < 0500){
+                                mainGVM.address = 0520;
+                            }
+                            mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
+                            
+                        }
+                        if(localaction == 023){
+                            mainGVM.clean();
+                            mainGVM.hypercube[mainGVM.address] = mainGVM.cleanGlyph;
+                            if(mainGVM.address == 0520){
+                                arduinorobot.glyph = mainGVM.cleanGlyph;
+                            }
+                            else{
+                                arduinorobot.stack[mainGVM.address - 0500] = mainGVM.cleanGlyph;
+                            }               
+                            mainGVM.address++;
+                            if(mainGVM.address > 0520){
+                                mainGVM.address = 0500;
+                            }
+                            mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
+                            
+                        }
+                        drawMain();
+                        if(mainGVM.address == 0520){
+                            arduinorobot.glyph = mainGVM.cleanGlyph;
+                        }
+                        else{
+                            arduinorobot.stack[mainGVM.address - 0500] = mainGVM.cleanGlyph;
+                        }           
+                        savearduinorobot();
+                        arduinoCode();    
+                    }
 
                     mainGVM.clean();
                     document.getElementById("spellinput").value = mainGVM.cleanGlyph;
-
+                    drawMain();
 
                 }
                 newcan.classList.add("button");
@@ -696,29 +719,14 @@ body{
     top:0px;
     
 }
-#hammerxy{
-    position:absolute;
-    left:0px;
-    right:0px;
-    top:0px;
-    bottom:0px;
-    z-index:2;
-}
 #spellbox{
     position:absolute;
     right:0px;
     width:450px;
-    height:250px;
+    height:150px;
     border:solid;
     border-color:green;
     overflow:scroll;
-}
-#spellcanvasbox{
-    position:absolute;
-    left:0px;
-    border-top:solid;
-    border:color:blue;
-    top:40px;
 }
 #imagefeedbox input{
         font-size:12px;

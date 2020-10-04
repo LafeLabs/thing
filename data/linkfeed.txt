@@ -75,6 +75,11 @@
         "text": "symbol factory"
     },
     {
+        "href": "robot2arduino.html",
+        "src": "",
+        "text": "robot2arduino.html"
+    },
+    {
         "href": "linkfeededitor.html",
         "src": "",
         "text": "operator screen"

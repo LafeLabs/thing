@@ -241,6 +241,7 @@
         "symbol"
     ],
     "scrolls": [
+        "arduino-8button-xyz",
         "bookofshapes",
         "buildrobot.md",
         "buystuff",
