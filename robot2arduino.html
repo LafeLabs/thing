@@ -410,7 +410,6 @@ function loadcontroltable(){
                     }
 
                     mainGVM.clean();
-                    spellGVM.spellGlyph(mainGVM.glyph);
                     document.getElementById("spellinput").value = mainGVM.cleanGlyph;
 
 
@@ -432,12 +431,6 @@ mainGVM.unit = 20;
 
 mainGVM.address = 0520;
 
-
-var spellGVM = new GVM(document.getElementById("spellcanvas"),420,800);
-
-spellGVM.x0 = 5;
-spellGVM.y0 = 35;
-spellGVM.unit = 20;
 
 robotkeys = [
     "0141:0500,",
@@ -462,7 +455,6 @@ var httpcHypercube = new XMLHttpRequest();
 httpcHypercube.onreadystatechange = function(){
     if (this.readyState == 4 && this.status == 200) {
         hypercube = JSON.parse(this.responseText);
-        spellGVM.importbytecode(hypercube);
         mainGVM.importbytecode(hypercube);    
         mainGVM.importbytecode(robotkeys);
         mainGVM.importbytecode(symbols015xx);
@@ -478,7 +470,6 @@ httpcHypercube.onreadystatechange = function(){
                 mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
                 drawMain();
 
-                spellGVM.spellGlyph(mainGVM.glyph);
             }
         };
         httpcarduino.open("GET", "fileloader.php?filename=data/arduinorobot.txt", true);
@@ -509,10 +500,10 @@ function drawMain(){
         for(var lineIndex = 0;lineIndex < stackIndex;lineIndex++){
             mainGVM.actionSequence("0331,0331,");
         }
-        mainGVM.action(01500 + stackIndex);
         if(mainGVM.address == 0500 + stackIndex){
             mainGVM.actionSequence("0322,");
         }
+        mainGVM.action(01500 + stackIndex);
         mainGVM.actionSequence("0333,072,0365,0333,0320,");
         if(mainGVM.address == 0500 + stackIndex){
             spellSequence(mainGVM.glyph);
@@ -564,7 +555,6 @@ document.getElementById("actioninput").onkeypress = function(a) {
         }    
         
         mainGVM.cursorAction(localCursorAction);   
-        spellGVM.spellGlyph(mainGVM.glyph);    
         this.value = "";
         mainGVM.clean();
         document.getElementById("spellinput").value = mainGVM.cleanGlyph;
@@ -593,18 +583,38 @@ document.getElementById("actioninput").onkeydown = function(a) {
     if(charCode == 046){
         //up arrow: prev symbol
         mainGVM.clean();
-        mainGVM.glyph = "0207," + mainGVM.cleanGlyph;
-        mainGVM.drawGlyph(mainGVM.glyph);
+        mainGVM.hypercube[mainGVM.address] = mainGVM.cleanGlyph;
+        if(mainGVM.address == 0520){
+            arduinorobot.glyph = mainGVM.cleanGlyph;
+        }
+        else{
+            arduinorobot.stack[mainGVM.address - 0500] = mainGVM.cleanGlyph;
+        }
+        mainGVM.address--;
+        if(mainGVM.address < 0500){
+            mainGVM.address = 0520;
+        }
+        mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
+        
     }
     if(charCode == 050){
         //down arrow: next symbol
         mainGVM.clean();
-        mainGVM.glyph = mainGVM.cleanGlyph + "0207,";
-        mainGVM.drawGlyph(mainGVM.glyph);
+        if(mainGVM.address == 0520){
+            arduinorobot.glyph = mainGVM.cleanGlyph;
+        }
+        else{
+            arduinorobot.stack[mainGVM.address - 0500] = mainGVM.cleanGlyph;
+        }        
+        mainGVM.hypercube[mainGVM.address] = mainGVM.cleanGlyph;
+        mainGVM.address++;
+        if(mainGVM.address > 0520){
+            mainGVM.address = 0500;
+        }
+        mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
 
     }
 
-    spellGVM.spellGlyph(mainGVM.glyph);
     document.getElementById("spellinput").value = mainGVM.cleanGlyph;
     mainGVM.clean();
     drawMain();
@@ -708,6 +718,15 @@ body{
     width:22%;
     top:150px;
     z-index:3;
+    overflow:scroll;
+}
+#arduinocode{
+    width:50em;
+    height:40em;
+    font-family:courier;
+    font-size:12px;
+    border:solid;
+    border-color:green;
 }
 #imagefeedheader{
     position:absolute;
