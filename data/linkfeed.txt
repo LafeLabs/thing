@@ -80,6 +80,16 @@
         "text": "robot2arduino.html"
     },
     {
+        "href": "hypercube.html",
+        "src": "",
+        "text": "hypercube.html"
+    },
+    {
+        "href": "voxel.html",
+        "src": "",
+        "text": "voxel.html"
+    },
+    {
         "href": "linkfeededitor.html",
         "src": "",
         "text": "operator screen"
