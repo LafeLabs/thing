@@ -4,6 +4,7 @@
         "appeditor.html",
         "buttonsetup.sh",
         "canvas2png.html",
+        "channelfeed.html",
         "chaosfeed.html",
         "coinfeed.html",
         "coinstudio.html",
@@ -168,7 +169,9 @@
     "data": [
         "appcontrols.txt",
         "arduinorobot.txt",
+        "channelfeed.txt",
         "chaosfeed.txt",
+        "chaosfeedchannels.txt",
         "coin.txt",
         "controls.txt",
         "currentMap.txt",
