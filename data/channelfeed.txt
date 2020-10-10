@@ -1,8 +1,17 @@
-[
-    {
-        "name":"start",
-        "feed":[
-            "first post"
-        ]
-    }
-]
+{
+    "start": [
+        "foo",
+        "first post",
+        "second post"
+    ],
+    "foo": [
+        "test",
+        "Chaos Feed!! Type in box and hit enter to post. Red x's delete.💥 button resets feed.  Let the chaos ensue. 🔄 or enter refreshes feed to see what other people have posted."
+    ],
+    "derp": [
+        "and derp derpitdydeprdeperderp",
+        "and another derp post",
+        "here is a derp post",
+        "Chaos Feed!! Type in box and hit enter to post. Red x's delete.💥 button resets feed.  Let the chaos ensue. 🔄 or enter refreshes feed to see what other people have posted."
+    ]
+}

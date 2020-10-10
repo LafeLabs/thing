@@ -45,108 +45,77 @@
     <!--
     <a id = "uplink" href = "index.html"><img src = "iconsymbols/home.svg"/></a>
 -->
-    <span id = "channelname"></span>
     <span class = "button" id = "refresh">🔄</span>
-    <input id = "textinput"/>
+    <span id = "channelname"></span>
+    <input id = "textinput"/>    
     <span class  = "button" id = "nuke">!💥!</span>
+    
 </div>
 <div id = "feed"></div>
 <script>
 
-feed = [];
-channels = {};
-channel = "";
+channelfeed = {
+  "start":["first post"]
+};
+
+channel = "start";
 
 var httpc = new XMLHttpRequest();
     httpc.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        feed = JSON.parse(this.responseText);
+        channelfeed = JSON.parse(this.responseText);
         redraw();
     }
 };
-httpc.open("GET", "fileloader.php?filename=data/chaosfeed.txt", true);
+httpc.open("GET", "fileloader.php?filename=data/channelfeed.txt", true);
 httpc.send();
-
-var httpcchannels = new XMLHttpRequest();
-    httpcchannels.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        channels = JSON.parse(this.responseText);
-    }
-};
-httpcchannels.open("GET", "fileloader.php?filename=data/chaosfeedchannels.txt", true);
-httpcchannels.send();
 
 text = "";
 document.getElementById("textinput").onchange = function(){
     text = this.value;
-    //if it's a channel name, switch to that channel and display it. if the channel does not exist, create it and display
-    //if it's not a channel name, then if channel is "", load feed file, push new post to feed, and redraw the feed. if channel name is something other than "" load the channel json structure, if the channel name does not exist create it, then push the new text to that channel, save it and redraw
-    
     if(text.charAt(0) == "#"){
         channel = text.substring(1);
-        document.getElementById("channelname").innerHTML = "#" + channel;
-        redraw2();
+        redraw();
         document.getElementById("textinput").value = "";    
-
     }
     else{
-        if(channel == ""){
-            var httpc = new XMLHttpRequest();
-            httpc.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                    feed = JSON.parse(this.responseText);
-                    feed.unshift(text);
-                    redraw();
-                    savejson();
-                    document.getElementById("textinput").value = "";    
+        var httpc = new XMLHttpRequest();
+        httpc.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+                channelfeed = JSON.parse(this.responseText);
+                if(channelfeed[channel] == undefined){
+                    channelfeed[channel] = resetfeed;
                 }
-            };
-            httpc.open("GET", "fileloader.php?filename=data/chaosfeed.txt", true);
-            httpc.send();   
-        }
-        else{
-            var httpc = new XMLHttpRequest();
-            httpc.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                    channels = JSON.parse(this.responseText);
-                    channels[channel].unshift(text);
-                    redraw2();
-                    savechannels();
-                    document.getElementById("textinput").value = "";
-                    
-                }
-            };
-            httpc.open("GET", "fileloader.php?filename=data/chaosfeedchannels.txt", true);
-            httpc.send();
-        }
+                channelfeed[channel].unshift(text);
+                redraw();
+                savejson();
+                document.getElementById("textinput").value = "";    
+            }
+        };
+        httpc.open("GET", "fileloader.php?filename=data/channelfeed.txt", true);
+        httpc.send();   
     }
 }
 
-
-function savechannels(){
-    var url = "filesaver.php";        
-    var httpc2 = new XMLHttpRequest();
-    httpc2.open("POST", url, true);
-    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc2.send("data="+encodeURIComponent(JSON.stringify(channels,null,"    "))+"&filename=data/chaosfeedchannels.txt");//send text to filesaver.php
-}
 
 function savejson(){
     var url = "filesaver.php";        
     var httpc2 = new XMLHttpRequest();
     httpc2.open("POST", url, true);
     httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc2.send("data="+encodeURIComponent(JSON.stringify(feed,null,"    "))+"&filename=data/chaosfeed.txt");//send text to filesaver.php
+    httpc2.send("data="+encodeURIComponent(JSON.stringify(channelfeed,null,"    "))+"&filename=data/channelfeed.txt");//send text to filesaver.php
 }
 
 boxindex = 0;
 
-function redraw2(){
+function redraw(){
+    document.getElementById("channelname").innerHTML = "#" + channel;
     document.getElementById("feed").innerHTML = "";
-
-    for(var index = 0;index < channels[channel].length;index++){
+    if(channelfeed[channel] == undefined){
+        channelfeed[channel] = resetfeed;
+    }
+    for(var index = 0;index < channelfeed[channel].length;index++){
         var newbox = document.createElement("DIV");
-        
         document.getElementById("feed").appendChild(newbox);
         newbox.className = "box";
         newbox.id = "box" + index.toString();
@@ -157,65 +126,15 @@ function redraw2(){
         deletebutton.onclick = function(){
             boxindex = parseInt(this.parentElement.id.substring(3));
             deletetext();
-        }
+        }            
         var textspan = document.createElement("span");
         textspan.className = "textspan";
-        textspan.innerHTML = channels[channel][index];
+        textspan.innerHTML = channelfeed[channel][index];
         newbox.appendChild(textspan);
-    }
-    
-}
-
-
-function redraw(){
-    document.getElementById("feed").innerHTML = "";
-    if(channel == ""){
-        for(var index = 0;index < feed.length;index++){
-            var newbox = document.createElement("DIV");
-            document.getElementById("feed").appendChild(newbox);
-            newbox.className = "box";
-            newbox.id = "box" + index.toString();
-            var deletebutton = document.createElement("IMG");
-            deletebutton.className = "deletebutton";
-            deletebutton.src = "iconsymbols/delete.svg";
-            newbox.appendChild(deletebutton);
-            deletebutton.onclick = function(){
-                boxindex = parseInt(this.parentElement.id.substring(3));
-                deletetext();
-            }
-            var textspan = document.createElement("span");
-            textspan.className = "textspan";
-            textspan.innerHTML = feed[index];
-            newbox.appendChild(textspan);
-        }
-    }
-    else{
-        for(var index = 0;index < channels[channel].length;index++){
-            var newbox = document.createElement("DIV");
-            
-            document.getElementById("feed").appendChild(newbox);
-            newbox.className = "box";
-            newbox.id = "box" + index.toString();
-            var deletebutton = document.createElement("IMG");
-            deletebutton.className = "deletebutton";
-            deletebutton.src = "iconsymbols/delete.svg";
-            newbox.appendChild(deletebutton);
-            deletebutton.onclick = function(){
-                boxindex = parseInt(this.parentElement.id.substring(3));
-                deletetext();
-            }
-            var textspan = document.createElement("span");
-            textspan.className = "textspan";
-            textspan.innerHTML = channels[channel][index];
-            newbox.appendChild(textspan);
-        }
     }
     document.getElementById("textinput").select();
 }
 
-function redrawchannel(){
-    
-}
 
 oldfeed =[];
 function deletetext(){
@@ -261,30 +180,26 @@ function deletetext(){
     }
 }
 
-function loadfeed(){
-    if(channel == ""){
-        var httpc = new XMLHttpRequest();
-        httpc.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                feed = JSON.parse(this.responseText);
-                redraw();
-            }
-        };
-        httpc.open("GET", "fileloader.php?filename=data/chaosfeed.txt", true);
-        httpc.send();            
-    }
-    else{
-        
-    }
 
+function loadfeed(){
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            channelfeed = JSON.parse(this.responseText);
+            redraw();
+        }
+    };
+    httpc.open("GET", "fileloader.php?filename=data/channelfeed.txt", true);
+    httpc.send();            
 }
+
 
 resetfeed = [
     "Chaos Feed!! Type in box and hit enter to post. Red x's delete.💥 button resets feed.  Let the chaos ensue. 🔄 or enter refreshes feed to see what other people have posted."
 ];
 
 document.getElementById("nuke").onclick = function(){
-    feed = resetfeed;
+    channelfeed[channel] = resetfeed;
     redraw();
     savejson();
 }
@@ -301,35 +216,7 @@ textfieldindex = 0;
 document.getElementById("textinput").onkeydown = function(a) {
     var charCode = a.keyCode || a.which;
     if(charCode == 015){
-        if(channel == ""){
-            loadfeed();
-        }
-    }
-    if(charCode == 046){
-        //up arrow: next
-        textfieldindex++;
-        if(textfieldindex >= feed.length){
-            textfieldindex = -1;
-        }
-        if(textfieldindex != -1){
-            this.value = feed[textfieldindex];
-        }
-        else{
-            this.value = "";
-        }
-    }
-    if(charCode == 050){
-        //down arrow: prev
-        textfieldindex--;
-        if(textfieldindex < -1){
-            textfieldindex = feed.length - 1;
-        }
-        if(textfieldindex != -1){
-            this.value = feed[textfieldindex];
-        }
-        else{
-            this.value = "";
-        }
+        loadfeed();
     }
 }
 
@@ -353,7 +240,7 @@ a{
     left:0px;
     right:0px;
     top:0px;
-    height:80px;
+    height:140px;
     border-bottom:solid;
     border-color:purple;
 }
@@ -368,11 +255,22 @@ a{
     margin:auto;
     margin-top:5px;
 }
+#channelname{
+    position:absolute;
+    z-index:-1;
+    height:36px;
+    font-size:26px;
+    display:block;
+    bottom:0px;
+    font-family:courier;
+    color:blue;
+}
+
 #feed{
     position:absolute;
     left:0px;
     right:0px;
-    top:100px;
+    top:150px;
     bottom:0px;
     overflow:scroll;
     font-size:2em;
@@ -426,16 +324,6 @@ a{
 }
 #uplink img{
     width:40px;
-}
-#channelname{
-    position:absolute;
-    z-index:-1;
-    right:5em;
-    font-size:26px;
-    top:10em;
-    font-family:courier;
-    color:blue;
-    opacity:50%;
 }
 </style>
 </body>
