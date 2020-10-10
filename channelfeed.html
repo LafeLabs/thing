@@ -138,46 +138,27 @@ function redraw(){
 
 oldfeed =[];
 function deletetext(){
-    if(channel == ""){
-        var httpc = new XMLHttpRequest();
-        httpc.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                oldfeed = feed;
-                feed = JSON.parse(this.responseText);
-                var tempfeed = [];
-                for(var index = 0;index < feed.length;index++){
-                    if(feed[index] != oldfeed[boxindex]){
-                        tempfeed.push(feed[index]);
-                    }
-                }
-                feed = tempfeed;
-                redraw();
-                savejson();
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            oldfeed = channelfeed[channel];
+            channelfeed = JSON.parse(this.responseText);
+            if(channelfeed[channel] == undefined){
+                channelfeed[channel] = resetfeed;
             }
-        };
-        httpc.open("GET", "fileloader.php?filename=data/chaosfeed.txt", true);
-        httpc.send();            
-    }
-    else{
-        var httpc = new XMLHttpRequest();
-        httpc.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                oldfeed = channels[channel];
-                channels[channel] = JSON.parse(this.responseText);
-                var tempfeed = [];
-                for(var index = 0;index < channels[channel].length;index++){
-                    if(feed[index] != oldfeed[boxindex]){
-                        tempfeed.push(channels[channel][index]);
-                    }
+            var tempfeed = [];
+            for(var index = 0;index < channelfeed[channel].length;index++){
+                if(channelfeed[channel][index] != oldfeed[boxindex]){
+                    tempfeed.push(channelfeed[channel][index]);
                 }
-                channels[channel] = tempfeed;
-                redraw();
-                savejson();
             }
-        };
-        httpc.open("GET", "fileloader.php?filename=data/chaosfeedchannels.txt", true);
-        httpc.send();                    
-    }
+            channelfeed[channel] = tempfeed;
+            redraw();
+            savejson();
+        }
+    };
+    httpc.open("GET", "fileloader.php?filename=data/channelfeed.txt", true);
+    httpc.send();            
 }
 
 
