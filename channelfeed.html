@@ -201,6 +201,13 @@ document.getElementById("textinput").onkeydown = function(a) {
     }
 }
 
+function totalnuke(){
+    channelfeed = {};
+    channel ="start";
+    channelfeed.start = resetfeed;
+    savejson();
+    redraw();
+}
 
 </script>
 <style>

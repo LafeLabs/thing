@@ -90,6 +90,11 @@
         "text": "voxel.html"
     },
     {
+        "href": "channelfeed.html",
+        "src": "",
+        "text": "channelfeed.html"
+    },
+    {
         "href": "linkfeededitor.html",
         "src": "",
         "text": "operator screen"
