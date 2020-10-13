@@ -252,6 +252,7 @@
         "duality",
         "elementsofcode",
         "foo",
+        "geometron-whitepaper",
         "geometronscroll",
         "github.md",
         "hellogeometron",

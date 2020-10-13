@@ -95,6 +95,11 @@
         "text": "channelfeed.html"
     },
     {
+        "href": "https://www.signupgenius.com/go/10c0f4ba8a922a13-week",
+        "src": "",
+        "text": "karate link"
+    },
+    {
         "href": "linkfeededitor.html",
         "src": "",
         "text": "operator screen"
