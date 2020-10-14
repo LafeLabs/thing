@@ -55,6 +55,7 @@ The action cube is divided into different types of function.  At this point the 
 
 As stated above, the heart of the system is the symbol constructions in the 03xx tablet.  We now start with showing the whole tablet as follows:
 
+
 ![](iconsymbols/actiontablet.svg) 
 
 These are broken up by category.  The fourth row, the range from 0330 to 0337, are motions: move forward, back, left, and right, rotate left, rotate right, shrink and grow by the scale factor.  The second row sets the scales: the factor by which a unit is grown or shrunk.  By default this scale factor is two: grow actions double the unit, shrinks halve it.  Other scales are 3, 5, the square root of two, the square root of three, and the Golden Ratio.  Rotations to the left and right are by an amount set by the symmetries: fourfold symmetry is 90 degrees, five fold symmetry is 72 degrees, and six fold is 60 degrees.  
@@ -82,7 +83,7 @@ how the system works with actual implementation, but very brief
 examples: circuit diagrams, quantum gates
 
 what this can do and why you should care
-
+These are broken up by category.  The fourth row, the range from 0330 to 0337, are motions: move forward, back, left, and right, rotate left, rotate right, shrink and grow by the scale factor.  The second row sets the scales: the factor by which a unit is grown or shrunk.  By default this scale factor is two: grow actions double the unit, shrinks halve it.  Other scales are 3, 5, the square root of two, the square root of three, and the Golden Ratio.  Rotations to the left and right are by an amount set by the symmetries: fourfold symmetry is 90 degrees, five fold symmetry is 72 degrees, an
 
 
 
