@@ -53,8 +53,16 @@ The action cube is divided into different types of function.  At this point the 
 - 600-0666: Shapes made up of 3d geometric actions.  These are again just sequences of actions, by convention being in the range from 0700 to 0777 which are 3d constructions.
 - 0700-0777: 3d geometric actions.  These are used to edit 3d files or do 3d geometric actions.  In the implementation presented here, what is edited are x3d files(formerly VRML) which are used for virtual reality and augmented reality, as well as constructions with the THREE.js library which can export to .stl files for 3d printers.
 
+As stated above, the heart of the system is the symbol constructions in the 03xx tablet.  We now start with showing the whole tablet as follows:
 
- 
+![](http://localhost/iconsymbols/actiontablet.svg) 
+
+These are broken up by category.  The fourth row, the range from 0330 to 0337, are motions: move forward, back, left, and right, rotate left, rotate right, shrink and grow by the scale factor.  The second row sets the scales: the factor by which a unit is grown or shrunk.  By default this scale factor is two: grow actions double the unit, shrinks halve it.  Other scales are 3, 5, the square root of two, the square root of three, and the Golden Ratio.  Rotations to the left and right are by an amount set by the symmetries: fourfold symmetry is 90 degrees, five fold symmetry is 72 degrees, and six fold is 60 degrees.  
+
+These are all related!  The diagonal of a square is the square root of two bigger than the side of the square, the diagonal of a hexagon used to make a six pointed star in it, is the square root of three bigger than each side of the hexagon.  The diagonal of a pentagon which is used to make a five pointed star is the Golden Ratio bigger than the side of the pentagon.  These relationships between simple symmetries and these ratios are fundamental to the structure of the Universe as we perceive it.  Every culture in the world uses these fundamental symmetries for art and communication.  By using these scales and movements we can move our virtual "cursor"
+
+
+
 
 
 
