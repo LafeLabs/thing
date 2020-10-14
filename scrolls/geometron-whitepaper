@@ -55,11 +55,34 @@ The action cube is divided into different types of function.  At this point the 
 
 As stated above, the heart of the system is the symbol constructions in the 03xx tablet.  We now start with showing the whole tablet as follows:
 
-![](http://localhost/iconsymbols/actiontablet.svg) 
+![](iconsymbols/actiontablet.svg) 
 
 These are broken up by category.  The fourth row, the range from 0330 to 0337, are motions: move forward, back, left, and right, rotate left, rotate right, shrink and grow by the scale factor.  The second row sets the scales: the factor by which a unit is grown or shrunk.  By default this scale factor is two: grow actions double the unit, shrinks halve it.  Other scales are 3, 5, the square root of two, the square root of three, and the Golden Ratio.  Rotations to the left and right are by an amount set by the symmetries: fourfold symmetry is 90 degrees, five fold symmetry is 72 degrees, and six fold is 60 degrees.  
 
-These are all related!  The diagonal of a square is the square root of two bigger than the side of the square, the diagonal of a hexagon used to make a six pointed star in it, is the square root of three bigger than each side of the hexagon.  The diagonal of a pentagon which is used to make a five pointed star is the Golden Ratio bigger than the side of the pentagon.  These relationships between simple symmetries and these ratios are fundamental to the structure of the Universe as we perceive it.  Every culture in the world uses these fundamental symmetries for art and communication.  By using these scales and movements we can move our virtual "cursor"
+These are all related!  The diagonal of a square is the square root of two bigger than the side of the square, the diagonal of a hexagon used to make a six pointed star in it, is the square root of three bigger than each side of the hexagon.  The diagonal of a pentagon which is used to make a five pointed star is the Golden Ratio bigger than the side of the pentagon.  These relationships between simple symmetries and these ratios are fundamental to the structure of the Universe as we perceive it.  Every culture in the world uses these fundamental symmetries for art and communication.  By using these scales and movements we can move our virtual "cursor" to any direction, with any angle, in any location at any scale.  The third row sets styles.  There are 8 styles, each of which has a fill color, line color and line width.  By default these are black, thick black, then the rainbow colors in order: red, orange, yellow, green, blue, and purple.  However, they can be set to any values.  Final actions in relation to symmetries is halving angles, doubling them, trisecting angles and tripling angles.  Between these and the angle 36 degrees it is possible to get any number of degrees down to the single degree. 
+
+With all this, we can proceed to the constructions.  The most basic constructions are circles, dots, line segments, and arcs.  
+
+Also, bezier paths.
+
+0365 word, vs. font with 01xxx, paths closed an open, 
+
+02xx: cursors, arrows, special scales, square, 
+
+products: laser cut shapes, icons, 3d assets for vr and ar, 3d print objects, clay fabrication with nail, generic 2.5 d printing, agricultural robots, electron beam lithography, quantum processor programming, specific fonts: laser cut, clay pixels
+
+how robot code works with all this, examples
+
+root magic: how to edit, how it works, very brief
+
+hello geometron, very brief with link
+
+how the system works with actual implementation, but very brief
+
+examples: circuit diagrams, quantum gates
+
+what this can do and why you should care
+
 
 
 
