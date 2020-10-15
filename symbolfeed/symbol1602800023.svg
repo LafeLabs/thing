@@ -1,0 +1,41 @@
+<svg width="600" height="600" viewbox = "0 0 600 600"  xmlns="http://www.w3.org/2000/svg">
+<!--<json>{
+  "glyph": "0321,0337,0332,0336,0331,0337,0306,0201,0335,0201,0335,0201,0335,0201,0335,0201,0335,0201,",
+  "x0": 300,
+  "y0": 300,
+  "unit": 106.48000000000002,
+  "width": 600,
+  "height": 600,
+  "style": {
+    "color0": "black",
+    "fill0": "black",
+    "line0": 1,
+    "color1": "black",
+    "fill1": "black",
+    "line1": 5,
+    "color2": "red",
+    "fill2": "red",
+    "line2": 1,
+    "color3": "#FF7900",
+    "fill3": "#FF7900",
+    "line3": 1,
+    "color4": "yellow",
+    "fill4": "yellow",
+    "line4": 1,
+    "color5": "green",
+    "fill5": "green",
+    "line5": 1,
+    "color6": "blue",
+    "fill6": "blue",
+    "line6": 1,
+    "color7": "purple",
+    "fill7": "purple",
+    "line7": 1
+  }
+}</json>-->    <line x1="87" y1="406" x2="87" y2="194" style="stroke:#000000;stroke-width:5" />
+    <line x1="87" y1="194" x2="271" y2="87" style="stroke:#000000;stroke-width:5" />
+    <line x1="271" y1="87" x2="456" y2="194" style="stroke:#000000;stroke-width:5" />
+    <line x1="456" y1="194" x2="456" y2="406" style="stroke:#000000;stroke-width:5" />
+    <line x1="456" y1="406" x2="271" y2="513" style="stroke:#000000;stroke-width:5" />
+    <line x1="271" y1="513" x2="87" y2="406" style="stroke:#000000;stroke-width:5" />
+</svg>
