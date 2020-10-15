@@ -126,6 +126,7 @@
         "map.svg",
         "minorzoomsymbols.svg",
         "mirror.svg",
+        "movement-symbols.svg",
         "notmirror.svg",
         "panzoom.svg",
         "pathsymbols.svg",
@@ -136,6 +137,7 @@
         "printer.svg",
         "right.svg",
         "rightsmall.svg",
+        "robot-movements-symbols.svg",
         "robot.svg",
         "robotconfig.svg",
         "robotsymbolmode.svg",
@@ -270,6 +272,7 @@
         "scrollscroll.md",
         "srs.md",
         "symbolmagic",
+        "symbolmagicdotcom",
         "trashrobotdotorg",
         "webpage",
         "zdrive-arduino"
