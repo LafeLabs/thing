@@ -100,6 +100,26 @@
         "text": "karate link"
     },
     {
+        "href": "https://www.kstreet.xyz",
+        "src": "",
+        "text": "www.kstreet.xyz"
+    },
+    {
+        "href": "https://www.dupontcircle.xyz",
+        "src": "",
+        "text": "www.dupontcircle.xyz"
+    },
+    {
+        "href": "https://www.us29.xyz",
+        "src": "",
+        "text": "www.us29.xyz"
+    },
+    {
+        "href": "https://www.md216.xyz",
+        "src": "",
+        "text": "www.md216.xyz"
+    },
+    {
         "href": "linkfeededitor.html",
         "src": "",
         "text": "operator screen"
