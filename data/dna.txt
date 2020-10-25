@@ -267,6 +267,7 @@
         "pireplicate.md",
         "pisetup.md",
         "poetryengine.md",
+        "quests",
         "roadmap",
         "robotsetup.md",
         "ruler",
