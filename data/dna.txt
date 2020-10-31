@@ -36,6 +36,7 @@
         "mapuser.html",
         "pi.html",
         "poetryengine.html",
+        "quantumart.html",
         "robot.html",
         "robot.py",
         "robot2arduino.html",
