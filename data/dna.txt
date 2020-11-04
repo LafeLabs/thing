@@ -33,7 +33,9 @@
         "map.html",
         "mapdelete.html",
         "mapeditor.html",
+        "maplelawndotnet.html",
         "mapuser.html",
+        "md216dotxyz.html",
         "pi.html",
         "poetryengine.html",
         "quantumart.html",
@@ -65,6 +67,7 @@
         "three.html",
         "threejs.html",
         "trashrobotdotorg.html",
+        "us29dotxyz.html",
         "voxel.html",
         "wall.html"
     ],
