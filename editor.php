@@ -46,7 +46,7 @@ EGO DEATH:
     $topfiles = scandir(getcwd());
 
     foreach($topfiles as $value){
-        if(substr($value,-5) == ".html"){
+        if(substr($value,-5) == ".html" || substr($value,-4) == ".svg"){
             echo "\n<div class = \"html file\">".$value."</div>\n";
         }
         if(substr($value,-3) == ".py"){
@@ -103,10 +103,9 @@ EGO DEATH:
         }
     }
 
-
     if(isset($_GET["newfile"])){
         $newfile = $_GET["newfile"];
-        if(substr($newfile,-5) == ".html"){
+        if(substr($newfile,-5) == ".html" || substr($newfile,-4) == ".svg"){
             echo "<div class = \"html file\">";
             echo $newfile;
             echo "</div>\n";
