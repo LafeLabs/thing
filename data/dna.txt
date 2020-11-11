@@ -62,6 +62,7 @@
         "symbolcube.html",
         "symbolfactory.html",
         "symbolfeed.html",
+        "symboltrace.html",
         "tablet.html",
         "textfeed.html",
         "three.html",
@@ -205,6 +206,7 @@
         "textfeed.txt",
         "three.stl",
         "token.txt",
+        "trace.txt",
         "wall.txt"
     ],
     "php": [
