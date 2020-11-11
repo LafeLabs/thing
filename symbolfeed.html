@@ -32,6 +32,11 @@ index.html
 </div>
 
 <script>
+hypercubearray = [];
+for(var index = 0;index  < 1024;index++){
+    hypercubearray.push("");
+}
+
 
 symbols = [];
 var httpc4 = new XMLHttpRequest();
@@ -102,10 +107,18 @@ function loadsymbol(thisurl){
                 jsondata = svgraw.split("<json>")[1].split("</json>")[0];
                 currentjson = JSON.parse(jsondata);
                 if(currentjson.shapes != undefined){
-                    console.log("there are shapes.");
+//                    console.log("there are shapes.");
+                    for(var index = 0;index < currentjson.shapes.length;index++){
+                        var localaddress = parseInt(currentjson.shapes[index].split(":")[0],8);
+                        var localglyph = currentjson.shapes[index].split(":")[1];
+                        if(localglyph.length > 0){
+                            hypercubearray[localaddress] = localglyph;
+                        }
+                    }
+                    savecube();
                 }
                 else{
-                    console.log("no shapes here.")
+                    //console.log("no shapes here.")
                 }
                 data = encodeURIComponent(jsondata);
                 var httpc = new XMLHttpRequest();
@@ -125,10 +138,6 @@ function loadsymbol(thisurl){
 
 
 
-hypercube = [];
-for(var index = 0;index  < 1024;index++){
-    hypercube.push("");
-}
 
 var httpccube = new XMLHttpRequest();
 httpccube.onreadystatechange = function(){
@@ -138,7 +147,7 @@ httpccube.onreadystatechange = function(){
             var localaddress = [parseInt(hypercuberaw[index].split(":")[0],8)]
             var localglyph = hypercuberaw[index].split(":")[1];
             if(localglyph.length > 0){
-                hypercube[localaddress] = localglyph;
+                hypercubearray[localaddress] = localglyph;
             }
         }
     }
@@ -146,14 +155,19 @@ httpccube.onreadystatechange = function(){
 httpccube.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
 httpccube.send();
 
-
 function savecube(){
-    hypercube = mainGVM.bytecode(0,01777);
+    hypercube = [];
+    for(var index = 0;index < hypercubearray.length;index++){
+        if(hypercubearray[index].length > 0){
+            hypercube.push("0" + index.toString(8) + ":" + hypercubearray[index]);
+        }    
+    }
+    hypercubestring = JSON.stringify(hypercube,null,"    ");
     var url = "filesaver.php";        
     var httpc = new XMLHttpRequest();
     httpc.open("POST", url, true);
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc.send("data="+encodeURIComponent(hypercube)+"&filename=data/hypercube.txt");//send text to filesaver.php    
+    httpc.send("data="+encodeURIComponent(hypercubestring)+"&filename=data/hypercube.txt");//send text to filesaver.php    
 }
 
 </script>
