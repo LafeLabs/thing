@@ -133,44 +133,6 @@ document.getElementById("savebutton").onclick = function(){
     savesymbolfile();
 }
 
-currentjson = {};
-
-function savesymbolfile(){
-    mainGVM.clean();
-    mainGVM.drawGlyph(mainGVM.cleanGlyph);
-        
-    var timestamp = Math.round((new Date().getTime())/1000).toString();
-    var httpc = new XMLHttpRequest();
-    var url = "pngsave.php";        
-    httpc.open("POST", url, true);
-    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc.send("data="+encodeURIComponent(mainGVM.pngcode().substring(22))+"&filename=symbolfeed/symbol" + timestamp +  ".png");//send text to filesaver.php
-
-    currentjson.glyph = mainGVM.cleanGlyph;
-    currentjson.x0 = mainGVM.x0;
-    currentjson.y0 = mainGVM.y0;
-    currentjson.unit = mainGVM.unit;
-    currentjson.width = mainGVM.width;
-    currentjson.height = mainGVM.height;
-    currentjson.style = mainGVM.style;
-    
-    mainGVM.svgString = mainGVM.svgString.split("<json>")[0] + "<json>" + JSON.stringify(currentjson,null,"  ") + "</json>" + mainGVM.svgString.split("</json>")[1];
-
-    var httpc2 = new XMLHttpRequest();
-    httpc2.open("POST","filesaver.php", true);
-    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc2.send("data="+encodeURIComponent(mainGVM.svgString) +"&filename=symbolfeed/symbol" + timestamp +  ".svg");//send text to filesaver.php
-    
-    textfeed.src.push(mainGVM.pngcode());
-    var url = "filesaver.php";        
-    var httpc3 = new XMLHttpRequest();
-    httpc3.open("POST", url, true);
-    httpc3.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc3.send("data="+encodeURIComponent(JSON.stringify(textfeed,null,"    "))+"&filename=data/textfeed.txt");//send text to filesaver.php
-    
-}
-
-
 
 controlbuttonsize = 40;
 
@@ -436,6 +398,63 @@ function savejson(){
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc.send("data="+encodeURIComponent(JSON.stringify(currentjson,null,"    "))+"&filename=data/currentjson.txt");//send text to filesaver.php
 }
+
+
+currentjson = {};
+
+function savesymbolfile(){
+    mainGVM.clean();
+    mainGVM.drawGlyph(mainGVM.cleanGlyph);
+    
+    
+
+    var timestamp = Math.round((new Date().getTime())/1000).toString();
+    var httpc = new XMLHttpRequest();
+    var url = "pngsave.php";        
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(mainGVM.pngcode().substring(22))+"&filename=symbolfeed/symbol" + timestamp +  ".png");//send text to filesaver.php
+
+    currentjson.glyph = mainGVM.cleanGlyph;
+    currentjson.x0 = mainGVM.x0;
+    currentjson.y0 = mainGVM.y0;
+    currentjson.unit = mainGVM.unit;
+    currentjson.width = mainGVM.width;
+    currentjson.height = mainGVM.height;
+    currentjson.style = mainGVM.style;
+    currentjson.shapes = getshapes();
+    
+    mainGVM.svgString = mainGVM.svgString.split("<json>")[0] + "<json>" + JSON.stringify(currentjson,null,"  ") + "</json>" + mainGVM.svgString.split("</json>")[1];
+
+    var httpc2 = new XMLHttpRequest();
+    httpc2.open("POST","filesaver.php", true);
+    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc2.send("data="+encodeURIComponent(mainGVM.svgString) +"&filename=symbolfeed/symbol" + timestamp +  ".svg");//send text to filesaver.php
+    
+    textfeed.src.push(mainGVM.pngcode());
+    var url = "filesaver.php";        
+    var httpc3 = new XMLHttpRequest();
+    httpc3.open("POST", url, true);
+    httpc3.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc3.send("data="+encodeURIComponent(JSON.stringify(textfeed,null,"    "))+"&filename=data/textfeed.txt");//send text to filesaver.php
+    
+}
+
+
+function getshapes(){
+    var localshapes = [];
+    for(var index = 0220;index < 0240;index++){
+        if(mainGVM.hypercube[index].length > 0){
+            var actionString = "0" + index.toString(8) + ":" + mainGVM.hypercube[index];
+            var symbolString = "01" + index.toString(8) + ":" + mainGVM.hypercube[index + 01000];
+            localshapes.push(actionString);
+            localshapes.push(symbolString);            
+        }
+    }
+    return localshapes;
+}
+
+
 
 </script>
 <style>
