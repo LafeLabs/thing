@@ -16,8 +16,8 @@
 
     -->
     
-    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/wAAAAD//wAA/wAAAAD/AP8A/wAApv8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFUAAARGAAIxFVUABEYAAjMRFQAARGYiIjMRAABERmZiIzEAAARERGZiMwAAAARERGYiAAAAAABERiL4PwAA+78AAPu/AAD33wAA9V8AAPVfAAD1XwAA998AAOADAADhAAAA4AAAAPAAAADwAAAA+AAAAP4AAAD/wAAA" rel="icon" type="image/x-icon" />
-    
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAP//AP///wANAP8A5Dz6ABueRwAAt/8A6BonABo86AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAREREREREREREREAAAEREREREQCIgREREd3dwAAB3d3d3d3d3d3d3d3d3d3d3d3d3VVVVVVVQAFVVAAVVVQIiBRAiIBEQIAIBECAAERAgAgFgIABmYCIiBmAiIGZgIiIGYCIgZmYCIAaIAAMzMzAAiIiIiIiIiIiIiIiIiIiIiIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
+
     <!--Stop Google:-->
     <META NAME="robots" CONTENT="noindex,nofollow">
 </head>
@@ -78,12 +78,28 @@ function savefeed(){
 }
 
 
+loadfeed();
+
 function redraw(){
+    document.getElementById("feed").innerHTML = "";
     for(var index = 0;index < feed.length;index++){
+        var newlink = document.createElement("DIV");
+        newlink.id = "link" + index.toString();
+        newlink.innerHTML = feed[index].title;
+        newlink.classList.add("feedlink");
+        document.getElementById("feed").appendChild(newlink);
+        newlink.onclick  = function(){
+            feedindex = parseInt(this.id.substring(4));
+            document.getElementById("title").value = feed[feedindex].title;
+            document.getElementById("editor").value = feed[feedindex].text;
+    document.getElementById("editor").style.backgroundColor = "black";    
+    document.getElementById("title").style.backgroundColor = "black";
+    document.getElementById("copybutton").style.display = "block";
+    document.getElementById("deletebutton").style.display = "block";
     
+        }
     }
 }
-
 
 
 function loadfeed(){
@@ -100,12 +116,16 @@ function loadfeed(){
 
 document.getElementById("editor").style.backgroundColor = "#00ff0020";
 document.getElementById("title").style.backgroundColor = "#00ff0020";
+document.getElementById("copybutton").style.display = "none";
+document.getElementById("deletebutton").style.display = "none";
+document.getElementById("editor").value = "";
+document.getElementById("title").value = "";
 
 
 </script>
 <style>
 a{
-    color:white;
+    color:#00a0a0;
 }
 body,textarea,input, div{
     background-color:black;
@@ -136,9 +156,11 @@ body,textarea,input, div{
 }
 #copybutton{
     left:35%;
+    color:blue;
 }
 #deletebutton{
     right:2.5%;
+    color:red;
 }
 #title{
     position:absolute;
@@ -176,6 +198,17 @@ body,textarea,input, div{
 
 #trashrobot{
         float:right;
+}
+.feedlink{
+    margin-top:1em;
+    margin-left:1em;
+    cursor:pointer;
+}
+.feedlink:hover{
+    background-color:#00ff0030;
+}
+.feedlink:active{
+    background-color:#00ff0090;
 }
 
 @media only screen and (orientation: landscape) {
