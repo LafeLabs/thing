@@ -1,0 +1,10 @@
+[
+    {
+        "title":"first post title",
+        "text":"post text"
+    },
+    {
+        "title":"GEOMETRY TUTOR!! ",
+        "text":"COME DOWN TO THE DUMPSTER TO LEARN GEOMETRY!! or Sidamo."
+    }
+]
