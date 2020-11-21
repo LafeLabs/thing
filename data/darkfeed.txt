@@ -1,10 +1,14 @@
 [
     {
-        "title":"first post title",
-        "text":"post text"
+        "text": "and here is the latest news!  check it out...",
+        "title": "most recent is at top"
     },
     {
-        "title":"GEOMETRY TUTOR!! ",
-        "text":"COME DOWN TO THE DUMPSTER TO LEARN GEOMETRY!! or Sidamo."
+        "title": "first post title",
+        "text": "it's by the dumpster\n\npost text\n\n\nedit\n\\_ reply to edit\n   \\_ reply to reply\n"
+    },
+    {
+        "title": "GEOMETRY TUTOR!! ",
+        "text": "COME DOWN TO THE DUMPSTER TO LEARN GEOMETRY!! or Sidamo."
     }
 ]

@@ -56,8 +56,8 @@
 
 resetfeed = [
     {
-        "title":"post title",
-        "text":"post text"
+        "title":"title",
+        "text":"text"
     }
 ];
 
@@ -92,10 +92,10 @@ function redraw(){
             feedindex = parseInt(this.id.substring(4));
             document.getElementById("title").value = feed[feedindex].title;
             document.getElementById("editor").value = feed[feedindex].text;
-    document.getElementById("editor").style.backgroundColor = "black";    
-    document.getElementById("title").style.backgroundColor = "black";
-    document.getElementById("copybutton").style.display = "block";
-    document.getElementById("deletebutton").style.display = "block";
+            document.getElementById("editor").style.display = "block";
+            document.getElementById("title").style.display = "block";
+           // document.getElementById("copybutton").style.display = "block";
+            document.getElementById("deletebutton").style.display = "block";
     
         }
     }
@@ -114,13 +114,64 @@ function loadfeed(){
     httpc.send();            
 }
 
-document.getElementById("editor").style.backgroundColor = "#00ff0020";
-document.getElementById("title").style.backgroundColor = "#00ff0020";
+document.getElementById("editor").style.display = "none";
+document.getElementById("title").style.display = "none";
 document.getElementById("copybutton").style.display = "none";
 document.getElementById("deletebutton").style.display = "none";
 document.getElementById("editor").value = "";
 document.getElementById("title").value = "";
 
+
+document.getElementById("title").onchange = function(){
+    feed[feedindex].title = this.value;
+    savefeed();    
+    redraw();
+}
+
+document.getElementById("editor").onkeyup = function() {
+    feed[feedindex].text = this.value;
+    savefeed();    
+}   
+
+document.getElementById("reloadbutton").onclick  = function(){
+    loadfeed();
+    document.getElementById("editor").style.display = "none";
+    document.getElementById("title").style.display = "none";
+    document.getElementById("copybutton").style.display = "none";
+    document.getElementById("deletebutton").style.display = "none";
+}
+
+document.getElementById("newbutton").onclick = function(){
+    var newlink = {};
+    newlink.text = "new text";
+    newlink.title = "new post";
+    feed.unshift(newlink);
+    redraw();
+    feedindex = 0;
+    document.getElementById("title").value = feed[feedindex].title;
+    document.getElementById("editor").value = feed[feedindex].text;
+    document.getElementById("editor").style.display = "block";
+    document.getElementById("title").style.display = "block";
+  //  document.getElementById("copybutton").style.display = "block";
+    document.getElementById("deletebutton").style.display = "block";  
+    savefeed();
+}
+
+document.getElementById("deletebutton").onclick = function(){
+    var tempfeed = feed;
+    feed = [];
+    for(var index = 0;index < tempfeed.length;index++){
+        if(index != feedindex){
+            feed.push(tempfeed[index]);
+        }
+    }
+    redraw();
+    savefeed();
+    document.getElementById("editor").style.display = "none";
+    document.getElementById("title").style.display = "none";
+   // document.getElementById("copybutton").style.display = "none";
+    document.getElementById("deletebutton").style.display = "none";    
+}
 
 </script>
 <style>
