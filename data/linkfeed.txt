@@ -125,6 +125,11 @@
         "text": "textfeed.html"
     },
     {
+        "href": "darkfeed.html",
+        "src": "",
+        "text": "darkfeed.html"
+    },
+    {
         "href": "linkfeededitor.html",
         "src": "",
         "text": "operator screen"

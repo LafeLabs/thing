@@ -1,7 +1,7 @@
 [
     {
-        "text": "and here is the latest news!  check it out...",
-        "title": "most recent is at top"
+        "text": "new text\n",
+        "title": "new post"
     },
     {
         "title": "first post title",

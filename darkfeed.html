@@ -26,16 +26,8 @@
     <a href = "index.html" id = "indexlink">HOME</a>
     <span id = "reloadbutton" class = "button">RELOAD</span>
     <span id = "trashrobot">
-        <span style = "color:red">T</span>     
-        <span style = "color:orange">R</span>     
-        <span style = "color:yellow">A</span>
-        <span style = "color:green">S</span>     
-        <span style = "color:blue">H</span>     
-        <span style = "color:purple">R</span>     
-        <span style = "color:red">O</span>     
-        <span style = "color:orange">B</span>     
-        <span style = "color:yellow">O</span>
-        <span style = "color:green">T</span>       
+        <span style = "color:red">T</span><span style = "color:orange">R</span><span style = "color:yellow">A</span><span style = "color:green">S</span><span style = "color:blue">H</span>     
+        <span style = "color:purple">R</span><span style = "color:red">O</span><span style = "color:orange">B</span><span style = "color:yellow">O</span><span style = "color:green">T</span>       
     </span>
 </div>
 <div id = "feed"></div>
@@ -47,7 +39,6 @@
     </div>
     <div id = "footer">
         <div id = "newbutton" class = "button">NEW</div>
-        <div id = "copybutton" class = "button">COPY</div>
         <div id = "deletebutton" class = "button">DELETE</div>
     </div>
 </div>
@@ -87,17 +78,23 @@ function redraw(){
         newlink.id = "link" + index.toString();
         newlink.innerHTML = feed[index].title;
         newlink.classList.add("feedlink");
+        if(index == feedindex){
+            newlink.style.backgroundColor = "#ff000080";
+        }
+        else{
+            newlink.style.backgroundColor = "black";
+        }
         document.getElementById("feed").appendChild(newlink);
         newlink.onclick  = function(){
+            document.getElementById("link" + feedindex.toString()).style.backgroundColor = "black";
             feedindex = parseInt(this.id.substring(4));
+            this.style.backgroundColor = "#ff000080";
             document.getElementById("title").value = feed[feedindex].title;
             document.getElementById("editor").value = feed[feedindex].text;
-            document.getElementById("editor").style.display = "block";
-            document.getElementById("title").style.display = "block";
-           // document.getElementById("copybutton").style.display = "block";
-            document.getElementById("deletebutton").style.display = "block";
-    
+        
         }
+        document.getElementById("title").value = feed[feedindex].title;
+        document.getElementById("editor").value = feed[feedindex].text;    
     }
 }
 
@@ -114,10 +111,6 @@ function loadfeed(){
     httpc.send();            
 }
 
-document.getElementById("editor").style.display = "none";
-document.getElementById("title").style.display = "none";
-document.getElementById("copybutton").style.display = "none";
-document.getElementById("deletebutton").style.display = "none";
 document.getElementById("editor").value = "";
 document.getElementById("title").value = "";
 
@@ -135,10 +128,7 @@ document.getElementById("editor").onkeyup = function() {
 
 document.getElementById("reloadbutton").onclick  = function(){
     loadfeed();
-    document.getElementById("editor").style.display = "none";
-    document.getElementById("title").style.display = "none";
-    document.getElementById("copybutton").style.display = "none";
-    document.getElementById("deletebutton").style.display = "none";
+ 
 }
 
 document.getElementById("newbutton").onclick = function(){
@@ -150,10 +140,7 @@ document.getElementById("newbutton").onclick = function(){
     feedindex = 0;
     document.getElementById("title").value = feed[feedindex].title;
     document.getElementById("editor").value = feed[feedindex].text;
-    document.getElementById("editor").style.display = "block";
-    document.getElementById("title").style.display = "block";
-  //  document.getElementById("copybutton").style.display = "block";
-    document.getElementById("deletebutton").style.display = "block";  
+  
     savefeed();
 }
 
@@ -165,12 +152,10 @@ document.getElementById("deletebutton").onclick = function(){
             feed.push(tempfeed[index]);
         }
     }
+    feedindex = 0;
     redraw();
     savefeed();
-    document.getElementById("editor").style.display = "none";
-    document.getElementById("title").style.display = "none";
-   // document.getElementById("copybutton").style.display = "none";
-    document.getElementById("deletebutton").style.display = "none";    
+  
 }
 
 </script>
@@ -200,14 +185,10 @@ body,textarea,input, div{
     bottom:0px;
     font-size:50px;
     text-align:center;
-    width:30%;
+    width:40%;
 }
 #newbutton{
     left:2.5%;
-}
-#copybutton{
-    left:35%;
-    color:blue;
 }
 #deletebutton{
     right:2.5%;
@@ -262,6 +243,34 @@ body,textarea,input, div{
     background-color:#00ff0090;
 }
 
+@media only screen and (orientation: portrait) {
+    #feed{
+        position:absolute;
+        top:120px;
+        bottom:50%;
+        left:0px;
+        right:0px;
+        overflow:scroll;
+    }
+    #editbox{
+        position:absolute;
+        right:0px;
+        bottom:0px;
+        left:0px;
+        top:50%;
+    }
+    #editbox .button{
+        font-size:18px;
+    }
+    #editorbox{
+        bottom:50px;
+    }
+    #footer{
+        height:34px;
+    }
+}
+
+
 @media only screen and (orientation: landscape) {
     #feed{
         position:absolute;
@@ -277,6 +286,9 @@ body,textarea,input, div{
         bottom:0px;
         left:50%;
         top:100px;
+    }
+    #editorbox{
+        bottom:100px;
     }
 }
 
