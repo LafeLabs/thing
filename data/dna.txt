@@ -68,6 +68,7 @@
         "textfeed.html",
         "three.html",
         "threejs.html",
+        "trashrobot.html",
         "trashrobotdotorg.html",
         "us29dotxyz.html",
         "voxel.html",

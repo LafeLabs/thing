@@ -16,81 +16,22 @@
         LANGUAGE IS HOW THE MIND PARSES REALITY
 
     -->
-<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/wAAAAD//wAA/wAAAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMzMzQREREAAzMzRBEREQAAMzNEQREQAAAzNERBERAAAAM0REQRAAAAAEREREAAAAAAREREQAAAAAACIiIAAAAAAAIiIgAAAAAAACIgAAAAAAAAIiAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAQAAwAEAAOADAADgAwAA8AcAAPgPAAD4DwAA/B8AAPwfAAD+PwAA/j8AAP9/AAD//wAA" rel="icon" type="image/x-icon" />
+    <title>Trash Robot</title>
+
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAP//AP///wANAP8A5Dz6ABueRwAAt/8A6BonABo86AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAREREREREREREREAAAEREREREQCIgREREd3dwAAB3d3d3d3d3d3d3d3d3d3d3d3d3VVVVVVVQAFVVAAVVVQIiBRAiIBEQIAIBECAAERAgAgFgIABmYCIiBmAiIGZgIiIGYCIgZmYCIAaIAAMzMzAAiIiIiIiIiIiIiIiIiIiIiIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
 
     <!--Stop Google:-->
     <META NAME="robots" CONTENT="noindex,nofollow">
 
 </head>
-<body>    
-    <div id = "title">Marker</div>
-    <img id = "backgroundimage" src = "https://i.imgur.com/LKzo3KC.png"/>
-    <img id = "editbutton" src = "iconsymbols/edit.svg" class = "button"/>
-    <a id = "uplink" href = "map.html"><img src = "iconsymbols/map.svg"/></a>
-    <a href = "scroll.html"><img src = "iconsymbols/scroll.svg"/></a>
-    
+<body>
     <textarea id = "wall"></textarea>
-
-    <table id = "controltable">
-        <tr>
-          <td>Title:</td><td><input/></td>
-        </tr>
-        <tr>
-          <td>Title Color:</td><td><input/></td>
-        </tr>
-        <tr>
-          <td>Title Size[px]:</td><td><input/></td>
-        </tr>
-        <tr>
-          <td>Image URL:</td><td><input/></td>
-        </tr>
-        <tr>
-          <td>Image width[%]:</td><td><input/></td>
-        </tr>
-        <tr>
-          <td>Image left[%]:</td><td><input/></td>
-        </tr>
-        <tr>
-          <td>Image top[%]:</td><td><input/></td>
-        </tr>
-        <tr>
-            <td>Wall Text Color[%]:</td><td><input/></td>
-        </tr>
-        <tr>
-            <td>Wall Text Size[px]:</td><td><input/></td>
-        </tr>
-        <tr>
-            <td>Wall Opacity[0.0-1.0]:</td><td><input/></td>
-        </tr>
-        <tr>
-            <td>Wall Left[%]:</td><td><input/></td>
-        </tr>
-        <tr>
-            <td>Wall Top[%]:</td><td><input/></td>
-        </tr>
-        <tr>
-            <td>Wall Width[%]:</td><td><input/></td>
-        </tr>
-        <tr>
-            <td>Wall Height[%]:</td><td><input/></td>
-        </tr>
-        
-        <tr>
-            <td class = "button" id = "resetbutton">RESET</td>
-            <td class = "button" id = "importbutton">IMPORT</td>
-        </tr>
-    </table>
-    <textarea id = "textio"></textarea>
 <script>
-document.getElementById("controltable").style.display =  "none";
-
-inputs = document.getElementById("controltable").getElementsByTagName("INPUT");
 
 
 
 wall = "";
 
-/*
 var httpc2 = new XMLHttpRequest();
 httpc2.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -101,283 +42,72 @@ httpc2.onreadystatechange = function() {
 
 httpc2.open("GET", "fileloader.php?filename=data/wall.txt", true);
 httpc2.send();
-*/
 
-marker = {};
-var httpc3 = new XMLHttpRequest();
-httpc3.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        marker = JSON.parse(this.responseText);
-        redrawmarker();
-        inputs[0].value = marker.title.text;
-        inputs[1].value = marker.title.color;
-        inputs[2].value = parseInt(marker.title.fontSize).toString();
-
-        inputs[3].value = marker.image.url;
-        inputs[4].value = parseInt(marker.image.width).toString();
-        inputs[5].value = parseInt(marker.image.left).toString();
-        inputs[6].value = parseInt(marker.image.top).toString();
-        inputs[7].value = marker.textarea.color;
-        inputs[8].value = parseInt(marker.textarea.fontSize).toString();
-        inputs[9].value = marker.textarea.opacity;
-        inputs[10].value = parseInt(marker.textarea.left).toString();
-        inputs[11].value = parseInt(marker.textarea.top).toString();
-        inputs[12].value = parseInt(marker.textarea.width).toString();
-        inputs[13].value = parseInt(marker.textarea.height).toString();
-        document.getElementById("wall").value = marker.text;
-
-    }
-};
-
-httpc3.open("GET", "fileloader.php?filename=data/marker.txt", true);
-httpc3.send();
-
-function redrawmarker(){
-    document.getElementById("backgroundimage").src = marker.image.url;
-
-    document.getElementById("backgroundimage").style.width = marker.image.width;
-    document.getElementById("backgroundimage").style.left = marker.image.left;
-    document.getElementById("backgroundimage").style.top = marker.image.top;
-    
-    document.getElementById("title").innerHTML = marker.title.text;
-    document.getElementById("title").style.color = marker.title.color;
-    document.getElementById("title").style.fontSize = marker.title.fontSize;
-
-    document.getElementById("wall").style.left = marker.textarea.left;
-    document.getElementById("wall").style.top = marker.textarea.top;
-    document.getElementById("wall").style.width = marker.textarea.width;
-    document.getElementById("wall").style.height = marker.textarea.height;
-
-    document.getElementById("wall").style.color = marker.textarea.color;
-    document.getElementById("wall").style.fontSize = marker.textarea.fontSize;
-    document.getElementById("wall").style.backgroundColor = "rgba(0,0,0," + marker.textarea.opacity +")";
-    
-    document.getElementById("textio").value = JSON.stringify(marker,null,"    ");    
-}
-
-
-function savemarker(){
-    var url = "filesaver.php";        
-    var httpc2 = new XMLHttpRequest();
-    httpc2.open("POST", url, true);
-    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc2.send("data="+encodeURIComponent(JSON.stringify(marker,null,"    "))+"&filename=data/marker.txt");//send text to filesaver.php
-
-}
 
 document.getElementById("wall").onkeyup = function() {
-        marker.text = this.value;
+        wall = this.value;
         var httpc = new XMLHttpRequest();
         var url = "filesaver.php";        
         httpc.open("POST", url, true);
         httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
-        httpc.send("data="+encodeURIComponent(JSON.stringify(marker,null,"    "))+"&filename=data/marker.txt");//send text to filesaver.php        
+        httpc.send("data="+encodeURIComponent(wall)+"&filename=data/wall.txt");//send text to filesaver.php        
     
 }
-
-document.getElementById("editbutton").onclick = function(){
-    if(document.getElementById("controltable").style.display ==  "none"){
-        document.getElementById("controltable").style.display =  "block";
-        document.getElementById("textio").style.display =  "block";
-    }
-    else{
-        document.getElementById("controltable").style.display =  "none";
-        document.getElementById("textio").style.display =  "none"
-    }
-}
-
-
-inputs[0].onchange = function(){
-    marker.title.text = this.value;
-    redrawmarker();
-    savemarker();
-} 
-inputs[1].onchange = function(){
-    marker.title.color = this.value;
-    redrawmarker();
-    savemarker();
-} 
-inputs[2].onchange = function(){
-    marker.title.fontSize = this.value.toString() + "px";
-    redrawmarker();
-    savemarker();
-} 
-inputs[3].onchange = function(){
-    marker.image.url = this.value;
-    redrawmarker();
-    savemarker();
-} 
-inputs[4].onchange = function(){
-    marker.image.width = this.value.toString() + "%";
-    redrawmarker();
-    savemarker();
-} 
-inputs[5].onchange = function(){
-    marker.image.left = this.value.toString() + "%";
-    redrawmarker();
-    savemarker();
-} 
-inputs[6].onchange = function(){
-    marker.image.top = this.value.toString() + "%";
-    redrawmarker();
-    savemarker();
-} 
-inputs[7].onchange = function(){
-    marker.textarea.color = this.value;
-    redrawmarker();
-    savemarker();
-} 
-inputs[8].onchange = function(){
-    marker.textarea.fontSize = this.value.toString() + "px";
-    redrawmarker();
-    savemarker();
-} 
-inputs[9].onchange = function(){
-    marker.textarea.opacity = this.value.toString();
-    redrawmarker();
-    savemarker();
-} 
-
-inputs[10].onchange = function(){
-    marker.textarea.left = this.value.toString() + "%";
-    redrawmarker();
-    savemarker();
-} 
-inputs[11].onchange = function(){
-    marker.textarea.top = this.value.toString() + "%";
-    redrawmarker();
-    savemarker();
-} 
-inputs[12].onchange = function(){
-    marker.textarea.width = this.value.toString() + "%";
-    redrawmarker();
-    savemarker();
-} 
-inputs[13].onchange = function(){
-    marker.textarea.height = this.value.toString() + "%";
-    redrawmarker();
-    savemarker();
-} 
-
-
-marker0 = {
-    "image":{
-        "url":"https://i.imgur.com/LKzo3KC.png",
-        "width":"70%",
-        "left":"10%",
-        "top":"10%"
-    },
-    "title":{
-        "text":"Marker Title",
-        "fontSize":"50px",
-        "color":"black"
-    },
-    "textarea":{
-        "left":"10%",
-        "top":"10%",
-        "width":"70%",
-        "height":"70%",
-        "fontSize":"35px",
-        "color":"yellow",
-        "opacity":"0.76"
-    },
-    "text":"wall text"
-};
-
-document.getElementById("resetbutton").onclick = function(){
-    marker = marker0;
-    redrawmarker();
-    savemarker();
-}
-
-document.getElementById("importbutton").onclick = function(){
-    marker = JSON.parse(document.getElementById("textio").value);
-    redrawmarker();
-    savemarker();
-}
-
 
 
 //document.getElementById("editbutton").click();
 
 </script>
 <style>
-.box{
-    font-size:30px;
+p{
+    text-align:center;
+}
+body{
+    margin-left:3em;
+    margin-right:3em;
+    margin-top:3em;
+    font-size:3em;
+    background-color:black;
+    color:#00ff00;
+    font-family:courier;
+    overflow:hidden;
 }
 #wall{
     position:absolute;
-    left:5%;
-    top:29%;
-    font-family:helvetica;
-    font-size:26px;
-    color:yellow;
-    width:90%;
-    height:70%;
-    background-color:rgba(0,0,0,0);
-}
-#controltable{
-    display:none;
-    position:absolute;
-    right:0px;
-    top:0px;
-    z-index:1;
-    font-size:26px;
-    font-family:courier;
-    background-color:white;
-
-}
-#textio{
-    display:none;
-    position:absolute;
-    right:0px;
-    bottom:0px;
-    z-index:1;
-    font-family:courier;
-    background-color:white;
-}
-#controltable input{
-    width:25em;
-}
-a img{   
-    width:50px;
-}
-.button{
-    cursor:pointer;
-}
-.button:hover{
-    background-color:green;
-}
-.button:active{
-    background-color:yellow;
-}
-body{
-    overflow:hidden;
-}
-#title{
-    position:absolute;
-    z-index:-3;
-    top:0px;
-    left:0px;
-    right:0px;
-    text-align:center;
-    font-size:2em;
-    color:black;
-    font-family:Helvetica;
-}
-#editbutton{
-    width:50px;
-}
-#backgroundimage{
-    position:absolute;
     left:0px;
     top:0px;
-    z-index:-4;
+    overflow:scroll;
     width:100%;
+    height:100%;
+    background-color:black;
+    font-family:courier;
+    color:#00ff00;
 }
-.deletebutton{
-    width:25px;
+img{
+    max-width:80%;
+    display:block;
+    margin:auto;
 }
+h1,h2,h3,h4{
+    font-size:2em;
+    margin:auto;
+    text-align:center;
+}
+    @media only screen and (orientation: portrait) {
+        h1{
+            font-size:1.65em;
+        }
+        h2{
+            font-size:1.25em;
+        }
+        h3{
+            font-size:1em;
+        }
+        h4{
+            font-size:0.8em;
+        }
+    }
+
 </style>
 </body>
 </html>
