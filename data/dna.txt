@@ -11,6 +11,7 @@
         "console.html",
         "controls.html",
         "darkfeed.html",
+        "darkscroll.html",
         "duality.html",
         "feed.html",
         "feededitor.html",
