@@ -56,7 +56,7 @@ bootstrap is whole big thing that does lots of things, but what we use it for he
 
     </head>
 <body>
-    
+    <input id = "scrollinput"/>
 <div class = "mainscrollarea" id = "scrollscroll"></div>
 
 <script>
@@ -88,6 +88,11 @@ function loadscroll(scrollname){
     //MathJax.Hub.Typeset();//tell Mathjax to update the math
 }
 
+document.getElementById("scrollinput").value = "";
+document.getElementById("scrollinput").onchange = function(){
+    var scrollname = this.value;
+    loadscroll(scrollname);
+}
 </script>
 <style>
 a{
@@ -104,11 +109,23 @@ body{
     background-color:black;
     overflow:hidden;
 }
+#scrollinput{
+    font-size:16px;
+    color#00ff00;
+    background-color:black;
+    border:solid;
+    border-color:#ff2cb4;
+    border-width:5px;    
+    display:block;
+    margin:auto;
+    width:50%;
+    font-family:courier;
+}
 .mainscrollarea{
     position:absolute;
     left:0px;
     right:0px;
-    top:0px;
+    top:50px;
     bottom:0px;
 }
 #scrollscroll{
