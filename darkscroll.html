@@ -59,20 +59,6 @@ bootstrap is whole big thing that does lots of things, but what we use it for he
     
 <div class = "mainscrollarea" id = "scrollscroll"></div>
 
-<div id = "margin">
-    <input id = "scrollinput"/>
-    <a href = "scrolleditor.html">
-         <img src = "iconsymbols/edit.svg"/>
-    </a>
-    <a href = "map.html">
-        <img src = "iconsymbols/map.svg"/>
-    </a>
-        <a href = "scrolldelete.html">
-            <img src = "iconsymbols/delete.svg"/>
-        </a>
-
-</div>
-
 <script>
 
     
@@ -84,64 +70,10 @@ bootstrap is whole big thing that does lots of things, but what we use it for he
     converter.setOption('tables', 'true');
 
 
-    scroll = "";
-    rawhtml = "";
-    loadscroll("scroll.md");
+scroll = "";
+rawhtml = "";
+loadscroll("scroll.md");
     
-
-scrolls = [];
-var httpc2 = new XMLHttpRequest();
-    httpc2.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        scrolls = JSON.parse(this.responseText);
-        for(var index = scrolls.length - 1;index >= 0;index--) {
-            if(scrolls[index].substr(-3) == ".md"){
-    //            console.log(scrolls[index]);
-                var newscrollbutton = document.createElement("div");
-                newscrollbutton.className = "scrollbutton";
-                newscrollbutton.innerHTML = scrolls[index];
-                document.getElementById("margin").appendChild(newscrollbutton);
-                newscrollbutton.onclick = function(){
-                    var scrollname = this.innerHTML;
-                    //console.log(scrollname);
-                    loadscroll(scrollname);
-                }
-            }
-        }
-    }
-};
-
-httpc2.open("GET", "dir.php", true);
-httpc2.send();
-
-
-scrolls2 = [];
-var httpc3 = new XMLHttpRequest();
-    httpc3.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        scrolls2 = JSON.parse(this.responseText);
-        for(var index = scrolls2.length - 1;index >= 0;index--) {
-            var newscrollbutton = document.createElement("div");
-            newscrollbutton.className = "scrollbutton";
-            newscrollbutton.innerHTML = "scrolls/" + scrolls2[index];
-            document.getElementById("margin").appendChild(newscrollbutton);
-            newscrollbutton.onclick = function(){
-                var scrollname = this.innerHTML;
-                loadscroll(scrollname);
-            }
-        }
-    }
-};
-
-httpc3.open("GET", "dir.php?filename=scrolls", true);
-httpc3.send();
-
-document.getElementById("scrollinput").value = "";
-document.getElementById("scrollinput").onchange = function(){
-    loadscroll(this.value);
-    
-}
-
 function loadscroll(scrollname){
     var httpc = new XMLHttpRequest();
     httpc.onreadystatechange = function() {
@@ -150,8 +82,6 @@ function loadscroll(scrollname){
         rawhtml = converter.makeHtml(scroll);
         document.getElementById("scrollscroll").innerHTML = rawhtml;
         }
-        document.getElementById("scrollinput").value = "";
-
     };
     httpc.open("GET", "fileloader.php?filename=" + scrollname, true);
     httpc.send();
@@ -172,108 +102,50 @@ a img:hover{
 body{
     color:#00ff00;
     background-color:black;
+    overflow:hidden;
 }
-input{
-    margin-bottom:1.5em;
-    font-family:courier;
-    font-size:16px;
-    color:#00ff00;
+.mainscrollarea{
+    position:absolute;
+    left:0px;
+    right:0px;
+    top:0px;
+    bottom:0px;
+}
+#scrollscroll{
+    overflow:scroll;
+    border-right:solid;
+    padding-left:1em;
+    padding-right:1em;
+    padding-bottom:5em;
     background-color:black;
- color:#0000ff;
-    border-color:#ff2cb4;
-    border-width:8px;
 }
-#extscrollr{
-    border:solid;
-    border-width:0.5px;
-}
-.button{
-    width:10em;
-    border:solid;
-    text-align:center;
+#scrollscroll img{
+    max-width:50%;
+    display:block;
     margin:auto;
-    border-radius:5px;
-    cursor:pointer;
-    font-family:courier;
-    background-color:#e0e0e0;
-    margin-top:1em;
-    margin-bottom:1em;
- }
-    .scrollbutton{
-        cursor:pointer;
-        color:blue;
-        margin-bottom:0.5em;
-    }
-    body{
-        overflow:hidden;
-    }
+}
+#scrollscroll h1,h2,h3,h4{
+    margin:auto;
+    text-align:center;
+}
+@media only screen and (orientation: portrait) {
     .mainscrollarea{
         position:absolute;
-        left:0px;
-        right:20%;
-        top:0px;
-        bottom:0px;
+        font-size:3em;
     }
-    #scrollscroll{
-        overflow:scroll;
-        border-right:solid;
-        border-width:0.1px;
-        border-color:red;
-        padding-left:1em;
-        padding-right:1em;
-        padding-bottom:5em;
-        background-color:black;
+    h1{
+        font-size:1.5em;
     }
-    #scrollscroll img{
-        max-width:50%;
-        display:block;
-        margin:auto;
+    h2{
+        font-size:1.25em;
     }
-    #scrollscroll h1,h2,h3,h4{
-        margin:auto;
-        text-align:center;
+    h3{
+        font-size:1em;
     }
-    #margin{
-        position:absolute;
-        right:0px;
-        bottom:0px;
-        top:0px;
-        width:18%;
-        overflow:scroll;
-        background-color:black;
-
+    h4{
+        font-size:0.8em;
     }
-    @media only screen and (orientation: portrait) {
-        .mainscrollarea{
-            position:absolute;
-            left:0px;
-            top:10%;
-            right:0px;
-            bottom:0px;
-            font-size:3em;
-        }
-        h1{
-            font-size:1.5em;
-        }
-        h2{
-            font-size:1.25em;
-        }
-        h3{
-            font-size:1em;
-        }
-        h4{
-            font-size:0.8em;
-        }
-        #margin{
-            position:absolute;
-            right:0px;
-            left:0px;
-            top:0px;
-            width:100%;
-            height:10%;
-            overflow:scroll;
-        }
-    }
+}
 </style>
 </body>
 </html>
