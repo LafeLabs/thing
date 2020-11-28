@@ -11,10 +11,10 @@
         "maplinkmode": false
     },
     {
-        "x": 0.3269689737470167,
-        "y": 0.07398568019093078,
-        "w": 0.5501193317422435,
-        "h": 0.06324582338902147,
+        "x": 0.5059665871121718,
+        "y": 0.15990453460620524,
+        "w": 0.4618138424821002,
+        "h": 0.025059665871121718,
         "angle": 0,
         "text": "<span style=\"color:red\">Γ</span>     <span style=\"color:orange\">ε</span>     <span style=\"color:yellow\">ω</span>     <span style=\"color:green\">μ</span>     <span style=\"color:blue\">ε</span>     <span style=\"color:purple\">τ</span>     <span style=\"color:red\">ρ</span>     <span style=\"color:orange\">ο</span>     <span style=\"color:yellow\">ν</span>",
         "href": "",

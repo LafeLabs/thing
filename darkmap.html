@@ -42,16 +42,6 @@
 </head>
 <body>    
 <div id = "mainmap"></div>
-
-<textarea id = "wall" class = "no-mathjax"></textarea>
-
-<div id = "maplistdiv" class = "no-mathjax">
-    <h2 id = "currentmapname"></h2>
-    <ul id = "maplist"></ul>
-</div>
-
-<textarea id = "textio" class = "no-mathjax"></textarea>
-<div id = "importbutton">IMPORT</div>
 <script>
 
 mathmode = false;
@@ -65,23 +55,14 @@ if(innerWidth > innerHeight){
     landscape = true;
     document.getElementById("mainmap").style.left = (innerWidth - squareWidth - 0.5*marginWidth).toString() + "px";
 
-    document.getElementById("wall").style.width = (innerWidth - squareWidth - 0.5*marginWidth).toString() + "px";
-    document.getElementById("wall").style.height = (innerHeight).toString() + "px";    
-    
-    document.getElementById("maplistdiv").style.width = (innerWidth - squareWidth - 0.5*marginWidth).toString() + "px";
-    document.getElementById("maplistdiv").style.height = (innerHeight).toString() + "px";    
-    
 }
 else{
     
     squareWidth = innerWidth;
     marginWidth = innerHeight - squareWidth;
     document.getElementById("mainmap").style.top = (innerHeight - squareWidth - 0.5*marginWidth).toString() + "px";
-    document.getElementById("wall").style.width = (innerWidth).toString() + "px";
-    document.getElementById("wall").style.height = (innerHeight - squareWidth - 0.5*marginWidth - 30).toString() + "px";    
-    document.getElementById("maplistdiv").style.width = (innerWidth).toString() + "px";
-    document.getElementById("maplistdiv").style.height = (innerHeight - squareWidth - 0.5*marginWidth - 30).toString() + "px";        
-    
+
+
 }
 
 
@@ -92,61 +73,8 @@ mainmap.pastebinlinks = false;
 mapname = "data/currentMap.txt";
 loadmap(mapname);
 
-var httpc3 = new XMLHttpRequest();
-httpc3.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        wall = this.responseText;
-        document.getElementById("wall").value = wall;
-    }
-};
-
-httpc3.open("GET", "fileloader.php?filename=data/wall.txt", true);
-httpc3.send();
-
-
-document.getElementById("importbutton").onclick = function(){
-    mainmap.array = JSON.parse(document.getElementById("textio").value);
-    mainmap.draw();
-}
-
-
-
-document.getElementById("wall").onkeyup = function() {
-        wall = this.value;
-        data = encodeURIComponent(this.value);
-        var httpc = new XMLHttpRequest();
-        var url = "filesaver.php";        
-        httpc.open("POST", url, true);
-        httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
-        httpc.send("data="+data+"&filename=data/wall.txt");//send text to filesaver.php
-}
-
-
-maplist = [];
-
-var httpc4 = new XMLHttpRequest();
-    httpc4.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        maplist = JSON.parse(this.responseText);
-        for(var index = maplist.length - 1;index >= 0;index--) {
-            var newmapbutton = document.createElement("LI");
-            newmapbutton.className = "mapbutton";
-            newmapbutton.innerHTML = "maps/" + maplist[index];
-            document.getElementById("maplist").appendChild(newmapbutton);
-            newmapbutton.onclick = function(){
-                var mapname = this.innerHTML;
-                loadmap(mapname);
-            }
-        }
-    }
-};
-
-httpc4.open("GET", "dir.php?filename=maps", true);
-httpc4.send();
-
 
 function loadmap(mapname){
-    document.getElementById("currentmapname").innerHTML = mapname;
     var httpc = new XMLHttpRequest();
     httpc.onreadystatechange = function(){
         if (this.readyState == 4 && this.status == 200) {
@@ -160,7 +88,6 @@ function loadmap(mapname){
                     }
                 }
             }
-            document.getElementById("textio").value = this.responseText;
             //un comment for math
             if(mathmode){
                 MathJax.Hub.Typeset();
@@ -171,54 +98,12 @@ function loadmap(mapname){
     httpc.send();
 }
 
-var newmapbutton = document.createElement("LI");
-newmapbutton.className = "mapbutton";
-newmapbutton.innerHTML = "data/currentMap.txt";
-document.getElementById("maplist").appendChild(newmapbutton);
-newmapbutton.onclick = function(){
-    var mapname = this.innerHTML;
-    loadmap(mapname);
-}
 
 </script>
 <style>
-
 body{
     background-color:#606060;
     color:#00ff00;
-}
-textarea{
-    background-color:black;
-    color:#00ff00;
-    border-color:#00ff00;
-}
-
-a img{
-}
-li{
-    color:blue;
-    cursor:pointer;
-    margin-bottom:0.5em;
-}
-#wall{
-    position:absolute;
-    left:0px;
-    top:0px;
-    font-family:courier;
-    background-color:black;
-    color:#00ff00;
-}
-#maplistdiv{
-    position:absolute;
-    right:0px;
-    bottom:0px;
-    font-family:courier;
-    margin:auto;
-    background-color:black;
-    border:solid;
-    border-color:#00ff00;
-}
-body{
     overflow:hidden;
 }
 #mainmap{
@@ -229,38 +114,7 @@ body{
 }
 #mainmap a{
     font-family:Helvetica;
-    border-width:0.1px;
     color:#0000ff;
-}
-.button{
-    position:absolute;
-}
-#prevbutton{
-    left:0px;
-    top:0px;
-}
-#nextbutton{
-    right:0px;
-    bottom:0px;
-}
-#textio{
-    position:absolute;  
-    right:0px;
-    bottom:40px;
-}
-#importbutton{
-    position:absolute;
-    bottom:0px;
-    right:0px;
-    border:solid;
-    cursor:pointer;
-    border-radius:5px;
-}
-#importbutton:hover{
-    background-color:green;
-}
-#importbutton:active{
-    background-color:yellow;
 }
 </style>
 </body>
