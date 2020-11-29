@@ -10,7 +10,7 @@ if(isset($_GET["from"]) && isset($_GET["to"])){
 
 
 ?>
-<a href = "editor.php">CLICK TO GO TO CODE EDITOR</a>
+<a href = "index.html">CLICK TO GO HOME</a>
 <style>
 a{
     font-size:3em;
