@@ -38,6 +38,15 @@
                 </td>
             </tr>
         </table>
+        <table>
+            <tr>
+                <TD id = "exportbutton" class= "button">EXPORT</TD>
+                <TD id = "importbutton" class= "button">IMPORT</TD>
+            </tr>
+        </table>
+
+                <textarea id = "textio"></textarea>
+
     </div>
     <div id = "imagefeed"></div>
 <script>
@@ -149,7 +158,17 @@ function saveimagefeed(){
     
 }
 
+document.getElementById("textio").value = "";
 
+document.getElementById("exportbutton").onclick = function(){
+    document.getElementById("textio").value = JSON.stringify(imagefeed,null,"  ");
+}
+
+document.getElementById("importbutton").onclick = function(){
+    imagefeed = JSON.parse(document.getElementById("textio").value);
+    saveimagefeed();
+    loadimagefeed();
+}
 
 </script>
 <style>
@@ -172,6 +191,7 @@ body{
     height:100px;
     border-bottom:solid;
     border-color:purple;
+    overflow:scroll;
 }
 #imagefeed{
     position:absolute;
