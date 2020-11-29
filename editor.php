@@ -239,7 +239,8 @@ document.getElementById("namediv").style.color = "#0000ff";
 document.getElementById("namediv").style.borderColor = "#0000ff";
 
 editor = ace.edit("maineditor");
-editor.setTheme("ace/theme/cobalt");
+//editor.setTheme("ace/theme/cobalt");
+editor.setTheme("ace/theme/vibrant_ink");
 editor.getSession().setMode("ace/mode/html");
 editor.getSession().setUseWrapMode(true);
 editor.$blockScrolling = Infinity;

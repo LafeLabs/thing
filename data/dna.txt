@@ -215,6 +215,7 @@
         "wall.txt"
     ],
     "php": [
+        "copy.txt",
         "deletebranch.txt",
         "deletefile.txt",
         "dir.txt",
@@ -244,6 +245,7 @@
         "electronicskit",
         "foo",
         "kits",
+        "manhole",
         "mapmap",
         "markermap.txt",
         "minibanner",
