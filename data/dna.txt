@@ -260,7 +260,9 @@
         "scavenge",
         "servermap.txt",
         "stagekit",
-        "symbol"
+        "symbol",
+        "terminal",
+        "tools"
     ],
     "scrolls": [
         "arduino-8button-xyz",

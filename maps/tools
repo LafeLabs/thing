@@ -1,0 +1,68 @@
+[
+    {
+        "x": -0.03579952267303103,
+        "y": -0.08591885441527446,
+        "w": 1.10381861575179,
+        "h": 1.10381861575179,
+        "angle": 0,
+        "text": "",
+        "href": "",
+        "src": "https://i.imgur.com/E7C5CtP.jpg",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.38066825775656327,
+        "y": 0.27684964200477324,
+        "w": 0.31145584725536996,
+        "h": 0.060859188544152745,
+        "angle": 0,
+        "text": "<span style=\"color:white\">code editor</span>",
+        "href": "editor.php",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.38902147971360385,
+        "y": 0.49522673031026254,
+        "w": 0.31145584725536996,
+        "h": 0.060859188544152745,
+        "angle": 0,
+        "text": "<span style=\"color:white\">map editor</span>",
+        "href": "mapeditor.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.38424821002386633,
+        "y": 0.43914081145584727,
+        "w": 0.31145584725536996,
+        "h": 0.060859188544152745,
+        "angle": 0,
+        "text": "<span style=\"color:white\">symbol factory</span>",
+        "href": "symbolfactory.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.3747016706443914,
+        "y": 0.38902147971360385,
+        "w": 0.31145584725536996,
+        "h": 0.060859188544152745,
+        "angle": 0,
+        "text": "<span style=\"color:white\">symbol feed</span>",
+        "href": "symbolfeed.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.37828162291169454,
+        "y": 0.3329355608591885,
+        "w": 0.31145584725536996,
+        "h": 0.060859188544152745,
+        "angle": 0,
+        "text": "<span style=\"color:white\">image feed</span>",
+        "href": "imagefeed.html",
+        "src": "",
+        "maplinkmode": false
+    }
+]
