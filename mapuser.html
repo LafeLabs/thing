@@ -94,7 +94,11 @@ function loadmap(mapname){
 
 document.getElementById("mapinput").value = "";
 document.getElementById("mapinput").onchange = function(){
-  loadmap(this.value);   
+  var mapname = this.value;
+  if(mapname.includes("/") == false){
+      mapname = "maps/" + mapname;
+  }
+  loadmap(mapname);   
 }
 
 

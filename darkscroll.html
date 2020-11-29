@@ -91,6 +91,9 @@ function loadscroll(scrollname){
 document.getElementById("scrollinput").value = "";
 document.getElementById("scrollinput").onchange = function(){
     var scrollname = this.value;
+    if(scrollname.includes("/") == false){
+      scrollname = "scrolls/" + scrollname;
+    }
     loadscroll(scrollname);
 }
 </script>
