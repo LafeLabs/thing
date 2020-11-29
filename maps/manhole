@@ -53,5 +53,16 @@
         "href": "copy.php?from=https://raw.githubusercontent.com/LafeLabs/thing/master/maps/manhole&to=maps/manhole",
         "src": "",
         "maplinkmode": false
+    },
+    {
+        "x": 0.46897374701670647,
+        "y": -0.00477326968973747,
+        "w": 0.33770883054892603,
+        "h": 0.33770883054892603,
+        "angle": 0,
+        "text": "US29 + MD216 Cherry Tree",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
     }
 ]
