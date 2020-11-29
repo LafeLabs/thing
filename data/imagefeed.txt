@@ -20,5 +20,6 @@
   "https://i.imgur.com/d238wPU.jpg",
   "https://i.imgur.com/KLRd8EW.jpg",
   "https://i.imgur.com/aDXWKdz.jpg",
-  "https://i.imgur.com/AJkVV58.jpg"
+  "https://i.imgur.com/AJkVV58.jpg",
+  "https://i.imgur.com/E7C5CtP.jpg"
 ]

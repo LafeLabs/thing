@@ -244,6 +244,7 @@
         "electronicskit",
         "foo",
         "kits",
+        "mapmap",
         "markermap.txt",
         "minibanner",
         "node",
