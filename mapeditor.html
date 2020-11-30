@@ -712,21 +712,33 @@ if (this.readyState == 4 && this.status == 200) {
 httpc8.open("GET", "dir.php?filename=maps", true);
 httpc8.send();
 
-
+document.getElementById("newmapinput").value = "";
 document.getElementById("newmapinput").onchange = function(){
     var localmapname = this.value;
-    if(maps.indexOf(localmapname) != -1){
-        //this is if the map exists already
-        load
-    }
-    else{
-        //this is if the map does not exist
-        
-    }
-    
     currentFile = "maps/" + this.value;
     document.getElementById("currentfilename").innerHTML = currentFile;
     
+    if(maps.indexOf(localmapname) != -1){
+        //this is if the map exists already
+        var httpc = new XMLHttpRequest();
+        httpc.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                mainmap.array = JSON.parse(this.responseText);
+                mainmap.draw();
+                document.getElementById("textio").value = JSON.stringify(mainmap.array,null,"    ");
+            }
+        };
+        httpc.open("GET", "fileloader.php?filename=" + currentFile, true);
+        httpc.send();
+    }
+    else{
+        //this is if the map does not exist
+        mainmap.array = [];
+        mainmap.draw();
+        document.getElementById("textio").value = JSON.stringify(mainmap.array,null,"    ");
+    }
+    
+
     
 
     
