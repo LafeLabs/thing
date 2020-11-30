@@ -283,6 +283,7 @@
         "lasercutshapes",
         "maps.md",
         "mirrorhypercube",
+        "pastebin",
         "pireplicate.md",
         "pisetup.md",
         "poetryengine.md",
