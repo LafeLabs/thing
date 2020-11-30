@@ -714,9 +714,21 @@ httpc8.send();
 
 
 document.getElementById("newmapinput").onchange = function(){
+    var localmapname = this.value;
+    if(maps.indexOf(localmapname) != -1){
+        //this is if the map exists already
+        load
+    }
+    else{
+        //this is if the map does not exist
+        
+    }
+    
     currentFile = "maps/" + this.value;
     document.getElementById("currentfilename").innerHTML = currentFile;
-    document.getElementById("textio").value = JSON.stringify(mainmap.array,null,"    ");
+    
+    
+
     
     
     var newmapbutton = document.createElement("LI");

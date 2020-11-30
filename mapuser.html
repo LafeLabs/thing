@@ -46,6 +46,7 @@ if(innerWidth > innerHeight){
     mainmap = new Map(innerHeight,innerHeight,document.getElementById("mainmap"));
     document.getElementById("margin").style.width = (innerWidth  - innerHeight).toString() + "px";    
     document.getElementById("margin").style.height = (innerHeight).toString() + "px";
+    document.getElementById("mapinput").select();
 }
 else{
     mainmap = new Map(innerWidth,innerWidth,document.getElementById("mainmap"));    
