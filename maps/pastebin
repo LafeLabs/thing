@@ -1,0 +1,13 @@
+[
+    {
+        "x": 0.2350835322195704,
+        "y": 0.06205250596658711,
+        "w": 0.652744630071599,
+        "h": 0.652744630071599,
+        "angle": 0,
+        "text": "replicate pastebin map at pastebin address",
+        "href": "copy.php?from=https://pastebin.com/raw/NeuXUJY1&to=maps/pastebin",
+        "src": "",
+        "maplinkmode": false
+    }
+]
