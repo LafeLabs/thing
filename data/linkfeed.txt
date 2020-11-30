@@ -100,26 +100,6 @@
         "text": "karate link"
     },
     {
-        "href": "https://www.kstreet.xyz",
-        "src": "",
-        "text": "www.kstreet.xyz"
-    },
-    {
-        "href": "https://www.dupontcircle.xyz",
-        "src": "",
-        "text": "www.dupontcircle.xyz"
-    },
-    {
-        "href": "https://www.us29.xyz",
-        "src": "",
-        "text": "www.us29.xyz"
-    },
-    {
-        "href": "https://www.md216.xyz",
-        "src": "",
-        "text": "www.md216.xyz"
-    },
-    {
         "href": "textfeed.html",
         "src": "",
         "text": "textfeed.html"
@@ -128,6 +108,31 @@
         "href": "darkfeed.html",
         "src": "",
         "text": "darkfeed.html"
+    },
+    {
+        "href": "imagefeed.html",
+        "src": "",
+        "text": "imagefeed.html"
+    },
+    {
+        "href": "symbolfactory.html",
+        "src": "",
+        "text": "symbolfactory.html"
+    },
+    {
+        "href": "darkscroll.html",
+        "src": "",
+        "text": "darkscroll.html"
+    },
+    {
+        "href": "mapuser.html",
+        "src": "",
+        "text": "mapuser.html"
+    },
+    {
+        "href": "copy.php?from=mapuser.html&to=index.html",
+        "src": "",
+        "text": "copy from mapuser to index"
     },
     {
         "href": "linkfeededitor.html",
