@@ -98,6 +98,7 @@ document.getElementById("mapinput").onchange = function(){
   var mapname = this.value;
   if(mapname.includes("/") == false){
       mapname = "maps/" + mapname;
+      
   }
   loadmap(mapname);   
 }

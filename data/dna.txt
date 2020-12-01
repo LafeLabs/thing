@@ -40,6 +40,7 @@
         "mapuser.html",
         "md216dotxyz.html",
         "pi.html",
+        "pixelcolor.html",
         "poetryengine.html",
         "quantumart.html",
         "robot.html",
