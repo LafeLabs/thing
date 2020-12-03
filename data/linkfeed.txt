@@ -130,9 +130,9 @@
         "text": "mapuser.html"
     },
     {
-        "href": "copy.php?from=mapuser.html&to=index.html",
+        "href": "copy.php?from=user.html&to=index.html",
         "src": "",
-        "text": "copy from mapuser to index"
+        "text": "copy from main user screen to index"
     },
     {
         "href": "linkfeededitor.html",
