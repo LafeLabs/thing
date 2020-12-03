@@ -74,6 +74,7 @@
         "trashrobot.html",
         "trashrobotdotorg.html",
         "us29dotxyz.html",
+        "user.html",
         "voxel.html",
         "wall.html"
     ],
