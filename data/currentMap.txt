@@ -64,5 +64,16 @@
         "href": "linkfeed.html",
         "src": "",
         "maplinkmode": false
+    },
+    {
+        "x": 0.7684964200477327,
+        "y": 0.8579952267303103,
+        "w": 0.22792362768496421,
+        "h": 0.046539379474940336,
+        "angle": 16,
+        "text": "dumpster",
+        "href": "maps/dumpster",
+        "src": "",
+        "maplinkmode": true
     }
 ]

@@ -53,7 +53,7 @@ function Map(w,h,div) {
                     newspan.innerHTML = this.array[index].href;
                     newspan.className = "maplink";
                     newspan.style.display = "none";
-                    newa.style.color = "brown";
+                    newa.style.color = "#ff2cb4";
                     newa.style.cursor = "pointer";
                     newa.appendChild(newspan);
                 }
