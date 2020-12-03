@@ -87,9 +87,18 @@ function loadmap(mapname){
             mainmap.draw();
             for(var index = 0;index < mainmap.linkArray.length;index++){
                 if(mainmap.array[index].maplinkmode == true){
+                    
+                    
                     mainmap.linkArray[index].onclick = function(){
-                        loadmap(this.getElementsByClassName("maplink")[0].innerHTML);    
-                        
+                        var localmap = this.getElementsByClassName("maplink")[0].innerHTML;
+                        if(localmap.includes("scrolls/")){
+                            var localscroll = "scrolls/" + localmap.split("scrolls/")[1];
+                            loadscroll(localscroll);
+                        }
+                        else{
+                            loadmap(this.getElementsByClassName("maplink")[0].innerHTML);                              
+                        }
+
                     }
                 }
             }
@@ -155,10 +164,26 @@ function convertscrollinks(){
             
             newspan.onclick = function(){
                 var localscroll = this.getElementsByClassName("data")[0].innerHTML;
-//                alert(localscroll);
                 loadscroll(localscroll);
             }
         }
+        if(links[index].href.includes("maps/")){
+            //console.log(links[index].href);
+            var newspan = document.createElement("SPAN");
+            newspan.innerHTML = links[index].innerHTML;
+            var dataspan = document.createElement("SPAN");
+            dataspan.className = "data";
+            dataspan.innerHTML  = "maps/" + links[index].href.split("maps/")[1];
+            newspan.appendChild(dataspan);
+            newspan.className = "scrolllink";
+            links[index].parentNode.insertBefore(newspan,links[index]);
+            links[index].style.display = "none";
+            
+            newspan.onclick = function(){
+                var localscroll = this.getElementsByClassName("data")[0].innerHTML;
+                loadmap(localscroll);
+            }
+        }        
     }
 }
 </script>

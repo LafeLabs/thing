@@ -75,5 +75,16 @@
         "href": "maps/dumpster",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0.015513126491646777,
+        "y": 0.8054892601431981,
+        "w": 0.22792362768496421,
+        "h": 0.046539379474940336,
+        "angle": 16,
+        "text": "link to foo scroll",
+        "href": "scrolls/foo",
+        "src": "",
+        "maplinkmode": true
     }
 ]
