@@ -218,6 +218,7 @@
     ],
     "php": [
         "copy.txt",
+        "copydata.txt",
         "deletebranch.txt",
         "deletefile.txt",
         "dir.txt",

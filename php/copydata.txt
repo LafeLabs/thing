@@ -1,0 +1,36 @@
+<?php
+
+
+$dnaurl = "https://raw.githubusercontent.com/LafeLabs/thing/master/data/dna.txt";
+
+if(isset($_GET["from"])){
+    $fromurl = $_GET["from"];
+    $dnaurl = $fromurl."/data/dna.txt";
+}
+
+
+$baseurl = explode("data/",$dnaurl)[0];
+$dnaraw = file_get_contents($dnaurl);
+$dna = json_decode($dnaraw);
+
+mkdir("maps");
+mkdir("scrolls");
+
+
+
+foreach($dna->maps as $value){
+    copy($baseurl."maps/".$value,"maps/".$value);
+}
+
+foreach($dna->scrolls as $value){
+    copy($baseurl."scrolls/".$value,"scrolls/".$value);
+}
+
+
+?>
+<a href = "index.html">CLICK TO GO TO MAIN PAGE</a>
+<style>
+a{
+    font-size:3em;
+}
+</style>
