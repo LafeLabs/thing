@@ -13,10 +13,8 @@ $baseurl = explode("data/",$dnaurl)[0];
 $dnaraw = file_get_contents($dnaurl);
 $dna = json_decode($dnaraw);
 
-mkdir("maps");
-mkdir("scrolls");
 
-
+//copy($baseurl."data/currentMap.txt","data/currentMap.txt");
 
 foreach($dna->maps as $value){
     copy($baseurl."maps/".$value,"maps/".$value);
