@@ -43,6 +43,7 @@
         "pixelcolor.html",
         "poetryengine.html",
         "quantumart.html",
+        "removebackground.html",
         "robot.html",
         "robot.py",
         "robot2arduino.html",
