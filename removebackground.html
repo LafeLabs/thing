@@ -11,17 +11,27 @@
 <table id = "controltable">
     <tr>
         <td id = "savebutton" class = "button">SAVE</td>
-        <td></td>
+        <td>
+            <a style = "background-color:white " href =  "mapeditor.html">mapeditor.html</a>
+        </td>
     </tr>
     <tr>
         <td>img url:</td>
         <td><input id = "imgurlinput"/></td>
     </tr>
+    <tr>
+        <td>img url:</td>
+        <td><input id = "thresholdinput"/></td>
+    </tr>
+
 </table>
 <img id = "mainimage" src = "https://i.imgur.com/ziZfYgD.jpg"/> 
 <canvas  id = "maincanvas"></canvas>
 
 <script>
+
+threshold = 0x40;
+
 textfeed = {};
 var httpc10 = new XMLHttpRequest();
     httpc10.onreadystatechange = function() {
@@ -51,8 +61,8 @@ document.getElementById("imgurlinput").value = img.src;
 
 img.onload = function() {
 //    this.style.width = "400px";
-    canvas.width = this.width;
-    canvas.height = this.height;
+    canvas.width = 400;
+    canvas.height = this.height*400/this.width;
     img.crossOrigin = '';
     ctx.drawImage(img,0,0,canvas.width,canvas.height);
 
@@ -78,7 +88,7 @@ img.onload = function() {
         color.r = (imgData.data[index] + imgData.data[index + 4]+ imgData.data[index + 8]+ imgData.data[index + 12])/4;
         color.g = (imgData.data[index + 1] + imgData.data[index + 5] + imgData.data[index + 9] + imgData.data[index + 13])/4;
         color.b = (imgData.data[index + 2] + imgData.data[index + 6] + imgData.data[index + 10] + imgData.data[index + 14])/4;
-        if(Math.sqrt(color.r*color.r + color.g*color.g + color.b*color.b) < 0xc0){
+        if(Math.sqrt(color.r*color.r + color.g*color.g + color.b*color.b) < threshold){
             imgData.data[index + 3] = 0;
             imgData.data[index + 7] = 0;
             imgData.data[index + 11] = 0;
@@ -106,6 +116,13 @@ document.getElementById("savebutton").onclick = function(){
     
 }
 
+document.getElementById("thresholdinput").value = threshold.toString();
+document.getElementById("thresholdinput").onchange = function(){
+    threshold = parseInt(this.value);
+    var localsrc = img.src;
+    img.src = "";
+    img.src = localsrc;
+}
 
 document.getElementById("imgurlinput").onchange = function(){
     img.src = this.value;
