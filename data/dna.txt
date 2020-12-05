@@ -85,7 +85,8 @@
         "keyboard.js",
         "lasercutfont.js",
         "mapfactory.js",
-        "robotfont.js"
+        "robotfont.js",
+        "trashrobotfont.js"
     ],
     "iconsymbols": [
         "abcfont.svg",
