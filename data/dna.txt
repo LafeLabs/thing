@@ -234,6 +234,7 @@
         "pngsave.txt",
         "rdelete.txt",
         "replicator.txt",
+        "replicatornodata.txt",
         "robot.txt",
         "seed.txt",
         "text2php.txt",
