@@ -33,58 +33,14 @@
         "maplinkmode": false
     },
     {
-        "x": -0.02386634844868735,
-        "y": 0.3233890214797136,
-        "w": 0.22792362768496421,
-        "h": 0.029832935560859187,
-        "angle": -38,
-        "text": "copy terminal map",
-        "href": "copy.php?from=maps/terminal&to=data/currentMap.txt",
-        "src": "",
-        "maplinkmode": false
-    },
-    {
-        "x": -0.003579952267303103,
-        "y": 0.36754176610978523,
-        "w": 0.22792362768496421,
-        "h": 0.046539379474940336,
-        "angle": -38,
+        "x": 0.6312649164677804,
+        "y": 0.7434367541766109,
+        "w": 0.35918854415274465,
+        "h": 0.17780429594272076,
+        "angle": 12,
         "text": "copy mapmap",
         "href": "copy.php?from=maps/mapmap&to=data/currentMap.txt",
         "src": "",
         "maplinkmode": false
-    },
-    {
-        "x": -0.0011933174224343676,
-        "y": 0.4295942720763723,
-        "w": 0.22792362768496421,
-        "h": 0.046539379474940336,
-        "angle": -38,
-        "text": "link feed",
-        "href": "linkfeed.html",
-        "src": "",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.7684964200477327,
-        "y": 0.8579952267303103,
-        "w": 0.22792362768496421,
-        "h": 0.046539379474940336,
-        "angle": 16,
-        "text": "dumpster",
-        "href": "maps/dumpster",
-        "src": "",
-        "maplinkmode": true
-    },
-    {
-        "x": 0.015513126491646777,
-        "y": 0.8054892601431981,
-        "w": 0.22792362768496421,
-        "h": 0.046539379474940336,
-        "angle": 16,
-        "text": "link to foo scroll",
-        "href": "scrolls/foo",
-        "src": "",
-        "maplinkmode": true
     }
 ]

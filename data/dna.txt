@@ -270,6 +270,7 @@
     "scrolls": [
         "arduino-8button-xyz",
         "bookofshapes",
+        "box",
         "buildrobot.md",
         "buystuff",
         "connectors",
