@@ -226,6 +226,17 @@ function savecube(){
     httpc.open("POST", url, true);
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc.send("data="+encodeURIComponent(hypercube)+"&filename=data/hypercube.txt");//send text to filesaver.php
+    
+    jsonarray = [];
+    for(var index = 01040;index < 01177;index++) {
+        if(mainGVM.hypercube[index].length > 1) {
+                var bytecodestring = "0" + index.toString(8) + ":" + mainGVM.hypercube[index];
+                jsonarray.push(bytecodestring); 
+        }
+    }
+    
+
+    document.getElementById("textio").value = JSON.stringify(jsonarray,null,"    ");
 
 }
 
@@ -337,6 +348,17 @@ document.getElementById("importbutton").onclick =  function(){
     mainGVM.clean();
     mainGVM.drawGlyph(mainGVM.glyph);
     redraw();
+}
+
+document.getElementById("spellinput").onchange = function(){
+    mainGVM.hypercube[mainGVM.address] = this.value;
+    mainGVM.glyph = this.value + "0207,";
+    mainGVM.drawGlyph(mainGVM.glyph);
+    mainGVM.clean();
+    spellGVM.spellGlyph(mainGVM.glyph);
+    
+    gvmArray[mainGVM.address - 01040].drawGlyph("0300," + mainGVM.hypercube[mainGVM.address + 01000]);    
+    
 }
 
 </script>
