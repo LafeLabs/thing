@@ -161,7 +161,7 @@ function loadcontroltable(){
                 newGVM.x0 = 1;
                 newGVM.y0 = controlbuttonsize-1;
                 newGVM.importbytecode(hypercube);
-                newGVM.importbytecode(laserfont);
+           //     newGVM.importbytecode(laserfont);
                 newGVM.action(0300);
                 if(parseInt(rowarray[rowindex],8) >= 040 && parseInt(rowarray[rowindex],8) < 0177){
                     newGVM.drawGlyph("0300,0336,0336,0330,0333,0337,");
@@ -221,7 +221,7 @@ httpcHypercube.onreadystatechange = function(){
         hypercube = JSON.parse(this.responseText);
         spellGVM.importbytecode(hypercube);
         mainGVM.importbytecode(hypercube);    
-        mainGVM.importbytecode(laserfont);    
+      //  mainGVM.importbytecode(laserfont);    
 //        loadcontroltable();
         var httpccontrols = new XMLHttpRequest();
         httpccontrols.onreadystatechange = function(){
