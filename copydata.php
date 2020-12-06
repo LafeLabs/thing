@@ -24,6 +24,10 @@ foreach($dna->scrolls as $value){
     copy($baseurl."scrolls/".$value,"scrolls/".$value);
 }
 
+foreach($dna->data as $value){
+    copy($baseurl."data/".$value,"data/".$value);
+}
+
 
 ?>
 <a href = "index.html">CLICK TO GO TO MAIN PAGE</a>
