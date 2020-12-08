@@ -166,6 +166,8 @@
         "scroll.svg",
         "setup.svg",
         "shapeset.svg",
+        "shapesgreen.svg",
+        "shapesoutline.svg",
         "shapestack.svg",
         "shrink.svg",
         "shrinksmall.svg",
