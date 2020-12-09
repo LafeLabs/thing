@@ -53,6 +53,9 @@ bootstrap is whole big thing that does lots of things, but what we use it for he
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>
 
     <script src="jscode/geometron.js"></script>
+    <script src="jscode/robotfont.js"></script>
+    <script src="jscode/lasercutfont.js"></script>
+    <script src="jscode/trashrobotfont.js"></script>
 
 </head>
 <body>    
@@ -60,9 +63,22 @@ bootstrap is whole big thing that does lots of things, but what we use it for he
 <div id = "savebutton" class = "button">SAVE</div>
 
 
-<div id = "importbutton" class = "button">IMPORT</div>
-<div id = "importrobotfontbutton" class = "button">ROBOT FONT</div>
-<div id = "importlaserfontbutton" class = "button">LASER FONT</div>
+
+<table id = "importbuttontable">
+    <tr>
+        <td id = "importbutton" class = "button">IMPORT</td>
+    </tr>
+    <tr>
+        <td id = "importrobotfontbutton" class = "button">ROBOT FONT</td>
+    </tr>
+    <tr>
+        <td id = "importlaserfontbutton" class = "button">LASER FONT</td>
+    </tr>
+    <tr>
+        <td id = "importtrashrobotfontbutton" class = "button">TRAHSROBOT FONT</td>
+    </tr>
+
+</table>
 
 
 <div id = "displaybox">
@@ -361,6 +377,18 @@ document.getElementById("spellinput").onchange = function(){
     
 }
 
+document.getElementById("textio").value = "";
+document.getElementById("importrobotfontbutton").onclick  =function(){
+    document.getElementById("textio").value = JSON.stringify(robotfont,null,"    ");
+}
+document.getElementById("importlaserfontbutton").onclick  =function(){
+    document.getElementById("textio").value = JSON.stringify(laserfont,null,"    ");
+}
+document.getElementById("importtrashrobotfontbutton").onclick  = function(){
+    document.getElementById("textio").value = JSON.stringify(trashrobotfont,null,"    ");
+}
+
+
 </script>
 <style>
 body{
@@ -451,27 +479,12 @@ body{
     width:300px;
     height:100px;
 }
-#importbutton{
+#importbuttontable{
     position:absolute;
     bottom:1em;
     width:6em;
     left:40%;
-     font-size:14px;
-}
-#importrobotfontbutton{
-    position:absolute;
-    bottom:2.5em;
     font-size:14px;
-    width:10em;
-    left:40%;
-}
-#importlaserfontbutton{
-    position:absolute;
-    font-size:14px;
-
-    bottom:4em;
-    width:10em;
-    left:40%;
 }
 
 .button{
