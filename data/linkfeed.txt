@@ -135,13 +135,18 @@
         "text": "copy from main user screen to index"
     },
     {
-        "href": "linkfeededitor.html",
-        "src": "",
-        "text": "operator screen"
-    },
-    {
         "href": "user.html",
         "src": "",
         "text": "user.html"
+    },
+    {
+        "href": "qrcode.html",
+        "src": "",
+        "text": "qrcode.html"
+    },
+    {
+        "href": "linkfeededitor.html",
+        "src": "",
+        "text": "operator screen"
     }
 ]

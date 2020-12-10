@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <!--
+
+        EVERYTHING IS PHYSICAL 
+        EVERYTHING IS FRACTAL
+        EVERYTHING IS RECURSIVE
+        NO MONEY 
+        MO MINING 
+        NO PROPERTY
+        LOOK AT THE INSECTS
+        LOOK AT THE FUNGI
+        LANGUAGE IS HOW THE MIND PARSES REALITY
+
+    -->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAP//AP///wANAP8A5Dz6ABueRwAAt/8A6BonABo86AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAREREREREREREREAAAEREREREQCIgREREd3dwAAB3d3d3d3d3d3d3d3d3d3d3d3d3VVVVVVVQAFVVAAVVVQIiBRAiIBEQIAIBECAAERAgAgFgIABmYCIiBmAiIGZgIiIGYCIgZmYCIAaIAAMzMzAAiIiIiIiIiIiIiIiIiIiIiIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
+
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+
+<script src = "jscode/qrcode.js"></script>
+</head>
+<body>    
+<a href = "index.html">index.html</a>
+<div id = "qrcode"></div>
+<table>
+    <tr>
+        <td></td>
+        <td class = "button" id = "savebutton">SAVE TO TEXTFEED</td>
+    </tr>
+    <tr>
+        <td>URL:</td>
+        <td><input id = "urlinput"/></td>
+    </tr>
+    <tr>
+        <td>MAP:</td>
+        <td><input id = "mapinput"/></td>
+    </tr>
+    <tr>
+        <td>SCROLL:</td>
+        <td><input id = "scrollinput"/></td>
+    </tr>
+</table>
+
+<script>
+
+document.getElementById("urlinput").value = "";
+document.getElementById("mapinput").value = "";
+document.getElementById("scrollinput").value = "";
+
+
+document.getElementById("urlinput").onchange = function(){
+    var url= this.value;
+    qrcode.makeCode(url);
+}
+
+document.getElementById("mapinput").onchange = function(){
+    var url= window.location.origin+"/user.php?map=" + this.value;
+    qrcode.makeCode(url);
+}
+document.getElementById("scrollinput").onchange = function(){
+    var url= window.location.origin+"/user.php?scroll=" + this.value;
+    qrcode.makeCode(url);
+}
+
+
+qrcode = new QRCode(document.getElementById("qrcode"), {
+	text: "http://www.trashrobot.org",
+	width: 128,
+	height: 128,
+	colorDark : "#000000",
+	colorLight : "#ffffff",
+	correctLevel : QRCode.CorrectLevel.H
+});
+
+
+textfeed = {};
+var httpc10 = new XMLHttpRequest();
+    httpc10.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        textfeed = JSON.parse(this.responseText);
+    }
+};
+httpc10.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
+httpc10.send();
+
+
+document.getElementById("savebutton").onclick = function(){
+    textfeed.src.push(document.getElementsByTagName("IMG")[0].src);
+    var url = "filesaver.php";        
+    var httpc3 = new XMLHttpRequest();
+    httpc3.open("POST", url, true);
+    httpc3.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc3.send("data="+encodeURIComponent(JSON.stringify(textfeed,null,"    "))+"&filename=data/textfeed.txt");//send text to filesaver.php    
+}
+
+</script>
+<style>
+#qrcode{
+    margin: 5em 5em 5em 5em;
+}
+.button{
+    cursor:pointer;
+    text-align:center;
+    border:solid;
+    border-radius:3px;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
+}
+</style>
+</body>
+</html>

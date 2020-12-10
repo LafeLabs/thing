@@ -42,6 +42,7 @@
         "pi.html",
         "pixelcolor.html",
         "poetryengine.html",
+        "qrcode.html",
         "quantumart.html",
         "removebackground.html",
         "robot.html",
@@ -86,6 +87,7 @@
         "keyboard.js",
         "lasercutfont.js",
         "mapfactory.js",
+        "qrcode.js",
         "robotfont.js",
         "trashrobotfont.js"
     ],
