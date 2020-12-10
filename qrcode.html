@@ -26,6 +26,8 @@
 <body>    
 <a href = "index.html">index.html</a>
 <div id = "qrcode"></div>
+<img id = "transferimage"/>
+<canvas id = "outputcanvas"></canvas>
 <table>
     <tr>
         <td></td>
@@ -89,16 +91,48 @@ httpc10.send();
 
 
 document.getElementById("savebutton").onclick = function(){
-    textfeed.src.push(document.getElementsByTagName("IMG")[0].src);
+
+    document.getElementById("transferimage").src = document.getElementsByTagName("IMG")[0].src;
+    
+
+}
+
+img = document.getElementById("transferimage");
+//img.crossOrigin = 'Anonymous';
+canvas = document.getElementById("outputcanvas");
+ctx = canvas.getContext("2d");
+
+
+document.getElementById("transferimage").onload = function(){
+    canvas.style.border = "solid"; 
+    canvas.width = 168;
+    canvas.height = 168;
+    //img.crossOrigin = '';
+    ctx.strokeStyle = "white";
+    ctx.fillStyle = "white";
+            
+    ctx.clearRect(0,0,168,168);
+    ctx.fillRect(0,0,168,168); 
+    ctx.drawImage(img,20,20,128,128);
+    textfeed.src.push(canvas.toDataURL("image/png"));
     var url = "filesaver.php";        
     var httpc3 = new XMLHttpRequest();
     httpc3.open("POST", url, true);
     httpc3.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc3.send("data="+encodeURIComponent(JSON.stringify(textfeed,null,"    "))+"&filename=data/textfeed.txt");//send text to filesaver.php    
+    
 }
 
 </script>
 <style>
+#transferimage{
+    display:none;
+    width:128px;
+    height:128px;
+    border:solid;
+}
+body{
+}
 #qrcode{
     margin: 5em 5em 5em 5em;
 }

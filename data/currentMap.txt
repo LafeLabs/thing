@@ -42,5 +42,27 @@
         "href": "copy.php?from=maps/mapmap&to=data/currentMap.txt",
         "src": "",
         "maplinkmode": false
+    },
+    {
+        "x": 0.4451073985680191,
+        "y": 0.3138424821002387,
+        "w": 0.256563245823389,
+        "h": 0.5286396181384249,
+        "angle": 0,
+        "text": "<span style=\"color:red\">Γ</span>     <span style=\"color:orange\">ε</span>     <span style=\"color:yellow\">ω</span>     <span style=\"color:green\">μ</span>     <span style=\"color:blue\">ε</span>     <span style=\"color:purple\">τ</span>     <span style=\"color:red\">ρ</span>     <span style=\"color:orange\">ο</span>     <span style=\"color:yellow\">ν</span>",
+        "href": "",
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKgAAACoCAYAAAB0S6W0AAAE/UlEQVR4nO3a244iRxBF0f7/n7Zfe2ymyApOZAawtsQTVXldjNySf/6RBvdzegHSVYBqdIBqdIBqdIBqdIBqdIBqdIBqdIBqdIBqdIBqdIBqdIBqdIBqdIBqdIBqdIBqdIBqdIBqdHGgPz8/Rz7VtTx7Z2Xc6rkk1lvd9857eCVAn7yzMm71XBLrre4b0AEHA+iMe3glQJ+8szJu9VwS663uG9CmBb8yzyT41Xe6zqYSoOF5AM0GaHgeQLMBGp4H0GwfCbSCZGWclbWkgFbmSY1T2XfqXFbGSQcooIBefQ/oa+tdGSd1LivjpAMUUECvvgf0tfWujJM6l5Vx0n000I71J+dOnFXXuIACCuhCgBbGBfTv46QDtDAuoH8fJ91HA00dehekZ1XHAfRqQEABDQbooXdWAhTQY++sBCigx95ZCdADQE/OU72YCr5dP7rU2VQCNDwPoNkADc8DaDZAw/MAmu0jgO76rKyl8kwFVuqZ1J5O38MrAQoooIACWg1QQL8L6KROXkLi4k6AmNZH7xDQ9++jdwjo+/fROwT0/fvoHQL6/r3NDrsuaheAlbFX5k48U1lL9ZlXAxRQQBMBmnsG0IYAzT0D6O8JmiBV3ql8ds2TnOvUOx0BCiiggAJaDVBAAQUU0GojgCYuKvVM4p3Oy9y1vlMg/7eO9gkABfSFAAUUUEABrbYdaNdlVuZZuZjkXB3nsPPHcSJAn4yTnAvQ+wH6ZJzkXIDeD9An4yTnAvR+8dXfBZC6mMo7nSh2od31D8CjuXYEKKDLAQoooP+dMz4goIAGAxTQ5T4CaKWVjScOJwWg8syu9T56r2vcrn3/MWd8xEKA5tb76L2ucQG9+czdeQAFdClAc+t99F7XuG8JdGUTuz6JtZ08l85xEnvYEaCAlvewI0ABLe9hR4ACWt7DjgAFtLyHHW0Hmhijejhdl1v9cSTGTXUS/uW64gMCCmhyXfEBAQU0ua74gIACmlxX+wQLm+pC3DV3Yi2pC678OFJ72BGggJb3sCNAAS3vYUeAAlrew44ABbS8hx21/xW/q+oB3r3czj2lflAJbKlnXg3QAZewupbqM4D+HhDQcoA+2Et8QEDLAfpgL/EBbx7Eo3dS4ybWm/pU993xDqCAAhoKUEABBRTQatv/SKpe5t15Uwe6E+3OH8e7BGhhXED3BWhhXED3BWhhXED3BWhhXED3NQLoyjNdF7XrB3Vy36kfy4kABRTQq+8B7d83oL8HBHRpHkDXeu//gn5SCvGzcbueSa23Mm7X3LfXumWWQwG6tn5ADwXo2voBPRSga+sH9FCArq3/q4CmNr/rsDrAprBV910Zd2qAAgoooIBWAxTQ7wbaVeWiOqHfXe/JH2YX/I4ABRTQjgAFtDYgoLG1ADrk/2aqHFjqsE6i6FjbaejpAB18mYACOvoyAQV09GUCCujoywT0y4B2HehOAF1ntQv13QANBGhfgAYCtC9AAwHa11cBTa23sqeuuaftKR2ggAJ69T2ggF4FKKCAXn0PKKBXbQf6bvNU67rgxLhd/0h03AOgTQGaCdCmAM0EaFOAZmoHuuszeW1JoJV9ps7hRIACeny9VwEK6PH1XgUooMfXexWggB5f71Xz/vyVfgWoRgeoRgeoRgeoRgeoRgeoRgeoRgeoRgeoRgeoRgeoRgeoRgeoRgeoRgeoRgeoRgeoRgeoRgeoRvcvvj1YU9EPRKYAAAAASUVORK5CYII=",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.7016706443914081,
+        "y": 0.31026252983293556,
+        "w": 0.256563245823389,
+        "h": 0.256563245823389,
+        "angle": 0,
+        "text": "<span style=\"color:red\">Γ</span>     <span style=\"color:orange\">ε</span>     <span style=\"color:yellow\">ω</span>     <span style=\"color:green\">μ</span>     <span style=\"color:blue\">ε</span>     <span style=\"color:purple\">τ</span>     <span style=\"color:red\">ρ</span>     <span style=\"color:orange\">ο</span>     <span style=\"color:yellow\">ν</span>",
+        "href": "",
+        "src": "data:image/png;base64,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",
+        "maplinkmode": false
     }
 ]
