@@ -49,8 +49,30 @@
         "w": 0.3305489260143198,
         "h": 0.028639618138424822,
         "angle": -82,
-        "text": "<span style = \"color:#00ff00\">operator: @lafelabs</span>",
-        "href": "",
+        "text": "operator@trashrobot.org",
+        "href": "mailto:operator@trashrobot.org",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.007159904534606206,
+        "y": 0,
+        "w": 0.3305489260143198,
+        "h": 0.06682577565632458,
+        "angle": 0,
+        "text": "matrix operator",
+        "href": "https://matrix.fandom.com/wiki/Operator",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.7816229116945107,
+        "y": 0.6730310262529833,
+        "w": 0.3305489260143198,
+        "h": 0.028639618138424822,
+        "angle": 87,
+        "text": "operator@trashrobot.org",
+        "href": "mailto:operator@trashrobot.org",
         "src": "",
         "maplinkmode": false
     }

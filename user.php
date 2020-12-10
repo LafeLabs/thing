@@ -28,14 +28,8 @@
 <body>    
 <div id = "scrollscroll"></div>
 <div id = "mainmap"></div>
-<div id = "margin">
-    <div id = "box1">
-        <input id = "mapinput"/>
-    </div>
-    <div id = "box2">
-        <textarea id = "textio"></textarea>
-    </div>
-</div>
+<input id = "mapinput"/>
+
 <div class = "data" id = "mapdiv"><?php
     
 if(isset($_GET["map"])){
@@ -54,23 +48,22 @@ if(isset($_GET["scroll"])){
 
 if(innerWidth > innerHeight){
     mainmap = new Map(innerHeight,innerHeight,document.getElementById("mainmap"));
-    document.getElementById("margin").style.width = (innerWidth  - innerHeight).toString() + "px";    
-    document.getElementById("margin").style.height = (innerHeight).toString() + "px";
 
     document.getElementById("scrollscroll").style.width = innerHeight.toString() + "px";
     document.getElementById("scrollscroll").style.height = innerHeight.toString() + "px";    
     document.getElementById("mapinput").select();
+    document.getElementById("mapinput").style.width = (innerWidth - innerHeight - 20).toString() + "px";
+    
 }
 else{
     document.getElementById("scrollscroll").style.width = innerWidth.toString() + "px";
-    document.getElementById("scrollscroll").style.height = innerWidth.toString() + "px";        
+    document.getElementById("scrollscroll").style.height = (innerHeight - 100).toString() + "px";        
     mainmap = new Map(innerWidth,innerWidth,document.getElementById("mainmap"));    
-    document.getElementById("margin").style.width = (innerWidth).toString() + "px";    
-    document.getElementById("margin").style.height = (innerHeight - innerWidth).toString() + "px";
-    
-//    document.getElementById("margin").style.display = "none";
 
+    document.getElementById("mapinput").style.width = (innerWidth - 20).toString() + "px";
+    
 }
+
 
 scroll = "";
 rawhtml = "";
@@ -211,8 +204,12 @@ function convertscrollinks(){
 }
 </script>
 <style>
+body{
+    overflow:hidden;
+    background-color:black;
+}
 input{
-    width:90%;
+    width:50%;
     font-family:courier;
     font-size:1.5em;
     background-color:black;
@@ -220,40 +217,18 @@ input{
     border-color:#ff2cb4;
     border-width:8px;
 }
+#mapinput{
+    position:absolute;
+    z-index:3;
+    bottom:0px;
+    right:0px;
+}
 .scrolllink{
     color:#ff2cb4;
     cursor:pointer;
 }
 .scrolllink:hover{
     background-color:#ff2cb490;
-}
-#margin{
-    background-color:black;
-    position:absolute;
-    font-family:courier;
-    font-size:2em;
-    right:0px;
-    bottom:0px;
-}
-#box1{
-    position:absolute;
-    left:0px;
-    right:0px;
-    top:0px;
-    height:25%;
-    background-color:black;
-}
-#box2{
-    background-color:black;
-    position:absolute;
-    left:0px;
-    right:0px;
-    bottom:0px;
-    height:70%;
-}
-
-body{
-    overflow:hidden;
 }
 #mainmap{
     position:absolute;
@@ -284,21 +259,11 @@ body{
     display:block;
     margin:auto;
 }
-#textio{
-    display:none;
-    position:absolute;
-    left:0px;
-    top:0px;
-    z-index:2;
-}
-#mapinput{
-    position:absolute;
-    z-index:3;
-    top:0px;
-    right:0px;
-}
 .data{
     display:none;
+}
+h1,h2,h3,h4,h5{
+    text-align:center;
 }
 </style>
 </body>
