@@ -241,7 +241,8 @@
         "seed.txt",
         "text2php.txt",
         "upload.txt",
-        "uploadsymbol.txt"
+        "uploadsymbol.txt",
+        "user.txt"
     ],
     "maps": [
         "assemble",
