@@ -49,30 +49,44 @@
 
 <script>
 
+codesquaresize = 128;
+marginsize = 40;
+fontsize = 12;
+
+globalurl = "http://www.trashrobot.org/qrcode.html";
+map = "";
+scroll = "";
+mode = "url";//url,map and scroll are the 3 modes
+
 document.getElementById("urlinput").value = "";
 document.getElementById("mapinput").value = "";
 document.getElementById("scrollinput").value = "";
 
 
 document.getElementById("urlinput").onchange = function(){
-    var url= this.value;
-    qrcode.makeCode(url);
+    mode = "url";
+    globalurl= this.value;
+    qrcode.makeCode(globalurl);
 }
 
 document.getElementById("mapinput").onchange = function(){
-    var url= window.location.origin+"/user.php?map=" + this.value;
-    qrcode.makeCode(url);
+    map = this.value;
+    mode = "map";
+    globalurl= window.location.origin+"/user.php?map=" + this.value;
+    qrcode.makeCode(globalurl);
 }
 document.getElementById("scrollinput").onchange = function(){
-    var url= window.location.origin+"/user.php?scroll=" + this.value;
-    qrcode.makeCode(url);
+    scroll = this.value;
+    mode = "scroll";
+    globalurl = window.location.origin+"/user.php?scroll=" + this.value;
+    qrcode.makeCode(globalurl);
 }
 
 
 qrcode = new QRCode(document.getElementById("qrcode"), {
-	text: "http://www.trashrobot.org",
-	width: 128,
-	height: 128,
+	text: globalurl,
+	width: codesquaresize,
+	height: codesquaresize,
 	colorDark : "#000000",
 	colorLight : "#ffffff",
 	correctLevel : QRCode.CorrectLevel.H
@@ -103,17 +117,36 @@ canvas = document.getElementById("outputcanvas");
 ctx = canvas.getContext("2d");
 
 
+
+
 document.getElementById("transferimage").onload = function(){
     canvas.style.border = "solid"; 
-    canvas.width = 168;
-    canvas.height = 168;
+    canvas.width = codesquaresize + 2*marginsize;
+    canvas.height = codesquaresize + 2*marginsize;
     //img.crossOrigin = '';
     ctx.strokeStyle = "white";
     ctx.fillStyle = "white";
             
-    ctx.clearRect(0,0,168,168);
-    ctx.fillRect(0,0,168,168); 
-    ctx.drawImage(img,20,20,128,128);
+    ctx.clearRect(0,0,codesquaresize + 2*marginsize,codesquaresize + 2*marginsize);
+    ctx.fillRect(0,0,codesquaresize + 2*marginsize,codesquaresize + 2*marginsize); 
+    ctx.drawImage(img,marginsize,marginsize,codesquaresize,codesquaresize);
+
+    ctx.strokeStyle = "black";
+    ctx.fillStyle = "black";
+    ctx.font = "10px Helvetica";
+    if(mode == "url"){
+        ctx.fillText(globalurl,2,codesquaresize + 2*marginsize - 2);
+    }
+    if(mode == "map" || mode == "scroll"){
+        ctx.fillText(window.location.origin,2,12);
+    }
+    if(mode == "map"){
+        ctx.fillText(map,2,codesquaresize + 2*marginsize - 2);
+    }
+    if(mode == "scroll"){
+        ctx.fillText(scroll,2,codesquaresize + 2*marginsize - 2);
+    }
+    
     textfeed.src.push(canvas.toDataURL("image/png"));
     var url = "filesaver.php";        
     var httpc3 = new XMLHttpRequest();
