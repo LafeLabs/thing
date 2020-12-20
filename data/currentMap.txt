@@ -3,10 +3,10 @@
         "x": -0.022809123649459785,
         "y": 0.1908763505402161,
         "w": 1.0660264105642256,
-        "h": 0.6758703481392557,
+        "h": 0.6410564225690276,
         "angle": 0,
         "text": "trash robot",
-        "href": "scrolls/trashrobot",
+        "href": "",
         "src": "https://i.imgur.com/K1w4bk8.png",
         "maplinkmode": true
     },

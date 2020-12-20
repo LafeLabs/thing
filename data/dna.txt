@@ -288,6 +288,7 @@
         "box",
         "buildrobot.md",
         "buystuff",
+        "cloth",
         "connectors",
         "duality",
         "elementsofcode",
@@ -315,6 +316,7 @@
         "srs.md",
         "symbolmagic",
         "symbolmagicdotcom",
+        "terminal",
         "trashrobotdotorg",
         "webpage",
         "zdrive-arduino"
