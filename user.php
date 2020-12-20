@@ -166,7 +166,7 @@ function loadscroll(scrollname){
 function convertscrollinks(){
     links = document.getElementById("scrollscroll").getElementsByTagName("A");
     for(var index = 0;index < links.length;index++){
-        if(links[index].href.includes("scrolls/")){
+        if(links[index].href.includes("scrolls/") && !links[index].href.includes("http://") && !links[index].href.includes("https://") ){
             //console.log(links[index].href);
             var newspan = document.createElement("SPAN");
             newspan.innerHTML = links[index].innerHTML;
@@ -183,7 +183,7 @@ function convertscrollinks(){
                 loadscroll(localscroll);
             }
         }
-        if(links[index].href.includes("maps/")){
+        if(links[index].href.includes("maps/") && !links[index].href.includes("http://") && !links[index].href.includes("https://")){
             //console.log(links[index].href);
             var newspan = document.createElement("SPAN");
             newspan.innerHTML = links[index].innerHTML;
@@ -202,6 +202,7 @@ function convertscrollinks(){
         }        
     }
 }
+
 </script>
 <style>
 body{
@@ -241,6 +242,8 @@ input{
     color:#ff2cb4;
 }
 #scrollscroll{
+    padding-left:1em;
+    padding-right:1em;
     left:0px;
     top:0px;
     position:absolute;
