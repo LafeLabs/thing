@@ -1,0 +1,68 @@
+[
+    {
+        "x": 0.3381294964028777,
+        "y": 0.302158273381295,
+        "w": 0.5167865707434053,
+        "h": 0.06354916067146282,
+        "angle": 0,
+        "text": "scroll editor",
+        "href": "scrolleditor.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.3397358943577431,
+        "y": 0.368547418967587,
+        "w": 0.5162064825930373,
+        "h": 0.062424969987995196,
+        "angle": 0,
+        "text": "scroll reader",
+        "href": "scroll.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.34292565947242204,
+        "y": 0.43285371702637887,
+        "w": 0.5167865707434053,
+        "h": 0.06354916067146282,
+        "angle": 0,
+        "text": "scroll delete",
+        "href": "scrolldelete.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.34532374100719426,
+        "y": 0.5575539568345323,
+        "w": 0.5167865707434053,
+        "h": 0.06354916067146282,
+        "angle": 0,
+        "text": "scroll about scrolls",
+        "href": "scrolls/scrolls",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.007194244604316547,
+        "y": 0.013189448441247002,
+        "w": 0.5167865707434053,
+        "h": 0.06354916067146282,
+        "angle": 0,
+        "text": "home",
+        "href": "index.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.005995203836930456,
+        "y": 0.07553956834532374,
+        "w": 0.5167865707434053,
+        "h": 0.06354916067146282,
+        "angle": 0,
+        "text": "tools",
+        "href": "maps/tools",
+        "src": "",
+        "maplinkmode": true
+    }
+]

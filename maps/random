@@ -1,0 +1,112 @@
+[
+    {
+        "x": 0.015587529976019185,
+        "y": 0.013189448441247002,
+        "w": 0.5863309352517986,
+        "h": 0.08992805755395683,
+        "angle": 0,
+        "text": "home",
+        "href": "index.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.013189448441247002,
+        "y": 0.09952038369304557,
+        "w": 0.5863309352517986,
+        "h": 0.08992805755395683,
+        "angle": 0,
+        "text": "tools",
+        "href": "maps/tools",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.3589435774309724,
+        "y": 0.2893157262905162,
+        "w": 0.5858343337334934,
+        "h": 0.08883553421368548,
+        "angle": 0,
+        "text": "chaos feed",
+        "href": "chaosfeed.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.35851318944844124,
+        "y": 0.35251798561151076,
+        "w": 0.5863309352517986,
+        "h": 0.08992805755395683,
+        "angle": 0,
+        "text": "chaos board",
+        "href": "chaosboard.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.36330935251798563,
+        "y": 0.41606714628297364,
+        "w": 0.5863309352517986,
+        "h": 0.08992805755395683,
+        "angle": 0,
+        "text": "wall",
+        "href": "wall.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.3597122302158273,
+        "y": 0.48201438848920863,
+        "w": 0.5863309352517986,
+        "h": 0.08992805755395683,
+        "angle": 0,
+        "text": "voxel",
+        "href": "voxel.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.35731414868105515,
+        "y": 0.5467625899280576,
+        "w": 0.5863309352517986,
+        "h": 0.08992805755395683,
+        "angle": 0,
+        "text": "poetry engine",
+        "href": "poetryengine.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.354916067146283,
+        "y": 0.6103117505995204,
+        "w": 0.5863309352517986,
+        "h": 0.08992805755395683,
+        "angle": 0,
+        "text": "quantum duality",
+        "href": "quantumduality.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.3469387755102041,
+        "y": 0.6698679471788715,
+        "w": 0.5858343337334934,
+        "h": 0.08883553421368548,
+        "angle": 0,
+        "text": "remove background",
+        "href": "removebackground.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.3517406962785114,
+        "y": 0.7310924369747899,
+        "w": 0.5858343337334934,
+        "h": 0.08883553421368548,
+        "angle": 0,
+        "text": "hash generator",
+        "href": "hash.html",
+        "src": "",
+        "maplinkmode": false
+    }
+]

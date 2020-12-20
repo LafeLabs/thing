@@ -1,0 +1,46 @@
+[
+    {
+        "x": 0.014405762304921969,
+        "y": 0.010804321728691477,
+        "w": 0.6086434573829532,
+        "h": 0.11644657863145258,
+        "angle": 0,
+        "text": "home",
+        "href": "index.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.008403361344537815,
+        "y": 0.09963985594237695,
+        "w": 0.6086434573829532,
+        "h": 0.11644657863145258,
+        "angle": 0,
+        "text": "tools",
+        "href": "maps/tools",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.3517406962785114,
+        "y": 0.3133253301320528,
+        "w": 0.6086434573829532,
+        "h": 0.11644657863145258,
+        "angle": 0,
+        "text": "dnagenerator.php",
+        "href": "dnagenerator.php",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.4057623049219688,
+        "y": 0.8415366146458584,
+        "w": 0.6086434573829532,
+        "h": 0.11644657863145258,
+        "angle": 0,
+        "text": "copy data from home pi",
+        "href": "copydata.php?from=http://vineotron.net",
+        "src": "",
+        "maplinkmode": false
+    }
+]

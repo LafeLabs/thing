@@ -1,0 +1,101 @@
+[
+    {
+        "x": 0.005995203836930456,
+        "y": 0.005995203836930456,
+        "w": 0.43764988009592326,
+        "h": 0.07553956834532374,
+        "angle": 0,
+        "text": "home",
+        "href": "index.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.008393285371702638,
+        "y": 0.05875299760191847,
+        "w": 0.43764988009592326,
+        "h": 0.07553956834532374,
+        "angle": 0,
+        "text": "tools",
+        "href": "maps/tools",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.31812725090036015,
+        "y": 0.21728691476590636,
+        "w": 0.4369747899159664,
+        "h": 0.0744297719087635,
+        "angle": 0,
+        "text": "map editor",
+        "href": "mapeditor.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.3157262905162065,
+        "y": 0.27010804321728693,
+        "w": 0.4369747899159664,
+        "h": 0.07553956834532374,
+        "angle": 0,
+        "text": "text feed",
+        "href": "textfeed.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.3129496402877698,
+        "y": 0.3249400479616307,
+        "w": 0.43764988009592326,
+        "h": 0.07553956834532374,
+        "angle": 0,
+        "text": "image feed",
+        "href": "imagefeed.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.32014388489208634,
+        "y": 0.3752997601918465,
+        "w": 0.43764988009592326,
+        "h": 0.07553956834532374,
+        "angle": 0,
+        "text": "qr code",
+        "href": "qrcode.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.31534772182254195,
+        "y": 0.4184652278177458,
+        "w": 0.43764988009592326,
+        "h": 0.07553956834532374,
+        "angle": 0,
+        "text": "map delete",
+        "href": "mapdelete.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.3117505995203837,
+        "y": 0.5095923261390888,
+        "w": 0.43764988009592326,
+        "h": 0.07553956834532374,
+        "angle": 0,
+        "text": "about maps(help)",
+        "href": "scrolls/maps",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.5731414868105515,
+        "y": 0.9316546762589928,
+        "w": 0.43764988009592326,
+        "h": 0.07553956834532374,
+        "angle": 0,
+        "text": "copy this map from pi",
+        "href": "copy.php?from=http://vineotron.net/maps/maps&to=maps/maps",
+        "src": "",
+        "maplinkmode": false
+    }
+]
