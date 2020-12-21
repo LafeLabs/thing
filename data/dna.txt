@@ -262,6 +262,7 @@
         "buildrobot.md",
         "buystuff",
         "cloth",
+        "coins",
         "connectors",
         "duality",
         "elementsofcode",
@@ -286,12 +287,12 @@
         "scrollbackup",
         "scrolls",
         "scrollscroll.md",
+        "shapes",
         "srs.md",
         "symbolmagic",
         "symbolmagicdotcom",
         "terminal",
         "trashrobotdotorg",
-        "webpage",
         "zdrive-arduino"
     ]
 }
