@@ -22,4 +22,4 @@
   "https://i.imgur.com/aDXWKdz.jpg",
   "https://i.imgur.com/AJkVV58.jpg",
   "https://i.imgur.com/E7C5CtP.jpg"
-]
+ ]
