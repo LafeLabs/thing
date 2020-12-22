@@ -1,24 +1,57 @@
 [
     {
-        "x": -0.022809123649459785,
-        "y": 0.1908763505402161,
-        "w": 1.0660264105642256,
-        "h": 0.6410564225690276,
+        "x": -0.0035971223021582736,
+        "y": 0.009592326139088728,
+        "w": 0.5983213429256595,
+        "h": 0.381294964028777,
         "angle": 0,
-        "text": "trash robot",
-        "href": "",
+        "text": "coins",
+        "href": "scrolls/coins",
         "src": "https://i.imgur.com/K1w4bk8.png",
         "maplinkmode": true
     },
     {
-        "x": 0.7274909963985594,
-        "y": 0.03241296518607443,
-        "w": 0.7671068427370948,
+        "x": 0.7350119904076738,
+        "y": 0.015587529976019185,
+        "w": 0.7661870503597122,
         "h": 0.09723889555822329,
         "angle": 0,
         "text": "tools",
         "href": "maps/tools",
         "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.6366906474820144,
+        "y": 0.6306954436450839,
+        "w": 0.3776978417266187,
+        "h": 0.38609112709832133,
+        "angle": 0,
+        "text": "trash robot",
+        "href": "scrolls/trashrobot",
+        "src": "https://i.imgur.com/fgA8O4M.png",
+        "maplinkmode": true
+    },
+    {
+        "x": -0.07793764988009592,
+        "y": 0.37889688249400477,
+        "w": 0.41127098321342925,
+        "h": 0.41127098321342925,
+        "angle": 0,
+        "text": "trash robot",
+        "href": "scrolls/box",
+        "src": "https://i.imgur.com/qHFkNbg.jpg",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.2673860911270983,
+        "y": 0.6342925659472423,
+        "w": 0.3657074340527578,
+        "h": 0.4184652278177458,
+        "angle": 0,
+        "text": "trash robot",
+        "href": "scrolls/terminal",
+        "src": "https://i.imgur.com/Za5kZ7G.jpg",
         "maplinkmode": true
     }
 ]
