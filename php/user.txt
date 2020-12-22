@@ -166,7 +166,7 @@ function loadscroll(scrollname){
 function convertscrollinks(){
     links = document.getElementById("scrollscroll").getElementsByTagName("A");
     for(var index = 0;index < links.length;index++){
-        if(links[index].href.includes("scrolls/") && !links[index].href.includes("user.php")){
+        if(links[index].href.includes("scrolls/") && !links[index].href.includes(".php")){
             //console.log(links[index].href);
             var newspan = document.createElement("SPAN");
             newspan.innerHTML = links[index].innerHTML;
@@ -183,7 +183,7 @@ function convertscrollinks(){
                 loadscroll(localscroll);
             }
         }
-        if(links[index].href.includes("maps/") && !links[index].href.includes("user.php")){
+        if(links[index].href.includes("maps/") && !links[index].href.includes(".php")){
             //console.log(links[index].href);
             var newspan = document.createElement("SPAN");
             newspan.innerHTML = links[index].innerHTML;
