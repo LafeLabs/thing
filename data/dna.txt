@@ -264,6 +264,7 @@
         "cloth",
         "coins",
         "connectors",
+        "domains",
         "duality",
         "elementsofcode",
         "foo",

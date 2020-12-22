@@ -11,5 +11,7 @@
   "https://i.imgur.com/33GeyJW.jpg",
   "https://i.imgur.com/qIdr2zT.jpg",
   "https://i.imgur.com/SxwnNuJ.jpg",
-  "https://i.imgur.com/J8ZmGNk.jpg"
+  "https://i.imgur.com/J8ZmGNk.jpg",
+  "https://i.imgur.com/JqvCnKi.jpg",
+  "https://i.imgur.com/NdIgbkr.jpg"
 ]

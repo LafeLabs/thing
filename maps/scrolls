@@ -97,5 +97,71 @@
         "href": "scrolls/cloth",
         "src": "https://i.imgur.com/SyhRxNJ.jpg",
         "maplinkmode": true
+    },
+    {
+        "x": 0.8031212484993998,
+        "y": 0.014405762304921969,
+        "w": 0.24729891956782712,
+        "h": 0.03601440576230492,
+        "angle": 0,
+        "text": "cloth scroll",
+        "href": "scrolls/cloth",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.7971188475390156,
+        "y": 0.05402160864345738,
+        "w": 0.24729891956782712,
+        "h": 0.03601440576230492,
+        "angle": 0,
+        "text": "domains scroll",
+        "href": "scrolls/domains",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.8079231692677071,
+        "y": 0.09483793517406963,
+        "w": 0.24729891956782712,
+        "h": 0.03601440576230492,
+        "angle": 0,
+        "text": "terminal scroll",
+        "href": "scrolls/terminal",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.8091236494597839,
+        "y": 0.13925570228091236,
+        "w": 0.24729891956782712,
+        "h": 0.03601440576230492,
+        "angle": 0,
+        "text": "printer scroll",
+        "href": "scrolls/printer",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.8115246098439376,
+        "y": 0.18847539015606243,
+        "w": 0.24729891956782712,
+        "h": 0.03601440576230492,
+        "angle": 0,
+        "text": "box scroll",
+        "href": "scrolls/box",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.7382953181272509,
+        "y": 0.25690276110444177,
+        "w": 0.24729891956782712,
+        "h": 0.03601440576230492,
+        "angle": 0,
+        "text": "essense of trash robot scroll",
+        "href": "scrolls/trashrobot",
+        "src": "",
+        "maplinkmode": true
     }
 ]
