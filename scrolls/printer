@@ -2,3 +2,31 @@
 
 # Printer
 
+This is how to build the Trash Robot printer of clay tablets, also known as coins.  This assumes you already have a [Trash Robot Terminal](scrolls/terminal) built.  
+
+The printer plugs into the Raspberry Pi 40 pin connector on the Terminal.  It requires a separate power supply either from the wall or a battery, generally the same type of rechargeable 12 volt battery suggested for the terminal in that scroll.  
+
+The needed parts to build a Printer are:
+
+- 3 DVD drives or CD drives
+- 3 [MP6500 stepper motor control boards from Pololu](https://www.pololu.com/product/2966)
+- 3 buttons
+- 40 pin raspberry pi GPIO ribbon cable
+- 4 wire ribbon cables from samtec  and 4 pin headers or a bulk ribbon cable 
+- wires to connect buttons to the board with some distance between them
+- lots of corrugated cardboard and duct tape, [the basic duct tape and cardboard fabrication system of Trash Robot](scrolls/box)
+- Stiff plastic for the bridge tool arms, such as 1/16th inch polypropelyne, of the kind used to make plastic storage totes
+- thin transluscent HDPE plastic of the kind used for milk bottles
+- custom trash robot circuit board which can be ordered from PCBway or made by any board shop
+- a little stack of rare earth magnets and a nail
+- a barrel connector to connect the 12 volt power to the circuit board 
+- 12 V rechargeable battery as with the terminal, along with wall charger and splitter for it
+
+Tools needed are:
+
+- soldering iron and solder
+- wire cutters and wire strippers
+- multimeter which can measure resistance
+- general trash robot cardboard fabrication kit from [box](scrolls/box)
+- screw drivers of various sizes to take apart the DVD drives
+- tiny flat head screw driver to adjust the potentiometers on the motor control boards

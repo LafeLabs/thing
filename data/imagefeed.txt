@@ -9,8 +9,7 @@
   "https://i.imgur.com/fzMyami.jpg",
   "https://i.imgur.com/Za5kZ7G.jpg",
   "https://i.imgur.com/33GeyJW.jpg",
-  "https://i.imgur.com/ixG1hT1.jpg",
-  "https://i.imgur.com/aDXWKdz.jpg",
-  "https://i.imgur.com/E7C5CtP.jpg",
-  "https://i.imgur.com/qIdr2zT.jpg"
+  "https://i.imgur.com/qIdr2zT.jpg",
+  "https://i.imgur.com/SxwnNuJ.jpg",
+  "https://i.imgur.com/J8ZmGNk.jpg"
 ]

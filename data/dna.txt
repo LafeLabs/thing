@@ -280,6 +280,7 @@
         "pireplicate.md",
         "pisetup.md",
         "poetryengine.md",
+        "printer",
         "quests",
         "roadmap",
         "robotsetup.md",
