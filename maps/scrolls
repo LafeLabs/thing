@@ -163,5 +163,27 @@
         "href": "scrolls/trashrobot",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0.8427370948379351,
+        "y": 0.32533013205282113,
+        "w": 0.24729891956782712,
+        "h": 0.03601440576230492,
+        "angle": 0,
+        "text": "coins scroll",
+        "href": "scrolls/coins",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.8427370948379351,
+        "y": 0.3637454981992797,
+        "w": 0.24729891956782712,
+        "h": 0.03601440576230492,
+        "angle": 0,
+        "text": "signs scroll",
+        "href": "scrolls/signs",
+        "src": "",
+        "maplinkmode": true
     }
 ]

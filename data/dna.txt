@@ -290,6 +290,7 @@
         "scrolls",
         "scrollscroll.md",
         "shapes",
+        "signs",
         "srs.md",
         "symbolmagic",
         "symbolmagicdotcom",
