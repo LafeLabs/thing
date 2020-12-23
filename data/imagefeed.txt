@@ -13,5 +13,6 @@
   "https://i.imgur.com/SxwnNuJ.jpg",
   "https://i.imgur.com/J8ZmGNk.jpg",
   "https://i.imgur.com/JqvCnKi.jpg",
-  "https://i.imgur.com/NdIgbkr.jpg"
+  "https://i.imgur.com/NdIgbkr.jpg",
+  "https://static.thenounproject.com/png/210-200.png"
 ]
