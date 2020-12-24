@@ -1,0 +1,24 @@
+[home](index.html)
+
+# set
+
+{
+
+- [boxes](scrolls/box),
+- [shapes](scrolls/shapes),
+- [terminals](scrolls/terminal),
+- [signs](scrolls/signs),
+- [domains](scrolls/domains),
+- [printers](scrolls/printer),
+- [tablets/coins](scrolls/coins),
+- [cloths](scrolls/cloth),
+- [scrolls](scrolls/scrolls),
+- [maps](scrolls/maps),
+- [symbols](scrolls/symbols),
+- [code](scrolls/code),
+- [replicators](scrolls/replicator),
+- [operator](scrolls/operator),
+- [trashrobot](scrolls/trashrobot)
+
+}
+

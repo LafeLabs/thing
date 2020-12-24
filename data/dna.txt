@@ -290,6 +290,7 @@
         "scrollbackup",
         "scrolls",
         "scrollscroll.md",
+        "set",
         "shapes",
         "signs",
         "srs.md",

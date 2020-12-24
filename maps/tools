@@ -97,5 +97,16 @@
         "href": "dnagenerator.php",
         "src": "",
         "maplinkmode": false
+    },
+    {
+        "x": 0.9255702280912365,
+        "y": 0.08043217286914765,
+        "w": 0.6758703481392557,
+        "h": 0.08523409363745499,
+        "angle": 0,
+        "text": "{:}",
+        "href": "scrolls/set",
+        "src": "",
+        "maplinkmode": true
     }
 ]
