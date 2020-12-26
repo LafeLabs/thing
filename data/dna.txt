@@ -275,6 +275,7 @@
         "imagescroll",
         "introvideo",
         "lasercutshapes",
+        "maps",
         "maps.md",
         "mirrorhypercube",
         "operator",
