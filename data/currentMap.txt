@@ -64,5 +64,16 @@
         "href": "scrolls/box",
         "src": "https://i.imgur.com/fw6nfB4.png",
         "maplinkmode": true
+    },
+    {
+        "x": -0.01800720288115246,
+        "y": 0,
+        "w": 0.12484993997599039,
+        "h": 0.15006002400960383,
+        "angle": 0,
+        "text": "trashrobot",
+        "href": "scrolls/trashrobot",
+        "src": "https://i.imgur.com/No1wukK.png",
+        "maplinkmode": true
     }
 ]
