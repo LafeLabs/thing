@@ -1,20 +1,20 @@
 [
     {
-        "x": -0.0035971223021582736,
-        "y": 0.009592326139088728,
-        "w": 0.5983213429256595,
-        "h": 0.381294964028777,
+        "x": -0.028811524609843937,
+        "y": -0.003601440576230492,
+        "w": 1.0540216086434573,
+        "h": 1.0562874251497005,
         "angle": 0,
         "text": "coins",
-        "href": "scrolls/coins",
-        "src": "https://i.imgur.com/K1w4bk8.png",
+        "href": "",
+        "src": "https://i.imgur.com/llIbCf4.jpg",
         "maplinkmode": true
     },
     {
-        "x": 0.7350119904076738,
-        "y": 0.015587529976019185,
-        "w": 0.7661870503597122,
-        "h": 0.09723889555822329,
+        "x": 0.8347305389221557,
+        "y": -0.008383233532934131,
+        "w": 0.7652694610778443,
+        "h": 0.09700598802395209,
         "angle": 0,
         "text": "tools",
         "href": "maps/tools",
@@ -22,36 +22,47 @@
         "maplinkmode": true
     },
     {
-        "x": 0.6366906474820144,
-        "y": 0.6306954436450839,
-        "w": 0.3776978417266187,
-        "h": 0.38609112709832133,
+        "x": 0.23289315726290516,
+        "y": -0.03241296518607443,
+        "w": 0.5378151260504201,
+        "h": 0.5378151260504201,
         "angle": 0,
-        "text": "trash robot",
-        "href": "scrolls/trashrobot",
-        "src": "https://i.imgur.com/fgA8O4M.png",
-        "maplinkmode": true
-    },
-    {
-        "x": -0.07793764988009592,
-        "y": 0.37889688249400477,
-        "w": 0.41127098321342925,
-        "h": 0.41127098321342925,
-        "angle": 0,
-        "text": "trash robot",
-        "href": "scrolls/box",
-        "src": "https://i.imgur.com/qHFkNbg.jpg",
-        "maplinkmode": true
-    },
-    {
-        "x": 0.2673860911270983,
-        "y": 0.6342925659472423,
-        "w": 0.3657074340527578,
-        "h": 0.4184652278177458,
-        "angle": 0,
-        "text": "trash robot",
+        "text": "terminal",
         "href": "scrolls/terminal",
-        "src": "https://i.imgur.com/Za5kZ7G.jpg",
+        "src": "https://i.imgur.com/fiXmPXB.png",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.22448979591836735,
+        "y": 0.4489795918367347,
+        "w": 0.5378151260504201,
+        "h": 0.2689075630252101,
+        "angle": 0,
+        "text": "printer",
+        "href": "scrolls/printer",
+        "src": "https://i.imgur.com/cgyBl2Y.png",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.18247298919567828,
+        "y": 0.7010804321728692,
+        "w": 0.304921968787515,
+        "h": 0.304921968787515,
+        "angle": 0,
+        "text": "coins",
+        "href": "scrolls/coins",
+        "src": "https://i.imgur.com/KzGjRHz.png",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.4525810324129652,
+        "y": 0.6926770708283313,
+        "w": 0.31452581032412963,
+        "h": 0.31452581032412963,
+        "angle": 0,
+        "text": "box",
+        "href": "scrolls/box",
+        "src": "https://i.imgur.com/fw6nfB4.png",
         "maplinkmode": true
     }
 ]
