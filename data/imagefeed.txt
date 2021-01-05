@@ -15,9 +15,5 @@
   "https://i.imgur.com/J8ZmGNk.jpg",
   "https://i.imgur.com/JqvCnKi.jpg",
   "https://i.imgur.com/NdIgbkr.jpg",
-  "https://static.thenounproject.com/png/210-200.png",
-  "https://i.imgur.com/No1wukK.png",
-  "https://cdn4.iconfinder.com/data/icons/caution-signs/100/Laser-512.png",
-  "http://localhost/symbolfeed/symbol1609600467.png",
-  "http://localhost/symbolfeed/symbol1609600674.png"
+  "https://i.imgur.com/No1wukK.png"
 ]
