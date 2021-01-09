@@ -1,0 +1,36 @@
+<svg width="674" height="674" viewbox = "0 0 674 674"  xmlns="http://www.w3.org/2000/svg">
+<!--<json>{
+  "glyph": "0337,0333,0341,0221,0335,0335,0335,0335,0221,0335,0335,0335,0335,0221,0335,0335,0335,0335,0221,0335,0335,0335,0335,0221,",
+  "x0": 337,
+  "y0": 337,
+  "unit": 80.88,
+  "width": 674,
+  "height": 674,
+  "style": {
+    "color0": "black",
+    "fill0": "black",
+    "line0": 1,
+    "color1": "black",
+    "fill1": "black",
+    "line1": 5,
+    "color2": "red",
+    "fill2": "red",
+    "line2": 1,
+    "color3": "#FF7900",
+    "fill3": "#FF7900",
+    "line3": 1,
+    "color4": "yellow",
+    "fill4": "yellow",
+    "line4": 1,
+    "color5": "green",
+    "fill5": "green",
+    "line5": 1,
+    "color6": "blue",
+    "fill6": "blue",
+    "line6": 1,
+    "color7": "purple",
+    "fill7": "purple",
+    "line7": 1
+  }
+}</json>--><circle cx="499" cy = "337" r = "161.76" stroke = "#000000" stroke-width = "1" fill = "none" />
+	<path d = "M499 337 L449 183 L499 29 L549 183 L499 337 Z" stroke = "#000000" stroke-width = "1" fill = "#000000" />	<path d = "M499 337 L630 242 L791 242 L661 337 L499 337 Z" stroke = "#000000" stroke-width = "1" fill = "#000000" />	<path d = "M499 337 L630 432 L680 586 L549 491 L499 337 Z" stroke = "#000000" stroke-width = "1" fill = "#000000" />	<path d = "M499 337 L449 491 L318 586 L368 432 L499 337 Z" stroke = "#000000" stroke-width = "1" fill = "#000000" />	<path d = "M499 337 L337 337 L206 242 L368 242 L499 337 Z" stroke = "#000000" stroke-width = "1" fill = "#000000" /></svg>

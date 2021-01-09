@@ -21,6 +21,7 @@
         "fonteditor.html",
         "fork.html",
         "geometronicsdotorg.html",
+        "geometronmemeapp.html",
         "geometronpage.html",
         "hash.html",
         "hypercube.html",
