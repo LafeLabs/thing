@@ -212,9 +212,7 @@ document.getElementById("textio").value = "";
 
 
 document.getElementById("savebutton").onclick  = function(){
-console.log("foo");
     savecanvas();
-    
 }
 
 
@@ -315,8 +313,13 @@ image = {
     "src":""
 };
 
-
 trace  = "";
+
+meme = {
+    "image":image,
+    "glyph":""
+};
+
 
 function drawmain(){
     mainGVM.glyph = trace + "0207,";
@@ -424,7 +427,7 @@ if(innerWidth > innerHeight){
 document.getElementById("spellinput").onchange = function(){
     
     trace = this.value;
-    savetrace();
+    savememe();
     drawmain();
         
 }
@@ -565,52 +568,15 @@ mczoom.on("panleft panright panup pandown tap press", function(ev) {
 
 
 
-
-function savetrace(){
+function savememe(){
     var httpc = new XMLHttpRequest();
     httpc.open("POST", "filesaver.php", true);
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc.send("data="+encodeURIComponent(trace)+"&filename=data/trace.txt");//send text to filesaver.php
+    httpc.send("data="+encodeURIComponent(trace)+"&filename=data/geometronmeme.txt");//send text to filesaver.php
 }
 
 currentjson = {};
 
-
-function savesymbolfile(){
-    mainGVM.clean();
-    mainGVM.drawGlyph(mainGVM.cleanGlyph);
-    var timestamp = Math.round((new Date().getTime())/1000).toString();
-    currentjson.glyph = mainGVM.cleanGlyph;
-    currentjson.x0 = mainGVM.x0;
-    currentjson.y0 = mainGVM.y0;
-    currentjson.unit = mainGVM.unit;
-    currentjson.width = mainGVM.width;
-    currentjson.height = mainGVM.height;
-    currentjson.style = mainGVM.style;
-    
-    mainGVM.svgString = mainGVM.svgString.split("<json>")[0] + "<json>" + JSON.stringify(currentjson,null,"  ") + "</json>" + mainGVM.svgString.split("</json>")[1];
-
-    var httpc2 = new XMLHttpRequest();
-    httpc2.open("POST","filesaver.php", true);
-    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc2.send("data="+encodeURIComponent(mainGVM.svgString) +"&filename=symbolfeed/symbol" + timestamp +  ".svg");//send text to filesaver.php
-    
-}
-
-
-function savecanvas(){
-    mainimage = document.getElementById("mainimage");
-    w = mainimage.width;
-    h = mainimage.height;
-    x = mainimage.x;
-    y = mainimage.y;
-    mainGVM.drawGlyph("");
-    mainGVM.ctx.drawImage(mainimage,x,y,w,h);    
-    mainGVM.clean();
-    mainGVM.actionSequence(mainGVM.cleanGlyph);
-    var timestamp = Math.round((new Date().getTime())/1000).toString();
-    console.log("foo");
-}
 
 
 </script>
