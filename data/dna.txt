@@ -2,6 +2,7 @@
     "html": [
         "README.md",
         "appeditor.html",
+        "arduinoprinter.html",
         "buttonsetup.sh",
         "canvas2png.html",
         "channelfeed.html",
@@ -192,6 +193,7 @@
     ],
     "data": [
         "appcontrols.txt",
+        "arduinoprinter.txt",
         "arduinorobot.txt",
         "channelfeed.txt",
         "chaosfeed.txt",
