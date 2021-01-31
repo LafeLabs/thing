@@ -35,8 +35,11 @@
     <img src = "iconsymbols/robot.svg" style = "width:40px"/>
 </a>
 
-
 <input id = "glyphinput"/>
+
+<input id = "arduinoinput"/>
+
+
 </div>
 <div id = "feed"></div>
 
@@ -107,7 +110,7 @@ function loadfeed(){
         newdiv.onclick = function(){
             glyph = this.getElementsByClassName("data")[0].innerHTML;
             document.getElementById("glyphinput").value = glyph;
-            
+            document.getElementById("arduinoinput").value = bytecode2ascii(glyph);
             //make this the coin for coin studio
             coin = glyph;
             savecoin();
@@ -181,6 +184,42 @@ function savecoin(){
     httpc.send("data="+encodeURIComponent(coin)+"&filename=data/coin.txt");//send text to filesaver.php
 }
 
+function bytecode2ascii(bytecode){
+    var bytesequence = bytecode.split(",");
+    var outstring = "";
+    for(var index = 0;index < bytesequence.length;index++){
+        var robotaction = parseInt(bytesequence[index],8);
+        if(robotaction == 0500){
+            outstring += "A";
+        }
+        if(robotaction == 0501){
+            outstring += "B";
+        }
+        if(robotaction == 0502){
+            outstring += "C";
+        }
+        if(robotaction == 0503){
+            outstring += "D";
+        }
+        if(robotaction == 0504){
+            outstring += "E";
+        }
+        if(robotaction == 0505){
+            outstring += "F";
+        }
+        if(robotaction == 0506){
+            outstring += "G";
+        }
+        if(robotaction == 0507){
+            outstring += "H";
+        }
+        if(robotaction > 01040 && robotaction < 01177){
+            outstring += bytecode2ascii(mainGVM.hypercube[robotaction]);
+        }
+    }
+    return outstring;
+
+}
 
 </script>
 <style>
