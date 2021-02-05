@@ -75,5 +75,16 @@
         "href": "scrolls/trashrobot",
         "src": "https://i.imgur.com/No1wukK.png",
         "maplinkmode": true
+    },
+    {
+        "x": 0.7732696897374701,
+        "y": 0.7720763723150358,
+        "w": 0.36634844868735084,
+        "h": 0.36873508353221957,
+        "angle": 0,
+        "text": "scrolls/install",
+        "href": "scrolls/insteall",
+        "src": "",
+        "maplinkmode": true
     }
 ]

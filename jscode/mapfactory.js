@@ -9,6 +9,9 @@ function Map(w,h,div) {
     this.array = [];
     this.linkArray = [];
     this.linkindex = 0;
+    this.textColor = "#00ff00";
+    this.linkColor = "#ff2cb4";
+    
     //MapLink(x,y,w,aspectRatio,angle,text,href,src,maplinkmode)
     var newLink  = new MapLink(0.1,0.1,0.2,0.2,0,"text","","",false,{});
     this.array.push(newLink);
@@ -27,7 +30,7 @@ function Map(w,h,div) {
             newa.style.height  = (this.array[index].h*this.w).toString() + "px";
             newa.style.transform  = "rotate(" + (this.array[index].angle).toString() + "deg)";
             if(this.array[index].href.length == 0){
-                newa.style.color = "#00ff00";
+                newa.style.color = this.textColor;
             }
             if(this.array[index].src.length > 0) {
                 var newimg = document.createElement("IMG");
@@ -53,7 +56,7 @@ function Map(w,h,div) {
                     newspan.innerHTML = this.array[index].href;
                     newspan.className = "maplink";
                     newspan.style.display = "none";
-                    newa.style.color = "#ff2cb4";
+                    newa.style.color = this.linkColor;
                     newa.style.cursor = "pointer";
                     newa.appendChild(newspan);
                 }
