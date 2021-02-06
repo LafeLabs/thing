@@ -254,11 +254,19 @@
     "maps": [
         "coins",
         "copy",
+        "electrical",
+        "graph",
         "maps",
+        "printer",
         "random",
         "scrolls",
+        "sponsor",
+        "street",
         "symbols",
-        "tools"
+        "textile",
+        "tools",
+        "upcycle",
+        "web"
     ],
     "scrolls": [
         "arduino-8button-xyz",

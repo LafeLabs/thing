@@ -86,5 +86,16 @@
         "href": "scrolls/insteall",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0,
+        "y": 0.7553699284009546,
+        "w": 0.5715990453460621,
+        "h": 0.5739856801909308,
+        "angle": 0,
+        "text": "graph",
+        "href": "maps/graph",
+        "src": "",
+        "maplinkmode": true
     }
 ]

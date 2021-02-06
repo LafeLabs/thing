@@ -1,0 +1,222 @@
+[
+    {
+        "x": 0.7303102625298329,
+        "y": 0.05250596658711217,
+        "w": 0.19451073985680192,
+        "h": 0.19451073985680192,
+        "angle": 90,
+        "text": "text",
+        "href": "",
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAC70lEQVR4nO3SUY7TQBQF0d7/ptgUEkIDmD80w0TRJLFd3eWqK/+3/M4YVVVVVVVU23gb23ijn1GmtvFrbP8Wrtqhj6jCVTt0G1W46oXuowpXPdHXUIWrHugxVOGqL/QcqnDVnV5DFa660T6owlXv2hdVuGochSpcl+5YVOG6ZOegCtelOhdVuC4Rgypc6lhU4VI2B6pwqdrGb5zS5/2kf0u90pyowrV0c6MK15KtgSpcS7UWqnAt0ZqowjV1a6MK15Q5UIVrqlyowjVFTlThQnOjChfSNVCF69SuhSpcp3RNVOE6tGujCtchher9wrVLobq1cL1UqO7tB32eNdvGH/x08y9cDxWqRxauLxWqZxauu4XqlYXrZqHaY+H6UKj2XLjGGKE6ZhfHFaojd1FcoTpjF8MVqjN3EVyhIibHFSpyUlyhmmEyXKGaaRJcoZpxi+MK1cxbFFeoVthiuEK10r7TXNaNPt3/K0k0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk7Ufi2y5fVVVVVdUT/QVjvsCYeRFj0AAAAABJRU5ErkJggg==",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.7983293556085919,
+        "y": 0.10143198090692124,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "clay",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.026252983293556086,
+        "y": 0.32816229116945106,
+        "w": 0.19451073985680192,
+        "h": 0.19451073985680192,
+        "angle": 90,
+        "text": "text",
+        "href": "",
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAC70lEQVR4nO3SUY7TQBQF0d7/ptgUEkIDmD80w0TRJLFd3eWqK/+3/M4YVVVVVVVU23gb23ijn1GmtvFrbP8Wrtqhj6jCVTt0G1W46oXuowpXPdHXUIWrHugxVOGqL/QcqnDVnV5DFa660T6owlXv2hdVuGochSpcl+5YVOG6ZOegCtelOhdVuC4Rgypc6lhU4VI2B6pwqdrGb5zS5/2kf0u90pyowrV0c6MK15KtgSpcS7UWqnAt0ZqowjV1a6MK15Q5UIVrqlyowjVFTlThQnOjChfSNVCF69SuhSpcp3RNVOE6tGujCtchher9wrVLobq1cL1UqO7tB32eNdvGH/x08y9cDxWqRxauLxWqZxauu4XqlYXrZqHaY+H6UKj2XLjGGKE6ZhfHFaojd1FcoTpjF8MVqjN3EVyhIibHFSpyUlyhmmEyXKGaaRJcoZpxi+MK1cxbFFeoVthiuEK10r7TXNaNPt3/K0k0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk7Ufi2y5fVVVVVdUT/QVjvsCYeRFj0AAAAABJRU5ErkJggg==",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.9295942720763724,
+        "y": 0.13723150357995226,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "printer",
+        "href": "maps/printer",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0,
+        "y": 0.0059665871121718375,
+        "w": 0.3711217183770883,
+        "h": 0.18973747016706444,
+        "angle": 0,
+        "text": "main map",
+        "href": "data/currentMap.txt",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.4009546539379475,
+        "y": 0.02386634844868735,
+        "w": 0.3711217183770883,
+        "h": 0.060859188544152745,
+        "angle": 0,
+        "text": "sponsor",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": -0.07756563245823389,
+        "y": 0.35799522673031026,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": -89,
+        "text": "street magick",
+        "href": "maps/street",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.031026252983293555,
+        "y": 0.3711217183770883,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "all the things",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.7255369928400954,
+        "y": 0.22911694510739858,
+        "w": 0.19451073985680192,
+        "h": 0.19451073985680192,
+        "angle": 90,
+        "text": "text",
+        "href": "",
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAC70lEQVR4nO3SUY7TQBQF0d7/ptgUEkIDmD80w0TRJLFd3eWqK/+3/M4YVVVVVVVU23gb23ijn1GmtvFrbP8Wrtqhj6jCVTt0G1W46oXuowpXPdHXUIWrHugxVOGqL/QcqnDVnV5DFa660T6owlXv2hdVuGochSpcl+5YVOG6ZOegCtelOhdVuC4Rgypc6lhU4VI2B6pwqdrGb5zS5/2kf0u90pyowrV0c6MK15KtgSpcS7UWqnAt0ZqowjV1a6MK15Q5UIVrqlyowjVFTlThQnOjChfSNVCF69SuhSpcp3RNVOE6tGujCtchher9wrVLobq1cL1UqO7tB32eNdvGH/x08y9cDxWqRxauLxWqZxauu4XqlYXrZqHaY+H6UKj2XLjGGKE6ZhfHFaojd1FcoTpjF8MVqjN3EVyhIibHFSpyUlyhmmEyXKGaaRJcoZpxi+MK1cxbFFeoVthiuEK10r7TXNaNPt3/K0k0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk7Ufi2y5fVVVVVdUT/QVjvsCYeRFj0AAAAABJRU5ErkJggg==",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.7267303102625299,
+        "y": 0.24821002386634844,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "art supplies +<br>shape sets",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.9236276849642004,
+        "y": 0.3162291169451074,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "upcycle",
+        "href": "maps/upcycle",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.7243436754176611,
+        "y": 0.39498806682577564,
+        "w": 0.19451073985680192,
+        "h": 0.19451073985680192,
+        "angle": 90,
+        "text": "text",
+        "href": "",
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAC70lEQVR4nO3SUY7TQBQF0d7/ptgUEkIDmD80w0TRJLFd3eWqK/+3/M4YVVVVVVVU23gb23ijn1GmtvFrbP8Wrtqhj6jCVTt0G1W46oXuowpXPdHXUIWrHugxVOGqL/QcqnDVnV5DFa660T6owlXv2hdVuGochSpcl+5YVOG6ZOegCtelOhdVuC4Rgypc6lhU4VI2B6pwqdrGb5zS5/2kf0u90pyowrV0c6MK15KtgSpcS7UWqnAt0ZqowjV1a6MK15Q5UIVrqlyowjVFTlThQnOjChfSNVCF69SuhSpcp3RNVOE6tGujCtchher9wrVLobq1cL1UqO7tB32eNdvGH/x08y9cDxWqRxauLxWqZxauu4XqlYXrZqHaY+H6UKj2XLjGGKE6ZhfHFaojd1FcoTpjF8MVqjN3EVyhIibHFSpyUlyhmmEyXKGaaRJcoZpxi+MK1cxbFFeoVthiuEK10r7TXNaNPt3/K0k0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk7Ufi2y5fVVVVVdUT/QVjvsCYeRFj0AAAAABJRU5ErkJggg==",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.9200477326968973,
+        "y": 0.4821002386634845,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "electrical",
+        "href": "maps/electrical",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.6861575178997613,
+        "y": 0.40930787589498807,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "arduino,pcbs, parts,DVD drives ",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.7243436754176611,
+        "y": 0.5692124105011933,
+        "w": 0.19451073985680192,
+        "h": 0.19451073985680192,
+        "angle": 90,
+        "text": "text",
+        "href": "",
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAC70lEQVR4nO3SUY7TQBQF0d7/ptgUEkIDmD80w0TRJLFd3eWqK/+3/M4YVVVVVVVU23gb23ijn1GmtvFrbP8Wrtqhj6jCVTt0G1W46oXuowpXPdHXUIWrHugxVOGqL/QcqnDVnV5DFa660T6owlXv2hdVuGochSpcl+5YVOG6ZOegCtelOhdVuC4Rgypc6lhU4VI2B6pwqdrGb5zS5/2kf0u90pyowrV0c6MK15KtgSpcS7UWqnAt0ZqowjV1a6MK15Q5UIVrqlyowjVFTlThQnOjChfSNVCF69SuhSpcp3RNVOE6tGujCtchher9wrVLobq1cL1UqO7tB32eNdvGH/x08y9cDxWqRxauLxWqZxauu4XqlYXrZqHaY+H6UKj2XLjGGKE6ZhfHFaojd1FcoTpjF8MVqjN3EVyhIibHFSpyUlyhmmEyXKGaaRJcoZpxi+MK1cxbFFeoVthiuEK10r7TXNaNPt3/K0k0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk7Ufi2y5fVVVVVdUT/QVjvsCYeRFj0AAAAABJRU5ErkJggg==",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.7267303102625299,
+        "y": 0.7720763723150358,
+        "w": 0.19451073985680192,
+        "h": 0.19451073985680192,
+        "angle": 90,
+        "text": "text",
+        "href": "",
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAC70lEQVR4nO3SUY7TQBQF0d7/ptgUEkIDmD80w0TRJLFd3eWqK/+3/M4YVVVVVVVU23gb23ijn1GmtvFrbP8Wrtqhj6jCVTt0G1W46oXuowpXPdHXUIWrHugxVOGqL/QcqnDVnV5DFa660T6owlXv2hdVuGochSpcl+5YVOG6ZOegCtelOhdVuC4Rgypc6lhU4VI2B6pwqdrGb5zS5/2kf0u90pyowrV0c6MK15KtgSpcS7UWqnAt0ZqowjV1a6MK15Q5UIVrqlyowjVFTlThQnOjChfSNVCF69SuhSpcp3RNVOE6tGujCtchher9wrVLobq1cL1UqO7tB32eNdvGH/x08y9cDxWqRxauLxWqZxauu4XqlYXrZqHaY+H6UKj2XLjGGKE6ZhfHFaojd1FcoTpjF8MVqjN3EVyhIibHFSpyUlyhmmEyXKGaaRJcoZpxi+MK1cxbFFeoVthiuEK10r7TXNaNPt3/K0k0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk7Ufi2y5fVVVVVdUT/QVjvsCYeRFj0AAAAABJRU5ErkJggg==",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.6706443914081146,
+        "y": 0.5847255369928401,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "felt, cotton flannel,clothesline",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.7195704057279236,
+        "y": 0.8162291169451074,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "direct support",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.9200477326968973,
+        "y": 0.6503579952267303,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "textile",
+        "href": "maps/electrical",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.9248210023866349,
+        "y": 0.8460620525059666,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "street <br>magick",
+        "href": "maps/electrical",
+        "src": "",
+        "maplinkmode": true
+    }
+]

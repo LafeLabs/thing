@@ -1,0 +1,167 @@
+[
+    {
+        "x": 0.7804295942720764,
+        "y": 0.9260143198090692,
+        "w": 0.32100238663484487,
+        "h": 0.32100238663484487,
+        "angle": 0,
+        "text": "mapeditor.html",
+        "href": "mapeditor.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.4128878281622912,
+        "y": 0.4224343675417661,
+        "w": 0.32100238663484487,
+        "h": 0.06563245823389022,
+        "angle": 0,
+        "text": "electrical",
+        "href": "maps/electrical",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.6026252983293556,
+        "y": 0.7028639618138425,
+        "w": 0.32100238663484487,
+        "h": 0.06563245823389022,
+        "angle": 0,
+        "text": "textile",
+        "href": "maps/textile",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.41766109785202865,
+        "y": 0.5286396181384249,
+        "w": 0.32100238663484487,
+        "h": 0.06563245823389022,
+        "angle": 0,
+        "text": "upcycle",
+        "href": "maps/upcycle",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.4212410501193317,
+        "y": 0.7732696897374701,
+        "w": 0.32100238663484487,
+        "h": 0.06563245823389022,
+        "angle": 0,
+        "text": "street <br>magick",
+        "href": "maps/street",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.2684964200477327,
+        "y": 0.7052505966587113,
+        "w": 0.3162291169451074,
+        "h": 0.060859188544152745,
+        "angle": 0,
+        "text": "web",
+        "href": "maps/web",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.42482100238663484,
+        "y": 0.6420047732696897,
+        "w": 0.32100238663484487,
+        "h": 0.06563245823389022,
+        "angle": 0,
+        "text": "printer",
+        "href": "maps/printer",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.8651551312649165,
+        "y": 0.02386634844868735,
+        "w": 0.32100238663484487,
+        "h": 0.06563245823389022,
+        "angle": 0,
+        "text": "tools",
+        "href": "maps/tools",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.43675417661097854,
+        "y": 0.5739856801909308,
+        "w": 0.060859188544152745,
+        "h": 0.060859188544152745,
+        "angle": 180,
+        "text": "mapeditor.html",
+        "href": "",
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAC70lEQVR4nO3SUY7TQBQF0d7/ptgUEkIDmD80w0TRJLFd3eWqK/+3/M4YVVVVVVVU23gb23ijn1GmtvFrbP8Wrtqhj6jCVTt0G1W46oXuowpXPdHXUIWrHugxVOGqL/QcqnDVnV5DFa660T6owlXv2hdVuGochSpcl+5YVOG6ZOegCtelOhdVuC4Rgypc6lhU4VI2B6pwqdrGb5zS5/2kf0u90pyowrV0c6MK15KtgSpcS7UWqnAt0ZqowjV1a6MK15Q5UIVrqlyowjVFTlThQnOjChfSNVCF69SuhSpcp3RNVOE6tGujCtchher9wrVLobq1cL1UqO7tB32eNdvGH/x08y9cDxWqRxauLxWqZxauu4XqlYXrZqHaY+H6UKj2XLjGGKE6ZhfHFaojd1FcoTpjF8MVqjN3EVyhIibHFSpyUlyhmmEyXKGaaRJcoZpxi+MK1cxbFFeoVthiuEK10r7TXNaNPt3/K0k0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk7Ufi2y5fVVVVVdUT/QVjvsCYeRFj0AAAAABJRU5ErkJggg==",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.43675417661097854,
+        "y": 0.46420047732696895,
+        "w": 0.060859188544152745,
+        "h": 0.060859188544152745,
+        "angle": 180,
+        "text": "mapeditor.html",
+        "href": "",
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAC70lEQVR4nO3SUY7TQBQF0d7/ptgUEkIDmD80w0TRJLFd3eWqK/+3/M4YVVVVVVVU23gb23ijn1GmtvFrbP8Wrtqhj6jCVTt0G1W46oXuowpXPdHXUIWrHugxVOGqL/QcqnDVnV5DFa660T6owlXv2hdVuGochSpcl+5YVOG6ZOegCtelOhdVuC4Rgypc6lhU4VI2B6pwqdrGb5zS5/2kf0u90pyowrV0c6MK15KtgSpcS7UWqnAt0ZqowjV1a6MK15Q5UIVrqlyowjVFTlThQnOjChfSNVCF69SuhSpcp3RNVOE6tGujCtchher9wrVLobq1cL1UqO7tB32eNdvGH/x08y9cDxWqRxauLxWqZxauu4XqlYXrZqHaY+H6UKj2XLjGGKE6ZhfHFaojd1FcoTpjF8MVqjN3EVyhIibHFSpyUlyhmmEyXKGaaRJcoZpxi+MK1cxbFFeoVthiuEK10r7TXNaNPt3/K0k0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk7Ufi2y5fVVVVVdUT/QVjvsCYeRFj0AAAAABJRU5ErkJggg==",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.4343675417661098,
+        "y": 0.6957040572792362,
+        "w": 0.060859188544152745,
+        "h": 0.060859188544152745,
+        "angle": 180,
+        "text": "mapeditor.html",
+        "href": "",
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAC70lEQVR4nO3SUY7TQBQF0d7/ptgUEkIDmD80w0TRJLFd3eWqK/+3/M4YVVVVVVVU23gb23ijn1GmtvFrbP8Wrtqhj6jCVTt0G1W46oXuowpXPdHXUIWrHugxVOGqL/QcqnDVnV5DFa660T6owlXv2hdVuGochSpcl+5YVOG6ZOegCtelOhdVuC4Rgypc6lhU4VI2B6pwqdrGb5zS5/2kf0u90pyowrV0c6MK15KtgSpcS7UWqnAt0ZqowjV1a6MK15Q5UIVrqlyowjVFTlThQnOjChfSNVCF69SuhSpcp3RNVOE6tGujCtchher9wrVLobq1cL1UqO7tB32eNdvGH/x08y9cDxWqRxauLxWqZxauu4XqlYXrZqHaY+H6UKj2XLjGGKE6ZhfHFaojd1FcoTpjF8MVqjN3EVyhIibHFSpyUlyhmmEyXKGaaRJcoZpxi+MK1cxbFFeoVthiuEK10r7TXNaNPt3/K0k0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk7Ufi2y5fVVVVVdUT/QVjvsCYeRFj0AAAAABJRU5ErkJggg==",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.5310262529832935,
+        "y": 0.7410501193317423,
+        "w": 0.060859188544152745,
+        "h": 0.060859188544152745,
+        "angle": 232,
+        "text": "mapeditor.html",
+        "href": "",
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAC70lEQVR4nO3SUY7TQBQF0d7/ptgUEkIDmD80w0TRJLFd3eWqK/+3/M4YVVVVVVVU23gb23ijn1GmtvFrbP8Wrtqhj6jCVTt0G1W46oXuowpXPdHXUIWrHugxVOGqL/QcqnDVnV5DFa660T6owlXv2hdVuGochSpcl+5YVOG6ZOegCtelOhdVuC4Rgypc6lhU4VI2B6pwqdrGb5zS5/2kf0u90pyowrV0c6MK15KtgSpcS7UWqnAt0ZqowjV1a6MK15Q5UIVrqlyowjVFTlThQnOjChfSNVCF69SuhSpcp3RNVOE6tGujCtchher9wrVLobq1cL1UqO7tB32eNdvGH/x08y9cDxWqRxauLxWqZxauu4XqlYXrZqHaY+H6UKj2XLjGGKE6ZhfHFaojd1FcoTpjF8MVqjN3EVyhIibHFSpyUlyhmmEyXKGaaRJcoZpxi+MK1cxbFFeoVthiuEK10r7TXNaNPt3/K0k0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk7Ufi2y5fVVVVVdUT/QVjvsCYeRFj0AAAAABJRU5ErkJggg==",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.34725536992840095,
+        "y": 0.7446300715990454,
+        "w": 0.060859188544152745,
+        "h": 0.060859188544152745,
+        "angle": 132,
+        "text": "mapeditor.html",
+        "href": "",
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAC70lEQVR4nO3SUY7TQBQF0d7/ptgUEkIDmD80w0TRJLFd3eWqK/+3/M4YVVVVVVVU23gb23ijn1GmtvFrbP8Wrtqhj6jCVTt0G1W46oXuowpXPdHXUIWrHugxVOGqL/QcqnDVnV5DFa660T6owlXv2hdVuGochSpcl+5YVOG6ZOegCtelOhdVuC4Rgypc6lhU4VI2B6pwqdrGb5zS5/2kf0u90pyowrV0c6MK15KtgSpcS7UWqnAt0ZqowjV1a6MK15Q5UIVrqlyowjVFTlThQnOjChfSNVCF69SuhSpcp3RNVOE6tGujCtchher9wrVLobq1cL1UqO7tB32eNdvGH/x08y9cDxWqRxauLxWqZxauu4XqlYXrZqHaY+H6UKj2XLjGGKE6ZhfHFaojd1FcoTpjF8MVqjN3EVyhIibHFSpyUlyhmmEyXKGaaRJcoZpxi+MK1cxbFFeoVthiuEK10r7TXNaNPt3/K0k0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk7Ufi2y5fVVVVVdUT/QVjvsCYeRFj0AAAAABJRU5ErkJggg==",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.008353221957040573,
+        "y": 0.008353221957040573,
+        "w": 0.32100238663484487,
+        "h": 0.06563245823389022,
+        "angle": 0,
+        "text": "NO PROPERTY",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.017899761336515514,
+        "y": 0.9427207637231504,
+        "w": 0.17541766109785203,
+        "h": 0.07995226730310262,
+        "angle": 0,
+        "text": "SELF-REPLICATING GRAPH",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    }
+]
