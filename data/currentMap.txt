@@ -22,8 +22,8 @@
         "maplinkmode": true
     },
     {
-        "x": 0.6026252983293556,
-        "y": 0.7028639618138425,
+        "x": 0.6002386634844868,
+        "y": 0.7004773269689738,
         "w": 0.32100238663484487,
         "h": 0.06563245823389022,
         "angle": 0,
@@ -31,6 +31,17 @@
         "href": "maps/textile",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0.34725536992840095,
+        "y": 0.7040572792362768,
+        "w": 0.2494033412887828,
+        "h": 0.031026252983293555,
+        "angle": 0,
+        "text": "flag",
+        "href": "",
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAAAv0lEQVR4nO3VUQqCUBCG0SsRbklCghBpTxHizm0BPc2QNsg54PN3f1+mNQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC+bW0NfbnGM9h5Fd4yBzvvwlumYGcpvOVxUCfW2FqXaNyLbrkkGmPRLddE41Z0S59oDL95+zE/xAGpucUB2XuLA+KA7L/ljwcEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4Dw+VzBOj39IX/kAAAAASUVORK5CYII=",
+        "maplinkmode": false
     },
     {
         "x": 0.41766109785202865,
@@ -44,21 +55,21 @@
         "maplinkmode": true
     },
     {
-        "x": 0.4212410501193317,
-        "y": 0.7732696897374701,
+        "x": 0.4200477326968974,
+        "y": 0.8042959427207638,
         "w": 0.32100238663484487,
         "h": 0.06563245823389022,
         "angle": 0,
-        "text": "street <br>magick",
+        "text": "magick",
         "href": "maps/street",
         "src": "",
         "maplinkmode": true
     },
     {
-        "x": 0.2684964200477327,
-        "y": 0.7052505966587113,
-        "w": 0.3162291169451074,
-        "h": 0.060859188544152745,
+        "x": 0.2863961813842482,
+        "y": 0.7016706443914081,
+        "w": 0.2971360381861575,
+        "h": 0.041766109785202864,
         "angle": 0,
         "text": "web",
         "href": "maps/web",
@@ -121,22 +132,22 @@
         "maplinkmode": false
     },
     {
-        "x": 0.5310262529832935,
-        "y": 0.7410501193317423,
+        "x": 0.513126491646778,
+        "y": 0.7541766109785203,
         "w": 0.060859188544152745,
         "h": 0.060859188544152745,
-        "angle": 232,
+        "angle": 221,
         "text": "mapeditor.html",
         "href": "",
         "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAC70lEQVR4nO3SUY7TQBQF0d7/ptgUEkIDmD80w0TRJLFd3eWqK/+3/M4YVVVVVVVU23gb23ijn1GmtvFrbP8Wrtqhj6jCVTt0G1W46oXuowpXPdHXUIWrHugxVOGqL/QcqnDVnV5DFa660T6owlXv2hdVuGochSpcl+5YVOG6ZOegCtelOhdVuC4Rgypc6lhU4VI2B6pwqdrGb5zS5/2kf0u90pyowrV0c6MK15KtgSpcS7UWqnAt0ZqowjV1a6MK15Q5UIVrqlyowjVFTlThQnOjChfSNVCF69SuhSpcp3RNVOE6tGujCtchher9wrVLobq1cL1UqO7tB32eNdvGH/x08y9cDxWqRxauLxWqZxauu4XqlYXrZqHaY+H6UKj2XLjGGKE6ZhfHFaojd1FcoTpjF8MVqjN3EVyhIibHFSpyUlyhmmEyXKGaaRJcoZpxi+MK1cxbFFeoVthiuEK10r7TXNaNPt3/K0k0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk7Ufi2y5fVVVVVdUT/QVjvsCYeRFj0AAAAABJRU5ErkJggg==",
         "maplinkmode": false
     },
     {
-        "x": 0.34725536992840095,
-        "y": 0.7446300715990454,
-        "w": 0.060859188544152745,
-        "h": 0.060859188544152745,
-        "angle": 132,
+        "x": 0.35918854415274465,
+        "y": 0.7541766109785203,
+        "w": 0.06324582338902147,
+        "h": 0.06324582338902147,
+        "angle": 141,
         "text": "mapeditor.html",
         "href": "",
         "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAC70lEQVR4nO3SUY7TQBQF0d7/ptgUEkIDmD80w0TRJLFd3eWqK/+3/M4YVVVVVVVU23gb23ijn1GmtvFrbP8Wrtqhj6jCVTt0G1W46oXuowpXPdHXUIWrHugxVOGqL/QcqnDVnV5DFa660T6owlXv2hdVuGochSpcl+5YVOG6ZOegCtelOhdVuC4Rgypc6lhU4VI2B6pwqdrGb5zS5/2kf0u90pyowrV0c6MK15KtgSpcS7UWqnAt0ZqowjV1a6MK15Q5UIVrqlyowjVFTlThQnOjChfSNVCF69SuhSpcp3RNVOE6tGujCtchher9wrVLobq1cL1UqO7tB32eNdvGH/x08y9cDxWqRxauLxWqZxauu4XqlYXrZqHaY+H6UKj2XLjGGKE6ZhfHFaojd1FcoTpjF8MVqjN3EVyhIibHFSpyUlyhmmEyXKGaaRJcoZpxi+MK1cxbFFeoVthiuEK10r7TXNaNPt3/K0k0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk7Ufi2y5fVVVVVdUT/QVjvsCYeRFj0AAAAABJRU5ErkJggg==",
