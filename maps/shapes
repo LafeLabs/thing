@@ -1,0 +1,68 @@
+[
+    {
+        "x": 0.10501193317422435,
+        "y": 0.7625298329355609,
+        "w": 0.49761336515513127,
+        "h": 0.06205250596658711,
+        "angle": 0,
+        "text": "width",
+        "href": "",
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAADFElEQVR4nO3dwW3bMBQG4HdPlvAcGSIzZARPkA6QBTKAB8gARe859tBrDxmggC89FAV7kAtLtuw4gUWR1PcZQlCFDh5R53+QTDoRAAAAAAAAAAAAAMAipNhEipu5ywCoXorbSLGZu4w8uuaxkMkCZLCIXF3EJAFm0HS+Nj05gAI0mbNNTgqgQE3lbVOTAahAE7nbxCQAKlR1/lZdPEADqszhKouGD0hxFykeI8Xz7niMFHfvjN+PPXUOrq2qPK6qWPigFKtI8RLp5OMlUqxGnvfQG/N68hxMoYpcrqJI+KTuiuHtoGG87o7+48dRE9FAmFvR+Vx0cXAFXWMYv9Lomkv/+5uD52ogzK/InC6yKLiiFE+D5jE+ZhUptrsx24MGo4FQhqLyuqhiYCL7W1fDxnA8btNrCg+986ujq5Oxc5BDEbldRBEwsRT3Fwf9fmXVOg5XZe2vTp7OnoMcZs1vzYOlGN6+enj/CSd/zuvRzxg7B7nMkuOaB0vSvy01PP8Ql+4D6cavd2NXZ89BTlnzPMWXSPF993XK41uG42eG41eG43eG40+G4++kx+df8/tlut2/13G8nHd8ddZUpv+/yPGayvG7keN3PEdWTZ23XaZneOFqIBrIchtId6Xx//G2+15/+W6KsX0g16aBaCBVNpDuxesWFstxvFFwGynWB2PuIsXX3hjLcqmD90FgQscN5P7CseuT46AEVmLBxIZNYXwT4X7s+uKxMKci8ruIImBCH72qcBuL0hWV20UVA1d2anf56fEaCOUqMq+LLAquYLjy6vyO8eHHk2gglKXonC66OPikboXVZU1h+B7Ic6YK4X1V5HMVRcIHDZfojv/1wO7qo78n5PzOdMilqlyuqli4QHcVso1Tt7Le+3sgMJcq87jKouGM7r2QfhPZxlw70eESVedw1cXDiO6j3Q83FvYfG82DIjSRv01MAg50t6weY/9pvGuNg2I0lbtNTQagYE3mbZOTAihI0znb9OQAZrSIfF3EJAEyWlSudpO9mbsMgOqluF1O8wAAAAAAAAAAAACAxfsHY7hgfTT2PVoAAAAASUVORK5CYII=",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.37589498806682575,
+        "y": -0.010739856801909307,
+        "w": 0.8818615751789977,
+        "h": 0.8818615751789977,
+        "angle": 0,
+        "text": "shapes",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.060859188544152745,
+        "y": 0.21957040572792363,
+        "w": 0.5883054892601431,
+        "h": 0.5883054892601431,
+        "angle": 0,
+        "text": "shapes",
+        "href": "http://trashrobot.org/iconsymbols/shapeset.svg",
+        "src": "http://trashrobot.org/iconsymbols/shapeset.svg",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.7494033412887828,
+        "y": 0.22195704057279236,
+        "w": 0.6957040572792362,
+        "h": 0.10859188544152745,
+        "angle": 0,
+        "text": "ponoko",
+        "href": "https://www.ponoko.com/",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.6861575178997613,
+        "y": 0.3162291169451074,
+        "w": 0.32816229116945106,
+        "h": 0.25894988066825775,
+        "angle": 0,
+        "text": "0.12in neon green acrylic",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.00954653937947494,
+        "y": 0.00477326968973747,
+        "w": 0.6957040572792362,
+        "h": 0.10859188544152745,
+        "angle": 0,
+        "text": "upcycle",
+        "href": "maps/upcycle",
+        "src": "",
+        "maplinkmode": true
+    }
+]

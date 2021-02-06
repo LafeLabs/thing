@@ -383,5 +383,16 @@
         "href": "",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0.19331742243436753,
+        "y": 0.12052505966587113,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "shapes",
+        "href": "maps/shapes",
+        "src": "",
+        "maplinkmode": true
     }
 ]

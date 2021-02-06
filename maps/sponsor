@@ -1,7 +1,7 @@
 [
     {
-        "x": 0.7303102625298329,
-        "y": 0.05250596658711217,
+        "x": 0.7386634844868735,
+        "y": 0.008353221957040573,
         "w": 0.19451073985680192,
         "h": 0.19451073985680192,
         "angle": 90,
@@ -11,12 +11,12 @@
         "maplinkmode": false
     },
     {
-        "x": 0.7983293556085919,
-        "y": 0.10143198090692124,
+        "x": 0.6968973747016707,
+        "y": 0.0441527446300716,
         "w": 0.19451073985680192,
         "h": 0.041766109785202864,
         "angle": 0,
-        "text": "clay",
+        "text": "clay+paint pens",
         "href": "",
         "src": "",
         "maplinkmode": true
@@ -33,8 +33,8 @@
         "maplinkmode": false
     },
     {
-        "x": 0.9295942720763724,
-        "y": 0.13723150357995226,
+        "x": 0.9331742243436754,
+        "y": 0.08949880668257756,
         "w": 0.19451073985680192,
         "h": 0.041766109785202864,
         "angle": 0,
@@ -89,7 +89,7 @@
     },
     {
         "x": 0.7255369928400954,
-        "y": 0.22911694510739858,
+        "y": 0.18257756563245822,
         "w": 0.19451073985680192,
         "h": 0.19451073985680192,
         "angle": 90,
@@ -99,8 +99,8 @@
         "maplinkmode": false
     },
     {
-        "x": 0.7267303102625299,
-        "y": 0.24821002386634844,
+        "x": 0.7231503579952268,
+        "y": 0.20405727923627684,
         "w": 0.19451073985680192,
         "h": 0.041766109785202864,
         "angle": 0,
@@ -110,8 +110,8 @@
         "maplinkmode": true
     },
     {
-        "x": 0.9236276849642004,
-        "y": 0.3162291169451074,
+        "x": 0.9248210023866349,
+        "y": 0.27088305489260145,
         "w": 0.19451073985680192,
         "h": 0.041766109785202864,
         "angle": 0,
@@ -122,7 +122,7 @@
     },
     {
         "x": 0.7243436754176611,
-        "y": 0.39498806682577564,
+        "y": 0.3448687350835322,
         "w": 0.19451073985680192,
         "h": 0.19451073985680192,
         "angle": 90,
@@ -132,8 +132,8 @@
         "maplinkmode": false
     },
     {
-        "x": 0.9200477326968973,
-        "y": 0.4821002386634845,
+        "x": 0.9236276849642004,
+        "y": 0.4307875894988067,
         "w": 0.19451073985680192,
         "h": 0.041766109785202864,
         "angle": 0,
@@ -143,8 +143,8 @@
         "maplinkmode": true
     },
     {
-        "x": 0.6861575178997613,
-        "y": 0.40930787589498807,
+        "x": 0.6897374701670644,
+        "y": 0.3723150357995227,
         "w": 0.19451073985680192,
         "h": 0.041766109785202864,
         "angle": 0,
@@ -155,7 +155,7 @@
     },
     {
         "x": 0.7243436754176611,
-        "y": 0.5692124105011933,
+        "y": 0.5023866348448688,
         "w": 0.19451073985680192,
         "h": 0.19451073985680192,
         "angle": 90,
@@ -165,8 +165,8 @@
         "maplinkmode": false
     },
     {
-        "x": 0.7267303102625299,
-        "y": 0.7720763723150358,
+        "x": 0.7243436754176611,
+        "y": 0.652744630071599,
         "w": 0.19451073985680192,
         "h": 0.19451073985680192,
         "angle": 90,
@@ -176,8 +176,8 @@
         "maplinkmode": false
     },
     {
-        "x": 0.6706443914081146,
-        "y": 0.5847255369928401,
+        "x": 0.6766109785202864,
+        "y": 0.5298329355608592,
         "w": 0.19451073985680192,
         "h": 0.041766109785202864,
         "angle": 0,
@@ -187,8 +187,8 @@
         "maplinkmode": true
     },
     {
-        "x": 0.7195704057279236,
-        "y": 0.8162291169451074,
+        "x": 0.7076372315035799,
+        "y": 0.7004773269689738,
         "w": 0.19451073985680192,
         "h": 0.041766109785202864,
         "angle": 0,
@@ -198,8 +198,8 @@
         "maplinkmode": true
     },
     {
-        "x": 0.9200477326968973,
-        "y": 0.6503579952267303,
+        "x": 0.9260143198090692,
+        "y": 0.5883054892601431,
         "w": 0.19451073985680192,
         "h": 0.041766109785202864,
         "angle": 0,
@@ -210,12 +210,45 @@
     },
     {
         "x": 0.9248210023866349,
-        "y": 0.8460620525059666,
+        "y": 0.7255369928400954,
         "w": 0.19451073985680192,
         "h": 0.041766109785202864,
         "angle": 0,
         "text": "street <br>magick",
         "href": "maps/electrical",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.931980906921241,
+        "y": 0.9212410501193318,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "web",
+        "href": "maps/web",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.7267303102625299,
+        "y": 0.834128878281623,
+        "w": 0.1957040572792363,
+        "h": 0.1957040572792363,
+        "angle": 90,
+        "text": "text",
+        "href": "",
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAC70lEQVR4nO3SUY7TQBQF0d7/ptgUEkIDmD80w0TRJLFd3eWqK/+3/M4YVVVVVVVU23gb23ijn1GmtvFrbP8Wrtqhj6jCVTt0G1W46oXuowpXPdHXUIWrHugxVOGqL/QcqnDVnV5DFa660T6owlXv2hdVuGochSpcl+5YVOG6ZOegCtelOhdVuC4Rgypc6lhU4VI2B6pwqdrGb5zS5/2kf0u90pyowrV0c6MK15KtgSpcS7UWqnAt0ZqowjV1a6MK15Q5UIVrqlyowjVFTlThQnOjChfSNVCF69SuhSpcp3RNVOE6tGujCtchher9wrVLobq1cL1UqO7tB32eNdvGH/x08y9cDxWqRxauLxWqZxauu4XqlYXrZqHaY+H6UKj2XLjGGKE6ZhfHFaojd1FcoTpjF8MVqjN3EVyhIibHFSpyUlyhmmEyXKGaaRJcoZpxi+MK1cxbFFeoVthiuEK10r7TXNaNPt3/K0k0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk7Ufi2y5fVVVVVdUT/QVjvsCYeRFj0AAAAABJRU5ErkJggg==",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.6288782816229117,
+        "y": 0.850835322195704,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "domains, hosting, raspberry pi",
+        "href": "",
         "src": "",
         "maplinkmode": true
     }

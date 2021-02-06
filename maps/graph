@@ -163,5 +163,27 @@
         "href": "",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0.4105011933174224,
+        "y": 0.9331742243436754,
+        "w": 0.32100238663484487,
+        "h": 0.06563245823389022,
+        "angle": 0,
+        "text": "sponsor",
+        "href": "maps/sponsor",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.4331742243436754,
+        "y": 0.860381861575179,
+        "w": 0.060859188544152745,
+        "h": 0.060859188544152745,
+        "angle": 180,
+        "text": "mapeditor.html",
+        "href": "",
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAC70lEQVR4nO3SUY7TQBQF0d7/ptgUEkIDmD80w0TRJLFd3eWqK/+3/M4YVVVVVVVU23gb23ijn1GmtvFrbP8Wrtqhj6jCVTt0G1W46oXuowpXPdHXUIWrHugxVOGqL/QcqnDVnV5DFa660T6owlXv2hdVuGochSpcl+5YVOG6ZOegCtelOhdVuC4Rgypc6lhU4VI2B6pwqdrGb5zS5/2kf0u90pyowrV0c6MK15KtgSpcS7UWqnAt0ZqowjV1a6MK15Q5UIVrqlyowjVFTlThQnOjChfSNVCF69SuhSpcp3RNVOE6tGujCtchher9wrVLobq1cL1UqO7tB32eNdvGH/x08y9cDxWqRxauLxWqZxauu4XqlYXrZqHaY+H6UKj2XLjGGKE6ZhfHFaojd1FcoTpjF8MVqjN3EVyhIibHFSpyUlyhmmEyXKGaaRJcoZpxi+MK1cxbFFeoVthiuEK10r7TXNaNPt3/K0k0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk7Ufi2y5fVVVVVdUT/QVjvsCYeRFj0AAAAABJRU5ErkJggg==",
+        "maplinkmode": false
     }
 ]

@@ -66,6 +66,17 @@
         "maplinkmode": true
     },
     {
+        "x": 0.324582338902148,
+        "y": 0.2863961813842482,
+        "w": 0.2756563245823389,
+        "h": 0.2756563245823389,
+        "angle": 0,
+        "text": "flag",
+        "href": "maps/flag",
+        "src": "https://i.imgur.com/qMRny0B.jpg",
+        "maplinkmode": true
+    },
+    {
         "x": 0,
         "y": 0.0059665871121718375,
         "w": 0.3711217183770883,
@@ -95,6 +106,28 @@
         "angle": 0,
         "text": "magick",
         "href": "maps/magick",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.4343675417661098,
+        "y": 0.38902147971360385,
+        "w": 0.2756563245823389,
+        "h": 0.12291169451073986,
+        "angle": 0,
+        "text": "flag",
+        "href": "maps/flag",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.4606205250596659,
+        "y": 0.7040572792362768,
+        "w": 0.2756563245823389,
+        "h": 0.2756563245823389,
+        "angle": 0,
+        "text": "bag",
+        "href": "maps/bag",
         "src": "",
         "maplinkmode": true
     }

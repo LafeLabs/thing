@@ -252,14 +252,17 @@
         "user.txt"
     ],
     "maps": [
+        "bag",
         "coins",
         "copy",
         "electrical",
+        "flag",
         "graph",
         "maps",
         "printer",
         "random",
         "scrolls",
+        "shapes",
         "sponsor",
         "street",
         "symbols",
