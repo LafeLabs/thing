@@ -64,5 +64,27 @@
         "href": "maps/electrical",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0.2744630071599045,
+        "y": 0.35083532219570407,
+        "w": 0.4451073985680191,
+        "h": 0.22315035799522673,
+        "angle": 0,
+        "text": "text",
+        "href": "",
+        "src": "https://i.imgur.com/HX79tAp.png",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.00954653937947494,
+        "y": 0.11336515513126491,
+        "w": 0.3711217183770883,
+        "h": 0.046539379474940336,
+        "angle": 0,
+        "text": "upcycle",
+        "href": "maps/upcycle",
+        "src": "",
+        "maplinkmode": true
     }
 ]
