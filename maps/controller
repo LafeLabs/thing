@@ -1,0 +1,68 @@
+[
+    {
+        "x": 0.04295942720763723,
+        "y": 0.3723150357995227,
+        "w": 0.19451073985680192,
+        "h": 0.19451073985680192,
+        "angle": 90,
+        "text": "text",
+        "href": "",
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAC70lEQVR4nO3SUY7TQBQF0d7/ptgUEkIDmD80w0TRJLFd3eWqK/+3/M4YVVVVVVVU23gb23ijn1GmtvFrbP8Wrtqhj6jCVTt0G1W46oXuowpXPdHXUIWrHugxVOGqL/QcqnDVnV5DFa660T6owlXv2hdVuGochSpcl+5YVOG6ZOegCtelOhdVuC4Rgypc6lhU4VI2B6pwqdrGb5zS5/2kf0u90pyowrV0c6MK15KtgSpcS7UWqnAt0ZqowjV1a6MK15Q5UIVrqlyowjVFTlThQnOjChfSNVCF69SuhSpcp3RNVOE6tGujCtchher9wrVLobq1cL1UqO7tB32eNdvGH/x08y9cDxWqRxauLxWqZxauu4XqlYXrZqHaY+H6UKj2XLjGGKE6ZhfHFaojd1FcoTpjF8MVqjN3EVyhIibHFSpyUlyhmmEyXKGaaRJcoZpxi+MK1cxbFFeoVthiuEK10r7TXNaNPt3/K0k0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk7Ufi2y5fVVVVVdUT/QVjvsCYeRFj0AAAAABJRU5ErkJggg==",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.1730310262529833,
+        "y": 0.23269689737470167,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "EVQ-11L05R buttons $0.20 in bulk X 8 = $1.60",
+        "href": "https://www.digikey.com/product-detail/en/panasonic-electronic-components/EVQ-11L05R/P8079SCT-ND/259564",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.007159904534606206,
+        "y": 0.0011933174224343676,
+        "w": 0.3711217183770883,
+        "h": 0.046539379474940336,
+        "angle": 0,
+        "text": "main map",
+        "href": "data/currentMap.txt",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.38782816229116945,
+        "y": 0.01909307875894988,
+        "w": 0.3711217183770883,
+        "h": 0.060859188544152745,
+        "angle": 0,
+        "text": "controller",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.7458233890214797,
+        "y": 0.36992840095465396,
+        "w": 0.19451073985680192,
+        "h": 0.19451073985680192,
+        "angle": 90,
+        "text": "text",
+        "href": "",
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAC70lEQVR4nO3SUY7TQBQF0d7/ptgUEkIDmD80w0TRJLFd3eWqK/+3/M4YVVVVVVVU23gb23ijn1GmtvFrbP8Wrtqhj6jCVTt0G1W46oXuowpXPdHXUIWrHugxVOGqL/QcqnDVnV5DFa660T6owlXv2hdVuGochSpcl+5YVOG6ZOegCtelOhdVuC4Rgypc6lhU4VI2B6pwqdrGb5zS5/2kf0u90pyowrV0c6MK15KtgSpcS7UWqnAt0ZqowjV1a6MK15Q5UIVrqlyowjVFTlThQnOjChfSNVCF69SuhSpcp3RNVOE6tGujCtchher9wrVLobq1cL1UqO7tB32eNdvGH/x08y9cDxWqRxauLxWqZxauu4XqlYXrZqHaY+H6UKj2XLjGGKE6ZhfHFaojd1FcoTpjF8MVqjN3EVyhIibHFSpyUlyhmmEyXKGaaRJcoZpxi+MK1cxbFFeoVthiuEK10r7TXNaNPt3/K0k0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk7Ufi2y5fVVVVVdUT/QVjvsCYeRFj0AAAAABJRU5ErkJggg==",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.00954653937947494,
+        "y": 0.06443914081145585,
+        "w": 0.3711217183770883,
+        "h": 0.046539379474940336,
+        "angle": 0,
+        "text": "electrical",
+        "href": "maps/electrical",
+        "src": "",
+        "maplinkmode": true
+    }
+]

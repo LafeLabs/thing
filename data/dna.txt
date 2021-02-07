@@ -254,6 +254,7 @@
     "maps": [
         "bag",
         "coins",
+        "controller",
         "copy",
         "electrical",
         "flag",
@@ -261,6 +262,7 @@
         "maps",
         "printer",
         "random",
+        "robotbrain",
         "scrolls",
         "shapes",
         "sponsor",

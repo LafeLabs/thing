@@ -1,0 +1,200 @@
+[
+    {
+        "x": 0.18496420047732698,
+        "y": 0.3568019093078759,
+        "w": 0.19451073985680192,
+        "h": 0.19451073985680192,
+        "angle": 90,
+        "text": "text",
+        "href": "",
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAC70lEQVR4nO3SUY7TQBQF0d7/ptgUEkIDmD80w0TRJLFd3eWqK/+3/M4YVVVVVVVU23gb23ijn1GmtvFrbP8Wrtqhj6jCVTt0G1W46oXuowpXPdHXUIWrHugxVOGqL/QcqnDVnV5DFa660T6owlXv2hdVuGochSpcl+5YVOG6ZOegCtelOhdVuC4Rgypc6lhU4VI2B6pwqdrGb5zS5/2kf0u90pyowrV0c6MK15KtgSpcS7UWqnAt0ZqowjV1a6MK15Q5UIVrqlyowjVFTlThQnOjChfSNVCF69SuhSpcp3RNVOE6tGujCtchher9wrVLobq1cL1UqO7tB32eNdvGH/x08y9cDxWqRxauLxWqZxauu4XqlYXrZqHaY+H6UKj2XLjGGKE6ZhfHFaojd1FcoTpjF8MVqjN3EVyhIibHFSpyUlyhmmEyXKGaaRJcoZpxi+MK1cxbFFeoVthiuEK10r7TXNaNPt3/K0k0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk7Ufi2y5fVVVVVdUT/QVjvsCYeRFj0AAAAABJRU5ErkJggg==",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.025059665871121718,
+        "y": 0.36634844868735084,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "bulk straight headers",
+        "href": "https://www.amazon.com/dp/B08NPCCGDH/",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.007159904534606206,
+        "y": 0.0011933174224343676,
+        "w": 0.3711217183770883,
+        "h": 0.046539379474940336,
+        "angle": 0,
+        "text": "main map",
+        "href": "data/currentMap.txt",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.38782816229116945,
+        "y": 0.01909307875894988,
+        "w": 0.3711217183770883,
+        "h": 0.060859188544152745,
+        "angle": 0,
+        "text": "robot brain",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.013126491646778043,
+        "y": 0.4331742243436754,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "bulk 90 degree male header",
+        "href": "https://www.amazon.com/Uxcell-a15062500ux0349-Single-40-pin-Breadboard/dp/B01461DQ6S/",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.01909307875894988,
+        "y": 0.5298329355608592,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "USB cable termimating in A",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.017899761336515514,
+        "y": 0.6109785202863962,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "PCBway board",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.025059665871121718,
+        "y": 0.24821002386634844,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "MP6500 potentiometer boards from pololu",
+        "href": "https://www.pololu.com/product/2966",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.017899761336515514,
+        "y": 0.18138424821002386,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "arduino uno and USB",
+        "href": "https://www.alibaba.com/product-detail/UNO-R3-MEGA328P-CH340-CH340G-For_1600100690166.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.6587112171837709,
+        "y": 0.3448687350835322,
+        "w": 0.19451073985680192,
+        "h": 0.19451073985680192,
+        "angle": 90,
+        "text": "text",
+        "href": "",
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAC70lEQVR4nO3SUY7TQBQF0d7/ptgUEkIDmD80w0TRJLFd3eWqK/+3/M4YVVVVVVVU23gb23ijn1GmtvFrbP8Wrtqhj6jCVTt0G1W46oXuowpXPdHXUIWrHugxVOGqL/QcqnDVnV5DFa660T6owlXv2hdVuGochSpcl+5YVOG6ZOegCtelOhdVuC4Rgypc6lhU4VI2B6pwqdrGb5zS5/2kf0u90pyowrV0c6MK15KtgSpcS7UWqnAt0ZqowjV1a6MK15Q5UIVrqlyowjVFTlThQnOjChfSNVCF69SuhSpcp3RNVOE6tGujCtchher9wrVLobq1cL1UqO7tB32eNdvGH/x08y9cDxWqRxauLxWqZxauu4XqlYXrZqHaY+H6UKj2XLjGGKE6ZhfHFaojd1FcoTpjF8MVqjN3EVyhIibHFSpyUlyhmmEyXKGaaRJcoZpxi+MK1cxbFFeoVthiuEK10r7TXNaNPt3/K0k0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk0ZCCJY2GFCxpNKRgSaMhBUsaDSlY0mhIwZJGQwqWNBpSsKTRkIIljYYULGk0pGBJoyEFSxoNKVjSaEjBkkZDCpY0GlKwpNGQgiWNhhQsaTSkYEmjIQVLGg0pWNJoSMGSRkMKljQaUrCk7Ufi2y5fVVVVVdUT/QVjvsCYeRFj0AAAAABJRU5ErkJggg==",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.47255369928400953,
+        "y": 0.42720763723150357,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "solder +assemble",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.8412887828162291,
+        "y": 0.46420047732696895,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "deliver to upcycle",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.24463007159904535,
+        "y": 0.26968973747016706,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "3X6=$18",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.220763723150358,
+        "y": 0.18257756563245822,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "$2.50 - $25",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.25059665871121717,
+        "y": 0.33651551312649164,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "headers $2/ea",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.26014319809069214,
+        "y": 0.3460620525059666,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "PCB $2/ea",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.5286396181384249,
+        "y": 0.08711217183770883,
+        "w": 0.19451073985680192,
+        "h": 0.041766109785202864,
+        "angle": 0,
+        "text": "$25-$50total",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.00954653937947494,
+        "y": 0.06443914081145585,
+        "w": 0.3711217183770883,
+        "h": 0.046539379474940336,
+        "angle": 0,
+        "text": "electrical",
+        "href": "maps/electrical",
+        "src": "",
+        "maplinkmode": true
+    }
+]

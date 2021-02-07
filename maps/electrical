@@ -223,10 +223,10 @@
         "x": 0.3615751789976134,
         "y": 0.19809069212410502,
         "w": 0.3615751789976134,
-        "h": 0.041766109785202864,
+        "h": 0.09665871121718377,
         "angle": 0,
         "text": "stuff robot brain pcb, mount on uno, test",
-        "href": "",
+        "href": "maps/robotbrain",
         "src": "",
         "maplinkmode": true
     },
