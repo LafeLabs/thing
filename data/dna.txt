@@ -252,6 +252,7 @@
         "user.txt"
     ],
     "maps": [
+        "arduino",
         "bag",
         "coins",
         "controller",

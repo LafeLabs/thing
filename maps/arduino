@@ -1,0 +1,123 @@
+[
+    {
+        "x": 0.06205250596658711,
+        "y": 0.3305489260143198,
+        "w": 0.47255369928400953,
+        "h": 0.09904534606205251,
+        "angle": 0,
+        "text": "copy",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.01909307875894988,
+        "y": 0.14081145584725538,
+        "w": 0.4439140811455847,
+        "h": 0.06443914081145585,
+        "angle": 0,
+        "text": "printer",
+        "href": "maps/printer",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.18615751789976134,
+        "y": 0.6610978520286396,
+        "w": 0.47255369928400953,
+        "h": 0.09904534606205251,
+        "angle": 0,
+        "text": "paste",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.32816229116945106,
+        "y": 0.015513126491646777,
+        "w": 0.47255369928400953,
+        "h": 0.09904534606205251,
+        "angle": 0,
+        "text": "Arduino Programming",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.34009546539379476,
+        "y": 0.5059665871121718,
+        "w": 0.6372315035799523,
+        "h": 0.49403341288782815,
+        "angle": 0,
+        "text": "Arduino Programming",
+        "href": "https://github.com/LafeLabs/trashrobot5/blob/master/arduinocode/xyz-stepper-control-direct-v3-charnotstring/xyz-stepper-control-direct-v3-charnotstring.ino",
+        "src": "https://i.imgur.com/X1sE669.png",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.2852028639618138,
+        "y": 0.19212410501193317,
+        "w": 0.5107398568019093,
+        "h": 0.30668257756563244,
+        "angle": 0,
+        "text": "Arduino Programming",
+        "href": "coinfeed.html",
+        "src": "https://i.imgur.com/JduRbfS.png",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.45346062052505964,
+        "y": 0.7064439140811456,
+        "w": 0.47255369928400953,
+        "h": 0.09904534606205251,
+        "angle": 0,
+        "text": "link to Arduino code",
+        "href": "https://github.com/LafeLabs/trashrobot5/blob/master/arduinocode/xyz-stepper-control-direct-v3-charnotstring/xyz-stepper-control-direct-v3-charnotstring.ino",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.1610978520286396,
+        "y": 0.2577565632458234,
+        "w": 0.13365155131264916,
+        "h": 0.13365155131264916,
+        "angle": -304,
+        "text": "Arduino Programming",
+        "href": "",
+        "src": "https://i.imgur.com/KwACAgy.png",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.4128878281622912,
+        "y": 0.2840095465393795,
+        "w": 0.47255369928400953,
+        "h": 0.09904534606205251,
+        "angle": 0,
+        "text": "link to coin feed",
+        "href": "coinfeed.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.29952267303102625,
+        "y": 0.5894988066825776,
+        "w": 0.12649164677804295,
+        "h": 0.12649164677804295,
+        "angle": -304,
+        "text": "Arduino Programming",
+        "href": "",
+        "src": "https://i.imgur.com/KwACAgy.png",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.01909307875894988,
+        "y": 0.02028639618138425,
+        "w": 0.2863961813842482,
+        "h": 0.08591885441527446,
+        "angle": 0,
+        "text": "arduino IDE download page",
+        "href": "https://www.arduino.cc/en/software",
+        "src": "",
+        "maplinkmode": false
+    }
+]

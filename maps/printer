@@ -174,5 +174,16 @@
         "href": "maps/coins",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0.3854415274463007,
+        "y": 0.8460620525059666,
+        "w": 0.6551312649164678,
+        "h": 0.6097852028639618,
+        "angle": 0,
+        "text": "arduino",
+        "href": "maps/arduino",
+        "src": "",
+        "maplinkmode": true
     }
 ]
