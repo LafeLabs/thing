@@ -196,5 +196,27 @@
         "href": "maps/electrical",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0.5501193317422435,
+        "y": 0.18973747016706444,
+        "w": 0.3305489260143198,
+        "h": 0.17780429594272076,
+        "angle": 0,
+        "text": "shield board on PCBway",
+        "href": "https://www.pcbway.com/project/shareproject/Trash_Robot_main__brain__board.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.32577565632458233,
+        "y": 0.7422434367541766,
+        "w": 0.3305489260143198,
+        "h": 0.17780429594272076,
+        "angle": 0,
+        "text": "board file repository, board is arduino-shield-xyz-stepper-v3",
+        "href": "https://github.com/LafeLabs/trashrobot5/tree/master/boards",
+        "src": "",
+        "maplinkmode": false
     }
 ]
