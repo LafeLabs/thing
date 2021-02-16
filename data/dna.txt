@@ -3,6 +3,7 @@
         "README.md",
         "appeditor.html",
         "arduinoprinter.html",
+        "bigdumbmap.html",
         "buttonsetup.sh",
         "canvas2png.html",
         "channelfeed.html",
