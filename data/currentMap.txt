@@ -163,5 +163,60 @@
         "href": "https://www.lulu.com/en/us/shop/lafe-spietz/trash-magic-manifesto-and-action-coloring-book-revision-1/paperback/product-1km4deev.html",
         "src": "",
         "maplinkmode": false
+    },
+    {
+        "x": 0.5966587112171837,
+        "y": -0.06205250596658711,
+        "w": 0.2315035799522673,
+        "h": 0.27804295942720764,
+        "angle": 0,
+        "text": "CLICK TO DESIGN!!",
+        "href": "",
+        "src": "https://i.imgur.com/No1wukK.png",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.050119331742243436,
+        "y": 0.7243436754176611,
+        "w": 0.18615751789976134,
+        "h": 0.18615751789976134,
+        "angle": 0,
+        "text": "CLICK TO DESIGN!!",
+        "href": "",
+        "src": "https://i.imgur.com/qMRny0B.jpg",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.10859188544152745,
+        "y": 0.4713603818615752,
+        "w": 0.11455847255369929,
+        "h": 0.1610978520286396,
+        "angle": 0,
+        "text": "CLICK TO DESIGN!!",
+        "href": "",
+        "src": "https://i.imgur.com/No1wukK.png",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.7744630071599046,
+        "y": 0.4379474940334129,
+        "w": 0.10023866348448687,
+        "h": 0.12052505966587113,
+        "angle": 0,
+        "text": "CLICK TO DESIGN!!",
+        "href": "",
+        "src": "https://i.imgur.com/No1wukK.png",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.1026252983293556,
+        "y": 0.7696897374701671,
+        "w": 0.07756563245823389,
+        "h": 0.09307875894988067,
+        "angle": 0,
+        "text": "CLICK TO DESIGN!!",
+        "href": "",
+        "src": "https://i.imgur.com/No1wukK.png",
+        "maplinkmode": false
     }
 ]
