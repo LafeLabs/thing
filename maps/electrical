@@ -251,5 +251,16 @@
         "href": "",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0.48568019093078757,
+        "y": 0.9451073985680191,
+        "w": 0.19451073985680192,
+        "h": 0.19451073985680192,
+        "angle": 10,
+        "text": "digikey  link for 9 pin femail header",
+        "href": "https://www.digikey.com/en/products/detail/samtec-inc/SSQ-109-03-T-S/1111949",
+        "src": "",
+        "maplinkmode": false
     }
 ]
