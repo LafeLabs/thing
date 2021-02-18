@@ -28,7 +28,7 @@
         "h": 0.49403341288782815,
         "angle": 0,
         "text": "Arduino Programming",
-        "href": "https://github.com/LafeLabs/trashrobot5/blob/master/arduinocode/xyz-stepper-control-direct-v3-charnotstring/xyz-stepper-control-direct-v3-charnotstring.ino",
+        "href": "https://raw.githubusercontent.com/LafeLabs/trashrobot5/master/arduinocode/arduino-trashrobot-coin-printer/arduino-trashrobot-coin-printer.ino",
         "src": "https://i.imgur.com/X1sE669.png",
         "maplinkmode": false
     },
@@ -50,7 +50,7 @@
         "h": 0.09904534606205251,
         "angle": 0,
         "text": "link to Arduino code",
-        "href": "https://github.com/LafeLabs/trashrobot5/blob/master/arduinocode/xyz-stepper-control-direct-v3-charnotstring/xyz-stepper-control-direct-v3-charnotstring.ino",
+        "href": "https://raw.githubusercontent.com/LafeLabs/trashrobot5/master/arduinocode/arduino-trashrobot-coin-printer/arduino-trashrobot-coin-printer.ino",
         "src": "",
         "maplinkmode": false
     },
