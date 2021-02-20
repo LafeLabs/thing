@@ -218,5 +218,16 @@
         "href": "",
         "src": "https://i.imgur.com/No1wukK.png",
         "maplinkmode": false
+    },
+    {
+        "x": 0.8066825775656324,
+        "y": 0.9355608591885441,
+        "w": 0.47255369928400953,
+        "h": 0.09904534606205251,
+        "angle": 0,
+        "text": "localhost",
+        "href": "http://localhost/",
+        "src": "",
+        "maplinkmode": false
     }
 ]
