@@ -28,9 +28,11 @@ else{
     <a href = "pageeditor.html">PAGE EDITOR</a>
 </p>-->
 <p style = "font-size:5em">
+    <a href = "imagefeed.html">Return to Image Feed</a>
+</p>
 
+<p style = "font-size:5em">
     <a href = "index.html">index.html</a>
-
 </p>
 
 
