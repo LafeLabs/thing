@@ -1,0 +1,35 @@
+[
+    {
+        "x": 0.09904534606205251,
+        "y": 0.09904534606205251,
+        "w": 0.40692124105011934,
+        "h": 0.07040572792362769,
+        "angle": 0,
+        "text": "global image feed",
+        "href": "globalimagefeed.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.10739856801909307,
+        "y": 0.2064439140811456,
+        "w": 0.40692124105011934,
+        "h": 0.07040572792362769,
+        "angle": 0,
+        "text": "local image feed",
+        "href": "localimagefeed.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.11336515513126491,
+        "y": 0.3353221957040573,
+        "w": 0.40692124105011934,
+        "h": 0.07040572792362769,
+        "angle": 0,
+        "text": "align image",
+        "href": "alignimage.html",
+        "src": "",
+        "maplinkmode": false
+    }
+]

@@ -26,10 +26,34 @@
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"></script>
 </head>
 <body>
+    <table id = "linktable">
+        <tr>
+            <td>
+                <a href = "index.html">HOME</a>
+            </td>
+            <td>
+                <a href = "localimagefeed.html">LOCAL IMAGES</a>
+            </td>
+            <td>
+                <a href = "globalimagefeed.html">GLOBAL IMAGES</a>
+            </td>
+            <td>
+                <a href = "traceicon.html">TRACE</a>
+            </td>
+        </tr>    
+    </table>
 
-
+<div id = "iobox">
 <textarea id = "textio"></textarea>
-<div id = "savebutton" class=  "button">SAVE</div>
+    <table id ="iotable">
+        <tr>
+            <td id = "savebutton" class=  "button">SAVE</td>
+            <td id = "loadbutton" class = "button">LOAD</td>
+        </tr>
+    </table>
+</div>
+
+
 <div id = "mainbox">
     <canvas id = "gridcanvas"></canvas>
     <canvas id = "maincanvas"></canvas>
@@ -40,7 +64,6 @@
     <img src = "iconsymbols/scale.svg" id = "scalebar"/>
     <img src = "iconsymbols/rotate.svg" id = "rotatebar"/>
 </div>
-
 <div id = "imagefeedbox">
     <div id = "imagefeed"></div>
 </div>
@@ -49,7 +72,9 @@
 
 
 maincanvas = document.getElementById("maincanvas");
-var mainGVM = new GVM(maincanvas,0.5*innerWidth - 10,0.5*innerWidth -10);
+//var mainGVM = new GVM(maincanvas,0.5*innerWidth - 10,0.5*innerWidth -10);
+var mainGVM = new GVM(maincanvas,500,500);
+
 mainGVM.drawGlyph("0337,0337,0342,0334,0342,0334,0342,0334,0342,0341,");
 
 
@@ -173,16 +198,28 @@ function loadimage(){
     document.getElementById("mainimage").src = image.src;
     document.getElementById("mainimage").style.left = (image.x*mainGVM.width).toString() + "px";
     document.getElementById("mainimage").style.top = (image.y*mainGVM.width).toString() + "px";    
+    document.getElementById("mainimage").style.width = (image.w*mainGVM.width).toString() + "px";    
+    document.getElementById("mainimage").style.transform = "rotate(" + (image.angle).toString() + "deg)";
+    
     document.getElementById("textio").value = JSON.stringify(image,null,"    ");
     
 }
 
+document.getElementById("loadbutton").onclick = function(){
+    image = JSON.parse(document.getElementById("textio").value);
+    loadimage();
+    saveimage();
+}
 
 document.getElementById("savebutton").onclick = function(){
     
     if(document.getElementById("mainimage").style.left.length > 0){
         image.x = parseInt(document.getElementById("mainimage").style.left.substring(0,document.getElementById("mainimage").style.left.length-2))/mainGVM.width;        
         image.y = parseInt(document.getElementById("mainimage").style.top.substring(0,document.getElementById("mainimage").style.top.length-2))/mainGVM.width;
+        image.w = parseInt(document.getElementById("mainimage").style.width.substring(0,document.getElementById("mainimage").style.width.length-2))/mainGVM.width;
+
+        image.angle = parseInt(document.getElementById("mainimage").style.transform.substring(7,document.getElementById("mainimage").style.transform.length - 4));
+
     
     }
     saveimage();
@@ -200,6 +237,12 @@ function saveimage(){
 <style>
 body{
     overflow:hidden;
+    background-color:#808080;
+}
+#linktable a{
+    color:#ff2cb4;
+    background-color:black;
+    font-family:courier;
 }
 #mainbox{
     position:absolute;
@@ -233,17 +276,40 @@ body{
     bottom:0px;
     z-index:2;
 }
-
+#iobox{
+    position:absolute;
+    left:30px;
+    bottom:30px;
+}
+#textio{
+    background-color:black;
+    color:#00ff00;
+    font-family:courier;
+    height:300px;
+    border:solid;
+    border-width:5px;
+    border-color:orange;
+}
+#iotable td{
+    border:solid;
+    border-radius:5px;
+    font-family:courier;
+    text-align:center;
+    font-size:2em;
+    background-color:black;
+    color:#00ff00;
+}
 #imagefeed{
     position:absolute;
-    top:0px;
-    left:0px;
-    width:200px;
+    top:200px;
+    right:510px;
+    width:20%;
     bottom:0px;
     overflow:scroll;
+    background-color:#808080;
 }
 .uploadimage{
-    max-width:50%;
+    max-width:80%;
     display:block;
     margin:auto;
     margin-bottom:1em;
@@ -254,6 +320,9 @@ body{
 #zoomrotatebox{
     position:absolute;
     right:0px;
+    bottom:0px;
+    width:500px;
+    height:200px;
     z-index:2;
 }
 #scalebar{
@@ -273,23 +342,11 @@ body{
     right:0px;
     
 }
-#feed{
-    position:absolute;
-    left:0px;
-    bottom:40px;
-    width:50%;
-    top:40px;
-    overflow:scroll;
-}
-#savebutton{
-    position:absolute;
-    z-index:2;
-}
 .button{
     cursor:pointer;
 }
 .button:hover{
-    background-color:green;
+    background-color:#008000;
 }
 .button:active{
     background-color:yellow;
