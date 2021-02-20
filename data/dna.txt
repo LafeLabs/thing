@@ -50,6 +50,7 @@
         "pi2arduino.html",
         "pixelcolor.html",
         "poetryengine.html",
+        "programarduino.html",
         "qrcode.html",
         "quantumart.html",
         "removebackground.html",
