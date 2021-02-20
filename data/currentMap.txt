@@ -229,5 +229,16 @@
         "href": "http://localhost/",
         "src": "",
         "maplinkmode": false
+    },
+    {
+        "x": 0,
+        "y": 0.16945107398568018,
+        "w": 0.2863961813842482,
+        "h": 0.03341288782816229,
+        "angle": 0,
+        "text": "workflow",
+        "href": "maps/workflow",
+        "src": "",
+        "maplinkmode": true
     }
 ]

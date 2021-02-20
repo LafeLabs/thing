@@ -29,6 +29,7 @@
         "globalimagefeed.html",
         "hash.html",
         "hypercube.html",
+        "iconfeed.html",
         "imagefeed.html",
         "index.html",
         "keyboard.html",
@@ -200,6 +201,7 @@
     "data": [
         "alignimage.txt",
         "appcontrols.txt",
+        "arduinocode.txt",
         "arduinoprinter.txt",
         "arduinorobot.txt",
         "channelfeed.txt",
