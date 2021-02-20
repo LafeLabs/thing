@@ -81,6 +81,7 @@
         "textfeed.html",
         "three.html",
         "threejs.html",
+        "traceicon.html",
         "trashrobot.html",
         "trashrobotdotorg.html",
         "us29dotxyz.html",
