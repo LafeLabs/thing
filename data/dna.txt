@@ -37,6 +37,7 @@
         "listen-for-go-button.sh",
         "listen-for-shutdown.py",
         "listen-for-shutdown.sh",
+        "localimagefeed.html",
         "map.html",
         "mapdelete.html",
         "mapeditor.html",
