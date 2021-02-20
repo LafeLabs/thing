@@ -26,26 +26,10 @@
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"></script>
 </head>
 <body>
-<div id = "header">
-    <img class = "button" src = "iconsymbols/save.svg" style = "width:40px" id = "savebutton"/>
-    <a href = "index.html">
-        <img src = "iconsymbols/home.svg" style = "width:40px"/>      
-    </a>
-    <a href = "coinfeed.html">
-        <img src = "iconsymbols/feed.svg" style = "width:40px"/>      
-    </a>
-    
-    
-    <!-- UN-COMMENT IF RASPBERRY PI IS THE ROBOT
 
-    <a href = "robot.html">
-        <img src = "iconsymbols/robot.svg" style = "width:40px"/>      
-    </a>
-    -->
-    
-    
-</div>
 
+<textarea id = "textio"></textarea>
+<div id = "savebutton" class=  "button">SAVE</div>
 <div id = "mainbox">
     <canvas id = "gridcanvas"></canvas>
     <canvas id = "maincanvas"></canvas>
@@ -60,96 +44,14 @@
 <div id = "imagefeedbox">
     <div id = "imagefeed"></div>
 </div>
-
-
-
-
-<div id = "pngcanvasbox">
-    <canvas id = "pngcanvas"></canvas>
-    <img id = "pngimage">
-</div>
 <script>
 
 
 
-headerbuttonsize = 36;
-if(innerWidth > innerHeight){
-    footerbuttonsize = 36;
-    headerbuttonsize = 36;    
-}
-else{
-    footerbuttonsize = 85;
-    headerbuttonsize = 85;
-}
-
-
-screenmode = 0;
-setscreen();
-
-function setscreen(){
-    if(true){
-
-        //geometron edit mode
-        document.getElementById("mainbox").style.display = "block";
-        document.getElementById("imagefeedbox").style.display = "block";
-        document.getElementById("zoomrotatebox").style.display = "block";            
-                    
-        if(innerWidth > innerHeight){
-
-
-            document.getElementById("zoomrotatebox").style.top = (innerWidth*0.5 + 40).toString() + "px";
-            document.getElementById("zoomrotatebox").style.display = "block";            
-            document.getElementById("zoomrotatebox").style.width = (innerWidth*0.5-10).toString() + "px";
-            document.getElementById("zoomrotatebox").style.right =  "0px";       
-            document.getElementById("zoomrotatebox").style.height = (innerHeight - innerWidth*0.5 - 80).toString() + "px";            
-
-        }
-        else{
-         //mobile here   
-    
-            document.getElementById("zoomrotatebox").style.top = (innerWidth*0.5 + 140).toString() + "px";
-            document.getElementById("zoomrotatebox").style.display = "block";            
-            document.getElementById("zoomrotatebox").style.width = (innerWidth*0.5-10).toString() + "px";
-            document.getElementById("zoomrotatebox").style.right =  "0px";       
-            document.getElementById("zoomrotatebox").style.height = (100).toString() + "px";
-            
-            
-
-        }        
-        
-    }
-    
-}
-
-
-//load 4 files: data/feed.txt, data/imagefeed.txt data/robot.txt, and data/hypercube.txt
-
-
-
-
-document.getElementById("savebutton").onclick  = function(){
-    //pushcoin();
-}
-
-
-hypercube = [];
-
 maincanvas = document.getElementById("maincanvas");
 var mainGVM = new GVM(maincanvas,0.5*innerWidth - 10,0.5*innerWidth -10);
+mainGVM.drawGlyph("0337,0337,0342,0334,0342,0334,0342,0334,0342,0341,");
 
-var gridGVM = new GVM(gridcanvas,0.5*innerWidth - 10,0.5*innerWidth -10);
-gridGVM.drawGlyph("0337,0337,0342,0334,0342,0334,0342,0334,0342,0341,");
-
-
-var httpcHypercube = new XMLHttpRequest();
-httpcHypercube.onreadystatechange = function(){
-    if (this.readyState == 4 && this.status == 200) {
-        hypercube = JSON.parse(this.responseText);
-    }
-        
-};
-httpcHypercube.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
-httpcHypercube.send();
 
 image = {
     "w":1.0,
@@ -160,12 +62,16 @@ image = {
 };
 
 
-coin  = "";
+var httpcimage = new XMLHttpRequest();
+httpcimage.onreadystatechange = function(){
+    if (this.readyState == 4 && this.status == 200) {
+        image = JSON.parse(this.responseText);
+        loadimage();
+    };
+};
 
-
-//****************************************************************
-//below this line is the image feed, followed by robot config
-//*******************************************************************
+httpcimage.open("GET", "fileloader.php?filename=data/alignimage.txt", true);
+httpcimage.send();
 
 
 
@@ -203,10 +109,13 @@ function loadimagefeed(){
         document.getElementById("imagefeed").appendChild(newbox);
         newimg.onclick = function() {
             var localsrc = this.src;
-            document.getElementById("mainimage").style.display = "block";
             document.getElementById("mainimage").src = localsrc;
-            
+            image.x = 0;
+            image.y = 0;
+            image.w = 1.0;
+            image.angle = 0;
             image.src = localsrc;
+            loadimage();
         }
 
     }    
@@ -221,11 +130,13 @@ function loadimagefeed(){
         document.getElementById("imagefeed").appendChild(newuploadbox);
         newimg.onclick = function() {
             var localsrc = "uploadimages" + this.src.split("uploadimages")[1];
+            image.x = 0;
+            image.y = 0;
+            image.w = 1.0;
+            image.angle = 0;
             image.src = localsrc;
-
-            document.getElementById("imageurlinput").value = localsrc;    
-            document.getElementById("mainimage").style.display = "block";                
-            document.getElementById("mainimage").src = localsrc;
+            loadimage();
+    
         }
         
     }    
@@ -258,8 +169,32 @@ mcrotate.on("panleft panright panup pandown tap press", function(ev) {
 });    
 
 
+function loadimage(){
+    document.getElementById("mainimage").src = image.src;
+    document.getElementById("mainimage").style.left = (image.x*mainGVM.width).toString() + "px";
+    document.getElementById("mainimage").style.top = (image.y*mainGVM.width).toString() + "px";    
+    document.getElementById("textio").value = JSON.stringify(image,null,"    ");
+    
+}
 
 
+document.getElementById("savebutton").onclick = function(){
+    
+    if(document.getElementById("mainimage").style.left.length > 0){
+        image.x = parseInt(document.getElementById("mainimage").style.left.substring(0,document.getElementById("mainimage").style.left.length-2))/mainGVM.width;        
+        image.y = parseInt(document.getElementById("mainimage").style.top.substring(0,document.getElementById("mainimage").style.top.length-2))/mainGVM.width;
+    
+    }
+    saveimage();
+}
+
+function saveimage(){
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", "filesaver.php", true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(JSON.stringify(image),null,"    ")+"&filename=data/alignimage.txt");//send text to filesaver.php
+    document.getElementById("textio").value = JSON.stringify(image,null,"    ");    
+}
 
 </script>
 <style>
@@ -298,57 +233,23 @@ body{
     bottom:0px;
     z-index:2;
 }
-#spellbox{
-    position:absolute;
-    right:0px;
-    width:450px;
-    height:250px;
-    border:solid;
-    border-color:green;
-    overflow:scroll;
-}
-#spellcanvasbox{
-    position:absolute;
-    left:0px;
-    border-top:solid;
-    border:color:blue;
-    top:40px;
-}
-#imagefeedbox input{
-        font-size:12px;
-        font-family:courier;
-}
-#imagefeedbox{
-    position:absolute;
-    left:0px;
-    bottom:80px;
-    border:solid;
-    border-color:blue;   
-    font-size:12px;
-    width:22%;
-    top:150px;
-    z-index:3;
-}
-#imagefeedheader{
+
+#imagefeed{
     position:absolute;
     top:0px;
     left:0px;
-    right:0px;
-    height:100px;
-}
-#imagefeed{
-    position:absolute;
-    top:100px;
-    left:0px;
-    right:0px;
+    width:200px;
     bottom:0px;
     overflow:scroll;
 }
 .uploadimage{
     max-width:50%;
-}
-.deletebutton{
-    width:40px;
+    display:block;
+    margin:auto;
+    margin-bottom:1em;
+    margin-top:1em;
+
+    
 }
 #zoomrotatebox{
     position:absolute;
@@ -380,17 +281,10 @@ body{
     top:40px;
     overflow:scroll;
 }
-#controlbox{
+#savebutton{
     position:absolute;
-    right:0px;
-    width:400px;
-    overflow:scroll;
-    height:130px;
-    bottom:51%;
-    border:solid;
-    border-color:red;
+    z-index:2;
 }
-
 .button{
     cursor:pointer;
 }
@@ -400,102 +294,8 @@ body{
 .button:active{
     background-color:yellow;
 }
-.feedelement{
-    margin-top:100px;
-    margin:auto;
-    border:solid;
-    overflow:hidden;
-}
-.feedcan{
-    position:absolute;
-    
-}
-.feedimage{
-    position:relative;
-    z-index:-1;
-}
-.data{
-    display:none;
-}
-#spellbox input{
-    font-size:12px;
-    font-family:courier;
-}
-#actioninput{
-    width:10px;
-}
-#spellinput{
-    width:400px;
-}
-#modeindicator{
-    width:25px;
-}
-#pngcanvasbox{
-    display:none;
-}
-#pngimage{
-    width:200px;
-}
-.tablebutton{
-    border:solid;
-    font-family:courier;
-    font-size:12px;
-    width:30px;
-    text-align:center;
-    border:solid;
-    border-color:blue;
-}
-#header{
-    font-size:12px;
-    height:40px;
-    background-color:#afffaf;
-    position:absolute;
-    left:0px;
-    right:0px;
-    top:0px;
-}
-#headerbutton{
-}
-#footer{
-    font-size:24px;
-    height:40px;
-    background-color:#afffaf;
-    position:absolute;
-    left:0px;
-    right:0px;
-    bottom:0px;
-}
-#header .button{
 
-}
-#imageio{
-    position:absolute;
-    bottom:0px;
-    right:0px;
-    width:100px;
-    height:16px;
-    display:none;
-}
-@media only screen and (orientation: portrait) {
-    #mainbox{
-        top:140px;
-    }
-    #footer span{
-        margin-left:25px;
-        margin-right:25px;
-    }
-    #header{
-        height:140px;
-    }
-    #footer{
-        height:140px;
-        padding-top:25px;
-    }
-    #feed{
-        top:140px;
-        bottom:140px;
-    }
-}
+
 
 </style>
 </body>

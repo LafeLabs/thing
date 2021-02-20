@@ -196,6 +196,7 @@
         "xyzcube.svg"
     ],
     "data": [
+        "alignimage.txt",
         "appcontrols.txt",
         "arduinoprinter.txt",
         "arduinorobot.txt",
