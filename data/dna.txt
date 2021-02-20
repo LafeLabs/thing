@@ -1,6 +1,7 @@
 {
     "html": [
         "README.md",
+        "alignimage.html",
         "appeditor.html",
         "arduinoprinter.html",
         "bigdumbmap.html",
