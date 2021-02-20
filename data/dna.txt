@@ -277,7 +277,8 @@
         "textile",
         "tools",
         "upcycle",
-        "web"
+        "web",
+        "workflow"
     ],
     "scrolls": [
         "arduino-8button-xyz",
