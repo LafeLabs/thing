@@ -1,1 +1,1 @@
-{"w":4.648,"x":-1.736,"y":-1.886,"angle":0,"src":"https://i.imgur.com/qIdr2zT.jpg"}
+{"w":1,"x":0,"y":0,"angle":0,"src":"https://i.imgur.com/qIdr2zT.jpg"}
