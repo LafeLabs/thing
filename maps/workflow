@@ -141,5 +141,16 @@
         "href": "",
         "src": "",
         "maplinkmode": false
+    },
+    {
+        "x": 0,
+        "y": 0.0011933174224343676,
+        "w": 0.40692124105011934,
+        "h": 0.07040572792362769,
+        "angle": 0,
+        "text": "home",
+        "href": "data/currentMap.txt",
+        "src": "",
+        "maplinkmode": true
     }
 ]

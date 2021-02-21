@@ -1,104 +1,5 @@
 [
     {
-        "x": 0.06205250596658711,
-        "y": 0.3305489260143198,
-        "w": 0.47255369928400953,
-        "h": 0.09904534606205251,
-        "angle": 0,
-        "text": "copy",
-        "href": "",
-        "src": "",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.18615751789976134,
-        "y": 0.6610978520286396,
-        "w": 0.47255369928400953,
-        "h": 0.09904534606205251,
-        "angle": 0,
-        "text": "paste",
-        "href": "",
-        "src": "",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.34009546539379476,
-        "y": 0.5059665871121718,
-        "w": 0.6372315035799523,
-        "h": 0.49403341288782815,
-        "angle": 0,
-        "text": "Arduino Programming",
-        "href": "https://raw.githubusercontent.com/LafeLabs/trashrobot5/master/arduinocode/arduino-trashrobot-coin-printer/arduino-trashrobot-coin-printer.ino",
-        "src": "https://i.imgur.com/X1sE669.png",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.27923627684964203,
-        "y": 0.1957040572792363,
-        "w": 0.5107398568019093,
-        "h": 0.30668257756563244,
-        "angle": 0,
-        "text": "Arduino Programming",
-        "href": "coinfeed.html",
-        "src": "https://i.imgur.com/JduRbfS.png",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.45346062052505964,
-        "y": 0.7064439140811456,
-        "w": 0.47255369928400953,
-        "h": 0.09904534606205251,
-        "angle": 0,
-        "text": "link to Arduino code",
-        "href": "https://raw.githubusercontent.com/LafeLabs/trashrobot5/master/arduinocode/arduino-trashrobot-coin-printer/arduino-trashrobot-coin-printer.ino",
-        "src": "",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.1610978520286396,
-        "y": 0.2577565632458234,
-        "w": 0.13365155131264916,
-        "h": 0.13365155131264916,
-        "angle": -304,
-        "text": "Arduino Programming",
-        "href": "",
-        "src": "https://i.imgur.com/KwACAgy.png",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.3198090692124105,
-        "y": 0.32100238663484487,
-        "w": 0.47255369928400953,
-        "h": 0.09904534606205251,
-        "angle": 0,
-        "text": "link to coin feed",
-        "href": "coinfeed.html",
-        "src": "",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.29952267303102625,
-        "y": 0.5894988066825776,
-        "w": 0.12649164677804295,
-        "h": 0.12649164677804295,
-        "angle": -304,
-        "text": "Arduino Programming",
-        "href": "",
-        "src": "https://i.imgur.com/KwACAgy.png",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.008353221957040573,
-        "y": 0.9128878281622912,
-        "w": 0.2863961813842482,
-        "h": 0.08591885441527446,
-        "angle": 0,
-        "text": "arduino IDE download page",
-        "href": "https://www.arduino.cc/en/software",
-        "src": "",
-        "maplinkmode": false
-    },
-    {
         "x": 0.8365155131264916,
         "y": 0.00954653937947494,
         "w": 0.2863961813842482,
@@ -119,17 +20,6 @@
         "href": "maps/tools",
         "src": "",
         "maplinkmode": true
-    },
-    {
-        "x": 0.007159904534606206,
-        "y": 0.05250596658711217,
-        "w": 0.5727923627684964,
-        "h": 0.08353221957040573,
-        "angle": 0,
-        "text": "CLICK TO DESIGN!!",
-        "href": "coinstudio.html",
-        "src": "",
-        "maplinkmode": false
     },
     {
         "x": 0.8221957040572793,
@@ -165,10 +55,21 @@
         "maplinkmode": false
     },
     {
-        "x": 0.5966587112171837,
-        "y": -0.06205250596658711,
-        "w": 0.2315035799522673,
-        "h": 0.27804295942720764,
+        "x": 0.19451073985680192,
+        "y": 0.15871121718377088,
+        "w": 0.6825775656324582,
+        "h": 0.6825775656324582,
+        "angle": 0,
+        "text": "CLICK TO DESIGN!!",
+        "href": "",
+        "src": "https://i.imgur.com/SmYWDTH.png",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.3198090692124105,
+        "y": 0.23031026252983294,
+        "w": 0.45465393794749404,
+        "h": 0.545346062052506,
         "angle": 0,
         "text": "CLICK TO DESIGN!!",
         "href": "",
@@ -176,52 +77,8 @@
         "maplinkmode": false
     },
     {
-        "x": 0.050119331742243436,
-        "y": 0.7243436754176611,
-        "w": 0.18615751789976134,
-        "h": 0.18615751789976134,
-        "angle": 0,
-        "text": "CLICK TO DESIGN!!",
-        "href": "",
-        "src": "https://i.imgur.com/qMRny0B.jpg",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.10859188544152745,
-        "y": 0.4713603818615752,
-        "w": 0.11455847255369929,
-        "h": 0.1610978520286396,
-        "angle": 0,
-        "text": "CLICK TO DESIGN!!",
-        "href": "",
-        "src": "https://i.imgur.com/No1wukK.png",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.7744630071599046,
-        "y": 0.4379474940334129,
-        "w": 0.10023866348448687,
-        "h": 0.12052505966587113,
-        "angle": 0,
-        "text": "CLICK TO DESIGN!!",
-        "href": "",
-        "src": "https://i.imgur.com/No1wukK.png",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.1026252983293556,
-        "y": 0.7696897374701671,
-        "w": 0.07756563245823389,
-        "h": 0.09307875894988067,
-        "angle": 0,
-        "text": "CLICK TO DESIGN!!",
-        "href": "",
-        "src": "https://i.imgur.com/No1wukK.png",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.8066825775656324,
-        "y": 0.9355608591885441,
+        "x": 0.8007159904534606,
+        "y": 0.9224343675417661,
         "w": 0.47255369928400953,
         "h": 0.09904534606205251,
         "angle": 0,
@@ -231,10 +88,10 @@
         "maplinkmode": false
     },
     {
-        "x": 0,
-        "y": 0.16945107398568018,
-        "w": 0.2863961813842482,
-        "h": 0.03341288782816229,
+        "x": 0.1431980906921241,
+        "y": 0.9069212410501193,
+        "w": 0.5775656324582339,
+        "h": 0.324582338902148,
         "angle": 0,
         "text": "workflow",
         "href": "maps/workflow",
