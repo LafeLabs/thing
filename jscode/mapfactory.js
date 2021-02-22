@@ -11,7 +11,7 @@ function Map(w,h,div) {
     this.linkindex = 0;
     this.textColor = "#00ff00";
     this.linkColor = "#ff2cb4";
-    
+    this.math = false;
     //MapLink(x,y,w,aspectRatio,angle,text,href,src,maplinkmode)
     var newLink  = new MapLink(0.1,0.1,0.2,0.2,0,"text","","",false,{});
     this.array.push(newLink);
@@ -65,6 +65,9 @@ function Map(w,h,div) {
                 }
             }
             this.linkArray.push(newa);
+        }
+        if(this.math){
+            MathJax.Hub.Typeset();//tell Mathjax to update the math
         }
     }
 

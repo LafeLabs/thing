@@ -241,6 +241,8 @@ document.getElementById("hammerxy").style.height = (squareWidth).toString() + "p
 
 mainmap = new Map(squareWidth,squareWidth,document.getElementById("mainmap"));
 
+//mainmap.math = true;
+
 
 var httpc2 = new XMLHttpRequest();
     httpc2.onreadystatechange = function() {
@@ -585,6 +587,7 @@ var httpcimagefeed = new XMLHttpRequest();
                 mainmap.array[mainmap.linkindex].src = this.src;
                 document.getElementById("imginput").value = this.src;
                 mainmap.draw();
+
             }
             
         }
