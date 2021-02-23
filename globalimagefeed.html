@@ -25,6 +25,7 @@
 <body>
     <table id = "linktable">
         <tr>
+            <td id  = "help">?</td>
             <td>
                 <a href = "index.html">HOME</a>
             </td>
@@ -35,6 +36,14 @@
                 <a href = "alignimage.html">ALIGN</a>
             </td>
         </tr>    
+    </table>
+    <table  id  = "imagecontroltable">
+        <tr>
+            <td>Input Image URL from Web:</td>
+            <td>
+                <input id = "imageurlinput"/>
+            </td>
+        </tr>
     </table>
 
 <div id = "header">
@@ -48,33 +57,22 @@
 </div>
     
 <div id = "imagefeed"></div>
-
-<div id = "footer">
-        <table  style = "margin-top:10px" id  = "imagecontroltable">
-            <tr>
-                <td>Input Image URL from Web:</td>
-                <td>
-                    <input id = "imageurlinput"/>
-                </td>
-            </tr>
-        </table>
-        <table>
-            <tr>
-                <td id = "importbutton" class = "button">
-                    Click to import Image Feed code from orange code box
-                </td>
-                <td>
-                    <textarea id = "textio"></textarea>
-                </td>
-            </tr>
-        </table>
-
-</div>
     
+<table id = "iotable">
+    <tr>
+        <td id = "importbutton" class = "button">
+IMPORT FEED:        </td>
+        <td>
+            <textarea id = "textio"></textarea>
+        </td>
+    </tr>
+</table>
+
 <script>
 
 document.getElementById("imageurlinput").value = "";
 
+document.getElementById("imageurlinput").select();
 document.getElementById("imageurlinput").onchange  = function(){
     imagefeed.push(this.value);
     saveimagefeed();
@@ -155,6 +153,13 @@ document.getElementById("importbutton").onclick = function(){
     loadimagefeed();
 }
 
+document.getElementById("help").onmouseover = function(){
+    document.getElementById("header").style.display = "block";
+}
+document.getElementById("help").onmouseout = function(){
+    document.getElementById("header").style.display = "none";
+}
+
 </script>
 <style>
 body{
@@ -167,12 +172,20 @@ body{
 a{
     color:#ff2cb4;
     font-family:courier;
+    font-size:1em;
 }
 h1{
     text-align:center;
 }
+#help{
+    cursor:pointer;
+}
+#help:hover{
+    background-color:#008000;
+}
 #header{
     position:absolute;
+    z-index:3;
     top:2.5em;
     left:0px;
     right:0px;
@@ -183,6 +196,7 @@ h1{
     padding-left:1em;
     padding-right:1em;
     background-color:black;
+    display:none;
 }
 #linktable{
     position:absolute;
@@ -190,7 +204,6 @@ h1{
     left:0px;
     right:0px;
     width:100%;
-
 }
 #linktable td{
     text-align:center;
@@ -200,18 +213,15 @@ h1{
 }
 #imagefeed{
     position:absolute;
-    top:25%;
+    top:10em;
     left:0px;
     right:0px;
-    bottom:25%;
+    bottom:100px;
     overflow:scroll;
     background-color:black;
-}
-#footer{
-    position:absolute;
-    top:75%;
-    bottom:0px;
-    
+    border-bottom:solid;
+    border-top:solid;
+    border-color:#00ff00;
 }
 #imageurlinput{
     border:solid;
@@ -222,6 +232,8 @@ h1{
     font-family:courier;
 }
 #imagecontroltable{
+    position:absolute;
+    top:3.5em;
     font-size:1.5em;
     border:solid;
     border-color:#00ff00;
@@ -240,12 +252,16 @@ h1{
     height:90%;
 }
 #importbutton{
-    width:20%;
-    font-size:1.5em;
+    width:50%;
+    font-size:1em;
     border:solid;
     border-radius:0.5em;
     border-width:3px;
     border-color:orange;
+}
+#iotable{
+    position:absolute;
+    bottom:0px;
 }
 .imagebox{
     border-top:solid;
@@ -253,14 +269,15 @@ h1{
     padding-top:1em;
     padding-left:1em;
     border-bottom:solid;
+    border-width:0.2px;
     border-color:#00ff00;
 }
 
 .uploadimage{
-    max-width:50%;
+    max-width:25%;
     margin:auto;
     display:block;
-    background-color:white;
+    background-color:#A0A0A0;
 }
 .deletebutton{
     width:4em;
