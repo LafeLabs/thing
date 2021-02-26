@@ -43,37 +43,90 @@
         </tr>    
     </table>
 
+<div id = "mainbox">
+    <div id ="mainboxbackground"></div>
+    <canvas id = "gridcanvas"></canvas>
+    <canvas id = "maincanvas"></canvas>
+    <img id = "mainimage"/>
+    <div id = "hammerxy"></div>
+</div>
+
+<div id = "zoomrotatebox">
+        <table id = "rotatezoomtable">
+            <tr id = "rotatezoombuttons1">
+                <td>
+                    <img id = "zoomoutbutton" src= "iconsymbols/shrink.svg" class = "button" /> 
+                </td>
+                <td>
+                    <img id = "littlezoomoutbutton" src= "iconsymbols/shrinksmall.svg" class = "button"/> 
+                </td>
+                <td>
+                    <img id = "littlezoominbutton" src= "iconsymbols/expandsmall.svg" class = "button" /> 
+                </td>
+                <td>
+                    <img id = "zoominbutton" src= "iconsymbols/expand.svg" class = "button"/> 
+                </td>
+            </tr>
+            <tr id = "rotatezoombuttons2">
+                <td>
+                    <img id = "rotateleftbutton" src= "iconsymbols/left.svg" class = "button" /> 
+                </td>
+                <td>
+                    <img id = "littlerotateleftbutton" src= "iconsymbols/leftsmall.svg" class = "button"/> 
+                </td>
+                <td>
+                    <img id = "littlerotaterightbutton" src= "iconsymbols/rightsmall.svg" class = "button"/> 
+                </td>
+                <td>
+                    <img id = "rotaterightbutton" src= "iconsymbols/right.svg" class = "button" /> 
+                </td>
+            </tr>
+        </table>
+
+        <img src = "iconsymbols/scale.svg" id = "scalebar"/>
+        <img src = "iconsymbols/rotate.svg" id = "rotatebar"/>
+        
+</div>
+    
+<div id = "imagefeed"></div>
+
 <div id = "iobox">
-<textarea id = "textio"></textarea>
     <table id ="iotable">
         <tr>
             <td id = "savebutton" class=  "button">SAVE</td>
             <td id = "loadbutton" class = "button">LOAD</td>
         </tr>
     </table>
+    <textarea id = "textio"></textarea>
+
 </div>
 
-
-<div id = "mainbox">
-    <canvas id = "gridcanvas"></canvas>
-    <canvas id = "maincanvas"></canvas>
-    <img id = "mainimage"/>
-    <div id = "hammerxy"></div>
-</div>
-<div id = "zoomrotatebox">
-    <img src = "iconsymbols/scale.svg" id = "scalebar"/>
-    <img src = "iconsymbols/rotate.svg" id = "rotatebar"/>
-</div>
-<div id = "imagefeedbox">
-    <div id = "imagefeed"></div>
-</div>
 <script>
 
 
+mainboxsize = 500;
+if(innerWidth > innerHeight){
+    //computer
+    mainboxsize = 0.5*innerHeight;
+    //put link table in left side separate from mainbox
+    document.getElementById("linktable").style.width = "50%";
+    document.getElementById("mainbox").style.top = "0px";
+}
+else{
+    //mobile
+    mainboxsize = 0.5*innerWidth;
+    document.getElementById("zoomrotatebox").style.top = (mainboxsize + 100).toString() + "px";
+    document.getElementById("imagefeed").style.width = (mainboxsize).toString()  + "px";
+    document.getElementById("imagefeed").style.top = "100px";
+    document.getElementById("imagefeed").style.bottom = "0px";
+}
+
+document.getElementById("zoomrotatebox").style.width = mainboxsize.toString() + "px";    
+document.getElementById("zoomrotatebox").style.height = mainboxsize.toString() + "px";    
 
 maincanvas = document.getElementById("maincanvas");
 //var mainGVM = new GVM(maincanvas,0.5*innerWidth - 10,0.5*innerWidth -10);
-var mainGVM = new GVM(maincanvas,500,500);
+var mainGVM = new GVM(maincanvas,mainboxsize,mainboxsize);
 
 mainGVM.drawGlyph("0337,0337,0342,0334,0342,0334,0342,0334,0342,0341,");
 
@@ -225,6 +278,46 @@ document.getElementById("savebutton").onclick = function(){
     saveimage();
 }
 
+
+
+
+document.getElementById("zoomoutbutton").onclick = function() {
+    image.w /= 1.25;
+    document.getElementById("mainimage").style.width = (image.w*mainGVM.width).toString() +  "px";    
+}
+
+document.getElementById("zoominbutton").onclick = function() {
+    image.w *= 1.25;
+    document.getElementById("mainimage").style.width = (image.w*mainGVM.width).toString() +  "px";    
+}
+
+document.getElementById("littlezoomoutbutton").onclick = function() {
+    image.w /= 1.01;
+    document.getElementById("mainimage").style.width = (image.w*mainGVM.width).toString() +  "px";    
+}
+
+document.getElementById("littlezoominbutton").onclick = function() {
+    image.w *= 1.01;
+    document.getElementById("mainimage").style.width = (image.w*mainGVM.width).toString() +  "px";    
+}
+
+document.getElementById("rotateleftbutton").onclick = function() {
+    image.angle -= 5;
+    document.getElementById("mainimage").style.transform = "rotate(" + (image.angle).toString() + "deg)";    
+}
+document.getElementById("rotaterightbutton").onclick = function() {
+    image.angle += 5;
+    document.getElementById("mainimage").style.transform = "rotate(" + (image.angle).toString() + "deg)";    
+}
+document.getElementById("littlerotateleftbutton").onclick = function() {
+    image.angle -= 0.5;
+    document.getElementById("mainimage").style.transform = "rotate(" + (image.angle).toString() + "deg)";    
+}
+document.getElementById("littlerotaterightbutton").onclick = function() {
+    image.angle += 0.5;
+    document.getElementById("mainimage").style.transform = "rotate(" + (image.angle).toString() + "deg)";    
+}
+
 function saveimage(){
     var httpc = new XMLHttpRequest();
     httpc.open("POST", "filesaver.php", true);
@@ -232,17 +325,32 @@ function saveimage(){
     httpc.send("data="+encodeURIComponent(JSON.stringify(image),null,"    ")+"&filename=data/alignimage.txt");//send text to filesaver.php
     document.getElementById("textio").value = JSON.stringify(image,null,"    ");    
 }
-
 </script>
 <style>
 body{
     overflow:hidden;
-    background-color:#808080;
+    background-color:black;
 }
 #linktable a{
-    color:#ff2cb4;
+    color:black;
+    text-align:center;
+    font-size:1em;
     background-color:black;
     font-family:courier;
+    background-color:#00c000;
+}
+#linktable{
+    position:absolute;
+    top:0px;
+    left:0px;
+    right:0px;
+    width:100%;
+}
+#linktable td{
+    text-align:center;
+    font-size:2em;
+    font-family:courier;
+    background-color:black;
 }
 #mainbox{
     position:absolute;
@@ -253,6 +361,15 @@ body{
     border:solid;
     border-color:blue;
     overflow:hidden;
+}
+#mainboxbackground{
+    position:absolute;
+    left:0px;
+    right:0px;
+    top:0px;
+    bottom:0px;
+    z-index:-5;
+    background-color:white;
 }
 #mainimage{
     position:absolute;
@@ -276,11 +393,23 @@ body{
     bottom:0px;
     z-index:2;
 }
+@media only screen and (orientation: portrait) {
+#iobox{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+}
+    
+}
+@media only screen and (orientation: landscape) {
 #iobox{
     position:absolute;
     left:30px;
     bottom:30px;
 }
+    
+}
+
 #textio{
     background-color:black;
     color:#00ff00;
@@ -314,33 +443,53 @@ body{
     margin:auto;
     margin-bottom:1em;
     margin-top:1em;
-
-    
 }
 #zoomrotatebox{
     position:absolute;
     right:0px;
     bottom:0px;
-    width:500px;
-    height:200px;
+    width:400px;
+    height:400px;
     z-index:2;
+    background-color:white;
 }
 #scalebar{
     width:100%;
-    height:50%;
+    height:25%;
     position:absolute;
     left:0px;
-    top:0px;
+    bottom:25%;
     right:0px;
 }
 #rotatebar{
     width:100%;
-    height:50%;
+    height:25%;
     position:absolute;
     left:0px;
     bottom:0px;
     right:0px;
     
+}
+#rotatezoomtable{
+    position:absolute;
+    top:0px;
+    right:0px;
+    width:98%;
+    height:50%;
+}
+#rotatezoomtable tr{
+    height:50%;
+    border:solid;
+    border-color:blue;
+    background-clor:green;
+    margin:auto;
+}
+#rotatezoomtable td{
+    height:100%;
+    borer:solid;
+}
+#rotatezoomtable img{
+    width:100%;
 }
 .button{
     cursor:pointer;
@@ -351,8 +500,6 @@ body{
 .button:active{
     background-color:yellow;
 }
-
-
 
 </style>
 </body>

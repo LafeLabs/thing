@@ -25,6 +25,7 @@
 <body>
 <table id = "linktable">
     <tr>
+        <td id = "help">?</td>
         <td>
             <a href = "index.html">HOME</a>
         </td>
@@ -48,9 +49,9 @@
 
 <div id = "imagefeedheader">
     <form style = "margin-top:10px" id = "uploadform" action="upload.php" method="post" enctype="multipart/form-data">
-                Select image to upload:
+                <span id ="uploadspan">UPLOAD:</span>
         <input type="file" name="fileToUpload" id="fileToUpload">
-        <input type="submit" value="Upload Image" name="submit">
+        <input type="submit" value="Upload Image" name="submit" id ="submitinput">
     </form>        
 </div>
     
@@ -100,8 +101,18 @@ function loadimagefeed(){
     }    
 }
 
+document.getElementById("help").onmouseover = function(){
+    document.getElementById("header").style.display = "block";
+}
+document.getElementById("help").onmouseout = function(){
+    document.getElementById("header").style.display = "none";
+}
+
 </script>
 <style>
+#fileToUpload,#submitinput,#uploadspan{
+    font-size:2em;
+}
 body{
     overflow:hidden;
     font-size:1em;
@@ -110,7 +121,8 @@ body{
     background-color:black;
 }
 a{
-    color:#ff2cb4;
+    color:black;
+    background-color:#00c000;
     font-family:courier;
 }
 h1{
@@ -130,24 +142,26 @@ h1{
     background-color:black;
 }
 #header{
+    display:none;
     position:absolute;
+    z-index:2;
     top:3em;
     bottom:60%;
     background-color:black;
 }
 #imagefeedheader{
     position:absolute;
-    bottom:50%;
     left:0px;
     right:0px;
-    height:10%;
+    top:3em;
+    height:7em;
     border-bottom:solid;
     border-color:#00ff00;
     overflow:scroll;
 }
 #imagefeed{
     position:absolute;
-    top:50%;
+    top:10em;
     left:0px;
     right:0px;
     bottom:0px;
