@@ -97,5 +97,16 @@
         "href": "maps/workflow",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0.4148681055155875,
+        "y": 0.022781774580335732,
+        "w": 0.2853717026378897,
+        "h": 0.08513189448441247,
+        "angle": 0,
+        "text": "supplies to build Robot",
+        "href": "scrolls/supplies",
+        "src": "",
+        "maplinkmode": true
     }
 ]
