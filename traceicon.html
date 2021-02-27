@@ -29,22 +29,24 @@
 
 <table id = "linktable">
     <tr>
+        <td><a id ="help" class = "button">?</a></td>
         <td>
             <a href = "index.html">HOME</a>
         </td>
         <td>
-            <a href = "alignimage.html">ALIGN IMAGE</a>
+            <a href = "alignimage.html">ALIGN</a>
         </td>
         <td>
-            <a href = "iconfeed.html">SHARE</a>
+            <a href = "iconfeed.html">FEED</a>
         </td>
         <td>
             <a href = "programarduino.html">PROGRAM</a>
         </td>
+        <td>
+            <a class = "button" id  = "savebutton">SAVE</a>
+        </td>
     </tr>
 </table>
-
-
 <p id = "paragraph">
     to use keyboard, move with zxcv and move with pixel using asdf keys.  select color with `,1,2,3,4,5,6,7.  Clear program with "|". Robot icon Code is the sequence  of numbers. Copy and save them, share them, post them to icon feeds.  To share on the local Icon Feed click the "share" link.  To program the Arduino click the "program" link.  
 </p>
@@ -79,6 +81,37 @@
 </div>
 <script>
 
+square = 400;
+document.getElementById("controlbox").style.left = "0px";
+
+if(innerWidth > innerHeight){
+    square = innerHeight - 100;
+    document.getElementById("controlbox").style.right = (square+10).toString() + "px";
+        document.getElementById("controlbox").style.top = "80px";
+    document.getElementById("controlbox").style.bottom = (0.5*square).toString() + "px";
+    document.getElementById("spellbox").style.top = (0.5*square+100).toString() + "px";
+    document.getElementById("spellbox").style.right = (square+10).toString() + "px";
+    
+}
+else{
+    square = innerWidth;
+
+    document.getElementById("controlbox").style.right = "0px";    
+    document.getElementById("controlbox").style.left = "0px";    
+    document.getElementById("controlbox").style.top = (100+square).toString() + "px";
+    
+    square2bottomdistance = innerHeight - 100 - square;    
+    
+    document.getElementById("controlbox").style.bottom = (0.5*(square2bottomdistance)).toString() + "px";
+    
+
+    document.getElementById("spellbox").style.right = "0px";    
+    document.getElementById("spellbox").style.left = "0px";    
+    document.getElementById("spellbox").style.bottom = "0px";
+    document.getElementById("spellbox").style.top = (square + 100 + 0.5*square2bottomdistance).toString() + "px";
+    
+}
+
 
 headerbuttonsize = 36;
 if(innerWidth > innerHeight){
@@ -91,60 +124,14 @@ else{
 }
 
 
-screenmode = 0;
-setscreen();
-
-function setscreen(){
-    if(true){
-
-        //geometron edit mode
-        document.getElementById("mainbox").style.display = "block";
-
-
-        document.getElementById("controlbox").style.display = "block";            
-        document.getElementById("spellbox").style.display = "block";
-        if(innerWidth > innerHeight){
-            document.getElementById("actioninput").select();
-            document.getElementById("spellbox").style.top = "40px";
-            document.getElementById("spellbox").style.left = "25%";
-            document.getElementById("spellbox").style.width = "25%";
-            document.getElementById("spellbox").style.height = (innerHeight*0.5 - 45).toString() + "px";
-            document.getElementById("controlbox").style.bottom = "40px";
-            document.getElementById("controlbox").style.left = "25%";
-            document.getElementById("controlbox").style.width = "25%";
-            document.getElementById("controlbox").style.height = (innerHeight*0.5 - 45).toString() + "px";     
-           
-
-        }
-        else{
-         //mobile here   
-    
-            document.getElementById("spellbox").style.top = "140px";
-            document.getElementById("spellbox").style.left = "0px";
-            document.getElementById("spellbox").style.width = "50%";
-            document.getElementById("spellbox").style.height = (innerHeight*0.5 - 140 - 140).toString() + "px";
-
-            document.getElementById("controlbox").style.right = "0px";
-            document.getElementById("controlbox").style.width = "50%";
-            document.getElementById("controlbox").style.top = (innerWidth*0.5 + 140 + 100).toString() + "px";    
-            document.getElementById("controlbox").style.height = (innerHeight - 140 - 140 - 0.5*innerWidth - 80).toString() + "px";
-            
-
-        }        
-        
-    }
-    
-}
-
+document.getElementById("actioninput").select();
 
 //load 4 files: data/feed.txt, data/imagefeed.txt data/robot.txt, and data/hypercube.txt
 
 controls  = [
-    "0500,0501,0502,0503,",
-    "0504,0505,0506,0507,",
+    "0500,0501,0502,0503,0504,0505,0506,0507,",
     "011,020,010,021,",
-    "0320,0321,0322,0323,",
-    "0324,0325,0326,0327,",
+    "0320,0321,0322,0323,0324,0325,0326,0327,",
     "040,041,042,043,044,045,046,050,",
     "051,052,053,054,055,056,057,060,",
     "061,062,063,064,065,066,067,070,",
@@ -166,6 +153,11 @@ controls  = [
 
 
 controlbuttonsize = 80;
+
+if(innerHeight > innerWidth){
+    controlbuttonsize = square/9;
+}
+
 function loadcontroltable(){
     document.getElementById("controltable").innerHTML = "";
     for(var index = 0;index < controls.length;index++){
@@ -220,9 +212,13 @@ function loadcontroltable(){
 hypercube = [];
 
 maincanvas = document.getElementById("maincanvas");
-var mainGVM = new GVM(maincanvas,0.5*innerWidth - 10,0.5*innerWidth -10);
 
-var gridGVM = new GVM(gridcanvas,0.5*innerWidth - 10,0.5*innerWidth -10);
+
+
+var mainGVM = new GVM(maincanvas,square,square);
+
+var gridGVM = new GVM(gridcanvas,square,square);
+
 gridGVM.drawGlyph("0337,0337,0342,0334,0342,0334,0342,0334,0342,0341,");
 
 var spellGVM = new GVM(document.getElementById("spellcanvas"),420,800);
@@ -444,6 +440,10 @@ function pushcoin(){
     
 }
 
+document.getElementById("savebutton").onclick = function(){
+    pushcoin();
+}
+
 var httpcimage = new XMLHttpRequest();
 httpcimage.onreadystatechange = function(){
     if (this.readyState == 4 && this.status == 200) {
@@ -468,6 +468,15 @@ function loadimage(){
     
 }
 
+
+document.getElementById("help").onmouseover = function(){
+    document.getElementById("paragraph").style.display = "block";
+}
+
+document.getElementById("help").onmouseout = function(){
+    document.getElementById("paragraph").style.display = "none";
+}
+
 </script>
 <style>
 body{
@@ -476,6 +485,8 @@ body{
 }
 #paragraph{
     position:absolute;
+    z-index:2;
+    display:none;
     left:0px;
     bottom:0px;
     width:300px;
@@ -490,13 +501,24 @@ body{
     z-index:2;
     top:0px;
     left:0px;
+    right:0px;
+    width:100%;    
 }
 #linktable a{
-    color:#ff2cb4;
-    font-size:1.5em;
+    color:black;
+    text-align:center;
+    font-size:1em;
     background-color:black;
     font-family:courier;
+    background-color:#00c000;
 }
+#linktable td{
+    text-align:center;
+    font-size:2em;
+    font-family:courier;
+    background-color:black;
+}
+
 #mainbox{
     position:absolute;
     right:0px;
@@ -523,9 +545,8 @@ body{
 }
 #spellbox{
     position:absolute;
-    right:0px;
-    width:450px;
-    height:250px;
+    left:0px;
+    bottom:0px;
     border:solid;
     border-color:green;
     overflow:scroll;
@@ -540,10 +561,7 @@ body{
 #controlbox{
     position:absolute;
     right:0px;
-    width:400px;
     overflow:scroll;
-    height:130px;
-    bottom:51%;
     border:solid;
     border-color:red;
 }
@@ -552,7 +570,7 @@ body{
     cursor:pointer;
 }
 .button:hover{
-    background-color:green;
+    background-color:#00ff00;
 }
 .button:active{
     background-color:yellow;
