@@ -97,5 +97,16 @@
         "href": "maps/workflow",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0.38066825775656327,
+        "y": 0.00954653937947494,
+        "w": 0.2852028639618138,
+        "h": 0.08591885441527446,
+        "angle": 0,
+        "text": "set",
+        "href": "maps/set",
+        "src": "",
+        "maplinkmode": true
     }
 ]
