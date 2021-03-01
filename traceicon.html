@@ -73,8 +73,12 @@
     <div id = "spellcanvasbox">
         <canvas id = "spellcanvas"></canvas>
     </div>
-</div>
+    <div id = "jsonbox">
+        <div id = "importbutton" class = "button">IMPORT JSON</div>
+        <textarea id = "textio"></textarea>
+    </div>
 
+</div>
 <div id = "controlbox">
     <table id = "controltable">
     </table>
@@ -342,7 +346,6 @@ document.getElementById("actioninput").onkeypress = function(a) {
         document.getElementById("spellinput").value = mainGVM.cleanGlyph;
         coin = mainGVM.cleanGlyph;
         savecoin();
-
     }
 
 }
@@ -382,7 +385,9 @@ document.getElementById("actioninput").onkeydown = function(a) {
     spellGVM.spellGlyph(mainGVM.glyph);
     document.getElementById("spellinput").value = mainGVM.cleanGlyph;
     mainGVM.clean();
-
+    coin = mainGVM.cleanGlyph;
+    savecoin();
+    
 }
 
 function modeswitch(){
@@ -448,6 +453,7 @@ var httpcimage = new XMLHttpRequest();
 httpcimage.onreadystatechange = function(){
     if (this.readyState == 4 && this.status == 200) {
         image = JSON.parse(this.responseText);
+        document.getElementById("textio").value = JSON.stringify(image,null,"    ");
         loadimage();
     };
 };
@@ -464,8 +470,6 @@ function loadimage(){
     document.getElementById("mainimage").style.width = (image.w*mainGVM.width).toString() + "px";    
     document.getElementById("mainimage").style.transform = "rotate(" + (image.angle).toString() + "deg)";
     
-
-    
 }
 
 
@@ -475,6 +479,12 @@ document.getElementById("help").onmouseover = function(){
 
 document.getElementById("help").onmouseout = function(){
     document.getElementById("paragraph").style.display = "none";
+}
+
+document.getElementById("importbutton").onclick = function(){
+    image = JSON.parse(document.getElementById("textio").value);
+    loadimage();
+
 }
 
 </script>
@@ -550,6 +560,22 @@ body{
     border:solid;
     border-color:green;
     overflow:scroll;
+}
+#jsonbox{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+}
+#importbutton{
+ text-align:center;
+ border:solid;
+}
+#textio{
+    border:solid;
+    border-color:orange;
+    background-color:black;
+    color:#00ff00;
+    font-family:courier;
 }
 #spellcanvasbox{
     position:absolute;
