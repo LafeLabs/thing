@@ -17,7 +17,7 @@
         "h": 0.09665871121718377,
         "angle": 0,
         "text": "bags",
-        "href": "maps/bags",
+        "href": "scrolls/bags",
         "src": "",
         "maplinkmode": true
     },
@@ -28,7 +28,7 @@
         "h": 0.08949880668257756,
         "angle": 0,
         "text": "flags",
-        "href": "maps/flags",
+        "href": "scrolls/flags",
         "src": "",
         "maplinkmode": true
     },
