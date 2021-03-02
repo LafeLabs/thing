@@ -1,5 +1,7 @@
 [home](index.html)
 
+[map](maps/shapes)
+
 # Laser Cut Shapes
 
 The Geometron language allows a trash robot operator to create laser cut shape designs quickly in computer formats which can be used to either directly program a laser cutter or be sent to a commercial laser cut on demand service.  Thus, all Trash Robot Operators can make custom laser cut shapes of any kind on demand and provide them at any scale from one cut in a library maker space to thousands sent out to have cut.
@@ -29,8 +31,7 @@ To make your own shape designs from scratch, follow the separate geometron instr
 
 ![](iconsymbols/rulers.png)
 
-## rulersoutline.svg:
+## [rulersoutline.svg](iconsymbols/rulersoutline.svg)
 
-![](iconsymbols/rulersoutline.svg)
 
 If you want one set, contact an Operator.  If you want lots, get them made in bulk.  You can make them and sell them if you want it is zero-property.

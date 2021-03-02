@@ -108,5 +108,16 @@
         "href": "scrolls/board",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0.081145584725537,
+        "y": 0.13961813842482101,
+        "w": 0.8245823389021479,
+        "h": 0.09665871121718377,
+        "angle": 0,
+        "text": "shapes+ruler",
+        "href": "scrolls/shapes",
+        "src": "",
+        "maplinkmode": true
     }
 ]
