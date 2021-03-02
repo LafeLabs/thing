@@ -1,0 +1,90 @@
+[
+    {
+        "x": 0.010739856801909307,
+        "y": 0.30906921241050117,
+        "w": 0.48329355608591884,
+        "h": 0.48329355608591884,
+        "angle": 0,
+        "text": "shieldkit",
+        "href": "",
+        "src": "https://i.imgur.com/fzFvL7B.jpg",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.5047732696897375,
+        "y": 0.30906921241050117,
+        "w": 0.48568019093078757,
+        "h": 0.48568019093078757,
+        "angle": 0,
+        "text": "shieldkit",
+        "href": "",
+        "src": "https://i.imgur.com/qy2o8oR.jpg",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.32577565632458233,
+        "y": 0.031026252983293555,
+        "w": 0.48568019093078757,
+        "h": 0.07995226730310262,
+        "angle": 0,
+        "text": "Trash Robot unoshield-v5",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.007159904534606206,
+        "y": 0,
+        "w": 0.48568019093078757,
+        "h": 0.06801909307875895,
+        "angle": 0,
+        "text": "home",
+        "href": "data/currentMap.txt",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.02386634844868735,
+        "y": 0.8138424821002387,
+        "w": 0.48568019093078757,
+        "h": 0.12291169451073986,
+        "angle": 0,
+        "text": "digikey shopping cart with parts for 20 units",
+        "href": "https://www.digikey.com/short/92z70jhr",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.535799522673031,
+        "y": 0.8782816229116945,
+        "w": 0.48568019093078757,
+        "h": 0.12291169451073986,
+        "angle": 0,
+        "text": "github repository with board files",
+        "href": "https://github.com/LafeLabs/trashrobot5/tree/master/boards",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.016706443914081145,
+        "y": 0.1575178997613365,
+        "w": 0.4045346062052506,
+        "h": 0.14439140811455847,
+        "angle": 0,
+        "text": "link to buy circuit boards at PCBway.com",
+        "href": "https://www.pcbway.com/project/shareproject/Generic_Trash_Robot_UNO_Shield__V5.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.594272076372315,
+        "y": 0.19809069212410502,
+        "w": 0.48568019093078757,
+        "h": 0.06801909307875895,
+        "angle": 0,
+        "text": "build and program",
+        "href": "scrolls/shield",
+        "src": "",
+        "maplinkmode": true
+    }
+]
