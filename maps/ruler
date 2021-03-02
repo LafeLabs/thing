@@ -1,0 +1,79 @@
+[
+    {
+        "x": 0.10739856801909307,
+        "y": 0.2577565632458234,
+        "w": 0.7935560859188544,
+        "h": 0.7935560859188544,
+        "angle": 0,
+        "text": "ruler file",
+        "href": "iconsymbols/anotherruler.svg",
+        "src": "iconsymbols/anotherruler.svg",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.6205250596658711,
+        "y": 0.15274463007159905,
+        "w": 0.36634844868735084,
+        "h": 0.1467780429594272,
+        "angle": 0,
+        "text": "neon green acrylic, 1/8 or 1/4 inch thick, 6 inches square to print 6 rulers",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.2732696897374702,
+        "y": 0.0059665871121718375,
+        "w": 0.6694510739856802,
+        "h": 0.07517899761336516,
+        "angle": 0,
+        "text": "Geometron Ruler",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.8448687350835322,
+        "y": -0.021479713603818614,
+        "w": 1.1801909307875895,
+        "h": 0.13961813842482101,
+        "angle": 0,
+        "text": "📏",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": -0.4498806682577566,
+        "y": 0.20405727923627684,
+        "w": 1.0393794749403342,
+        "h": 0.13484486873508353,
+        "angle": -91,
+        "text": "Ponoko.com",
+        "href": "https://www.ponoko.com/",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.5787589498806682,
+        "y": 0.5644391408114559,
+        "w": 0.6646778042959427,
+        "h": 0.13365155131264916,
+        "angle": 90,
+        "text": "ruler file",
+        "href": "iconsymbols/anotherruler.svg",
+        "src": "https://i.imgur.com/xt1HCtu.jpg",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.01909307875894988,
+        "y": 0.0011933174224343676,
+        "w": 0.6694510739856802,
+        "h": 0.07517899761336516,
+        "angle": 0,
+        "text": "home",
+        "href": "data/currentMap.txt",
+        "src": "",
+        "maplinkmode": true
+    }
+]
