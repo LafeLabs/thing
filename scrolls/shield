@@ -31,4 +31,10 @@ This is an example of an I2C controlled sensor.  There are many such sensors fro
 
 ## Double coil feedback oscillator
 
+Connect sense coil to appropriate spring contacts. Connect Drive Coil to motor output spring contacts. Connect power supply to power supply spring contacts.  Program Arduino with oscillator code.  Connect Arduino to USB power, power up external power, use to either spin magnets or oscillate magnets.
+
+## Golden Pyramid
+
+
+
 
