@@ -66,15 +66,15 @@
         "maplinkmode": true
     },
     {
-        "x": 0.10143198090692124,
-        "y": 0.8257756563245824,
+        "x": 0.2064439140811456,
+        "y": 0.8914081145584726,
         "w": 0.49761336515513127,
         "h": 0.49761336515513127,
         "angle": 0,
-        "text": "width",
-        "href": "iconsymbols/rulers.svg",
-        "src": "iconsymbols/rulers.svg",
-        "maplinkmode": false
+        "text": "ruler",
+        "href": "maps/ruler",
+        "src": "",
+        "maplinkmode": true
     },
     {
         "x": 0.7804295942720764,
@@ -94,17 +94,6 @@
         "h": 0.19212410501193317,
         "angle": 0,
         "text": "use these files on ponoko to get laser cut shapes for geometron constructions",
-        "href": "",
-        "src": "",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.6073985680190931,
-        "y": 0.8854415274463007,
-        "w": 0.1873508353221957,
-        "h": 0.19212410501193317,
-        "angle": 0,
-        "text": "geometron ruler: half 10's and half factors of 2. cut from quarter inch laser cut neon green acrylic",
         "href": "",
         "src": "",
         "maplinkmode": false
@@ -162,6 +151,17 @@
         "text": "scroll",
         "href": "scrolls/shapes",
         "src": "https://i.imgur.com/6ruFv2s.png",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.30906921241050117,
+        "y": 0.8937947494033412,
+        "w": 0.49761336515513127,
+        "h": 0.10023866348448687,
+        "angle": 0,
+        "text": "ruler",
+        "href": "maps/ruler",
+        "src": "https://i.imgur.com/xt1HCtu.jpg",
         "maplinkmode": true
     }
 ]
