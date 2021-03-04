@@ -299,6 +299,7 @@
         "cloth",
         "coins",
         "connectors",
+        "controller",
         "domains",
         "duality",
         "elementsofcode",
