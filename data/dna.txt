@@ -335,6 +335,7 @@
         "shapes",
         "shield",
         "signs",
+        "skeletron",
         "srs.md",
         "supplies",
         "symbolmagic",
