@@ -40,6 +40,10 @@ Links from a scroll to a scroll or from a map to a scroll can be realized in Tra
 
 Everything on every instance of Trash Robot can be deleted quickly and easily and with no backups.  When something is deleted it's really gone. Rather than backing things up or saving to "the cloud", in Trash Robot we replicate what we want to keep and whatever doesn't get replicated will probably eventually be deleted.  To get this functionality, we have a delete scroll page called [scrolldelete.html](scrolldelete.html).  To delete, click on a red X.  But this is for keeps!  Deletion really is deletion.  If you see some bad stuff on a server, just delete it.  If you want to post stuff and not have it deleted, replicate it to a quiet place where no one will see it where it can get replicated back to a live page later if it's deleted.
 
+## Some technical details
+
+The basis of the scroll software is the JavaScript library [Showdown.js](http://showdownjs.com/), which is great, and it converts from markdown to html.  So scrolls are all in raw markdown but display as html.  Use of HTML tags still work as well.  By default it's commented out but by editing the code using [editor.php](editor.php) it is possible to turn math on using the MathJax JavaScript library, making it the same LaTeX-like markdown that is used in markdown elements in Jupyter notebooks.  This allows for rapid free self replicating math papers to be created and shared on the Network.
+
 
 
 
