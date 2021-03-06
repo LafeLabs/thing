@@ -22,46 +22,13 @@
         "maplinkmode": true
     },
     {
-        "x": 0.08591885441527446,
-        "y": 0.4033412887828162,
-        "w": 0.8245823389021479,
-        "h": 0.08949880668257756,
-        "angle": 0,
-        "text": "s-hook",
-        "href": "maps/shook",
-        "src": "",
-        "maplinkmode": true
-    },
-    {
-        "x": 0.08949880668257756,
-        "y": 0.5,
-        "w": 0.8245823389021479,
-        "h": 0.08711217183770883,
-        "angle": 0,
-        "text": "trash tie",
-        "href": "maps/trashtie",
-        "src": "",
-        "maplinkmode": true
-    },
-    {
-        "x": 0.0954653937947494,
-        "y": 0.5930787589498807,
-        "w": 0.8245823389021479,
-        "h": 0.08949880668257756,
-        "angle": 0,
-        "text": "trash pole",
-        "href": "maps/trashpole",
-        "src": "",
-        "maplinkmode": true
-    },
-    {
-        "x": 0.09427207637231504,
-        "y": 0.6945107398568019,
+        "x": 0.07398568019093078,
+        "y": 0.44630071599045346,
         "w": 0.8245823389021479,
         "h": 0.09665871121718377,
         "angle": 0,
-        "text": "tape snake",
-        "href": "maps/tapesnake",
+        "text": "skeletron",
+        "href": "scrolls/skeletron",
         "src": "",
         "maplinkmode": true
     },
