@@ -17,7 +17,7 @@
     - 6 squares 1.75"x1.75"
     - 3 rectangles 4"X5"
     - 36 0.6"x0.6" squares
-    - 3 rectangles 14"x5" 
+    - 3-4 rectangles 14"x5" 
 
 ## tools and materials
 
@@ -56,7 +56,7 @@ Cut cables to 12 inches if you have not done so.  Strip ends. Solder to stepper 
 
 Flip stages upside down, stack 0.6" squares up until they form an even level in 4 towers of 3 units, subtracting layers as needed to end up with all pillars level and with the level extending enough to prevent interference with motion of stage.  Use gorilla glue epoxy to fix stacks permanently in place, using the epoxy like mortar and the cardboard squares like bricks. When dry, use another epoxy joint to mount the stages to the 4"x5" rectangles.  Flip over and use epoxy to stack 2 squares on each stage(these are the 1.75" squares).  Choose the order of the stages on the final robot, attach 1 inch squares of the hook side of the adhesive backed velcro strips to the outer two.  
 
-Use elmers glue to laminate together the three large boards(5x14). Wrap the board in rainbow duct tape. Epoxy the three stages to the board as shown.  Try both orientations of each connector on robot, test, if the directions are wrong, swap the orientation.  Mark the connectors with paint pen facing away from the robot brain, from left to right as red, then green then blue.
+Use elmers glue to laminate together the three-four large boards(5x14). Wrap the board in rainbow duct tape. Epoxy the three stages to the board as shown.  Try both orientations of each connector on robot, test, if the directions are wrong, swap the orientation.  Mark the connectors with paint pen facing away from the robot brain, from left to right as red, then green then blue.
 
 [return to robot map](maps/robot)
 

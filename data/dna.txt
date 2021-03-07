@@ -343,6 +343,7 @@
         "symbolmagic",
         "symbolmagicdotcom",
         "terminal",
+        "textile",
         "trashrobot",
         "trashrobotdotorg",
         "zdrive-arduino"
