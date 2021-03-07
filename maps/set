@@ -119,5 +119,16 @@
         "href": "scrolls/skeletron",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0.5429594272076372,
+        "y": 0.8735083532219571,
+        "w": 0.788782816229117,
+        "h": 0.10620525059665871,
+        "angle": 0,
+        "text": "magic scroll",
+        "href": "scrolls/magic",
+        "src": "",
+        "maplinkmode": true
     }
 ]

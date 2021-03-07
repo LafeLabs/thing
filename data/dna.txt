@@ -313,6 +313,8 @@
         "install",
         "introvideo",
         "lasercutshapes",
+        "magic",
+        "magick",
         "maps",
         "maps.md",
         "mechanicals",
