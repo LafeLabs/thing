@@ -130,5 +130,27 @@
         "href": "programarduino.html",
         "src": "",
         "maplinkmode": false
+    },
+    {
+        "x": 0.21479713603818615,
+        "y": 0.8365155131264916,
+        "w": 0.5274463007159904,
+        "h": 0.050119331742243436,
+        "angle": 0,
+        "text": "magic",
+        "href": "scrolls/magic",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.01909307875894988,
+        "y": 0.1431980906921241,
+        "w": 0.2852028639618138,
+        "h": 0.03341288782816229,
+        "angle": 0,
+        "text": "terminal",
+        "href": "scrolls/terminal",
+        "src": "",
+        "maplinkmode": true
     }
 ]

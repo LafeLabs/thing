@@ -2,7 +2,7 @@
 
 # Trash Robot Raspberry Pi Setup
 
-Setup a Raspberry Pi according to any of numerous instructions online, with the basic setup using NOOBS.  Put it on your local wifi, put no personal information on it, leave it un password protected, set it up with a screen, keyboard, and mouse.
+[Setup a Raspberry Pi according to any of numerous instructions online, with the basic setup using NOOBS](https://www.raspberrypi.org/documentation/installation/noobs.md).  Put it on your local wifi, put no personal information on it, leave it un password protected, set it up with a screen, keyboard, and mouse.
 
 [$100 Sunfounder compact screen perfect for terminals](https://www.sunfounder.com/collections/displays-monitors/products/7-inch-hdmi-monitor)
 
@@ -59,6 +59,8 @@ sudo /etc/init.d/listen-for-shutdown.sh start
 Then hover the mouse over the wifi icon on the Pi desktop to see the IP address of your serer.  To operate the Trash Robot terminal either open a browser on the PI and open [http://localhost](http://localhost) or open a browser on any machine on the same local wifi network and point it to "http://[the ip address of your pi]".  Then you should be back in a familiar Trash Robot/ Geometron Dark Web space.
 
 # Terminal construction
+
+![](https://i.imgur.com/ij5KATT.png)
 
 ![](https://i.imgur.com/TobITia.jpg)
 

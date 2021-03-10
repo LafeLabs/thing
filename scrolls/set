@@ -5,13 +5,12 @@
 {
 
 - [boxes](scrolls/box),
+- [skeletron](scrolls/skeletron),
 - [shapes](scrolls/shapes),
 - [terminals](scrolls/terminal),
-- [signs](scrolls/signs),
 - [domains](scrolls/domains),
 - [printers](scrolls/printer),
-- [tablets/coins](scrolls/coins),
-- [cloths](scrolls/cloth),
+- [textile](scrolls/textile),
 - [scrolls](scrolls/scrolls),
 - [maps](scrolls/maps),
 - [symbols](scrolls/symbols),

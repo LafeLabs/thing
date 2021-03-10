@@ -264,6 +264,7 @@
     "maps": [
         "arduino",
         "bag",
+        "board",
         "coins",
         "controller",
         "copy",
@@ -291,6 +292,7 @@
     ],
     "scrolls": [
         "arduino-8button-xyz",
+        "board",
         "bookofshapes",
         "box",
         "brain",
