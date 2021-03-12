@@ -1,8 +1,26 @@
 [home](index.html)
 
-# Trash Robot Raspberry Pi Setup
+[terminal map](maps/terminal)
 
-[Setup a Raspberry Pi according to any of numerous instructions online, with the basic setup using NOOBS](https://www.raspberrypi.org/documentation/installation/noobs.md).  Put it on your local wifi, put no personal information on it, leave it un password protected, set it up with a screen, keyboard, and mouse.
+# Trash Robot Raspberry Pi Terminal Replication
+
+## Steps
+
+1. Find this document
+2. gather pi hardware
+3. gather Trash Magic materials and tools
+4. gather bag kit elements
+5. assemble Pi terminal
+6. [Make NOOBS SD card, turn on PI, set it up](https://www.raspberrypi.org/documentation/installation/noobs.md)
+7. Install Apache and PHP
+8. Replicate Geometron Server code
+9. Point top level map to terminal replicator scroll(this document)
+10. Buy domain, make [flag](scrolls/textile) pointing to domain, point map of domain to terminal IP address
+11. assemble pi terminal enclosure
+12. assemble pi terminal bag
+
+
+## Parts
 
 [$100 Sunfounder compact screen perfect for terminals](https://www.sunfounder.com/collections/displays-monitors/products/7-inch-hdmi-monitor)
 
@@ -20,8 +38,41 @@
 
 [$10 mouse from amazon](https://www.amazon.com/gp/product/B005EJH6RW/)
 
+Trash Magic kit including:
+
+ - HDPE plastic milk bottles
+ - rainbow duct tape
+ - googly eyes
+ - scissors, box cutter
+ - paint pens
+ 
+
+
+## Bag Fabrication
+
+Cut out black cotton flannel according to pattern.  Get a Trash Tie(6' clothesline with both ends taped with duct tape).  Cut out [P3 Rhombus Penrose Tiles](https://en.wikipedia.org/wiki/Penrose_tiling#Rhombus_tiling_(P3)) as shown from red and green felt.  Stitch trash tie into top of bag.  Stitch tiles to bag for pi logo. Double stitch bag together, put terminal in, carry and use.
+
+![](https://i.imgur.com/Acso1rT.jpg)
+![](https://i.imgur.com/eWW5y68.jpg)
+![](https://i.imgur.com/blwfAUM.jpg)
+![](https://i.imgur.com/stbiMPC.jpg)
+![](https://i.imgur.com/wCAJgf0.jpg)
+![](https://i.imgur.com/yvbgOm0.jpg)
+![](https://i.imgur.com/ij5KATT.png)
+![](https://i.imgur.com/eOU5AkW.jpg)
+
+
+## Terminal Fabrication
+
+![](https://i.imgur.com/3uUfJRQ.jpg)
+![](https://i.imgur.com/N3408qu.jpg)
+![](https://i.imgur.com/Nq6ql9O.jpg)
+![](https://i.imgur.com/SteZ5V8.jpg)
 
 ## Installation
+
+
+![](https://i.imgur.com/At1oYEl.jpg)
 
 Open a terminal and install Apache and php:
 
@@ -60,13 +111,12 @@ Then hover the mouse over the wifi icon on the Pi desktop to see the IP address 
 
 # Terminal construction
 
-![](https://i.imgur.com/ij5KATT.png)
+
+## Bag Replicator Card
 
 ![](https://i.imgur.com/96SbQov.jpg)
 
-![](https://i.imgur.com/TobITia.jpg)
 
-![](https://i.imgur.com/fOmRCAo.jpg)
 
-![](https://i.imgur.com/ZZH0hw7.jpg)
+
 

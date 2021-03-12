@@ -284,6 +284,7 @@
         "sponsor",
         "street",
         "symbols",
+        "terminal",
         "textile",
         "tools",
         "upcycle",

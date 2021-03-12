@@ -149,6 +149,17 @@
         "h": 0.03341288782816229,
         "angle": 0,
         "text": "terminal",
+        "href": "maps/terminal",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.4880668257756563,
+        "y": 0.8293556085918854,
+        "w": 0.2852028639618138,
+        "h": 0.08591885441527446,
+        "angle": 0,
+        "text": "Replicate Trash Robot Terminal",
         "href": "scrolls/terminal",
         "src": "",
         "maplinkmode": true
