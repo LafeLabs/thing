@@ -1,3 +1,7 @@
+[home](index.html)
+
+[Terminal Scroll](scrolls/terminal)
+
 # Hello Geometron
 
 ## Introduction
@@ -145,15 +149,9 @@ The Geometron hypercube is an abstraction. The cells have meanings which are geo
 
 Sequences of Geometron code are expresses in their raw form as strings of text of consisting of addresses with their appropriate leading zero and commas separating them.  Raw Geometron code files consist of an address followed by a colon after which is a sequence of addresses separated by a comma.  These address arrays are then themselves in an array separated by "newline".  In the JavaScript code used here, geometron is often arrays of strings, where each string is an address, colon, and sequence of addresses.  This can be done by other means in other languages, for instance in Arduino it is useful to use strings for everything because arrays are awkward.
 
-To get the spelling value of parts of the Hypercube using Geometron symbol glyph spelling use the tablet app here:
-
-
-[![](iconsymbols/tablet.svg)](tablet.html)
-
 You can change the values of the keys using the keyboard app here:
 
-
-[![](iconsymbols/keyboardicon.svg)](keyboardeditor.html)
+[![](iconsymbols/keyboardicon.svg)](keyboard.html)
 
 Edit the font here:
 

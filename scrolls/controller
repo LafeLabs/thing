@@ -16,6 +16,7 @@ Controller kit:
 
 Corrugated Cardboard patterns
 
+![](https://i.imgur.com/5lgrJQZ.png)
 ![](https://i.imgur.com/bBO9jAm.jpg)
 
 Wrap board in black duct tape, punch holes spaced by 0.2 inches from each other, centered around the 8 marked dots from the above diagram.  Insert buttons on top side, bend leads. Connect jumpers so one pin of each button is connected to all the other ground pins, which connect to black wire on ribbon cable, which is grounded at the Arduino side.  Red to the right, black to the ground/left, wires are in order by color code and match the pins as numbered above, in order.  Split the ribbon cable by 7 inches on this end, strip ends.  duct tape with black duct tape the first non-split inch onto the 1 inch square at the top middle of the controller board as shown.

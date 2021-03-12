@@ -33,10 +33,10 @@
         "maplinkmode": false
     },
     {
-        "x": 0,
-        "y": 0.05250596658711217,
+        "x": 0.015513126491646777,
+        "y": 0.07398568019093078,
         "w": 0.4105011933174224,
-        "h": 0.060024009603841535,
+        "h": 0.059665871121718374,
         "angle": 0,
         "text": "tools",
         "href": "maps/tools",
@@ -75,5 +75,16 @@
         "href": "symboltrace.html",
         "src": "",
         "maplinkmode": false
+    },
+    {
+        "x": 0.1730310262529833,
+        "y": 0.6897374701670644,
+        "w": 0.4105011933174224,
+        "h": 0.059665871121718374,
+        "angle": 0,
+        "text": "Geometron Scroll",
+        "href": "scrolls/hellogeometron",
+        "src": "",
+        "maplinkmode": true
     }
 ]
