@@ -262,12 +262,8 @@
         "user.txt"
     ],
     "maps": [
-        "arduino",
-        "bag",
         "board",
-        "coins",
         "controller",
-        "copy",
         "electrical",
         "flag",
         "graph",
@@ -285,7 +281,6 @@
         "street",
         "symbols",
         "terminal",
-        "textile",
         "tools",
         "upcycle",
         "web",

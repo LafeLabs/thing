@@ -60,8 +60,8 @@
         "w": 0.6957040572792362,
         "h": 0.10859188544152745,
         "angle": 0,
-        "text": "upcycle",
-        "href": "maps/upcycle",
+        "text": "set",
+        "href": "maps/set",
         "src": "",
         "maplinkmode": true
     },
@@ -163,5 +163,16 @@
         "href": "maps/ruler",
         "src": "https://i.imgur.com/xt1HCtu.jpg",
         "maplinkmode": true
+    },
+    {
+        "x": -0.2494033412887828,
+        "y": 1.0847255369928401,
+        "w": 0.6551312649164678,
+        "h": 0.06801909307875895,
+        "angle": 88,
+        "text": "home",
+        "href": "index.html",
+        "src": "",
+        "maplinkmode": false
     }
 ]

@@ -163,5 +163,16 @@
         "href": "scrolls/terminal",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0.8293556085918854,
+        "y": 0.6515513126491647,
+        "w": 0.22792362768496421,
+        "h": 0.02386634844868735,
+        "angle": -86,
+        "text": "build printer robot",
+        "href": "maps/printer",
+        "src": "",
+        "maplinkmode": true
     }
 ]
