@@ -6,7 +6,7 @@
 
 ## Steps
 
-1. Find this document
+1. Find [this document](user.php?scroll=scrolls/terminal)
 2. gather pi hardware
 3. gather Trash Magic materials and tools
 4. gather bag kit elements
@@ -93,28 +93,18 @@ cd ..
 sudo chmod -R 0777 *
 </pre>
 
-Finally in order to have the buttons set up for if a Printer is attached we run the button setup script:
-
-
-<pre>
-sudo bash buttonsetup.sh
-</pre>
-
-and then turn the off button detector on:
-
-<pre>
-sudo /etc/init.d/listen-for-shutdown.sh start
-</pre>
-
 
 Then hover the mouse over the wifi icon on the Pi desktop to see the IP address of your serer.  To operate the Trash Robot terminal either open a browser on the PI and open [http://localhost](http://localhost) or open a browser on any machine on the same local wifi network and point it to "http://[the ip address of your pi]".  Then you should be back in a familiar Trash Robot/ Geometron Dark Web space.
 
-# Terminal construction
+
+The system is used to create, share, edit, and replicate documents primarily of the following types:
+
+- [scroll(like this)](scrolls/scrolls)
+- [map](scrolls/maps)
+- [geometron symbol](scrolls/hellogeometron]
+- feeds(text feeds, image feeds, symbol feeds)
 
 
-## Bag Replicator Card
-
-![](https://i.imgur.com/96SbQov.jpg)
 
 
 
