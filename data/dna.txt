@@ -344,6 +344,7 @@
         "terminal",
         "terminal.md",
         "textile",
+        "textile.md",
         "trashrobot",
         "trashrobotdotorg",
         "zdrive-arduino"
