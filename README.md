@@ -1,3 +1,6 @@
+Is this really the README?
+
+
 When setting up a new Raspberry Pi Geometron server, click on the link below to load the scroll which describes setting up a new server.  This starts with the assumption someone has distributed to you a server.  It shows you how to set that up on your local wifi as well as how to create a new server for you to distribute forward on the Geometron network.
 
 <div class = "button" onclick = "loadscroll(&#34pisetup.md&#34)">LOAD RASPBERRY PI SETUP SCROLL</div>
