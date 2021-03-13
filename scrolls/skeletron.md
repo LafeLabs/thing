@@ -1,6 +1,8 @@
-[link to set map](maps/set)
+[home](index.html)
 
 # Skeletron System
+
+We begin by making the [ArtBox](scrolls/box.md) which is used to store art supplies and tools used for all other elements. 
 
 Find bamboo groves or drift wood or similar sticks, cut to 6 foot lengths.  Drill 1/4 inch holes a few inches in from each end and also in the center of the stick.  Wrap in duct tape in rainbow stripes as shown. This is called the Trash Pole.
 

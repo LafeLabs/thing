@@ -14,6 +14,7 @@ This is a self-replicating set.
     - Trash Ties
     - [shape sets](maps/shapes)
     - [rulers](maps/ruler)
+    - [boards](scrolls/boards)
 - [Textile](scrolls/textile)
     - flags
     - bags
@@ -35,7 +36,6 @@ This is a self-replicating set.
     - [symbols](maps/symbols)
     - [code](scrolls/code)
 - [Shield](maps/shield)
-- [board](maps/board)
 - [Magic](scrolls/magic)
 
 }
