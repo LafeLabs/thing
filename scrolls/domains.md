@@ -1,0 +1,18 @@
+[home](index.html)
+
+# Domains
+
+Domains, like all elements of the System are not property. We "buy" them but they are not names of companies or people, but generic low-value names based on extremely specific geographic descriptions.  
+
+To start a new Trash Robot domain, buy a domain from [https://www.dreamhost.com/](https://www.dreamhost.com/) or [https://www.bluehost.com/](https://www.bluehost.com/) or someone similar, and get it fully hosted.  The create a new file in the web directory on the hosting service called replicator.php, and copy the code from the replicator found here: [php/replicator.txt](php/replicator.txt) into the new file, and save it. Point a web browser to [your domain name]/replicator.php, and wait. Click on the link.  This new page should be a live instance of the Trash Robot/Geometron system.  You can then build a local instance using a [Terminal](scrolls/terminal), push that to a globally visible github link, and replicate from there to the global server.
+
+Once a domain has been purchased and set up with the Trash Robot software, we point the top level map of the domain to the IP address on the local network of the terminal on that network.  Thus while the Trash Robot software is generally not very responsive,
+
+
+
+- [http://trashrobot.org/](http://trashrobot.org/)
+- [https://www.maplelawn.net/](https://www.maplelawn.net/)
+- [https://www.us29.xyz/](https://www.us29.xyz/)
+- [https://www.md216.xyz/](https://www.md216.xyz/)
+- [http://quantumart.org/](http://quantumart.org/)
+- [https://www.hammondbranch.org/](https://www.hammondbranch.org/)

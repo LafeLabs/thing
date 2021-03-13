@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--
+
+        EVERYTHING IS PHYSICAL 
+        EVERYTHING IS FRACTAL
+        EVERYTHING IS RECURSIVE
+        NO MONEY 
+        MO MINING 
+        NO PROPERTY
+        LOOK AT THE INSECTS
+        LOOK AT THE FUNGI
+        LANGUAGE IS HOW THE MIND PARSES REALITY
+
+    
+    -->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/wAAAAD/AAAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAREAAAAAAiAAEAAAAAACIAAQAAAAAAACABAAAAAAAAAgEAAAAAAwAAIQAAADAzMzMwMzMzMwMAAAEgAAAwAAAAAQIAAAAAAAABACAAAAAAAAEAAgAAAAAAAQAAIgAAAAABAAAiAAAAABEQAAAAAAAAAQAAAAD+/wAA/H8AAM7/AADO/wAA9v8AAPr/AAC8/QAAAAAAAL59AAD+vwAA/t8AAP7vAAD+8wAA/vMAAPx/AAD+/wAA" rel="icon" type="image/x-icon" />
+    
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+<!--geometron javascript library-->
+    <script src="jscode/geometron.js"></script>
+</head>
+<body>
+<div id = "mainbox">
+    <canvas id = "maincanvas"></canvas>
+</div>
+<table id = "controltable"></table>
+<a href = "index.html">
+    <img src = "iconsymbols/home.svg" style = "width:40px"/>
+</a>
+<a href = "coinstudio.html">
+    <img src = "iconsymbols/edit.svg" style = "width:40px"/>
+</a>
+<a href = "coinfeed.html">
+    <img src = "iconsymbols/feed.svg" style = "width:40px"/>
+</a>
+
+<div id = "feed"></div>
+
+<script>
+
+
+feedwidth = 100;
+
+headerbuttonsize = 36;
+if(innerWidth > innerHeight){
+    feedwidth = innerWidth*0.5- 100;
+    footerbuttonsize = 36;
+    headerbuttonsize = 36;    
+}
+else{
+    feedwidth = innerWidth - 100;
+    footerbuttonsize = 85;
+    headerbuttonsize = 85;
+}
+feedwidth = 100;
+
+feedlinkwidth  = feedwidth;
+
+mainsize = 0.5*innerWidth - 10;
+
+
+maincanvas = document.getElementById("maincanvas");
+var mainGVM = new GVM(maincanvas,0.5*innerWidth - 10,0.5*innerWidth -10);
+
+gvmArray = [];
+
+robotfeed = [];
+var httpcHypercube = new XMLHttpRequest();
+httpcHypercube.onreadystatechange = function(){
+    if (this.readyState == 4 && this.status == 200) {
+        hypercube = JSON.parse(this.responseText);
+        mainGVM.importbytecode(hypercube);    
+        var httpcFeed = new XMLHttpRequest();
+        httpcFeed.onreadystatechange = function(){
+            if (this.readyState == 4 && this.status == 200) {
+                robotfeed = JSON.parse(this.responseText);
+                loadfeed();
+                loadcontrolbuttons();
+            }
+        };
+        httpcFeed.open("GET", "fileloader.php?filename=data/robotfeed.txt", true);
+        httpcFeed.send();
+
+    }
+};
+httpcHypercube.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
+httpcHypercube.send();
+
+
+function loadfeed(){
+    gvmArray = [];
+    document.getElementById("feed").innerHTML = "";
+    for(var index = 0;index < robotfeed.length;index++){
+        var newdiv = document.createElement("span");
+        var newcan = document.createElement("CANVAS");
+        newcan.className = "feedcan";
+        newdiv.style.marginTop = 0.05*feedwidth + "px";
+        newdiv.style.marginBottom = 0.05*feedwidth + "px";
+        newdiv.appendChild(newcan);
+        newdiv.className = "feedelement";
+        newcan.classList.add("button");
+        document.getElementById("feed").appendChild(newdiv);
+        var newGVM = new GVM(newcan,feedlinkwidth,feedlinkwidth);
+        newGVM.hypercube = mainGVM.hypercube;
+        gvmArray.push(newGVM);
+        newGVM.drawGlyph(robotfeed[index]);    
+        
+        var datadiv = document.createElement("DIV");
+        datadiv.innerHTML = robotfeed[index];
+        datadiv.className = "data";
+        newdiv.appendChild(datadiv);
+        newdiv.onclick = function(){
+            glyph = this.getElementsByClassName("data")[0].innerHTML;
+            mainGVM.glyph = glyph;
+            mainGVM.drawGlyph(mainGVM.glyph);
+            robot.glyph = glyph;
+            coin = glyph;
+            savecoin();
+            saverobot();
+        }
+    }    
+}
+
+function drawmain(){
+    mainGVM.drawGlyph(mainGVM.glyph);
+}
+
+
+controlbuttons = "0550,0551,0504,0505,0506,0507,";
+buttonsize = 0.125*mainsize;
+
+function loadcontrolbuttons(){
+    var newtr = document.createElement("TR");
+    document.getElementById("controltable").appendChild(newtr);
+    buttonArray = controlbuttons.split(",");
+    for(var index = 0;index< buttonArray.length;index++){
+        if(buttonArray[index].length> 0 ){
+            var localrobotaction = parseInt(buttonArray[index],8);
+            var newtd = document.createElement("TD");
+            newtr.appendChild(newtd);
+            var datadiv = document.createElement("DIV");
+            datadiv.className = "data";
+            datadiv.innerHTML = "0" + localrobotaction.toString(8);
+            newtd.appendChild(datadiv);
+            var newcan = document.createElement("CANVAS");
+            newtd.appendChild(newcan);
+            newcan.className = "button";
+            var newGVM = new GVM(newcan,buttonsize,buttonsize);
+            newGVM.hypercube = mainGVM.hypercube;
+            newGVM.x0 = 1;
+            newGVM.y0 = buttonsize - 1;
+            newGVM.unit = buttonsize - 2;
+            newGVM.drawGlyph("0300,");
+            newGVM.action(localrobotaction + 01000);
+            newtd.onclick = function(){
+                var localrobotaction = parseInt(this.getElementsByClassName("data")[0].innerHTML,8);
+                robot.glyph = "0" + localrobotaction.toString(8) + ",";
+                mainGVM.drawGlyph("0300,0331,0332,0337,");
+                mainGVM.action(localrobotaction + 01000);
+                saverobot();
+            }
+        }
+    }
+}
+
+
+//*********************************************************
+//everything below this line is the robot config editor
+//**********************************************************
+
+
+var httpcRobot = new XMLHttpRequest();
+httpcRobot.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        robot = JSON.parse(this.responseText);
+    }
+};
+httpcRobot.open("GET", "fileloader.php?filename=data/robot.txt", true);
+httpcRobot.send();    
+
+
+
+function saverobot(){
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", "filesaver.php", true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(JSON.stringify(robot,null,"  "))+"&filename=data/robot.txt");//send text to filesaver.php
+}
+
+coin = "";
+function savecoin(){
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", "filesaver.php", true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(coin)+"&filename=data/coin.txt");//send text to filesaver.php
+}
+
+</script>
+<style>
+body{
+    overflow:hidden;
+}
+#mainbox{
+    position:absolute;
+    right:0px;
+    top:40px;
+    width:250px;
+    height:250px;
+    border:solid;
+    border-color:blue;
+    overflow:hidden;
+}
+
+.deletebutton{
+    width:40px;
+}
+
+#feed{
+    position:absolute;
+    left:0px;
+    bottom:40px;
+    width:50%;
+    top:80px;
+    overflow:scroll;
+}
+
+.button{
+    cursor:pointer;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
+}
+.data{
+    display:none;
+}
+
+#controltable{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+}
+</style>
+</body>
+</html>

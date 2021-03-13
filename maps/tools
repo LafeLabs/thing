@@ -86,5 +86,16 @@
         "href": "mapeditor.html",
         "src": "",
         "maplinkmode": false
+    },
+    {
+        "x": 0.6276849642004774,
+        "y": 0.8997613365155132,
+        "w": 0.6754176610978521,
+        "h": 0.08711217183770883,
+        "angle": 0,
+        "text": "fork.html",
+        "href": "fork.html",
+        "src": "",
+        "maplinkmode": false
     }
 ]

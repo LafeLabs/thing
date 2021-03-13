@@ -1,0 +1,42 @@
+[home](index.html)
+
+# set
+
+This is a self-replicating set.  
+
+{
+
+- [Skeletron](scrolls/skeletron)
+    - Trash Poles
+    - S Hooks
+    - [ArtBoxes](scrolls/box)
+    - Tape Snakes
+    - Trash Ties
+    - [shape sets](maps/shapes)
+    - [rulers](maps/ruler)
+- [Textile](scrolls/textile)
+    - flags
+    - bags
+        - earth
+        - water
+        - fire
+        - printer
+        - terminal
+- [Printers](maps/printer)
+    - [brain](scrolls/brain)
+    - [controller](scrolls/controller)
+    - [mechanicals](scrolls/mechanicals)
+    - [workflow](maps/workflow)
+- [Terminals](scrolls/terminal)
+    - [domains](scrolls/domains)
+    - feeds
+    - [scrolls](scrolls/scrolls)
+    - [maps](scrolls/maps)
+    - [symbols](maps/symbols)
+    - [code](scrolls/code)
+- [Shield](maps/shield)
+- [board](maps/board)
+- [Magic](scrolls/magic)
+
+}
+

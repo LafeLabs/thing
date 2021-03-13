@@ -1,0 +1,179 @@
+[home](index.html)
+
+[Terminal Scroll](scrolls/terminal)
+
+# Hello Geometron
+
+## Introduction
+
+Geometron is a way of interacting with machines based on geometry rather than arithmetic.  A "computer" is generally a machine which is fed a list of numbers which tell it what to do with that list of numbers. This process is abstracted into higher and higher level languages to make the complex software products we use.  In Geometron, however, the machine is programmed to take geometric information as its input and to act on that information by affecting some output geometrically.  
+
+We speak of the "Geometron Virtual Machine"(GVM) as being the abstract idea of a machine which draws on some output using geometric actions.  In the examples presented here, this will mean pixels on a screen, cut and etching of plastic or wood shapes with a laser, and symbols printed on clay which can be baked and painted.  However, this could apply to any machine that can encode geometry onto something.  Some examples of this are using a flying drone to create images on snow with its props, a hanging robot suspended from cables on winches which moves around on a wall or cliff carving or painting, electron beam lithography, electrochemical deposition patterning, 3d printing in biomaterials, to name a few examples.  Any system which has some object that moves through space can be re-encoded to be controlled with the language structure presented here.
+
+While these ideas are general and can apply to many systems and be encoded many ways, this work all uses one implementation, which is based on making vector graphics in a web browser, and controlling simple robotic probes made from trash using a pocket computer.  
+
+## Hello, World
+
+In computer languages there is a tradition of the "Hello, World" program.  This is a program which simply prints the statement "hello, world" to some kind of output.  The geometric equivalent of "hello, world" is printing the so-called vesica piscis(Latin for fish bladder), which is a pair of circles each with its center on the other one. This illustrates the basic logic of Geometron: drawings actions are all relative to some unit, and so are motions of the "tool".  So drawing this consists of the actions "draw circle of radius 1 unit, move 1 unit, draw circle of radius 1 unit".  In symbols this is:
+
+![](iconsymbols/helloworld.svg)
+
+In the tradition of the "hello world" program the reader should now go ahead and make this symbol.  This is easiest on a mobile device.  Point a mobile device to the address of whatever this server is, then go on that to the [local symbol app which is at symbolapp.html](symbolapp.html).  On there you will see a control panel of touch screen buttons.  Hit the "circle" button, the arrow to the right, then the circle button again.  There is the symbol! And you should see the symbol glyph spelling at the bottom of the screen.  Now if you hit the "save" button you can save your new vector graphics symbol you just made to the symbol feed.  The save button is:
+
+![](iconsymbols/save.svg)
+
+and the symbol feed is linked to with this symbol:
+
+![](iconsymbols/feed.svg)
+
+If you go to the symbol feed you can scroll down to your symbol, then save it to disc, or screen shot it or copy it, and do with it what you want.  The Geometron network is one in which we produce symbols and share them with as many people as possible.  Symbols we want get replicated and symbols we don't want are deleted.  You can 
+
+As long as you are in the app mode(on mobile) you should also see the cursor move and delete keys which look like this:
+
+![](iconsymbols/arrowdeletesymbols.svg)
+
+NOTE!! If you are NOT on mobile you will not see the keys on your computer, and the app will be linked to your keyboard.  If you're on a laptop or desktop, you can hit the keys "x,f,x" in that order to do the same thing, then click on the save button as you would on mobile.  This will likely put the symbol partly out of the picture, but we will deal with how to fix that later. 
+
+That's it! You have now used the Geometron language to make a new symbol, which you can now download and use for whatever you want.  
+
+Before delving deeper into Geometron it's worth noting how it works with a laptop or desktop as opposed to mobile.  On a machine with a keyboard, with a screen wider than it is high, the way to control Geometron is with they keyboard.  The layout is shown here:
+
+![](iconsymbols/keyboard.svg)
+
+It's a good idea to print this layout out on a printer and laminate it, and maybe to make a few of these as needed to share with other people as you teach others the system.  This laminated printout can be used as a reference for making custom Geometron keyboards, where you use paint pen(or metallic sharpie can do this well) to write all the symbols on all the keys.  You can paint them next to the keys so that the keyboard is still usable for other purposes.  It is a good idea to get a cheap USB keyboard for this purpose and to keep it as a part of your basic Geometron kit, since it can also be used for setting up new Raspberry Pi servers.
+
+## More General Geometron
+
+With "hello world" behind us, we will learn to move the cursor around.  Again if you're a pure beginner I recommend using the mobile app mode.  Use the arrows symbol glyph buttons to move the cursor around:
+
+![](iconsymbols/cursormovements.svg)
+
+The mobile app also has a "draw circle" and "draw line segment" keys.  There are two cursors you interact with when you edit a Geometron symbol, the action cursor and the symbol cursor.  The symbol cursor is an un-filled circle which shows where you are in editing the spelling of the symbol in the symbol glyph language of Geometron.  You can navigate that with the cursor forward, back and delete buttons or with the left and right arrow keys and the "backspace" or delete button on a keyboard, and edit the sequence of symbols just as you would text in a text editor.  
+
+Now, before diving deeper into the structure of Geometron using the keyboard-driven version it's worth using the other actions in the mobile app. These are the drawing of shapes, and the setting of symmetries and scales which are associated with those shapes.  The best way to learn this is to just try stuff at random.  If you reload your browser it will clear the screen.  The purpose of this app is both to learn the general logic of Geometron and how we interact with symmetry, scale and shape, but also to create a shared language between the physical and virtual layers of Geometron.  You should have gotten a set of laser cut shapes with your Geometron kit.  If not you can get one from whoever introduced you to Geometron, or have your own made or make your own(this is documented in another scroll).  The details of working with these shapes is shared in yet another scroll as well.
+
+We now return to the laptop/desktop based version which is at [symbol.html](symbol.html) (as opposed to [symbolapp.html](symbolapp.html) for the mobile app). The symmetry operations for general Geometron(as opposed to the specific system for the app) are as follows:
+
+![](iconsymbols/symmetrysymbols.svg)
+
+These determine what the rotation angle is of the action cursor(the wings of the little "T" show the angle).  They are 90 degrees for fourfold symmetry, 72 degrees for fivefold, and 60 degrees for sixfold.  The other actions are to either divide or multiply the angles by 2 or 3.  The list of symbols shows which key is used for which action(also see the laminated reference keyboard).  
+
+Next we deal with the scale actions, which determine by what factor the geometric unit is either multiplied or divide with the "+" and "-" actions.  These are as follows(with their corresponding keys):
+
+![](iconsymbols/scalesymbols.svg)
+
+These are, from left to right, the square root of two, the Golden Ratio, the square root of three, 2, 3, and 5.  Try playing with all these and moving the cursor around making circles and line segments.  
+
+Now we need to add the rest of the basic set of drawing actions.  These are as follows:
+
+![](iconsymbols/drawingsymbols.svg)
+
+These are from left to right: dot, circle,  line segment(without travel), arc, open square, filled circle, filled square and line segment with travel.  Try these!
+
+Now, in vector graphics, which is what this system is primarily for, "paths" are an important concept if we want to avoid having weird breaks on corners, and also it's useful for designing shapes for laser cutting designs.  The basic path operations are as follows:
+
+![](iconsymbols/pathsymbols.svg)
+
+These are, from left to right: start path, move along line segment on path, terminate closed and filled path, terminate closed but unfilled path, and terminate open path.  To get more out of these, you should also learn to move between the different color layers by using the shift-keys above the numbers as follows:
+
+![](iconsymbols/colorlayers.svg)
+
+When you select a layer, you select that color, fill color and linewidth.  All of these can be changed at any time by using the number entry table found in the file [styleeditor.html](styleeditor.html) which you can get to with this link(found from the main symbol page):
+
+
+[![](iconsymbols/style.svg)](styleeditor.html)
+
+Geometron is good for making systematic curves using the cubic bezier curve.  These are made with  "start curve" and "terminate curve" actions, symbolized as follows:
+
+![](iconsymbols/beziersymbols.svg)
+
+Another detail that is less used is the "drop marker" and "goto marker" commands.  There are several but only two are put in the basic keyboard, which are as follows:
+
+![](iconsymbols/flagsymbols.svg)
+
+These can be used to save the state of the Geometron tool, then reload that state.  It's useful for building complex fractal shapes.  
+
+The following commands are used to move the view of the symbol being drawn without changing the symbol itself:
+
+![](iconsymbols/panzoom.svg)
+
+Try using these to put the symbol where you want it and change its size without altering its basic form.
+
+The final thing we should learn about to get the basic tour of Geometron actions is making text.  There are two ways to make text.  Both involve changing the mode with the mode button or by hitting return.  The mode button looks like this when you start:
+
+![](iconsymbols/symbolmode.svg)
+
+The first time you hit the button or the enter key you get to direct print mode.  In this mode, what you type on the keyboard is directly drawn using the built in Geometron font, which is made up entirely of Geometron actions.  You can build your own fonts, and share them across the network, and that will be dealt with separately.  If you hit the button again you'll get to "text stack" mode where whatever keys you type go into a "text stack", which is then printed out when you go back to basic action mode and hit the "[" key.  This will print out the text in a system font of your computer rather than in pure Geometron.  
+
+## Structure of Geometron
+
+![](iconsymbols/hypercube.svg)
+
+
+So far we have dealt with Geometron actions like "move to the left" and symbols which are squares with simple icons describing what they do.  But to really understand the geometric nature of Geometron we have to look at the Geometron Hypercube.  This is a set of two cubes, each of which is a collection of 8x8x8 smaller cubes.  Each little cube in the larger cubes has an address, which is either 0 or 1 to describe which large cube it's in, and then three numbers to describe layer, row and column.  Inside each of these 1024 cubes is a list of addresses.  So in computer science terms the Geometron hypercube is an array of 1024 arrays each of which is made up of addresses in the big array.  
+
+![](iconsymbols/xyzcube.svg)
+
+![](iconsymbols/cubes.svg)
+
+The first of these cubes is the "action cube" which consists of all the possible geometric actions carried out by various parts of the Geometron Virtual Machine(GVM).  The second is the "symbol cube" which represents the symbol for each of the 512 elements in the action cube.  These symbols are made up entirely of the geometric actions described in this document, as well as shapes made up of those.  
+
+The Action Cube which is addresses from 00 to 0777 is broken up into different layers, organized by type of information they represent.  Note that all addresses begin with a "0" because that is how computer scientists and the code which is used in this software denote a "base 8 number", which is what the addresses can be though of as.  The layers of the Action Cube are shown here:
+
+![](iconsymbols/addressstack.svg)
+
+The symbol cube has addresses from 01000 through 01777, and represent the symbols used to denote each of the geometric actions in the action cube.  The elements of the symbol hypercube are all actions which are used to create symbols on the screen of a computer, as described in this document.  
+
+The action cube all starts with "root magic", which are actions which do things to the GVM like move the cursor around, delete, move through the hypercube and so on.  These are addresses 0-037.  Then is the ASCII code, which is a standard system of encoding printable characters on an English QWERTY keyboard. This consists of the addresses from 040(space bar) through 0176(tilde).  In the hypercube, these map to what the key actions are in the software that runs a Geometron editor.  So for example address 0141 represents lowercase "a", and it contains the address 0330, because when you hit the "a" key the 0330 geometric action is carried out.  
+
+For each of these letters/characters there are also symbols in Geoemtron which constitute the native Geometron font.  These are at the addresses from 01040 to 01176.  The following table both shows the ASCII code values and shows the native Geometron font at that value with a "1" added before the address: 
+
+![](iconsymbols/fonttablet.svg)
+
+
+After the ASCII is the shape table, which goes from 0200 to 0277 and which carries arrays of geometric actions of all kinds, including references to other shapes(making fractal structures).  
+
+To edit this, you use the shape table editor which is linked to via the following icon:
+
+[![](iconsymbols/table.svg)](shapetableeditor.html)
+
+0177 is the do nothing action.
+
+The main part of Geometron as we deal with it in this document is the geometric action table which is the addresses from 0300 to 0377.  These are shown in the tablet here, where every address begins with 03 and then the row then the column.  
+
+![](iconsymbols/actiontablet.svg)
+
+Addresses from 0400 through 0577 are for robotics controls and 0600 through 0777 are for 3d graphics control and 3d CAD.
+
+The Geometron hypercube is an abstraction. The cells have meanings which are geometric in nature but which are more abstract than any one colletion of computer code. It is, however, often computer code.  This code is then fully encapsulated within the Geometron Hypercube format, because the computer code in JavaScript or Python or whatever is itself encoded entirely using the ASCII code, the addresses from 040 through 0176, so these addresses are themselves just arrays of addresses in the hypercube once again.  That also applies to more physical actions, as one can encode any English with ASCII, and non English using UNICODE encoding in HTML, again being totally built from ASCII code.  
+
+Sequences of Geometron code are expresses in their raw form as strings of text of consisting of addresses with their appropriate leading zero and commas separating them.  Raw Geometron code files consist of an address followed by a colon after which is a sequence of addresses separated by a comma.  These address arrays are then themselves in an array separated by "newline".  In the JavaScript code used here, geometron is often arrays of strings, where each string is an address, colon, and sequence of addresses.  This can be done by other means in other languages, for instance in Arduino it is useful to use strings for everything because arrays are awkward.
+
+You can change the values of the keys using the keyboard app here:
+
+[![](iconsymbols/keyboardicon.svg)](keyboard.html)
+
+Edit the font here:
+
+[![](iconsymbols/fonteditor.svg)](fonteditor.html)
+
+See the feed of symbols on the symbol feed here:
+
+[![](iconsymbols/feed.svg)](symbolfeed.html)
+
+The feed has text files with raw base 64 png code, then svg files then png files, all of which can be deleted by clicking the big red "X" or downloaded.  You can upload other saved Geometron files to the Feed, then click the "edit" pencil icon to load that symbol and go back to the main symbol editor to edit a copy of that file.  You can then remix it, save it and others can again remix.  Each saved symbol also saves a copy inside the file of the local shape table used to generate the symbol.  That means that when we remix symbols from one user to another across the Geometron network, the whole symbolic language used for that is also remixed.  You can download a file, upload it, edit it, share the link, save it, and email that to another user.  They can then open it locally, remix it with another symbolic language, and instantly replace the components with some other analogous component.  
+
+The setup of the symbol file such as it's initial width and height and basic unit and zero point are set in the Geometron Setup app at [setup.html](setup.html), linked via this icon:
+
+[![](iconsymbols/setup.svg)](setup.html)
+
+The hypercube is edited with the hypercube editor which is linked here:
+
+[![](iconsymbols/hypercube.svg)](hypercube.html)
+
+All aspects of Geometron are shared freely across the network using copy and pasted code as with the other elements of this software(the map, the Poetry Engine, the Duality, the Scroll, etc.).  Fonts can be shared, app keys, specialized apps, robot encoding, all the possible elements of this system can be shared by copy/pasting code using the code editing described in other scrolls in this system.  
+
+With the basics of Gemetron explored we can proceed to build laser cut shapes, custom shape tables to share with other users, custom fonts, robotics programming, 3d programming, clay fabrication, custom web icons, custom symbols and diagrams of all kinds, and new original self-replicating apps based on the code here.
+
+
+
