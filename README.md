@@ -1,6 +1,5 @@
-[link home](index.html)
+## [Link to Map](maps/home)
 
-[link to this user page](user.php?scroll=README.md)
 
 # Geometron/ Trash Robot System
 
@@ -8,25 +7,11 @@ We seek to build a new civilization without mining, without money, and without p
 
 In order to begin this process we need an information technology system which is not owned by anyone and contains no property of any kind which can replicate the Trash Magic.  The IT system documented here is as close to free as we can build at this time, and replicates by providing enough value to users that they will benefit by building out more of the network without anyone owning the network as it grows.  
 
-Everything in the system can be destroyed. 
-
 Everything can be replicated. 
 
 Everything can be edited.  
 
-no money
-
-no mining
-
-no property
-
-everything is physical
-
-everything is fractal
-
-everything is recursive
-
-language is how the mind parses reality
+Everything in the system can be destroyed. 
 
 The system consists of the following elements:
 

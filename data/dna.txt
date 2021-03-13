@@ -263,6 +263,7 @@
     ],
     "maps": [
         "board",
+        "home",
         "maps",
         "printer",
         "random",
