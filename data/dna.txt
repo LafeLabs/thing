@@ -303,6 +303,7 @@
         "foo",
         "foo.md",
         "geometron-whitepaper",
+        "geometron.md",
         "geometronscroll",
         "github.md",
         "hellogeometron",

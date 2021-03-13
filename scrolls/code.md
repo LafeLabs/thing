@@ -2,11 +2,17 @@
 
 # Code
 
+
 philosophy and meaning
 
-replication and structure
+Alchemy, non property, no logins, no databases no hidden data, 
 
-editing
+
+
+replication  editing and structure
+
+editor.php dnagenerator.php, how php comes from txt, 
+replicator.php, dna.txt, directory structure, how replicator.php is used, how copy.php is used, how to make a new files with editor,
 
 how to use localhost, php and github
 
