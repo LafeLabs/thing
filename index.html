@@ -44,9 +44,14 @@
 <body>    
 <div id = "scrollscroll"></div>
 <div id = "mainmap"></div>
-
 <input id = "mapinput"/>
+<div id = "modebutton" class = "button">LIGHT/DARK</div>
 <script>
+
+mode = "dark";
+//mode = "light";
+
+
 
 if(innerWidth > innerHeight){
     mainmap = new Map(innerHeight,innerHeight,document.getElementById("mainmap"));
@@ -198,6 +203,29 @@ function convertscrollinks(){
         }        
     }
 }
+
+document.getElementById("modebutton").onclick = function(){
+    modeswitch();
+}
+
+function modeswitch(){
+    if(mode == "dark"){
+        mode = "light";
+        document.body.style.backgroundColor = "white";
+        mainmap.linkColor = "blue";
+        mainmap.textColor = "black";
+        document.getElementById("scrollscroll").style.backgroundColor = "white";
+        document.getElementById("scrollscroll").style.color = "black";    
+    }
+    else{
+        mode = "dark";
+        document.body.style.backgroundColor = "black";
+        mainmap.textColor = "#00ff00";
+        mainmap.linkColor = "#ff2cb4";
+        document.getElementById("scrollscroll").style.backgroundColor = "black";
+        document.getElementById("scrollscroll").style.color = "#00ff00";        
+    }
+}
 </script>
 <style>
 body{
@@ -263,6 +291,34 @@ input{
 }
 h1,h2,h3,h4{
     text-align:center;
+}
+#modebutton{
+    position:absolute;
+    background-color:white;
+    color:black;
+    cursor:pointer;
+    border:solid;
+    border-radius:5px;
+    text-align:center;
+}
+#modebutton:hover{
+    background-color:green;
+}
+#modebutton:active{
+    background-color:yellow;
+}
+@media only screen and (orientation: landscape) {
+    #modebutton{
+        right:5px;
+        top:5px;
+    }
+}
+
+@media only screen and (orientation: portrait) {
+    #modebutton{
+        right:0px;
+        bottom:0px;
+    }
 }
 </style>
 </body>

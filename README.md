@@ -365,10 +365,10 @@ To create a new fork of the code, go to a UNIX command line with PHP installed, 
 <pre>
 curl -o replicator.php https://raw.githubusercontent.com/LafeLabs/thing/master/php/replicator.txt
 php replicator.php
-php -S localhost:8000
+php -S localhost:80
 </pre>
 
- and navigate your browser to localhost:8000, then edit using editor.php, change references in replicator.php to your new repo address, and replicate from the new fork by changing the code in replicator.php.  Note that php code needs to be made live by cliking on txt2php.php from editor.php.  This will work on macos or linux with very minimal effort, and requires adding the Ubuntu command line or installation of [MAMP](https://www.mamp.info/en/) to work on Windows 10.  
+ and navigate your browser to http://localhost, then edit using editor.php, change references in replicator.php to your new repo address, and replicate from the new fork by changing the code in replicator.php.  Note that php code needs to be made live by cliking on txt2php.php from editor.php.  This will work on macos or linux with very minimal effort, and requires adding the Ubuntu command line or installation of [MAMP](https://www.mamp.info/en/) to work on Windows 10.  
 
 Edit the code for any page using the *editor*, another thing all instances have:
 
