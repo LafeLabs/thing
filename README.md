@@ -1,4 +1,14 @@
-Is this really the README?
+[link home](index.html)
+
+[link to this user page](user.php?scroll=README.md)
+
+# Geometron/ Trash Robot System
+
+
+This is a seed from which to build a new civilization from trash.
+
+This represents a self-replicating [set](scrolls/set). There is a live mirror of the system operating at [www.trashrobot.org](https://www.trashrobot.org)
+
 
 
 When setting up a new Raspberry Pi Geometron server, click on the link below to load the scroll which describes setting up a new server.  This starts with the assumption someone has distributed to you a server.  It shows you how to set that up on your local wifi as well as how to create a new server for you to distribute forward on the Geometron network.
