@@ -37,7 +37,7 @@ The system consists of the following elements:
 - [Code](scrolls/code.md)
 - [Textile](scrolls/textile.md)
 - [Skeletron](scrolls/skeletron.md)
-- [Printers](maps/printer.md)
+- [Printers](scrolls/printer.md)
 - [Shield](scrolls/shield.md)
 - [Magic](scrolls/magic.md)
 - [Maps](scrolls/maps.md)
