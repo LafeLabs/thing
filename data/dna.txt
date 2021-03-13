@@ -295,6 +295,7 @@
         "duality",
         "elementsofcode",
         "foo",
+        "foo.md",
         "geometron-whitepaper",
         "geometronscroll",
         "github.md",
