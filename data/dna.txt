@@ -296,6 +296,7 @@
         "buildrobot.md",
         "buystuff",
         "cloth",
+        "code",
         "coins",
         "connectors",
         "controller",

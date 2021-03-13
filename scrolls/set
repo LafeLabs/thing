@@ -31,6 +31,7 @@
     - [scrolls](scrolls/scrolls)
     - [maps](scrolls/maps)
     - [symbols](maps/symbols)
+    - [code](scrolls/code)
 - [Shield](maps/shield)
 - [board](maps/board)
 - [Magic](scrolls/magic)
