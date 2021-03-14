@@ -148,5 +148,10 @@
         "href": "linkfeededitor.html",
         "src": "",
         "text": "operator screen"
+    },
+    {
+        "href": "textfeed.html",
+        "src": "",
+        "text": "textfeed.html"
     }
 ]
