@@ -317,6 +317,7 @@
         "ruler",
         "scrollbackup",
         "scrolls",
+        "scrolls.md",
         "scrollscroll.md",
         "set",
         "shapes",

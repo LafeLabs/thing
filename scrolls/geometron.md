@@ -53,9 +53,7 @@ Actions of symbol.html
 
 ![](iconsymbols/actiontablet.svg)
 
-
-
-
+[Learn to operate Geometron with the Hello Geometron Scroll](scrolls/hellogeometron)
 
 
 

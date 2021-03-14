@@ -12,7 +12,7 @@ purchase large quantities of black nylon parachute cord and also clothesline.  C
 
 ![](https://i.imgur.com/iGGA1of.jpg)
 
-Use small ties to tie ends to create structures.  These can be used to make a simple tripod from which hang all the various elements of Trash Robot in bags.  The larger ties can be used to tie things together, tie things to objects, in the sigil boards documented elsewhere, for draw strings for large bags as well as the [ArtBox](scrolls/box).  Using small ties to tie together sticks at their ends can be used to make the [octahedron](https://en.wikipedia.org/wiki/Octahedron), [tetrahedron](https://en.wikipedia.org/wiki/Tetrahedron), and combinations of them to build up structures.  Those structures can be wrapped with blankets and tarps to make modular habitable shelters both for living and working as Trash Robt scales.
+Use small ties to tie ends to create structures.  These can be used to make a simple tripod from which hang all the various elements of Trash Robot in bags.  The larger ties can be used to tie things together, tie things to objects, in the sigil boards documented elsewhere, for draw strings for large bags as well as the [ArtBox](scrolls/box.md).  Using small ties to tie together sticks at their ends can be used to make the [octahedron](https://en.wikipedia.org/wiki/Octahedron), [tetrahedron](https://en.wikipedia.org/wiki/Tetrahedron), and combinations of them to build up structures.  Those structures can be wrapped with blankets and tarps to make modular habitable shelters both for living and working as Trash Robt scales.
 
 ![](https://i.imgur.com/Qg40z9U.png)
 
@@ -35,7 +35,7 @@ Objects in Trash Robot are hung from horizontal Trash Poles by way of the S-Hook
 
 ## Boards
 
-Use [shapes](scrolls/shapes) and Tape Snake and Trash Tie from [skeletron](scrolls/skeletron) to make board. Rainbow tape, googly eyes, geometric patterns.  Put the icon coins on the boards.  Board is used to arrange icon coins in patterns of conceptual relation to play around with how the information relates to itself, so the [magician](scrolls/magic.md) can better control the system.
+Use [shapes](scrolls/shapes) and Tape Snake and Trash Tie from [skeletron](scrolls/skeletron.md) to make board. Rainbow tape, googly eyes, geometric patterns.  Put the icon coins on the boards.  Board is used to arrange icon coins in patterns of conceptual relation to play around with how the information relates to itself, so the [magician](scrolls/magic.md) can better control the system.
 
 ![](https://i.imgur.com/Se6eZr0.jpg)
  

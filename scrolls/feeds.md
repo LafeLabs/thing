@@ -8,13 +8,32 @@ The Feed is a general framework for building formats, but in the basic Trash Rob
 
 ## [Global Image Feed](globalimagefeed.html)
 
+This is an array of image urls.  This is a key component of how Icon Tokens are made.  We often start by doing an image search on the Web for some symbol, logo, image, or icon.  We then right click the image and "copy image location" to the clipboard.  Then we drop the url in the input in the global image feed to add it to the feed. Click the red "x" to delete the image.  Image feeds can be exported from the text area, copied, and pasted into the same window of any other Trash Robot, imported and used anywhere on the Network.  Since this data is just text it can be sent via text message or email so that feeds can be privately shared. The local image feed is stored at [data/imagefeed.txt](data/imagefeed.txt)
+
 ## [Link Feed](linkfeed.html)
 
-## [Text feed](textfeed.html)
+This is a feed of "links" in a general sense which can be images, links, or just text.  They are edited using the "operator screen", which should be in the link feed itself, and can be found at [linkfeededitor.html](linkfeededitor.html). Each element has three fields: "href", "src", and "text", which are the url the link points to, the image if there is one, and the text.  The data are stored on each Trash Robot at [data/linkfeed.txt](data/linkfeed.txt).  As with the image feed, the whole feed can be copied, pasted, imported and exported using a text area, but in this case it is on the editor screen not the feed display.  The input is used to put in urls of other link feed files.  These can be anywhere on the Web.  This can be used to make anonymous pastebin links which are link feeds which can display on any local Trash Robot without ever posting to a global server, for private exchange of link feeds.
+f
+## [Text Feed](textfeed.html)
 
-## [chaos feed](chaosfeed.html)
+The Text Feed is used for a number of Trash Robot applications.  In spite of its name, it is not just a feed of text, but consists of three feeds(arrays): "text", "src" and "href".  These really are what they sound like, three feeds in one.  Users can add links, add images, add text, or delete any of them, and can copy and paste and share and import feeds.  Text feed has a number of functions in the Trash Robot/Geometron system.  It is used for the Map Editor as a source of links, images, and text which do not need to be entered in a keyboard.  It is also used in the [Poetry Engine](poetryengine.html) and [Duality](duality.html).
 
-## [icon feed](iconfeed.html)
+## [Chaos Feed](chaosfeed.html)
 
-## [symbol feed](symbolfeed.html)
+Chaos Feed is a user friendly text feed. Type in the input to post. Hit red "x" to delete.  Nuke the feed with the explode emoji.  Reload with the arrow loop emoji.  HTML works, so you can manually enter html for links and images, allowing a link out to be added.  Chaos Feed can be set to be the top level of a Trash Robot Server for text feed sharing mayhem and fun.  Chaos feeds are stored at [data/chaosfeed.txt](data/chaosfeed.txt).
+
+## [Icon Feed](iconfeed.html)
+
+This is a critical feed for the overall system work flow, as it is how we share the Token Icons which are printed into clay.  See the [workflow map](maps/workflow) for links to the elements of the process by which these are made.  Here again is where the copying, pasting, importing and exporting of feeds is very important.  Users can create a whole feed of icons locally on a private server, then send that via private message to other users anywhere in the world, who can then edit on their own private servers, without any data ever leaking to the public Internet, while still having no users and no databases on each individual server.
+
+## [Symbol Feed](symbolfeed.html)
+
+This is not really a feed in the strict sense above, but it behaves like a feed in the user interface. Every time a symbol is saved using [symbol.html](symbol.html) an SVG and PNG file are both created, and these are saved in a directory called [symbolfeed/](symbolfeed/)
+
+## [Wall](wall.html)
+
+The Wall is a feed of one element.  It is just a text document, stored at [data/wall.txt](data/wall.txt), which is edited and read by users. Type to edit. Delete to delete. There are no users, no databases and no logins. Just information freely shared.
+
+
+
 

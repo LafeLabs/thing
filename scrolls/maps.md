@@ -1,3 +1,5 @@
+[home](index.html)
+
 # Maps
 
 The Map is a generalization of the Poetry Engine and is one of the most universal types of file in Geometron. A map is like a "meme" or a slide in a presentation, but also like a map in geography.  It is a generalized type of document where images, links and text are arranged on top of each other.  Images can be external links on the web or locally uploaded images or symbols created using the Geometron symbolic language.  This ability to instantly integrate symbols into maps is a big part of what makes the Geometron symbolic language powerful. 
