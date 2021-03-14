@@ -28,7 +28,7 @@ The system consists of the following elements:
 - [Maps](scrolls/maps.md)
 - [Scrolls](scrolls/scrolls.md)
 - [Feeds](scrolls/feeds.md)
-- [Symbols](scrolls/symbol.md)
+- [Symbols](scrolls/geometron.md)
 
 }
 
