@@ -1,5 +1,4 @@
-[link to set map](maps/set)
-
+[home](index.html)
 
 # Textile
 

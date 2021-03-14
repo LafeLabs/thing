@@ -4,7 +4,7 @@
 
 Geometron is a geometric meta-langauge.  That is it is a language for building geometric languages, which is itself expressed entirely through geometry.  The three main components of Geometron are the "Geometron Virtual Machine", or GVM, the Geometron Hypercube, and the Cursor. 
 
-The cursor is like a "turtle" in other geometry languages such as Logo, it is a collection of global geometric variable which can be acted on.  These global variables might be the position of a cursor in an xy plane, of a cube in an xyz space, of a physical robot tool, or of any technology with geometry in it.  The geometric actions discussed below are on this abstraction, which can also be thought as a "tool", which in some cases it literally is.  However "tool" can be misleading since the state of the cursor is not simply a position but can include variables like "step size" which are abstract and not embodied in the physical state of a physical tool. 
+The cursor is like a "turtle" in other geometry languages such as [Logo](https://en.wikipedia.org/wiki/Logo_(programming_language)), it is a collection of global geometric variable which can be acted on.  These global variables might be the position of a cursor in an xy plane, of a cube in an xyz space, of a physical robot tool, or of any technology with geometry in it.  The geometric actions discussed below are on this abstraction, which can also be thought as a "tool", which in some cases it literally is.  However "tool" can be misleading since the state of the cursor is not simply a position but can include variables like "step size" which are abstract and not embodied in the physical state of a physical tool. 
 
 The GVM is an abstract "machine" of pure thought which carries out geometric actions.  The actions of the GVM are arranged geometrically into two cubes(hence "hypercube") each composed of 8x8x8 cells.  Each of these 512 cells has an address based on its geometric location.  All addresses start with the number "0", and indexes count up from 0 rather than 1.  One cube has addresses from 0 through 0777, and the other has addresses from 01000 through 01777. Each cell in the Hypercube represents either a geometric action or a list of addresses in the hypercube which the GVM will execute in order. The GVM is fed a "glyph" which is a sequence of Hypercube addresses, and it executes the actions in the glyph in order. Some actions are therefore themselves glyphs, which in turn can be composed of sub-glyphs and so on. Infinite loops can easily be created this way.
 
@@ -40,8 +40,18 @@ The software presented here allows us to use Geometron to make computer files in
 
 In addition, the software presented here uses the same Hypercube and GVM to create, edit, and replicate 3d files which are saved in .stl for 3d printing or x3d for VR and AR or games.
 
-Perhaps most importantly, however, the software presented here allows us to create generalized symbols using Geometron which use physical machines to make physical matter with the symbols we create in Geometron.
+Perhaps most importantly, however, the software presented here allows us to create generalized symbols using Geometron which use physical machines to make physical matter with the symbols we create in Geometron.  Extending the system to more cubes in higher address spaces can allow for a totally generalized methodology for creating geometric languages for any kind of fabrication, media, display or design technology.
 
+Symbols are created using [symbol.html](symbol.html).  One edits a glyph which is displayed in a canvas element on the screen by either hitting keys which correspond to actions or soft keys on the screen.   Another canvas element displays the sequence of symbols corresponding to the actions in the glyph.  The arrow and delete keys are used for editing by keyboard, and there are equivalent symbols on the soft key menu. 
+
+![](iconsymbols/keyboard.svg)
+
+Glyphs are stored in software as strings formed from sequences of numbers separated by commas.  As you edit a glyph the string will change in an input.  That string can be copied to the clip board and saved, emailed or text messaged to someone who can paste it in their own Geometron software to copy the symbol. 
+
+
+Actions of symbol.html
+
+![](iconsymbols/actiontablet.svg)
 
 
 

@@ -174,16 +174,5 @@
         "href": "maps/printer",
         "src": "",
         "maplinkmode": true
-    },
-    {
-        "x": 0.5083532219570406,
-        "y": -0.0405727923627685,
-        "w": 0.2852028639618138,
-        "h": 0.08591885441527446,
-        "angle": 180,
-        "text": "README",
-        "href": "user.php?scroll=README.md",
-        "src": "",
-        "maplinkmode": false
     }
 ]
