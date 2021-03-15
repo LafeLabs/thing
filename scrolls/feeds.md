@@ -16,7 +16,7 @@ This is a feed of "links" in a general sense which can be images, links, or just
 f
 ## [Text Feed](textfeed.html)
 
-The Text Feed is used for a number of Trash Robot applications.  In spite of its name, it is not just a feed of text, but consists of three feeds(arrays): "text", "src" and "href".  These really are what they sound like, three feeds in one.  Users can add links, add images, add text, or delete any of them, and can copy and paste and share and import feeds.  Text feed has a number of functions in the Trash Robot/Geometron system.  It is used for the Map Editor as a source of links, images, and text which do not need to be entered in a keyboard.  It is also used in the [Poetry Engine](poetryengine.html) and [Duality](duality.html).
+The Text Feed is used for a number of Trash Robot applications.  In spite of its name, it is not just a feed of text, but consists of three feeds(arrays): "text", "src" and "href".  These really are what they sound like, three feeds in one.  Users can add links, add images, add text, or delete any of them, and can copy and paste and share and import feeds.  Text feed has a number of functions in the Trash Robot/Geometron system.  It is used for the Map Editor as a source of links, images, and text which do not need to be entered in a keyboard.  It is also used in the [Poetry Engine](poetryengine.html) and [Duality](duality.html).  These are documented with the [poetry engine scroll](scrolls/poetryengine) and [duality scroll](scrolls/duality).  
 
 ## [Chaos Feed](chaosfeed.html)
 

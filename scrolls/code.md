@@ -83,36 +83,13 @@ When the local PHP server is running you can open a browser on that machine and 
 
 You can fork the whole software when you run it locally on a laptop by replicating the whole system into a directory which is a Git repository, then pushing the code to a public repository(like on Github) and then replicating the new version of the code to the whole Web by pointing the code in replicator.php which has a url for "dna.txt" to the global url for your dna.txt file.  Dna.txt has all the files to copy organized by type.  Replicator.txt uses that to figure out what to copy.  The DNA is generated using another PHP script called dnagenerator.php.  PHP files are all stored as .txt files in the directory php, and a script called text2php.php copies all of those files to the main web directory and changes the extensions from .txt to .php. 
 
-All code is edited with the program [editor.php](editor.php). This is a code editor which edits all code directly on the server.  This is how all code development works in Trash Robot/Geometron.  It is all in the Web Browser.  Code formatting is carried out using the free [open JavaScript library Ace.js](https://ace.c9.io/), hosted on Cloudflare CDN at [https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js](https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js).  With this we can edit all the HTML, all the JavaScript, all the PHP, the raw Geometron, and various data files.  THis
+All code is edited with the program [editor.php](editor.php). This is a code editor which edits all code directly on the server.  This is how all code development works in Trash Robot/Geometron.  It is all in the Web Browser.  Code formatting is carried out using the free [open JavaScript library Ace.js](https://ace.c9.io/), hosted on Cloudflare CDN at [https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js](https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js).  With this we can edit all the HTML, all the JavaScript, all the PHP, the raw Geometron, and various data files.  This editor is used to make and edit all kinds of files. 
+
+To create a new file we can use "newfile" after editor.php as follows: editor.php?newfile=[filiename].  The file will appear at the very end of the list of files, with the right color coding and syntax highlighting based on the file extension.
 
 A coffee shop-centered community code work flow is now described.  A Raspberry Pi sits on the coffee shop wifi network.  All users in the shop share in making scrolls, maps, symbols, feeds, pages and apps.  Then any user can back all that up to a full new code instance, and push that to their public facing Github page.  That copy of replicator.php is the pointed to that copy of dna.txt.  The next instance of the software can use the code from this new replicator.php and it will clone the whole code base of that coffee shop, with no reference at all to the original code. Each fork creates a fully independent copy of the code.
 
+To fork a whole full instance of the software down a level, use [fork.html](fork.html).  This lets you create new branches with whatever name you want, as well as delete whole branches.  Deletion is real!! There are no backups.  We prevent data loss with massive redundancy of replication. If all users frequently not only replicate but pass along all information, loss is a normal part of information life cycle and easy deletion is healthy. 
 
 
 
-
-
-philosophy and meaning
-
-Alchemy, non property, no logins, no databases no hidden data, 
-
-
-
-replication  editing and structure
-
-editor.php dnagenerator.php, how php comes from txt, 
-replicator.php, dna.txt, directory structure, how replicator.php is used, how copy.php is used, how to make a new files with editor,
-
-how to use localhost, php and github
-
-forking and deletion
-
-create an app
-
-coffee shop wifi code workflow
-
-scrolls, maps, feeds, pages, apps
-
-Geometron language
-
-Arduino

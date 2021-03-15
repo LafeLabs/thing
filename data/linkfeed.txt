@@ -10,11 +10,6 @@
         "text": "imagefeed.html"
     },
     {
-        "href": "scroll.html",
-        "src": "",
-        "text": "scroll.html"
-    },
-    {
         "href": "poetryengine.html",
         "src": "",
         "text": "poetry engine"
@@ -25,49 +20,9 @@
         "text": "duality"
     },
     {
-        "href": "fork.html",
-        "src": "",
-        "text": "fork"
-    },
-    {
-        "href": "feed.html",
-        "src": "",
-        "text": "geometron feed"
-    },
-    {
         "href": "chaosfeed.html",
         "src": "",
         "text": "chaosfeed.html"
-    },
-    {
-        "href": "symbolapp.html",
-        "src": "",
-        "text": "symbolapp.html"
-    },
-    {
-        "href": "symbolfactory.html",
-        "src": "",
-        "text": "symbol factory"
-    },
-    {
-        "href": "robot2arduino.html",
-        "src": "",
-        "text": "robot2arduino.html"
-    },
-    {
-        "href": "hypercube.html",
-        "src": "",
-        "text": "hypercube.html"
-    },
-    {
-        "href": "voxel.html",
-        "src": "",
-        "text": "voxel.html"
-    },
-    {
-        "href": "channelfeed.html",
-        "src": "",
-        "text": "channelfeed.html"
     },
     {
         "href": "https://www.signupgenius.com/go/10c0f4ba8a922a13-week",
@@ -80,23 +35,13 @@
         "text": "imagefeed.html"
     },
     {
-        "href": "symbolfactory.html",
+        "href": "textfeed.html",
         "src": "",
-        "text": "symbolfactory.html"
-    },
-    {
-        "href": "qrcode.html",
-        "src": "",
-        "text": "qrcode.html"
+        "text": "textfeed.html"
     },
     {
         "href": "linkfeededitor.html",
         "src": "",
         "text": "operator screen"
-    },
-    {
-        "href": "textfeed.html",
-        "src": "",
-        "text": "textfeed.html"
     }
 ]

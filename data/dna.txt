@@ -290,6 +290,7 @@
         "foo",
         "geometron-whitepaper",
         "geometron.md",
+        "geometron3d",
         "geometronscroll",
         "github.md",
         "hellogeometron",

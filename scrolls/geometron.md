@@ -32,7 +32,7 @@ The Action Cube is divided into layers, which organize the types of information 
 
 0600-0677: Shapes made up of sequences of actions in the 0700-0777 space.  These can be used to build whole complex languages of three dimensional shapes for 3d printing design as well as VR and AR.
 
-0700-0777: 3d actions. These actions are used to construct three dimensional abstract geometry.  Specifically in the Trash Robot Geometron system they are used to build .x3d and .stl files which can be used for VR and 3d printing respectively
+0700-0777: 3d actions. These actions are used to construct three dimensional abstract geometry.  Specifically in the Trash Robot Geometron system they are used to build .x3d and .stl files which can be used for VR and 3d printing respectively. Learn more from [3d scroll](scrolls/geometron3d).  Or just try out the system on [voxel.html](voxel.html).
 
 This arrangement then maps to symbols which have meaning to humans pointing to the actions.  Note that for the ASCII values this maps to a font of the printable ASCII, which can be in any human language.  Building more complex human languages like the CJK characters or fractal Arabic calligraphy, we can add whole cubes to the Hypercube.  The range of characters between 01040 and 01176 are called a "font".
 

@@ -1,12 +1,5 @@
-
-
 [link to home](index.html)
 
-[link to set scroll](scrolls/set)
-
-[link back to set map](maps/set)
-
-[link to set scroll](scrolls/set)
 
 # Magic
 
