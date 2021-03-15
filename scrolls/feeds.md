@@ -28,7 +28,7 @@ This is a critical feed for the overall system work flow, as it is how we share 
 
 ## [Symbol Feed](symbolfeed.html)
 
-This is not really a feed in the strict sense above, but it behaves like a feed in the user interface. Every time a symbol is saved using [symbol.html](symbol.html) an SVG and PNG file are both created, and these are saved in a directory called [symbolfeed/](symbolfeed/)
+This is not really a feed in the strict sense above, but it behaves like a feed in the user interface. Every time a symbol is saved using [symbol.html](symbol.html) an SVG and PNG file are both created, and these are saved in a directory called [symbolfeed/](symbolfeed/).  These can be saved locally and then used for anything.  The pairs of files are also used when programming the Dremel laser cutter to directly create laser cut acrylic geometry shapes.  The SVG files alone, with different layers as different colors are used for the cut and etch layers when making laser cut shapes ordered from [Ponoko.com](https://www.ponoko.com/).  Clicking on an SVG file also loads it up into [symbol.html](symbol.html), including the structural JSON information which sets styles and positions of the symbol.
 
 ## [Wall](wall.html)
 
