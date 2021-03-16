@@ -6,7 +6,7 @@
 
 ## Steps
 
-1. Find [this document](user.php?scroll=scrolls/terminal)
+1. Find this document, the Terminal Scroll at scrolls/terminal.md
 2. Gather pi hardware
 3. Gather Trash Magic materials and tools
 4. Gather bag kit elements

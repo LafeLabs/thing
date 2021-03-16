@@ -19,5 +19,5 @@ These are used to make clay stamps which represent the "Fire" elemental.  This s
 
 Finally pairs of stamps are used to stamp out the final Icon Token.  This is where another layer of meaning can be created by which symbols we choose to pair.  A good pairing is symbols of things with a subset relationship. For instance in the Trash Robot Set, one token has a textile symbol on one side and bag symbol on the other.  These represent the Water elemenental(blue triangle). A full set is placed in a Water Bag for carrying around and using.  These symbols can now be used for anything in the service of increasing ones focus on the Set.  
 
-This is the path of Alchemy using Trash Robot and the Geometron language to do Trash Magic: We focus our attention on the replication of a thing by following the path above.
+This is the path of Alchemy using Trash Robot and the Geometron language to do Trash Magic: We focus our attention on the replication of a thing by following the path above.  We use this to replicate Tash Robot itself.  A set can be used for any purpose. 
 

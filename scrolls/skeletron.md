@@ -39,3 +39,10 @@ Use [shapes](scrolls/shapes) and Tape Snake and Trash Tie from [skeletron](scrol
 
 ![](https://i.imgur.com/Se6eZr0.jpg)
  
+
+## Replicator Cards
+
+Replicator cards are cardboard cut out large enough to tape a index card to, with duct tape on the opposite side...or any other Tarot-like or index-card-like card which can carry physical information.  These are used to map out the same set being replicated in the [Trash Robot Alchemy Process](scrolls/alchemy.md), but they carry actual information on how to replicate that element.  This can be geometric designs, keywords, urls, names of files, lists of parts etc. They can be anything which helps a person replicate the thing they represent.
+
+
+

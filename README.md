@@ -4,11 +4,11 @@
 
 # Geometron/ Trash Robot System
 
-We seek to build a new civilization without mining, without money, and without property.  To do this we need to build technology to satisfy every human need as described in the [Trash Magic Manifesto](https://lafelabs.github.io/Trash_Magic_Manifesto.pdf)([hardcopy](https://www.lulu.com/en/us/shop/lafe-spietz/trash-magic-manifesto-and-action-coloring-book-revision-1/paperback/product-1km4deev.html)) entirely from either natural materials in our environment or from the waste streams of consumer society.
+We seek to build a new civilization without mining, without money, and without property.  To do this we need to build technology to satisfy every human need as described in the [Trash Magic Manifesto.pdf](https://lafelabs.github.io/Trash_Magic_Manifesto.pdf)[[hardcopy](https://www.lulu.com/en/us/shop/lafe-spietz/trash-magic-manifesto-and-action-coloring-book-revision-1/paperback/product-1km4deev.html)] entirely from either natural materials in our environment or from the waste streams of consumer society.
 
 In order to begin this process we need an information technology system which is not owned by anyone and contains no property of any kind which can replicate the Trash Magic.  Trash Robot is a vehicle for Trash Magic. It is an "open brand", with a recognizable brand identity and design ethos which does not belong to any person or organization. 
 
-Trash Robot is rainbows. Trash Robot is Googly Eyes. Trash Robot is geometry.  Trash robot is chaos.  Trash robot is a future without property, without money and without mining. Trash Robot is solid simple colors on a soft black background. Trash Robot is modular. Trash Robot is built partly from trash and partly from generically available off the shelf commercial products which are easy to buy in small quantities, like duct tape or Raspberry Pi's.  Trash Robot production is not mass production, it is *craft* production.  
+Trash Robot is rainbows. Trash Robot is Googly Eyes. Trash Robot is geometry.  Trash robot is chaos.  Trash robot is a future without property, without money and without mining. Trash Robot is solid simple colors on a soft black background. Trash Robot is modular. Trash Robot is built partly from trash and partly from widely available off-the-shelf products which are easy to buy in small quantities, like duct tape or Raspberry Pi's.  Trash Robot production is not mass production, it is *craft* production.  
 
 In Trash Robot the following laws hold:
 
