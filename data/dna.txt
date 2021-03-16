@@ -279,6 +279,7 @@
         "workflow"
     ],
     "scrolls": [
+        "alchemy.md",
         "box.md",
         "brain.md",
         "brand.md",

@@ -34,6 +34,7 @@ Trash Robot is a collection of things which we replicate. These are the elements
 - [Symbols](scrolls/geometron.md)
 - [Brand](scrolls/brand.md)
 - [Products](scrolls/products.md)
+- [Alchemy](scrolls/alchemy.md)
 
 }
 
