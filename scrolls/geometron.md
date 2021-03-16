@@ -55,5 +55,6 @@ Actions of symbol.html
 
 [Learn to operate Geometron with the Hello Geometron Scroll](scrolls/hellogeometron)
 
+[read a book ish document of an obsolete version of Geometron in the Book of Geometron here](https://lafelabs.github.io/book_of_geometron.html)
 
 

@@ -1,19 +1,22 @@
 ## [Link to Map](maps/home)
 
+![](https://i.imgur.com/niV3C7n.jpg)
 
 # Geometron/ Trash Robot System
 
 We seek to build a new civilization without mining, without money, and without property.  To do this we need to build technology to satisfy every human need as described in the [Trash Magic Manifesto](https://lafelabs.github.io/Trash_Magic_Manifesto.pdf)([hardcopy](https://www.lulu.com/en/us/shop/lafe-spietz/trash-magic-manifesto-and-action-coloring-book-revision-1/paperback/product-1km4deev.html)) entirely from either natural materials in our environment or from the waste streams of consumer society.
 
-In order to begin this process we need an information technology system which is not owned by anyone and contains no property of any kind which can replicate the Trash Magic.  The IT system documented here is as close to free as we can build at this time, and replicates by providing enough value to users that they will benefit by building out more of the network without anyone owning the network as it grows.  
+In order to begin this process we need an information technology system which is not owned by anyone and contains no property of any kind which can replicate the Trash Magic.  Trash Robot is a vehicle for Trash Magic. It is an "open brand", with a recognizable brand identity and design ethos which does not belong to any person or organization. 
 
-Everything can be replicated. 
+Trash Robot is rainbows. Trash Robot is Googly Eyes. Trash Robot is geometry.  Trash robot is chaos.  Trash robot is a future without property, without money and without mining. Trash Robot is solid simple colors on a soft black background. Trash Robot is modular. Trash Robot is built partly from trash and partly from generically available off the shelf commercial products which are easy to buy in small quantities, like duct tape or Raspberry Pi's.  Trash Robot production is not mass production, it is *craft* production.  
 
-Everything can be edited.  
+In Trash Robot the following laws hold:
 
-Everything in the system can be destroyed. 
+- Everything can be replicated. 
+- Everything can be edited.  
+- Everything can be deleted. 
 
-The system consists of the following elements:
+Trash Robot is a collection of things which we replicate. These are the elements of Trash Robot:
 
 {
 
@@ -29,6 +32,8 @@ The system consists of the following elements:
 - [Scrolls](scrolls/scrolls.md)
 - [Feeds](scrolls/feeds.md)
 - [Symbols](scrolls/geometron.md)
+- [Brand](scrolls/brand.md)
+- [Products](scrolls/products.md)
 
 }
 
@@ -47,6 +52,23 @@ The seed of technology beyond mere media is the Shield, a system for building on
 We define "[magic](scrolls/magic.md)" in this work to be the replication of desire or the desire of replication. Our goal is to create technology which people replicate freely.  Our desire to replicate that is part of the thing we call "magic", and the other part is the replication of that desire itself. That is, someone other than us is transformed into a state of desire to replicate the set, replicating our own desire of replication. Magic is a form of recursion, as replication replicates itself ad infinitum if our technology successfully replicates.
 
 
+Coin Printer:
 
+![](https://i.imgur.com/tz8x0hY.jpg)
 
+Terminal:
+
+![](https://i.imgur.com/53xD1Yv.jpg)
+
+Alchemy Sigil Board:
+
+![](https://i.imgur.com/Se6eZr0.jpg)
+
+Some Skeletron 
+
+![](https://i.imgur.com/Qg40z9U.png)
+
+ArtBox
+
+![](https://i.imgur.com/qHFkNbg.jpg)
 
