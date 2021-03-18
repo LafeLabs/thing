@@ -1,100 +1,76 @@
 [home](index.html)
 
+[map of map tools](maps/maps)
+
 # Maps
 
-The Map is a generalization of the Poetry Engine and is one of the most universal types of file in Geometron. A map is like a "meme" or a slide in a presentation, but also like a map in geography.  It is a generalized type of document where images, links and text are arranged on top of each other.  Images can be external links on the web or locally uploaded images or symbols created using the Geometron symbolic language.  This ability to instantly integrate symbols into maps is a big part of what makes the Geometron symbolic language powerful. 
+Maps are a format in Trash Robot/Geometron which are a generalized meme.  They represent an ordered list of objects, each of which has a position in a rectangular area on the screen.  Each element in the ordered array has an x and y position and width all normalized to the size of the square area, as well as an angle in degrees. The other properties each element has are a url for an image if they're an image, HTML text for both if they are not an image and for alt text if they are, and a link destination which can be either a url or a map or scroll link inside the geometron system.  Maps can link to scrolls as well as other maps.  Also, each element has a Boolean variable "maplinkmode" which is false if it is just a normal HTML link and true if it is a map or scroll link.  Maps are all stored in the "[maps/](maps/)" sub-directory of each Trash Robot/Geometron instance.  They are in [JSON](https://www.json.org/json-en.html) format. 
 
-As with the poetry engine, you can drop code into a map and then see that map.  We will start by doing that, copying and pasting the map code here into the text input at the lower right corner of the screen and hitting the "import" button.
+Scrolls are all stored in the [scrolls/](scrolls/) directory.  Links inside the Geometron system are identified as to whether they are scolls or maps by the full name of the file.  For instance one would link to this scroll from anywhere in the system using the name "scrolls/maps" as the destination of either a link in a map element which has maplinkmode set to "true" or in a hyperlink in the markdown format of the [Scroll](scrolls/scrolls).
+
+Maps are defined with the JavaScript library "mapfactory.js" which is in the "jscode" directory at [jscode/mapfactory.js](jscode/mapfactory.js).  
+
+Maps are created in Javascript by for example in a DIV element called "mainmap" with following code:
 
 <pre>
-[
-    {
-        "x": 0.35083532219570407,
-        "y": 0.3818615751789976,
-        "w": 0.45465393794749404,
-        "angle": 0,
-        "text": "scroll.html",
-        "href": "scroll.html",
-        "src": "iconsymbols/scroll.svg"
-    },
-    {
-        "x": 0.08711217183770883,
-        "y": 0.07517899761336516,
-        "w": 0.45465393794749404,
-        "angle": 0,
-        "text": "click scroll icon to return to scroll",
-        "href": "",
-        "src": ""
-    },
-    {
-        "x": 0.20405727923627684,
-        "y": 0.18138424821002386,
-        "w": 0.27088305489260145,
-        "angle": 52,
-        "text": "scroll.html",
-        "href": "scroll.html",
-        "src": "iconsymbols/arrow.svg"
-    }
-]
+ 
+
+newmap = [ 
+  {
+    "x": 0.3448687350835322,
+    "y": 0.17780429594272076,
+    "w": 0.32100238663484487,
+    "angle": 0,
+    "text": "some text",
+    "href": "",
+    "src": "https://i.imgur.com/LgcLdus.png",
+    "maplinkmode": true
+  }
+];
+
+mainmap = new Map([mapwidth],[mapheight],document.getElementById("mainmap"));
+mainmap.array = newmap;
+mainmap.draw();
+
 </pre>
 
-Copy/paste that code by going to the map viewing page at [map.html](map.html).  Then click the scroll icon to return to the scroll editor and the button to get to the map scroll to get back to this document.
 
-Now, to make our own maps, we'll use the map editor, which you can open in a new browser window at [mapeditor.html](mapeditor.html).  Also note that the symbol in Geometron for map is this:
+Maps are edited using the program [mapeditor.html](mapeditor.html).  Click on all the things at random to figure out how to use that program.  Save often.  Copy/paste JSON code from the text area to share maps across the Internet or privately with other users. You can email JSON code, store it, copy it etc, and anyone can import it with a paste into their Geometron instance and save it locally on their server.  This generalized meme format replaces both meme making software and PowerPoint as well as a large number of HTML frameworks and formats.  It allows for a generalized system for encoding information on an image, which can be critical to documenting self-replicating physical technology.  The three pillars of all Geometron/Trash Robot software are the Map, the Scroll, and the Symbols which are created with the Geometron language.  This "symbol" is generalized to include those made in all physical media, so that includes things like lab-on-chip fluidic circuits, hybrid upcycled electronic circuits, laser cut shapes etc.  Once Geometron is used to encode all human language and all symbols and also all technology, it can drive the hardware which displays maps and scrolls.  When all of this lives on fully upcycled hardware, the system if fully metabolized and we can build self-replicating technology that does not have any mining, money, or property, the ultimate goal of Trash Magic.
 
-[![](iconsymbols/map.svg)](map.html)
+## Deletion
 
-Once you're looking at the map editor, you can go through the elements with the next and previous icons:
+Maps are deleted with [mapdelete.html](mapdelete.html). Just click "delete" to delete.  Be careful, there is no backup.  Also on public servers this might break, as do all file creation and editing functions from time to time. It will work instantly on a [Raspbery Pi Terminal](scrolls/terminal).  
 
-![](iconsymbols/downelement.svg)
+## Replication
 
+When you create a new map, run [dnagenerator.php](dnagenerator.php), and the next time the whole tree is replicated that map will come along for the ride.  To replicate a specific map, find the URL of that map and use copy.php.  The syntax is 
+
+<pre>
+[domain you're on]/copy.php?from=[domain you're copying from]/maps/[nameofmap]&to=maps/[nameofmap]
+</pre>
+
+The "from" url can be anywhere on the Open Web or anywhere visible on the local network.  For example, [pastebin.com](https://www.pastebin.com) or a raw code link on [Github](https://www.github.com)
+
+
+## Map editor Icon Meanings
+
+Save:
+![](iconsymbols/save.svg)
+Increment current element:
 ![](iconsymbols/upelement.svg)
-
-The map icon will get you back to the actual map.  
-
-To create a new element, click the new element symbol which looks like this:
-
-![](iconsymbols/add.svg)
-
-Then save the new link by clicking the save icons which looks like this:
-
-![](iconsymbols/save.svg).   
-
-To see that it saved, reload the browser and you should now see your new, duplicated link.  Now delete that link with the delete icon here:
-
-![](iconsymbols/delete.svg)
-
-To move the link around slide it around with your finger or click-drag with a mouse or other pointer around the screen.  To scale and rotate slide a finger or drag a cursor along the slider bars in the lower right corner of the screen.  
-
-To move a link up or down in the ordering of the elements, use the "move element up" and "move element down" icons shown here:
-
-![](iconsymbols/elementup.svg)
-
+Increment current element:
+![](iconsymbols/downelement.svg)
+Move current element down:
 ![](iconsymbols/elementdown.svg)
-
-
-To change the text, link or image you can manually paste those into the fields in the text table.  You can also select the feeds of images, text or links by clicking on their icons, then click an image, link or text to make the current link that.  These symbols are these:
-
-
-![](iconsymbols/text.svg)
-
-![](iconsymbols/image.svg)
-
-![](iconsymbols/link.svg)
-
-
-To remove the image or link part of a "link" click the icons with the red "x"'s to remove them.  To see the feeds of text, links, and external image urls go to the feed, the symbol for which is 
-
-![](iconsymbols/feed.svg)
-
-
-In the feed, add the urls to images from the web by pasting their url(right click on any image and "copy image url") into the field marked "Image URL" and hitting enter.  Text is entered into the feed similarly as are links. In all cases the elements of the feed are deleted by clicking the red "x" icon.  Now go back to the map editor and click on an image, and it will replace the 
-
-
-Having made a new map, and saved it, copy the code in the text area just below the words "import" and "reset", and save that somewhere, either on your computer or on [a remote text paste site like pastebin.](https://pastebin.com/)  Now hit the "reset" button to clear the map back to the blank default.  What you made should now be gone.  Now save the new cleared map and reload your browser.  Now paste your code back into the text box and hit the "import" button and you should see your map re-appear!  After doing that, hit the save button again and reload the browser and you should see your map back for further editing.  Now email or text message that code or a link to a paste bin of the code to someone else on the Geometron network(whoever shared all this with you), and they should also then be able to share a map with you.  
-
-Practice making maps of all kinds: use an arrow to locate a thing on a map or in a picture, or to label a place in a picture.  Use the buttons to remove images from links, add or remove links, delete links, and move links up and down in the order. These can be used to make a totally generalized type of media which is similar to the "meme" format in viral Internet content as well as to PowerPoint slides, but with hyperlinks, and in a format which can be remixed openly on the Web by default.  To publish in the open without private data, a map can point to a physical place, which can be located relative to widely used hashtags which track the elements of the Street and Watershed network.  Those hashtags can link to a post on some commercial social media which contain links to the pastebin with the code to replicate the map.  Therefore when in a physical space with no connection to any physical networking hardware, a Geometron Operator can use hashtags to find a link, use the link to find code, and use that code in their personal Geometron server instance on their local machine to load the map using global links, then use the map to find a physical object in the location, which can then have more complex information such as clay tablets with optical encoding on them, printed material, more computer hardware, robots, etc.
-
-
+Move current element down:
+![](iconsymbols/elementup.svg)
+Delete current element:
+![](iconsymbols/delete.svg)
+Create new element:
+![](iconsymbols/add.svg)
+Remove image from element:
+![](iconsymbols/deleteimage.svg)
+Remove link from element:
+![](iconsymbols/deletelink.svg)
 
 

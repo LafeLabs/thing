@@ -1,9 +1,12 @@
+[home](index.html)
+
 [map of map tools](maps/maps)
 
 # Maps
 
-Maps are a format in Trash Robot/Geometron which are a generalized meme.  They represent an ordered list of objects, each of which has a position in a square area on the screen.  
-Each element in the ordered array has an x and y position and width all normalized to the size of the square area, as well as an angle in degrees. The other properties each element has are a url for an image if they're an image, HTML text for both if they are not an image and for alt text if they are, and a link destination which can be either a url or a map or scroll link inside the geometron system.  Maps can link to scrolls as well as other maps.  Also, each element has a Boolean variable "maplinkmode" which is false if it is just a normal HTML link and true if it is a map or scroll link.  Maps are all stored in the "[maps/](maps/)" sub-directory of each Trash Robot/Geometron instance.  They are in [JSON](https://www.json.org/json-en.html) format. Scrolls are all stored in the [scrolls/](scrolls/) directory.  Links inside the Geometron system are identified as to whether they are scolls or maps by the full name of the file.  For instance one would link to this scroll from anywhere in the system using the name "scrolls/maps" as the destination of either a link in a map element which has maplinkmode set to "true" or in a hyperlink in the markdown format of the [Scroll](scrolls/scrolls).
+Maps are a format in Trash Robot/Geometron which are a generalized meme.  They represent an ordered list of objects, each of which has a position in a rectangular area on the screen.  Each element in the ordered array has an x and y position and width all normalized to the size of the square area, as well as an angle in degrees. The other properties each element has are a url for an image if they're an image, HTML text for both if they are not an image and for alt text if they are, and a link destination which can be either a url or a map or scroll link inside the geometron system.  Maps can link to scrolls as well as other maps.  Also, each element has a Boolean variable "maplinkmode" which is false if it is just a normal HTML link and true if it is a map or scroll link.  Maps are all stored in the "[maps/](maps/)" sub-directory of each Trash Robot/Geometron instance.  They are in [JSON](https://www.json.org/json-en.html) format. 
+
+Scrolls are all stored in the [scrolls/](scrolls/) directory.  Links inside the Geometron system are identified as to whether they are scolls or maps by the full name of the file.  For instance one would link to this scroll from anywhere in the system using the name "scrolls/maps" as the destination of either a link in a map element which has maplinkmode set to "true" or in a hyperlink in the markdown format of the [Scroll](scrolls/scrolls).
 
 Maps are defined with the JavaScript library "mapfactory.js" which is in the "jscode" directory at [jscode/mapfactory.js](jscode/mapfactory.js).  
 
@@ -49,8 +52,25 @@ When you create a new map, run [dnagenerator.php](dnagenerator.php), and the nex
 The "from" url can be anywhere on the Open Web or anywhere visible on the local network.  For example, [pastebin.com](https://www.pastebin.com) or a raw code link on [Github](https://www.github.com)
 
 
+## Map editor Icon Meanings
 
-
-
+Save:
+![](iconsymbols/save.svg)
+Increment current element:
+![](iconsymbols/upelement.svg)
+Increment current element:
+![](iconsymbols/downelement.svg)
+Move current element down:
+![](iconsymbols/elementdown.svg)
+Move current element down:
+![](iconsymbols/elementup.svg)
+Delete current element:
+![](iconsymbols/delete.svg)
+Create new element:
+![](iconsymbols/add.svg)
+Remove image from element:
+![](iconsymbols/deleteimage.svg)
+Remove link from element:
+![](iconsymbols/deletelink.svg)
 
 
