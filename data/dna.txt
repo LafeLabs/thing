@@ -262,6 +262,7 @@
         "user.txt"
     ],
     "maps": [
+        "alchemy",
         "board",
         "home",
         "maps",

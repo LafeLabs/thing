@@ -6,8 +6,23 @@
 ![](https://i.imgur.com/qHFkNbg.jpg)
 # Kit:
 ![](https://i.imgur.com/pQHrP2k.jpg)
+<pre>
+kit:{
+  scissors,
+  6 inch ruler,
+  3 inch equilateral triangle,
+  duct tape: 
+{black, red, orange, yellow, green, blue, purple},
+  box cutters,
+  googly eyes,
+  sharpie marker,
+  corrugated cardboard
+  trash tie
+}
+<pre>
 # TrashTie:
 ![](https://i.imgur.com/LmjOsiJ.jpg)
+6 foot long cut clothesline, duct taped both ends
 # 6" equilateral Triangle
 ![](https://i.imgur.com/bmOahHu.jpg)
 # 10 Traced Triangles:
