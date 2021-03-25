@@ -249,6 +249,7 @@
         "filesaver.txt",
         "hash.txt",
         "ipaddress.txt",
+        "mathuser.txt",
         "mkdir.txt",
         "pngsave.txt",
         "rdelete.txt",

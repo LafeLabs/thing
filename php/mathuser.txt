@@ -18,7 +18,6 @@
     -->
     <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAP//AP///wANAP8A5Dz6ABueRwAAt/8A6BonABo86AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAREREREREREREREAAAEREREREQCIgREREd3dwAAB3d3d3d3d3d3d3d3d3d3d3d3d3VVVVVVVQAFVVAAVVVQIiBRAiIBEQIAIBECAAERAgAgFgIABmYCIiBmAiIGZgIiIGYCIgZmYCIAaIAAMzMzAAiIiIiIiIiIiIiIiIiIiIiIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
 
-<!--       un comment to use math
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script>
@@ -31,8 +30,7 @@
                 }
             });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
         </script>
-    -->
-    
+
 
     <!--Stop Google:-->
     <META NAME="robots" CONTENT="noindex,nofollow">
@@ -40,7 +38,6 @@
     <script src="jscode/mapfactory.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>
 
-<!--       un comment to use math
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script>
@@ -53,8 +50,6 @@
                 }
             });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
         </script>
-    -->
-
     
 </head>
 <body>    
@@ -113,8 +108,8 @@ var converter = new showdown.Converter();
 converter.setOption('literalMidWordUnderscores', 'true');
 converter.setOption('tables', 'true')
     
-mapname = "data/currentMap.txt";
-//loadmap(mapname);
+mapname = "maps/home";
+//loadmap(mapname);m
 loadscroll("README.md");
 
 
@@ -161,7 +156,7 @@ function loadmap(mapname){
                 }
             }
             document.getElementById("mapinput").value = "";
-
+            MathJax.Hub.Typeset();//tell Mathjax to update the math
         }
     };
     httpc.open("GET", "fileloader.php?filename=" + mapname, true);
@@ -195,6 +190,7 @@ function loadscroll(scrollname){
             document.getElementById("scrollscroll").innerHTML = rawhtml;
             convertscrollinks();
             //			MathJax.Hub.Typeset();//tell Mathjax to update the math
+            MathJax.Hub.Typeset();//tell Mathjax to update the math        
             document.getElementById("mapinput").value = "";
     //			MathJax.Hub.Typeset();//tell Mathjax to update the math
         }
