@@ -14,21 +14,53 @@ Flags are created by cutting a square of black cloth 38 inches on a side, then f
 
 Flags are used for advertising, branding, and also as a surface on which all the other physical media and technology can be displayed, as a black background which matches the look and feel of the digital layer of the system.
 
+
+## [www.us29.xyz/](https://www.us29.xyz/)
+
 ![](https://i.imgur.com/nvWedsQ.jpg)
+
+## [www.maplelawn.net/](https://www.maplelawn.net/)
+
 ![](https://i.imgur.com/NzCdPkc.jpg)
+
+## Trash Robot flag and board with icon tokens printed on printer robot
+
 ![](https://i.imgur.com/XTkXNfz.jpg)
+
+## Flag with some elements of [skeletron](scrolls/skeletron.md)
+
 ![](https://i.imgur.com/VzGWUmE.jpg)
+
+## The Trash Robot Font:
+
 ![](https://i.imgur.com/nKHSZxC.jpg)
+
+## Making letters in a square
+
 ![](https://i.imgur.com/d1pyUxC.jpg)
+
+## Pattern for Raspberry Pi from Penrose Tiles
+
 ![](https://i.imgur.com/ij5KATT.png)
 
+![](https://i.imgur.com/stbiMPC.jpg)
+
 Bags are used to store tokens and other elements of the clay art system which the robot prints in, to store the robots, to store the Raspberry Pi Trash Robot Terminals, and other technological artifacts created in the Trash Robot system.  Bags come in different sizes and have some standard patterns shown here.  Symbols are sewn in felt on bags to indicate what their purpose and contents are.  Specific symbols with patterns which can be created with a Geometron Shape Set are used for the robot bag, terminal bag, and the bags of clay corresponding to the "earth", "fire" and "water" elements.  These are shown below.
+
+## Replicator cards
+
 
 ![](https://i.imgur.com/PX3H950.jpg)
 ![](https://i.imgur.com/dN9OHSj.jpg)
 ![](https://i.imgur.com/zhNdGOV.jpg)
 ![](https://i.imgur.com/96SbQov.jpg)
+
+[Raw flannel stock from Joann Fabric](https://www.joann.com/comfy-cozy-flannel-fabric-solids/16681074.html):
+
 ![](https://i.imgur.com/AmYttRk.jpg)
+
+Cut out patterns from replicators above:
+
 ![](https://i.imgur.com/QlljPcd.jpg)
 
 

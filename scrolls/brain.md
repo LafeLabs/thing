@@ -1,5 +1,8 @@
-[link back to robot map](maps/robot)
+[home](index.html)
 
+[robot map](maps/robot)
+
+[robot scroll](scrolls/printer.md)
 
 # Robot Brain
 
@@ -57,6 +60,8 @@ Mount completed board on Arduino UNO.
 Replicate the pattern as shown from thin cardboard to use to cut out in thick corrugated cardboard.
 
 ![](https://i.imgur.com/8dy1hPq.jpg)
+
+![](https://i.imgur.com/B4GOWsB.png)
 
 Use rainbow duct tape and googly eyes to complete enclosure as shown.
 

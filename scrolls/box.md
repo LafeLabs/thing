@@ -16,13 +16,19 @@ kit:{
   box cutters,
   googly eyes,
   sharpie marker,
-  corrugated cardboard
-  trash tie
+  corrugated cardboard,
+  trash tie,
+  tape snake
 }
 <pre>
 # TrashTie:
 ![](https://i.imgur.com/LmjOsiJ.jpg)
 6 foot long cut clothesline, duct taped both ends
+# Tape Snake
+
+![](https://i.imgur.com/WKFQRVY.jpg)
+Loop Trash Tie through a set of all colors of duct tape twice, tie with a square knot.
+
 # 6" equilateral Triangle
 ![](https://i.imgur.com/bmOahHu.jpg)
 # 10 Traced Triangles:

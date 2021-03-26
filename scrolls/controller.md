@@ -1,5 +1,9 @@
 
+[home](index.html)
+
 [robot map](maps/robot)
+
+[robot scroll](scrolls/printer.md)
 
 # Controller
 

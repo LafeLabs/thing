@@ -20,6 +20,7 @@ Trash Robot is a collection of things which we replicate. These are the elements
 
 {
 
+- [ArtBox](scrolls/box.md)
 - [Raspberry Pi terminals](scrolls/terminal.md)
 - [Domain names](scrolls/domains.md)
 - [Code](scrolls/code.md)
