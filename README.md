@@ -1,5 +1,7 @@
 ## [Link to Map](maps/home)
 
+[readme2.md](scrolls/readme2.md)
+
 ![](https://i.imgur.com/niV3C7n.jpg)
 
 # Geometron/ Trash Robot System
