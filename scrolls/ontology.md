@@ -13,9 +13,14 @@ The Pyramids
 
 Audion
 
-The Box
+ArtBox
 
-Trash Robot
+Trash Robot Icon Printer
 
 Skeletron
 
+laser cut shape set
+
+laser cut ruler
+
+custom laser cut shapes and stencils

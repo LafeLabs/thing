@@ -316,6 +316,7 @@
         "supplies",
         "symbolmagic",
         "symbolmagicdotcom",
+        "symbols.md",
         "terminal.md",
         "textile.md",
         "trashrobot",

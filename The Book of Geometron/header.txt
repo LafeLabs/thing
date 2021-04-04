@@ -1,0 +1,18 @@
+\documentclass[12pt,a4paper]{amsart}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage[latin2]{inputenc}
+\usepackage{t1enc}
+\usepackage[mathscr]{eucal}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{graphics}
+\usepackage{pict2e}
+\usepackage{epic}
+\numberwithin{equation}{section}
+\usepackage[margin=2.9cm]{geometry}
+\usepackage{epstopdf} 
+
+\def\numset#1{{\\mathbb #1}}
+\begin{document}
