@@ -283,6 +283,7 @@
         "mechanicals.md",
         "mirrorhypercube",
         "operator",
+        "organicmedia.md",
         "page",
         "pastebin",
         "pendant.md",

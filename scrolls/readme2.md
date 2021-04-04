@@ -3,7 +3,7 @@
 # Book of Geometron 
 
  - [Civilization](scrolls/civilization.md)
- - Organic Media
+ - [Organic Media](scrolls/organicmedia.md)
  - [Scrolls](scrolls/scrolls/md)
  - [Maps](scrolls/maps.md)
  - [Feeds](scrolls/feeds.md)
