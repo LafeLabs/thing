@@ -2,6 +2,8 @@
 
 quickstart guide: install in pi, buy domain, install on domain, make sign to domain, point domain to terminal, post scroll, map, feed, symbol on terminal, share.  Rewrite from scratch using the specs.  Work on code in a coffee shop cooperative, fork, improve, replicate from scratch. And repeat.
 
+evaluate size of space of domains based on physical places, information theory of domains which deliberately are not property--we can always find them cheap
+
 custom laser cut shapes
 
 custom printed icons: print on bottle caps, print in clay, make jewelry, wearables
@@ -37,6 +39,8 @@ the geometron station, skeletron huts
 replication within institutions, bureaucracies, schools, etc
 
 role of churches
+
+nodes of geographic power: Market right by ferry building, Dolores park, People's park, Sproul plaza, new haven green by yale, circuit ave oak bluffs, greenwitch ct, aspen, kstreet, dupont circle, direct examples, with post cards, examples of how to build extremely powerful markets in a specific place, a market of information in a physical place where market makers are, for example we will build an information market in physical Sand Hill Road coffee shops, and in physical Wall Street(zuccotti.xyz is free for example)
 
 truckers and truck stops
 
