@@ -1,6 +1,5 @@
-[index.html](index.html)
 
-# Civilization
+# Civilizations
 
 The nature of our present civilization is one of constant consumption.  We mine or drill material out of the ground, re-shape it or burn it for fuel, and ultimately turn it into toxic which waste we dump back into the environment.  During the process from mine to landfill, we exchange "money" and this is what we call the "economy".  The things which can be exchanged for money are called "property".
 

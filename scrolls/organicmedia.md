@@ -18,7 +18,8 @@ Deletion: cheap sd cards can be wiped any time.  All files can be deleted or wri
 
 Cybersecurity: there is none. Security is for private property, and there simply is none on this network.  This network must always be disconnected from the property-based Internet or private systems.  One way paths of information for protection.
 
+draw from the SRS paper and the existing organic media paper
 
-File types independent of technology: scroll, map, feed, symbol.  These can be described without any specific implementation of *either* software *or* hardware.  Specific implementations will be dealt with in their own sections
+File types independent of technology: symbols, feeds, maps, scrolls.  These can be described without any specific implementation of *either* software *or* hardware.  Specific implementations will be dealt with in their own sections.
 
 How files are structured, overview of file types, what they do.  

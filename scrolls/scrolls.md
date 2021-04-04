@@ -48,5 +48,60 @@ The basis of the scroll software is the JavaScript library [Showdown.js](http://
 
 
 
+## LaTeX workflow
 
+To convert a scroll to a tex document, copy the scroll into a new directory at the *nix command line.  Then create a header and footer text file as follows:
+
+header.txt = 
+
+<pre style = "background-color:white;color:black">
+\documentclass[12pt,a4paper]{amsart}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage[latin2]{inputenc}
+\usepackage{t1enc}
+\usepackage[mathscr]{eucal}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{graphics}
+\usepackage{pict2e}
+\usepackage{epic}
+\numberwithin{equation}{section}
+\usepackage[margin=2.9cm]{geometry}
+\usepackage{epstopdf} 
+
+\def\numset#1{{\\mathbb #1}}
+\begin{document}
+</pre>
+
+and 
+
+footer.txt = 
+
+<pre style = "background-color:white;color:black">
+\end{document}
+</pre>
+
+in the new project directory using your favorite text editor.  Now be sure you have [Pandoc](https://pandoc.org/) installed, as well as pdflatex, and any stuff that needs to be installed for latex to work.
+
+Now convert the scroll to a .tex file using pandoc as follows:
+
+<pre style = "background-color:white;color:black">
+pandoc -o filename.tex filename.md
+</pre>
+
+Then concatenate with header and footer using 
+
+<pre style = "background-color:white;color:black">
+cat header.txt filename.tex footer.txt > filename-pdf.tex
+</pre>
+
+And finally compile from text to pdf using
+
+<pre style = "background-color:white;color:black">
+pdflatex filename-pdf.tex
+</pre>
+
+and if there are no errors in the tex code you will have a printable pdf document.
 

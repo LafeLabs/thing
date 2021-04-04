@@ -4,6 +4,7 @@
 
  - [Civilizations](scrolls/civilization.md)
  - [Organic Media](scrolls/organicmedia.md)
+ - [Magic](scrolls/magic.md)
  - Symbols
     - GVM and Hypercube
     - 2d Geometric Actions
@@ -14,12 +15,11 @@
     - workflow 
  - [Feeds](scrolls/feeds.md)
  - [Maps](scrolls/maps.md)
- - [Scrolls](scrolls/scrolls/md)
- - Ontology
- - Trash Robot
+ - [Scrolls](scrolls/scrolls.md)
+ - [Ontology](scrolls/ontology.md)
+ - [Trash Robot](scrolls/printer.md)
     - idea, brand and system
     - assembly
     - workflow
- - Geometron Markets
- - Full Stack Geometron
- - Revolutions
+ - [Praxis](scrolls/praxis.md)
+ - [Full Stack Geometron](scrolls/fullstack.md)

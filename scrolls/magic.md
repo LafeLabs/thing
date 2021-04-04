@@ -1,6 +1,5 @@
 [link to home](index.html)
 
-
 # Magic
 
 Magic is the replication of desire, and the desire of replication.  
@@ -24,6 +23,10 @@ Images are aligned in the aligner, and the state is saved with the save button. 
 That control is then focused on doing whatever is necessary in order to replicate the set, as well as replicate the replication.  That is, the set always contains the magician themselves, as well as the desire they carry in their heart to replicate the set. 
 
 We now cast about for sets that might replicate.  They can replicate without the full Trash Robot. The self-replicating branded chess set is an example Set Magic which can be cast on a chess board.
+
+move more of self replicating sets document into this scroll, extend to include that background
+
+this document needs to have our treatment of brands as magic and of the open brand as post-capitalist magic.  The open brand using self replicating geometry to build a Technological Complete Set from trash is the thing we must point to.  Trash Robot is an example of this.
 
 
 
