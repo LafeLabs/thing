@@ -258,7 +258,7 @@
         "box.md",
         "brain.md",
         "brand.md",
-        "civilization.md",
+        "civilizations.md",
         "code.md",
         "controller.md",
         "domains.md",

@@ -2,11 +2,8 @@
 
 # Book of Geometron 
 
- - [Civilization](scrolls/civilization.md)
+ - [Civilizations](scrolls/civilization.md)
  - [Organic Media](scrolls/organicmedia.md)
- - [Scrolls](scrolls/scrolls/md)
- - [Maps](scrolls/maps.md)
- - [Feeds](scrolls/feeds.md)
  - Symbols
     - GVM and Hypercube
     - 2d Geometric Actions
@@ -15,6 +12,9 @@
     - machine control, automation
     - 3d geometron, VR, AR, 3d printing
     - workflow 
+ - [Feeds](scrolls/feeds.md)
+ - [Maps](scrolls/maps.md)
+ - [Scrolls](scrolls/scrolls/md)
  - Ontology
  - Trash Robot
     - idea, brand and system
@@ -22,3 +22,4 @@
     - workflow
  - Geometron Markets
  - Full Stack Geometron
+ - Revolutions
