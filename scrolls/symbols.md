@@ -1,3 +1,5 @@
+[home](index.html)
+
 # Symbols
 
 The generalized symbol: any geometry with meaning.  This includes microprocessors, circuit boards, building architecture, city layout, periodic structures in agriculture, letters, icons, brands, glyphs, body movements.  Geometric action can be pixels, classical geometry constructions

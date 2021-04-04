@@ -1,8 +1,10 @@
+[home](index.html)
+
 # Full Stack Geometron
 
 flaws in existing system
 
-computers are not computers
+computers are not computers, this is where we attack the Turing paradigm, the basic insanity of it
 
 geometric processing
 

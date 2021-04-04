@@ -1,6 +1,22 @@
+# <span style = "color:red">Γ</span><span style = "color:orange">ε</span><span style = "color:yellow">ω</span><span style = "color:green">μ</span><span style = "color:blue">ε</span><span style = "color:purple">τ</span><span style = "color:red">ρ</span><span style = "color:orange">ο</span><span style = "color:yellow">ν</span>
+
 ## [Link to Map](maps/home)
 
-[Book of Geometron Draft in progress](scrolls/readme2.md)
+## [Old Book of Geometron](https://lafelabs.github.io/book_of_geometron.html)
+
+## Draft of Book of Geometron[revised]:
+
+ - [Civilizations](scrolls/civilizations.md)
+ - [Organic Media](scrolls/organicmedia.md)
+ - [Magic](scrolls/magic.md)
+ - [Symbols](scrolls/symbols.md)
+ - [Feeds](scrolls/feeds.md)
+ - [Maps](scrolls/maps.md)
+ - [Scrolls](scrolls/scrolls.md)
+ - [Ontology](scrolls/ontology.md)
+ - [Praxis](scrolls/praxis.md)
+ - [Full Stack Geometron](scrolls/fullstack.md)
+
 
 ![](https://i.imgur.com/niV3C7n.jpg)
 

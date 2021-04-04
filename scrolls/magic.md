@@ -26,7 +26,7 @@ We now cast about for sets that might replicate.  They can replicate without the
 
 move more of self replicating sets document into this scroll, extend to include that background
 
-this document needs to have our treatment of brands as magic and of the open brand as post-capitalist magic.  The open brand using self replicating geometry to build a Technological Complete Set from trash is the thing we must point to.  Trash Robot is an example of this.
+this document needs to have our treatment of brands as magic and of the open brand as post-capitalist magic.  The open brand using self replicating geometry to build a Technological Complete Set from trash is the thing we must point to.  Trash Robot is an example of this: rainbow and googley eyes
 
 The example is given of the ArtBox. It brings together Geometron, Trash Robot, Trash Magic, all the things.
 

@@ -1,6 +1,12 @@
+[home](index.html)
+
 # Praxis
 
 quickstart guide: install in pi, buy domain, install on domain, make sign to domain, point domain to terminal, post scroll, map, feed, symbol on terminal, share.  Rewrite from scratch using the specs.  Work on code in a coffee shop cooperative, fork, improve, replicate from scratch. And repeat.
+
+the physical terminal, like the domain, is not property, it is physically located on the Street, we find people to teach it to and just hand the terminal to them, teach them to pass along, the terminal is street media, a traveling market.  
+
+we will do this! dupont circle, k street, washington circle, dolorespark, foggybottom,southbroadway(denver)
 
 evaluate size of space of domains based on physical places, information theory of domains which deliberately are not property--we can always find them cheap
 
