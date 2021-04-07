@@ -2,7 +2,7 @@
 
 # Civilizations
 
-The nature of our present civilization is one of constant consumption.  We mine or drill material out of the ground, re-shape it or burn it for fuel, and ultimately turn it into toxic which waste we dump back into the environment.  During the process from mine to landfill, we exchange "money" and this is what we call the "economy".  The things which can be exchanged for money are called "property".
+The nature of our present civilization is one of constant consumption.  We mine or drill material out of the ground, re-shape it or burn it for fuel, and ultimately turn it into toxic waste we dump back into the environment.  During the process from mine to landfill, we exchange "money" and this is what we call the "economy".  The things which can be exchanged for money are called "property".
 
 We seek to build a new civilization which is based not on a stream from mine to landfill, but on closed loops of material in equilibrium with living ecosystems.  We look to the technological civilizations of indigenous people as an example of what mature technology should look like. In mature civilizations, technology is all self-replicating. 
 

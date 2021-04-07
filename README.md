@@ -2,22 +2,6 @@
 
 ## [Link to Map](maps/home)
 
-## [Old Book of Geometron](https://lafelabs.github.io/book_of_geometron.html)
-
-## Draft of Book of Geometron[revised]:
-
- - [Civilizations](scrolls/civilizations.md)
- - [Organic Media](scrolls/organicmedia.md)
- - [Magic](scrolls/magic.md)
- - [Symbols](scrolls/symbols.md)
- - [Feeds](scrolls/feeds.md)
- - [Maps](scrolls/maps.md)
- - [Scrolls](scrolls/scrolls.md)
- - [Ontology](scrolls/ontology.md)
- - [Praxis](scrolls/praxis.md)
- - [Full Stack Geometron](scrolls/fullstack.md)
-
-
 ![](https://i.imgur.com/niV3C7n.jpg)
 
 # Geometron/ Trash Robot System
@@ -70,6 +54,21 @@ Physical tokens are printed in clay using the [printer system](scrolls/printer.m
 The seed of technology beyond mere media is the Shield, a system for building on the Arduino which is the beginning of a wide range of technology which will eventually become the whole technologically complete set. For now it is a system where a novice can create some interesting and fun and potentially valuable machines.  These are documented in the [Shield Scroll](scrolls/shield.md).
 
 We define "[magic](scrolls/magic.md)" in this work to be the replication of desire or the desire of replication. Our goal is to create technology which people replicate freely.  Our desire to replicate that is part of the thing we call "magic", and the other part is the replication of that desire itself. That is, someone other than us is transformed into a state of desire to replicate the set, replicating our own desire of replication. Magic is a form of recursion, as replication replicates itself ad infinitum if our technology successfully replicates.
+
+## [Old Book of Geometron](https://lafelabs.github.io/book_of_geometron.html)
+
+## Draft of Book of Geometron[revised]:
+
+ - [Civilizations](scrolls/civilizations.md)
+ - [Organic Media](scrolls/organicmedia.md)
+ - [Magic](scrolls/magic.md)
+ - [Symbols](scrolls/symbols.md)
+ - [Feeds](scrolls/feeds.md)
+ - [Maps](scrolls/maps.md)
+ - [Scrolls](scrolls/scrolls.md)
+ - [Ontology](scrolls/ontology.md)
+ - [Praxis](scrolls/praxis.md)
+ - [Full Stack Geometron](scrolls/fullstack.md)
 
 
 Coin Printer:

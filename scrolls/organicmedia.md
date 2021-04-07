@@ -23,7 +23,6 @@ Cybersecurity: there is none. Security is for private property, and there simply
 draw from the SRS paper and the existing organic media paper(but the formal SRS idea goes in ontology chapter)
 
 
-
 File types independent of technology: symbols, feeds, maps, scrolls.  These can be described without any specific implementation of *either* software *or* hardware.  Specific implementations will be dealt with in their own sections.
 
 How files are structured, overview of file types, what they do.  All of this is as a generalized specification which users can use to rewrite from scratch quickly.
@@ -33,4 +32,9 @@ Example of physical organic media: The Art Box, replicator card, replicator shap
 We will return to the Art Box again and again as we go through the system, illustrating how it can replicate in the Geometron system and how it fits into all the parts: symbols in "symbols" for the shapes and net, the set in ontology, maps, feeds, scrolls, scroll replicator, role in magic as one of the Trash Robot avatar objects
 
 The user page, basic operation of Geometron as it exists today, just viewing now editing, but with pointers to editors, jump on and look at a file RIGHT NOW, on one of my pages.
+
+In organic media chapter we introduce geometron and say what we're going to be doing in this book.  What we are doing is providing a *specification* and an *example* of an instance of that spec. We will use the Pi, and remote hosted pages.  But expect this spec to be used by many coders on many platforms in many ways if successful.
+
+
+
 
