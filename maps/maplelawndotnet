@@ -75,5 +75,16 @@
         "href": "",
         "src": "",
         "maplinkmode": false
+    },
+    {
+        "x": 0.8526946107784431,
+        "y": 0.7209580838323353,
+        "w": 0.22634730538922157,
+        "h": 0.6179640718562874,
+        "angle": 0,
+        "text": "terminal",
+        "href": "",
+        "src": "https://i.imgur.com/mPAqj3C.png",
+        "maplinkmode": false
     }
 ]

@@ -30,52 +30,42 @@
     </head>
 <body>
     
+<textarea id = "maintextarea"></textarea>
+<div id = "feedscroll">
+    <div id = "modebutton" class = "button">DARK MODE</div>
+    <a href = "index.html">
+        <img src = "iconsymbols/home.svg"/>
+    </a>
+    <a href = "scrolldelete.html">
+        <img src = "iconsymbols/delete.svg"/>
+    </a>
 
-    <textarea id = "maintextarea"></textarea>
-
-    <div id = "feedscroll">
-        <a href = "index.html">
-            <img src = "iconsymbols/home.svg"/>
-        </a>
-        <a href = "scrolldelete.html">
-            <img src = "iconsymbols/delete.svg"/>
-        </a>
-
-        <table>
-            <tr>
-                <td>Currentfile:</td>
-                <td id = "currentfilename"></td>
-            </tr>
-            <tr>
-                <td>New Scroll Name:</td>
-                <td><input id = "newscrollinput"/></td>
-            </tr>
-        </table>
-    </div>
-        
-<div id = "reloadbar">
-    R
-    <BR/>
-    E
-    <BR/>
-    L
-    <BR/>
-    O
-    <BR/>
-    A
-    <BR/>
-    D
-
+    <table>
+        <tr>
+            <td>Currentfile:</td>
+            <td id = "currentfilename"></td>
+        </tr>
+        <tr>
+            <td>New Scroll Name:</td>
+            <td><input id = "newscrollinput"/></td>
+        </tr>
+    </table>
 </div>
+        
+
 
 <script>
 
-    //get readme.md, convert to html and display
-    var converter = new showdown.Converter();
-    // for more on options see here:
-    // https://github.com/showdownjs/showdown/wiki/Showdown-Options
-    converter.setOption('literalMidWordUnderscores', 'true');
-    converter.setOption('tables', 'true');
+
+
+document.getElementById("newscrollinput").value = "";
+
+//get readme.md, convert to html and display
+var converter = new showdown.Converter();
+// for more on options see here:
+// https://github.com/showdownjs/showdown/wiki/Showdown-Options
+converter.setOption('literalMidWordUnderscores', 'true');
+converter.setOption('tables', 'true');
 
 
 currentfile = "README.md";
@@ -119,6 +109,7 @@ var httpc7 = new XMLHttpRequest();
                 newscrollbutton.innerHTML = scrolls[index];
                 document.getElementById("feedscroll").appendChild(newscrollbutton);
                 newscrollbutton.onclick = function(){
+                    document.getElementById("newscrollinput").value = "";
                     currentfile = this.innerHTML;
                     //console.log(scrollname);
                 document.getElementById("currentfilename").innerHTML = "scrolls/" + currentfile;                
@@ -157,6 +148,7 @@ if (this.readyState == 4 && this.status == 200) {
         newscrollbutton.innerHTML = "scrolls/" + scrolls2[index];
         document.getElementById("feedscroll").appendChild(newscrollbutton);
         newscrollbutton.onclick = function(){
+            document.getElementById("newscrollinput").value = "";
             currentfile = this.innerHTML;
             document.getElementById("currentfilename").innerHTML = currentfile;
             var httpc = new XMLHttpRequest();
@@ -177,12 +169,6 @@ if (this.readyState == 4 && this.status == 200) {
 httpc8.open("GET", "dir.php?filename=scrolls", true);
 httpc8.send();
 
-
-document.getElementById("reloadbar").onclick = function() {
-//     location.reload(); 
-     window.location.href = "scroll.html";
-     
-}
 
 document.getElementById("newscrollinput").onchange = function(){
     currentfile = "scrolls/" + this.value;
@@ -216,115 +202,105 @@ httpcstatic.onreadystatechange = function() {
 httpcstatic.open("GET", "fileloader.php?filename=staticscroll.html", true);
 httpcstatic.send();
 
+mode = "dark";
+
+document.getElementById("modebutton").onclick = function(){
+    modeswitch();
+}
+
+modeswitch();
+function modeswitch(){
+    if(mode == "dark"){
+        mode = "light";
+        document.getElementById("modebutton").innerHTML = "DARK MODE";
+        document.getElementById("maintextarea").style.backgroundColor = "#e0e0e0";
+        document.getElementById("maintextarea").style.color = "black";
+        document.body.style.backgroundColor = "white";
+    }
+    else{
+        mode = "dark";
+        document.getElementById("modebutton").innerHTML = "LIGHT MODE";
+        document.getElementById("maintextarea").style.backgroundColor = "black";
+        document.getElementById("maintextarea").style.color = "#00ff00";        
+        document.body.style.backgroundColor = "#808080";
+    }
+}
 </script>
 <style>
 
-    .scrollbutton{
-        cursor:pointer;
-        color:blue;
-        margin-bottom:0.5em;
+body{
+    overflow:hidden;
+}
+.scrollbutton{
+    cursor:pointer;
+    color:blue;
+    margin-bottom:0.5em;
+}
+#modebutton{
+    position:absolute;
+    right:5px;
+    top:5px;
+    border:solid;
+    border-radius:5px;
+}
+#maintextarea{
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:65%;
+    height:100%;
+    padding-left:1em;
+    padding-top:1em;
+    background-color:black;
+    color:#00ff00;
+    font-family:"Times New Roman", Times, serif;
+    font-size:1.5em;
+    overflow:scroll;
+}
+#feedscroll{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    top:0px;
+    width:30%;
+    overflow:scroll;
+    font-size:1.5em;
+}
+.button{
+    cursor:pointer;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
+}
+@media only screen and (max-width: 1000px) {
+    #maintextarea{
+        position:absolute;
+        left:5%;
+        top:30%;
+        width:95%;
+        bottom:10px;
+        padding-left:1em;
+        padding-top:1em;
+        background-color:black;
+        color:#00ff00;
+        font-size:1em;
+        overflow:scroll;
+    }
+    #feedscroll{
+        position:absolute;
+        top:0px;
+        left:50px;
+        right:0px;
+        width:100%;
+        bottom:73%;
+        overflow:scroll;
+        font-size:1.5em;
     }
 
-            body{
-                overflow:hidden;
-            }
-            #reloadbar{
-                position:absolute;
-                left:0px;
-                top:0px;
-                height:100%;
-                width:50px;
-                font-size:36px;
-                font-family:courier;
-                color:red;
-                background-color:white;
-                z-index:20;
-                overflow:hidden;
-                cursor:pointer;
-            }
-            #maintextarea{
-                position:absolute;
-                left:5%;
-                top:0px;
-                width:65%;
-                height:100%;
-                padding-left:1em;
-                padding-top:1em;
-                background-color:black;
-                color:#00ff00;
-                font-family:courier;
-                font-size:1em;
-                overflow:scroll;
-            }
-            #feedscroll{
-                position:absolute;
-                right:0px;
-                bottom:0px;
-                top:0px;
-                width:27%;
-                overflow:scroll;
-                font-size:1.5em;
-            }
-            .uploadimage{
-                max-width:50%;
-                display:block;
-                margin:auto;
-            }
-
-            .deletebutton{
-                width:50px;
-            }
-            .uploadbox{
-                border:solid;
-                border-width:0.5px;
-                border-radius:10px;
-                margin-top:1em;
-            }
-            .button{
-                cursor:pointer;
-            }
-            .button:hover{
-                background-color:#50ff50;
-            }
-            .button:active{
-                background-color:yellow;
-            }
-            #srcinput{
-                display:block;
-            }
-            #imgurlbox{
-                display:block;
-                font-family:courier;
-                font-size:28px;
-            }
-            @media only screen and (max-width: 1000px) {
-                #maintextarea{
-                    position:absolute;
-                    left:5%;
-                    top:30%;
-                    width:95%;
-                    bottom:10px;
-                    padding-left:1em;
-                    padding-top:1em;
-                    background-color:black;
-                    color:#00ff00;
-                    font-family:courier;
-                    font-size:1em;
-                    overflow:scroll;
-                }
-                #feedscroll{
-                    position:absolute;
-                    top:0px;
-                    left:50px;
-                    right:0px;
-                    width:100%;
-                    bottom:73%;
-                    overflow:scroll;
-                    font-size:1.5em;
-        
-                }
-
-            }
+}
 
         </style>
     </body>
