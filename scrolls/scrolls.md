@@ -1,12 +1,15 @@
 [link to home](index.html)
 
-[terminal scroll](scrolls/terminal.md)
-
 # Trash Robot/ Geometron Scrolls
 
-Scrolls are the text documents of Trash Robot.  Think of this like the Microsoft Word of the Trash Robot ecosystem(with some drastic differences).  Scrolls, along with maps, form the basis of the user-facing system of documents which are shared on a Trash Robot system.  They are used to document the system, to share ideas, post articles, create ads or lists of ads, or really any type of document one can imagine.  
+Scrolls are the text documents of Trash Robot.  Think of this like the Microsoft Word of the Trash Robot ecosystem(with some drastic differences).  Scrolls, along with [maps](scrolls/maps.md), [feeds](scrolls/feeds.md), and [symbols](scrolls/symbols.md), form the basis of the user-facing system of documents which are shared on Geometron.  They are used to document the system, to share ideas, post articles, create ads or lists of ads, or really any type of document one can imagine.  
 
 The format of scrolls can take some getting used to for people used to, as it is not WYSIWYG(What You See Is What You Get), but rather uses the Markdown language to create formatting with code.  One of the first tasks of some enterprising new Trash Robot participant will be to create the fully WYSIWYG version of the scroll editor, but for now this is what we have.  Part of the goal here is to have no documents ever be in a format other than human readable.  Even if Markdown is a little awkward to read, a real live human can always read the text and someone with very very basic understanding of code can immediately turn it into fully a formatted document.  
+
+
+Symbol for scroll:
+
+![](iconsymbols/scroll.svg)
 
 ## Create a scroll
 
@@ -21,6 +24,7 @@ For further information on using the Markdown language, see
 The most annoying thing about markdown is putting images in, which you do as follows:
 
 ![](https://i.imgur.com/sTZWh41.jpg)
+
 
 ## Edit a scroll
 
@@ -38,6 +42,8 @@ Also, the simplest way to copy a scroll is to open a new scroll on a new server 
 
 Links from a scroll to a scroll or from a map to a scroll can be realized in Trash Robot by having the target link be either "scrolls/scrollname" or "maps/mapname", and the code in the TR user page will convert those to local links.  E.g. [link to terminal scroll](scrolls/terminal).  Scrolls can also be linked to globally by using "user.php" with a scroll specified.  For example to link to the Terminal scroll on trashrobot.org we link to [https://www.trashrobot.org/user.php?scroll=scrolls/terminal](https://www.trashrobot.org/user.php?scroll=scrolls/terminal).
 
+mathuser.php
+
 ## Delete Scrolls
 
 Everything on every instance of Trash Robot can be deleted quickly and easily and with no backups.  When something is deleted it's really gone. Rather than backing things up or saving to "the cloud", in Trash Robot we replicate what we want to keep and whatever doesn't get replicated will probably eventually be deleted.  To get this functionality, we have a delete scroll page called [scrolldelete.html](scrolldelete.html).  To delete, click on a red X.  But this is for keeps!  Deletion really is deletion.  If you see some bad stuff on a server, just delete it.  If you want to post stuff and not have it deleted, replicate it to a quiet place where no one will see it where it can get replicated back to a live page later if it's deleted.
@@ -47,8 +53,16 @@ Everything on every instance of Trash Robot can be deleted quickly and easily an
 The basis of the scroll software is the JavaScript library [Showdown.js](http://showdownjs.com/), which is great, and it converts from markdown to html.  So scrolls are all in raw markdown but display as html.  Use of HTML tags still work as well.  By default it's commented out but by editing the code using [editor.php](editor.php) it is possible to turn math on using the [MathJax JavaScript library](https://www.mathjax.org/), making it the same [LaTeX](https://www.latex-project.org/)-like markdown that is used in markdown elements in [Jupyter](https://jupyter.org/) notebooks.  This allows for rapid free self replicating math papers to be created and shared on the Network.
 
 
+## Code structure
+
+Showdown.js, scrolls/*, filesaver.php, fileloader.php, MathJax.js, dir.php, deletefile.php, 
 
 ## LaTeX workflow
+
+
+address stability issues for large documents, alternative editors
+
+mathuser.php
 
 To convert a scroll to a tex document, copy the scroll into a new directory at the *nix command line.  Then create a header and footer text file as follows:
 
@@ -104,4 +118,6 @@ pdflatex filename-pdf.tex
 </pre>
 
 and if there are no errors in the tex code you will have a printable pdf document.
+
+add full work flow to create a book with multiple chapters, this book. Articles.  Links to more information.  More details on installation and use of latex, workflow with latex editors to finish the project.
 
