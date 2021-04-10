@@ -1,3 +1,5 @@
+### [Trash Robot Etsy Shop](https://www.etsy.com/shop/trashrobot)
+
 # <span style = "color:red">Γ</span><span style = "color:orange">ε</span><span style = "color:yellow">ω</span><span style = "color:green">μ</span><span style = "color:blue">ε</span><span style = "color:purple">τ</span><span style = "color:red">ρ</span><span style = "color:orange">ο</span><span style = "color:yellow">ν</span>
 
 ## [Link to Map](maps/home)
