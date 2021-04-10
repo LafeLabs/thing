@@ -44,8 +44,21 @@
 <body>    
 <div id = "scrollscroll"></div>
 <div id = "mainmap"></div>
-<input id = "mapinput"/>
-<div id = "modebutton" class = "button">LIGHT/DARK</div>
+<div id = "modebutton" class = "button">LIGHT<br>DARK</div>
+<div id = "margin">
+    <div id  = "scrollsbox">
+        <a href = "scrolleditor.html">
+            <img style = "display:block;margin:auto;padding-top:1em" src = "iconsymbols/edit.svg"/>
+        </a>
+        <img style = "display:block;margin:auto;padding-top:1em" src = "iconsymbols/scroll.svg"/>
+    </div>
+    <div id  = "mapsbox">
+        <a href = "mapeditor.html">
+            <img style = "display:block;margin:auto;padding-top:1em" src = "iconsymbols/edit.svg"/>
+        </a>        
+        <img style = "display:block;margin:auto;padding-top:1em" src = "iconsymbols/map.svg"/>
+    </div>
+</div>
 <script>
 
 mode = "dark";
@@ -56,18 +69,16 @@ mode = "dark";
 if(innerWidth > innerHeight){
     mainmap = new Map(innerHeight,innerHeight,document.getElementById("mainmap"));
 
+    document.getElementById("margin").style.left = (innerHeight).toString() + "px";
     document.getElementById("scrollscroll").style.width = (innerHeight- 25).toString() + "px";
     document.getElementById("scrollscroll").style.height = innerHeight.toString() + "px";    
-    document.getElementById("mapinput").select();
-    document.getElementById("mapinput").style.width = (innerWidth - innerHeight - 50).toString() + "px";
-    
+
 }
 else{
     document.getElementById("scrollscroll").style.width = innerWidth.toString() + "px";
     document.getElementById("scrollscroll").style.height = (innerHeight - 100).toString() + "px";        
     mainmap = new Map(innerWidth,innerWidth,document.getElementById("mainmap"));    
-
-    document.getElementById("mapinput").style.width = (innerWidth - 20).toString() + "px";
+   document.getElementById("margin").style.top = (innerWidth + 100).toString() + "px";
     
 }
 
@@ -120,26 +131,11 @@ function loadmap(mapname){
                     }
                 }
             }
-            document.getElementById("mapinput").value = "";
 
         }
     };
     httpc.open("GET", "fileloader.php?filename=" + mapname, true);
     httpc.send();
-}
-
-document.getElementById("mapinput").value = "";
-document.getElementById("mapinput").onchange = function(){
-  var mapname = this.value;
-  if(mapname.includes("/") == false){
-      mapname = "maps/" + mapname;
-  }
-  if(mapname.includes("scrolls/")){
-      loadscroll(mapname);
-  }
-  else{
-      loadmap(mapname);   
-  }
 }
 
 
@@ -155,7 +151,6 @@ function loadscroll(scrollname){
             document.getElementById("scrollscroll").innerHTML = rawhtml;
             convertscrollinks();
             //			MathJax.Hub.Typeset();//tell Mathjax to update the math
-            document.getElementById("mapinput").value = "";
     //			MathJax.Hub.Typeset();//tell Mathjax to update the math
         }
     };
@@ -209,6 +204,7 @@ document.getElementById("modebutton").onclick = function(){
     modeswitch();
 }
 
+modeswitch();
 function modeswitch(){
     if(mode == "dark"){
         mode = "light";
@@ -227,6 +223,50 @@ function modeswitch(){
         document.getElementById("scrollscroll").style.color = "#00ff00";        
     }
 }
+
+maps = [];
+var httpc8 = new XMLHttpRequest();
+httpc8.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        maps = JSON.parse(this.responseText);
+        for(var index = 0;index < maps.length;index++) {
+            var newmapbutton = document.createElement("P");
+            newmapbutton.className = "boxlink";
+            newmapbutton.innerHTML = "maps/" + maps[index];
+            document.getElementById("mapsbox").appendChild(newmapbutton);
+            newmapbutton.onclick = function(){
+                currentFile = this.innerHTML;
+                loadmap(currentFile);
+            }
+        }
+    };
+}
+
+httpc8.open("GET", "dir.php?filename=maps", true);
+httpc8.send();
+
+
+scrolls = [];
+var httpc9 = new XMLHttpRequest();
+httpc9.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        scrolls = JSON.parse(this.responseText);
+        for(var index = 0;index < scrolls.length;index++) {
+            var newscrollbutton = document.createElement("P");
+            newscrollbutton.className = "boxlink";
+            newscrollbutton.innerHTML = "scrolls/" + scrolls[index];
+            document.getElementById("scrollsbox").appendChild(newscrollbutton);
+            newscrollbutton.onclick = function(){
+                currentFile = this.innerHTML;
+                loadscroll(currentFile);
+            }
+        }
+    };
+}
+
+httpc9.open("GET", "dir.php?filename=scrolls", true);
+httpc9.send();
+
 </script>
 <style>
 body{
@@ -242,12 +282,14 @@ input{
     border-color:#ff2cb4;
     border-width:8px;
 }
-#mapinput{
-    position:absolute;
-    z-index:3;
-    bottom:50px;
-    right:0px;
+.boxlink{
+    padding-left:1em;
+    cursor:pointer;
 }
+.boxlink:hover{
+    background-color:#808080;
+}
+
 .scrolllink{
     color:#ff2cb4;
     cursor:pointer;
@@ -308,7 +350,38 @@ h1,h2,h3,h4{
 #modebutton:active{
     background-color:yellow;
 }
+#margin{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    z-index:-1;
+    overflow:hidden;
+    background:#404040;
+    font-size:1.2em;
+}
+#scrollsbox{
+    position:absolute;
+    left:0px;
+    top:0px;
+    bottom:0px;
+    right:50%;
+    background-color:#8080ff;
+    overflow:scroll;
+}
+#mapsbox{
+    position:absolute;
+    left:50%;
+    top:0px;
+    bottom:0px;
+    right:0px;
+    background-color:#ff8080;
+    overflow:scroll;
+}
+
 @media only screen and (orientation: landscape) {
+    #margin{
+        top:0px;
+    }
     #modebutton{
         right:5px;
         top:5px;
@@ -319,6 +392,10 @@ h1,h2,h3,h4{
     #modebutton{
         right:0px;
         bottom:0px;
+    }
+    #margin{
+        bottom:0px;
+        left:0px;
     }
 }
 </style>
