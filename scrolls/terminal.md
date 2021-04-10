@@ -24,6 +24,10 @@
 
 [$100 Sunfounder compact screen perfect for terminals](https://www.sunfounder.com/collections/displays-monitors/products/7-inch-hdmi-monitor)
 
+or
+
+[7 inch screen from sunfounder for $80](https://www.sunfounder.com/collections/monitors/products/7inch-capacitive-touchscreen)
+
 [$50 buy raspberry pi board from sunfounder](https://www.sunfounder.com/products/raspberrypi-4b)
 
 [$36 talentcell 12 volt battery pack compatible with sunfounder screen/pi combo](https://www.amazon.com/dp/B00ME3ZH7C)
