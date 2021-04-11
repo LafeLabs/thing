@@ -75,10 +75,11 @@ if(innerWidth > innerHeight){
 
 }
 else{
+
     document.getElementById("scrollscroll").style.width = innerWidth.toString() + "px";
-    document.getElementById("scrollscroll").style.height = (innerHeight - 100).toString() + "px";        
+    document.getElementById("scrollscroll").style.height = (innerHeight - 150).toString() + "px";        
     mainmap = new Map(innerWidth,innerWidth,document.getElementById("mainmap"));    
-   document.getElementById("margin").style.top = (innerWidth + 100).toString() + "px";
+   document.getElementById("margin").style.height = (150).toString() + "px";
     
 }
 
@@ -397,6 +398,10 @@ h1,h2,h3,h4{
         bottom:0px;
         left:0px;
     }
+    #margin img{
+        width:50px;
+    }
+    
 }
 </style>
 </body>
