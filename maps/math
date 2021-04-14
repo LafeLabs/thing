@@ -11,9 +11,9 @@
         "maplinkmode": false
     },
     {
-        "x": 0.027611044417767107,
-        "y": 0.03241296518607443,
-        "w": 0.5462184873949579,
+        "x": 0.027186761229314422,
+        "y": 0.031914893617021274,
+        "w": 0.5460992907801419,
         "h": 0.1524609843937575,
         "angle": 0,
         "text": "link to math scroll",
@@ -22,9 +22,9 @@
         "maplinkmode": true
     },
     {
-        "x": 0.010804321728691477,
-        "y": 0.8739495798319328,
-        "w": 0.5462184873949579,
+        "x": 0.010638297872340425,
+        "y": 0.8735224586288416,
+        "w": 0.5460992907801419,
         "h": 0.1524609843937575,
         "angle": 0,
         "text": "link to math map editor",
@@ -33,13 +33,35 @@
         "maplinkmode": false
     },
     {
-        "x": 0.7955082742316785,
-        "y": 0.3463356973995272,
-        "w": 0.46808510638297873,
-        "h": 0.07328605200945626,
+        "x": 0.1595744680851064,
+        "y": 0.3817966903073286,
+        "w": 0.3664302600472813,
+        "h": 0.028368794326241134,
         "angle": -5,
         "text": "$\\frac{-\\hbar^2}{2m}\\nabla^2\\Psi$",
         "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.1430260047281324,
+        "y": 0.32860520094562645,
+        "w": 0.2033096926713948,
+        "h": 0.2033096926713948,
+        "angle": -60,
+        "text": "",
+        "href": "",
+        "src": "data:image/png;base64,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",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.5709219858156028,
+        "y": 0.9160756501182034,
+        "w": 0.5460992907801419,
+        "h": 0.15130023640661938,
+        "angle": 0,
+        "text": "link to math user",
+        "href": "mathuser.html",
         "src": "",
         "maplinkmode": false
     }

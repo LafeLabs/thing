@@ -93,15 +93,15 @@ EGO DEATH:
         }
     }
 
-    $mapfiles = scandir(getcwd()."/maps");
+//    $mapfiles = scandir(getcwd()."/maps");
 
-    foreach($mapfiles as $value){
-        if($value{0} != "."){
-            echo "<div class = \"javascript file\">maps/";
-            echo $value;
-            echo "</div>\n";
-        }
-    }
+ //   foreach($mapfiles as $value){
+  //      if($value{0} != "."){
+//            echo "<div class = \"javascript file\">maps/";
+ //           echo $value;
+   //         echo "</div>\n";
+  //      }
+ //   }
 
     if(isset($_GET["newfile"])){
         $newfile = $_GET["newfile"];
@@ -135,11 +135,11 @@ EGO DEATH:
             echo $newfile;
             echo "</div>\n";
         }
-        if(substr($newfile,0,5) == "maps/"){
-            echo "<div class = \"javascript file\">";
-            echo $newfile;
-            echo "</div>\n";
-        }
+//        if(substr($newfile,0,5) == "maps/"){
+  //          echo "<div class = \"javascript file\">";
+    //        echo $newfile;
+      //      echo "</div>\n";
+    //    }
         if(substr($newfile,0,5) == "data/"){
             echo "<div class = \"javascript file\">";
             echo $newfile;
