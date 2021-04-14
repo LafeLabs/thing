@@ -42,6 +42,7 @@
         "removebackground.html",
         "robot2arduino.html",
         "robot2css.html",
+        "scroll.html",
         "scrolldelete.html",
         "scrolleditor.html",
         "setup.html",
