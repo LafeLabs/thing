@@ -157,6 +157,10 @@ document.getElementById("actioninput").onkeypress = function(a) {
         if(mode == 1){
             localCursorAction = charCode + 01000;     
         }    
+        if(mode == 2){
+            localCursorAction = charCode;     
+        }    
+        
         mainGVM.cursorAction(localCursorAction); 
    }
    
@@ -226,7 +230,7 @@ document.getElementById("actioninput").onkeydown = function(a) {
 
 function modeswitch(){
     mode++;
-    mode = mode%2;
+    mode = mode%3;
     if(mode == 0){
         document.getElementById("modeindicator").src = "iconsymbols/cursor.svg";
         gvmArray[feedindex].importbytecode(symbolkeyboard);
@@ -234,8 +238,11 @@ function modeswitch(){
     if(mode == 1){
         document.getElementById("modeindicator").src = "iconsymbols/abcfont.svg";
     }
-
+   if(mode == 2){
+        document.getElementById("modeindicator").src = "iconsymbols/abcstack.svg";
+    }
 }
+
 
 function savecube(){
     hypercube = mainGVM.bytecode(0,01777);

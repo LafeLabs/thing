@@ -316,6 +316,8 @@ document.getElementById("importbutton").onclick = function(){
         document.getElementById("spellinput").value = mainGVM.hypercube[mainGVM.address];
         gvmArray[mainGVM.address - 0220].canvas2d.style.backgroundColor = "#c0c0c0";            
     }
+    savecube();
+    savejson();
 }
 
 function savecube(){
