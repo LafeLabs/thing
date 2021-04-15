@@ -1,0 +1,49 @@
+<svg width="600" height="600" viewbox = "0 0 600 600"  xmlns="http://www.w3.org/2000/svg">
+<!--<json>{
+  "glyph": "0220,0220,",
+  "x0": 300,
+  "y0": 300,
+  "unit": 80,
+  "width": 600,
+  "height": 600,
+  "style": {
+    "color0": "black",
+    "fill0": "black",
+    "line0": 1,
+    "color1": "black",
+    "fill1": "black",
+    "line1": 5,
+    "color2": "red",
+    "fill2": "#ff000020",
+    "line2": 2,
+    "color3": "#FF7900",
+    "fill3": "#FF7900",
+    "line3": 1,
+    "color4": "yellow",
+    "fill4": "yellow",
+    "line4": 1,
+    "color5": "green",
+    "fill5": "green",
+    "line5": 1,
+    "color6": "blue",
+    "fill6": "blue",
+    "line6": 1,
+    "color7": "purple",
+    "fill7": "purple",
+    "line7": 1
+  },
+  "shapes": [
+    "0220:0306,0362,0203,0334,0334,0203,0334,0334,0203,0363,0334,0334,",
+    "01220:0333,0200,0336,0330,0332,0336,0326,0220,0320,0337,0313,0304,0331,0333,0337,",
+    "0221:0336,0331,0332,0337,0322,0220,0330,0304,0335,0325,0220,0304,0330,0335,0322,0220,0330,0325,0304,0335,0220,0304,0335,0336,0330,0332,0337,",
+    "01221:0333,0200,0336,0330,0332,0336,0326,0221,0320,0313,0304,0337,0331,0333,0337,",
+    "0222:0336,0332,",
+    "01222:0333,0200,"
+  ]
+}</json>--><circle cx="460" cy = "300" r = "160" stroke = "#000000" stroke-width = "1" fill = "none" />
+<circle cx="540" cy = "300" r = "80" stroke = "#000000" stroke-width = "1" fill = "none" />
+<circle cx="580" cy = "300" r = "40" stroke = "#000000" stroke-width = "1" fill = "none" />
+<circle cx="660" cy = "300" r = "80" stroke = "#000000" stroke-width = "1" fill = "none" />
+<circle cx="700" cy = "300" r = "40" stroke = "#000000" stroke-width = "1" fill = "none" />
+<circle cx="720" cy = "300" r = "20" stroke = "#000000" stroke-width = "1" fill = "none" />
+</svg>

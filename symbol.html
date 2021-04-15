@@ -134,6 +134,18 @@ function savesymbolfile(){
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc.send("data="+encodeURIComponent(mainGVM.pngcode().substring(22))+"&filename=symbolfeed/symbol" + timestamp +  ".png");//send text to filesaver.php
 
+
+    currentjson.shapes = [];
+    for(var index = 0220;index < 0240;index++){
+        if(mainGVM.hypercube[index].length > 0){
+            currentjson.shapes.push("0" + index.toString(8) + ":" + mainGVM.hypercube[index]);
+        }
+    }
+    for(var index = 01220;index < 01240;index++){
+        if(mainGVM.hypercube[index].length > 0){
+            currentjson.shapes.push("0" + index.toString(8) + ":" + mainGVM.hypercube[index]);
+        }
+    }    
     currentjson.glyph = mainGVM.cleanGlyph;
     currentjson.x0 = mainGVM.x0;
     currentjson.y0 = mainGVM.y0;

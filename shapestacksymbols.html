@@ -41,15 +41,12 @@
 <input id = "actioninput"/>
 <input id = "spellinput"/>
 
-<div id = "savebutton" class = "button">SAVE</div>
-<textarea id = "textio"></textarea>
-
 
 <div id = "linkbox">
     <a href = "index.html">
         <img src = "iconsymbols/home.svg" style = "width:50px"/>
     </a>    
-    <a href = "symbolfactory.html">
+    <a href = "symbol.html">
         <img src = "iconsymbols/geometron.svg" style = "width:50px"/>
     </a>    
     <a href = "shapestack.html">
@@ -170,7 +167,8 @@ document.getElementById("actioninput").onkeypress = function(a) {
     spellGVM.spellGlyph(mainGVM.glyph);
     gvmArray[mainGVM.address - 0220].drawGlyph("0300," + mainGVM.hypercube[mainGVM.address + 01000]);
 
-    
+    savecube();
+    savejson();
 }
 
 document.getElementById("actioninput").onkeydown = function(a) {
@@ -223,6 +221,7 @@ document.getElementById("actioninput").onkeydown = function(a) {
     spellGVM.spellGlyph(mainGVM.glyph);
     gvmArray[mainGVM.address - 01220].drawGlyph("0300," + mainGVM.hypercube[mainGVM.address]);
     savecube();
+    savejson();
 }
 
 function modeswitch(){
@@ -247,11 +246,7 @@ function savecube(){
     httpc.send("data="+encodeURIComponent(hypercube)+"&filename=data/hypercube.txt");//send text to filesaver.php    
 }
 
-document.getElementById("savebutton").onclick  = function(){
-    document.getElementById("textio").value = mainGVM.bytecode(0220,0237);
-savecube();
 
-}
 
 
 document.getElementById("spellinput").onchange =  function(){
@@ -261,9 +256,30 @@ document.getElementById("spellinput").onchange =  function(){
     mainGVM.clean();
     spellGVM.spellGlyph(mainGVM.glyph);
     gvmArray[mainGVM.address - 0220].drawGlyph("0300," + mainGVM.hypercube[mainGVM.address + 01000]);
+    savecube();
+    savejson();
     
 }
 
+
+function savejson(){
+    currentjson.shapes = [];
+    for(var index = 0220;index < 0240;index++){
+        if(mainGVM.hypercube[index].length > 0){
+            currentjson.shapes.push("0" + index.toString(8) + ":" + mainGVM.hypercube[index]);
+        }
+    }
+    for(var index = 01220;index < 01240;index++){
+        if(mainGVM.hypercube[index].length > 0){
+            currentjson.shapes.push("0" + index.toString(8) + ":" + mainGVM.hypercube[index]);
+        }
+    }    
+    var url = "filesaver.php";        
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(JSON.stringify(currentjson,null,"    ")) + "&filename=data/currentjson.txt");//send text to filesaver.php    
+}
 
 //load image feed
 
@@ -368,17 +384,6 @@ input{
     left:70px;
     width:500px;
     bottom:10px;
-}
-#textio{
-    position:absolute;
-    bottom:50px;
-    left:10px;
-}
-#savebutton{
-    position:absolute;
-    left:20px;
-    bottom:150px;
-    border:solid;
 }
 .data{
     display:none;

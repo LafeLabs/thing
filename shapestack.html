@@ -69,7 +69,7 @@
     <a href = "index.html">
         <img src = "iconsymbols/home.svg" style = "width:50px"/>
     </a>    
-    <a href = "symbolfactory.html">
+    <a href = "symbol.html">
         <img src = "iconsymbols/geometron.svg" style = "width:50px"/>
     </a>    
     <a href = "shapestacksymbols.html">
@@ -119,6 +119,20 @@ httpc.onreadystatechange = function(){
 };
 httpc.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
 httpc.send();
+
+
+//only loading this into memory so we can save it as we go with savejson in addition to savecube
+currentjson = {};
+
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        currentjson = JSON.parse(this.responseText);
+    }
+};
+httpc.open("GET", "fileloader.php?filename=data/currentjson.txt", true);
+httpc.send();    
+
 
 function loadstack(){
     gvmArray = [];
@@ -189,7 +203,8 @@ document.getElementById("actioninput").onkeypress = function(a) {
     document.getElementById("spellinput").value = mainGVM.cleanGlyph;
     spellGVM.spellGlyph(mainGVM.glyph);
     gvmArray[mainGVM.address - 0220].drawGlyph("0300," + mainGVM.hypercube[mainGVM.address + 01000]);
-
+    savejson();
+    savecube();
     
 }
 
@@ -243,6 +258,7 @@ document.getElementById("actioninput").onkeydown = function(a) {
     gvmArray[mainGVM.address - 0220].drawGlyph("0300," + mainGVM.hypercube[mainGVM.address + 01000]);
     
     savecube();
+    savejson();
 }
 
 function modeswitch(){
@@ -309,6 +325,27 @@ function savecube(){
     httpc.open("POST", url, true);
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc.send("data="+encodeURIComponent(hypercube)+"&filename=data/hypercube.txt");//send text to filesaver.php    
+}
+
+
+
+function savejson(){
+    currentjson.shapes = [];
+    for(var index = 0220;index < 0240;index++){
+        if(mainGVM.hypercube[index].length > 0){
+            currentjson.shapes.push("0" + index.toString(8) + ":" + mainGVM.hypercube[index]);
+        }
+    }
+    for(var index = 01220;index < 01240;index++){
+        if(mainGVM.hypercube[index].length > 0){
+            currentjson.shapes.push("0" + index.toString(8) + ":" + mainGVM.hypercube[index]);
+        }
+    }    
+    var url = "filesaver.php";        
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(JSON.stringify(currentjson,null,"    ")) + "&filename=data/currentjson.txt");//send text to filesaver.php    
 }
 
 document.getElementById("srcinput").value = "";
