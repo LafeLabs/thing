@@ -42,6 +42,11 @@
     </td>
 </tr>
 </table>
+
+<div id = "hypercubebox">
+    <table id = "hypercubetable">
+    </table>
+</div>
 <script>
 
 resetkeyboard = [
@@ -163,12 +168,14 @@ mainGVM.y0 = 55;
 mainGVM.unit = 37;
 
 
+hypercube = [];
 var httpc = new XMLHttpRequest();
 httpc.onreadystatechange = function(){
     if (this.readyState == 4 && this.status == 200) {
-        var localhypercube = JSON.parse(this.responseText);
-        mainGVM.importbytecode(localhypercube);
+        hypercube = JSON.parse(this.responseText);
+        mainGVM.importbytecode(hypercube);
         redraw();
+        loadtable();
     }
 };
 httpc.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
@@ -256,8 +263,54 @@ document.getElementById("resetbutton").onclick = function(){
     savekeyboard();
 }
 
+hypercubetable = document.getElementById("hypercubetable");
+
+buttonsize = 50;
+
+function loadtable(){
+    for(var row = 0;row < 64;row++){
+        var newtr = document.createElement("TR");
+        hypercubetable.appendChild(newtr);    
+        for(var col = 0;col < 8;col++){
+            address = row*8 + col;
+            var newtd = document.createElement("TD");
+            newtr.appendChild(newtd);
+            var newcan = document.createElement("CANVAS");
+            newtd.appendChild(newcan);
+            var datadiv = document.createElement("div");
+            datadiv.innerHTML = "0" + (address).toString(8);
+            datadiv.className = "data";
+            newtd.appendChild(datadiv);
+            var newGVM = new GVM(newcan,buttonsize,buttonsize);
+            newGVM.unit = buttonsize  - 2;
+            newGVM.x0 = 1;
+            newGVM.y0 = buttonsize - 1;
+            newGVM.importbytecode(hypercube);
+            newGVM.action(0300);
+            newGVM.action(01000 + address);    
+            newtd.classList.add("button");
+            newtd.onclick = function(){
+        
+                var localaction = parseInt(this.getElementsByClassName("data")[0].innerHTML,8);
+                //alert(localaction);
+                mainGVM.hypercube[currentKeyCode] = "0" + localaction.toString(8) + ",";
+                redraw();
+                document.getElementById("actioninput").value = "0" + localaction.toString(8);;
+                savekeyboard();
+                document.getElementById("keyinput").select();
+            }
+        }
+    }    
+}
+
+
+
+
 </script>
 <style>
+.data{
+    display:none;
+}
 .button{
     cursor:pointer;
 }
@@ -299,6 +352,14 @@ border:solid;
     position:absolute;
     left:0px;
     bottom:0px;
+}
+#hypercubebox{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    top:50%;
+    overflow:scroll;
+    width:500px;
 }
 </style>
 </body>
