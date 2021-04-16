@@ -16,10 +16,24 @@
 <div id = "keyboardbox">
     <canvas id = "keyboard"></canvas>
 </div>
+
+    <table id = "iotable">
+        <tr>
+            <td>key</td><td><input id = "keyinput"/></td>
+        </tr>
+        <tr>
+            <td>keycode</td><td><input id = "keycodeinput"/></td>
+        </tr>
+        <tr>
+            <td>action</td><td><input id = "actioninput"/></td>
+        </tr>
+    </table>
+
 <p><a href  = "index.html">index.html</a></p>
 
-
+<textarea id = "textio"></textarea>
 <script>
+
 
 keyboardshapes = [
     "0220:0331,0333,0337,0200,0316,0336,0314,0336,0330,0332,0337,0313,0337,0332,01330,0330,0332,0336,0314,0336,0330,0337,0314,0313,0337,01200,0332,0333,0331,0336,0314,0336,0331,0333,0331,0314,0337,0316,0337,0332,0313,0336,0336,0330,0333,0336,0331,0332,0337,0141,0365,0330,0330,0101,0365,0331,0331,0333,0333,0333,0336,0331,0333,0337,0337,0330,0332,",
@@ -67,7 +81,6 @@ httpc.onreadystatechange = function(){
         var localhypercube = JSON.parse(this.responseText);
         mainGVM.importbytecode(localhypercube);
         mainGVM.importbytecode(keyboardshapes);
-        mainGVM.drawGlyph("0300,");
         redraw();
     }
 };
@@ -76,6 +89,7 @@ httpc.send();
 
 
 function redraw(){
+    mainGVM.drawGlyph("0300,");
     for(var row = 0;row < lc.length;row++){
         for(var col = 0;col < lc[row].length;col++){
             upperkey = "0" + (uc[row].charCodeAt(col)).toString(8);
@@ -83,10 +97,8 @@ function redraw(){
         
             uppersymbol = "0" + (parseInt(mainGVM.hypercube[uc[row].charCodeAt(col)],8)+01000).toString(8);
             lowersymbol = (parseInt(mainGVM.hypercube[lc[row].charCodeAt(col)],8)+01000).toString(8);
-            if(lowerkey == "0134"){
-                console.log("\\")
-            }
-//            console.log(upperkey + "," + lowerkey + "," + uppersymbol + "," + uppersymbol + ",");
+
+            //console.log(upperkey + "," + lowerkey + "," + uppersymbol + "," + uppersymbol + ",");
             
             mainGVM.actionSequence("0221," + lowersymbol + ",0222," + uppersymbol + ",0223," + lowerkey + ",0224," + upperkey + ",0225,0226,");
         }
@@ -103,8 +115,29 @@ function redraw(){
 }
 
 
+document.getElementById("keyinput").value = "";
+document.getElementById("keyinput").select();
+document.getElementById("keyinput").onkeypress = function(a) {
+    currentKeyCode = a.keyCode || a.which;
+    document.getElementById("keyinput").value = "";
+    document.getElementById("keycodeinput").value = "0" + currentKeyCode.toString(8);
+    document.getElementById("actioninput").value = mainGVM.hypercube[currentKeyCode].split(",")[0];
+}
+document.getElementById("actioninput").onchange = function(){
+    mainGVM.hypercube[currentKeyCode] = this.value;
+    redraw();
+    savekeyboard();
+}
 
+function savekeyboard(){
+    
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", "filesaver.php", true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data=" + encodeURIComponent(mainGVM.bytecode(0,01777))+"&filename=data/hypercube.txt");//send text to filesaver.php
+    document.getElementById("textio").value = mainGVM.bytecode(040,0177);
 
+}
 </script>
 <style>
 .button{
@@ -143,6 +176,11 @@ border:solid;
 #buttontable .button{
     border:solid;
     text-align:center;
+}
+#iotable{
+    position:absolute;
+    left:0px;
+    bottom:0px;
 }
 </style>
 </body>
