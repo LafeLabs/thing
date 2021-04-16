@@ -154,7 +154,7 @@ function savekeyboard(){
     httpc.open("POST", "filesaver.php", true);
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc.send("data=" + encodeURIComponent(mainGVM.bytecode(0,01777))+"&filename=data/hypercube.txt");//send text to filesaver.php
-    document.getElementById("textio").value = mainGVM.bytecode(040,0176);
+    document.getElementById("textio").value = mainGVM.bytecode(040,0177);
 
 }
 
