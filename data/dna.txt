@@ -238,6 +238,7 @@
     "maps": [
         "alchemy",
         "board",
+        "feeds",
         "home",
         "maplelawndotnet",
         "maps",
