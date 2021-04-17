@@ -26,6 +26,7 @@
         "index.html",
         "keyboard.html",
         "keyboardcanvas.html",
+        "keyboardold.html",
         "linkfeed.html",
         "linkfeededitor.html",
         "localimagefeed.html",
