@@ -85,7 +85,6 @@
             <tr>
                 <td id = "importbutton" class = "button">IMPORT</td>
                 <td id = "resetbutton" class = "button">RESET</td>
-                <td id = "pagebutton" class ="button">CREATE PAGE</td>
             </tr>
         </table>
         <textarea id = "textio"></textarea>
@@ -297,11 +296,7 @@ document.getElementById("savebutton").onclick = function() {
         
 }
 
-document.getElementById("pagebutton").onclick = function(){
-    
-    document.getElementById("textio").value = staticheader + "\n<script>\nmapjson = " + JSON.stringify(mainmap.array,null,"    ") + ";\n<\/script>" + staticfooter;
-    
-}
+
 
 document.getElementById("importbutton").onclick  = function(){
     mainmap.array = JSON.parse(document.getElementById("textio").value);
@@ -761,6 +756,7 @@ document.getElementById("newmapinput").onchange = function(){
 var newmapbutton = document.createElement("LI");
 newmapbutton.innerHTML = "data/currentMap.txt";
 document.getElementById("maplist").appendChild(newmapbutton);
+
 newmapbutton.onclick = function(){
     currentFile = this.innerHTML;
     document.getElementById("currentfilename").innerHTML = currentFile;
@@ -786,17 +782,6 @@ document.getElementById("hmodebutton").onclick = function(){
     }
 }
 
-
-var httpcstatic = new XMLHttpRequest();
-httpcstatic.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        foo = this.responseText;
-        staticheader = foo.split("<!--<jsondata>-->")[0];
-        staticfooter = foo.split("<!--</jsondata>-->")[1];
-    }
-};
-httpcstatic.open("GET", "fileloader.php?filename=staticmap.html", true);
-httpcstatic.send();
 
 </script>
 <style>

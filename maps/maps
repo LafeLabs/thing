@@ -97,5 +97,27 @@
         "href": "map.html",
         "src": "",
         "maplinkmode": false
+    },
+    {
+        "x": 0.3069544364508393,
+        "y": 0.5971223021582733,
+        "w": 0.4364508393285372,
+        "h": 0.07553956834532374,
+        "angle": 0,
+        "text": "mathmapeditor.html",
+        "href": "mathmapeditor.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.3069544364508393,
+        "y": 0.6882494004796164,
+        "w": 0.4364508393285372,
+        "h": 0.07553956834532374,
+        "angle": 0,
+        "text": "mathuser.html",
+        "href": "mathuser.html",
+        "src": "",
+        "maplinkmode": false
     }
 ]
