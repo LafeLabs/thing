@@ -10,6 +10,7 @@
         "coinstudio.html",
         "console.html",
         "controls.html",
+        "copy.html",
         "duality.html",
         "feed.html",
         "feededitor.html",
