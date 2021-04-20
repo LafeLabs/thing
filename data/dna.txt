@@ -22,6 +22,7 @@
         "geometronpage.html",
         "globalimagefeed.html",
         "hypercube.html",
+        "icon3d.html",
         "iconfeed.html",
         "imagefeed.html",
         "index.html",
@@ -211,6 +212,7 @@
         "robotfont.txt",
         "symbolapp.txt",
         "textfeed.txt",
+        "three.stl",
         "token.txt",
         "trace.txt",
         "wall.txt"
