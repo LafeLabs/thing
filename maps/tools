@@ -119,5 +119,16 @@
         "href": "maps/feeds",
         "src": "",
         "maplinkmode": true
+    },
+    {
+        "x": 0.7947178871548619,
+        "y": 0.7190876350540216,
+        "w": 0.673469387755102,
+        "h": 0.08643457382953182,
+        "angle": 0,
+        "text": "voxel",
+        "href": "voxel.html",
+        "src": "",
+        "maplinkmode": false
     }
 ]

@@ -196,6 +196,7 @@
         "feed.txt",
         "font.txt",
         "geometronfeed.txt",
+        "glyph3d.txt",
         "hypercube.txt",
         "imagefeed.txt",
         "laserfont.txt",
