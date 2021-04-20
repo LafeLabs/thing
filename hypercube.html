@@ -89,6 +89,7 @@ bootstrap is whole big thing that does lots of things, but what we use it for he
 <table id = "controltable"></table>
     
     <input id = "actioninput"/>
+    <input id = "addressinput"/>
     <input id = "spellinput"/>
 
 <script>
@@ -220,6 +221,7 @@ selectbuttons = document.getElementById("selecttable").getElementsByClassName("b
 
 
 for(var index = 0;index < selectbuttons.length;index++){
+    selectbuttons[index].id = selectbuttons[index].innerHTML;
     selectbuttons[index].onclick = function(){
         base = parseInt(this.innerHTML,8);
         if(base<01000){
@@ -259,7 +261,7 @@ httpc.onreadystatechange = function() {
         spellGVM.hypercube = mainGVM.hypercube;
         loadtablet();
         loadcontrols();
-        mainGVM.address = base;
+        mainGVM.address = 0220;
         mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
         mainGVM.clean();
         mainGVM.drawGlyph(mainGVM.glyph);
@@ -305,7 +307,21 @@ function redraw(){
     
     
     spellGVM.spellGlyph(mainGVM.glyph);
+    document.getElementById("addressinput").value  =  "0" + mainGVM.address.toString(8);
+}
 
+document.getElementById("addressinput").onchange = function(){
+        
+
+        mainGVM.address = parseInt(this.value,8);
+        gvmArray[mainGVM.address - base].canvas2d.style.backgroundColor = "#a0a0a0";        
+        mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
+        mainGVM.drawGlyph(mainGVM.glyph);
+        mainGVM.clean();
+        gvmArray[mainGVM.address - base].drawGlyph(mainGVM.cleanGlyph);
+        redraw();
+
+    
 }
 
 document.getElementById("savebutton").onclick  = function(){
@@ -323,6 +339,52 @@ document.getElementById("actioninput").onkeydown = function(a) {
 
     if(charCode == 010) {
         mainGVM.cursorAction(010);
+    }
+    if(charCode == 040){
+        document.getElementById("0" + base.toString(8)).style.backgroundColor = "white";
+
+        var done = false;//i still refuse to learn how to use case/switch
+        if(base >= 01000){
+            base += 0100;
+            if(base > 01700){
+                base = 0200;
+            }
+            done = true;
+        }
+        if(!done && base == 0200){
+            base = 0500;
+            done = true;
+        }
+        if(!done && base == 0500){
+            base = 0600;
+            done = true;
+        }
+        if(!done && base == 0600){
+            base = 01000;
+        }
+
+        
+
+        if(base < 01000){
+            symbolMode = false;
+        }
+        else{
+            symbolMode = true;
+        }
+        loadtablet();
+        if(innerWidth>innerHeight){
+            document.getElementById("actioninput").select();
+        }
+        mainGVM.address = base;
+        mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
+        mainGVM.clean();
+        mainGVM.drawGlyph(mainGVM.glyph);
+        redraw();       
+        for(var index = 0;index < selectbuttons.length;index++){
+            selectbuttons[index].style.backgroundColor = "white";
+        }
+        
+        document.getElementById("0" + base.toString(8)).style.backgroundColor = "#a0a0a0";        
     }
     if(charCode == 045){
         mainGVM.cursorAction(020);             
@@ -491,6 +553,14 @@ body{
     right:0px;
     bottom:0px;
     width:1em;
+}
+#addressinput{
+    position:absolute;
+    top:50px;
+    width:40px;
+    font-family:courier;
+    font-size:12px;
+    right:0px;
 }
 #modeindicator{
     position:absolute;
