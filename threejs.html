@@ -198,10 +198,10 @@ httpcHypercube.onreadystatechange = function(){
             }
         }
 
-        glyph = hypercube[0600];
-        
-        drawGlyph(glyph);
-        savestl();
+//        glyph = hypercube[0600];
+ //       drawGlyph(glyph);
+  //      savestl();
+        loadglyph();
     }
 };
 httpcHypercube.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
@@ -314,6 +314,20 @@ function savestl(){
     httpc.open("POST", "filesaver.php", true);
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc.send("data="+encodeURIComponent(str)+"&filename=data/three.stl");//send text to filesaver.php   
+}
+
+
+function loadglyph(){
+    var httpcglyph = new XMLHttpRequest();
+    httpcglyph.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200) {
+            glyph = this.responseText + "0207,";
+            drawGlyph(glyph);
+            savestl();
+        }
+    };
+    httpcglyph.open("GET", "fileloader.php?filename=data/glyph3d.txt", true);
+    httpcglyph.send();   
 }
 
 </script>
