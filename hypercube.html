@@ -61,6 +61,7 @@ bootstrap is whole big thing that does lots of things, but what we use it for he
 
 <img id = "modeindicator" class = "button" src = "iconsymbols/cursor.svg"/>
 <div id = "importbutton" class = "button">IMPORT</div>
+<div id = "exportbutton" class = "button">EXPORT</div>
 
 <div id = "displaybox">
     <canvas id=  "maincanvas"></canvas>
@@ -191,6 +192,7 @@ function loadtablet(){
     
             newtd.onclick = function(){
                 
+                gvmArray[mainGVM.address - base].canvas2d.style.backgroundColor = "white";            
                 var thisaddress = parseInt(this.getElementsByClassName("data")[0].innerHTML,8);
                 var thisindex = parseInt(this.getElementsByClassName("data")[1].innerHTML,8); 
                 if(thisaddress < 01000){
@@ -204,12 +206,13 @@ function loadtablet(){
                 mainGVM.clean();
                 mainGVM.glyph = mainGVM.hypercube[thisaddress] + "0207,";
                 mainGVM.drawGlyph(mainGVM.glyph);
-                gvmArray[thisindex].canvas2d.style.backgroundColor = "white";
+                
                 mainGVM.address = thisaddress;
                 gvmArray[thisindex].canvas2d.style.backgroundColor = "#a0a0a0";
                 mainGVM.clean();
                 gvmArray[thisindex].drawGlyph(mainGVM.cleanGlyph);
                 redraw();
+                document.getElementById("spellinput").value = mainGVM.cleanGlyph;
             }
             address++;
         }
@@ -282,6 +285,19 @@ function savecube(){
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc.send("data="+encodeURIComponent(hypercube)+"&filename=data/hypercube.txt");//send text to filesaver.php
 
+}
+
+
+function exportcube(){
+    jsonarray = [];
+    for(var index = 00;index < 02000;index++) {
+        if(mainGVM.hypercube[index].length > 1) {
+                var bytecodestring = "0" + index.toString(8) + ":" + mainGVM.hypercube[index];
+                jsonarray.push(bytecodestring); 
+        }
+    }
+    
+    document.getElementById("textio").value = JSON.stringify(jsonarray,null,"    ");
 }
 
 function redraw(){
@@ -473,7 +489,7 @@ document.getElementById("actioninput").onkeypress = function(a) {
 }
 
 
-
+document.getElementById("textio").value = "";
 document.getElementById("importbutton").onclick =  function(){
     var importcode = JSON.parse(document.getElementById("textio").value);
     mainGVM.importbytecode(importcode);
@@ -507,6 +523,11 @@ function modeswitch(){
         document.getElementById("modeindicator").src = "iconsymbols/abcstack.svg";
     }
     document.getElementById("actioninput").select();   
+}
+
+
+document.getElementById("exportbutton").onclick = function(){
+    exportcube();
 }
 
 </script>
@@ -624,6 +645,13 @@ body{
     width:6em;
     left:40%;
 }
+#exportbutton{
+    position:absolute;
+    bottom:3em;
+    width:6em;
+    left:40%;
+}
+
 .button{
     cursor:pointer;
     background-color:white;
