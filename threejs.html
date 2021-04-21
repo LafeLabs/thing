@@ -307,8 +307,8 @@ function action(localCommand){
 function savestl(){
     var exporter = new THREE.STLExporter();
     var str = exporter.parse(scene);
-
     var httpc = new XMLHttpRequest();
+    console.log(str);
     httpc.open("POST", "filesaver.php", true);
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc.send("data="+encodeURIComponent(str)+"&filename=data/three.stl");//send text to filesaver.php   
