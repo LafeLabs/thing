@@ -48,48 +48,165 @@
 </div>
 
 <input id = "actioninput"/>
+<input id = "addressinput"/>
 <input id = "spellinput"/>
 <div id = "spellcanvasbox">
     <canvas id = "spellcanvas"></canvas>
 </div>
-
-<div id = "feed">
-    
+<div id = "controltablebox">
+    <table id ="controltable">
+    </table>
 </div>
+
 <textarea id = "textio"></textarea>
 <table id = "linktable">
     <tr>
-        <td><a href= "three.html">three.html</a></td>
-        <td><a href= "threejs.html">threejs.html</a></td>
-        <td><a href= "index.html">index.html</a></td>
         <td><a href= "voxel.html">voxel.html</a></td>
+        <td><a href= "shapes3dsymbols.html">shape symbols</a></td>
     </tr>
 </table>
 <div id = "savebutton" class = "button">SAVE</div>
 <script>
 
-feedwidth = 100;
-feedlinkwidth  = feedwidth;
-mainsize = 0.5*innerWidth - 10;
+keyboard3d = [
+    "041:0321,",
+    "042:0236,",
+    "043:0323,",
+    "044:0324,",
+    "045:0325,",
+    "046:0327,",
+    "047:021,",
+    "050:0345,",
+    "051:0346,",
+    "052:0300,",
+    "053:0211,",
+    "054:032,",
+    "055:0314,",
+    "056:033,",
+    "057:020,",
+    "060:0313,",
+    "061:0305,",
+    "062:0720,",
+    "063:0721,",
+    "064:0722,",
+    "065:0723,",
+    "066:0724,",
+    "067:0725,",
+    "070:0311,",
+    "071:0312,",
+    "072:0215,",
+    "073:037,",
+    "074:0237,",
+    "075:0316,",
+    "076:0177,",
+    "077:0177",
+    "0100:0322,",
+    "0101:0230",
+    "0102:0234,",
+    "0103:0506,",
+    "0104:0232",
+    "0105:0222,",
+    "0106:0233",
+    "0107:0234",
+    "0110:0235",
+    "0111:0227,",
+    "0112:0236",
+    "0113:0237",
+    "0114:0177,",
+    "0115:0236,",
+    "0116:0235,",
+    "0117:0177,",
+    "0120:0177,",
+    "0121:0220",
+    "0122:0223,",
+    "0123:0231",
+    "0124:0224,",
+    "0125:0226,",
+    "0126:0507,",
+    "0127:0221",
+    "0130:0505,",
+    "0131:0225,",
+    "0132:0504,",
+    "0133:0365,",
+    "0134:0201,",
+    "0135:0204,",
+    "0136:0326,",
+    "0137:0210,",
+    "0140:0304,",
+    "0141:0700,",
+    "0142:0200,",
+    "0143:0342,",
+    "0144:0702,",
+    "0145:0602,",
+    "0146:0703,",
+    "0147:0704,",
+    "0150:0705,",
+    "0151:0607,",
+    "0152:0706,",
+    "0153:0707,",
+    "0154:036,",
+    "0155:031,",
+    "0156:030,",
+    "0157:0371,",
+    "0160:0347,",
+    "0161:0600,",
+    "0162:0603,",
+    "0163:0701,",
+    "0164:0604,",
+    "0165:0606,",
+    "0166:0343,",
+    "0167:0601,",
+    "0170:0711,",
+    "0171:0605,",
+    "0172:0710,",
+    "0173:0213,",
+    "0174:011,",
+    "0175:0214,",
+    "0176:0320,"
+];
+
+keyboardcube = [];
+for(var index = 0;index < 02000;index++){
+    keyboardcube.push("");
+}
+for(var index = 0;index < keyboard3d.length;index++){
+    var localaddress = parseInt(keyboard3d[index].split(":")[0],8);
+    var localkeycode = parseInt(keyboard3d[index].split(":")[1],8);
+    keyboardcube[localaddress] = localkeycode;
+}
+
+
+
+controlbuttonsize = 40;
+spellwidth = 300;
+spellheight = 400;
 
 if(innerWidth > innerHeight){
     marginWidth = innerWidth - innerHeight;
+    controlbuttonsize = marginWidth*0.1;
     document.getElementById("square").style.width = innerHeight.toString() +  "px";
     document.getElementById("square").style.height = innerHeight.toString() +  "px";    
-    document.getElementById("feed").style.left = innerHeight.toString() +  "px";
+    spellwidth = marginWidth;
+    document.getElementById("actioninput").select();
 }
 else{
-
-
+    document.getElementById("controltable").style.bottom = "20px";
+    controlbuttonsize = innerWidth*0.1;    
+    document.getElementById("spellcanvasbox").style.top = innerWidth.toString() + "px";
+    spellwidth = innerWidth;
+    spellheight = innerWidth*0.25;
     document.getElementById("square").style.width = innerWidth.toString() +  "px";
     document.getElementById("square").style.height = innerWidth.toString() +  "px";    
+    document.getElementById("actioninput").style.display = "none";
 }
 
-mainGVM = new GVM(document.getElementById("spellcanvas"),100,100);
+mainGVM = new GVM(document.getElementById("spellcanvas"),spellwidth,spellheight);
 mainGVM.x0 = 5;
 mainGVM.y0 = 25;
 mainGVM.unit = 20;
 mainGVM.glyph = "0207,";
+mainGVM.address = 0600;
+document.getElementById("addressinput").value = "0600";
 
 x = 0.0;
 y = 0.0;
@@ -100,27 +217,96 @@ currentTrans = 0.0;
 main = document.getElementById("main");
 
 
+  
+controls = [
+    "0500,0501,0502,0503,0504,0505,0506,0507,",
+    "020,010,021,011,0710,0711,0704,0705,",
+    "0701,0700,0702,0703,0706,0707,0720,0721,",
+    "0722,0723,0724,0725,0601,0602,0603,0604,"
+];
+
+
 var httpcHypercube = new XMLHttpRequest();
 httpcHypercube.onreadystatechange = function(){
     if (this.readyState == 4 && this.status == 200) {
         hypercube = JSON.parse(this.responseText);
         mainGVM.importbytecode(hypercube);    
-        
-        var httpcFeed = new XMLHttpRequest();
-        httpcFeed.onreadystatechange = function(){
-            if (this.readyState == 4 && this.status == 200) {
-                robotfeed = JSON.parse(this.responseText);
-                loadfeed();
-            }
-        };
-        httpcFeed.open("GET", "fileloader.php?filename=data/robotfeed.txt", true);
-        httpcFeed.send();
+       // mainGVM.importbytecode(keyboard3d);
+        mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
+        redraw();
+        loadcontroltable();
     }
 };
 httpcHypercube.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
 httpcHypercube.send();
 
+document.getElementById("actioninput").onkeypress = function(a) {
+    var charCode = a.keyCode || a.which;
+    if(charCode != 015){
+        localCursorAction = keyboardcube[charCode];
+        mainGVM.cursorAction(localCursorAction);   
+        this.value = "";
+        mainGVM.clean();
+        mainGVM.hypercube[mainGVM.address] = mainGVM.cleanGlyph;
 
+        redraw();
+    //    document.getElementById("spellinput").value = mainGVM.cleanGlyph;
+        savecube();
+    }
+
+}
+
+
+document.getElementById("actioninput").onkeydown = function(a) {
+    var charCode = a.keyCode || a.which;
+
+    if(charCode == 015) {
+        //do something on "return" maybe save the 3d file?
+    }
+
+    if(charCode == 010) {
+        mainGVM.cursorAction(010);
+    }
+    if(charCode == 045){
+        mainGVM.cursorAction(020);             
+    }
+    if(charCode == 047){
+        mainGVM.cursorAction(021);   
+    }
+
+    if(charCode == 046){
+        //up arrow: prev symbol
+        mainGVM.address--;
+        if(mainGVM.address < 0600){
+            mainGVM.address = 0610;
+        }
+        document.getElementById("addressinput").value = "0" + mainGVM.address.toString(8);
+        mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
+        redraw();
+    }
+    if(charCode == 050){
+        //down arrow: next symbol
+        mainGVM.address++;
+        if(mainGVM.address > 0610){
+            mainGVM.address = 0600;
+        }
+        document.getElementById("addressinput").value = "0" + mainGVM.address.toString(8);
+        mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
+        redraw();
+    }
+
+//    document.getElementById("spellinput").value = mainGVM.cleanGlyph;
+    mainGVM.clean();
+    redraw();
+    
+}
+
+
+document.getElementById("spellinput").onchange = function(){
+    mainGVM.glyph = this.value + "0207,";
+    mainGVM.clean();
+    redraw();
+}
 
 function redraw(){
     main.innerHTML = "";
@@ -130,9 +316,12 @@ function redraw(){
     side = 0.25;
     solidColor = "1 0 0";
     currentTrans = 0.0;
+    
     drawGlyph(mainGVM.glyph);
     mainGVM.spellGlyph(mainGVM.glyph);
+    document.getElementById("spellinput").value = mainGVM.cleanGlyph;
 
+    
 }
 
 
@@ -281,82 +470,56 @@ function drawcursor(){
 }
 
 
-filetop = "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"/><script src=\"https://cdn.jsdelivr.net/npm/x3dom@1.7.2/x3dom.js\">";
-filetop += "<\/script><link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/x3dom@1.7.2/x3dom.css\"></head><body><x3d style = \"position:absolute;left:0px;right:0px;top:0px;bottom:0px;z-index:-1;\">";
+function loadcontroltable(){
+    document.getElementById("controltable").innerHTML = "";
+    for(var index = 0;index < controls.length;index++){
+        var newtr = document.createElement("TR");
+        document.getElementById("controltable").appendChild(newtr);
+        rowarray = controls[index].split(",");
+        for(var rowindex = 0;rowindex < rowarray.length;rowindex++){
+            if(rowarray[rowindex].length > 0){
+                var newtd = document.createElement("TD");
+                newtr.appendChild(newtd);
+                var newcan = document.createElement("CANVAS");
+                newtd.appendChild(newcan);
+                var datadiv = document.createElement("div");
+                datadiv.innerHTML = rowarray[rowindex];
+                datadiv.className = "data";
+                newtd.appendChild(datadiv);
+                var newGVM = new GVM(newcan,controlbuttonsize,controlbuttonsize);
+                newGVM.unit = controlbuttonsize - 2;
+                newGVM.x0 = 1;
+                newGVM.y0 = controlbuttonsize-1;
+                newGVM.importbytecode(hypercube);
+                newGVM.action(0300);
+                if(parseInt(rowarray[rowindex],8) >= 040 && parseInt(rowarray[rowindex],8) < 0177){
+                    newGVM.drawGlyph("0300,0336,0336,0330,0333,0337,");
+                }
+                newGVM.action(parseInt(rowarray[rowindex],8)+01000);
 
-
-function save(){
-    mainGVM.clean();
-    editmode = false;
-    redraw();
-    x3dcode = main.innerHTML;
-    //this is an html file not an x3d file, because xml is the language of Mordor, which I shall not utter here
-    document.getElementById("textio").value = filetop + "<scene>" + x3dcode + "</scene></x3d>\n<a style = \"position:absolute;right:0px;bottom:0px;\" href = \"voxel.html\">back to voxel</a></body></html>";
-    
-    var url = "filesaver.php";        
-    var httpc = new XMLHttpRequest();
-    httpc.open("POST", url, true);
-    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc.send("data="+encodeURIComponent(filetop + "<scene>" + x3dcode + "</scene></x3d>" + "</scene></x3d>\n<a style = \"position:absolute;right:0px;bottom:0px;font-size:2em;\" href = \"voxel.html\">back to voxel</a>\n<a style = \"position:absolute;right:0px;bottom:3em;font-size:2em;\" href = \"icon3d.html\">back to icon3d</a></body></html>")+"&filename=three.html");//send text to filesaver.php    
-
-    editmode = true;
-    redraw();
-
-    saveglyph();
-    
-    
-}
-
-document.getElementById("savebutton").onclick = function(){
-    save();
-}
-
-
-
-
-
-function loadfeed(){
-    gvmArray = [];
-    document.getElementById("feed").innerHTML = "";
-    for(var index = 0;index < robotfeed.length;index++){
-        var newdiv = document.createElement("span");
-        var newcan = document.createElement("CANVAS");
-        newcan.className = "feedcan";
-        newdiv.style.marginTop = 0.05*feedwidth + "px";
-        newdiv.style.marginBottom = 0.05*feedwidth + "px";
-        newdiv.appendChild(newcan);
-        newdiv.className = "feedelement";
-        newcan.classList.add("button");
-        document.getElementById("feed").appendChild(newdiv);
-        var newGVM = new GVM(newcan,feedlinkwidth,feedlinkwidth);
-        newGVM.hypercube = mainGVM.hypercube;
-        gvmArray.push(newGVM);
-        newGVM.drawGlyph(robotfeed[index]);    
-        
-        var datadiv = document.createElement("DIV");
-        datadiv.innerHTML = robotfeed[index];
-        datadiv.className = "data";
-        newdiv.appendChild(datadiv);
-        newdiv.onclick = function(){
-            glyph = "0600," + this.getElementsByClassName("data")[0].innerHTML;
-            mainGVM.glyph = glyph;
-            redraw();
-            //load glyph and print to examine prior to saving
-            document.getElementById("spellinput").value  = glyph;
+                newtd.onclick = function(){
+                    var localaction = parseInt(this.getElementsByClassName("data")[0].innerHTML,8);
+                    mainGVM.cursorAction(localaction);
+                    redraw();
+                }
+                newcan.classList.add("button");
+            }
         }
-    }    
+    }
 }
 
-document.getElementById("spellinput").value = "";
 
-function saveglyph(){
-    mainGVM.clean();
+function savecube(){
+        
+    hypercube = mainGVM.bytecode(0,01777);
     var url = "filesaver.php";        
     var httpc = new XMLHttpRequest();
     httpc.open("POST", url, true);
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc.send("data=" + mainGVM.cleanGlyph + "&filename=data/glyph3d.txt");//send text to filesaver.php
+    httpc.send("data="+encodeURIComponent(hypercube)+"&filename=data/hypercube.txt");//send text to filesaver.php
+
 }
+
 </script>
 <style>
 body{
@@ -388,6 +551,12 @@ input{
     top:0px;
     width:1em;
 }
+#addressinput{
+    position:absolute;
+    right:0px;
+    top:1.5em;
+    width:4em;
+}
 #spellinput{
     position:absolute;
     right:2em;
@@ -417,7 +586,6 @@ input{
     top:60px;
     width:300px;
     height:300px;
-    display:none;
 }
 #textio{
     position:absolute;
@@ -431,24 +599,21 @@ input{
     bottom:0px;
     right:130px;
 }
+#controltablebox{
+    position:absolute;
+    right:0px;
+    border:solid;
+    overflow:scroll;
+    bottom:100px;
+    width:300px;
+    height:200px;
+}
 #savebutton{
     position:absolute;
     right:0px;
     bottom:0px;
     border:solid;
     font-size:2em;
-}
-#feed{
-    border:solid;
-    border-width:3px;
-    position:absolute;
-    right:0px;
-    top:100px;
-    bottom:100px;
-    overflow:scroll;
-}
-.data{
-    display:none;
 }
 </style>
 </body>
