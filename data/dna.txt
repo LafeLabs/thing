@@ -196,6 +196,7 @@
         "duality.txt",
         "feed.txt",
         "font.txt",
+        "foo.stl",
         "geometronfeed.txt",
         "glyph3d.txt",
         "hypercube.txt",
@@ -242,6 +243,7 @@
     "maps": [
         "alchemy",
         "board",
+        "copy",
         "feeds",
         "home",
         "maplelawndotnet",
