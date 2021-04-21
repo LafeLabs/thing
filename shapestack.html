@@ -58,6 +58,7 @@
 <img id = "modeindicator" src = "iconsymbols/cursor.svg"/>
 <input id = "actioninput"/>
 <input id = "spellinput"/>
+<input id = "addressinput"/>
 
 <div id = "exportbutton" class = "button">EXPORT</div>
 <div id = "importbutton" class = "button">IMPORT</div>
@@ -110,6 +111,7 @@ httpc.onreadystatechange = function(){
         mainGVM.importbytecode(hypercube);
         loadstack();
         mainGVM.address = 0220;
+        document.getElementById("addressinput").value = "0" + mainGVM.address.toString(8);
         mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
         mainGVM.drawGlyph(mainGVM.glyph);
         spellGVM.spellGlyph(mainGVM.glyph);
@@ -167,6 +169,7 @@ function loadstack(){
                 var thisaddress = parseInt(this.getElementsByClassName("data")[0].innerHTML,8);
                 gvmArray[mainGVM.address - 0220].canvas2d.style.backgroundColor = "rgba(0,0,0,0)";
                 mainGVM.address = thisaddress;
+                document.getElementById("addressinput").value = "0" + mainGVM.address.toString(8);            
                 gvmArray[mainGVM.address - 0220].canvas2d.style.backgroundColor = "#c0c0c0";        
                 mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
                 mainGVM.drawGlyph(mainGVM.glyph);
@@ -237,6 +240,7 @@ document.getElementById("actioninput").onkeydown = function(a) {
 
         mainGVM.drawGlyph(mainGVM.glyph);
         mainGVM.clean();
+        document.getElementById("addressinput").value = "0" + mainGVM.address.toString(8);
     }
     if(charCode == 050){
         //down arrow: next symbol
@@ -249,6 +253,7 @@ document.getElementById("actioninput").onkeydown = function(a) {
         mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
         mainGVM.drawGlyph(mainGVM.glyph);
         mainGVM.clean();
+        document.getElementById("addressinput").value = "0" + mainGVM.address.toString(8);
     }
     this.value = "";
     mainGVM.clean();
@@ -301,6 +306,7 @@ document.getElementById("exportbutton").onclick  = function(){
 //    savecube();
 
 }
+
 
 document.getElementById("textio").value = "";
 document.getElementById("importbutton").onclick = function(){
@@ -513,13 +519,19 @@ input{
     position:absolute;
     left:50px;
     width:10px;
-    bottom:10px;
+    bottom:1px;
 }
 #spellinput{
     position:absolute;
     left:70px;
     width:500px;
-    bottom:10px;
+    bottom:1px;
+}
+#addressinput{
+    position:absolute;
+    left:50px;
+    width:4em;
+    bottom:20px;
 }
 #textio{
     position:absolute;

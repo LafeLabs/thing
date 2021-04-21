@@ -96,8 +96,9 @@ bootstrap is whole big thing that does lots of things, but what we use it for he
 
 <table id = "controltable"></table>
     
-    <input id = "actioninput"/>
-    <input id = "spellinput"/>
+<input id = "actioninput"/>
+<input id = "addressinput"/>
+<input id = "spellinput"/>
 
 <script>
 
@@ -263,7 +264,7 @@ function redraw(){
     
     gvmArray[mainGVM.address - 01040].canvas2d.style.backgroundColor = "#a0a0a0";
     spellGVM.spellGlyph(mainGVM.glyph);
-
+    document.getElementById("addressinput").value = "0" + mainGVM.address.toString(8);
 }
 
 document.getElementById("savebutton").onclick  = function(){
@@ -428,6 +429,12 @@ body{
     right:0px;
     bottom:0px;
     width:1em;
+}
+#addressinput{
+    position:absolute;
+    right:2px;
+    top:2px;
+    width:4em;
 }
 #spellinput{
     font-family:courier;
