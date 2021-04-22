@@ -63,9 +63,10 @@
     <tr>
         <td><a href= "voxel.html">voxel.html</a></td>
         <td><a href= "shapes3dsymbols.html">shape symbols</a></td>
+        <td class = "button" id = "importbutton">IMPORT</td>
+        <td class = "button" id = "exportbutton">EXPORT</td>
     </tr>
 </table>
-<div id = "savebutton" class = "button">SAVE</div>
 <script>
 
 keyboard3d = [
@@ -188,6 +189,7 @@ if(innerWidth > innerHeight){
     document.getElementById("square").style.height = innerHeight.toString() +  "px";    
     spellwidth = marginWidth;
     document.getElementById("actioninput").select();
+    document.getElementById("controltablebox").style.left = (innerHeight + 10).toString() + "px";
 }
 else{
     document.getElementById("controltable").style.bottom = "20px";
@@ -520,6 +522,34 @@ function savecube(){
 
 }
 
+document.getElementById("exportbutton").onclick = function(){
+     jsonarray = [];
+    for(var index = 0600;index < 0610;index++) {
+        if(mainGVM.hypercube[index].length > 1) {
+                var bytecodestring = "0" + index.toString(8) + ":" + mainGVM.hypercube[index];
+                jsonarray.push(bytecodestring); 
+        }
+    }
+    for(var index = 01600;index < 01610;index++) {
+        if(mainGVM.hypercube[index].length > 1) {
+                var bytecodestring = "0" + index.toString(8) + ":" + mainGVM.hypercube[index];
+                jsonarray.push(bytecodestring); 
+        }
+    }    
+    document.getElementById("textio").value = JSON.stringify(jsonarray,null,"    ");
+}
+
+document.getElementById("textio").value = "";
+
+document.getElementById("importbutton").onclick = function(){
+    var importcode = JSON.parse(document.getElementById("textio").value);
+    mainGVM.importbytecode(importcode);
+
+    mainGVM.glyph = mainGVM.hypercube[mainGVM.address] + "0207,";
+    mainGVM.clean();
+    redraw();
+}
+
 </script>
 <style>
 body{
@@ -571,6 +601,7 @@ input{
 }
 .button{
     cursor:pointer;
+    border:solid;
 }
 #mainx3d{
     position:absolute;
@@ -591,8 +622,8 @@ input{
     position:absolute;
     right:0px;
     bottom:0px;
-    display:none;
     z-index:-1;
+    width:8em;
 }
 #linktable{
     position:absolute;
@@ -605,15 +636,7 @@ input{
     border:solid;
     overflow:scroll;
     bottom:100px;
-    width:300px;
     height:200px;
-}
-#savebutton{
-    position:absolute;
-    right:0px;
-    bottom:0px;
-    border:solid;
-    font-size:2em;
 }
 </style>
 </body>

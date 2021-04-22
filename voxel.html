@@ -179,6 +179,7 @@ if(innerWidth > innerHeight){
     document.getElementById("square").style.height = innerHeight.toString() +  "px";    
     spellwidth = marginWidth;
     document.getElementById("actioninput").select();
+    document.getElementById("controltablebox").style.left = (innerHeight + 10).toString() + "px";    
 }
 else{
     document.getElementById("controltable").style.bottom = "20px";
@@ -614,7 +615,6 @@ input{
     border:solid;
     overflow:scroll;
     bottom:100px;
-    width:300px;
     height:200px;
 }
 #savebutton{
