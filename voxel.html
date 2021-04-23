@@ -190,6 +190,11 @@ else{
     document.getElementById("square").style.width = innerWidth.toString() +  "px";
     document.getElementById("square").style.height = innerWidth.toString() +  "px";    
     document.getElementById("actioninput").style.display = "none";
+    document.getElementById("controltablebox").style.left = (10).toString() + "px";
+    document.getElementById("controltablebox").style.top = (10+ innerWidth + 200).toString() + "px";            
+    document.getElementById("controltablebox").style.bottom = "100px";
+    
+    document.getElementById("controltablebox").style.height = (innerHeight - innerWidth - 100).toString() + "px";                          
 }
 
 mainGVM = new GVM(document.getElementById("spellcanvas"),spellwidth,spellheight);
