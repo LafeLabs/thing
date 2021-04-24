@@ -75,9 +75,11 @@ if(innerWidth > innerHeight){
 else{
 
     document.getElementById("scrollscroll").style.width = innerWidth.toString() + "px";
-    document.getElementById("scrollscroll").style.height = (innerHeight - 150).toString() + "px";        
+    document.getElementById("scrollscroll").style.height = (innerWidth + 150).toString() + "px";        
     mainmap = new Map(innerWidth,innerWidth,document.getElementById("mainmap"));    
-   document.getElementById("margin").style.height = (150).toString() + "px";
+    
+    document.getElementById("margin").style.height = (innerHeight - innerWidth - 150).toString() + "px";
+    document.getElementById("margin").style.bottom = "0px";
     
 }
 
