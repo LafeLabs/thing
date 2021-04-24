@@ -50,14 +50,14 @@
             <a href = "iconfeed.html">SHARE</a>
         </td>
         <td>
-            <a href = "programarduinoxyz.html">PLASTIC PROGRAMMER</a>
+            <a href = "programarduino.html">CLAY PROGRAMMER</a>
         </td>
         <td>
             <a href = "https://www.arduino.cc/en/software">DOWNLOAD</a>
         </td>
     </tr>
 </table>
-<p id = "helpbox">Clay token printer: x and z are combination movements of a pair of stages. click an icon to load it into arduino code area. copy/paste code from there to ARDUINO IDE, which you can download from "download" link.</p>
+<p id = "helpbox">Bottle cap printer: x, y, and z are all independent axes. click an icon to load it into arduino code area. copy/paste code from there to ARDUINO IDE, which you can download from "download" link.</p>
 <script>
 
 feedwidth = 100;
@@ -102,7 +102,7 @@ httpc.onreadystatechange = function() {
         document.getElementById("arduinocode").value = "char coin[] = \"\";\n\n" + arduinocode;
     };
 }
-httpc.open("GET", "fileloader.php?filename=data/arduinocode.txt", true);
+httpc.open("GET", "fileloader.php?filename=data/arduinocodexyz.txt", true);
 httpc.send();
     
 

@@ -27,7 +27,7 @@
         "w": 0.5047732696897375,
         "angle": 0,
         "text": "brain",
-        "href": "scrolls/brain",
+        "href": "scrolls/brain.md",
         "src": "",
         "maplinkmode": true,
         "h": 0.059665871121718374
@@ -39,7 +39,7 @@
         "h": 0.35441527446300713,
         "angle": 0,
         "text": "controller",
-        "href": "scrolls/controller",
+        "href": "scrolls/controller.md",
         "src": "https://i.imgur.com/xOnWAB3.png",
         "maplinkmode": true
     },
@@ -50,7 +50,7 @@
         "h": 0.05250596658711217,
         "angle": 89,
         "text": "mechanicals",
-        "href": "scrolls/mechanicals",
+        "href": "scrolls/mechanicals.md",
         "src": "",
         "maplinkmode": true
     },
@@ -116,7 +116,7 @@
         "h": 0.06921241050119331,
         "angle": 0,
         "text": "controller",
-        "href": "scrolls/controller",
+        "href": "scrolls/controller.md",
         "src": "",
         "maplinkmode": true
     },
@@ -127,7 +127,7 @@
         "h": 0.1467780429594272,
         "angle": 0,
         "text": "brain",
-        "href": "scrolls/brain",
+        "href": "scrolls/brain.md",
         "src": "https://i.imgur.com/xOnWAB3.png",
         "maplinkmode": true
     },
@@ -138,7 +138,7 @@
         "h": 0.18257756563245822,
         "angle": 0,
         "text": "mechanicals",
-        "href": "scrolls/mechanicals",
+        "href": "scrolls/mechanicals.md",
         "src": "https://i.imgur.com/xOnWAB3.png",
         "maplinkmode": true
     },
@@ -160,7 +160,7 @@
         "h": 0.1801909307875895,
         "angle": 0,
         "text": "mechanicals",
-        "href": "scrolls/mechanicals",
+        "href": "scrolls/mechanicals.md",
         "src": "https://i.imgur.com/xOnWAB3.png",
         "maplinkmode": true
     },
@@ -171,7 +171,7 @@
         "h": 0.1801909307875895,
         "angle": 0,
         "text": "mechanicals",
-        "href": "scrolls/mechanicals",
+        "href": "scrolls/mechanicals.md",
         "src": "https://i.imgur.com/xOnWAB3.png",
         "maplinkmode": true
     }

@@ -11,8 +11,12 @@
  - [wall](wall.html)
  - [localimagefeed.html](localimagefeed.html)
  - [globalimagefeed.html](globalimagefeed.html)
+ - [icon feed](iconfeed.html)
+ - [symbol feed](symbolfeed.html)
  - [programarduino.html](programarduino.html)
+ - [programarduinoxyz.html(bottle caps)](programarduinoxyz.html)
  - [editor.php](editor.php)
+ - [dna generator](dnagenerator.php)
 
 ![](https://i.imgur.com/niV3C7n.jpg)
 

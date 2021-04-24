@@ -43,5 +43,10 @@
         "href": "linkfeededitor.html",
         "src": "",
         "text": "operator screen"
+    },
+    {
+        "href": "index.html",
+        "src": "",
+        "text": "home"
     }
 ]
