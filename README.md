@@ -3,6 +3,17 @@
 
 ## [Link to Map](maps/home)
 
+ - [localhost/](http://localhost/)
+ - [symbol editor](symbol.html)
+ - [3d Geometron](voxel.html)
+ - [link feed](linkfeed.html)
+ - [chaosfeed.html](chaosfeed.html)
+ - [wall](wall.html)
+ - [localimagefeed.html](localimagefeed.html)
+ - [globalimagefeed.html](globalimagefeed.html)
+ - [programarduino.html](programarduino.html)
+ - [editor.php](editor.php)
+
 ![](https://i.imgur.com/niV3C7n.jpg)
 
 # Geometron/ Trash Robot System
