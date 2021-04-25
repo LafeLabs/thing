@@ -5,9 +5,12 @@
     <!--Stop Google:-->
     <META NAME="robots" CONTENT="noindex,nofollow">
     <script src="jscode/geometron.js"></script>
-    <title>Style Editor</title>
+    <title>JSON import/export</title>
 </head>
 <body>    
+<div id = "mainbox">
+    <canvas id = "maincanvas"></canvas>
+</div>
     <a href = "symbol.html">
         <img src = "iconsymbols/geometron.svg"/>
     </a>
@@ -21,21 +24,71 @@
     <tr>
         <td class = "button" id = "resetbutton">RESET</td>
     </tr>
+    <tr>
+        <td class=  "button" id = "savebutton">SAVE</td>
+    </tr>
 </table>
     <textarea id = "textio"></textarea>
 
 <script>    
 
+maincanvas = document.getElementById("maincanvas");
+
+hypercube = [];
+for(var index = 0;index < 02000;index++){
+    hypercube.push("");
+}
+
+mainGVM = new GVM(maincanvas,200,200);
+
+
+currentjson = {};
 var httpc = new XMLHttpRequest();
-httpc.onreadystatechange = function() {
+httpc.onreadystatechange = function(){
     if (this.readyState == 4 && this.status == 200) {
-        currentjson = JSON.parse(this.responseText);
-        document.getElementById("textio").value = JSON.stringify(currentjson,null,"    ");
+        hypercubedata = JSON.parse(this.responseText);
+        mainGVM.importbytecode(hypercubedata);
+        var httpc = new XMLHttpRequest();
+        httpc.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                currentjson = JSON.parse(this.responseText);
+                document.getElementById("textio").value = JSON.stringify(currentjson,null,"    ");
+                mainGVM.importbytecode(currentjson.shapes);
+                mainGVM.style = currentjson.style;
+                mainGVM.x0 = currentjson.x0;
+                mainGVM.y0 = currentjson.y0;
+                mainGVM.unit = currentjson.unit;
+                mainGVM.width = currentjson.width;
+                mainGVM.height = currentjson.height;
+                document.getElementById("mainbox").style.width = mainGVM.width.toString() + "px";
+                document.getElementById("mainbox").style.height = mainGVM.height.toString() + "px";
+                maincanvas.width  = mainGVM.width;
+                maincanvas.height = mainGVM.height;
+                mainGVM.drawGlyph(currentjson.glyph);
+                
+            }
+        };
+        httpc.open("GET", "fileloader.php?filename=data/currentjson.txt", true);
+        httpc.send();    
     }
 };
-httpc.open("GET", "fileloader.php?filename=data/currentjson.txt", true);
-httpc.send();    
+httpc.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
+httpc.send();
 
+function redraw(){
+    mainGVM.importbytecode(currentjson.shapes);
+    mainGVM.style = currentjson.style;
+    mainGVM.x0 = currentjson.x0;
+    mainGVM.y0 = currentjson.y0;
+    mainGVM.unit = currentjson.unit;
+    mainGVM.width = currentjson.width;
+    mainGVM.height = currentjson.height;
+    document.getElementById("mainbox").style.width = mainGVM.width.toString() + "px";
+    document.getElementById("mainbox").style.height = mainGVM.height.toString() + "px";
+    maincanvas.width  = mainGVM.width;
+    maincanvas.height = mainGVM.height;
+    mainGVM.drawGlyph(currentjson.glyph);    
+}
 
 function savejson(){
 
@@ -47,6 +100,18 @@ function savejson(){
 
 }
 
+function savecube(){
+    
+    mainGVM.importbytecode(currentjson.shapes);
+    
+    hypercube = mainGVM.bytecode(0,01777);
+    var url = "filesaver.php";        
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(hypercube)+"&filename=data/hypercube.txt");//send text to filesaver.php
+    
+}
 
 document.getElementById("exportbutton").onclick = function(){
     document.getElementById("textio").value = JSON.stringify(currentjson,null,"    ");
@@ -54,9 +119,15 @@ document.getElementById("exportbutton").onclick = function(){
 
 document.getElementById("importbutton").onclick = function(){
     currentjson = JSON.parse(document.getElementById("textio").value);
-    savejson();    
+    redraw();
+    
 }
 
+document.getElementById("savebutton").onclick  = function(){
+    currentjson = JSON.parse(document.getElementById("textio").value);
+    savejson();
+    savecube();
+}
 
 resetjson = {
     "glyph": "",
@@ -114,14 +185,27 @@ resetjson = {
 document.getElementById("resetbutton").onclick = function(){
     currentjson = resetjson;
     document.getElementById("textio").value = JSON.stringify(currentjson,null,"    ");    
-    savejson();
+    redraw();
 }
 
+
 document.getElementById("textio").value = "";
+
 
 </script>
 
 <style>
+#mainbox{
+    position:absolute;
+    right:0px;
+    top:0px;
+}
+#maincanvas{
+    position:absolute;
+    right:0px;
+    top:0px;
+    border:solid;
+}
 #textio{
     width:40em;
     height:40em;
