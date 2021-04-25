@@ -45,6 +45,7 @@
 <div id = "scrollscroll"></div>
 <div id = "mainmap"></div>
 <div id = "modebutton" class = "button">LIGHT<br>DARK</div>
+<input id = "scrollinput"/>
 <div id = "margin">
     <div id  = "scrollsbox">
         <a href = "scrolleditor.html">
@@ -266,20 +267,29 @@ httpc9.onreadystatechange = function() {
 httpc9.open("GET", "dir.php?filename=scrolls", true);
 httpc9.send();
 
+
+document.getElementById("scrollinput").value = "";
+document.getElementById("scrollinput").select();
+document.getElementById("scrollinput").onchange = function(){
+    var scrollurl = this.value;
+    loadscroll(scrollurl);
+}
 </script>
 <style>
-body{
-    overflow:hidden;
-    background-color:black
-}
-input{
-    width:50%;
+#scrollinput{
+    position:absolute;
+    right:0px;
+    bottom:0px;
     font-family:courier;
     font-size:1.5em;
     background-color:black;
     color:#ff2cb4;
     border-color:#ff2cb4;
-    border-width:8px;
+    border-width:3px;    
+}
+body{
+    overflow:hidden;
+    background-color:black
 }
 .boxlink{
     padding-left:1em;
