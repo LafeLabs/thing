@@ -12,6 +12,7 @@ dna.txt is a json formatted file which points to all the files in this system, w
 
     $phpfiles = scandir(getcwd()."/php");
     $datafiles = scandir(getcwd()."/data");
+    $iconfiles = scandir(getcwd()."/iconsymbols");
 
     $mapfiles = scandir(getcwd()."/maps");
     $scrollfiles = scandir(getcwd()."/scrolls");
