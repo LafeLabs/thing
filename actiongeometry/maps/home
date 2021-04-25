@@ -1,86 +1,9 @@
 [
     {
-        "x": 0.8345323741007195,
-        "y": 0.007194244604316547,
-        "w": 0.2841726618705036,
-        "h": 0.08591885441527446,
-        "angle": 0,
-        "text": "map editor",
-        "href": "mapeditor.html",
-        "src": "",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.009592326139088728,
-        "y": 0.1642685851318945,
-        "w": 0.4448441247002398,
-        "h": 0.06115107913669065,
-        "angle": 0,
-        "text": "tools",
-        "href": "maps/tools",
-        "src": "",
-        "maplinkmode": true
-    },
-    {
-        "x": -0.15587529976019185,
-        "y": 0.7326139088729017,
-        "w": 0.30335731414868106,
-        "h": 0.10501193317422435,
-        "angle": 89,
-        "text": "book of geometron",
-        "href": "https://lafelabs.github.io/book_of_geometron.html",
-        "src": "",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.19304556354916066,
-        "y": 0.15707434052757793,
-        "w": 0.6810551558752997,
-        "h": 0.6825775656324582,
-        "angle": 0,
-        "text": "CLICK TO DESIGN!!",
-        "href": "",
-        "src": "https://i.imgur.com/SmYWDTH.png",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.31774580335731417,
-        "y": 0.2290167865707434,
-        "w": 0.45323741007194246,
-        "h": 0.5443645083932853,
-        "angle": 0,
-        "text": "CLICK TO DESIGN!!",
-        "href": "",
-        "src": "https://i.imgur.com/No1wukK.png",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.7973621103117506,
-        "y": 0.920863309352518,
-        "w": 0.4712230215827338,
-        "h": 0.09904534606205251,
-        "angle": 0,
-        "text": "localhost",
-        "href": "http://localhost/",
-        "src": "",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.013189448441247002,
-        "y": 0.9448441247002398,
-        "w": 0.3513189448441247,
-        "h": 0.09832134292565947,
-        "angle": 0,
-        "text": "workflow",
-        "href": "maps/workflow",
-        "src": "",
-        "maplinkmode": true
-    },
-    {
-        "x": 0.004796163069544364,
-        "y": 0.004796163069544364,
-        "w": 0.4712230215827338,
-        "h": 0.05755395683453238,
+        "x": 0.00477326968973747,
+        "y": 0.00477326968973747,
+        "w": 0.4701670644391408,
+        "h": 0.057279236276849645,
         "angle": 0,
         "text": "home",
         "href": "index.html",
@@ -88,14 +11,69 @@
         "maplinkmode": false
     },
     {
-        "x": 0.3133253301320528,
-        "y": 0.9603841536614646,
-        "w": 0.28331332533013204,
-        "h": 0.08523409363745499,
+        "x": 0.6837708830548926,
+        "y": 0.00954653937947494,
+        "w": 0.2935560859188544,
+        "h": 0.34009546539379476,
         "angle": 0,
-        "text": "three.html",
-        "href": "three.html",
-        "src": "",
+        "text": "home",
+        "href": "",
+        "src": "https://i.imgur.com/TD5Sqs6.jpg",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.684964200477327,
+        "y": 0.32816229116945106,
+        "w": 0.2935560859188544,
+        "h": 0.30668257756563244,
+        "angle": 0,
+        "text": "home",
+        "href": "",
+        "src": "https://i.imgur.com/oCXWSGN.jpg",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.4021479713603819,
+        "y": 0.0011933174224343676,
+        "w": 0.2935560859188544,
+        "h": 0.3341288782816229,
+        "angle": 0,
+        "text": "home",
+        "href": "",
+        "src": "https://i.imgur.com/vkUCCZP.jpg",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.3937947494033413,
+        "y": 0.3317422434367542,
+        "w": 0.2935560859188544,
+        "h": 0.26968973747016706,
+        "angle": 0,
+        "text": "home",
+        "href": "",
+        "src": "https://i.imgur.com/Tp6xtV6.jpg",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.6837708830548926,
+        "y": 0.6312649164677804,
+        "w": 0.2935560859188544,
+        "h": 0.2935560859188544,
+        "angle": 0,
+        "text": "home",
+        "href": "",
+        "src": "https://i.imgur.com/BtOx3D1.jpg",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.0011933174224343676,
+        "y": 0.8651551312649165,
+        "w": 0.6539379474940334,
+        "h": 0.1324582338902148,
+        "angle": 0,
+        "text": "home",
+        "href": "",
+        "src": "https://i.imgur.com/xt1HCtu.jpg",
         "maplinkmode": false
     }
 ]
