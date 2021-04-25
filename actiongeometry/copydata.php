@@ -1,7 +1,7 @@
 <?php
 
 
-$dnaurl = "https://raw.githubusercontent.com/LafeLabs/thing/master/data/dna.txt";
+$dnaurl = "https://raw.githubusercontent.com/LafeLabs/thing/master/actiongeometry/data/dna.txt";
 
 if(isset($_GET["from"])){
     $fromurl = $_GET["from"];
