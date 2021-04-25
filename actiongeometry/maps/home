@@ -1,0 +1,101 @@
+[
+    {
+        "x": 0.8345323741007195,
+        "y": 0.007194244604316547,
+        "w": 0.2841726618705036,
+        "h": 0.08591885441527446,
+        "angle": 0,
+        "text": "map editor",
+        "href": "mapeditor.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.009592326139088728,
+        "y": 0.1642685851318945,
+        "w": 0.4448441247002398,
+        "h": 0.06115107913669065,
+        "angle": 0,
+        "text": "tools",
+        "href": "maps/tools",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": -0.15587529976019185,
+        "y": 0.7326139088729017,
+        "w": 0.30335731414868106,
+        "h": 0.10501193317422435,
+        "angle": 89,
+        "text": "book of geometron",
+        "href": "https://lafelabs.github.io/book_of_geometron.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.19304556354916066,
+        "y": 0.15707434052757793,
+        "w": 0.6810551558752997,
+        "h": 0.6825775656324582,
+        "angle": 0,
+        "text": "CLICK TO DESIGN!!",
+        "href": "",
+        "src": "https://i.imgur.com/SmYWDTH.png",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.31774580335731417,
+        "y": 0.2290167865707434,
+        "w": 0.45323741007194246,
+        "h": 0.5443645083932853,
+        "angle": 0,
+        "text": "CLICK TO DESIGN!!",
+        "href": "",
+        "src": "https://i.imgur.com/No1wukK.png",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.7973621103117506,
+        "y": 0.920863309352518,
+        "w": 0.4712230215827338,
+        "h": 0.09904534606205251,
+        "angle": 0,
+        "text": "localhost",
+        "href": "http://localhost/",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.013189448441247002,
+        "y": 0.9448441247002398,
+        "w": 0.3513189448441247,
+        "h": 0.09832134292565947,
+        "angle": 0,
+        "text": "workflow",
+        "href": "maps/workflow",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.004796163069544364,
+        "y": 0.004796163069544364,
+        "w": 0.4712230215827338,
+        "h": 0.05755395683453238,
+        "angle": 0,
+        "text": "home",
+        "href": "index.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.3133253301320528,
+        "y": 0.9603841536614646,
+        "w": 0.28331332533013204,
+        "h": 0.08523409363745499,
+        "angle": 0,
+        "text": "three.html",
+        "href": "three.html",
+        "src": "",
+        "maplinkmode": false
+    }
+]

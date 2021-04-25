@@ -1,12 +1,10 @@
-
-# <span style = "color:red">Γ</span><span style = "color:orange">ε</span><span style = "color:yellow">ω</span><span style = "color:green">μ</span><span style = "color:blue">ε</span><span style = "color:purple">τ</span><span style = "color:red">ρ</span><span style = "color:orange">ο</span><span style = "color:yellow">ν</span>
+# Action Geometry
 
 ## [Link to Map](maps/home)
 
  - [localhost/](http://localhost/)
- - [fork](fork.html)
- - [symbol](symbol.html)
- - [voxel](voxel.html)
+ - [symbol editor](symbol.html)
+ - [3d Geometron](voxel.html)
  - [link feed](linkfeed.html)
  - [chaosfeed.html](chaosfeed.html)
  - [wall](wall.html)
