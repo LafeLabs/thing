@@ -142,6 +142,14 @@ function savesymbolfile(){
             currentjson.shapes.push("0" + index.toString(8) + ":" + mainGVM.hypercube[index]);
         }
     }    
+    for(var index = 0240;index < 0300;index++){
+        if(mainGVM.hypercube[index].length > 0){
+            currentjson.shapes.push("0" + index.toString(8) + ":" + mainGVM.hypercube[index]);
+            if(mainGVM.hypercube[index + 01000].length > 0){
+                currentjson.shapes.push("0" + (index + 01000).toString(8) + ":" + mainGVM.hypercube[index + 01000]);
+            }
+        }
+    }    
     currentjson.glyph = mainGVM.cleanGlyph;
     currentjson.x0 = mainGVM.x0;
     currentjson.y0 = mainGVM.y0;
