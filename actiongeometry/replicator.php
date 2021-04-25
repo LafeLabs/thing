@@ -20,6 +20,11 @@ foreach($dna->html as $value){
 
 }
 
+foreach($dna->iconsymbols as $value){
+    
+    copy($baseurl."iconsymbols/".$value,"iconsymbols/".$value);
+
+}
 
 foreach($dna->data as $value){
     

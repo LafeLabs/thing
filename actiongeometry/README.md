@@ -1,5 +1,11 @@
 # Action Geometry
 
+[![](iconsymbols/shapesandruler.svg)](iconsymbols/shapesandruler.svg)
+
+[![](iconsymbols/dogelaser.svg)](iconsymbols/dogelaser.svg)
+
+
+
 ## [Link to Map](maps/home)
 
  - [localhost/](http://localhost/)

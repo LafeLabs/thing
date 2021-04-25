@@ -29,6 +29,12 @@ dna.txt is a json formatted file which points to all the files in this system, w
 
     $dna->iconsymbols = [];
 
+    foreach($iconfiles as $value){
+        if($value{0} != "."){
+            array_push($dna->iconsymbols,$value);
+        }
+    }
+
     $dna->data = [];
     foreach($datafiles as $value){
         if($value{0} != "."){
