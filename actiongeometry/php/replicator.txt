@@ -14,6 +14,12 @@ $dna = json_decode($dnaraw);
 
 copy("https://raw.githubusercontent.com/LafeLabs/thing/master/actiongeometry/php/replicator.txt","replicator.php");
 
+foreach($dna->html as $value){
+    
+    copy($baseurl.$value,$value);
+
+}
+
 
 foreach($dna->data as $value){
     

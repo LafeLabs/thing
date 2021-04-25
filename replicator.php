@@ -20,7 +20,7 @@ mkdir("symbolfeed");
 mkdir("maps");
 mkdir("scrolls");
 
-copy("https://raw.githubusercontent.com/LafeLabs/thing/master/tree/php/replicator.txt","tree/replicator.php");
+copy("https://raw.githubusercontent.com/LafeLabs/thing/master/php/replicator.txt","replicator.php");
 
 foreach($dna->html as $value){
     

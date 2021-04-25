@@ -21,6 +21,10 @@ dna.txt is a json formatted file which points to all the files in this system, w
     $dna = json_decode("{}");
     $dna->html = $htmlfiles;
 
+    array_push($dna->html,"README.md");
+    array_push($dna->html,"index.html");
+    
+
     $dna->javascript = [];
 
     $dna->iconsymbols = [];
@@ -28,7 +32,11 @@ dna.txt is a json formatted file which points to all the files in this system, w
     $dna->data = [];
     foreach($datafiles as $value){
         if($value{0} != "."){
-            array_push($dna->data,$value);
+            
+            if(substr($value,-4) == ".txt"){
+                array_push($dna->data,$value);
+            }
+
         }
     }
 

@@ -204,7 +204,6 @@
         "duality.txt",
         "feed.txt",
         "font.txt",
-        "foo.stl",
         "geometronfeed.txt",
         "glyph3d.txt",
         "hypercube.txt",
@@ -221,7 +220,6 @@
         "robotfont.txt",
         "symbolapp.txt",
         "textfeed.txt",
-        "three.stl",
         "token.txt",
         "trace.txt",
         "wall.txt"
