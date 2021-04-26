@@ -8,6 +8,7 @@
         "abcfont.svg",
         "abcfontsymbol.svg",
         "abcstack.svg",
+        "actiongeometrydotorg.svg",
         "actiontablet.svg",
         "add.svg",
         "addressstack.svg",
@@ -39,6 +40,9 @@
         "fonteditor.svg",
         "fonttablet.svg",
         "fork.svg",
+        "fullsetdremel.png",
+        "fullsetdremel.svg",
+        "fullsetponoko2.svg",
         "geometron.svg",
         "geometronthing.svg",
         "glyphfeed.svg",
@@ -170,6 +174,6 @@
         "home"
     ],
     "scrolls": [
-        "foo"
+        "box.md"
     ]
 }

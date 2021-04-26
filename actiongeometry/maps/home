@@ -2,12 +2,12 @@
     {
         "x": 0.00477326968973747,
         "y": 0.00477326968973747,
-        "w": 0.4701670644391408,
-        "h": 0.057279236276849645,
+        "w": 0.09785202863961814,
+        "h": 0.315035799522673,
         "angle": 0,
         "text": "home",
         "href": "index.html",
-        "src": "",
+        "src": "iconsymbols/scroll.svg",
         "maplinkmode": false
     },
     {
@@ -74,6 +74,50 @@
         "text": "home",
         "href": "",
         "src": "https://i.imgur.com/xt1HCtu.jpg",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.03818615751789976,
+        "y": 0.7517899761336515,
+        "w": 0.4701670644391408,
+        "h": 0.057279236276849645,
+        "angle": 0,
+        "text": "dnagenerator.php",
+        "href": "dnagenerator.php",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.0477326968973747,
+        "y": 0.6408114558472554,
+        "w": 0.4701670644391408,
+        "h": 0.057279236276849645,
+        "angle": 0,
+        "text": "voxel.html",
+        "href": "voxel.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.03579952267303103,
+        "y": 0.535799522673031,
+        "w": 0.4701670644391408,
+        "h": 0.057279236276849645,
+        "angle": 0,
+        "text": "editor.php",
+        "href": "editor.php",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.027446300715990454,
+        "y": 0.4212410501193317,
+        "w": 0.4701670644391408,
+        "h": 0.057279236276849645,
+        "angle": 0,
+        "text": "symbol.html",
+        "href": "symbol.html",
+        "src": "",
         "maplinkmode": false
     }
 ]
