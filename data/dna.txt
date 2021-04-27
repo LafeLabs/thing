@@ -341,6 +341,7 @@
         "terminal.md",
         "textile.md",
         "trashrobot",
-        "trashrobotdotorg"
+        "trashrobotdotorg",
+        "trashrobotset.md"
     ]
 }

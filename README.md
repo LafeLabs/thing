@@ -14,6 +14,7 @@
  - [globalimagefeed.html](globalimagefeed.html)
  - [icon feed](iconfeed.html)
  - [laser cut stencils of icons](lasericon.html)
+ - [duality](duality.html)
  - [symbol feed](symbolfeed.html)
  - [math user](mathuser.html)
  - [copy document page](copy.html)
@@ -23,6 +24,8 @@
  - [dna generator](dnagenerator.php)
 
 ![](https://i.imgur.com/niV3C7n.jpg)
+
+[set](scrolls/trashrobotset.md)
 
 # Geometron/ Trash Robot System
 
