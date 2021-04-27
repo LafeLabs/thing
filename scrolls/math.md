@@ -1,3 +1,5 @@
+[back to normal user home screen](index.html)
+
 [link to math map editor](mathmapeditor.html)
 
 [link to math map](maps/math)

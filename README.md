@@ -14,6 +14,8 @@
  - [globalimagefeed.html](globalimagefeed.html)
  - [icon feed](iconfeed.html)
  - [symbol feed](symbolfeed.html)
+ - [math user](mathuser.html)
+ - [copy document page](copy.html)
  - [programarduino.html](programarduino.html)
  - [programarduinoxyz.html(bottle caps)](programarduinoxyz.html)
  - [editor.php](editor.php)
