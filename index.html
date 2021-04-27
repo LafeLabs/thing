@@ -45,7 +45,9 @@
 <div id = "scrollscroll"></div>
 <div id = "mainmap"></div>
 <div id = "modebutton" class = "button">LIGHT<br>DARK</div>
+<div id = "hidebutton" class = "button"><span id  = "hideshow">SHOW</span><br>MENU</div>
 <div id = "margin">
+    <div id = "marginbutton">⇳⇳⇳⇳⇳⇳⇳⇳⇳⇳⇳</div>
     <div id  = "scrollsbox">
         <a href = "scrolleditor.html">
             <img style = "width:50px;display:block;margin:auto;padding-top:1em" src = "iconsymbols/scroll.svg"/>
@@ -63,8 +65,8 @@ mode = "dark";
 //mode = "light";
 
 
-
 if(innerWidth > innerHeight){
+    menuhide = false;
     mainmap = new Map(innerHeight,innerHeight,document.getElementById("mainmap"));
 
     document.getElementById("margin").style.left = (innerHeight).toString() + "px";
@@ -73,14 +75,33 @@ if(innerWidth > innerHeight){
 
 }
 else{
-
+    menuhide = true;
     document.getElementById("scrollscroll").style.width = innerWidth.toString() + "px";
-    document.getElementById("scrollscroll").style.height = (innerWidth + 150).toString() + "px";        
     mainmap = new Map(innerWidth,innerWidth,document.getElementById("mainmap"));    
-    
+    document.getElementById("scrollscroll").style.height = (innerHeight - 100).toString() + "px";        
+    document.getElementById("margin").style.display = "none";
     document.getElementById("margin").style.height = (innerHeight - innerWidth - 150).toString() + "px";
     document.getElementById("margin").style.bottom = "0px";
     
+}
+
+
+document.getElementById("hidebutton").onclick = function(){
+    menuhide = !menuhide;
+    if(menuhide){
+        document.getElementById("hideshow").innerHTML = "SHOW";
+        document.getElementById("margin").style.display = "none";
+        if(innerHeight > innerWidth){
+            document.getElementById("scrollscroll").style.height = (innerHeight - 100).toString() + "px";        
+        }
+    }
+    else{
+        document.getElementById("hideshow").innerHTML = "HIDE";
+        document.getElementById("margin").style.display = "block";
+        if(innerHeight > innerWidth){
+            document.getElementById("scrollscroll").style.height = (innerWidth + 150).toString() + "px";        
+        }
+    }
 }
 
 
@@ -345,10 +366,19 @@ h1,h2,h3,h4{
     border-radius:5px;
     text-align:center;
 }
-#modebutton:hover{
+#hidebutton{
+    position:absolute;
+    background-color:white;
+    color:black;
+    cursor:pointer;
+    border:solid;
+    border-radius:5px;
+    text-align:center;
+}
+.button:hover{
     background-color:green;
 }
-#modebutton:active{
+.button:active{
     background-color:yellow;
 }
 #margin{
@@ -387,6 +417,9 @@ h1,h2,h3,h4{
         right:5px;
         top:5px;
     }
+    #hidebutton{
+        display:none;
+    }
 }
 
 @media only screen and (orientation: portrait) {
@@ -401,7 +434,13 @@ h1,h2,h3,h4{
     #margin img{
         width:50px;
     }
-    
+    #hidebutton{
+        left:0px;
+        bottom:0px;
+    }
+    .button{
+        font-size:2em;
+    }
 }
 </style>
 </body>
