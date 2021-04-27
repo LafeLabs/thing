@@ -24,6 +24,7 @@
         "hash.html",
         "hypercube.html",
         "icon3d.html",
+        "icon64.html",
         "iconfeed.html",
         "imagefeed.html",
         "index.html",

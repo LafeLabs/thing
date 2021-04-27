@@ -13,6 +13,7 @@
  - [localimagefeed.html](localimagefeed.html)
  - [globalimagefeed.html](globalimagefeed.html)
  - [icon feed](iconfeed.html)
+ - [laser cut stencils of icons](lasericon.html)
  - [symbol feed](symbolfeed.html)
  - [math user](mathuser.html)
  - [copy document page](copy.html)
