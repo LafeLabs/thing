@@ -47,6 +47,7 @@
         "poetryengine.html",
         "programarduino.html",
         "programarduinoxyz.html",
+        "qrcode.html",
         "removebackground.html",
         "robot2arduino.html",
         "robot2css.html",
@@ -85,6 +86,7 @@
         "keyboard.js",
         "lasercutfont.js",
         "mapfactory.js",
+        "qrcode.js",
         "robotfont.js",
         "trashrobotfont.js"
     ],
