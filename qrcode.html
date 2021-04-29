@@ -26,6 +26,8 @@
 <body>    
 <a href = "index.html">index.html</a><p></p>
 <a href = "textfeed.html">textfeed.html</a>
+<p></p>
+<a id = "linklink"></a>
 
 <div id = "qrcode"></div>
 <img id = "transferimage"/>
@@ -80,12 +82,18 @@ document.getElementById("mapinput").onchange = function(){
     mode = "map";
     globalurl= window.location.origin+"/user.php?map=" + this.value;
     qrcode.makeCode(globalurl);
+    document.getElementById("linklink").href = globalurl;
+    document.getElementById("linklink").innerHTML = globalurl;
+
 }
 document.getElementById("scrollinput").onchange = function(){
     scroll = this.value;
     mode = "scroll";
     globalurl = window.location.origin+"/user.php?scroll=" + this.value;
     qrcode.makeCode(globalurl);
+    document.getElementById("linklink").href = globalurl;
+    document.getElementById("linklink").innerHTML = globalurl;
+
 }
 
 
@@ -168,7 +176,9 @@ document.getElementById("urlbutton").onclick = function(){
     mode = "url";
     globalurl= localurl;
     qrcode.makeCode(globalurl);
-
+    document.getElementById("linklink").href = globalurl;
+    document.getElementById("linklink").innerHTML = globalurl;
+    
 }
 
 </script>
