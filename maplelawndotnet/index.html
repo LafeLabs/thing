@@ -115,9 +115,9 @@ var converter = new showdown.Converter();
 converter.setOption('literalMidWordUnderscores', 'true');
 converter.setOption('tables', 'true')
     
-mapname = "data/currentMap.txt";
-//loadmap(mapname);
-loadscroll("README.md");
+mapname = "maps/home";
+loadmap(mapname);
+//loadscroll("README.md");
 
 function loadmap(mapname){
     document.getElementById("scrollscroll").style.display = "none";

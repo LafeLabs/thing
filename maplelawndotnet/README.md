@@ -3,6 +3,9 @@
 
 ## [Link to Map](maps/home)
 
+ - [home](index.html)
+ - [scroll editor](scrolleditor.html)
+ - [map editor](mapeditor.html)
  - [localhost/](http://localhost/)
  - [fork](fork.html)
  - [symbol](symbol.html)
