@@ -1,0 +1,111 @@
+# Intro Video Script
+
+Dig it up[image of mine], set it on fire[image of gas blowoff from refinery], and bury it[image of landfill].  This is our civilization in a nutshell.  The way to break this cycle is to build technology which is both made from waste streams and which can manufacture products using waste streams.  Trash Robot is a robot built from trash which is programmed to print patterns in clay. [video of robot printing] We program it using Geometron, a symbolic language based on geometry and designed to make it simpler for non-experts to control machines while avoiding numbers and code[screen capture video of editing the geonetron glyphs to run the robot].  Together we, the people of Trash Robot, will give FREE robots to every artist, student, crafter or maker in who wants to help build a world of abundance through free technology. [show video montage of prints, pans across parts]
+
+I am asking YOU to join this movement now and scale Trash Robot to the whole world!
+
+We need students to learn and operate the machines[still image of robot and a clay print], hobbyists to assemble the kits into finished robots[still image of a kit and still image of assembled unit], teachers to share the skills to use them with students[icon of a growing network of nodes, arrows and dots], donors to contribute materials[logos of suppliers, dollar signs], scavengers to find trash to use[stack of DVD drives, stripped and not stripped], researchers and developers to improve the technology[closeup of a tool joint, then screen of code], and librarians to accept donations and physically distribute the kits, materials and robots and coordinate the network[images of maker spaces at libraries].  If you are interested in filling any of these roles, see specific instructions and join us to build a better world. [flash the url]
+
+
+## Librarians
+
+Librarians!! you are the connectors that link this network together.  You already serve a role in communities across the world to share information and resources locally across all ages and sections of society.
+
+roles of a librarian:
+
+- take donations from donors, be the tax deductible non profit or guide donors to one which will allow them both to buy components and donate surplus equipment(namely DVD and CD drives)
+- add trash robot to educational programming for the library, to help bring library patrons in as artists, students, and hobbyists.  Store kits in the library maker spaces for redistribution
+- use local community resources to find the most under-served groups of kids locally to give free robots to
+- serve as a trusted intermediary between parents, hobbyists, donors, and teachers.  For safety reasons it makes sense for parents to trust public libraries as a resource for free information and materials, and providing that sense of security is important. Donors need to know they're contributing to a real organization as well if they're to trust that a donation will end up at the right place and have evidence of that
+- help spread the word to the rest of the library community
+- if you run a "little free library" that counts!  You can use that as a place out of the rain where people can leave and take parts for kits, fully assembled robots, and completed clay tablets to share with the community
+- University libraries have similar roles to play to other libraries, but what we hope for from them in Trash Robot is that public study lounges can serve as a place where robot materials can be shared.  If this has the support of library staff, who can help find volunteers to run a robot production zone in a study lounge, it can be very useful.
+
+## Students and Artists
+
+Students! Artists! You are the producers who the whole network is intended to support!  Once you have the ability to make a robot do what you want in clay, you can keep improving your technique and sharing designs and finished products with the rest of the network.  Tell your friends!  The more people learn and share in this system the faster it will grow and the faster it grows the sooner we can reach the fully circular economy we are working towards. Also, you can do many things with the printed, baked, and painted clay.
+
+How to get started: find someone to give you a robot!  This will be found from other roles in the system: teachers, librarians, and hobbyists who can build, distribute, and share the skills. 
+
+Once you have a robot, a teacher should be able to guide you through the process of setting it up and making your first print.  Start by making a simple pattern and playing around with how the language works.  Keep erasing patterns in the clay by just smoothing it out.  Your teacher who shows you how to use the system should be able to share how to also write words and letters.  As soon as you get anything working, make your first real print: get the clay as flat as possible, get the tool to just the right height, and print some words and symbols.  Then slice the edges off flat with a sharp edge or knife, and bake it in the oven according to the instructions(usually 15 minutes at 275F), let it cool, paint it and give it away to someone. Or sell it.  Or drop it somewhere where people are sharing Trash Robot/Geometron media.  Or it can be used as some token with a meaning like a currency.
+
+## Makers
+
+We build the robots.  Donors, librarians, and scavengers(in some cases we'll also play these roles) will get us the parts that go into the kits, and it is our job to turn parts into kits and kits into finished robots.  
+
+We:
+
+1. put together the part sets for kits
+2. assemble kits into completed robots
+3. pass robots back to librarians and teachers for distribution
+
+## Developers/researchers/scientists/engineers
+
+Our task is to close loops and expand the scope of the system.  We seek to systematically remove all purchased items from Trash Robot until the entire system can be built from waste streams of our existing industrial system.  To that end, we will be developing metal interconnect technology with cast metal in clay to build out systems on salvaged circuit boards.  We will also develop our own bottom-up electronic fabrication technology with direct lithography in clay, which can act in concert with scavenged electronics to build a hybrid between multiple electronics waste streams as well as our own ab initio fab processes.  We must also work on development of the software to keep making it more versatile. 
+
+## software developers:
+
+- make the system more mobile friendly, improve all the CSS so it looks better on more platforms
+- clean up the javascript to make it more efficient
+- build more human language capabilities, fonts in more languages, bottom-up strokes-to-radicals construction of CJK characters, braille, more symbolic languages, cuneiform
+- improve the clarity of documentation of the software
+- port the system to other hardware: androids and routers
+- delve deeper into the hardware, port Geometron to direct control of pixels in displays without an OS(replace OS's with a clockless Geometron machine)
+- program the Roctal encoding of the Geometron Hypercube into solid objects, then close the loop with optical readout of Geometron encoding, work on software side of closing the Geometron loop where code is in clay, driving a clockless geometron machine, which in turn encodes in clay
+- further formalize the structure of the Geometron Hypercube and Geometron Virtual Machine, write and publish papers, books and manuals on this structure
+- make Geometron apps which can be used in the app store to create and share Geometron symbols
+
+
+## Chemists, engineers, physicists, and materials scientists:
+
+- figure out a process that scales to extract usable clay from riverbeds and fire it
+- figure out a process for casting circuits into clay that avoids solder balling up and not connecting: some kind of copper and solder and flux slurry perhaps
+- with the probe in an electrolyte figure out how to do 3d metal fabrication in solution
+- same but with collagen 3d printing and some other kind of probe
+- develop bottom up nonlinear circuits: gates, diodes, amplifiers using organic materials in fluidic channels
+- develop fluidics fabrication in soft materials for lab-on-chip applications
+- apply the geometron language to trajectories in Hilbert space for programming quantum computers
+- generalize Geoemetron to 3d, to build a system of computer aided 3d design 
+- control the beam in an electron microscope for geometron-driven electron beam lithography
+- use levers to reduce the motion of the standard trash robot tool to go to lower scale, try to get 1 micron precision, and use for long term data storage in clay
+
+
+## Artists, hackers, hobos, witches and eccentrics of all kinds:
+
+You will deploy the Symbol Magic network.  This means sharing the ways of making symbols and using them to make laser cut acrylic shapes(or printed and laminated shapes), using them to make physical objects encoded with symbols, depositing those objects in public, sharing information on the Geometron network which connects those things to the physical and virtual worlds, and expanding this network virally.  It is our job to get servers from the rest of the network and to inject the Trash Robot outside of where people expect it.  We will set up robots under bridges, in storm drains, behind dumpsters, and at truck stops.  We will drop robot parts off in unlikely places.  We will integrate the media of the Geometron network into the physical world around us.  And finally we will use this network to build layers of information which are localized in ways that increase the relative power of local organizations over global.   By spreading this network to local economies in the form of locally owned businesses or non profits we give them the ability to increase revenue dramatically with no added costs.  This ability to create large amounts of revenue for local business will allow us to ask for barter in exchange.  That barter will allow us to use vacant space provided by local business who are making money from our network, and those spaces can then be used to build more industrial production, to build more robots, teach more people to run them, and further expand the power of our network.
+
+Ultimately it is this Symbol Magic network which will support materially the long term expansion of the network outside of education.  The educational side of the network will grow by people with money donating to existing educational institutions, which provide robots to mostly kids and local artists through the public library.  The Symbol Magic/Geometron/Trash Magic network is not only for art and education but for fully global-scale industrial production.  By making economic value which can be bartered for physical resources in every street corner in the world, we can divert material resources more and more into our circular production systems without any money being added.  Rather than getting money from either consumers or investors directly we will simply barter for value created from nothing in exchange for building out infrastructure to build useful technology using waste streams.  Those waste streams can also save money for the local barter businesses, creating feedback loops to accelerate the accumulation of value in the Geometron Network.
+
+
+## Donors/Scavengers/Investors
+
+This is not a company, so "investor" is used unconventionally here.  But one does invest in the network by pouring resources into it, and that investment should produce returns as the network evolves into a new industrial revolution which affects all other aspects of society.  And from a practical standpoint one is a donor in the sense that the network is configured so that you donate supplies through an established educational non profit.  So your first task is to connect with one, if you're not already.  Wherever you live, if you contact your local public library you can recruit a librarian to the Librarian role in our network and work with them to make tax-deductible donations to the library.  Often there will be educational programs in other non profits or religious institutions which can accept such donations as well, and you just need to find the right person to talk with and convince them that Trash Robot serves the interests of their educational mission.  
+
+The actual things you're going to be donating are:
+
+- various off-the-shelf electronics parts
+- computer parts like keyboards, mouses, monitors, HDMI cables, power supplies, batteries, USB cables
+- custom printed circuit boards(they're less than 1 dollar each in bulk, with large volume discounts)
+- any computer or media equipment with a DVD or DC drive
+- thin plastic milk jugs or juice containers using the plastic HDPE
+- any kind of thick-ish plastic, say 1/16 to 1/8 inch thick, a harder plastic like PP, ABS or nylon. the larger the sheets the better, as in the plastic used in storage totes
+- any kind of basic electronics tools like soldering irons, solder, pliers, wire cutters, volt meters, tweezers, or magnifier lights
+- cardboard boxes
+- duct tape
+- epoxy
+- elmers glue
+
+## Teachers
+
+Teachers are anyone who has an interest in learning this system enough to teach it OR anyone who works with students and is looking to expose them to something new.  Geometron is a whole system of thought which can be used as the basis of a fairly extensive curriculum including geometry, computer programming, physics, chemistry, and biology.  
+
+We need both teachers who will simply act as conduits for information about Geometron and Trash robot and also teachers, often outside existing systems who will take the time to deeply understand this system in order to build out a more complete curriculum. As the Trash Robot/Geometron network expands we will develop a similar system to academia, where the more advanced teaching and research are integrated.
+
+The simplest thing to do if you're a teacher looking to add this to your curriculum is to contact a Librarian on the network who can coordinate with other people to make sure you get the robots you need to your students. If you want to delve deeply into this, ask around and find someone already in that role to learn directly from and set up online meetings to learn directly.
+
+
+
+
+
+
+

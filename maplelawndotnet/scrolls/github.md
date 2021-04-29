@@ -1,0 +1,7 @@
+# Replicating local server globally using Github
+
+This assumes you have some idea of what Github is, and can use PHP from the command line, but it should be not hard to follow this if you get help from someone who knows it. Get a Github account, which is free.  [Download Github Desktop to use a simple graphical interface](https://desktop.github.com/).  
+
+Learn how to make a new repository. Get PHP working from the command line.  On Windows 10 you'll need to install the Ubuntu system from the Microsoft store and follow the instructions to get that set up and install PHP.  
+
+With PHP running at the command line, you can create a new file in your new repository called replicator.php, and copy the PHP file here into that.  That can be found in raw text form at [php/replicator.txt](php/replicator.txt).  Now modify the text so instead of the address for the file dna.txt you have http://[the IP address of your pi on your local network]/data/dna.txt.  Then run from the command line "php replicator.php" and the whole system should replicate.  You can then back that up to Github.  A subsequent instance can be created from your new github repo by redirecting a replicator to point to the data/dna.txt file found on the repo in raw form.  This will then fetch all of the files from the global git repo, but you can be updating that whole system of files locally at any time.  This can replicate a purely local network resource at a global scale which can then replicate to any other local network resource like other Pi servers.

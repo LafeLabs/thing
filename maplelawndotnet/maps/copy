@@ -1,0 +1,13 @@
+[
+    {
+        "x": 0.09963985594237695,
+        "y": 0.09963985594237695,
+        "w": 0.695078031212485,
+        "h": 0.695078031212485,
+        "angle": 0,
+        "text": "copy three.html to index.html",
+        "href": "copy.php?from=three.html&to=index.html",
+        "src": "",
+        "maplinkmode": false
+    }
+]

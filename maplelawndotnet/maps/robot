@@ -1,0 +1,178 @@
+[
+    {
+        "x": 0.01800720288115246,
+        "y": 0.08643457382953182,
+        "w": 0.41656662665066024,
+        "h": 0.13925570228091236,
+        "angle": 0,
+        "text": "home",
+        "href": "maps/home",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.2689075630252101,
+        "y": 0.3157262905162065,
+        "w": 0.468187274909964,
+        "h": 0.7756563245823389,
+        "angle": 0,
+        "text": "{",
+        "href": "",
+        "src": "https://i.imgur.com/NgelIKS.png",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.13805522208883553,
+        "y": -0.008403361344537815,
+        "w": 0.6422569027611045,
+        "h": 0.07875894988066826,
+        "angle": 0,
+        "text": "{",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.5918367346938775,
+        "y": 0.6326530612244898,
+        "w": 0.5042016806722689,
+        "angle": 0,
+        "text": "brain",
+        "href": "scrolls/brain.md",
+        "src": "",
+        "maplinkmode": true,
+        "h": 0.058823529411764705
+    },
+    {
+        "x": 0.33013205282112845,
+        "y": 0.8091236494597839,
+        "w": 0.35414165666266506,
+        "h": 0.35414165666266506,
+        "angle": 0,
+        "text": "controller",
+        "href": "scrolls/controller.md",
+        "src": "https://i.imgur.com/xOnWAB3.png",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.03241296518607443,
+        "y": 0.5102040816326531,
+        "w": 0.4297719087635054,
+        "h": 0.05162064825930372,
+        "angle": 89,
+        "text": "mechanicals",
+        "href": "scrolls/mechanicals.md",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.33133253301320525,
+        "y": 0.031212484993997598,
+        "w": 0.3277310924369748,
+        "h": 0.2845138055222089,
+        "angle": 0,
+        "text": "workflow",
+        "href": "maps/workflow",
+        "src": "https://i.imgur.com/ngVVcac.png",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.31452581032412963,
+        "y": 0.9699879951980792,
+        "w": 0.6374549819927972,
+        "h": 0.00477326968973747,
+        "angle": -179,
+        "text": "{",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.801920768307323,
+        "y": 0,
+        "w": 0.6422569027611045,
+        "h": 0.07875894988066826,
+        "angle": 0,
+        "text": "robot",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.33733493397358943,
+        "y": 0.14765906362545017,
+        "w": 0.3205282112845138,
+        "h": 0.10501193317422435,
+        "angle": 0,
+        "text": "workflow",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.5354141656662665,
+        "y": 0.7647058823529411,
+        "w": 0.48739495798319327,
+        "h": 0.06842737094837935,
+        "angle": 0,
+        "text": "controller",
+        "href": "scrolls/controller.md",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.4429771908763505,
+        "y": 0.5774309723889556,
+        "w": 0.14645858343337334,
+        "h": 0.14645858343337334,
+        "angle": 0,
+        "text": "brain",
+        "href": "scrolls/brain.md",
+        "src": "https://i.imgur.com/xOnWAB3.png",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.524609843937575,
+        "y": 0.33373349339735897,
+        "w": 0.18247298919567828,
+        "h": 0.18247298919567828,
+        "angle": 0,
+        "text": "mechanicals",
+        "href": "scrolls/mechanicals.md",
+        "src": "https://i.imgur.com/xOnWAB3.png",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.3133253301320528,
+        "y": -0.006002400960384154,
+        "w": 0.35414165666266506,
+        "h": 0.35441527446300713,
+        "angle": 0,
+        "text": "workflow",
+        "href": "maps/workflow",
+        "src": "https://i.imgur.com/xOnWAB3.png",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.38535414165666265,
+        "y": 0.33733493397358943,
+        "w": 0.18007202881152462,
+        "h": 0.18007202881152462,
+        "angle": 0,
+        "text": "mechanicals",
+        "href": "scrolls/mechanicals.md",
+        "src": "https://i.imgur.com/xOnWAB3.png",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.2785114045618247,
+        "y": 0.33013205282112845,
+        "w": 0.18007202881152462,
+        "h": 0.18007202881152462,
+        "angle": 0,
+        "text": "mechanicals",
+        "href": "scrolls/mechanicals.md",
+        "src": "https://i.imgur.com/xOnWAB3.png",
+        "maplinkmode": true
+    }
+]

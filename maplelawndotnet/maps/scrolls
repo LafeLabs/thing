@@ -1,0 +1,189 @@
+[
+    {
+        "x": 0.33733493397358943,
+        "y": 0.3013205282112845,
+        "w": 0.5162064825930373,
+        "h": 0.06354916067146282,
+        "angle": 0,
+        "text": "scroll editor",
+        "href": "scrolleditor.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.3397358943577431,
+        "y": 0.368547418967587,
+        "w": 0.5162064825930373,
+        "h": 0.062424969987995196,
+        "angle": 0,
+        "text": "scroll reader",
+        "href": "scroll.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.34213685474189676,
+        "y": 0.43217286914765907,
+        "w": 0.5162064825930373,
+        "h": 0.06354916067146282,
+        "angle": 0,
+        "text": "scroll delete",
+        "href": "scrolldelete.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.3445378151260504,
+        "y": 0.5570228091236494,
+        "w": 0.5162064825930373,
+        "h": 0.06354916067146282,
+        "angle": 0,
+        "text": "scroll about scrolls",
+        "href": "scrolls/scrolls",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.006002400960384154,
+        "y": 0.012004801920768308,
+        "w": 0.5162064825930373,
+        "h": 0.06354916067146282,
+        "angle": 0,
+        "text": "home",
+        "href": "index.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.004801920768307323,
+        "y": 0.0744297719087635,
+        "w": 0.5162064825930373,
+        "h": 0.06354916067146282,
+        "angle": 0,
+        "text": "tools",
+        "href": "maps/tools",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": -0.010804321728691477,
+        "y": 0.6398559423769508,
+        "w": 0.2857142857142857,
+        "h": 0.382953181272509,
+        "angle": 0,
+        "text": "terminal scroll",
+        "href": "scrolls/terminal",
+        "src": "https://i.imgur.com/Za5kZ7G.jpg",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.7202881152460985,
+        "y": 0.7623049219687875,
+        "w": 0.2857142857142857,
+        "h": 0.2857142857142857,
+        "angle": 0,
+        "text": "box scroll",
+        "href": "scrolls/box",
+        "src": "https://i.imgur.com/qHFkNbg.jpg",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.297719087635054,
+        "y": 0.7394957983193278,
+        "w": 0.24729891956782712,
+        "h": 0.33133253301320525,
+        "angle": 0,
+        "text": "cloth scroll",
+        "href": "scrolls/cloth",
+        "src": "https://i.imgur.com/SyhRxNJ.jpg",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.8031212484993998,
+        "y": 0.014405762304921969,
+        "w": 0.24729891956782712,
+        "h": 0.03601440576230492,
+        "angle": 0,
+        "text": "cloth scroll",
+        "href": "scrolls/cloth",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.7971188475390156,
+        "y": 0.05402160864345738,
+        "w": 0.24729891956782712,
+        "h": 0.03601440576230492,
+        "angle": 0,
+        "text": "domains scroll",
+        "href": "scrolls/domains",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.8079231692677071,
+        "y": 0.09483793517406963,
+        "w": 0.24729891956782712,
+        "h": 0.03601440576230492,
+        "angle": 0,
+        "text": "terminal scroll",
+        "href": "scrolls/terminal",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.8091236494597839,
+        "y": 0.13925570228091236,
+        "w": 0.24729891956782712,
+        "h": 0.03601440576230492,
+        "angle": 0,
+        "text": "printer scroll",
+        "href": "scrolls/printer",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.8115246098439376,
+        "y": 0.18847539015606243,
+        "w": 0.24729891956782712,
+        "h": 0.03601440576230492,
+        "angle": 0,
+        "text": "box scroll",
+        "href": "scrolls/box",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.7382953181272509,
+        "y": 0.25690276110444177,
+        "w": 0.24729891956782712,
+        "h": 0.03601440576230492,
+        "angle": 0,
+        "text": "essense of trash robot scroll",
+        "href": "scrolls/trashrobot",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.8427370948379351,
+        "y": 0.32533013205282113,
+        "w": 0.24729891956782712,
+        "h": 0.03601440576230492,
+        "angle": 0,
+        "text": "coins scroll",
+        "href": "scrolls/coins",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.8427370948379351,
+        "y": 0.3637454981992797,
+        "w": 0.24729891956782712,
+        "h": 0.03601440576230492,
+        "angle": 0,
+        "text": "signs scroll",
+        "href": "scrolls/signs",
+        "src": "",
+        "maplinkmode": true
+    }
+]

@@ -1,0 +1,101 @@
+[
+    {
+        "x": 0.05847255369928401,
+        "y": 0.032219570405727926,
+        "w": 0.788782816229117,
+        "h": 0.10620525059665871,
+        "angle": 0,
+        "text": "{",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.3317422434367542,
+        "y": 0.2732696897374702,
+        "w": 0.2947494033412888,
+        "h": 0.301909307875895,
+        "angle": 0,
+        "text": "printer",
+        "href": "maps/printer",
+        "src": "https://i.imgur.com/NgelIKS.png",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.03341288782816229,
+        "y": 0.3448687350835322,
+        "w": 0.25894988066825775,
+        "h": 0.25894988066825775,
+        "angle": 0,
+        "text": "textile",
+        "href": "scrolls/textile",
+        "src": "https://i.imgur.com/nvWedsQ.jpg",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.4737470167064439,
+        "y": -0.0011933174224343676,
+        "w": 0.788782816229117,
+        "h": 0.10620525059665871,
+        "angle": 0,
+        "text": "set",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": -0.5548926014319809,
+        "y": 0.7350835322195705,
+        "w": 0.788782816229117,
+        "h": 0.10620525059665871,
+        "angle": 177,
+        "text": "{",
+        "href": "",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.011933174224343675,
+        "y": -0.02386634844868735,
+        "w": 0.788782816229117,
+        "h": 0.10620525059665871,
+        "angle": 0,
+        "text": "home",
+        "href": "data/currentMap.txt",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.6515513126491647,
+        "y": 0.2935560859188544,
+        "w": 0.27804295942720764,
+        "h": 0.4045346062052506,
+        "angle": 0,
+        "text": "skeletron",
+        "href": "scrolls/skeletron",
+        "src": "https://i.imgur.com/Qg40z9U.png",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.7828162291169452,
+        "y": 0.6813842482100239,
+        "w": 0.30906921241050117,
+        "h": 0.30906921241050117,
+        "angle": 0,
+        "text": "magic scroll",
+        "href": "scrolls/magic",
+        "src": "https://i.imgur.com/Pddb9wm.png",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.8627684964200477,
+        "y": 0.032219570405727926,
+        "w": 0.12529832935560858,
+        "h": 0.0441527446300716,
+        "angle": 0,
+        "text": "set scroll",
+        "href": "scrolls/set",
+        "src": "https://i.imgur.com/6ruFv2s.png",
+        "maplinkmode": true
+    }
+]

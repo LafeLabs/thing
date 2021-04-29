@@ -1,0 +1,57 @@
+[
+    {
+        "x": 0.3013205282112845,
+        "y": 0.08883553421368548,
+        "w": 0.858343337334934,
+        "h": 0.858343337334934,
+        "angle": 0,
+        "text": "text",
+        "href": "",
+        "src": "https://i.imgur.com/Pddb9wm.png",
+        "maplinkmode": false
+    },
+    {
+        "x": -0.021608643457382955,
+        "y": 0.05282112845138055,
+        "w": 0.6206482593037215,
+        "h": 0.8307322929171669,
+        "angle": 0,
+        "text": "text",
+        "href": "",
+        "src": "https://i.imgur.com/Se6eZr0.jpg",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.8151260504201681,
+        "y": 0.08283313325330131,
+        "w": 0.11644657863145258,
+        "h": 0.15606242496998798,
+        "angle": 0,
+        "text": "text",
+        "href": "https://i.imgur.com/Se6eZr0.jpg",
+        "src": "https://i.imgur.com/Se6eZr0.jpg",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.8127250900360145,
+        "y": 0.2460984393757503,
+        "w": 0.11644657863145258,
+        "h": 0.1716686674669868,
+        "angle": 0,
+        "text": "text",
+        "href": "iconfeed.html",
+        "src": "https://i.imgur.com/NgelIKS.png",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.8151260504201681,
+        "y": 0.46338535414165666,
+        "w": 0.11644657863145258,
+        "h": 0.4477791116446579,
+        "angle": 0,
+        "text": "text",
+        "href": "scrolls/textile.md",
+        "src": "https://i.imgur.com/YDQ9UXk.png",
+        "maplinkmode": true
+    }
+]

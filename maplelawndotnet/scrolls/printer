@@ -1,0 +1,76 @@
+[home](index.html)
+
+# Printer
+
+This is how to build the Trash Robot printer of clay tablets, also known as coins.  This assumes you already have a [Trash Robot Terminal](scrolls/terminal) built.  
+
+The printer plugs into the Raspberry Pi 40 pin connector on the Terminal.  It requires a separate power supply either from the wall or a battery, generally the same type of rechargeable 12 volt battery suggested for the terminal in that scroll.  
+
+The needed parts to build a Printer are:
+
+- 3 DVD drives or CD drives
+- 3 [MP6500 stepper motor control boards from Pololu](https://www.pololu.com/product/2966)
+- 3 buttons
+- [40 pin raspberry pi GPIO ribbon cable](https://www.amazon.com/gp/product/B07JQ5MG42/)
+- [40 pin pi header](https://www.amazon.com/gp/product/B0756KM7CY/)
+- wires to connect buttons to the board with some distance between them
+- lots of corrugated cardboard and duct tape, [the basic duct tape and cardboard fabrication system of Trash Robot](scrolls/box)
+- Stiff plastic for the bridge tool arms, such as 1/16th inch polypropelyne, of the kind used to make plastic storage totes
+- thin transluscent HDPE plastic of the kind used for milk bottles
+- custom trash robot circuit board which can be ordered from PCBway or made by any board shop
+- a little stack of rare earth magnets and a nail
+- a barrel connector to connect the 12 volt power to the circuit board 
+- 12 V rechargeable battery as with the terminal, along with wall charger and splitter for it
+
+- [idss-04-s-04.00-st8](https://www.samtec.com/products/idss-04-s-04.00-st8)
+- [idss-04-s-06.00-st8](https://www.samtec.com/products/idss-04-s-06.00-st8)
+- [idss-04-s-08.00-st8](https://www.samtec.com/products/idss-04-s-08.00-st8)
+
+
+- [custom PCB ordered from pcbway.com, 1 unit](https://www.pcbway.com/project/shareproject/pi_hat_to_connect_to_pololu_MP6500_stepper_motor_drover_boards.html)
+- [MP6500 stepper motor driver boards with potentiometer from Pololu.com, 3 units](https://www.pololu.com/product/2966)
+- [40 pin Raspberry Pi header from Pololu.com, 1 unit](https://www.pololu.com/product/1037)
+- [4 pin male Samtec(samtec part number ) connectors from Digikey(digikey part number), 3 units)](https://www.digikey.com/product-detail/en/samtec-inc/TSW-104-07-G-S/SAM1029-04-ND/1101323)
+- [momentary buttons from Digikey(digikey part number P8079SCT-ND, Panasonic part number EVQ-11L05R), 3 units](https://www.digikey.com/product-detail/en/panasonic-electronic-components/EVQ-11L05R/P8079SCT-ND/259564)
+- [barrel power connector for 12 volt connection(Amazon), 1 unit](https://www.amazon.com/gp/product/B07C7VSRBG/)
+
+
+Tools needed are:
+
+- soldering iron and solder
+- wire cutters and wire strippers
+- multimeter which can measure resistance
+- general trash robot cardboard fabrication kit from [box](scrolls/box)
+- screw drivers of various sizes to take apart the DVD drives
+- tiny flat head screw driver to adjust the potentiometers on the motor control boards
+
+
+
+
+![dvd drives](https://i.imgur.com/pl6lOeA.jpg)
+![dvd drives taken apart with samtecs](https://i.imgur.com/EfYJOiV.jpg)
+![coil check with DVM](https://i.imgur.com/pNO6BIR.jpg)
+![solder wires to steppers](https://i.imgur.com/04yUdjz.jpg)
+![HDPE and geometry tools](https://i.imgur.com/ar7oM8P.jpg)
+![HDPE cutouts](https://i.imgur.com/rfncgHZ.jpg)
+![bent HDPE parts](https://i.imgur.com/AQTgIzb.jpg)
+![stiff PP plastic cutouts](https://i.imgur.com/9UchnK8.jpg)
+![all the tool parts](https://i.imgur.com/qA1pwyx.jpg)
+![bottom tool detail with duct tape](https://i.imgur.com/Au8AlVc.jpg)
+![top tool detail](https://i.imgur.com/k6LV3f7.jpg)
+![completed tool](https://i.imgur.com/9Ir07ml.jpg)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
