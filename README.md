@@ -17,6 +17,7 @@
  - [duality](duality.html)
  - [symbol feed](symbolfeed.html)
  - [math user](mathuser.html)
+ - [QR code and link generator](qrcode.html)
  - [copy document page](copy.html)
  - [programarduino.html](programarduino.html)
  - [programarduinoxyz.html(bottle caps)](programarduinoxyz.html)

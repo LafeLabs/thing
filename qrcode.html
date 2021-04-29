@@ -36,6 +36,10 @@
         <td class = "button" id = "savebutton">SAVE TO TEXTFEED</td>
     </tr>
     <tr>
+        <td></td>
+        <td class = "button" id = "urlbutton">LOAD CURRENT URL</td>
+    </tr>
+    <tr>
         <td>URL:</td>
         <td><input id = "urlinput"/></td>
     </tr>
@@ -156,6 +160,15 @@ document.getElementById("transferimage").onload = function(){
     httpc3.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc3.send("data="+encodeURIComponent(JSON.stringify(textfeed,null,"    "))+"&filename=data/textfeed.txt");//send text to filesaver.php    
     
+}
+
+document.getElementById("urlbutton").onclick = function(){
+    var localurl = window.location.href.split("qrcode.html")[0];
+    document.getElementById("urlinput").value = localurl;
+    mode = "url";
+    globalurl= localurl;
+    qrcode.makeCode(globalurl);
+
 }
 
 </script>
