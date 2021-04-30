@@ -26,7 +26,6 @@ foreach($dna->html as $value){
     
     copy($baseurl.$value,$value);
 
-    
 }
 
 foreach($dna->javascript as $value){

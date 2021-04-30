@@ -21,6 +21,7 @@ EGO DEATH:
 <title>PHP Editor replicator</title>
 </head>
 <body>
+<div id = "lightdarkbutton" class = "button">DARK MODE</div>
 <div id = "linkscroll">
 <a href = "text2php.php">text2php.php</a>
 <a href = "dnagenerator.php">dnagenerator.php</a>
@@ -239,8 +240,8 @@ document.getElementById("namediv").style.color = "#0000ff";
 document.getElementById("namediv").style.borderColor = "#0000ff";
 
 editor = ace.edit("maineditor");
-//editor.setTheme("ace/theme/cobalt");
-editor.setTheme("ace/theme/vibrant_ink");
+editor.setTheme("ace/theme/github");
+//editor.setTheme("ace/theme/vibrant_ink");
 editor.getSession().setMode("ace/mode/html");
 editor.getSession().setUseWrapMode(true);
 editor.$blockScrolling = Infinity;
@@ -256,6 +257,35 @@ document.getElementById("maineditor").onkeyup = function(){
     var fileName = currentFile.split("/")[1];
 }
 
+lightmode = true;
+document.getElementById("lightdarkbutton").onclick = function(){
+    lightmode = !lightmode;
+    if(lightmode){
+        document.getElementById("filescroll").style.backgroundColor = "white";
+        document.getElementById("namediv").style.backgroundColor = "#eeeeee";
+        document.body.style.backgroundColor = "#b0b0b0";
+        document.getElementById("lightdarkbutton").innerHTML = "DARK MODE";
+        editor.setTheme("ace/theme/github");
+        document.getElementById("linkscroll").style.backgroundColor = "#eeeeee";
+        var links = document.getElementById("linkscroll").getElementsByTagName("a");
+        for(var index = 0;index < links.length;index++){
+            links[index].style.color = "black";
+        }
+    }
+    else{
+        document.body.style.backgroundColor = "#404040";
+        document.getElementById("filescroll").style.backgroundColor = "#101010";        
+        document.getElementById("namediv").style.backgroundColor = "#101010";        
+        document.getElementById("lightdarkbutton").innerHTML = "LIGHT MODE";        
+        editor.setTheme("ace/theme/vibrant_ink");
+        document.getElementById("linkscroll").style.backgroundColor = "#101010";
+        var links = document.getElementById("linkscroll").getElementsByTagName("a");
+        for(var index = 0;index < links.length;index++){
+            links[index].style.color = "white";
+        }        
+    }
+}
+
 </script>
 <style>
 #namediv{
@@ -265,17 +295,17 @@ document.getElementById("maineditor").onkeyup = function(){
     font-family:courier;
     padding:0.5em 0.5em 0.5em 0.5em;
     border:solid;
-    background-color:#101010;
+    background-color:#eeeeee;
 
 }
 a{
-    color:white;
+    color:black;
     display:block;
     margin-bottom:0.5em;
     margin-left:0.5em;
 }
 body{
-    background-color:#404040;
+    background-color:#b0b0b0;
 }
 .html{
     color:#0000ff;
@@ -330,7 +360,7 @@ body{
     border:solid;
     border-radius:5px;
     border-width:3px;
-    background-color:#101010;
+    background-color:white;
     font-family:courier;
     font-size:22px;
     z-index:99999999;
@@ -345,7 +375,7 @@ body{
     border:solid;
     border-radius:5px;
     border-width:3px;
-    background-color:#101010;
+    background-color:#eeeeee;
     font-family:courier;
     font-size:22px;
 }
@@ -356,9 +386,26 @@ body{
     bottom:1em;
     right:30%;
     font-size:22px;
+    border:solid;
+    border-color:black;
 }
-
-
+#lightdarkbutton{
+    position:absolute;
+    right:5px;
+    top:5px;
+    text-align:center;
+    border:solid;
+    border-radius:3px;
+}
+.button{
+    cursor:pointer;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
+}
 
 </style>
 
