@@ -2,9 +2,23 @@
 
 # Feeds
 
-A Feed is a sequence of elements.  The elements don't have geometric structure like a Map.  They can be text, links, symbols, or any other kind of media.  They are generally stored in the "[data](data/)" directory as JSON format files which end with ".txt" so that they can be read by humans in a browser.
+ - [general file copy tool](copy.html)
+ - [local image feed](localimagefeed.html)
+ - [global image feed](globalimagefeed.html)
+ - [text feed](textfeed.html)
+ - [link feed](linkfeed.html)
+ - [chaos feed](chaosfeed.html)
+ - [exchange icons in Icon Feed](iconfeed.html)
+ - [3d print icons](icon3d.html)
+ - [Laser cut stencils of icons](lasericon.html)
+ - [inject base 64 icons into textfeed](icon64.html)
+ - [Print icon in clay with clay Trash Robot](programarduino.html)
+ - [Print icon in plastic bottle cap with XYZ Trash Robot](programarduinoxyz.html)
+ - [symbol feed](symbol.feed.html)
+ - [wall](wall.html)
 
-The Feed is a general framework for building formats, but in the basic Trash Robot server we implement a few versions.  
+A Feed is a sequence of elements.  The elements don't have geometric structure like a Map.  They can be text, links, symbols, or any other kind of media.  They are generally stored in the "[data](data/)" directory as JSON format files which end with ".txt" so that they can be read by humans in a browser.  Alternatively, a Feed can simply be a directory with a collection of files which form the elements. 
+
 
 ## [Global Image Feed](globalimagefeed.html)
 

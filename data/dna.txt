@@ -318,6 +318,7 @@
         "products.md",
         "quests",
         "readme2.md",
+        "readmebackup",
         "revolutions.md",
         "roadmap",
         "robotsetup.md",

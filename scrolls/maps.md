@@ -1,6 +1,10 @@
 [home](index.html)
 
-[map of map tools](maps/maps)
+ - [edit maps](mapeditor.html)
+ - [edit math maps](mathmapeditor.html)
+ - [go to math map](mathuser.php?map=maps/math)
+ - [copy maps](copy.html)
+ - [delete maps](mapdelete.html)
 
 # Maps
 
