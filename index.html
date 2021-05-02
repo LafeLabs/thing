@@ -49,11 +49,13 @@
 <div id = "margin">
     <div id = "marginbutton">⇳⇳⇳⇳⇳⇳⇳⇳⇳⇳⇳</div>
     <div id  = "scrollsbox">
+        <input id = "scrollinput"/>
         <a href = "scrolleditor.html">
             <img style = "width:50px;display:block;margin:auto;padding-top:1em" src = "iconsymbols/scroll.svg"/>
         </a>
     </div>
     <div id  = "mapsbox">
+        <input id = "mapinput"/>
         <a href = "mapeditor.html">
             <img style = "width:50px;display:block;margin:auto;padding-top:1em" src = "iconsymbols/map.svg"/>
         </a>        
@@ -234,7 +236,11 @@ function modeswitch(){
         mainmap.linkColor = "blue";
         mainmap.textColor = "black";
         document.getElementById("scrollscroll").style.backgroundColor = "white";
-        document.getElementById("scrollscroll").style.color = "black";    
+        document.getElementById("scrollscroll").style.color = "black";
+        document.getElementById("mapinput").style.color = "black";
+        document.getElementById("mapinput").style.backgroundColor = "white";
+        document.getElementById("scrollinput").style.color = "black";
+        document.getElementById("scrollinput").style.backgroundColor = "white";        
     }
     else{
         mode = "dark";
@@ -242,7 +248,11 @@ function modeswitch(){
         mainmap.textColor = "#00ff00";
         mainmap.linkColor = "#ff2cb4";
         document.getElementById("scrollscroll").style.backgroundColor = "black";
-        document.getElementById("scrollscroll").style.color = "#00ff00";        
+        document.getElementById("scrollscroll").style.color = "#00ff00";    
+        document.getElementById("mapinput").style.color = "#ff2cb4";
+        document.getElementById("mapinput").style.backgroundColor = "black";
+        document.getElementById("scrollinput").style.color = "#ff2cb4";
+        document.getElementById("scrollinput").style.backgroundColor = "black";              
     }
 }
 
@@ -289,6 +299,18 @@ httpc9.onreadystatechange = function() {
 httpc9.open("GET", "dir.php?filename=scrolls", true);
 httpc9.send();
 
+document.getElementById("scrollinput").value = "";
+document.getElementById("mapinput").value = "";
+
+document.getElementById("scrollinput").onchange = function(){
+    loadscroll(this.value);
+    this.value = "";
+}
+document.getElementById("mapinput").onchange = function(){
+    loadmap(this.value);
+    this.value = "";
+}
+
 </script>
 <style>
 body{
@@ -296,11 +318,13 @@ body{
     background-color:black
 }
 input{
-    width:50%;
+    display:block;
+    margin:auto;
+    width:90%;
     font-family:courier;
-    font-size:1.5em;
-    background-color:black;
-    color:#ff2cb4;
+    font-size:1.2em;
+    background-color:white;
+    color:black;
     border-color:#ff2cb4;
     border-width:8px;
 }
