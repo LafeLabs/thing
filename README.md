@@ -8,6 +8,7 @@
 
  - [localhost/](http://localhost/)
  - [fork](fork.html)
+ - [github repository](https://github.com/lafelabs/thing/)
  - [editor.php](editor.php)
  - [dna generator](dnagenerator.php)
 
@@ -20,6 +21,14 @@ The five types of document we create on the system are:
  - [Maps](scrolls/maps.md)
  - [Feeds](scrolls/feeds.md)
  - [Symbols](scrolls/symbols.md)
+
+Documents are made to replicate any kind of information.  This is useful for two reasons: connecting and replicating.  
+
+Connecting is the same as on the commercial Internet: someone wants to share at thing, and a free and open network can help them do that.  This aspect of the network can be thought of like a very physically localized version of Craigslist.  Articles, memes, ads, cartoons, ideas, stories, local markets, brands: all these kinds of information can be freely propagated, which can be used by anyone to do whatever they're already doing, but better and for free.  Unlike commercial media which is driven by non-consensual ads, we build a network based on people creating media to share and other people freely copying it or not--rather than forcing people to see what they don't want.  
+
+Replication is the longer term goal of the Organic Web.    If we are to build a new civilization from trash, the basis of our economy will be sharing of detailed instructions for how to replicate things.  The OW system is optimized for this.  Scrolls can describe how to make a thing, maps can identify how to find a thing, link it to other things, label parts of a thing or be an alternate means to describe replication.  Hyperlinks are used to transmit the documentation of a thing as fast as possible to another person.  Feeds are used for rapid communication within a local community of little bits of information as they are developed.  The Geometron language which drives the symbols is used both for creating all graphics in the system and for geometric programming of physical fabrication machines which are used in the fully trash-built automation technology we will be building with this system.
+
+The way this system will grow is by providing dual value: connecting people and selling useful products made from trash provide value in the existing economic system which can be traded for both money and direct value like a place to sleep or work or some food.  But connecting people and freely distributing goods also forms networks of free flow of value over mutual aid networks which can form the basis of a new technological society outside of the capitalist economy.
 
 The Organic Web operates on the LAP(Linux Apache PHP) stack.  The local wifi web servers are all Raspberry Pis running the Apache web server, with php installed, and with the Organic Web/Geometron code replicated via PHP from the command line.
 
@@ -44,6 +53,8 @@ or
 [$12 mini keyboard from amazon](https://www.amazon.com/gp/product/B01IQL2VCE/)
 
 [$10 mouse from amazon](https://www.amazon.com/gp/product/B005EJH6RW/)
+
+![](https://i.imgur.com/4zetaPf.png)
 
 When you have gathered the parts, assemble them, install NOOBS on the SD card, and set up your pi.  This collection of highly portable elements including the rechargeable battery is important for the portability of the system, which should have a dedicated bag to carry it around in so that it is fully mobile.  
 
@@ -86,6 +97,8 @@ To replicate the system in the physical world, we will buy domain names which ar
 
 This page can then replicate any file from anywhere to be its base form, be it a map or scroll.  The page can be used to link people to a physical time and place where physical network infrastructure can be found(a Raspberry Pi Server).  
 
-Finally, to connect the loops.
+Finally, we want to connect the physical space around an area which is refernced in the domain back to that domain.  To do this, we create physical media with the domain printed on it.  This can be on a cardboard sign with a marker, spray painted on a wall or street, spray stenciled with a laser cut stencil, printed on a clay icon token, 3d printed, stamped into plastic with a plastic melting robot.  One way to do it is with felt letters cut out and sewn on fabric as follows:
+
+![](https://i.imgur.com/nvWedsQ.jpg)
 
 

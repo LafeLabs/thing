@@ -22,9 +22,12 @@ EGO DEATH:
 </head>
 <body>
 <div id = "lightdarkbutton" class = "button">DARK MODE</div>
+
 <div id = "linkscroll">
-<a href = "text2php.php">text2php.php</a>
+
+<a href = "index.html">index.html</a>
 <a href = "dnagenerator.php">dnagenerator.php</a>
+<a href = "text2php.php">text2php.php</a>
 
 <?php
     $topfiles = scandir(getcwd());
