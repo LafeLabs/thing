@@ -18,22 +18,6 @@
     -->
     <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAP//AP///wANAP8A5Dz6ABueRwAAt/8A6BonABo86AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAREREREREREREREAAAEREREREQCIgREREd3dwAAB3d3d3d3d3d3d3d3d3d3d3d3d3VVVVVVVQAFVVAAVVVQIiBRAiIBEQIAIBECAAERAgAgFgIABmYCIiBmAiIGZgIiIGYCIgZmYCIAaIAAMzMzAAiIiIiIiIiIiIiIiIiIiIiIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
 
-<!--       un comment to use math
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script>
-            MathJax.Hub.Config({
-                tex2jax: {
-                inlineMath: [['$','$'], ['\\(','\\)']],
-                processEscapes: true,
-                processClass: "mathjax",
-                ignoreClass: "no-mathjax"
-                }
-            });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
-        </script>
-    -->
-    
-
     <!--Stop Google:-->
     <META NAME="robots" CONTENT="noindex,nofollow">
 
@@ -60,8 +44,24 @@
 <body>    
 <div id = "scrollscroll"></div>
 <div id = "mainmap"></div>
-<input id = "mapinput"/>
-<div id = "modebutton" class = "button">LIGHT/DARK</div>
+<div id = "modebutton" class = "button">LIGHT<br>DARK</div>
+<div id = "hidebutton" class = "button"><span id  = "hideshow">SHOW</span><br>MENU</div>
+<div id = "margin">
+    <div id = "marginbutton">⇳⇳⇳⇳⇳⇳⇳⇳⇳⇳⇳</div>
+    <div id  = "scrollsbox">
+        <input id = "scrollinput"/>
+        <a href = "scrolleditor.html">
+            <img style = "width:50px;display:block;margin:auto;padding-top:1em" src = "iconsymbols/scroll.svg"/>
+        </a>
+    </div>
+    <div id  = "mapsbox">
+        <input id = "mapinput"/>
+        <a href = "mapeditor.html">
+            <img style = "width:50px;display:block;margin:auto;padding-top:1em" src = "iconsymbols/map.svg"/>
+        </a>        
+    </div>
+</div>
+
 <div class = "data" id = "mapdiv"><?php
     
 if(isset($_GET["map"])){
@@ -76,30 +76,49 @@ if(isset($_GET["scroll"])){
 }
 
 ?></div>
-
 <script>
 
 mode = "dark";
 //mode = "light";
 
 
-
 if(innerWidth > innerHeight){
+    menuhide = false;
     mainmap = new Map(innerHeight,innerHeight,document.getElementById("mainmap"));
 
+    document.getElementById("margin").style.left = (innerHeight).toString() + "px";
     document.getElementById("scrollscroll").style.width = (innerHeight- 25).toString() + "px";
     document.getElementById("scrollscroll").style.height = innerHeight.toString() + "px";    
-    document.getElementById("mapinput").select();
-    document.getElementById("mapinput").style.width = (innerWidth - innerHeight - 50).toString() + "px";
-    
+
 }
 else{
+    menuhide = true;
     document.getElementById("scrollscroll").style.width = innerWidth.toString() + "px";
-    document.getElementById("scrollscroll").style.height = (innerHeight - 100).toString() + "px";        
     mainmap = new Map(innerWidth,innerWidth,document.getElementById("mainmap"));    
-
-    document.getElementById("mapinput").style.width = (innerWidth - 20).toString() + "px";
+    document.getElementById("scrollscroll").style.height = (innerHeight - 100).toString() + "px";        
+    document.getElementById("margin").style.display = "none";
+    document.getElementById("margin").style.height = (innerHeight - innerWidth - 150).toString() + "px";
+    document.getElementById("margin").style.bottom = "0px";
     
+}
+
+
+document.getElementById("hidebutton").onclick = function(){
+    menuhide = !menuhide;
+    if(menuhide){
+        document.getElementById("hideshow").innerHTML = "SHOW";
+        document.getElementById("margin").style.display = "none";
+        if(innerHeight > innerWidth){
+            document.getElementById("scrollscroll").style.height = (innerHeight - 100).toString() + "px";        
+        }
+    }
+    else{
+        document.getElementById("hideshow").innerHTML = "HIDE";
+        document.getElementById("margin").style.display = "block";
+        if(innerHeight > innerWidth){
+            document.getElementById("scrollscroll").style.height = (innerWidth + 150).toString() + "px";        
+        }
+    }
 }
 
 
@@ -116,7 +135,6 @@ converter.setOption('tables', 'true')
 mapname = "data/currentMap.txt";
 //loadmap(mapname);
 loadscroll("README.md");
-
 
 if(document.getElementById("scrolldiv").innerHTML.length > 0){
     loadscroll(document.getElementById("scrolldiv").innerHTML);
@@ -160,26 +178,11 @@ function loadmap(mapname){
                     }
                 }
             }
-            document.getElementById("mapinput").value = "";
 
         }
     };
     httpc.open("GET", "fileloader.php?filename=" + mapname, true);
     httpc.send();
-}
-
-document.getElementById("mapinput").value = "";
-document.getElementById("mapinput").onchange = function(){
-  var mapname = this.value;
-  if(mapname.includes("/") == false){
-      mapname = "maps/" + mapname;
-  }
-  if(mapname.includes("scrolls/")){
-      loadscroll(mapname);
-  }
-  else{
-      loadmap(mapname);   
-  }
 }
 
 
@@ -195,7 +198,6 @@ function loadscroll(scrollname){
             document.getElementById("scrollscroll").innerHTML = rawhtml;
             convertscrollinks();
             //			MathJax.Hub.Typeset();//tell Mathjax to update the math
-            document.getElementById("mapinput").value = "";
     //			MathJax.Hub.Typeset();//tell Mathjax to update the math
         }
     };
@@ -249,6 +251,7 @@ document.getElementById("modebutton").onclick = function(){
     modeswitch();
 }
 
+modeswitch();
 function modeswitch(){
     if(mode == "dark"){
         mode = "light";
@@ -256,7 +259,11 @@ function modeswitch(){
         mainmap.linkColor = "blue";
         mainmap.textColor = "black";
         document.getElementById("scrollscroll").style.backgroundColor = "white";
-        document.getElementById("scrollscroll").style.color = "black";    
+        document.getElementById("scrollscroll").style.color = "black";
+        document.getElementById("mapinput").style.color = "black";
+        document.getElementById("mapinput").style.backgroundColor = "white";
+        document.getElementById("scrollinput").style.color = "black";
+        document.getElementById("scrollinput").style.backgroundColor = "white";        
     }
     else{
         mode = "dark";
@@ -264,9 +271,69 @@ function modeswitch(){
         mainmap.textColor = "#00ff00";
         mainmap.linkColor = "#ff2cb4";
         document.getElementById("scrollscroll").style.backgroundColor = "black";
-        document.getElementById("scrollscroll").style.color = "#00ff00";        
+        document.getElementById("scrollscroll").style.color = "#00ff00";    
+        document.getElementById("mapinput").style.color = "#ff2cb4";
+        document.getElementById("mapinput").style.backgroundColor = "black";
+        document.getElementById("scrollinput").style.color = "#ff2cb4";
+        document.getElementById("scrollinput").style.backgroundColor = "black";              
     }
 }
+
+maps = [];
+var httpc8 = new XMLHttpRequest();
+httpc8.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        maps = JSON.parse(this.responseText);
+        for(var index = 0;index < maps.length;index++) {
+            var newmapbutton = document.createElement("P");
+            newmapbutton.className = "boxlink";
+            newmapbutton.innerHTML = "maps/" + maps[index];
+            document.getElementById("mapsbox").appendChild(newmapbutton);
+            newmapbutton.onclick = function(){
+                currentFile = this.innerHTML;
+                loadmap(currentFile);
+            }
+        }
+    };
+}
+
+httpc8.open("GET", "dir.php?filename=maps", true);
+httpc8.send();
+
+
+scrolls = [];
+var httpc9 = new XMLHttpRequest();
+httpc9.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        scrolls = JSON.parse(this.responseText);
+        for(var index = 0;index < scrolls.length;index++) {
+            var newscrollbutton = document.createElement("P");
+            newscrollbutton.className = "boxlink";
+            newscrollbutton.innerHTML = "scrolls/" + scrolls[index];
+            document.getElementById("scrollsbox").appendChild(newscrollbutton);
+            newscrollbutton.onclick = function(){
+                currentFile = this.innerHTML;
+                loadscroll(currentFile);
+            }
+        }
+    };
+}
+
+httpc9.open("GET", "dir.php?filename=scrolls", true);
+httpc9.send();
+
+document.getElementById("scrollinput").value = "";
+document.getElementById("mapinput").value = "";
+
+document.getElementById("scrollinput").onchange = function(){
+    loadscroll(this.value);
+    this.value = "";
+}
+document.getElementById("mapinput").onchange = function(){
+    loadmap(this.value);
+    this.value = "";
+}
+
 </script>
 <style>
 body{
@@ -274,20 +341,24 @@ body{
     background-color:black
 }
 input{
-    width:50%;
+    display:block;
+    margin:auto;
+    width:90%;
     font-family:courier;
-    font-size:1.5em;
-    background-color:black;
-    color:#ff2cb4;
+    font-size:1.2em;
+    background-color:white;
+    color:black;
     border-color:#ff2cb4;
     border-width:8px;
 }
-#mapinput{
-    position:absolute;
-    z-index:3;
-    bottom:50px;
-    right:0px;
+.boxlink{
+    padding-left:1em;
+    cursor:pointer;
 }
+.boxlink:hover{
+    background-color:#808080;
+}
+
 .scrolllink{
     color:#ff2cb4;
     cursor:pointer;
@@ -342,16 +413,59 @@ h1,h2,h3,h4{
     border-radius:5px;
     text-align:center;
 }
-#modebutton:hover{
+#hidebutton{
+    position:absolute;
+    background-color:white;
+    color:black;
+    cursor:pointer;
+    border:solid;
+    border-radius:5px;
+    text-align:center;
+}
+.button:hover{
     background-color:green;
 }
-#modebutton:active{
+.button:active{
     background-color:yellow;
 }
+#margin{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    z-index:-1;
+    overflow:hidden;
+    background:#404040;
+    font-size:1.2em;
+}
+#scrollsbox{
+    position:absolute;
+    left:0px;
+    top:0px;
+    bottom:0px;
+    right:50%;
+    background-color:#e0e0ff;
+    overflow:scroll;
+}
+#mapsbox{
+    position:absolute;
+    left:50%;
+    top:0px;
+    bottom:0px;
+    right:0px;
+    background-color:#ffd0d0;
+    overflow:scroll;
+}
+
 @media only screen and (orientation: landscape) {
+    #margin{
+        top:0px;
+    }
     #modebutton{
         right:5px;
         top:5px;
+    }
+    #hidebutton{
+        display:none;
     }
 }
 
@@ -359,6 +473,20 @@ h1,h2,h3,h4{
     #modebutton{
         right:0px;
         bottom:0px;
+    }
+    #margin{
+        bottom:0px;
+        left:0px;
+    }
+    #margin img{
+        width:50px;
+    }
+    #hidebutton{
+        left:0px;
+        bottom:0px;
+    }
+    .button{
+        font-size:2em;
     }
 }
 </style>
