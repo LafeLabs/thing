@@ -54,6 +54,8 @@ or
 
 [$10 mouse from amazon](https://www.amazon.com/gp/product/B005EJH6RW/)
 
+## Raspberry Pi Terminal set up in local coffee shop outdoor seating:
+
 ![](https://i.imgur.com/4zetaPf.png)
 
 When you have gathered the parts, assemble them, install NOOBS on the SD card, and set up your pi.  This collection of highly portable elements including the rechargeable battery is important for the portability of the system, which should have a dedicated bag to carry it around in so that it is fully mobile.  
