@@ -1,5 +1,7 @@
 [home](index.html)
 
+[![](https://i.imgur.com/NgelIKS.png)](maps/robot)
+
 # Printer
 
 1. [Build Arduino Brain](scrolls/brain.md)
@@ -15,3 +17,11 @@
 11. Make stamps from prints, put in bag, share
 12. Make painted tokens from stamps, put in bag, share
 13. Make pendants from stamps, share
+
+Bags in order: Earth(direct prints), Fire(stamps made from prints), Water(tokens made from pairs of stamps, then painted and sanded).
+
+![](https://i.imgur.com/YDQ9UXk.png)
+
+Typical icon tokens and a pendant:
+
+![](https://i.imgur.com/QN5aLe7.jpg)
