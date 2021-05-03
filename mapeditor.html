@@ -196,6 +196,7 @@ document.getElementById("maplinkmodebutton").onclick = function(){
 }
 
 currentFile = "maps/home";
+document.getElementById("currentfilename").innerHTML = currentFile;
 
 landscape = false;
 if(innerWidth > innerHeight){
@@ -678,7 +679,7 @@ var httpc8 = new XMLHttpRequest();
 httpc8.onreadystatechange = function() {
 if (this.readyState == 4 && this.status == 200) {
     maps = JSON.parse(this.responseText);
-    for(var index = maps.length - 1;index >= 0;index--) {
+    for(var index = 0;index < maps.length;index++) {
         var newmapbutton = document.createElement("LI");
         newmapbutton.innerHTML = "maps/" + maps[index];
         document.getElementById("maplist").appendChild(newmapbutton);
@@ -753,9 +754,9 @@ document.getElementById("newmapinput").onchange = function(){
 
 
 
-var newmapbutton = document.createElement("LI");
-newmapbutton.innerHTML = "data/currentMap.txt";
-document.getElementById("maplist").appendChild(newmapbutton);
+//var newmapbutton = document.createElement("LI");
+//newmapbutton.innerHTML = "data/currentMap.txt";
+//document.getElementById("maplist").appendChild(newmapbutton);
 
 newmapbutton.onclick = function(){
     currentFile = this.innerHTML;
