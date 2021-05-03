@@ -9,6 +9,9 @@
  - [localhost/](http://localhost/)
  - [trash robot printer](scrolls/printer.md)
  - [fork](fork.html)
+ - [symbol](symbol.html)
+ - [icon feed](iconfeed.html)
+ - [qrcode links](qrcode.html)
  - [github repository](https://github.com/lafelabs/thing/)
  - [editor.php](editor.php)
  - [dna generator](dnagenerator.php)
@@ -25,7 +28,7 @@ The five types of document we create on the system are:
 
 Documents are made to replicate any kind of information.  This is useful for two reasons: connecting and replicating.  
 
-Connecting is the same as on the commercial Internet: someone wants to share at thing, and a free and open network can help them do that.  This aspect of the network can be thought of like a very physically localized version of Craigslist.  Articles, memes, ads, cartoons, ideas, stories, local markets, brands: all these kinds of information can be freely propagated, which can be used by anyone to do whatever they're already doing, but better and for free.  Unlike commercial media which is driven by non-consensual ads, we build a network based on people creating media to share and other people freely copying it or not--rather than forcing people to see what they don't want.  
+Connecting is the same as on the commercial Internet: when someone wants to share a anything, and a free and open network can help them do that.  This aspect of the network can be thought of like a very physically localized version of Craigslist.  Articles, memes, ads, cartoons, ideas, stories, local markets, brands: all these kinds of information can be freely propagated, which can be used by anyone to do whatever they're already doing, but better and for free.  Unlike commercial media which is driven by non-consensual ads, we build a network based on people creating media to share and other people freely copying it or not--rather than forcing people to see what they don't want.  
 
 Replication is the longer term goal of the Organic Web.    If we are to build a new civilization from trash, the basis of our economy will be sharing of detailed instructions for how to replicate things.  The OW system is optimized for this.  Scrolls can describe how to make a thing, maps can identify how to find a thing, link it to other things, label parts of a thing or be an alternate means to describe replication.  Hyperlinks are used to transmit the documentation of a thing as fast as possible to another person.  Feeds are used for rapid communication within a local community of little bits of information as they are developed.  The Geometron language which drives the symbols is used both for creating all graphics in the system and for geometric programming of physical fabrication machines which are used in the fully trash-built automation technology we will be building with this system.
 
