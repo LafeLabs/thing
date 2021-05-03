@@ -12,6 +12,7 @@
  - [symbol](symbol.html)
  - [icon feed](iconfeed.html)
  - [qrcode links](qrcode.html)
+ - [copy files](copy.html)
  - [github repository](https://github.com/lafelabs/thing/)
  - [editor.php](editor.php)
  - [dna generator](dnagenerator.php)
