@@ -16,7 +16,7 @@ The Organic Web is a network of self-replicating documents.  There are no users.
 
 The five types of document we create on the system are:
 
- - [Hyperlinks](qrcode.html)
+ - [Hyperlinks](scrolls/hyperlinks.md)
  - [Scrolls](scrolls/scrolls.md)
  - [Maps](scrolls/maps.md)
  - [Feeds](scrolls/feeds.md)
@@ -72,7 +72,7 @@ sudo apt install php libapache2-mod-php -y
 
 Then install the [Geometron software](https://github.com/lafelabs/thing/) type copy/paste these commands into the terminal:
 
-<pre>
+<pre style = "overflow:scroll">
 cd /var/www/html
 sudo rm index.html
 sudo curl -o replicator.php https://raw.githubusercontent.com/LafeLabs/thing/master/php/replicator.txt

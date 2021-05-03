@@ -292,6 +292,8 @@
         "geometronscroll",
         "github.md",
         "hellogeometron",
+        "hypercube.md",
+        "hyperlinks.md",
         "imagescroll",
         "install",
         "introvideo",
