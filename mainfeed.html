@@ -126,28 +126,14 @@ function loadfeed(){
         var newdiv = document.createElement("DIV");
         newdiv.id = "d" + index.toString();
         newdiv.className = "feedelement";
-
-        //first add a table with buttons in it for:
-        // delete this element
-    
-        // move it up
-        // move it down
-        // load it to JSON IO and also top table
-        
-        var newtable = document.createElement("table");
-        newdiv.appendChild(newtable);
-
-        var newtr = document.createElement("TR");
-        var newtd = document.createElement("TD");
         var newimage = document.createElement("IMG");
+        newdiv.appendChild(newimage);
         newimage.src = "iconsymbols/upelement.svg";
-        newimage.style.width = "50px";
-        newtd.appendChild(newimage);
-        newtr.appendChild(newtd);
-        newtable.appendChild(newtr);
+        newimage.className = "sidebutton";
+
         newimage.onclick = function(){
             //move element to start
-            linkindex = parseInt(this.parentElement.parentElement.parentElement.parentElement.id.substring(1));
+            linkindex = parseInt(this.parentElement.id.substring(1));
             
             if(linkindex != 0){
                 var thiselement = feed[linkindex];
@@ -164,14 +150,18 @@ function loadfeed(){
 
             }
         }
-        var newtr = document.createElement("TR");
-        var newtd = document.createElement("TD");
+
         var newimage = document.createElement("IMG");
+        newdiv.appdn
         newimage.src = "iconsymbols/delete.svg";
-        newimage.style.width = "50px";
+        newimage.style.width = 0.2*feedwidth.toString()  + "px";
+
+        newimage.className = "button";
         newtd.appendChild(newimage);
         newtr.appendChild(newtd);
         newtable.appendChild(newtr);
+
+
         newimage.onclick = function(){
             //delete element
             linkindex = parseInt(this.parentElement.parentElement.parentElement.parentElement.id.substring(1));
@@ -203,6 +193,7 @@ function loadfeed(){
             newGVM.action(0300);
             newGVM.drawGlyph(feed[index].glyph);
             newdiv.style.height = "220px";
+            newspan.className = "canbox";
         }
 
         if(feed[index].src.length > 0){
@@ -218,6 +209,7 @@ function loadfeed(){
                     
 
             }
+            newimg.className = "elementimage";
         }
         var newa = document.createElement("A");
         if(feed[index].href.length > 0){
@@ -285,6 +277,7 @@ document.getElementById("nextbutton").onclick = function(){
     document.getElementById("hrefinput").value = feed[linkindex].href;
     document.getElementById("glyphinput").value = feed[linkindex].glyph;
     
+    
 }
 
 
@@ -297,13 +290,38 @@ document.getElementById("prevbutton").onclick = function(){
     document.getElementById("srcinput").value = feed[linkindex].src;
     document.getElementById("hrefinput").value = feed[linkindex].href;
     document.getElementById("glyphinput").value = feed[linkindex].glyph;
-    
+
 }
+
 </script>
 <style>
 body{
     overflow:hidden;
 }
+#controltable{
+    
+}
+.buttontable{
+    position:absolute;
+    right:0px;
+    border:solid;
+}
+.buttontable tr td{
+    width:70px;
+}
+.elementimage{
+    position:absolute;
+    right:310px;
+}
+.canbox{
+    position:absolute;
+    right:80px;
+    border:solid;
+}
+.sidebutton{
+    width:70px;
+}
+
 #header{
     height:140px;
     position:absolute;
@@ -327,6 +345,7 @@ body{
     height:3em;
     margin-top:2em;
     border:solid;
+    background-color:white;
 }
 #homelink{
     position:absolute;
