@@ -40,24 +40,19 @@
         "text": "textfeed.html"
     },
     {
-        "href": "user.php?map=maps/feeds",
-        "src": "",
-        "text": "user.php?map=maps/feeds"
-    },
-    {
         "href": "mathuser.php?map=maps/math",
         "src": "",
         "text": "math map"
     },
     {
-        "href": "user.php?scroll=https://pastebin.com/raw/7n820btV",
-        "src": "",
-        "text": "pastebin scroll"
-    },
-    {
         "href": "qrcode.html",
         "src": "",
         "text": "qr code generator"
+    },
+    {
+        "href": "ipaddress.php",
+        "src": "",
+        "text": "ipaddress.php"
     },
     {
         "href": "linkfeededitor.html",
