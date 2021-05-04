@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <!--
+
+    EVERYTHING REPLICATES
+    EVERYTHING EVOLVES
+    EVERYTHING DIES
+    
+    -->
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAOADAADv+wAA7/sAAO/7AADv+wAA7/sAAO/7AADv+wAA77sAAO/fAADv7QAA4DUAAP/5AAD/4QAA" rel="icon" type="image/x-icon" />
+
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+
+    <script src="jscode/geometron.js"></script>
+    
+</head>
+<body>    
+<div id = "header">
+    <a id = "homelink" href = "index.html">
+        <img src = "iconsymbols/home.svg"/>
+    </a>
+    <table id = "controltable">
+        <tr>
+            <td>text:</td>
+            <td>
+                <input id = "textinput"/>
+            </td>
+        </tr>
+        <tr>
+            <td>link:</td>
+            <td>
+                <input id = "hrefinput"/>
+            </td>
+        </tr>
+        <tr>
+            <td>image url:</td>
+            <td>
+                <input id = "srcinput"/>
+            </td>
+        </tr>
+        <tr>
+            <td>glyph code:</td>
+            <td>
+                <input id = "glyphinput"/>
+            </td>
+        </tr>
+        <tr>
+            <td class = "button" id = "clearbutton">CLEAR</td>
+            <td id = "publishbutton" class = "button">
+                    PUBLISH
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id = "feed"></div>
+
+<div id = "footer">
+    <img id = "importbutton"/>
+    <textarea></textarea>
+    <img id = "exportbutton"/>
+</div>
+
+<script>
+
+document.getElementById("textinput").value = "";
+document.getElementById("srcinput").value = "";
+document.getElementById("hrefinput").value = "";
+document.getElementById("glyphinput").value = "";
+
+document.getElementById("clearbutton").onclick = function(){
+
+    document.getElementById("textinput").value = "";
+    document.getElementById("srcinput").value = "";
+    document.getElementById("hrefinput").value = "";
+    document.getElementById("glyphinput").value = "";
+
+}
+
+feedwidth = innerWidth;
+
+if(innerWidth > innerHeight){
+    feedwidth = innerHeight;    
+    document.getElementById("feed").style.top = "0px";
+    document.getElementById("header").style.width = (innerWidth - innerHeight).toString() + "px";    
+    document.getElementById("footer").style.width = (innerWidth - innerHeight).toString() + "px";        
+    document.getElementById("feed").style.height = (innerHeight).toString() + "px";        
+    document.getElementById("feed").style.width = (innerHeight).toString() + "px";
+    
+}
+else{
+    document.getElementById("feed").style.top = "140px";
+    document.getElementById("header").style.width = (innerWidth).toString() + "px";    
+    document.getElementById("footer").style.width = (innerWidth).toString() + "px";
+    document.getElementById("feed").style.height = (innerHeight - 100 - 100).toString() + "px";            
+    document.getElementById("feed").style.width = (innerWidth).toString() + "px";                
+}
+
+document.getElementById("feed").style.width = feedwidth.toString() + "px";
+
+
+feed = [];
+
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        feed = JSON.parse(this.responseText);
+        loadfeed();
+    }
+};
+
+httpc.open("GET", "fileloader.php?filename=data/mainfeed.txt", true);
+httpc.send();
+
+function loadfeedurl(url){
+    document.getElementById("feed").innerHTML = "";
+
+    var httpc666 = new XMLHttpRequest();
+    httpc666.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200) {
+            feed = JSON.parse(this.responseText);
+            loadfeed();
+        }
+    };
+    httpc666.open("GET", "fileloader.php?filename=" + url, true);
+    httpc666.send();
+}
+
+function loadfeed(){
+    document.getElementById("feed").innerHTML = "";
+    for(var index = 0;index < feed.length;index++){
+        var newdiv = document.createElement("DIV");
+        newdiv.id = "d" + index.toString();
+        newdiv.className = "feedelement";
+        var newa = document.createElement("A");
+        if(feed[index].href.length > 0){
+            newa.href = feed[index].href;
+        }
+        newa.innerHTML = feed[index].text;
+        newdiv.appendChild(newa);
+        if(feed[index].src.length > 0){
+            
+            var newimg = document.createElement("IMG");
+            newimg.className = "feedimage";
+
+            newimg.src = feed[index].src;
+            newimg.alt = feed[index].text;
+            newdiv.appendChild(newimg);
+            newimg.onload = function(){
+                    this.parentElement.style.height = this.height + "px";
+            
+            }
+        }
+        if(feed[index].glyph.length > 0){
+            
+        }
+        document.getElementById("feed").appendChild(newdiv);
+    }
+
+}
+
+
+document.getElementById("publishbutton").onclick = function(){
+    
+    var newelement = {};
+    
+    
+    newelement.text = document.getElementById("textinput").value;
+    newelement.src = document.getElementById("srcinput").value;
+    newelement.href = document.getElementById("hrefinput").value;
+    newelement.glyph = document.getElementById("glyphinput").value;
+
+    feed.unshift(newelement);
+    loadfeed();
+    savefeed();
+    
+}
+
+
+function savefeed(){
+    
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", "filesaver.php", true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(JSON.stringify(feed,null,"  "))+"&filename=data/mainfeed.txt");//send text to filesaver.php   
+
+    
+}
+
+
+
+</script>
+<style>
+body{
+    overflow:hidden;
+}
+#header{
+    height:140px;
+    position:absolute;
+    top:0px;
+    right:0px;
+    background-color:#ff808080;
+    font-family:courier;
+    font-size:14px;
+}
+#feed{
+    position:absolute;
+    left:0px;
+    background-color:#80808080;
+    overflow:scroll;
+}
+#feed img{
+    max-width:30%;
+}
+.feedelement{
+    height:3em;
+    margin-top:2em;
+    border:solid;
+}
+#footer{
+    height:50px;
+    position:absolute;
+    bottom:0px;
+    right:0px;
+    background-color:#8080ff80;
+}
+#homelink{
+    position:absolute;
+    right:0px;
+    top:0px;
+}
+#homelink img{
+    width:50px;
+}
+.button{
+    cursor:pointer;
+    border:solid;
+    border-radius:5px;
+    text-align:center;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
+}
+@media only screen and (orientation: landscape) {
+
+    
+}
+
+@media only screen and (orientation: portrait) {
+    
+    
+    
+}
+</style>
+</body>
+</html>
