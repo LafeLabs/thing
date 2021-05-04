@@ -25,6 +25,10 @@
     </a>
     <table id = "controltable">
         <tr>
+            <td class = "button" id = "prevbutton">PREV</td>
+            <td class = "button" id = "nextbutton">NEXT</td>
+        </tr>
+        <tr>
             <td>text:</td>
             <td>
                 <input id = "textinput"/>
@@ -59,13 +63,9 @@
 
 <div id = "feed"></div>
 
-<div id = "footer">
-    <img id = "importbutton"/>
-    <textarea></textarea>
-    <img id = "exportbutton"/>
-</div>
-
 <script>
+
+linkindex = 0;
 
 document.getElementById("textinput").value = "";
 document.getElementById("srcinput").value = "";
@@ -87,7 +87,7 @@ if(innerWidth > innerHeight){
     feedwidth = innerHeight;    
     document.getElementById("feed").style.top = "0px";
     document.getElementById("header").style.width = (innerWidth - innerHeight).toString() + "px";    
-    document.getElementById("footer").style.width = (innerWidth - innerHeight).toString() + "px";        
+    
     document.getElementById("feed").style.height = (innerHeight).toString() + "px";        
     document.getElementById("feed").style.width = (innerHeight).toString() + "px";
     
@@ -95,8 +95,8 @@ if(innerWidth > innerHeight){
 else{
     document.getElementById("feed").style.top = "140px";
     document.getElementById("header").style.width = (innerWidth).toString() + "px";    
-    document.getElementById("footer").style.width = (innerWidth).toString() + "px";
-    document.getElementById("feed").style.height = (innerHeight - 100 - 100).toString() + "px";            
+
+    document.getElementById("feed").style.height = (innerHeight - 140).toString() + "px";            
     document.getElementById("feed").style.width = (innerWidth).toString() + "px";                
 }
 
@@ -105,16 +105,6 @@ document.getElementById("feed").style.width = feedwidth.toString() + "px";
 
 feed = [];
 
-var httpc = new XMLHttpRequest();
-httpc.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        feed = JSON.parse(this.responseText);
-        loadfeed();
-    }
-};
-
-httpc.open("GET", "fileloader.php?filename=data/mainfeed.txt", true);
-httpc.send();
 
 function loadfeedurl(url){
     document.getElementById("feed").innerHTML = "";
@@ -136,12 +126,85 @@ function loadfeed(){
         var newdiv = document.createElement("DIV");
         newdiv.id = "d" + index.toString();
         newdiv.className = "feedelement";
-        var newa = document.createElement("A");
-        if(feed[index].href.length > 0){
-            newa.href = feed[index].href;
+
+        //first add a table with buttons in it for:
+        // delete this element
+    
+        // move it up
+        // move it down
+        // load it to JSON IO and also top table
+        
+        var newtable = document.createElement("table");
+        newdiv.appendChild(newtable);
+
+        var newtr = document.createElement("TR");
+        var newtd = document.createElement("TD");
+        var newimage = document.createElement("IMG");
+        newimage.src = "iconsymbols/upelement.svg";
+        newimage.style.width = "50px";
+        newtd.appendChild(newimage);
+        newtr.appendChild(newtd);
+        newtable.appendChild(newtr);
+        newimage.onclick = function(){
+            //move element to start
+            linkindex = parseInt(this.parentElement.parentElement.parentElement.parentElement.id.substring(1));
+            
+            if(linkindex != 0){
+                var thiselement = feed[linkindex];
+                var tempfeed = [];
+                for(var index = 0;index < feed.length;index++){
+                    if(index != linkindex){
+                        tempfeed.push(feed[index]);
+                    }
+                }
+                feed = tempfeed;
+                feed.unshift(thiselement);
+                loadfeed();
+                savefeed();
+
+            }
         }
-        newa.innerHTML = feed[index].text;
-        newdiv.appendChild(newa);
+        var newtr = document.createElement("TR");
+        var newtd = document.createElement("TD");
+        var newimage = document.createElement("IMG");
+        newimage.src = "iconsymbols/delete.svg";
+        newimage.style.width = "50px";
+        newtd.appendChild(newimage);
+        newtr.appendChild(newtd);
+        newtable.appendChild(newtr);
+        newimage.onclick = function(){
+            //delete element
+            linkindex = parseInt(this.parentElement.parentElement.parentElement.parentElement.id.substring(1));
+            
+            var tempfeed = [];
+            for(var index = 0;index < feed.length;index++){
+                if(index != linkindex){
+                    tempfeed.push(feed[index]);
+                }
+            }
+            feed = tempfeed;
+            loadfeed();
+            savefeed();
+            
+        }
+        
+        
+        if(feed[index].glyph.length > 0){
+            
+            var newspan = document.createElement("SPAN");
+            newdiv.appendChild(newspan);
+            var newcan = document.createElement("CANVAS");
+            newspan.appendChild(newcan);
+            var newGVM = new GVM(newcan,200,200);
+            newGVM.unit = 20;
+            newGVM.x0 = 100;
+            newGVM.y0 = 100;
+            newGVM.importbytecode(hypercube);
+            newGVM.action(0300);
+            newGVM.drawGlyph(feed[index].glyph);
+            newdiv.style.height = "220px";
+        }
+
         if(feed[index].src.length > 0){
             
             var newimg = document.createElement("IMG");
@@ -151,13 +214,21 @@ function loadfeed(){
             newimg.alt = feed[index].text;
             newdiv.appendChild(newimg);
             newimg.onload = function(){
-                    this.parentElement.style.height = this.height + "px";
-            
+                this.parentElement.style.height = this.height + "px";
+                    
+
             }
         }
-        if(feed[index].glyph.length > 0){
-            
+        var newa = document.createElement("A");
+        if(feed[index].href.length > 0){
+            newa.href = feed[index].href;
         }
+        newa.innerHTML = feed[index].text;
+        newdiv.appendChild(newa);
+        
+        
+
+        
         document.getElementById("feed").appendChild(newdiv);
     }
 
@@ -192,7 +263,42 @@ function savefeed(){
 }
 
 
+hypercube = [];
+var httpcHypercube = new XMLHttpRequest();
+httpcHypercube.onreadystatechange = function(){
+    if (this.readyState == 4 && this.status == 200) {
+        hypercube = JSON.parse(this.responseText);
+        loadfeedurl("data/mainfeed.txt");        
+    }
+};
+httpcHypercube.open("GET", "fileloader.php?filename=data/hypercube.txt", true);
+httpcHypercube.send();
 
+
+document.getElementById("nextbutton").onclick = function(){
+    linkindex++;
+    if(linkindex > feed.length){
+        linkindex = 0;
+    }
+    document.getElementById("textinput").value = feed[linkindex].text;
+    document.getElementById("srcinput").value = feed[linkindex].src;
+    document.getElementById("hrefinput").value = feed[linkindex].href;
+    document.getElementById("glyphinput").value = feed[linkindex].glyph;
+    
+}
+
+
+document.getElementById("prevbutton").onclick = function(){
+    linkindex--;
+    if(linkindex < 0){
+        linkindex = feed.length - 1;
+    }
+    document.getElementById("textinput").value = feed[linkindex].text;
+    document.getElementById("srcinput").value = feed[linkindex].src;
+    document.getElementById("hrefinput").value = feed[linkindex].href;
+    document.getElementById("glyphinput").value = feed[linkindex].glyph;
+    
+}
 </script>
 <style>
 body{
@@ -215,18 +321,12 @@ body{
 }
 #feed img{
     max-width:30%;
+    display:inline;
 }
 .feedelement{
     height:3em;
     margin-top:2em;
     border:solid;
-}
-#footer{
-    height:50px;
-    position:absolute;
-    bottom:0px;
-    right:0px;
-    background-color:#8080ff80;
 }
 #homelink{
     position:absolute;
