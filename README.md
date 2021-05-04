@@ -7,6 +7,7 @@
 ## [Link to Map](maps/home)
 
  - [localhost/](http://localhost/)
+ - [link feed](linkfeed.html)
  - [trash robot printer](scrolls/printer.md)
  - [fork](fork.html)
  - [symbol](symbol.html)

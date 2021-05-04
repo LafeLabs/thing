@@ -42,5 +42,27 @@
         "href": "index.html",
         "src": "",
         "maplinkmode": false
+    },
+    {
+        "x": 0.4152744630071599,
+        "y": 0.032219570405727926,
+        "w": 0.2840095465393795,
+        "h": 0.08591885441527446,
+        "angle": 0,
+        "text": "README scroll",
+        "href": "user.php?scroll=README.md",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.4105011933174224,
+        "y": 0.08353221957040573,
+        "w": 0.2840095465393795,
+        "h": 0.08591885441527446,
+        "angle": 0,
+        "text": "home map",
+        "href": "user.php?map=maps/home",
+        "src": "",
+        "maplinkmode": false
     }
 ]

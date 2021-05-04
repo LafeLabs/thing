@@ -24,6 +24,14 @@ It is our view that a network which has a more powerful scaling law will always 
 Initially we can scale via the Raspberry Pi, maybe to a few million nodes(so maybe 100 million users). But the basic architecture of a very stripped-down web server with no property of any kind(no names, no users, no logins, no passwords, no personal information) on wifi running Linux Apache and PHP can be installed on pretty much any hardware, including obsolete hardware.  As we scale up we will develop and replicate scalable methods of acquiring waste streams of machines which can serve in this way, setting them up as servers, and releasing them freely into the Street.  Once we start using waste cell phones and Internet of Things devices, this network can scale to all of humanity relatively quickly.  If the number of clients and servers per human is more than one for all of humanity, and all of these are not property, but rather are a common resource, it will no longer make sense to have any private devices.  If these devices are used to replicate documents which replicate other technology built from trash, we can totally replace existing civilization with one built from free things made from trash.  
 
 
- 
+## path of links:
+
+1. physical media in a public place points to a non-property domain
+2. domain points to a place and time for a server, instructions to find and get on wifi
+3. Raspberry Pi server with no property on it(no logins, no user data at all, never use to log into anything, is not owned by anyone has been released to the Street) has link which can be texted, posted to server or transmitted by QR code for local IP address
+4. Raspberry Pi loads a link feed which has links to scrolls and maps
+5. maps lead back to physical places
+6. scrolls lead to replication of physical things
+
 
 
