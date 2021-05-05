@@ -129,7 +129,7 @@ function loadfeed(){
         var newimage = document.createElement("IMG");
         newdiv.appendChild(newimage);
         newimage.src = "iconsymbols/upelement.svg";
-        newimage.className = "sidebutton";
+        newimage.classList.add("upbutton");
 
         newimage.onclick = function(){
             //move element to start
@@ -151,20 +151,18 @@ function loadfeed(){
             }
         }
 
-        var newimage = document.createElement("IMG");
-        newdiv.appdn
-        newimage.src = "iconsymbols/delete.svg";
-        newimage.style.width = 0.2*feedwidth.toString()  + "px";
+        var newimage2 = document.createElement("IMG");
+        newdiv.appendChild(newimage2);
+        newimage2.src = "iconsymbols/delete.svg";
+      //  newimage.style.width = 0.2*feedwidth.toString()  + "px";
 
-        newimage.className = "button";
-        newtd.appendChild(newimage);
-        newtr.appendChild(newtd);
-        newtable.appendChild(newtr);
+        newimage2.classList.add("button");
+        newimage2.classList.add("deletebutton");
 
 
-        newimage.onclick = function(){
+        newimage2.onclick = function(){
             //delete element
-            linkindex = parseInt(this.parentElement.parentElement.parentElement.parentElement.id.substring(1));
+            linkindex = parseInt(this.parentElement.id.substring(1));
             
             var tempfeed = [];
             for(var index = 0;index < feed.length;index++){
@@ -205,7 +203,7 @@ function loadfeed(){
             newimg.alt = feed[index].text;
             newdiv.appendChild(newimg);
             newimg.onload = function(){
-                this.parentElement.style.height = this.height + "px";
+                this.parentElement.style.height = (this.height + 100).toString() + "px";
                     
 
             }
@@ -301,25 +299,20 @@ body{
 #controltable{
     
 }
-.buttontable{
-    position:absolute;
-    right:0px;
-    border:solid;
+.deletebutton{
+
+    
 }
-.buttontable tr td{
-    width:70px;
+.upbutton{
+    
 }
 .elementimage{
-    position:absolute;
     right:310px;
+    max-width:30%;
 }
 .canbox{
-    position:absolute;
     right:80px;
     border:solid;
-}
-.sidebutton{
-    width:70px;
 }
 
 #header{
@@ -337,15 +330,14 @@ body{
     background-color:#80808080;
     overflow:scroll;
 }
-#feed img{
-    max-width:30%;
-    display:inline;
-}
 .feedelement{
-    height:3em;
-    margin-top:2em;
+    height:250px;
+    margin-top:10px;
     border:solid;
     background-color:white;
+    width:96%;
+    margin:auto;
+    overflow:scroll;
 }
 #homelink{
     position:absolute;
