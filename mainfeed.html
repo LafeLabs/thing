@@ -178,7 +178,14 @@ function loadfeed(){
             
         }
         
-        
+        var newa = document.createElement("A");
+        newa.className = "linka";
+        if(feed[index].href.length > 0){
+            newa.href = feed[index].href;
+        }
+        newa.innerHTML = feed[index].text;
+        newdiv.appendChild(newa);
+    
         if(feed[index].glyph.length > 0){
             
             var newspan = document.createElement("SPAN");
@@ -205,19 +212,16 @@ function loadfeed(){
             newimg.alt = feed[index].text;
             newdiv.appendChild(newimg);
             newimg.onload = function(){
-                this.parentElement.style.height = (this.height + 100).toString() + "px";
+                this.parentElement.style.height = (this.height + 200).toString() + "px";
                     
 
             }
             newimg.className = "elementimage";
         }
-        var newa = document.createElement("A");
-        if(feed[index].href.length > 0){
-            newa.href = feed[index].href;
-        }
-        newa.innerHTML = feed[index].text;
-        newdiv.appendChild(newa);
         
+        if(feed[index].src.length == 0 && feed[index].glyph.length == 0){
+            newdiv.style.height = "200px";
+        }
         
     }
 
@@ -248,7 +252,6 @@ function savefeed(){
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc.send("data="+encodeURIComponent(JSON.stringify(feed,null,"  "))+"&filename=data/mainfeed.txt");//send text to filesaver.php   
 
-    
 }
 
 
@@ -316,7 +319,9 @@ body{
     display:block;
     margin:auto;
 }
-
+.linka{
+    font-size:2em;
+}
 #header{
     height:140px;
     position:absolute;

@@ -1,5 +1,11 @@
 [
   {
+    "src": "",
+    "glyph": "",
+    "text": "maps/alchemy",
+    "href": "user.php?map=maps/alchemy"
+  },
+  {
     "text": "home",
     "src": "",
     "href": "index.html",

@@ -96,6 +96,7 @@
         <a href= "mapdelete.html">
             <img src = "iconsymbols/delete.svg"/>
         </a>
+        <div id = "savelinkbutton" class= "button" style= "text-align:center;border:solid">SAVE LINK</div>
         <table>
             <tr>
                 <td>new map:</td>
@@ -758,20 +759,6 @@ document.getElementById("newmapinput").onchange = function(){
 //newmapbutton.innerHTML = "data/currentMap.txt";
 //document.getElementById("maplist").appendChild(newmapbutton);
 
-newmapbutton.onclick = function(){
-    currentFile = this.innerHTML;
-    document.getElementById("currentfilename").innerHTML = currentFile;
-    var httpc = new XMLHttpRequest();
-    httpc.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            mainmap.array = JSON.parse(this.responseText);
-            mainmap.draw();
-            document.getElementById("textio").value = JSON.stringify(mainmap.array,null,"    ");
-        }
-    };
-    httpc.open("GET", "fileloader.php?filename=" + currentFile, true);
-    httpc.send();
-}
 
 document.getElementById("hmodebutton").onclick = function(){
     hmode = !hmode;
@@ -783,6 +770,37 @@ document.getElementById("hmodebutton").onclick = function(){
     }
 }
 
+function savefeed(){
+    
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", "filesaver.php", true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(JSON.stringify(feed,null,"  "))+"&filename=data/mainfeed.txt");//send text to filesaver.php   
+
+}
+
+
+
+document.getElementById("savelinkbutton").onclick = function(){
+    var element = {};
+    element.src = "";
+    element.glyph = "";
+    element.text = currentFile;
+    element.href = "user.php?map=" + currentFile;
+    feed.unshift(element);
+    savefeed();
+}
+
+feed = [];
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        feed = JSON.parse(this.responseText);
+    }
+};
+
+httpc.open("GET", "fileloader.php?filename=data/mainfeed.txt", true);
+httpc.send();
 
 </script>
 <style>
