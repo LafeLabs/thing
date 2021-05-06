@@ -325,6 +325,7 @@
         "quests",
         "readme2.md",
         "readmebackup",
+        "remote",
         "revolutions.md",
         "roadmap",
         "robotsetup.md",
