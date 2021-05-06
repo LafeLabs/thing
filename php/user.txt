@@ -50,7 +50,7 @@
     <div id = "marginbutton">⇳⇳⇳⇳⇳⇳⇳⇳⇳⇳⇳</div>
     <div id  = "scrollsbox">
         <input id = "scrollinput"/>
-        <a href = "scrolleditor.html">
+        <a id = "scrolleditorlink" href = "scrolleditor.html">
             <img style = "width:50px;display:block;margin:auto;padding-top:1em" src = "iconsymbols/scroll.svg"/>
         </a>
     </div>
@@ -209,13 +209,11 @@ function loadscroll(scrollname){
     filename = scrollname;
     if(filename.substring(0,8) == "scrolls/" || filename == "README.md"){
         localfile = true;
-        document.getElementById("scrolleditorlink").href = "scrolleditor.php?scroll=" + filename;
     }
     else{
         localfile = false;
-        document.getElementById("scrolleditorlink").href = "scrolleditor.html";    
     }
-
+    document.getElementById("scrolleditorlink").href = "scrolleditor.php?scroll=" + filename;
 
     document.getElementById("scrollscroll").innerHTML = "";
     document.getElementById("scrollscroll").style.display = "block";

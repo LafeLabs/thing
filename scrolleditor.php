@@ -63,7 +63,8 @@ if(isset($_GET["scroll"])){
 
 <script>
 
-
+scroll = "";
+rawhtml = "";
 
 document.getElementById("newscrollinput").value = "";
 
@@ -76,27 +77,54 @@ converter.setOption('tables', 'true');
 
 
 if(document.getElementById("scrolldiv").innerHTML.length > 0){
-    currentfile = document.getElementById("scrolldiv").innerHTML;
+    var scrollurl = document.getElementById("scrolldiv").innerHTML;
+    if(scrollurl.substring(0,8) == "scrolls/" || scrollurl == "README.md"){
+        currentfile = scrollurl;
+        var httpc = new XMLHttpRequest();
+        httpc.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                scroll = this.responseText;
+                document.getElementById("maintextarea").value = scroll;  
+                document.getElementById("currentfilename").innerHTML = currentfile;        
+            }
+        };
+        httpc.open("GET", "fileloader.php?filename=" + currentfile, true);
+        httpc.send();
+    }
+    else{
+        currentfile = scrollurl;
+        var httpc = new XMLHttpRequest();
+        httpc.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                scroll = this.responseText;
+                document.getElementById("maintextarea").value = scroll;  
+                currentfile = "scrolls/remote";
+                document.getElementById("currentfilename").innerHTML = currentfile;
+            }
+        };
+        httpc.open("GET", "fileloader.php?filename=" + currentfile, true);
+        httpc.send();
+    }
 }
 else{
     currentfile = "README.md";
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            scroll = this.responseText;
+            document.getElementById("maintextarea").value = scroll;  
+            currentfile = "scrolls/remote";
+            document.getElementById("currentfilename").innerHTML = currentfile;
+        }
+    };
+    httpc.open("GET", "fileloader.php?filename=" + currentfile, true);
+    httpc.send();
 }
 
 //get readme.md, convert to html and display
 
 
-scroll = "";
-rawhtml = "";
-var httpc = new XMLHttpRequest();
-httpc.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        scroll = this.responseText;
-        document.getElementById("maintextarea").value = scroll;  
-        document.getElementById("currentfilename").innerHTML = currentfile;        
-    }
-};
-httpc.open("GET", "fileloader.php?filename=" + currentfile, true);
-httpc.send();
+
 
 document.getElementById("maintextarea").onkeyup = function() {
     scroll = this.value;
