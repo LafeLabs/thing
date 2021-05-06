@@ -1,24 +1,29 @@
-# Trash Robot dot Org
+[home](index.html)
 
-Dig it up, set it on fire, and bury it.  This is our civilization in a nutshell.  The way to break this cycles is to build technology which is both made from waste streams and which can manufacture products using waste streams.  Trash Robot is a robot built from trash which is programmed to print patterns in clay. We program it using Geometron, a symbolic language based on geometry and designed to make it simpler for non-experts to control machines while avoiding numbers and code.  Together we, the people of Trash Robot, will give FREE robots to every artist, student, or maker in the world.
- 
-I am asking YOU to join this movement now and scale Trash Robot to the whole world!
+[copy trash robot scroll from main server](copy.php?from=https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/trashrobotdotorg&to=scrolls/trashrobotdotorg)
 
-[click here for instructions on building the whole robot](makerobot.html)
+[![](https://i.imgur.com/NgelIKS.png)](maps/robot)
 
-We need:
+# Printer
 
-- makers to build robots
-- students to learn the robots and use them to fabricate things
-- teachers to learn to teach the robot system and share it with students
-- librarians to distribute the robots
-- researchers to improve the robot and extend what it can do
-- donors to donate materials to keep the flow of free robots going
+1. [Build Arduino Brain](scrolls/brain.md)
+2. [Build Controller](scrolls/controller.md)
+3. [Build mechanicals](scrolls/mechanicals.md)
+4. [local image feed](localimagefeed.html)
+5. [global image feed](globalimagefeed.html)
+6. [align image](alignimage.html)
+7. [trace icon](traceicon.html)
+8. [icon feed](iconfeed.html)
+9. [print in clay](traceicon.html)
+10. [print in plastic](traceicon.html)
+11. Make stamps from prints, put in bag, share
+12. Make painted tokens from stamps, put in bag, share
+13. Make pendants from stamps, share
 
-makers.html
-students.html
-teachers.html
-librarians.html
-researchers.html
-donors.html
+Bags in order: Earth(direct prints), Fire(stamps made from prints), Water(tokens made from pairs of stamps, then painted and sanded).
 
+![](https://i.imgur.com/YDQ9UXk.png)
+
+Typical icon tokens and a pendant:
+
+![](https://i.imgur.com/QN5aLe7.jpg)

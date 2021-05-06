@@ -1,5 +1,7 @@
 ## [scan qr code of raspberry PI on network](ipaddress.php)
 
+## [scan qr code of any server](qrcode.html)
+
 [link to remote scroll](scrolls/remote)
 
 ## [![](iconsymbols/feed.svg)](mainfeed.html)
