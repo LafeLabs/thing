@@ -144,6 +144,9 @@ if(document.getElementById("mapdiv").innerHTML.length > 0){
     loadmap(document.getElementById("mapdiv").innerHTML);
 }
 
+///below this line identical to index.html
+
+
 function loadmap(mapname){
     document.getElementById("scrollscroll").style.display = "none";
     document.getElementById("mainmap").style.display = "block";
@@ -171,8 +174,12 @@ function loadmap(mapname){
                             var localscroll = "scrolls/" + localmap.split("scrolls/")[1];
                             loadscroll(localscroll);
                         }
-                        else{
-                            loadmap(this.getElementsByClassName("maplink")[0].innerHTML);                              
+                        if(localmap.includes("scroll(")){
+                            var localscroll = localmap.split("scroll(")[1].split(")")[0];
+                            loadscroll(localscroll);
+                        }
+                        if(!localmap.includes("scroll(") && !localmap.includes("scrolls/")){
+                            loadmap(this.getElementsByClassName("maplink")[0].innerHTML);                                
                         }
 
                     }
@@ -227,6 +234,42 @@ function convertscrollinks(){
                 loadscroll(localscroll);
             }
         }
+        if(links[index].href.includes("scroll(") && !links[index].href.includes(".php")){
+            //link format scroll(any url)
+            //console.log(links[index].href);
+            var newspan = document.createElement("SPAN");
+            newspan.innerHTML = links[index].innerHTML;
+            var dataspan = document.createElement("SPAN");
+            dataspan.className = "data";
+            dataspan.innerHTML  = links[index].href.split("scroll(")[1].split(")")[0];
+            newspan.appendChild(dataspan);
+            newspan.className = "scrolllink";
+            links[index].parentNode.insertBefore(newspan,links[index]);
+            links[index].style.display = "none";
+            
+            newspan.onclick = function(){
+                var localscroll = this.getElementsByClassName("data")[0].innerHTML;
+                loadscroll(localscroll);
+            }
+        }
+        if(links[index].href.includes("map(") && !links[index].href.includes(".php")){
+            //console.log(links[index].href);
+            //link format map(url)
+            var newspan = document.createElement("SPAN");
+            newspan.innerHTML = links[index].innerHTML;
+            var dataspan = document.createElement("SPAN");
+            dataspan.className = "data";
+            dataspan.innerHTML  = links[index].href.split("map(")[1].split(")")[0];            
+            newspan.appendChild(dataspan);
+            newspan.className = "scrolllink";
+            links[index].parentNode.insertBefore(newspan,links[index]);
+            links[index].style.display = "none";
+            
+            newspan.onclick = function(){
+                var localscroll = this.getElementsByClassName("data")[0].innerHTML;
+                loadmap(localscroll);
+            }
+        }        
         if(links[index].href.includes("maps/") && !links[index].href.includes(".php")){
             //console.log(links[index].href);
             var newspan = document.createElement("SPAN");
