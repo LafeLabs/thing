@@ -238,7 +238,24 @@ function convertscrollinks(){
                 var localscroll = this.getElementsByClassName("data")[0].innerHTML;
                 loadmap(localscroll);
             }
-        }        
+        }     
+        if(links[index].href.includes("map(") && !links[index].href.includes(".php")){
+            //allowing for link syntax map(url) linking to arbitrary map urls
+            var newspan = document.createElement("SPAN");
+            newspan.innerHTML = links[index].innerHTML;
+            var dataspan = document.createElement("SPAN");
+            dataspan.className = "data";
+            dataspan.innerHTML  = links[index].href.split("map(")[1].split(")")[0];            
+            newspan.appendChild(dataspan);
+            newspan.className = "scrolllink";
+            links[index].parentNode.insertBefore(newspan,links[index]);
+            links[index].style.display = "none";
+            
+            newspan.onclick = function(){
+                var localscroll = this.getElementsByClassName("data")[0].innerHTML;
+                loadmap(localscroll);
+            }
+        }             
     }
 }
 
