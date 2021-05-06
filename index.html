@@ -148,8 +148,12 @@ function loadmap(mapname){
                             var localscroll = "scrolls/" + localmap.split("scrolls/")[1];
                             loadscroll(localscroll);
                         }
-                        else{
-                            loadmap(this.getElementsByClassName("maplink")[0].innerHTML);                              
+                        if(localmap.includes("scroll(")){
+                            var localscroll = localmap.split("scroll(")[1].split(")")[0];
+                            loadscroll(localscroll);
+                        }
+                        if(!localmap.includes("scroll(") && !localmap.includes("scrolls/")){
+                            loadmap(this.getElementsByClassName("maplink")[0].innerHTML);                                
                         }
 
                     }
