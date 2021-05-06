@@ -247,6 +247,7 @@
         "rdelete.txt",
         "replicator.txt",
         "replicatornodata.txt",
+        "scrolleditor.txt",
         "seed.txt",
         "text2php.txt",
         "upload.txt",

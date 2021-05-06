@@ -2,6 +2,12 @@
   {
     "src": "",
     "glyph": "",
+    "text": "scrolls/civilizations.md",
+    "href": "user.php?scroll=scrolls/civilizations.md"
+  },
+  {
+    "src": "",
+    "glyph": "",
     "text": "maps/alchemy",
     "href": "user.php?map=maps/alchemy"
   },
