@@ -50,7 +50,7 @@
     <div id = "marginbutton">⇳⇳⇳⇳⇳⇳⇳⇳⇳⇳⇳</div>
     <div id  = "scrollsbox">
         <input id = "scrollinput"/>
-        <a href = "scrolleditor.html">
+        <a id  = "scrolleditorlink" href = "scrolleditor.html">
             <img style = "width:50px;display:block;margin:auto;padding-top:1em" src = "iconsymbols/edit.svg"/>
         </a>
     </div>
@@ -117,16 +117,25 @@ var converter = new showdown.Converter();
 converter.setOption('literalMidWordUnderscores', 'true');
 converter.setOption('tables', 'true')
     
-ismap = false;
-localfile = true;
 filename = "README.md";
 mapname = "maps/home";
 //loadmap(mapname);
 loadscroll("README.md");
 
+
+ismap = false;
+localfile = true;
+
 function loadmap(mapname){
     ismap = true;
     filename = mapname;
+    if(filename.substring(0,5) == "maps/"){
+        localfile = true;
+    }
+    else{
+        localfile = false;
+    }
+    
     document.getElementById("scrollscroll").style.display = "none";
     document.getElementById("mainmap").style.display = "block";
         
@@ -175,6 +184,16 @@ function loadmap(mapname){
 function loadscroll(scrollname){
     ismap = false;
     filename = scrollname;
+    if(filename.substring(0,8) == "scrolls/" || filename == "README.md"){
+        localfile = true;
+        document.getElementById("scrolleditorlink").href = "scrolleditor.php?scroll=" + filename;
+    }
+    else{
+        localfile = false;
+        document.getElementById("scrolleditorlink").href = "scrolleditor.html";    
+    }
+
+
     document.getElementById("scrollscroll").innerHTML = "";
     document.getElementById("scrollscroll").style.display = "block";
     document.getElementById("mainmap").style.display = "none";

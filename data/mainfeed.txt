@@ -1,5 +1,11 @@
 [
   {
+    "text": "home",
+    "src": "",
+    "href": "index.html",
+    "glyph": ""
+  },
+  {
     "src": "",
     "glyph": "",
     "text": "scrolls/civilizations.md",
@@ -10,12 +16,6 @@
     "glyph": "",
     "text": "maps/alchemy",
     "href": "user.php?map=maps/alchemy"
-  },
-  {
-    "text": "home",
-    "src": "",
-    "href": "index.html",
-    "glyph": ""
   },
   {
     "text": "robot icon",

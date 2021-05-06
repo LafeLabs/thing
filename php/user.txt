@@ -146,8 +146,19 @@ if(document.getElementById("mapdiv").innerHTML.length > 0){
 
 ///below this line identical to index.html
 
+ismap = false;
+localfile = true;
 
 function loadmap(mapname){
+    ismap = true;
+    filename = mapname;
+    if(filename.substring(0,5) == "maps/"){
+        localfile = true;
+    }
+    else{
+        localfile = false;
+    }
+    
     document.getElementById("scrollscroll").style.display = "none";
     document.getElementById("mainmap").style.display = "block";
         
@@ -194,6 +205,18 @@ function loadmap(mapname){
 
 
 function loadscroll(scrollname){
+    ismap = false;
+    filename = scrollname;
+    if(filename.substring(0,8) == "scrolls/" || filename == "README.md"){
+        localfile = true;
+        document.getElementById("scrolleditorlink").href = "scrolleditor.php?scroll=" + filename;
+    }
+    else{
+        localfile = false;
+        document.getElementById("scrolleditorlink").href = "scrolleditor.html";    
+    }
+
+
     document.getElementById("scrollscroll").innerHTML = "";
     document.getElementById("scrollscroll").style.display = "block";
     document.getElementById("mainmap").style.display = "none";
