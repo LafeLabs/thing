@@ -1,5 +1,11 @@
 [
   {
+    "text": "qrcode.html",
+    "src": "",
+    "href": "qrcode.html",
+    "glyph": ""
+  },
+  {
     "text": "here is some text just a random text entry, sort of lilke a tweet",
     "src": "",
     "href": "",

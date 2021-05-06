@@ -1,4 +1,4 @@
-## [scan qr code of raspberry PI on network](ipaddress.php)
+## [connect to raspberry pi server over wifi](ipaddress.php)
 
 ## [scan qr code of any server](qrcode.html)
 

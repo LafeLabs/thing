@@ -25,9 +25,7 @@
 </head>
 <body>    
 <a href = "index.html">index.html</a><p></p>
-<a href = "textfeed.html">textfeed.html</a>
-<p></p>
-<a href = "linkfeededitor.html">edit link feed</a>
+<a href = "mainfeed.html">mainfeed.html</a>
 <p></p>
 <a id = "linklink"></a>
 
@@ -37,7 +35,7 @@
 <table>
     <tr>
         <td></td>
-        <td class = "button" id = "savebutton">SAVE TO TEXTFEED</td>
+        <td class = "button" id = "savebutton">SAVE TO FEED</td>
     </tr>
     <tr>
         <td></td>
@@ -63,7 +61,9 @@ codesquaresize = 128;
 marginsize = 40;
 fontsize = 12;
 
-globalurl = "http://www.trashrobot.org/qrcode.html";
+//globalurl = "http://www.trashrobot.org/qrcode.html";
+globalurl = window.location.href.split("qrcode.html")[0];
+
 map = "";
 scroll = "";
 mode = "url";//url,map and scroll are the 3 modes
@@ -109,16 +109,16 @@ qrcode = new QRCode(document.getElementById("qrcode"), {
 });
 
 
-textfeed = {};
-var httpc10 = new XMLHttpRequest();
-    httpc10.onreadystatechange = function() {
+
+mainfeed = [];
+var httpc11 = new XMLHttpRequest();
+    httpc11.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        textfeed = JSON.parse(this.responseText);
+        mainfeed = JSON.parse(this.responseText);
     }
 };
-httpc10.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
-httpc10.send();
-
+httpc11.open("GET", "fileloader.php?filename=data/mainfeed.txt", true);
+httpc11.send();
 
 document.getElementById("savebutton").onclick = function(){
 
@@ -163,14 +163,24 @@ document.getElementById("transferimage").onload = function(){
         ctx.fillText(scroll,2,codesquaresize + 2*marginsize - 2);
     }
     
-    textfeed.src.push(canvas.toDataURL("image/png"));
+
+    
+    var localfeedelement = {};
+    localfeedelement.href = globalurl;
+    localfeedelement.text = globalurl;
+    localfeedelement.src = canvas.toDataURL("image/png");
+    localfeedelement.glyph = "";
+    mainfeed.unshift(localfeedelement);
+    
     var url = "filesaver.php";        
     var httpc3 = new XMLHttpRequest();
     httpc3.open("POST", url, true);
     httpc3.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc3.send("data="+encodeURIComponent(JSON.stringify(textfeed,null,"    "))+"&filename=data/textfeed.txt");//send text to filesaver.php    
+    httpc3.send("data="+encodeURIComponent(JSON.stringify(mainfeed,null,"    "))+"&filename=data/mainfeed.txt");//send text to filesaver.php    
+
     
 }
+
 
 document.getElementById("urlbutton").onclick = function(){
     var localurl = window.location.href.split("qrcode.html")[0];
