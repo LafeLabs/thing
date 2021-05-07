@@ -172,6 +172,19 @@ function savesymbolfile(){
     httpc3.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc3.send("data="+encodeURIComponent(JSON.stringify(textfeed,null,"    "))+"&filename=data/textfeed.txt");//send text to filesaver.php
     
+    var localfeedelement = {};
+    localfeedelement.href = "symbol.html";
+    localfeedelement.text = "symbol editor";
+    localfeedelement.src = mainGVM.pngcode();
+    localfeedelement.glyph = mainGVM.cleanGlyph;
+    mainfeed.unshift(localfeedelement);
+    
+    var url = "filesaver.php";        
+    var httpc4 = new XMLHttpRequest();
+    httpc4.open("POST", url, true);
+    httpc4.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc4.send("data="+encodeURIComponent(JSON.stringify(mainfeed,null,"    "))+"&filename=data/mainfeed.txt");//send text to filesaver.php    
+    
 }
 
 controlbuttonsize = 40;
@@ -404,6 +417,18 @@ var httpc10 = new XMLHttpRequest();
 };
 httpc10.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
 httpc10.send();
+
+
+mainfeed = [];
+var httpc11 = new XMLHttpRequest();
+    httpc11.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        mainfeed = JSON.parse(this.responseText);
+    }
+};
+httpc11.open("GET", "fileloader.php?filename=data/mainfeed.txt", true);
+httpc11.send();
+
 
 
 function savejson(){
