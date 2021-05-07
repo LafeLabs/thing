@@ -1,5 +1,23 @@
 [
   {
+    "text": "another random text element",
+    "src": "",
+    "href": "",
+    "glyph": ""
+  },
+  {
+    "text": "",
+    "src": "https://i.imgur.com/Qg40z9U.png",
+    "href": "",
+    "glyph": ""
+  },
+  {
+    "text": "",
+    "src": "https://i.imgur.com/4zetaPf.png",
+    "href": "",
+    "glyph": ""
+  },
+  {
     "text": "qrcode.html",
     "src": "",
     "href": "qrcode.html",

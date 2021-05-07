@@ -21,8 +21,12 @@
 <body>    
 <div id = "header">
     <a id = "homelink" href = "index.html">
-        <img src = "iconsymbols/home.svg"/>
+        <img src = "iconsymbols/home.svg" alt = "home"/>
     </a>
+    <a id = "maplink" href = "mapeditor.html">
+        <img src = "iconsymbols/map.svg" alt = "map editor"/>
+    </a>
+
     <table id = "controltable">
         <tr>
             <td class = "button" id = "prevbutton">PREV</td>
@@ -351,6 +355,14 @@ body{
     top:0px;
 }
 #homelink img{
+    width:50px;
+}
+#maplink{
+    position:absolute;
+    right:60px;
+    top:0px;
+}
+#maplink img{
     width:50px;
 }
 .button{
