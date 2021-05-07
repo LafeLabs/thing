@@ -1,16 +1,5 @@
 [
     {
-        "x": 0.834128878281623,
-        "y": 0.007159904534606206,
-        "w": 0.2840095465393795,
-        "h": 0.08591885441527446,
-        "angle": 0,
-        "text": "map editor",
-        "href": "mapeditor.html",
-        "src": "",
-        "maplinkmode": false
-    },
-    {
         "x": 0.19212410501193317,
         "y": 0.15632458233890215,
         "w": 0.6801909307875895,
@@ -25,7 +14,7 @@
         "x": 0.31742243436754175,
         "y": 0.22792362768496421,
         "w": 0.4522673031026253,
-        "h": 0.5443645083932853,
+        "h": 0.5429594272076372,
         "angle": 0,
         "text": "CLICK TO DESIGN!!",
         "href": "",
@@ -42,49 +31,5 @@
         "href": "index.html",
         "src": "",
         "maplinkmode": false
-    },
-    {
-        "x": 0.4152744630071599,
-        "y": 0.032219570405727926,
-        "w": 0.2840095465393795,
-        "h": 0.08591885441527446,
-        "angle": 0,
-        "text": "README scroll",
-        "href": "user.php?scroll=README.md",
-        "src": "",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.4105011933174224,
-        "y": 0.08353221957040573,
-        "w": 0.2840095465393795,
-        "h": 0.08591885441527446,
-        "angle": 0,
-        "text": "home map",
-        "href": "user.php?map=maps/home",
-        "src": "",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.2613365155131265,
-        "y": 0.8818615751789977,
-        "w": 0.2840095465393795,
-        "h": 0.08591885441527446,
-        "angle": 0,
-        "text": "test of map links",
-        "href": "https://pastebin.com/raw/eeZVBdYW",
-        "src": "",
-        "maplinkmode": true
-    },
-    {
-        "x": 0.6133651551312649,
-        "y": 0.8353221957040573,
-        "w": 0.2840095465393795,
-        "h": 0.08591885441527446,
-        "angle": 0,
-        "text": "test of scroll links",
-        "href": "scroll(https://pastebin.com/raw/6iR7pUwm)",
-        "src": "",
-        "maplinkmode": true
     }
 ]

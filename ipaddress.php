@@ -19,7 +19,7 @@ echo $bar;
 <table>
     <tr>
         <td></td>
-        <td class = "button" id  = "savebutton">SAVE TO LINK FEED</td>        
+        <td class = "button" id  = "savebutton">SAVE TO FEED</td>        
     </tr>
     <tr>
         <td>LINK:</td>
@@ -29,10 +29,10 @@ echo $bar;
     </tr>
 </table>
 <p>
-<a href = "index.html">index.html</a>    
+<a href = "index.html">home</a>    
 </p>
 <p>
-<a href = "linkfeed.html">link feed</a>    
+<a href = "mainfeed.html">main feed</a>    
 </p>
 <script>
 
@@ -61,28 +61,29 @@ qrcode = new QRCode(document.getElementById("qrcode"), {
 qrcode.makeCode(globalurl);
     
     
-//load linkfeed    
+//load mainfeed    
     
-link = {
-        "href": globalurl,
-        "src": "",
-        "text": globalurl
-};
 
-feed = [];
+mainfeed = [];
 
 var httpc = new XMLHttpRequest();
 httpc.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        feed = JSON.parse(this.responseText);
+        mainfeed = JSON.parse(this.responseText);
     }
 };
 
-httpc.open("GET", "fileloader.php?filename=data/linkfeed.txt", true);
+httpc.open("GET", "fileloader.php?filename=data/mainfeed.txt", true);
 httpc.send();
+
+element = {
+        "href":"",
+        "src":"",
+        "text":"",
+        "glyph":""
+};
     
 
-    
 document.getElementById("transferimage").onload = function(){
     canvas.style.border = "solid"; 
     canvas.width = codesquaresize + 2*marginsize;
@@ -101,14 +102,17 @@ document.getElementById("transferimage").onload = function(){
     ctx.fillText(globalurl,2,codesquaresize + 2*marginsize - 2);
 
     
-    link.src = canvas.toDataURL("image/png");
-    feed.push(link);
+    element.src = canvas.toDataURL("image/png");
+    element.text = globalurl;
+    element.href = globalurl;
+
+    mainfeed.unshift(element);
     
     var url = "filesaver.php";        
     var httpc3 = new XMLHttpRequest();
     httpc3.open("POST", url, true);
     httpc3.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc3.send("data="+encodeURIComponent(JSON.stringify(feed,null,"    "))+"&filename=data/linkfeed.txt");//send text to filesaver.php    
+    httpc3.send("data="+encodeURIComponent(JSON.stringify(mainfeed,null,"    "))+"&filename=data/mainfeed.txt");//send text to filesaver.php    
     
 }    
 
