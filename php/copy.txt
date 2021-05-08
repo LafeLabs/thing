@@ -11,6 +11,9 @@ if(isset($_GET["from"]) && isset($_GET["to"])){
 
 ?>
 <a href = "index.html">CLICK TO GO HOME</a>
+<p></p>
+<a href = "copy.html">BACK TO COPY PAGE</a>
+
 <style>
 a{
     font-size:3em;

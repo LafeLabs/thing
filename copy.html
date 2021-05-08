@@ -22,6 +22,10 @@
         <td><input id = "fileinput"/></td>
     </tr>    
 </table>
+<div id = "dnascroll">
+    
+</div>
+
 <script>
 servername = "https://raw.githubusercontent.com/LafeLabs/thing/master";
 filename = "index.html";
@@ -46,10 +50,101 @@ document.getElementById("fileinput").onchange = function(){
     redraw();
 }
 
+
+dna = {};
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function(){
+    if (this.readyState == 4 && this.status == 200) {
+        dna = JSON.parse(this.responseText);
+        loaddna();
+    }
+};
+httpc.open("GET", "fileloader.php?filename=data/dna.txt", true);
+httpc.send();
+
+function loaddna(){
+    for(var index = 0;index < dna.html.length;index++){
+        var newdiv = document.createElement("div");
+        newdiv.innerHTML = dna.html[index];
+        newdiv.className = "element";
+        document.getElementById("dnascroll").appendChild(newdiv);
+        newdiv.onclick = function(){
+            filename = this.innerHTML;
+            document.getElementById("fileinput").value = filename;
+            redraw();
+        }
+    }
+    for(var index = 0;index < dna.php.length;index++){
+        var newdiv = document.createElement("div");
+        newdiv.innerHTML = "php/" + dna.php[index];
+        newdiv.className = "element";
+        document.getElementById("dnascroll").appendChild(newdiv);
+        newdiv.onclick = function(){
+            filename = this.innerHTML;
+            document.getElementById("fileinput").value = filename;
+            redraw();
+        }
+    }
+    for(var index = 0;index < dna.data.length;index++){
+        var newdiv = document.createElement("div");
+        newdiv.innerHTML = "data/" + dna.data[index];
+        newdiv.className = "element";
+        document.getElementById("dnascroll").appendChild(newdiv);
+        newdiv.onclick = function(){
+            filename = this.innerHTML;
+            document.getElementById("fileinput").value = filename;
+            redraw();
+        }
+    }
+    for(var index = 0;index < dna.scrolls.length;index++){
+        var newdiv = document.createElement("div");
+        newdiv.innerHTML = "scrolls/" + dna.scrolls[index];
+        newdiv.className = "element";
+        document.getElementById("dnascroll").appendChild(newdiv);
+        newdiv.onclick = function(){
+            filename = this.innerHTML;
+            document.getElementById("fileinput").value = filename;
+            redraw();
+        }
+    }
+
+    for(var index = 0;index < dna.maps.length;index++){
+        var newdiv = document.createElement("div");
+        newdiv.innerHTML = "maps/" + dna.maps[index];
+        newdiv.className = "element";
+        document.getElementById("dnascroll").appendChild(newdiv);
+        newdiv.onclick = function(){
+            filename = this.innerHTML;
+            document.getElementById("fileinput").value = filename;
+            redraw();
+        }
+    }
+
+    
+}
+
 </script>
 <style>
 input{
     width:30em;
+}
+#dnascroll{
+    overflow:scroll;
+    position:absolute;
+    top:50%;
+    bottom:0px;
+    right:0px;
+    left:0px;
+    background-color:#f0f0f0;
+}
+.element{
+    margin-left:1em;
+    margin-top:0.5em;
+    border:solid;
+    cursor:pointer;
+}
+.element:hover{
+    background-color:#00ff0080;
 }
 </style>
 </body>
