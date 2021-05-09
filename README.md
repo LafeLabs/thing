@@ -129,5 +129,8 @@ Here is a guide for the font to use to make these:
 
 ![](https://i.imgur.com/nKHSZxC.jpg)
 
+It is important to also have a bag to carry the Pi in, here is the replicator card for the bag:
+
+![](https://i.imgur.com/63OwKhz.png)
 
 
