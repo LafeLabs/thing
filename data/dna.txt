@@ -304,6 +304,7 @@
         "lasercutshapes",
         "magic.md",
         "maplelawndotnet",
+        "maplelawndotnetpi",
         "maps",
         "maps.md",
         "math.md",
