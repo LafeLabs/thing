@@ -302,6 +302,7 @@
         "install",
         "lasercutshapes",
         "magic.md",
+        "maplelawndotnet",
         "maps",
         "maps.md",
         "math.md",
