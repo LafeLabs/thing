@@ -29,7 +29,7 @@
 </div>
 
 <script>
-servername = "https://raw.githubusercontent.com/LafeLabs/thing/master/README.md";
+servername = "https://pastebin.com/raw/3YyHx10H";
 filename = "README.md";
 redraw();
 function redraw(){
@@ -37,7 +37,8 @@ function redraw(){
     document.getElementById("copylink").innerHTML =  "copy.php?from=" + servername + "&to=" + filename;
 }
 
-document.getElementById("serverurlinput").value = "https://raw.githubusercontent.com/LafeLabs/thing/master/README.md";
+document.getElementById("serverurlinput").value = "";
+document.getElementById("serverurlinput").select();
 
 document.getElementById("fileinput").value = "README.md";
 

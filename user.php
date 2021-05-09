@@ -238,7 +238,7 @@ function loadscroll(scrollname){
 function convertscrollinks(){
     links = document.getElementById("scrollscroll").getElementsByTagName("A");
     for(var index = 0;index < links.length;index++){
-        if(links[index].href.substring(0,8) == "scrolls/" && !links[index].href.includes(".php")){
+        if(links[index].href.includes("scrolls/") && !links[index].href.includes(".php")){
             //console.log(links[index].href);
             var newspan = document.createElement("SPAN");
             newspan.innerHTML = links[index].innerHTML;
@@ -273,7 +273,7 @@ function convertscrollinks(){
                 loadscroll(localscroll);
             }
         }
-        if(links[index].href.substring(0,4) == "map(" && !links[index].href.includes(".php")){
+        if(links[index].href.includes("map(") && !links[index].href.includes(".php")){
             //console.log(links[index].href);
             //link format map(url)
             var newspan = document.createElement("SPAN");
@@ -291,7 +291,7 @@ function convertscrollinks(){
                 loadmap(localscroll);
             }
         }        
-        if(links[index].href.substring(0,5) == "maps/" && !links[index].href.includes(".php")){
+        if(links[index].href.includes("maps/") && !links[index].href.includes(".php") && !links[index].href.includes("https://")){
             //console.log(links[index].href);
             var newspan = document.createElement("SPAN");
             newspan.innerHTML = links[index].innerHTML;

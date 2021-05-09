@@ -1,4 +1,7 @@
+
 ### [copy README.md into scrolls/readme](copy.php?from=README.md&to=scrolls/readme)
+
+### [scrolls/readme](scrolls/readme)
 
 ### [connect to raspberry pi server over wifi](ipaddress.php)
 
