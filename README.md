@@ -22,6 +22,7 @@
  - [icon feed](iconfeed.html)
  - [qrcode links](qrcode.html)
  - [copy files](copy.html)
+ - [pastebin.html](pastebin.html)
  - [github repository](https://github.com/lafelabs/thing/)
  - [editor.php](editor.php)
  - [dna generator](dnagenerator.php)
@@ -122,5 +123,6 @@ Finally, we want to connect the physical space around an area which is refernced
 Here is a guide for the font to use to make these:
 
 ![](https://i.imgur.com/nKHSZxC.jpg)
+
 
 
