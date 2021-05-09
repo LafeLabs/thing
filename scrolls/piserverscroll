@@ -1,0 +1,8 @@
+# Raspberry Pi Server Scroll
+
+ - [scan qrcode of server over wifi](ipaddress.php)
+ - [copy this to README.md](copy.php?from=scrolls/piserverscroll&to=README.md)
+ - [www.maplelawn.net](https://www.maplelawn.net/)
+ - [edit current maplelawn scroll](scrolleditor.php?scroll=https://www.maplelawn.net/README.md)
+ - [copy pastebin onto maplelawn.net main scroll](https://www.maplelawn.net/pastebin.html)
+ - [READ ME](scrolls/readme)
