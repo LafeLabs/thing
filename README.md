@@ -3,14 +3,6 @@
 
 ### [scrolls/readme](scrolls/readme)
 
-### [connect to raspberry pi server over wifi](ipaddress.php)
-
-### [scan qr code of any server](qrcode.html)
-
-[link to remote imported scroll](scrolls/remote)
-
-### [![](iconsymbols/feed.svg)](mainfeed.html)
-
 # The Organic Web
 
 ##  <span style = "color:red">Γ</span><span style = "color:orange">ε</span><span style = "color:yellow">ω</span><span style = "color:green">μ</span><span style = "color:blue">ε</span><span style = "color:purple">τ</span><span style = "color:red">ρ</span><span style = "color:orange">ο</span><span style = "color:yellow">ν</span>
@@ -20,7 +12,8 @@
 ## [Link to Map](maps/home)
 
  - [localhost/](http://localhost/)
- - [link feed](linkfeed.html)
+ - [main feed](mainfeed.html)
+ - [link to remote imported scroll](scrolls/remote)
  - [trash robot printer](scrolls/printer.md)
  - [fork](fork.html)
  - [symbol](symbol.html)

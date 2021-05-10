@@ -1,12 +1,7 @@
+
 ### [copy README.md into scrolls/readme](copy.php?from=README.md&to=scrolls/readme)
 
-### [connect to raspberry pi server over wifi](ipaddress.php)
-
-### [scan qr code of any server](qrcode.html)
-
-[link to remote imported scroll](scrolls/remote)
-
-### [![](iconsymbols/feed.svg)](mainfeed.html)
+### [scrolls/readme](scrolls/readme)
 
 # The Organic Web
 
@@ -17,7 +12,8 @@
 ## [Link to Map](maps/home)
 
  - [localhost/](http://localhost/)
- - [link feed](linkfeed.html)
+ - [main feed](mainfeed.html)
+ - [link to remote imported scroll](scrolls/remote)
  - [trash robot printer](scrolls/printer.md)
  - [fork](fork.html)
  - [symbol](symbol.html)
@@ -126,5 +122,8 @@ Here is a guide for the font to use to make these:
 
 ![](https://i.imgur.com/nKHSZxC.jpg)
 
+It is important to also have a bag to carry the Pi in, here is the replicator card for the bag:
+
+![](https://i.imgur.com/63OwKhz.png)
 
 
