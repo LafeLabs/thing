@@ -1,8 +1,18 @@
 # Raspberry Pi Server Scroll
 
+# The Organic Web
+
+##  <span style = "color:red">Γ</span><span style = "color:orange">ε</span><span style = "color:yellow">ω</span><span style = "color:green">μ</span><span style = "color:blue">ε</span><span style = "color:purple">τ</span><span style = "color:red">ρ</span><span style = "color:orange">ο</span><span style = "color:yellow">ν</span>
+
+## Geometron
+
+![](https://i.imgur.com/4zetaPf.png)
+
  - [scan qrcode of server over wifi](ipaddress.php)
  - [copy this to README.md](copy.php?from=scrolls/piserverscroll&to=README.md)
+ - [copy pastebins to this server](pastebin.html)
  - [www.maplelawn.net](https://www.maplelawn.net/)
  - [edit current maplelawn scroll](scrolleditor.php?scroll=https://www.maplelawn.net/README.md)
  - [copy pastebin onto maplelawn.net main scroll](https://www.maplelawn.net/pastebin.html)
+ - [read about scrolls](scrolls/scrolls.md)
  - [READ ME](scrolls/readme)
