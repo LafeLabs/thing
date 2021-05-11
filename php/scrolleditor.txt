@@ -130,6 +130,15 @@ if(document.getElementById("scrolldiv").innerHTML.length > 0 && document.getElem
             document.getElementById("maintextarea").value = scroll;  
             document.getElementById("currentfilename").innerHTML = currentfile;
             document.getElementById("userlink").href = "user.php?scroll=" + currentfile;
+            
+            data = encodeURIComponent(scroll);
+            var httpc = new XMLHttpRequest();
+            var url = "filesaver.php";        
+            httpc.open("POST", url, true);
+            httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+            httpc.send("data="+data+"&filename=" + currentfile);//send text to filesaver.php
+            
+            
         }
     };
     httpc.open("GET", "fileloader.php?filename=" + fromurl, true);

@@ -10,8 +10,11 @@
 <a href = "index.html">
     <img src  = "iconsymbols/home.svg" alt = "home"/>
 </a>
-<p></p>
-<a id = "editorlink" href = "scrolleditor.php">scrolleditor.php</a>
+<a id = "editorlink" href = "">
+    <img src = "iconsymbols/edit.svg"/>
+</a>
+<p>
+</p>
 <table>
     <tr>
         <td>pastebin address:</td>
@@ -34,7 +37,7 @@ redraw();
 
 function redraw(){
     document.getElementById("editorlink").href = "scrolleditor.php?scroll=scrolls/" + scrollname + "&from=" + url;
-    document.getElementById("editorlink").innerHTML =  "scrolleditor.php?scroll=scrolls/" + scrollname + "&from=" + url;
+    //document.getElementById("editorlink").innerHTML =  "scrolleditor.php?scroll=scrolls/" + scrollname + "&from=" + url;
 }
 
 document.getElementById("urlinput").value = "";
@@ -55,12 +58,16 @@ document.getElementById("scrollinput").onchange = function(){
     scrollname = this.value;;
     filename = "scrolls/" + scrollname;
     redraw();
+    document.getElementById("editorlink").style.display = "block";
 }
 
 </script>
 <style>
 input{
     width:30em;
+}
+#editorlink{
+    display:none;
 }
 </style>
 </body>

@@ -144,6 +144,10 @@ if(document.getElementById("mapdiv").innerHTML.length > 0){
     loadmap(document.getElementById("mapdiv").innerHTML);
 }
 
+if(document.getElementById("mapdiv").innerHTML.length == 0 && document.getElementById("scrolldiv").innerHTML.length == 0){
+    loadscroll("scrolls/home");
+}
+
 ///below this line identical to index.html
 
 ismap = false;
