@@ -20,7 +20,7 @@
         <td><input id = "serverurlinput"/></td>
     </tr>
     <tr>
-        <td>filename(default = README.md):</td>
+        <td>filename(default = scrolls/home):</td>
         <td><input id = "fileinput"/></td>
     </tr>    
 </table>
@@ -30,7 +30,7 @@
 
 <script>
 servername = "https://pastebin.com/raw/3YyHx10H";
-filename = "README.md";
+filename = "scrolls/home";
 redraw();
 function redraw(){
     document.getElementById("copylink").href = "copy.php?from=" + servername + "&to=" + filename;
@@ -40,7 +40,7 @@ function redraw(){
 document.getElementById("serverurlinput").value = "";
 document.getElementById("serverurlinput").select();
 
-document.getElementById("fileinput").value = "README.md";
+document.getElementById("fileinput").value = "scrolls/home";
 
 document.getElementById("serverurlinput").onchange = function(){
     servername = this.value;
