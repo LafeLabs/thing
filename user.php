@@ -51,13 +51,13 @@
     <div id  = "scrollsbox">
         <input id = "scrollinput"/>
         <a id = "scrolleditorlink" href = "scrolleditor.html">
-            <img style = "width:50px;display:block;margin:auto;padding-top:1em" src = "iconsymbols/scroll.svg"/>
+            <img style = "width:50px;display:block;margin:auto;padding-top:1em" src = "iconsymbols/edit.svg"/>
         </a>
     </div>
     <div id  = "mapsbox">
         <input id = "mapinput"/>
         <a href = "mapeditor.html">
-            <img style = "width:50px;display:block;margin:auto;padding-top:1em" src = "iconsymbols/map.svg"/>
+            <img style = "width:50px;display:block;margin:auto;padding-top:1em" src = "iconsymbols/edit.svg"/>
         </a>        
     </div>
 </div>
@@ -134,7 +134,7 @@ converter.setOption('tables', 'true')
     
 mapname = "data/currentMap.txt";
 //loadmap(mapname);
-loadscroll("README.md");
+//loadscroll("README.md");
 
 if(document.getElementById("scrolldiv").innerHTML.length > 0){
     loadscroll(document.getElementById("scrolldiv").innerHTML);
