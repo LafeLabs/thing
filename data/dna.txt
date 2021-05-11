@@ -291,6 +291,7 @@
         "duality",
         "elementsofcode",
         "feeds.md",
+        "foo",
         "fullstack.md",
         "geometron-whitepaper",
         "geometron.md",

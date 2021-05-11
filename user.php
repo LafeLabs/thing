@@ -556,6 +556,9 @@ h1,h2,h3,h4{
     .button{
         font-size:2em;
     }
+    input{
+        display:none;
+    }
 }
 </style>
 </body>

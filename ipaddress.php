@@ -5,6 +5,13 @@
     <script src = "jscode/qrcode.js"></script>
     <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAOADAADv+wAA7/sAAO/7AADv+wAA7/sAAO/7AADv+wAA77sAAO/fAADv7QAA4DUAAP/5AAD/4QAA" rel="icon" type="image/x-icon" />
 </head>
+<a href = "index.html">
+    <img src = "iconsymbols/home.svg" alt = "home"/>
+</a>    
+<a href = "mainfeed.html">
+    <img src = "iconsymbols/feed.svg" alt = "main feed"/>
+</a>    
+
 <h1>IP Address:  
 <span id = "ipaddress"><?php
 $foo =  shell_exec("hostname -I");
@@ -12,6 +19,7 @@ $bar = explode(" ",$foo)[0];
 echo $bar;
 ?></span>
 </h1>
+
 <div id = "qrcode"></div>
 <img id = "transferimage"/>
 <canvas id = "outputcanvas"></canvas>
@@ -28,12 +36,6 @@ echo $bar;
         </td>
     </tr>
 </table>
-<p>
-<a href = "index.html">home</a>    
-</p>
-<p>
-<a href = "mainfeed.html">main feed</a>    
-</p>
 <script>
 
 img = document.getElementById("transferimage");
