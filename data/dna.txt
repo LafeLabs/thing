@@ -261,6 +261,7 @@
         "board",
         "copy",
         "feeds",
+        "flag",
         "home",
         "maplelawndotnet",
         "maps",
@@ -358,6 +359,7 @@
         "symbols.md",
         "terminal.md",
         "textile.md",
+        "things",
         "trashrobot",
         "trashrobotdotorg",
         "trashrobotset.md"

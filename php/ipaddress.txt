@@ -121,7 +121,7 @@ document.getElementById("transferimage").onload = function(){
 
 document.getElementById("savebutton").onclick = function(){
 
-    document.getElementById("transferimage").src = document.getElementsByTagName("IMG")[0].src;
+    document.getElementById("transferimage").src = document.getElementsByTagName("IMG")[2].src;
     
 
 }
