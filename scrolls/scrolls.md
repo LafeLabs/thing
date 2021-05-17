@@ -9,6 +9,8 @@
  - [copy scrolls](copy.html)
  - [delete scrolls](scrolldelete.html)
  - [textconvert.html](textconvert.html)
+ - [texeditor.html](texeditor.html)
+ - [copytex.html](copytex.html)
 
 Scrolls are the text documents of the Organic Web.  The are formatted in Markdown.  
 
