@@ -8,6 +8,7 @@
  - [math scroll](mathuser.php?scroll=scrolls/math.md)
  - [copy scrolls](copy.html)
  - [delete scrolls](scrolldelete.html)
+ - [textconvert.html](textconvert.html)
 
 Scrolls are the text documents of the Organic Web.  The are formatted in Markdown.  
 
