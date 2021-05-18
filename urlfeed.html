@@ -62,9 +62,8 @@ var httpc = new XMLHttpRequest();
         redraw();
     }
 };
-httpc.open("GET", "fileloader.php?filename=data/chaosfeed.txt", true);
+httpc.open("GET", "fileloader.php?filename=data/urlfeed.txt", true);
 httpc.send();
-
 
 
 text = "";
@@ -80,21 +79,21 @@ document.getElementById("textinput").onchange = function(){
             document.getElementById("textinput").value = "";    
         }
     };
-    httpc.open("GET", "fileloader.php?filename=data/chaosfeed.txt", true);
+    httpc.open("GET", "fileloader.php?filename=data/urlfeed.txt", true);
     httpc.send();   
 }
-
-
 
 function savejson(){
     var url = "filesaver.php";        
     var httpc2 = new XMLHttpRequest();
     httpc2.open("POST", url, true);
     httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc2.send("data="+encodeURIComponent(JSON.stringify(feed,null,"    "))+"&filename=data/chaosfeed.txt");//send text to filesaver.php
+    httpc2.send("data="+encodeURIComponent(JSON.stringify(feed,null,"    "))+"&filename=data/urlfeed.txt");//send text to filesaver.php
 }
 
 boxindex = 0;
+
+
 
 function redraw(){
     document.getElementById("feed").innerHTML = "";
@@ -109,15 +108,17 @@ function redraw(){
         newbox.appendChild(deletebutton);
         deletebutton.onclick = function(){
             boxindex = parseInt(this.parentElement.id.substring(3));
-            deletetext();
+                deletetext();
         }
-        var textspan = document.createElement("span");
+        var textspan = document.createElement("a");
         textspan.className = "textspan";
         textspan.innerHTML = feed[index];
+        textspan.href = feed[index];
         newbox.appendChild(textspan);
     }
     document.getElementById("textinput").select();
 }
+
 
 oldfeed =[];
 function deletetext(){
@@ -137,26 +138,24 @@ function deletetext(){
             savejson();
         }
     };
-    httpc.open("GET", "fileloader.php?filename=data/chaosfeed.txt", true);
+    httpc.open("GET", "fileloader.php?filename=data/urlfeed.txt", true);
     httpc.send();            
 }
 
 function loadfeed(){
-        var httpc = new XMLHttpRequest();
-        httpc.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                feed = JSON.parse(this.responseText);
-                redraw();
-            }
-        };
-        httpc.open("GET", "fileloader.php?filename=data/chaosfeed.txt", true);
-        httpc.send();            
-
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            feed = JSON.parse(this.responseText);
+            redraw();
+        }
+    };
+    httpc.open("GET", "fileloader.php?filename=data/urlfeed.txt", true);
+    httpc.send();            
 }
 
 resetfeed = [
-    "Chaos Feed!! Type in box and hit enter to post. Red x's delete.💥 button resets feed.  Let the chaos ensue. 🔄 or enter refreshes feed to see what other people have posted.",
-    "<a href = \"index.html\">home</a>"
+    "index.html"
 ];
 
 document.getElementById("nuke").onclick = function(){

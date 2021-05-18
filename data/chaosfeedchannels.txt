@@ -11,6 +11,8 @@
         "second post"
     ],
     "secret": [
+        "@foo",
+        "@foo",
         "secret post one",
         "another secret post"
     ]

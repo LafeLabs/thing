@@ -82,6 +82,7 @@
         "three.html",
         "threejs.html",
         "traceicon.html",
+        "urlfeed.html",
         "voxel.html",
         "wall.html"
     ],
@@ -232,6 +233,7 @@
         "textfeed.txt",
         "token.txt",
         "trace.txt",
+        "urlfeed.txt",
         "wall.txt"
     ],
     "php": [
