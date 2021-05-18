@@ -2,9 +2,7 @@
 
 ### [scrolls/readme](scrolls/readme)
 
-# The Organic Web
-
-##  <span style = "color:red">Γ</span><span style = "color:orange">ε</span><span style = "color:yellow">ω</span><span style = "color:green">μ</span><span style = "color:blue">ε</span><span style = "color:purple">τ</span><span style = "color:red">ρ</span><span style = "color:orange">ο</span><span style = "color:yellow">ν</span>
+#  <span style = "color:red">Γ</span><span style = "color:orange">ε</span><span style = "color:yellow">ω</span><span style = "color:green">μ</span><span style = "color:blue">ε</span><span style = "color:purple">τ</span><span style = "color:red">ρ</span><span style = "color:orange">ο</span><span style = "color:yellow">ν</span>
 
 ## Geometron
 
@@ -20,6 +18,7 @@
  - [qrcode links](qrcode.html)
  - [copy files](copy.html)
  - [pastebin.html](pastebin.html)
+ - [pastescroll.html](pastescroll.html)
  - [github repository](https://github.com/lafelabs/thing/)
  - [editor.php](editor.php)
  - [dna generator](dnagenerator.php)
