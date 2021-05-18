@@ -5,6 +5,10 @@
  - [go to math map](mathuser.php?map=maps/math)
  - [copy maps](copy.html)
  - [delete maps](mapdelete.html)
+ - [canvas2png.html](canvas2png.html)
+ - [globalimagefeed.html](globalimagefeed.html)
+ - [localimagefeed.html](localimagefeed.html)
+ - [textfeed.html](textfeed.html)
 
 # Maps
 

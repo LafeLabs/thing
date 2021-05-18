@@ -6,6 +6,7 @@
  - [local image feed](localimagefeed.html)
  - [global image feed](globalimagefeed.html)
  - [text feed](textfeed.html)
+ - [url feed](urlfeed.html)
  - [link feed](linkfeed.html)
  - [chaos feed](chaosfeed.html)
  - [exchange icons in Icon Feed](iconfeed.html)
