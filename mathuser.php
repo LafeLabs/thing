@@ -18,20 +18,6 @@
     -->
     <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAP//AP///wANAP8A5Dz6ABueRwAAt/8A6BonABo86AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAREREREREREREREAAAEREREREQCIgREREd3dwAAB3d3d3d3d3d3d3d3d3d3d3d3d3VVVVVVVQAFVVAAVVVQIiBRAiIBEQIAIBECAAERAgAgFgIABmYCIiBmAiIGZgIiIGYCIgZmYCIAaIAAMzMzAAiIiIiIiIiIiIiIiIiIiIiIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
 
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script>
-            MathJax.Hub.Config({
-                tex2jax: {
-                inlineMath: [['$','$'], ['\\(','\\)']],
-                processEscapes: true,
-                processClass: "mathjax",
-                ignoreClass: "no-mathjax"
-                }
-            });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
-        </script>
-
-
     <!--Stop Google:-->
     <META NAME="robots" CONTENT="noindex,nofollow">
 
@@ -50,13 +36,29 @@
                 }
             });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
         </script>
-    
+
 </head>
 <body>    
 <div id = "scrollscroll"></div>
 <div id = "mainmap"></div>
-<input id = "mapinput"/>
-<div id = "modebutton" class = "button">LIGHT/DARK</div>
+<div id = "modebutton" class = "button">LIGHT<br>DARK</div>
+<div id = "hidebutton" class = "button"><span id  = "hideshow">SHOW</span><br>MENU</div>
+<div id = "margin">
+    <div id = "marginbutton">⇳⇳⇳⇳⇳⇳⇳⇳⇳⇳⇳</div>
+    <div id  = "scrollsbox">
+        <input id = "scrollinput"/>
+        <a id = "scrolleditorlink" href = "scrolleditor.html">
+            <img style = "width:50px;display:block;margin:auto;padding-top:1em" src = "iconsymbols/edit.svg"/>
+        </a>
+    </div>
+    <div id  = "mapsbox">
+        <input id = "mapinput"/>
+        <a id = "mapeditorlink" href = "mapeditor.html">
+            <img style = "width:50px;display:block;margin:auto;padding-top:1em" src = "iconsymbols/edit.svg"/>
+        </a>        
+    </div>
+</div>
+
 <div class = "data" id = "mapdiv"><?php
     
 if(isset($_GET["map"])){
@@ -71,30 +73,49 @@ if(isset($_GET["scroll"])){
 }
 
 ?></div>
-
 <script>
 
 mode = "dark";
 //mode = "light";
 
 
-
 if(innerWidth > innerHeight){
+    menuhide = false;
     mainmap = new Map(innerHeight,innerHeight,document.getElementById("mainmap"));
 
+    document.getElementById("margin").style.left = (innerHeight).toString() + "px";
     document.getElementById("scrollscroll").style.width = (innerHeight- 25).toString() + "px";
     document.getElementById("scrollscroll").style.height = innerHeight.toString() + "px";    
-    document.getElementById("mapinput").select();
-    document.getElementById("mapinput").style.width = (innerWidth - innerHeight - 50).toString() + "px";
-    
+
 }
 else{
+    menuhide = true;
     document.getElementById("scrollscroll").style.width = innerWidth.toString() + "px";
-    document.getElementById("scrollscroll").style.height = (innerHeight - 100).toString() + "px";        
     mainmap = new Map(innerWidth,innerWidth,document.getElementById("mainmap"));    
-
-    document.getElementById("mapinput").style.width = (innerWidth - 20).toString() + "px";
+    document.getElementById("scrollscroll").style.height = (innerHeight - 100).toString() + "px";        
+    document.getElementById("margin").style.display = "none";
+    document.getElementById("margin").style.height = (innerHeight - innerWidth - 150).toString() + "px";
+    document.getElementById("margin").style.bottom = "0px";
     
+}
+
+
+document.getElementById("hidebutton").onclick = function(){
+    menuhide = !menuhide;
+    if(menuhide){
+        document.getElementById("hideshow").innerHTML = "SHOW";
+        document.getElementById("margin").style.display = "none";
+        if(innerHeight > innerWidth){
+            document.getElementById("scrollscroll").style.height = (innerHeight - 100).toString() + "px";        
+        }
+    }
+    else{
+        document.getElementById("hideshow").innerHTML = "HIDE";
+        document.getElementById("margin").style.display = "block";
+        if(innerHeight > innerWidth){
+            document.getElementById("scrollscroll").style.height = (innerWidth + 150).toString() + "px";        
+        }
+    }
 }
 
 
@@ -108,10 +129,9 @@ var converter = new showdown.Converter();
 converter.setOption('literalMidWordUnderscores', 'true');
 converter.setOption('tables', 'true')
     
-mapname = "maps/home";
-//loadmap(mapname);m
-loadscroll("README.md");
-
+mapname = "data/currentMap.txt";
+//loadmap(mapname);
+//loadscroll("README.md");
 
 if(document.getElementById("scrolldiv").innerHTML.length > 0){
     loadscroll(document.getElementById("scrolldiv").innerHTML);
@@ -121,10 +141,28 @@ if(document.getElementById("mapdiv").innerHTML.length > 0){
     loadmap(document.getElementById("mapdiv").innerHTML);
 }
 
+if(document.getElementById("mapdiv").innerHTML.length == 0 && document.getElementById("scrolldiv").innerHTML.length == 0){
+    loadscroll("scrolls/home");
+}
+
+///below this line identical to index.html
+
+ismap = false;
+localfile = true;
+
 function loadmap(mapname){
+    ismap = true;
+    filename = mapname;
+    if(filename.substring(0,5) == "maps/"){
+        localfile = true;
+    }
+    else{
+        localfile = false;
+    }
+    
     document.getElementById("scrollscroll").style.display = "none";
     document.getElementById("mainmap").style.display = "block";
-        
+    document.getElementById("mapeditorlink").href = "mapeditor.php?map=" + filename;        
     var httpc = new XMLHttpRequest();
     httpc.onreadystatechange = function(){
         if (this.readyState == 4 && this.status == 200) {
@@ -137,7 +175,7 @@ function loadmap(mapname){
             }
             
             mainmap.draw();
-            //			MathJax.Hub.Typeset();//tell Mathjax to update the math
+            MathJax.Hub.Typeset();//tell Mathjax to update the math
             for(var index = 0;index < mainmap.linkArray.length;index++){
                 if(mainmap.array[index].maplinkmode == true){
                     
@@ -148,37 +186,36 @@ function loadmap(mapname){
                             var localscroll = "scrolls/" + localmap.split("scrolls/")[1];
                             loadscroll(localscroll);
                         }
-                        else{
-                            loadmap(this.getElementsByClassName("maplink")[0].innerHTML);                              
+                        if(localmap.includes("scroll(")){
+                            var localscroll = localmap.split("scroll(")[1].split(")")[0];
+                            loadscroll(localscroll);
+                        }
+                        if(!localmap.includes("scroll(") && !localmap.includes("scrolls/")){
+                            loadmap(this.getElementsByClassName("maplink")[0].innerHTML);                                
                         }
 
                     }
                 }
             }
-            document.getElementById("mapinput").value = "";
-            MathJax.Hub.Typeset();//tell Mathjax to update the math
+
         }
     };
     httpc.open("GET", "fileloader.php?filename=" + mapname, true);
     httpc.send();
 }
 
-document.getElementById("mapinput").value = "";
-document.getElementById("mapinput").onchange = function(){
-  var mapname = this.value;
-  if(mapname.includes("/") == false){
-      mapname = "maps/" + mapname;
-  }
-  if(mapname.includes("scrolls/")){
-      loadscroll(mapname);
-  }
-  else{
-      loadmap(mapname);   
-  }
-}
-
 
 function loadscroll(scrollname){
+    ismap = false;
+    filename = scrollname;
+    if(filename.substring(0,8) == "scrolls/" || filename == "README.md"){
+        localfile = true;
+    }
+    else{
+        localfile = false;
+    }
+    document.getElementById("scrolleditorlink").href = "scrolleditor.php?scroll=" + filename;
+
     document.getElementById("scrollscroll").innerHTML = "";
     document.getElementById("scrollscroll").style.display = "block";
     document.getElementById("mainmap").style.display = "none";
@@ -189,10 +226,7 @@ function loadscroll(scrollname){
             rawhtml = converter.makeHtml(scroll);
             document.getElementById("scrollscroll").innerHTML = rawhtml;
             convertscrollinks();
-            //			MathJax.Hub.Typeset();//tell Mathjax to update the math
-            MathJax.Hub.Typeset();//tell Mathjax to update the math        
-            document.getElementById("mapinput").value = "";
-    //			MathJax.Hub.Typeset();//tell Mathjax to update the math
+            MathJax.Hub.Typeset();//tell Mathjax to update the math
         }
     };
     httpc666.open("GET", "fileloader.php?filename=" + scrollname, true);
@@ -221,7 +255,43 @@ function convertscrollinks(){
                 loadscroll(localscroll);
             }
         }
-        if(links[index].href.includes("maps/") && !links[index].href.includes(".php")){
+        if(links[index].href.includes("scroll(") && !links[index].href.includes(".php")){
+            //link format scroll(any url)
+            //console.log(links[index].href);
+            var newspan = document.createElement("SPAN");
+            newspan.innerHTML = links[index].innerHTML;
+            var dataspan = document.createElement("SPAN");
+            dataspan.className = "data";
+            dataspan.innerHTML  = links[index].href.split("scroll(")[1].split(")")[0];
+            newspan.appendChild(dataspan);
+            newspan.className = "scrolllink";
+            links[index].parentNode.insertBefore(newspan,links[index]);
+            links[index].style.display = "none";
+            
+            newspan.onclick = function(){
+                var localscroll = this.getElementsByClassName("data")[0].innerHTML;
+                loadscroll(localscroll);
+            }
+        }
+        if(links[index].href.includes("map(") && !links[index].href.includes(".php")){
+            //console.log(links[index].href);
+            //link format map(url)
+            var newspan = document.createElement("SPAN");
+            newspan.innerHTML = links[index].innerHTML;
+            var dataspan = document.createElement("SPAN");
+            dataspan.className = "data";
+            dataspan.innerHTML  = links[index].href.split("map(")[1].split(")")[0];            
+            newspan.appendChild(dataspan);
+            newspan.className = "scrolllink";
+            links[index].parentNode.insertBefore(newspan,links[index]);
+            links[index].style.display = "none";
+            
+            newspan.onclick = function(){
+                var localscroll = this.getElementsByClassName("data")[0].innerHTML;
+                loadmap(localscroll);
+            }
+        }        
+        if(links[index].href.includes("maps/") && !links[index].href.includes(".php") && !links[index].href.includes("https://")){
             //console.log(links[index].href);
             var newspan = document.createElement("SPAN");
             newspan.innerHTML = links[index].innerHTML;
@@ -245,6 +315,7 @@ document.getElementById("modebutton").onclick = function(){
     modeswitch();
 }
 
+modeswitch();
 function modeswitch(){
     if(mode == "dark"){
         mode = "light";
@@ -252,7 +323,16 @@ function modeswitch(){
         mainmap.linkColor = "blue";
         mainmap.textColor = "black";
         document.getElementById("scrollscroll").style.backgroundColor = "white";
-        document.getElementById("scrollscroll").style.color = "black";    
+        document.getElementById("scrollscroll").style.color = "black";
+        document.getElementById("mapinput").style.color = "black";
+        document.getElementById("mapinput").style.backgroundColor = "white";
+        document.getElementById("scrollinput").style.color = "black";
+        document.getElementById("scrollinput").style.backgroundColor = "white";       
+        
+        document.getElementById("mapsbox").style.backgroundColor = "#ffd0d0";
+        document.getElementById("mapsbox").style.color = "black";    
+        document.getElementById("scrollsbox").style.backgroundColor = "#e0e0ff";
+        document.getElementById("scrollsbox").style.color = "black";        
     }
     else{
         mode = "dark";
@@ -260,9 +340,76 @@ function modeswitch(){
         mainmap.textColor = "#00ff00";
         mainmap.linkColor = "#ff2cb4";
         document.getElementById("scrollscroll").style.backgroundColor = "black";
-        document.getElementById("scrollscroll").style.color = "#00ff00";        
+        document.getElementById("scrollscroll").style.color = "#00ff00";    
+        document.getElementById("mapinput").style.color = "#ff2cb4";
+        document.getElementById("mapinput").style.backgroundColor = "black";
+        document.getElementById("scrollinput").style.color = "#ff2cb4";
+        document.getElementById("scrollinput").style.backgroundColor = "black";              
+        document.getElementById("mapsbox").style.backgroundColor = "#602020";
+        document.getElementById("mapsbox").style.color = "#00ff00";  
+        document.getElementById("scrollsbox").style.backgroundColor = "#202060";
+        document.getElementById("scrollsbox").style.color = "#00ff00";          
+                
+
     }
 }
+
+
+maps = [];
+var httpc8 = new XMLHttpRequest();
+httpc8.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        maps = JSON.parse(this.responseText);
+        for(var index = 0;index < maps.length;index++) {
+            var newmapbutton = document.createElement("P");
+            newmapbutton.className = "boxlink";
+            newmapbutton.innerHTML = "maps/" + maps[index];
+            document.getElementById("mapsbox").appendChild(newmapbutton);
+            newmapbutton.onclick = function(){
+                currentFile = this.innerHTML;
+                loadmap(currentFile);
+            }
+        }
+    };
+}
+
+httpc8.open("GET", "dir.php?filename=maps", true);
+httpc8.send();
+
+
+scrolls = [];
+var httpc9 = new XMLHttpRequest();
+httpc9.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        scrolls = JSON.parse(this.responseText);
+        for(var index = 0;index < scrolls.length;index++) {
+            var newscrollbutton = document.createElement("P");
+            newscrollbutton.className = "boxlink";
+            newscrollbutton.innerHTML = "scrolls/" + scrolls[index];
+            document.getElementById("scrollsbox").appendChild(newscrollbutton);
+            newscrollbutton.onclick = function(){
+                currentFile = this.innerHTML;
+                loadscroll(currentFile);
+            }
+        }
+    };
+}
+
+httpc9.open("GET", "dir.php?filename=scrolls", true);
+httpc9.send();
+
+document.getElementById("scrollinput").value = "";
+document.getElementById("mapinput").value = "";
+
+document.getElementById("scrollinput").onchange = function(){
+    loadscroll(this.value);
+    this.value = "";
+}
+document.getElementById("mapinput").onchange = function(){
+    loadmap(this.value);
+    this.value = "";
+}
+
 </script>
 <style>
 body{
@@ -270,20 +417,24 @@ body{
     background-color:black
 }
 input{
-    width:50%;
+    display:block;
+    margin:auto;
+    width:90%;
     font-family:courier;
-    font-size:1.5em;
-    background-color:black;
-    color:#ff2cb4;
+    font-size:1.2em;
+    background-color:white;
+    color:black;
     border-color:#ff2cb4;
     border-width:8px;
 }
-#mapinput{
-    position:absolute;
-    z-index:3;
-    bottom:50px;
-    right:0px;
+.boxlink{
+    padding-left:1em;
+    cursor:pointer;
 }
+.boxlink:hover{
+    background-color:#808080;
+}
+
 .scrolllink{
     color:#ff2cb4;
     cursor:pointer;
@@ -321,7 +472,7 @@ input{
     max-width:50%;
     display:block;
     margin:auto;
-    background-color:#808080;
+    background-color:none;
 }
 .data{
     display:none;
@@ -338,16 +489,59 @@ h1,h2,h3,h4{
     border-radius:5px;
     text-align:center;
 }
-#modebutton:hover{
+#hidebutton{
+    position:absolute;
+    background-color:white;
+    color:black;
+    cursor:pointer;
+    border:solid;
+    border-radius:5px;
+    text-align:center;
+}
+.button:hover{
     background-color:green;
 }
-#modebutton:active{
+.button:active{
     background-color:yellow;
 }
+#margin{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    z-index:-1;
+    overflow:hidden;
+    background:#404040;
+    font-size:1.2em;
+}
+#scrollsbox{
+    position:absolute;
+    left:0px;
+    top:0px;
+    bottom:0px;
+    right:50%;
+    background-color:#e0e0ff;
+    overflow:scroll;
+}
+#mapsbox{
+    position:absolute;
+    left:50%;
+    top:0px;
+    bottom:0px;
+    right:0px;
+    background-color:#ffd0d0;
+    overflow:scroll;
+}
+
 @media only screen and (orientation: landscape) {
+    #margin{
+        top:0px;
+    }
     #modebutton{
         right:5px;
         top:5px;
+    }
+    #hidebutton{
+        display:none;
     }
 }
 
@@ -355,6 +549,23 @@ h1,h2,h3,h4{
     #modebutton{
         right:0px;
         bottom:0px;
+    }
+    #margin{
+        bottom:0px;
+        left:0px;
+    }
+    #margin img{
+        width:50px;
+    }
+    #hidebutton{
+        left:0px;
+        bottom:0px;
+    }
+    .button{
+        font-size:2em;
+    }
+    input{
+        display:none;
     }
 }
 </style>

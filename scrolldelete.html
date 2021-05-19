@@ -44,11 +44,14 @@ var httpc2 = new XMLHttpRequest();
     if (this.readyState == 4 && this.status == 200) {
         scrolls = JSON.parse(this.responseText);
         for(var index = 0;index < scrolls.length;index++) {
-            var newspan = document.createElement("SPAN");
-            newspan.innerHTML = "scrolls/" + scrolls[index];
-            var newli = document.createElement("LI");
-            newli.appendChild(newspan);
-            document.getElementById("mainlist").appendChild(newli);
+            if(scrolls[index] != "home"){
+                var newspan = document.createElement("SPAN");
+                newspan.innerHTML = "scrolls/" + scrolls[index];
+                var newli = document.createElement("LI");
+                newli.appendChild(newspan);
+                document.getElementById("mainlist").appendChild(newli);
+            
+            }
         }
         addDeleteButtons();
     }

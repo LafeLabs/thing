@@ -1,3 +1,5 @@
+[mathuser.php?scroll=scrolls/math.md](mathuser.php?scroll=scrolls/math.md)
+
 [back to normal user home screen](index.html)
 
 [link to math map editor](mathmapeditor.html)
