@@ -204,8 +204,18 @@ document.getElementById("maplinkmodebutton").onclick = function(){
     
 }
 
+
+
+remotefile = "";
 if(document.getElementById("mapdiv").innerHTML.length > 0){
-    currentFile = document.getElementById("mapdiv").innerHTML;
+    mapdiv = document.getElementById("mapdiv").innerHTML;
+    if(mapdiv.substring(0,5) == "maps/"){
+        currentFile = document.getElementById("mapdiv").innerHTML;
+    }
+    else{
+        remotefile = document.getElementById("mapdiv").innerHTML;
+        currentFile = "maps/remote";
+    }
 }
 else{
     currentFile = "maps/home";
@@ -286,7 +296,15 @@ var httpc2 = new XMLHttpRequest();
         
     }
 };
-httpc2.open("GET", "fileloader.php?filename=" + currentFile, true);
+
+if(remotefile.length > 0){
+    httpc2.open("GET", "fileloader.php?filename=" + remotefile, true);
+}
+else{
+    httpc2.open("GET", "fileloader.php?filename=" + currentFile, true);
+    
+}
+
 httpc2.send();
 
 

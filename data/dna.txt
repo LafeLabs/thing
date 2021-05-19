@@ -275,6 +275,7 @@
         "math",
         "printer",
         "random",
+        "remote",
         "robot",
         "ruler",
         "scrolls",

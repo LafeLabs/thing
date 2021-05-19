@@ -331,7 +331,12 @@ function modeswitch(){
         document.getElementById("mapinput").style.color = "black";
         document.getElementById("mapinput").style.backgroundColor = "white";
         document.getElementById("scrollinput").style.color = "black";
-        document.getElementById("scrollinput").style.backgroundColor = "white";        
+        document.getElementById("scrollinput").style.backgroundColor = "white";       
+        
+        document.getElementById("mapsbox").style.backgroundColor = "#ffd0d0";
+        document.getElementById("mapsbox").style.color = "black";    
+        document.getElementById("scrollsbox").style.backgroundColor = "#e0e0ff";
+        document.getElementById("scrollsbox").style.color = "black";        
     }
     else{
         mode = "dark";
@@ -344,8 +349,15 @@ function modeswitch(){
         document.getElementById("mapinput").style.backgroundColor = "black";
         document.getElementById("scrollinput").style.color = "#ff2cb4";
         document.getElementById("scrollinput").style.backgroundColor = "black";              
+        document.getElementById("mapsbox").style.backgroundColor = "#602020";
+        document.getElementById("mapsbox").style.color = "#00ff00";  
+        document.getElementById("scrollsbox").style.backgroundColor = "#202060";
+        document.getElementById("scrollsbox").style.color = "#00ff00";          
+                
+
     }
 }
+
 
 maps = [];
 var httpc8 = new XMLHttpRequest();
