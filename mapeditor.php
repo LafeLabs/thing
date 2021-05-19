@@ -176,7 +176,13 @@
         <img src = "iconsymbols/rotate.svg" id = "rotatebar"/>
     </div>
 </div>
-<div id = "mapdiv" class= "datadiv"></div>
+<div id = "mapdiv" class= "datadiv"><?php
+
+if(isset($_GET["map"])){
+    echo $_GET["map"];
+}
+
+?></div>
 <script>
 document.getElementById("maplinkmodebutton").onclick = function(){
     var oldstate = false;

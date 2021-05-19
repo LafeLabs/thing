@@ -56,7 +56,7 @@
     </div>
     <div id  = "mapsbox">
         <input id = "mapinput"/>
-        <a href = "mapeditor.html">
+        <a id = "mapeditorlink" href = "mapeditor.html">
             <img style = "width:50px;display:block;margin:auto;padding-top:1em" src = "iconsymbols/edit.svg"/>
         </a>        
     </div>
@@ -165,7 +165,7 @@ function loadmap(mapname){
     
     document.getElementById("scrollscroll").style.display = "none";
     document.getElementById("mainmap").style.display = "block";
-        
+    document.getElementById("mapeditorlink").href = "mapeditor.php?map=" + filename;        
     var httpc = new XMLHttpRequest();
     httpc.onreadystatechange = function(){
         if (this.readyState == 4 && this.status == 200) {
