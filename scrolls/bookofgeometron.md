@@ -7,9 +7,9 @@
  1. [Civilizations](scrolls/civilizations.md)
  2. [Organic Media](scrolls/organicmedia.md)
  3. [The Street Network](scrolls/streetnetwork.md)
- 4. Servers
- 5. Scrolls
- 6. Feeds
+ 4. [Servers](scrolls/servers.md)
+ 5. [Scrolls](scrolls/scrolls.md)
+ 6. [Feeds](scrolls/feeds.md)
  7. Maps
  8. Symbols
  9. Web Graphics with Geometron
