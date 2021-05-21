@@ -11,24 +11,24 @@
         "maplinkmode": false
     },
     {
-        "x": 0.026252983293556086,
-        "y": 0.031026252983293555,
+        "x": 0.032219570405727926,
+        "y": 0.007159904534606206,
         "w": 0.545346062052506,
-        "h": 0.1524609843937575,
+        "h": 0.1515513126491647,
         "angle": 0,
-        "text": "link to math scroll",
-        "href": "scrolls/math.md",
+        "text": "math map user",
+        "href": "mathuser.php?map=maps/math",
         "src": "",
-        "maplinkmode": true
+        "maplinkmode": false
     },
     {
         "x": 0.00954653937947494,
         "y": 0.8735083532219571,
         "w": 0.545346062052506,
-        "h": 0.1524609843937575,
+        "h": 0.1515513126491647,
         "angle": 0,
         "text": "link to math map editor",
-        "href": "mathmapeditor.html",
+        "href": "mathmapeditor.php?map=maps/math",
         "src": "",
         "maplinkmode": false
     },
@@ -55,23 +55,23 @@
         "maplinkmode": false
     },
     {
-        "x": 0.5704057279236276,
-        "y": 0.9152744630071599,
+        "x": 0.6062052505966588,
+        "y": 0.9272076372315036,
         "w": 0.545346062052506,
-        "h": 0.15130023640661938,
+        "h": 0.1515513126491647,
         "angle": 0,
-        "text": "link to math user",
-        "href": "mathuser.html",
+        "text": "math scroll user",
+        "href": "mathuser.php?scroll=scrolls/math.md",
         "src": "",
         "maplinkmode": false
     },
     {
-        "x": 0.021479713603818614,
-        "y": 0.6241050119331742,
+        "x": 0.8544152744630071,
+        "y": -0.0011933174224343676,
         "w": 0.4212410501193317,
-        "h": 0.027446300715990454,
+        "h": 0.05608591885441527,
         "angle": 0,
-        "text": "normal user home screen",
+        "text": "home",
         "href": "index.html",
         "src": "",
         "maplinkmode": false

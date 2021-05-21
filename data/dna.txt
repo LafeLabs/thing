@@ -264,24 +264,13 @@
         "user.txt"
     ],
     "maps": [
-        "alchemy",
         "flag",
-        "foo",
         "home",
-        "maplelawndotnet",
         "math",
         "printer",
-        "random",
-        "remote",
-        "robot",
         "ruler",
-        "scrolls",
-        "set",
         "shapes",
         "shield",
-        "symbols",
-        "terminal",
-        "tools",
         "workflow"
     ],
     "scrolls": [
