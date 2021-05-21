@@ -162,7 +162,7 @@ function loadmap(mapname){
     
     document.getElementById("scrollscroll").style.display = "none";
     document.getElementById("mainmap").style.display = "block";
-    document.getElementById("mapeditorlink").href = "mapeditor.php?map=" + filename;        
+    document.getElementById("mapeditorlink").href = "mathmapeditor.php?map=" + filename;        
     var httpc = new XMLHttpRequest();
     httpc.onreadystatechange = function(){
         if (this.readyState == 4 && this.status == 200) {
