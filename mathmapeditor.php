@@ -243,7 +243,7 @@ else{
     document.getElementById("margin").style.width = innerWidth.toString() + "px";
     document.getElementById("margin").style.height = marginWidth.toString() + "px";    
     
-    document.getElementById("inputtable").style.display = "none";
+ //   document.getElementById("inputtable").style.display = "none";
     
     document.getElementById("rotatezoombox").style.height = (marginWidth/4).toString() + "px";
 
@@ -809,6 +809,12 @@ document.getElementById("hmodebutton").onclick = function(){
 
 </script>
 <style>
+#textio{
+    background-color:#ffa0a080;
+    width:90%;
+    height:20em;
+}
+
 #iotable .button{
     border:solid;
     border-radius:5px;
