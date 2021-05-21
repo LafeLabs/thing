@@ -1,5 +1,23 @@
 [Book of Geometron](scrolls/bookofgeometron.md)
 
+ - [general file copy tool](copy.html)
+ - [local image feed](localimagefeed.html)
+ - [global image feed](globalimagefeed.html)
+ - [text feed](textfeed.html)
+ - [canvas2png.html](canvas2png.html)
+ - [mainfeed.html](mainfeed.html)
+ - [url feed](urlfeed.html)
+ - [link feed](linkfeed.html)
+ - [chaos feed](chaosfeed.html)
+ - [exchange icons in Icon Feed](iconfeed.html)
+ - [3d print icons](icon3d.html)
+ - [Laser cut stencils of icons](lasericon.html)
+ - [inject base 64 icons into textfeed](icon64.html)
+ - [Print icon in clay with clay Trash Robot](programarduino.html)
+ - [Print icon in plastic bottle cap with XYZ Trash Robot](programarduinoxyz.html)
+ - [symbol feed](symbol.feed.html)
+ - [wall](wall.html)
+
 # Chapter 6: Feeds
 
 A Feed is an ordered list of pieces of information. This structure of

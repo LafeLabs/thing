@@ -10,7 +10,7 @@
  4. [Servers](scrolls/servers.md)
  5. [Scrolls](scrolls/scrolls.md)
  6. [Feeds](scrolls/feeds.md)
- 7. Maps
+ 7. [Maps](scrolls/maps.md)
  8. Symbols
  9. Web Graphics with Geometron
  10. Shapes and Fonts
