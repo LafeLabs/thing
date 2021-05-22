@@ -11,7 +11,7 @@
  5. [Scrolls](scrolls/scrolls.md)
  6. [Feeds](scrolls/feeds.md)
  7. [Maps](scrolls/maps.md)
- 8. Symbols
+ 8. [Symbols](scrolls/symbols.md)
  9. Web Graphics with Geometron
  10. Shapes and Fonts
  11. Action Geometry
