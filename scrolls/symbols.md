@@ -120,7 +120,7 @@ using more of the actions of Geometron: drawing line segments, rotating
 by discrete angles, scaling the unit down and back up and so on.
 
 ![Vesica piscis, or “fish bladder” spelled out with Geometron symbol
-glyphs.](https://i.imgur.com/yygkwvS.png)
+glyphs.](https://i.imgur.com/OEcm1UD.png)
 
 Another central organizing principle of Geometron is that there are
 special symmetries and scales that are intrinsic to the Universe which
@@ -234,7 +234,7 @@ symbols.
 
 ![Symbols for the layers have little line segments to denote the layer
 number, and show the line width, fill colors and stroke colors in the
-border and fill of squares.](figures/symbol/colors.png){width="3in"}
+border and fill of squares.](https://i.imgur.com/bJtXs3A.png)
 
 A very important point to make about how all this fits together is that
 each of the symbols shown here which represent these geometric actions
@@ -267,7 +267,7 @@ what cube it in.
 
 Why, you might ask, do we add this complexity? It is deceptively
 powerful to create a structure like this. Note that this structure is
-completely geometric. While we emph<span>represent</span> each cell with
+completely geometric. While we *represent* each cell with
 numerical addresses, the actual underlying structure is geometric and
 symbolic. Elements represent geometric symbols, human language
 describing geometry, computer language describing geometry, and
