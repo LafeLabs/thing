@@ -361,6 +361,7 @@
         "things",
         "trashrobot",
         "trashrobotdotorg",
-        "trashrobotset.md"
+        "trashrobotset.md",
+        "web2d.md"
     ]
 }
