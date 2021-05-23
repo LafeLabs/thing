@@ -1,6 +1,7 @@
 {
     "html": [
         "README.md",
+        "action2symbol.html",
         "alignimage.html",
         "appeditor.html",
         "canvas2png.html",
