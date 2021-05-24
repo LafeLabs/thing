@@ -2,7 +2,13 @@
 
 [github repo of book](https://github.com/LafeLabs/bookofgeometron)
 
+
 # The Book Of Geometron
+
+Open Book 
+
+By Trash Robot
+
 
  1. [Civilizations](scrolls/civilizations.md)
  2. [Organic Media](scrolls/organicmedia.md)
