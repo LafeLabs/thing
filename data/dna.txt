@@ -342,6 +342,7 @@
         "servers.md",
         "set",
         "shapes",
+        "shapes.md",
         "shapeset",
         "shapesfonts.md",
         "shield",
