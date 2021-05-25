@@ -1,3 +1,5 @@
+[home](index.html)
+
 [Book of Geometron](scrolls/bookofgeometron.md)
 
 # Chapter 8: Symbols
@@ -406,3 +408,5 @@ traversethat world, interacting with and improving documents as you go
 as you interact with people in the physical world. The hardware
 architecture to realize this will be discussed in its own chapter on
 Full Stack Geometron.
+
+[Next chapter: 2d Web Graphics with Geometron](scrolls/web2d.md)

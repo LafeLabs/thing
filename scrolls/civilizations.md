@@ -1,3 +1,5 @@
+[home](index.html)
+
 [back to Book of Geometron](scrolls/bookofgeometron.md)
 
 # Chapter 1: Civilizations

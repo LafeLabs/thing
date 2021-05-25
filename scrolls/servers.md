@@ -1,4 +1,8 @@
+[home](index.html)
+
 [The Book of Geometron](scrolls/bookofgeometron.md)
+
+[Geometron Thing on Github](https://github.com/lafelabs/thing/)
 
 # Chapter 4: Servers
 

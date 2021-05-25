@@ -1,3 +1,5 @@
+[home](index.html)
+
 [Book of Geometron](scrolls/bookofgeometron.md)
 
 # Chapter 3: The Street Network

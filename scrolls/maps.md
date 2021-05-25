@@ -300,5 +300,5 @@ replicate itself freely across the network, and can be opened by an
 application that is itself only a few kilobytes in size. Build on this
 system! Make it yours! Share it and help it grow!
 
-
+[Next chapter: Symbols](scrolls/symbols.md)
 

@@ -1,3 +1,5 @@
+[home](index.html)
+
 [Book of Geometron](scrolls/bookofgeometron.md)
 
  - [general file copy tool](copy.html)

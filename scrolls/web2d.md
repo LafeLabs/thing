@@ -1,3 +1,5 @@
+[home](index.html)
+
 [Book of Geometron](scrolls/bookofgeometron.md)
 
 # Chapter 9: 2d Web Graphics
@@ -293,3 +295,5 @@ If you are a coder, you can read the whole of the system documented in
 this chapter in the JavaScript library stored at jscode/geometron.js,
 which is on every instance of the system. You can of course edit this,
 and your edits will replicate along to the next instance of the system.
+
+[Next chapter: Shapes and Fonts](scrolls/shapes.md)
