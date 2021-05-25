@@ -2,6 +2,8 @@
 
 ## The Book of Geometron
 
+![](https://i.imgur.com/qNNcgNM.png)
+
 by Trash Robot
 
  1. [Civilizations](scrolls/civilizations.md)
