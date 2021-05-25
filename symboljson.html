@@ -28,9 +28,46 @@
         <td class=  "button" id = "savebutton">SAVE</td>
     </tr>
 </table>
+<table>
+    <tr>
+        <td>URL of a Geometron symbol(from anywhere on Web):</td>
+        <td><input id= "symbolurlinput"/></td>
+    </tr>
+</table>
     <textarea id = "textio"></textarea>
 
 <script>    
+
+document.getElementById("symbolurlinput").value = "";
+document.getElementById("symbolurlinput").onchange = function(){
+    imageurl = this.value;
+    var httpc2 = new XMLHttpRequest();
+    httpc2.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            svgraw = this.responseText;
+            jsontext = svgraw.split("<json>")[1].split("</json>")[0];
+            document.getElementById("textio").value = jsontext;
+            currentjson = JSON.parse(jsontext);
+            mainGVM.importbytecode(currentjson.shapes);
+            mainGVM.style = currentjson.style;
+            mainGVM.x0 = currentjson.x0;
+            mainGVM.y0 = currentjson.y0;
+            mainGVM.unit = currentjson.unit;
+            mainGVM.width = currentjson.width;
+            mainGVM.height = currentjson.height;
+            document.getElementById("mainbox").style.width = mainGVM.width.toString() + "px";
+            document.getElementById("mainbox").style.height = mainGVM.height.toString() + "px";
+            maincanvas.width  = mainGVM.width;
+            maincanvas.height = mainGVM.height;
+            mainGVM.drawGlyph(currentjson.glyph);   
+        }
+    };
+
+    httpc2.open("GET", "fileloader.php?filename=" + imageurl, true);
+    httpc2.send();
+
+}
+
 
 maincanvas = document.getElementById("maincanvas");
 
