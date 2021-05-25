@@ -274,3 +274,5 @@ can print icons into plastic bottle caps with a heated tool, and those
 icons are shared on the Icon Feed, so there is a crossover between the
 physical feeds of trash-sourced objects and this less tangible software
 system.
+
+[Next chapter: Maps](scrolls/maps.md)

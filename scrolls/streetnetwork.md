@@ -391,3 +391,5 @@ rainbows, black cotton flannel, cut felt and rainbow duct tape over
 cardboard and bamboo. By being a very recognizable brand identity which
 is generic enough to be impossible to copyright, we make a vehicle for
 technology which is not property to freely replicate.
+
+[Next chapter: Servers](scrolls/servers.md)

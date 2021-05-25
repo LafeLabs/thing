@@ -94,8 +94,7 @@ the scope of this book.
 Once the basic operating system is set up(set it up with no password)
 you will want to install the web server, the PHP language, and the
 Geometron server. To do this you can follow the instructions at
-github.com/lafelabs/thing, which is where all the code for this project
-lives and from which it will all be copied when you install. This
+[github.com/lafelabs/thing](https://github.com/lafelabs/thing/), which is where all the code for this project lives and from which it will all be copied when you install. This
 copying process copies all the detailed instructions to copy the system,
 so if you find any instance of the Geometron system on a global or local
 server you can follow the instructions on there to replicate.
@@ -178,3 +177,5 @@ possible to build if we choose to do so, and it can clearly be done for
 free given the very high rate at which the existing consumption-based
 system is pumping out electronic trash with all the elements of
 media(screens, batteries, radio transmitters etc).
+
+[Next chapter: Scrolls](scrolls/scrolls.md)

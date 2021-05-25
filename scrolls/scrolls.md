@@ -411,3 +411,5 @@ which is used the same way as user.php listed above. Editing is still
 the same basic method. Tex files in the home directory of your server
 can be edited using texeditor.html, on which this book was mostly
 written.
+
+[Next chapter: Feeds](scrolls/feeds.md)

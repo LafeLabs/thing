@@ -1,71 +1,40 @@
-### [copy README.md into scrolls/readme](copy.php?from=README.md&to=scrolls/readme)
-
-### [scrolls/readme](scrolls/readme)
-
 #  <span style = "color:red">Γ</span><span style = "color:orange">ε</span><span style = "color:yellow">ω</span><span style = "color:green">μ</span><span style = "color:blue">ε</span><span style = "color:purple">τ</span><span style = "color:red">ρ</span><span style = "color:orange">ο</span><span style = "color:yellow">ν</span>
 
-## Geometron
+## The Book of Geometron
 
-## [Link to Map](maps/home)
+by Trash Robot
 
- - [localhost/](http://localhost/)
- - [main feed](mainfeed.html)
- - [link to remote imported scroll](scrolls/remote)
- - [trash robot printer](scrolls/printer.md)
- - [fork](fork.html)
- - [symbol](symbol.html)
- - [icon feed](iconfeed.html)
- - [qrcode links](qrcode.html)
- - [copy files](copy.html)
- - [pastebin.html](pastebin.html)
- - [pastescroll.html](pastescroll.html)
- - [github repository](https://github.com/lafelabs/thing/)
- - [editor.php](editor.php)
- - [dna generator](dnagenerator.php)
+ 1. [Civilizations](scrolls/civilizations.md)
+ 2. [Organic Media](scrolls/organicmedia.md)
+ 3. [The Street Network](scrolls/streetnetwork.md)
+ 4. [Servers](scrolls/servers.md)
+ 5. [Scrolls](scrolls/scrolls.md)
+ 6. [Feeds](scrolls/feeds.md)
+ 7. [Maps](scrolls/maps.md)
+ 8. [Symbols](scrolls/symbols.md)
+ 9. [2d Web Graphics](scrolls/web2d.md)
+ 10. [Shapes and Fonts](scrolls/shapes.md)
+ 11. Action Geometry
+ 12. Machine control
+ 13. Geometron in 3d and beyond
+ 14. Full Stack Geometron
+ 15. Ontology
+ 16. Icons
+ 17. Trash Robot
 
-The Organic Web is a network of self-replicating documents.  There are no users.  Only documents.  Documents can serve any purpose.  Documents can be edited, replicated, and destroyed.
+Set up a Raspberry Pi.  To learn more about Raspberry Pi see the main page at [www.raspberrypi.org](https://www.raspberrypi.org/) and also look at what is available on [Adafruit](https://www.adafruit.com/) in terms of Raspberry Pi stuff, as well as [https://www.sunfounder.com/](https://www.sunfounder.com/) and [https://www.pishop.us/](https://www.pishop.us/).  How much stuff you need to get depends on how you want to use the server.  
 
-The five types of document we create on the system are:
+### Components of a full Raspberry Pi system:
 
- - [Hyperlinks](scrolls/hyperlinks.md)
- - [Scrolls](scrolls/scrolls.md)
- - [Maps](scrolls/maps.md)
- - [Feeds](scrolls/feeds.md)
- - [Symbols](scrolls/symbols.md)
-
-Documents are made to replicate any kind of information.  This is useful for two reasons: connecting and replicating.  
-
-Connecting is the same as on the commercial Internet: when someone wants to share a anything, and a free and open network can help them do that.  This aspect of the network can be thought of like a very physically localized version of Craigslist.  Articles, memes, ads, cartoons, ideas, stories, local markets, brands: all these kinds of information can be freely propagated, which can be used by anyone to do whatever they're already doing, but better and for free.  Unlike commercial media which is driven by non-consensual ads, we build a network based on people creating media to share and other people freely copying it or not--rather than forcing people to see what they don't want.  
-
-Replication is the longer term goal of the Organic Web.    If we are to build a new civilization from trash, the basis of our economy will be sharing of detailed instructions for how to replicate things.  The OW system is optimized for this.  Scrolls can describe how to make a thing, maps can identify how to find a thing, link it to other things, label parts of a thing or be an alternate means to describe replication.  Hyperlinks are used to transmit the documentation of a thing as fast as possible to another person.  Feeds are used for rapid communication within a local community of little bits of information as they are developed.  The Geometron language which drives the symbols is used both for creating all graphics in the system and for geometric programming of physical fabrication machines which are used in the fully trash-built automation technology we will be building with this system.
-
-The way this system will grow is by providing dual value: connecting people and selling useful products made from trash provide value in the existing economic system which can be traded for both money and direct value like a place to sleep or work or some food.  But connecting people and freely distributing goods also forms networks of free flow of value over mutual aid networks which can form the basis of a new technological society outside of the capitalist economy.
-
-The Organic Web operates on the LAP(Linux Apache PHP) stack.  The local wifi web servers are all Raspberry Pis running the Apache web server, with php installed, and with the Organic Web/Geometron code replicated via PHP from the command line.
-
-To build a mobile terminal to bring the OW to the Street, buy the following components:
-
-[$100 Sunfounder compact screen perfect for terminals](https://www.sunfounder.com/collections/displays-monitors/products/7-inch-hdmi-monitor)
-
-or
-
-[7 inch screen from sunfounder for $80](https://www.sunfounder.com/collections/monitors/products/7inch-capacitive-touchscreen)
-
-[$50 buy raspberry pi board from sunfounder](https://www.sunfounder.com/products/raspberrypi-4b)
-
-[$36 talentcell 12 volt battery pack compatible with sunfounder screen/pi combo](https://www.amazon.com/dp/B00ME3ZH7C)
-
-[$66 talentcell 12 volt/5 volt solar battery charger](https://www.amazon.com/dp/B01J7VPHXC)
-
-[$7 sd card on Amazon](https://www.amazon.com/gp/product/B003WIRFD2/)
-
-[$12 sd card reader/writer from Amazon](https://www.amazon.com/Anker-Portable-Reader-RS-MMC-Micro/dp/B006T9B6R2/)
-
-[$12 mini keyboard from amazon](https://www.amazon.com/gp/product/B01IQL2VCE/)
-
-[$10 mouse from amazon](https://www.amazon.com/gp/product/B005EJH6RW/)
-
-## Raspberry Pi Terminal set up in local coffee shop outdoor seating:
+ - HDMI screen
+ - HDMI cable
+ - Raspberry Pi board
+ - SD card
+ - SD card reader/writer
+ - USB keyboard
+ - USB mouse
+ - Wall plug
+ - Rechargeable battery
 
 ![](https://i.imgur.com/4zetaPf.png)
 
@@ -92,11 +61,11 @@ cd ..
 sudo chmod -R 0777 *
 </pre>
 
-That Raspberry Pi is now set up to act as a server on the OW.  Log that Pi onto a local wifi hotspot, and if you hover the mouse over the wifi logo in the upper right corner of the screen, you can get the ip address. To log users on the local wifi onto the server, use a [hyperlink](scrolls/hyperlink.md), either a QR code scanable on the screen or a text URL which can be copied and pasted via text message, email, pastebin, or chat.
+That Raspberry Pi is now set up to act as a Geometron server.  Log that Pi onto a local wifi hotspot, then go to the link at the top of the screen to get a QR code and link for that server.
 
 ![](https://i.imgur.com/iH9gFJC.jpg)
 
-To evolve the system, you can make Geometron/OW applications yourself by cloning the git repository to your local machine, editing the code, pushing it to your own git repository, and pointing the replicator code to your new repository.  Files are edited using [editor.php](editor.php).  After files have been modified, the dna file for the replicator is generated by running the script dnagenerator.php.  Then when you push your github repository to a public place, you can modify the line in replicator.php which points to the dna file and point it instead to the global link to the raw text version of your dna file.  
+To evolve the system, you can make Geometron applications yourself by cloning the git repository to your local machine, editing the code, pushing it to your own git repository, and pointing the replicator code to your new repository.  Files are edited using [editor.php](editor.php).  After files have been modified, the dna file for the replicator is generated by running the script dnagenerator.php.  Then when you push your github repository to a public place, you can modify the line in replicator.php which points to the dna file and point it instead to the global link to the raw text version of your dna file.  
 
 For local development, we use the built in web server in PHP, running it from the command line via:
 
@@ -112,7 +81,7 @@ To replicate the system in the physical world, we will buy domain names which ar
 
 This page can then replicate any file from anywhere to be its base form, be it a map or scroll.  The page can be used to link people to a physical time and place where physical network infrastructure can be found(a Raspberry Pi Server).  
 
-Finally, we want to connect the physical space around an area which is refernced in the domain back to that domain.  To do this, we create physical media with the domain printed on it.  This can be on a cardboard sign with a marker, spray painted on a wall or street, spray stenciled with a laser cut stencil, printed on a clay icon token, 3d printed, stamped into plastic with a plastic melting robot.  One way to do it is with felt letters cut out and sewn on fabric as follows:
+Finally, we want to connect the physical space around an area which is referenced in the domain back to that domain.  To do this, we create physical media with the domain printed on it.  This can be on a cardboard sign with a marker, spray painted on a wall or street, spray stenciled with a laser cut stencil, printed on a clay icon token, 3d printed, stamped into plastic with a plastic melting robot.  One way to do it is with felt letters cut out and sewn on fabric as follows:
 
 ![](https://i.imgur.com/nvWedsQ.jpg)
 

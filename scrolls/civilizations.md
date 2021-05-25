@@ -307,3 +307,5 @@ computation. Finally we use this idea of how information works to
 discuss the self-replicating set known as Trash Robot which we will
 replicate through the network and also use as a vehicle to help
 stimulate replication.
+
+[Next Chapter: Organic Media](scrolls/organicmedia.md)

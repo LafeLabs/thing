@@ -12,7 +12,7 @@
  - [localimagefeed.html](localimagefeed.html)
  - [textfeed.html](textfeed.html)
 
-# Maps
+# Chapter 7: Maps
 
 
 Maps are a from of document in which a set of images, words, and links
