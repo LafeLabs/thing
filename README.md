@@ -1,30 +1,12 @@
 #  <span style = "color:red">Γ</span><span style = "color:orange">ε</span><span style = "color:yellow">ω</span><span style = "color:green">μ</span><span style = "color:blue">ε</span><span style = "color:purple">τ</span><span style = "color:red">ρ</span><span style = "color:orange">ο</span><span style = "color:yellow">ν</span>
 
-## The Book of Geometron
+## Geometron Replicator
 
-![](https://i.imgur.com/qNNcgNM.png)
-
-by Trash Robot
-
- 1. [Civilizations](scrolls/civilizations.md)
- 2. [Organic Media](scrolls/organicmedia.md)
- 3. [The Street Network](scrolls/streetnetwork.md)
- 4. [Servers](scrolls/servers.md)
- 5. [Scrolls](scrolls/scrolls.md)
- 6. [Feeds](scrolls/feeds.md)
- 7. [Maps](scrolls/maps.md)
- 8. [Symbols](scrolls/symbols.md)
- 9. [2d Web Graphics](scrolls/web2d.md)
- 10. [Shapes and Fonts](scrolls/shapes.md)
- 11. [Action Geometry](scrolls/actiongeometry.md)
- 12. Machine control
- 13. Geometron in 3d and beyond
- 14. Full Stack Geometron
- 15. Ontology
- 16. Icons
- 17. Trash Robot
+[Book of Geometron](https://github.com/LafeLabs/bookofgeometron)
 
 Set up a Raspberry Pi.  To learn more about Raspberry Pi see the main page at [www.raspberrypi.org](https://www.raspberrypi.org/) and also look at what is available on [Adafruit](https://www.adafruit.com/) in terms of Raspberry Pi stuff, as well as [https://www.sunfounder.com/](https://www.sunfounder.com/) and [https://www.pishop.us/](https://www.pishop.us/).  How much stuff you need to get depends on how you want to use the server.  
+
+Servers are packaged with cardboard, rainbow colored duct tape, and sheets of HDPE from milk bottles.  They should have tie holes where Trash Ties can be used to suspend them.
 
 ### Components of a full Raspberry Pi system:
 
@@ -39,6 +21,10 @@ Set up a Raspberry Pi.  To learn more about Raspberry Pi see the main page at [w
  - Rechargeable battery
 
 ![](https://i.imgur.com/4zetaPf.png)
+
+Keyboards should be painted with the Geometron Symbol glyphs using the following map:
+
+![](https://i.imgur.com/b8IlcdE.png)
 
 When you have gathered the parts, assemble them, install NOOBS on the SD card, and set up your pi.  This collection of highly portable elements including the rechargeable battery is important for the portability of the system, which should have a dedicated bag to carry it around in so that it is fully mobile.  
 
@@ -94,5 +80,7 @@ Here is a guide for the font to use to make these:
 It is important to also have a bag to carry the Pi in, here is the replicator card for the bag:
 
 ![](https://i.imgur.com/63OwKhz.png)
+
+![](https://i.imgur.com/gp1Dy7a.png)
 
 

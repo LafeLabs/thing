@@ -44,7 +44,7 @@
             <a href = "index.html">HOME</a>
         </td>
         <td>
-            <a href = "mainfeed.html">main feed</a>
+            <a href = "textfeed.html">text feed</a>
         </td>
         <td>
             <a href = "iconfeed.html">icon feed</a>
@@ -91,7 +91,7 @@ httpcHypercube.send();
 
 
 
-
+/*
 mainfeed = [];
 var httpc11 = new XMLHttpRequest();
     httpc11.onreadystatechange = function() {
@@ -101,6 +101,19 @@ var httpc11 = new XMLHttpRequest();
 };
 httpc11.open("GET", "fileloader.php?filename=data/mainfeed.txt", true);
 httpc11.send();
+*/
+
+textfeed = {};
+var httpc11 = new XMLHttpRequest();
+    httpc11.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        textfeed = JSON.parse(this.responseText);
+    }
+};
+httpc11.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
+httpc11.send();
+
+
 
 function loadfeed(){
     gvmArray = [];
@@ -153,13 +166,13 @@ function savesymbolfile(){
     localfeedelement.text = "icons to feed";
     localfeedelement.src = mainGVM.pngcode();
     localfeedelement.glyph = mainGVM.glyph;
-    mainfeed.unshift(localfeedelement);
+    textfeed.src.unshift(mainGVM.pngcode());
     
     var url = "filesaver.php";        
     var httpc4 = new XMLHttpRequest();
     httpc4.open("POST", url, true);
     httpc4.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc4.send("data="+encodeURIComponent(JSON.stringify(mainfeed,null,"    "))+"&filename=data/mainfeed.txt");//send text to filesaver.php
+    httpc4.send("data="+encodeURIComponent(JSON.stringify(textfeed,null,"    "))+"&filename=data/textfeed.txt");//send text to filesaver.php
     
 }
 </script>
