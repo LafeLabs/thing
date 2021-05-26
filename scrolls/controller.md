@@ -1,6 +1,8 @@
 
 [home](index.html)
 
+[printers chapter](scrolls/printers.md)
+
 [robot map](maps/robot)
 
 [robot scroll](scrolls/printer.md)

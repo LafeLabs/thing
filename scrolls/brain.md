@@ -1,10 +1,13 @@
 [home](index.html)
 
-[robot map](maps/robot)
-
-[robot scroll](scrolls/printer.md)
-
 # Robot Brain
+
+[printers chapter](scrolls/printers.md)
+
+[mechanicals](scrolls/mechanicals.md)
+
+[controller](scrolls/controller.md)
+
 
 ## Parts
 

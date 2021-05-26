@@ -326,6 +326,7 @@
         "praxis.md",
         "printer",
         "printer.md",
+        "printers.md",
         "products.md",
         "quests",
         "readme",

@@ -94,4 +94,5 @@ Draw your personal Geometron outfit which is black with solid rainbow color felt
 
 Draw your Flag.  A Flag is a black square cloth about 3 feet on a side, with a sewn hem with loops to tie a trash tie.  It is decorated with solid block letters and geometric shapes cut from solid color rainbow felt or similar.  All elements can be from scrap.  Flags point to domains in places.
 
+[Next Chapter: Printers](scrolls/printers.md)
 
