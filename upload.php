@@ -32,6 +32,10 @@ else{
 </p>
 
 <p style = "font-size:5em">
+    <a href = "mapeditor.html">Return to map editor</a>
+</p>
+
+<p style = "font-size:5em">
     <a href = "index.html">index.html</a>
 </p>
 

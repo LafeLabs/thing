@@ -19,7 +19,5 @@ By Trash Robot
  11. [Action Geometry](scrolls/actiongeometry.md)
  12. [Printers](scrolls/printers.md)
  13. Geometron in 3d and beyond
- 14. Full Stack Geometron
- 15. Ontology
- 16. Icons
- 17. Trash Robot
+ 14. [Magic](scrolls/magic.md)
+ 15. Full Stack Geometron

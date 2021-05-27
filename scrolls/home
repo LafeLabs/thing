@@ -6,7 +6,13 @@
 
 [Book Code](https://github.com/LafeLabs/bookofgeometron)
 
+[Book .pdf to print](https://github.com/LafeLabs/bookofgeometron/raw/main/main-bigpaper.pdf)
+ 
+[Book .pdf 6x9 format](https://github.com/LafeLabs/bookofgeometron/raw/main/main.pdf)
+
 [System Replicator](https://github.com/LafeLabs/thing)
+
+## Book of Geometron Chapters:
 
  1. [Civilizations](scrolls/civilizations.md)
  2. [Organic Media](scrolls/organicmedia.md)
@@ -21,19 +27,18 @@
  11. [Action Geometry](scrolls/actiongeometry.md)
  12. [Printers](scrolls/printers.md)
  13. Geometron in 3d and beyond
- 14. Magic
+ 14. [Magic](scrolls/magic.md)
  15. Full Stack Geometron
 
 ### [log onto this local Raspberry Pi server with QR code or link](ipaddress.html)
 
+<iframe src = "ipaddress.html"></iframe>
 
-## Geometron
-
-## [Link to Map](maps/home)
+### Useful Links:
 
  - [localhost/](http://localhost/)
- - [The Book of Geometron](scrolls/bookofgeometron.md)
  - [README.md](scroll(README.md))
+ - [Link to Map](maps/home)
  - [enter pastebin of scroll to replicate and edit locally](pastescroll.html)
  - [copy from pastebin to main page for remote hosted domains](pastebin.html)
  - [trash robot printer](scrolls/printer.md)

@@ -1,35 +1,35 @@
 [
     {
-        "x": 0.19212410501193317,
-        "y": 0.15632458233890215,
-        "w": 0.6801909307875895,
-        "h": 0.6718377088305489,
-        "angle": 0,
-        "text": "CLICK TO DESIGN!!",
-        "href": "",
-        "src": "https://i.imgur.com/SmYWDTH.png",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.31742243436754175,
-        "y": 0.22792362768496421,
-        "w": 0.4522673031026253,
-        "h": 0.5429594272076372,
-        "angle": 0,
-        "text": "CLICK TO DESIGN!!",
-        "href": "",
-        "src": "https://i.imgur.com/No1wukK.png",
-        "maplinkmode": false
-    },
-    {
-        "x": 0.00477326968973747,
-        "y": 0.00477326968973747,
+        "x": 0.008353221957040573,
+        "y": -0.00954653937947494,
         "w": 0.4701670644391408,
         "h": 0.057279236276849645,
         "angle": 0,
         "text": "home",
         "href": "index.html",
         "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.059665871121718374,
+        "y": 0.05489260143198091,
+        "w": 0.9069212410501193,
+        "h": 0.9069212410501193,
+        "angle": 0,
+        "text": "CLICK TO DESIGN!!",
+        "href": "",
+        "src": "https://i.imgur.com/niV3C7n.jpg",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.3162291169451074,
+        "y": 0.29594272076372313,
+        "w": 0.36515513126491644,
+        "h": 0.36515513126491644,
+        "angle": 0,
+        "text": "CLICK TO DESIGN!!",
+        "href": "",
+        "src": "https://i.imgur.com/No1wukK.png",
         "maplinkmode": false
     }
 ]
