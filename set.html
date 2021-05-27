@@ -7,14 +7,20 @@
     <META NAME="robots" CONTENT="noindex,nofollow">
 </head>
 <body>    
-<h1>SET MAGIC</h1>
-<p>SELF-REPLICATING SET OF DOCUMENTS. URL IS GLOBAL SOURCE DOCMENT(red) and NAME LOCAL DESTINATION DOCUMENT(BLUE).</p>
-<a href = "index">HOME</a>
+    <h1>SET MAGIC</h1>
 
-<p>
-    <a href = "setreplicator.php">setreplicator.php</a>
-</p>
+    
+<div class = "button" id ="importbutton">IMPORT</div>
+    
 <table id = "controltable">
+    <tr>
+        <td>
+            <a href = "index.html">HOME</a>        
+        </td>
+        <td>
+            <a href = "setreplicator.php">setreplicator.php</a> 
+        </td>
+    </tr>
     <tr>
         <td>URL:</td>
         <td><input id = "urlinput"/></td>
@@ -25,10 +31,11 @@
     </tr>
     <tr>
         <td class = "button" id = "publishbutton">PUBLISH</td>
-        <td class = "button" id  = "importbutton">IMPORT</td>
+        <td>
+        </td>
     </tr>
 </table>
-<textarea id = "textio"></textarea>
+    <textarea id = "textio"></textarea>
 
 <div id = "feed"></div>
 
@@ -126,6 +133,18 @@ document.getElementById("publishbutton").onclick = function(){
 
 </script>
 <style>
+#importbutton{
+    position:absolute;
+    right:1px;
+    top:0px;
+}
+#textio{
+    position:absolute;
+    right:1px;
+    top:36px;
+    height:40%;
+    width:40%;
+}
 #feed{
     position:absolute;
     top:50%;
@@ -133,9 +152,6 @@ document.getElementById("publishbutton").onclick = function(){
     left:0px;
     right:0px;
     overflow:scroll;
-}
-#textio{
-    width:40em;
 }
 #urlinput{
     background-color:#ff2cb460;
@@ -147,7 +163,7 @@ body,a,div,textarea,input{
     font-family:courier;
     background-color:black;
     color:#00ff00;
-    font-size:1em;
+    font-size:24px;
     border-color:#00ff00;
 }
 .button{
