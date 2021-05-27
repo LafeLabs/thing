@@ -1,16 +1,9 @@
+
 #  <span style = "color:red">Γ</span><span style = "color:orange">ε</span><span style = "color:yellow">ω</span><span style = "color:green">μ</span><span style = "color:blue">ε</span><span style = "color:purple">τ</span><span style = "color:red">ρ</span><span style = "color:orange">ο</span><span style = "color:yellow">ν</span>
 
 # Geometron
 
 ![](https://i.imgur.com/ETvXBCp.png)
-
-[Book Code](https://github.com/LafeLabs/bookofgeometron)
-
-[Book .pdf to print](https://github.com/LafeLabs/bookofgeometron/raw/main/main-bigpaper.pdf)
- 
-[Book .pdf 6x9 format](https://github.com/LafeLabs/bookofgeometron/raw/main/main.pdf)
-
-[System Replicator](https://github.com/LafeLabs/thing)
 
 ## Book of Geometron Chapters:
 
@@ -30,9 +23,15 @@
  14. [Magic](scrolls/magic.md)
  15. Full Stack Geometron
 
-### [log onto this local Raspberry Pi server with QR code or link](ipaddress.html)
+[Book Code](https://github.com/LafeLabs/bookofgeometron)
 
-<iframe src = "ipaddress.html"></iframe>
+[Book .pdf to print](https://github.com/LafeLabs/bookofgeometron/raw/main/main-bigpaper.pdf)
+ 
+[Book .pdf 6x9 format](https://github.com/LafeLabs/bookofgeometron/raw/main/main.pdf)
+
+[System Replicator](https://github.com/LafeLabs/thing)
+
+### [log onto this local Raspberry Pi server with QR code or link](ipaddress.html)
 
 ### Useful Links:
 
