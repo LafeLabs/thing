@@ -295,6 +295,7 @@
         "geometron-whitepaper",
         "geometron.md",
         "geometron3d",
+        "geometron3d.md",
         "github.md",
         "globaldomain",
         "hellogeometron",
