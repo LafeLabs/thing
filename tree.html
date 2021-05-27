@@ -24,7 +24,7 @@
     </tr>
     <tr>
         <td class = "button" id = "publishbutton">PUBLISH</td>
-        <td class = "button" id  = "import">IMPORT</td>
+        <td class = "button" id  = "importbutton">IMPORT</td>
     </tr>
 </table>
 <textarea id = "textio"></textarea>
@@ -65,7 +65,16 @@ function redraw(){
         newbox.appendChild(deletebutton);
         deletebutton.onclick = function(){
             boxindex = parseInt(this.parentElement.id.substring(3));
-                deletetext();
+            var temptree = [];
+            for(var index = 0;index < tree.length;index++){
+                if(index != boxindex){
+                    temptree.push(tree[index]);
+                }
+            }
+            tree = temptree;
+            redraw();
+            savejson();
+
         }
         var textspan = document.createElement("span");
         textspan.className = "button";
@@ -97,27 +106,6 @@ function savejson(){
 }
 
 
-oldtree =[];
-function deletetext(){
-    var httpc = new XMLHttpRequest();
-    httpc.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            oldtree = tree;
-            tree = JSON.parse(this.responseText);
-            var temptree = [];
-            for(var index = 0;index < tree.length;index++){
-                if(tree[index] != oldtree[boxindex]){
-                    temptree.push(tree[index]);
-                }
-            }
-            tree = temptree;
-            redraw();
-            savejson();
-        }
-    };
-    httpc.open("GET", "fileloader.php?filename=data/tree.txt", true);
-    httpc.send();            
-}
 
 
 document.getElementById("importbutton").onclick = function(){
