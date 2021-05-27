@@ -4,59 +4,55 @@
     "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/bookofgeometron.md"
     },
     {
-        "filename":"scrolls/civilizations.md",
-        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/civilizations.md"
+        "filename":"scrolls/organicmedia.md",
+        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/organicmedia.md"
     },
     {
-        "filename":"scrolls/civilizations.md",
-        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/civilizations.md"
+        "filename":"scrolls/streetnetwork.md",
+        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/streetnetwork.md"
     },
     {
-        "filename":"scrolls/civilizations.md",
-        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/civilizations.md"
+        "filename":"scrolls/servers.md",
+        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/servers.md"
     },
     {
-        "filename":"scrolls/civilizations.md",
-        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/civilizations.md"
+        "filename":"scrolls/scrolls.md",
+        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/scrolls.md"
     },
     {
-        "filename":"scrolls/civilizations.md",
-        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/civilizations.md"
+        "filename":"scrolls/feeds.md",
+        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/feeds.md"
     },
     {
-        "filename":"scrolls/civilizations.md",
-        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/civilizations.md"
+        "filename":"scrolls/maps.md",
+        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/maps.md"
     },
     {
-        "filename":"scrolls/civilizations.md",
-        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/civilizations.md"
+        "filename":"scrolls/symbols.md",
+        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/symbols.md"
     },
     {
-        "filename":"scrolls/civilizations.md",
-        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/civilizations.md"
+        "filename":"scrolls/web2d.md",
+        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/web2d.md"
     },
     {
-        "filename":"scrolls/civilizations.md",
-        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/civilizations.md"
+        "filename":"scrolls/shapes.md",
+        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/shapes.md"
     },
     {
-        "filename":"scrolls/civilizations.md",
-        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/civilizations.md"
+        "filename":"scrolls/actiongeometry.md",
+        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/actiongeometry.md"
     },
     {
-        "filename":"scrolls/civilizations.md",
-        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/civilizations.md"
+        "filename":"scrolls/printers.md",
+        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/printers.md"
     },
     {
-        "filename":"scrolls/civilizations.md",
-        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/civilizations.md"
+        "filename":"scrolls/geometron3d.md",
+        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/geometron3d.md"
     },
     {
-        "filename":"scrolls/civilizations.md",
-        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/civilizations.md"
-    },
-    {
-        "filename":"scrolls/civilizations.md",
-        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/civilizations.md"
+        "filename":"scrolls/magic.md",
+        "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/magic.md"
     }
 ]
