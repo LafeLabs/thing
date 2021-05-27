@@ -235,6 +235,7 @@
         "textfeed.txt",
         "token.txt",
         "trace.txt",
+        "tree.txt",
         "urlfeed.txt",
         "wall.txt"
     ],
@@ -262,6 +263,7 @@
         "scrolleditor.txt",
         "seed.txt",
         "text2php.txt",
+        "treereplicator.txt",
         "upload.txt",
         "uploadsymbol.txt",
         "user.txt"
