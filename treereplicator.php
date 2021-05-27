@@ -7,11 +7,11 @@ tree.txt is an array of  JSON objects
 
 [
     {
-        "filename":"scrolls/bookofgeometron.md",
+        "name":"scrolls/bookofgeometron.md",
     "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/bookofgeometron.md"
     },
     {
-        "filename":"scrolls/civilizations.md",
+        "name":"scrolls/civilizations.md",
         "url":"https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/civilizations.md"
     }
 ]
@@ -30,7 +30,7 @@ $tree = json_decode($treeraw);
 
 foreach($tree as $value){
 
-    copy($value->url,$value->filename);
+    copy($value->url,$value->name);
 
 }
 

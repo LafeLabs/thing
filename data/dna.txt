@@ -84,6 +84,7 @@
         "three.html",
         "threejs.html",
         "traceicon.html",
+        "tree.html",
         "urlfeed.html",
         "voxel.html",
         "wall.html"
