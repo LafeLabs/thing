@@ -25,7 +25,7 @@ if(isset($_GET["tree"])){
 }
 
 
-$treeraw = file_get_contents($dnaurl);
+$treeraw = file_get_contents($treeurl);
 $tree = json_decode($treeraw);
 
 foreach($tree as $value){
