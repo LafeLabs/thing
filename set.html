@@ -7,11 +7,12 @@
     <META NAME="robots" CONTENT="noindex,nofollow">
 </head>
 <body>    
-
+<h1>SET MAGIC</h1>
+<p>SELF-REPLICATING SET OF DOCUMENTS. URL IS GLOBAL SOURCE DOCMENT(red) and NAME LOCAL DESTINATION DOCUMENT(BLUE).</p>
 <a href = "index">HOME</a>
 
 <p>
-    <a href = "treereplicator.php">treereplicator.php</a>
+    <a href = "setreplicator.php">setreplicator.php</a>
 </p>
 <table id = "controltable">
     <tr>
@@ -37,24 +38,24 @@
 document.getElementById("fileinput").value = "";
 document.getElementById("urlinput").value = "";
 
-tree = [];
+set = [];
 
 var httpc = new XMLHttpRequest();
     httpc.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        tree = JSON.parse(this.responseText);
+        set = JSON.parse(this.responseText);
         redraw();
     }
 };
-httpc.open("GET", "fileloader.php?filename=data/tree.txt", true);
+httpc.open("GET", "fileloader.php?filename=data/set.txt", true);
 httpc.send();
 
 boxindex = 0;
 
 function redraw(){
     document.getElementById("feed").innerHTML = "";
-    document.getElementById("textio").value = JSON.stringify(tree,null,"    ");
-    for(var index = 0;index < tree.length;index++){
+    document.getElementById("textio").value = JSON.stringify(set,null,"    ");
+    for(var index = 0;index < set.length;index++){
         var newbox = document.createElement("DIV");
         document.getElementById("feed").appendChild(newbox);
         newbox.className = "box";
@@ -65,20 +66,20 @@ function redraw(){
         newbox.appendChild(deletebutton);
         deletebutton.onclick = function(){
             boxindex = parseInt(this.parentElement.id.substring(3));
-            var temptree = [];
-            for(var index = 0;index < tree.length;index++){
+            var tempset = [];
+            for(var index = 0;index < set.length;index++){
                 if(index != boxindex){
-                    temptree.push(tree[index]);
+                    tempset.push(set[index]);
                 }
             }
-            tree = temptree;
+            set = tempset;
             redraw();
             savejson();
 
         }
         var textspan = document.createElement("span");
         textspan.className = "button";
-        textspan.innerHTML = tree[index].url;
+        textspan.innerHTML = set[index].url;
         textspan.style.backgroundColor = "#ff2cb480";
         textspan.onclick = function(){
             document.getElementById("urlinput").value = this.innerHTML;
@@ -88,7 +89,7 @@ function redraw(){
         textspan2.className = "button";
         textspan2.style.backgroundColor = "#5050ff80";
         
-        textspan2.innerHTML = tree[index].name;
+        textspan2.innerHTML = set[index].name;
         textspan2.onclick = function(){
             document.getElementById("fileinput").value = this.innerHTML;
         }
@@ -102,14 +103,14 @@ function savejson(){
     var httpc2 = new XMLHttpRequest();
     httpc2.open("POST", url, true);
     httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc2.send("data="+encodeURIComponent(JSON.stringify(tree,null,"    "))+"&filename=data/tree.txt");//send text to filesaver.php
+    httpc2.send("data="+encodeURIComponent(JSON.stringify(set,null,"    "))+"&filename=data/set.txt");//send text to filesaver.php
 }
 
 
 
 
 document.getElementById("importbutton").onclick = function(){
-    tree = JSON.parse(document.getElementById("textio").value);
+    set = JSON.parse(document.getElementById("textio").value);
     redraw();
     savejson();
 }
@@ -118,7 +119,7 @@ document.getElementById("publishbutton").onclick = function(){
     element = {};
     element.url = document.getElementById("urlinput").value;
     element.name = document.getElementById("fileinput").value;
-    tree.unshift(element);
+    set.unshift(element);
     redraw();
     savejson();
 }
@@ -135,6 +136,12 @@ document.getElementById("publishbutton").onclick = function(){
 }
 #textio{
     width:40em;
+}
+#urlinput{
+    background-color:#ff2cb460;
+}
+#fileinput{
+    background-color:#5050ff60;
 }
 body,a,div,textarea,input{
     font-family:courier;

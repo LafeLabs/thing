@@ -3,7 +3,7 @@
 
 
 /*
-tree.txt is an array of  JSON objects 
+set.txt is an array of  JSON objects 
 
 [
     {
@@ -18,23 +18,23 @@ tree.txt is an array of  JSON objects
 
 */
 
-$treeurl = "https://raw.githubusercontent.com/LafeLabs/thing/master/data/tree.txt";
+$treeurl = "https://raw.githubusercontent.com/LafeLabs/thing/master/data/set.txt";
 
-if(isset($_GET["tree"])){
-    $treeurl = $_GET["tree"];
+if(isset($_GET["set"])){
+    $seturl = $_GET["set"];
 }
 
 
-$treeraw = file_get_contents($treeurl);
-$tree = json_decode($treeraw);
+$setraw = file_get_contents($seturl);
+$set = json_decode($setraw);
 
-foreach($tree as $value){
+foreach($set as $value){
 
     copy($value->url,$value->name);
 
 }
 
-    echo json_encode($tree,JSON_PRETTY_PRINT);
+    echo json_encode($set,JSON_PRETTY_PRINT);
     
 ?>
 </pre>

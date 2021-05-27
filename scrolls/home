@@ -23,13 +23,13 @@ by Trash Robot
  14. [Magic](scrolls/magic.md)
  15. Full Stack Geometron
 
-[Book Code](https://github.com/LafeLabs/bookofgeometron)
+[Book Code on Github](https://github.com/LafeLabs/bookofgeometron)
 
 [Book .pdf to print](https://github.com/LafeLabs/bookofgeometron/raw/main/main-bigpaper.pdf)
  
 [Book .pdf 6x9 format](https://github.com/LafeLabs/bookofgeometron/raw/main/main.pdf)
 
-[System Replicator](https://github.com/LafeLabs/thing)
+[System Code on Github](https://github.com/LafeLabs/thing)
 
 ### [log onto this local Raspberry Pi server with QR code or link](ipaddress.html)
 
@@ -38,16 +38,14 @@ by Trash Robot
  - [localhost/](http://localhost/)
  - [README.md](scroll(README.md))
  - [Link to Map](maps/home)
- - [copy.html](copy.html)
- - [tree.html](tree.html)
+ - [copy files with copy.html](copy.html)
+ - [SET MAGIC with set.html](set.html)
  - [enter pastebin of scroll to replicate and edit locally](pastescroll.html)
  - [copy from pastebin to main page for remote hosted domains](pastebin.html)
  - [trash robot printer](scrolls/printer.md)
- - [run tree replicator program](treereplicator.php)
  - [fork](fork.html)
  - [symbol](symbol.html)
  - [icon feed](iconfeed.html)
- - [github repository](https://github.com/lafelabs/thing/)
  - [editor.php](editor.php)
  - [dna generator](dnagenerator.php)
 

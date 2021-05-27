@@ -60,6 +60,7 @@
         "scroll.html",
         "scrolldelete.html",
         "scrolleditor.html",
+        "set.html",
         "setup.html",
         "shapeeditor.html",
         "shapes3d.html",
@@ -84,7 +85,6 @@
         "three.html",
         "threejs.html",
         "traceicon.html",
-        "tree.html",
         "urlfeed.html",
         "voxel.html",
         "wall.html"
@@ -232,11 +232,11 @@
         "robot.txt",
         "robotfeed.txt",
         "robotfont.txt",
+        "set.txt",
         "symbolapp.txt",
         "textfeed.txt",
         "token.txt",
         "trace.txt",
-        "tree.txt",
         "urlfeed.txt",
         "wall.txt"
     ],
@@ -263,8 +263,8 @@
         "replicatornodata.txt",
         "scrolleditor.txt",
         "seed.txt",
+        "setreplicator.txt",
         "text2php.txt",
-        "treereplicator.txt",
         "upload.txt",
         "uploadsymbol.txt",
         "user.txt"
