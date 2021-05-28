@@ -22,7 +22,7 @@ by Trash Robot
  12. [Printers](scrolls/printers.md)
  13. [Geometron in 3d and beyond](scrolls/geometron3d.md)
  14. [Magic](scrolls/magic.md)
- 15. Full Stack Geometron
+ 15. [Full Stack Geometron](scrolls/fullstack.md)
 
 [Book Code](https://github.com/LafeLabs/bookofgeometron)
 

@@ -295,6 +295,7 @@
         "feeds.md",
         "feedsbackup",
         "foo",
+        "fullstack.md",
         "geometron-whitepaper",
         "geometron.md",
         "geometron3d",

@@ -64,6 +64,8 @@ other with an easy to understand relationship. We define complex objects
 by building fractal structures of meaning, where things are made up of
 things, which are made up of things.
 
+[set magic replicator](set.html)
+
 In Set Magic, we can assign an icon to any thing, as well as any element
 which makes up a thing. We can then use Action Geometry to make physical
 symbols which are easy to use to communicate meaning. We can call these

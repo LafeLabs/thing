@@ -1,5 +1,9 @@
 [
     {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/fullstack.md",
+        "name": "scrolls/fullstack.md"
+    },
+    {
         "name": "scrolls/bookofgeometron.md",
         "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/bookofgeometron.md"
     },
