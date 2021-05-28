@@ -413,6 +413,11 @@ body{
     }
 
 }
+@media only screen and (orientation: portrait) {
+    #maintextarea{
+        font-size:2em;
+    }
+}
 
         </style>
     </body>
