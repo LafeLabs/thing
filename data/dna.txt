@@ -301,7 +301,6 @@
         "mechanicals.md",
         "ontology.md",
         "organicmedia.md",
-        "page",
         "pastebin",
         "pendant.md",
         "poetryengine.md",

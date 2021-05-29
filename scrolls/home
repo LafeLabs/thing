@@ -23,23 +23,19 @@ by Trash Robot
  14. [Magic](scrolls/magic.md)
  15. [Full Stack Geometron](scrolls/fullstack.md)
 
-[Book scroll at scrolls/bookofgeometron.md](scrolls/bookofgeometron.md)
-
-[Book Code on Github](https://github.com/LafeLabs/bookofgeometron)
-
-[Book .pdf to print](https://github.com/LafeLabs/bookofgeometron/raw/main/main-bigpaper.pdf)
+[Book .pdf to print(8.5x11)](https://github.com/LafeLabs/bookofgeometron/raw/main/main-bigpaper.pdf)
  
 [Book .pdf 6x9 format](https://github.com/LafeLabs/bookofgeometron/raw/main/main.pdf)
 
-[System Code on Github](https://github.com/LafeLabs/thing)
-
 ### [log onto this local Raspberry Pi server with QR code or link](ipaddress.html)
+
+[Replicate Geometron Server(README file)](scroll(README.md))
+
 
 ### Useful Links:
 
  - [localhost/](http://localhost/)
- - [README.md](scroll(README.md))
- - [Link to Map](maps/home)
+ - [Home Map](maps/home)
  - [copy files with copy.html](copy.html)
  - [SET MAGIC with set.html](set.html)
  - [enter pastebin of scroll to replicate and edit locally](pastescroll.html)
