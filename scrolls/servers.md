@@ -4,6 +4,8 @@
 
 [Geometron Thing on Github](https://github.com/lafelabs/thing/)
 
+[local README file with setup of server software](scroll(README.md))
+
 # Chapter 4: Servers
 
 Servers are machines that store and share documents in the Geometron

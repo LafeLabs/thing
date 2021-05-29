@@ -2,7 +2,7 @@
 
 ## Geometron Replicator
 
-[Book of Geometron](https://github.com/LafeLabs/bookofgeometron)
+[www.trashrobot.org](https://www.trashrobot.org)
 
 Set up a Raspberry Pi.  To learn more about Raspberry Pi see the main page at [www.raspberrypi.org](https://www.raspberrypi.org/) and also look at what is available on [Adafruit](https://www.adafruit.com/) in terms of Raspberry Pi stuff, as well as [https://www.sunfounder.com/](https://www.sunfounder.com/) and [https://www.pishop.us/](https://www.pishop.us/).  How much stuff you need to get depends on how you want to use the server.  
 
@@ -82,5 +82,7 @@ It is important to also have a bag to carry the Pi in, here is the replicator ca
 ![](https://i.imgur.com/63OwKhz.png)
 
 ![](https://i.imgur.com/gp1Dy7a.png)
+
+![](https://i.imgur.com/yvbgOm0.jpg)
 
 

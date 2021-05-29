@@ -62,9 +62,11 @@ Skeletron cross bar configuration.  Two tripods can be converted into this stabl
 
 ![](https://i.imgur.com/PikFHBB.png)
 
+
 S-Hook.  Note the repeated use of the square shape, and the use of the 45 degree triangle, making this easy to replicate using the Shape Set.  This hook is used to hang things from the Trash Poles in Skeletron. Fabricate by stacking 4 identical layers of corrugated cardboard cut in this pattern and wrapping them in rainbow colored duct tape.  Googly eyes can then be applied.
 
 ![](https://i.imgur.com/g7zWwbd.png)
+
 
 Tape Snake.  Duct tape rolls of all useful colors, namely the rainbow colors plus black and pink, are strung on a 6 foot Trash Tie made from a clothesline which is looped through twice and secured with a square knot in a bight(like a bow on a tied shoe) for rapid replacement of rolls as they are used.
 
@@ -81,6 +83,7 @@ ArtBox assembly.  The fully assembled box is a tetrahedron on an octahedron.  It
 Top view of ArtBox.  Cut out little triangles in each of the top three petal triangles with the box cutter.  Thread a 6 foot Trash Tie with ends taped with duct tape as shown, and tie off the two bitter ends with a double figure eight knot for convenient purse-strap geometry.
 
 ![](https://i.imgur.com/VOuHYQ9.png)
+
 
 Pyramid net.  Use the Shape Set and Ruler to cut out corrugated cardboard patterns and stitch together with duct tape as shown.  Cutouts include a 6 inch square, a 3 inch square, and four trapezoids with 3 inch top and 6 inch base with 72 degree angles on the bottom angles.
 

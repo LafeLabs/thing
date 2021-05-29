@@ -1,3 +1,5 @@
+[home](index.html)
+
 # Poetry Engine
 
 The Poetry Engine is a good place to start in learning how to produce and share art on the Geometron network.  What this software does is point to any image on the Web, and allow you to place words over it of your choosing.  Delete words, add words, move words around, change them. It is the same basic format as refrigerator magnet poetry, which is where it gets its name.  However, by being able to point to anything on the Web, and being able to clone and remix across the web it becomes a tool of immense potential power to augment human thought and understanding. 
@@ -36,10 +38,7 @@ Now, to actually use this, we'll need to find a target image.  To do that, think
 
 Save again, and notice that the larger text box is filled with strange looking code. Now copy all that code to the clipboard and paste it into an email or text message to another Geometron user. They can then paste that code into the same field and click the "IMPORT" button in the very lower right corner of their screen and it will load the whole of your poem to their screen. Ask them to send back one to you and you can import it in the same way, edit it, and send it back. If you ever want to reset everything because your page gets somehow corrupted, just hit the RESET button to restore a default poem.
 
-Having figured out how to share, you can now share the poem you created with another person who is not yet a Geometron operator.  The way to do this is with a global instance of Geometron, which can be found at [geometronics.org](http://www.geometronics.org).  You can send them your code and a link to the poetry engine there at [https://www.geometronics.org/poetryengine.html](https://www.geometronics.org/poetryengine.html).  They can go there, drop your code in, and hit the IMPORT button in the lower right hand corner, and they will see the poem you created. They can then learn to operate the engine, remix what you sent and save to copy the code and send it back.  
-
-Also, note that a great way to share code with slightly more permanence is to paste code onto the free text pasting site at [https://pastebin.com/](https://pastebin.com/).
-
+Replicate and share!
 
 
 
