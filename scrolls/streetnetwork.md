@@ -125,7 +125,7 @@ We follow the laws of Geoemtron listed in the previous chapter as a
 guide for building this new world. We teach everyone we meet how this
 whole system works, and recruit new people as Operators. Note that the
 idea of a mendicant order has strong religious overtones, but that this
-is a completely ecumenical order based on the universal language of
+is a completely non-denominational order based on the universal language of
 geometry. Geometry has a central place in all existing cosmologies, both
 ones considered religious and ones considered secular. The work here
 presents a way of interacting with the world based on geometry. In some
