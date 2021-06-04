@@ -177,6 +177,7 @@
         "scalesymbols.svg",
         "scroll.svg",
         "setup.svg",
+        "shapes.png",
         "shapeset.svg",
         "shapesgreen.svg",
         "shapesoutline.svg",
