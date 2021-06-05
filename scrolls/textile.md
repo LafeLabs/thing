@@ -1,5 +1,7 @@
 [home](index.html)
 
+[action geometry scroll](scrolls/actiongeometry.md)
+
 # Textile
 
 There are two types of textile products used in the Trash Robot system: flags and bags.

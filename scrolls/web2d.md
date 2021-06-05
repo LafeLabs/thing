@@ -2,6 +2,10 @@
 
 [Book of Geometron](scrolls/bookofgeometron.md)
 
+[symbol.html](symbol.html)
+
+[symbol feed](symbolfeed.html)
+
 # Chapter 9: 2d Web Graphics
 
 The previous chapter introduced the abstract idea of geometric

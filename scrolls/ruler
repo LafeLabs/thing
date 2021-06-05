@@ -1,3 +1,7 @@
+[home](index.html)
+
+[action geometry scroll](scrolls/actiongeometry.md)
+
 # Make a Laser Cut Ruler
 
 To make a laser cut thing, we will want to either make an svg file with two layers(one for cutting and one for etching) or a pair of files, svg and png where the svg is for cutting and the png is for etching.  
