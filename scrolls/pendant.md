@@ -1,6 +1,5 @@
 [home](index.html)
 
-[products scroll](scrolls/products.md)
 
 # Pendant
 
