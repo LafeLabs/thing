@@ -108,5 +108,16 @@
         "href": "iconsymbols/rulers.png",
         "src": "",
         "maplinkmode": false
+    },
+    {
+        "x": 0.20314389359129384,
+        "y": 0.26360338573155984,
+        "w": 0.39298669891172916,
+        "h": 0.053204353083434096,
+        "angle": 0,
+        "text": "action geometry scroll",
+        "href": "scrolls/actiongeometry.md",
+        "src": "",
+        "maplinkmode": true
     }
 ]

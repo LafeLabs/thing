@@ -1,5 +1,7 @@
 [home](index.html)
 
+[back to book of Geometron](scrolls/bookofgeometron.md)
+
 [skeletron scroll](scrolls/skeletron.md)
 
 [textile scroll](scrolls/textile.md)
@@ -7,6 +9,8 @@
 [shape set scroll](scrolls/shapeset)
 
 [shape set map](maps/shapes)
+
+[ruler map](maps/ruler)
 
 [ruler scroll](scrolls/ruler)
 

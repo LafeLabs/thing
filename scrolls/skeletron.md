@@ -1,5 +1,7 @@
 [home](index.html)
 
+[action geometry scroll](scrolls/actiongeometry.md)
+
 # Skeletron System
 
 We begin by making the [ArtBox](scrolls/box.md) which is used to store art supplies and tools used for all other elements. 

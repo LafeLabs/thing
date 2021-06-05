@@ -196,5 +196,16 @@
         "href": "iconsymbols/shapes.png",
         "src": "",
         "maplinkmode": false
+    },
+    {
+        "x": 0.02418379685610641,
+        "y": 0.013301088270858524,
+        "w": 0.31559854897218864,
+        "h": 0.05441354292623942,
+        "angle": 0,
+        "text": "action geometry scroll",
+        "href": "scrolls/actiongeometry.md",
+        "src": "",
+        "maplinkmode": true
     }
 ]
