@@ -50,6 +50,7 @@ cd ..
 sudo chmod -R 0777 *
 cd html
 php replicator.php
+sudo chmod -R 0777 *
 </pre>
 
 That Raspberry Pi is now set up to act as a Geometron server.  Log that Pi onto a local wifi hotspot, then go to the link at the top of the screen to get a QR code and link for that server.
