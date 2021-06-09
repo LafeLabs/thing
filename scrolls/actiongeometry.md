@@ -6,6 +6,8 @@
 
 [textile scroll](scrolls/textile.md)
 
+[protractor scroll](scrolls/protractor.md)
+
 [shape set scroll](scrolls/shapeset)
 
 [shape set map](maps/shapes)
