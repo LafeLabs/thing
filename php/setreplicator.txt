@@ -18,7 +18,8 @@ set.txt is an array of  JSON objects
 
 */
 
-$seturl = "https://raw.githubusercontent.com/LafeLabs/thing/master/data/set.txt";
+//$seturl = "https://raw.githubusercontent.com/LafeLabs/thing/master/data/set.txt";
+$seturl = "data/set.txt";
 
 if(isset($_GET["set"])){
     $seturl = $_GET["set"];
