@@ -218,5 +218,27 @@
         "href": "programarduino.html",
         "src": "",
         "maplinkmode": false
+    },
+    {
+        "x": 0.4909310761789601,
+        "y": 0.012091898428053204,
+        "w": 0.09673518742442563,
+        "h": 0.09673518742442563,
+        "angle": 0,
+        "text": "scroll",
+        "href": "scrolls/iconfactory.md",
+        "src": "iconsymbols/scroll.svg",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.8839177750906893,
+        "y": 0.0012091898428053204,
+        "w": 0.40870616686819833,
+        "h": 0.07980652962515115,
+        "angle": 0,
+        "text": "home",
+        "href": "index.html",
+        "src": "",
+        "maplinkmode": false
     }
 ]
