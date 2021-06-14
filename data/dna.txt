@@ -276,6 +276,7 @@
     "maps": [
         "flag",
         "home",
+        "iconfactory",
         "math",
         "printer",
         "ruler",
@@ -290,6 +291,7 @@
         "brain.md",
         "brand.md",
         "civilizations.md",
+        "clayprint.md",
         "controller.md",
         "duality",
         "feeds.md",

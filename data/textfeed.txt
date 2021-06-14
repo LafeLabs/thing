@@ -17,7 +17,9 @@
         "https://i.imgur.com/qMRny0B.jpg",
         "https://i.imgur.com/nKHSZxC.jpg",
         "https://i.imgur.com/Qg40z9U.png",
-        "https://i.imgur.com/No1wukK.png"
+        "https://i.imgur.com/No1wukK.png",
+        "https://i.imgur.com/VxfFnD1.png",
+        "https://i.imgur.com/CnSO74z.png"
     ],
     "href": [
         "http://geometronics.org"

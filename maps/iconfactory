@@ -1,0 +1,222 @@
+[
+    {
+        "x": 0.16686819830713423,
+        "y": 0.3941958887545345,
+        "w": 0.2079806529625151,
+        "h": 0.08948004836759371,
+        "angle": 0,
+        "text": "build clay icon printer robot",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.04836759371221282,
+        "y": 0.27327690447400244,
+        "w": 0.2079806529625151,
+        "h": 0.08948004836759371,
+        "angle": 0,
+        "text": "build geometron server",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.3216444981862152,
+        "y": 0.2756952841596131,
+        "w": 0.2079806529625151,
+        "h": 0.08948004836759371,
+        "angle": 0,
+        "text": "design icon",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.5489721886336155,
+        "y": 0.38814993954050786,
+        "w": 0.2079806529625151,
+        "h": 0.08948004836759371,
+        "angle": 0,
+        "text": "print in clay",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.5477629987908101,
+        "y": 0.16807738814993953,
+        "w": 0.2079806529625151,
+        "h": 0.08948004836759371,
+        "angle": 0,
+        "text": "share glyphs",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.5501813784764208,
+        "y": 0.31197097944377267,
+        "w": 0.2079806529625151,
+        "h": 0.08948004836759371,
+        "angle": 0,
+        "text": "3d print icon",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.5477629987908101,
+        "y": 0.24062877871825877,
+        "w": 0.2079806529625151,
+        "h": 0.08948004836759371,
+        "angle": 0,
+        "text": "spray stencil icon",
+        "href": "",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.2370012091898428,
+        "y": 0.24062877871825877,
+        "w": 0.04836759371221282,
+        "h": 0.09673518742442563,
+        "angle": 88,
+        "text": "build clay icon printer robot",
+        "href": "",
+        "src": "https://i.imgur.com/VxfFnD1.png",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.4111245465538089,
+        "y": 0.3349455864570738,
+        "w": 0.06287787182587666,
+        "h": 0.14510278113663846,
+        "angle": 88,
+        "text": "build clay icon printer robot",
+        "href": "",
+        "src": "https://i.imgur.com/VxfFnD1.png",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.45223700120918986,
+        "y": 0.27690447400241835,
+        "w": 0.056831922611850064,
+        "h": 0.12575574365175332,
+        "angle": 127,
+        "text": "build clay icon printer robot",
+        "href": "",
+        "src": "https://i.imgur.com/VxfFnD1.png",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.4619105199516324,
+        "y": 0.24425634824667472,
+        "w": 0.056831922611850064,
+        "h": 0.11366384522370013,
+        "angle": 104,
+        "text": "build clay icon printer robot",
+        "href": "",
+        "src": "https://i.imgur.com/VxfFnD1.png",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.45828295042321643,
+        "y": 0.2079806529625151,
+        "w": 0.056831922611850064,
+        "h": 0.11366384522370013,
+        "angle": 78,
+        "text": "build clay icon printer robot",
+        "href": "",
+        "src": "https://i.imgur.com/VxfFnD1.png",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.4558645707376058,
+        "y": 0.1656590084643289,
+        "w": 0.056831922611850064,
+        "h": 0.11366384522370013,
+        "angle": 56,
+        "text": "build clay icon printer robot",
+        "href": "",
+        "src": "https://i.imgur.com/VxfFnD1.png",
+        "maplinkmode": false
+    },
+    {
+        "x": -0.013301088270858524,
+        "y": -0.0024183796856106408,
+        "w": 0.14389359129383314,
+        "h": 0.17291414752116083,
+        "angle": -4,
+        "text": "build clay icon printer robot",
+        "href": "",
+        "src": "https://i.imgur.com/No1wukK.png",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.6735187424425635,
+        "y": 0.1656590084643289,
+        "w": 0.2079806529625151,
+        "h": 0.03385731559854897,
+        "angle": 0,
+        "text": "iconfeed.html",
+        "href": "iconfeed.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.7158403869407497,
+        "y": 0.2370012091898428,
+        "w": 0.2079806529625151,
+        "h": 0.03385731559854897,
+        "angle": 0,
+        "text": "lasericon.html",
+        "href": "lasericon.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.6711003627569528,
+        "y": 0.309552599758162,
+        "w": 0.2079806529625151,
+        "h": 0.03385731559854897,
+        "angle": 0,
+        "text": "icon3d.html",
+        "href": "icon3d.html",
+        "src": "",
+        "maplinkmode": false
+    },
+    {
+        "x": 0.6674727932285369,
+        "y": 0.38694074969770254,
+        "w": 0.22732769044740025,
+        "h": 0.036275695284159616,
+        "angle": 0,
+        "text": "clayprint.md",
+        "href": "scrolls/clayprint.md",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.279322853688029,
+        "y": 0.2998790810157195,
+        "w": 0.22732769044740025,
+        "h": 0.036275695284159616,
+        "angle": 0,
+        "text": "designicon.md",
+        "href": "scrolls/designicon.md",
+        "src": "",
+        "maplinkmode": true
+    },
+    {
+        "x": 0.5538089480048367,
+        "y": 0.4147521160822249,
+        "w": 0.2079806529625151,
+        "h": 0.03385731559854897,
+        "angle": 0,
+        "text": "programarduino.html",
+        "href": "programarduino.html",
+        "src": "",
+        "maplinkmode": false
+    }
+]
