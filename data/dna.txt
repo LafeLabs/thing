@@ -316,6 +316,7 @@
         "printers.md",
         "products.md",
         "protractor.md",
+        "robotfactory.md",
         "ruler",
         "scrolls.md",
         "servers.md",

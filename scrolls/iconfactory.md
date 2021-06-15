@@ -97,13 +97,13 @@ After the clay has been printed, you can flip it over and print another icon on 
 Prints are to be stored in a Print Bag, which is a black cloth sewn bag with a green triangle symbol stitched on as shown.  This represents the Earth element in our system of mapping parts of our system to elements from ancient alchemy(this is just a sorting system and has no deeper meaning).  You can also just sew a bag from green or brown cloth with no symbol to represent this.  Bags are sewn with a draw string made from an 18 inch parachute cord with burned ends and a knot tied in it for easy carrying and hanging from hooks as described in [Action Geometry](scrolls/actiongeometry.md)
 With the robot programmed and the clay and tool prepared for a print, just hit the big circular green button on the controller to print.  At any time during the print, hitting the big red octagonal button will stop it.  In some cases after stopping in the middle of a print, the robot will be in a funny mode, and if it acts weird, just unplug and re-plug
 
-### Step 8: Make stamp
+### Step 9: Make stamp
 
 Once you have a fully hardened clay print, you want to make stamps from that. One print can make many stamps! And one two sided print can make stamps of each side, many times each.  To make a stamp, again roll a little ball of clay about 0.6 inches diameter, and then just smash it against the print gently so that it ends up about the same thickness as the print.  Do not over-press, you do not want any overhang, but a smooth round convex edge to the finished stamp.  Gently and carefully peel this stamp up from the print, make sure it is flat if it got curved, and you should have an inverse image of your print.  When this is done, repeat the oven process to get hardened stamps.  If you think this will be useful to share, make a few!  
 
 When these are made, you can store them in a "fire bag", a cloth bag like the one described above but either with black cloth and a red triangle or a red cloth bag.  
 
-### Step 9: Make tokens/coins
+### Step 10: Make tokens/coins
 
 Once you have made some Stamps, you are ready to make the finished product.  Select two stamps to make the opposite sides of a token.  Create another rolled clay ball as you did for previous steps.  Very gently press the two stamps into the ball until it just barely goes to the edges. Be sure not to over-press so that the clay starts to get squeezed into a raised ring on the edges.  The edges should remain convex when you are done, with a smooth curve away from the surface on both sides so that it is easy to sand when done.  
 
@@ -120,7 +120,7 @@ The same process can be followed with larger pieces of clay with holes in them t
 
 The icons created in this system can also be 3d printed. This is done with [icon3d.html](icon3d.html), which you can just click on an icon to load.  If you like the look of the icon, hit the SAVE button.  If you want to see it in 3d, click on [three.html](three.html) to see it and rotate it around and zoom to see it.  If you want to 3d print it, click on [threejs.html](threejs.html) and then download the file data/three.stl to get a file you can send to a 3d printer.  If you do not have a 3d printer, this can be sent to some who does by email and they can print it. 
 
-3d printed icons can be used like the clay icons to stamp in to a material like clay to replicate without a printer.  
+3d printed icons can be used like the clay icons to stamp in to a material like clay to replicate without a printer.  Also, you can make an inverted 3d printed part by clicking on the link to [threejsinvert.html](threejsinvert.html), which will flip the icon into its mirror image to make a stamp.  A 3d printed part like this can be stamped into a soft material, or have a soft coating added to it to make a stamp in ink.  
 
 ### Make stencil for spray paint replication
 
