@@ -19,7 +19,7 @@
 
 An Icon is a sequence of [Geometron](scrolls/bookofgeometron.md) actions which creates a symbol from an array of 64x64 pixels.  This can be used to create clay printed coins, clay printed jewelry, clay systems of self-replicating media, printed plastic trash, 3d printed parts, and spray stencils which can be printed in a laser cutter or paper printer with a pin.  Icons can also be integrated into other documents and pages in the [Geometron](scrolls/bookofgeometron.md) system, especially [maps](scrolls/maps.md).
 
-This [Scroll](scrolls/scrolls.md) documents how to create icons from start to finish.  There are many ways to use this, and we will show you how to do several of them here.  We try to make this as widely usable as possible, allowing you to mix and match parts of the system so you can participate with minimal resources.
+This [Scroll](scrolls/scrolls.md) documents how to create icons from start to finish.  There are many ways to use this, and we will show you how to do several of them here.  We try to make this as widely usable as possible, allowing you to mix and match parts of the system so you can participate with minimal resources.  That said, you will need a working Geometron server which you can edit things on in order to do this, as well as a clay icon printer documented elsewhere to make the clay crafts.
 
 ## Step 1: Think of a symbol
 
@@ -47,23 +47,49 @@ A glyph is cleared with the vertical bar above the backslash as shown:
 
 ![clear key](https://i.imgur.com/2GEtsfK.png)
 
-As a glyph is created, you can edit it with the forward and back arrow keys and backspace as you would text: move the cursor, and delete individual commands.  Each command(moves, pixel drawing, colors) is represented by a number beginning with zero.  These numbers are part of the [Geometron language documented in the Book of Geometron](scrolls/bookofgeometron.md), but you do not need to understand what that means to work with them.  All you need to understand is that the series of numbers which changes as you edit is the text you need to share with other people to share your icon you created.  At any time in the editing process you can copy and paste the sequence of numbers separated by commas which make up the glyph.    
+As a glyph is created, you can edit it with the forward and back arrow keys and backspace as you would text: move the cursor, and delete individual commands.  Each command(moves, pixel drawing, colors) is represented by a number beginning with zero.  These numbers are part of the [Geometron language documented in the Book of Geometron](scrolls/bookofgeometron.md), but you do not need to understand what that means to work with them.  All you need to understand is that the series of numbers which changes as you edit is the text you need to share with other people to share your icon you created.  At any time in the editing process you can copy and paste the sequence of numbers separated by commas which make up the glyph into a saved file or send it in a text message or email to someone.  If you have a saved glyph or shared glyph from someone else, you can *paste* that glyph into the same space as the existing glyph, and it will instantly delete the old glyph and replace it with the new one you were just sent.    
 
-share the glyph manually, copy and paste and save and send
+To write text using the Geometron Robot font, hit return on a keyboard to switch from pixel mode to text mode and you can type text which will be printed in the robot font.  If a keyboard is not available(on mobile) you can type letters by clicking on soft keys in the soft key control panel below the basic pixel and color actions.  This font can be adjusted for other languages using Geometron as well.
+
+When you have an icon you like, save it to the local icon feed by hitting the button marked SAVE.  After the icon is saved it will be available for use in other parts of the system, including:
+
+ - [share and delete icons](iconfeed.html)
+ - [program arduino](programarduino.html)
+ - [inject icon into a Geometron map](icon64.html)
+ - [3d print an icon](icon3d.html)
+ - [spray paint stencil pattern of icon](lasericon.html)
+
 
 ### Step 5: Share and save glyphs, replicate
 
+The [Icon Feed](iconfeed.html) page allows you to see and delete all the icons in the Feed.  Red X's delete. Be careful! Deletion really destroys the icon.  If you click on any icon, the glyph will load into the text input at the top of the screen.  That can then be copy/pasted to share with other people or save into a file. This page is critical for building a network of artists who can create and share these icons.  Any new glyph put in the top input will, after you hit enter, be loaded into the Feed.  Saving from the Trace page also adds an icon to the Feed.  The actual file which represents the Feed is stored at [data/robotfeed.txt](data/robotfeed.txt).  That file is also displayed in the text area at the bottom of the screen.  This can be copied to the clipboard and shared with other people or saved separately as well.  When someone shares a whole Feed file with you, you can paste it into the same text area at the bottom of the screen, and click the "import" button to import that whole Feed.  Again, this deletes the existing Feed, so make sure every Feed you want to keep is copied to some file saved somewhere.
+
 ### Step 6: Set up robot
 
+Take the robot out of its bag, and manually adjust the position of the tool so that the two outer stages are each close to the center of their travel range.  Make sure the nail is balanced on the bottom of the bottom magnet so that it is vertical, with the top if its head flat against the bottom magnet. Adjust the tool bridge so that the nail is just about a quarter inch off the surface of the middle stage.
+
+Once the printer is in approximately the right configuration, plug the USB into whatever computer you want to use to program it. This can be any laptop or desktop or Rasberry Pi.  Once it is plugged in, make sure that the controller connector is all the way plugged in and try operating the controller by pressing the arrow buttons to move the tool and center stage around. If this does not work, the controller is very likely not plugged in all the way or the Arduino is not getting power or is in a funny mode.  If things are not working, try unplugging and carefully re-plugging the connector for the controller, and unplugging and re-plugging the USB for the Arduino Robot Brain.  Sometimes a stage breaks and must be replaced as per the instructions to build the robot.  If nothing works, find someone who builds robots and they can trouble shoot by replacing all things one by one.  
+
+When the robot is on and moving, use the controller to put all three stages in a state in the middle of their travel range, and move the nail a little over a quarter inch above the middle stage.  
+
+When this is all set up, pinch off enough Sculpey polymer clay to make a ball about 0.6 inches in diameter and roll it between your palms until it is a smooth ball, then press it between two flat smooth surfaces until you get a pancake with smooth edges a little under a quarter inch thick.  Place this pancake of clay directly in the middle of the middle stage, so that the nail is in the middle just about 1 mm above the surface of the clay.  Push down on the clay very gently with your fingers around the edges to make sure it adheres to the cardboard stage surface so that it stays in place during the print.  You can sometimes gently repeat this process during a print if it comes loose without hitting "stop" also.
+
+### Step 8: Program Printer
+
+
 ### Step 7: Print
+
+
 
 ### Step 8: Make stamp
 
 ### Step 9: Make tokens/coins
 
-### Step 10: Make 3d printed icon
+###  Make 3d printed icon
 
-### Step 11: Make laser cut stencil icon
+###  Make laser cut stencil icon
+
+### Use icons in Geometron Maps
 
 
 
