@@ -84,6 +84,7 @@
         "textfeed.html",
         "three.html",
         "threejs.html",
+        "threejsinvert.html",
         "traceicon.html",
         "urlfeed.html",
         "voxel.html",

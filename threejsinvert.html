@@ -188,8 +188,6 @@ for(var index = 0;index < 02000;index++){
     hypercube.push("");
 }
 
-
-
 var httpcHypercube = new XMLHttpRequest();
 httpcHypercube.onreadystatechange = function(){
     if (this.readyState == 4 && this.status == 200) {
@@ -259,7 +257,6 @@ function actionSequence(localString){
     }
 }
 
-
 function action(localCommand){
 
     if(localCommand >= 0500 && localCommand <0700){
@@ -274,10 +271,10 @@ function action(localCommand){
     }
     
     if(localCommand == 0700){
-        x += side;
+        x -= side;
     }
     if(localCommand == 0701){
-        x -= side;
+        x += side;
     }
     if(localCommand == 0702){
         y += side;
@@ -308,8 +305,6 @@ function action(localCommand){
 }
 
 
-
-
 function savestl(){
     var exporter = new THREE.STLExporter();
     var str = exporter.parse(scene);
@@ -333,6 +328,8 @@ function loadglyph(){
     httpcglyph.open("GET", "fileloader.php?filename=data/glyph3d.txt", true);
     httpcglyph.send();   
 }
+
+
 
 
 

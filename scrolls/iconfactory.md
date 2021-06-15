@@ -74,7 +74,7 @@ When the robot is on and moving, use the controller to put all three stages in a
 
 When this is all set up, pinch off enough Sculpey polymer clay to make a ball about 0.6 inches in diameter and roll it between your palms until it is a smooth ball, then press it between two flat smooth surfaces until you get a pancake with smooth edges a little under a quarter inch thick.  Place this pancake of clay directly in the middle of the middle stage, so that the nail is in the middle just about 1 mm above the surface of the clay.  Push down on the clay very gently with your fingers around the edges to make sure it adheres to the cardboard stage surface so that it stays in place during the print.  You can sometimes gently repeat this process during a print if it comes loose without hitting "stop" also.
 
-### Step 8: Program Printer
+### Step 7: Program Printer
 
 The Clay Icon Printer Robot brain is the [Arduino](https://www.arduino.cc/), an open hardware project used for building simple programmed hardware like this.  In order to program the robot, you will need the Arduino software to be installed on a computer.  Any "real computer" can do this, i.e. anything other than a phone or tablet, which has a USB port: PC, mac, or Linux, laptop or desktop.  If it has not already been done, [install the Arduino software by downloading it here](https://www.arduino.cc/en/software).  Just click on whatever operating system you are using, follow all the prompts to download and set it up, and then open the software.  The software is called the "Arduino IDE", and IDE stands for "Integrated Development Environment", which is an app in which you can write and edit the code which runs the Arduino.  It is probably helpful once it is installed to either put a link to it on your desktop or pin it to a task bar or equivalent so that you can get back to it quickly on whatever machine you have installed it on.  
 
@@ -88,12 +88,7 @@ This is what the button looks like that you click to load the code:
 
 ![](https://i.imgur.com/NoFuwhS.png)
 
-### Step 7: Print
-
-With the robot programmed and the clay and tool prepared for a print, just hit the big circular green button on the controller to print.  At any time during the print, hitting the big red octagonal button will stop it.  In some cases after stopping in the middle of a print, the robot will be in a funny mode, and if it acts weird, just unplug and re-plug
-
-
-### Step 7: Print
+### Step 8: Print
 
 With the robot programmed and the clay and tool prepared for a print, just hit the big circular green button on the controller to print.  At any time during the print, hitting the big red octagonal button will stop it.  In some cases after stopping in the middle of a print, the robot will be in a funny mode, and if it acts weird, just unplug and re-plug it.  If a print fails, just reform the clay blank and start the whole thing again, re-centering the tool as described above.
 
@@ -133,7 +128,7 @@ To create a stencil for spray paint replication of an icon, you can use [laseric
 
 ### Use Icon in Geometron Map
 
-Icons can be incorporated into [Geoemtron Maps](scrolls/maps.md) using [icon64.html(icon64.html).  Again, select the icon you want, and click SAVE.  This will save the icon to the [text feed](textfeed.html).  Once it is in the Text Feed, you can use it in the [Map Editor](mapeditor.html) to edit any Geometron Map.
+Icons can be incorporated into [Geoemtron Maps](scrolls/maps.md) using [icon64.html](icon64.html).  Again, select the icon you want, and click SAVE.  This will save the icon to the [text feed](textfeed.html).  Once it is in the Text Feed, you can use it in the [Map Editor](mapeditor.html) to edit any Geometron Map.
 
 You now have the tools to create self-replicating icons in several media which can represent any idea which the human mind can express in language and use them for any purpose. 
 
