@@ -76,14 +76,35 @@ When this is all set up, pinch off enough Sculpey polymer clay to make a ball ab
 
 ### Step 8: Program Printer
 
+The Clay Icon Printer Robot brain is the [Arduino](https://www.arduino.cc/), an open hardware project used for building simple programmed hardware like this.  In order to program the robot, you will need the Arduino software to be installed on a computer.  Any "real computer" can do this, i.e. anything other than a phone or tablet, which has a USB port: PC, mac, or Linux, laptop or desktop.  If it has not already been done, [install the Arduino software by downloading it here](https://www.arduino.cc/en/software).  Just click on whatever operating system you are using, follow all the prompts to download and set it up, and then open the software.  The software is called the "Arduino IDE", and IDE stands for "Integrated Development Environment", which is an app in which you can write and edit the code which runs the Arduino.  It is probably helpful once it is installed to either put a link to it on your desktop or pin it to a task bar or equivalent so that you can get back to it quickly on whatever machine you have installed it on.  
+
+Once the Arduino IDE is installed and open, make sure the robot is plugged into one of the USB ports of your computer.  Now you need the Arduino IDE to "see" the Arduino in the robot.  To do this, click on "tools" and then look at "ports" to see if there is a port visible you can select.  If it is grayed out or there are no ports, try repeatedly unplugging and plugging in the robot until you see something, and then select one of the COM ports.  Unfortunately this is trial and error. Sometimes the correct on is automatically detected, but if it's not just keep unplugging and plugging in and closing and opening the IDE until it is recognized.  This is what the menu looks like with the "ports" greyed out because nothing is connected:
+
+![](https://i.imgur.com/V6dxO5e.png)
+
+When the Arduino is recognized, go to the Program Arduino page in the Geometron system at [programarduino.html](programarduino.html).  On this page, click on the icon you want to print, and you will see the code chnage in the blue-green rectangular area.  When you click on any other icon, what changes is the string of letters in the top of the program.  Those letters represent the same information as the glyph code with the numbers described above, but in a form the Arduino is programmed to understand.  To program, click the arrow to compile and load the code.  There should be some text at the bottom of the IDE, the lights on the robot brain should blink, and then it should say that the sketch is uploaded(Arduino programs are called "sketches").  In some cases the size of an icon might be too large to load, and you can cut the string of letters into two pieces and upload the first one, print it, and then upload the second half to print.  
+
+This is what the button looks like that you click to load the code:
+
+![](https://i.imgur.com/NoFuwhS.png)
 
 ### Step 7: Print
 
+With the robot programmed and the clay and tool prepared for a print, just hit the big circular green button on the controller to print.  At any time during the print, hitting the big red octagonal button will stop it.  In some cases after stopping in the middle of a print, the robot will be in a funny mode, and if it acts weird, just unplug and re-plug it.  If a print fails, just reform the clay blank and start the whole thing again, re-centering the tool as described above.
 
+After the clay has been printed, you can flip it over and print another icon on the other side.  When this is done, you are ready to bake the first clay piece in the Icon Factory, the Print.  All of the Sculpey bake processes involve baking in a conventional oven at 275 degrees F for at least 15 minutes, but more is ok, and 20 minutes is normal.  Be sure to preheat the oven to get it up to the target temperature before putting the clay in.  Put the clay on an aluminum foil sheet or baking pan when you put it in.  After the baking is done, wait for the clay to cool, as it will be both very hot and still soft for a few minutes.  It can also be placed under cold water to quickly cool.  
+
+Prints are to be stored in a Print Bag, which is a black cloth sewn bag with a green triangle symbol stitched on as shown.  This represents the Earth element in our system of mapping parts of our system to elements from ancient alchemy(this is just a sorting system and has no deeper meaning).  You can also just sew a bag from green or brown cloth with no symbol to represent this.  Bags are sewn with a draw string made from an 18 inch parachute cord with burned ends and a knot tied in it for easy carrying and hanging from hooks as described in [Action Geometry](scrolls/actiongeometry.md)
 
 ### Step 8: Make stamp
 
+Once you have a fully hardened clay print, you want to make stamps from that. One print can make many stamps! And one two sided print can make stamps of each side, many times each.  To make a stamp, again roll a little ball of clay about 0.6 inches diameter, and then just smash it against the print gently so that it ends up about the same thickness as the print.  Do not over-press, you do not want any overhang, but a smooth round convex edge to the finished stamp.  Gently and carefully peel this stamp up from the print, make sure it is flat if it got curved, and you should have an inverse image of your print.  When this is done, repeat the oven process to get hardened stamps.  If you think this will be useful to share, make a few!  
+
+When these are made, you can store them in a "fire bag", a cloth bag like the one described above but either with black cloth and a red triangle or a red cloth bag.  
+
 ### Step 9: Make tokens/coins
+
+Once you have made some Stamps, you are ready to make the finished product.  
 
 ###  Make 3d printed icon
 
