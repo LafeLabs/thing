@@ -108,11 +108,16 @@ Once you have made some Stamps, you are ready to make the finished product.  Sel
 
 After you press as many tokens as you want, again bake them in the oven with the 20 minute 275 F bake with preheat.  When they are completed, use paint pen to fill in the pixels.  Be sure the little spaces are all filled in with paint going all the way into the pixels. This is why you need paint pen and not marker, you need paint to get inside the depressions, be sure that there is no bare clay visible at all inside the pixel depressions.  When this is done, wait for the paint to dry, and then use a sand paper block(like a sponge, with sandpaper all over it) or just sand paper to sand off the surface layer of paint along the smooth top level of the token.  After all the surface paint is removed what is left will be a token with an image of your icon with painted pixels.  These can be stored in a Water Bag, either a blue cloth bag or black bag with blue triangle sewn on.  These are carried around and used for any task where you want to either work with icons on your own or communicate with others.  This is a totally generic token of information which can represent all the possible abstract ideas as described in the beginning of this document.  They can be used like game pieces, toys, currency, markers of physical objects, art projects, and numerous applications not yet known.  
 
+
+![](https://i.imgur.com/BbU0bAX.jpg)
+
 The same process can be followed with larger pieces of clay with holes in them to make pendants.  Pendants look like this:
 
-
+![](https://i.imgur.com/K2ZoX6G.png)
 
 ###  Make 3d printed icon
+
+The icons created in this system can also be 3d printed. This is done with [icon3d.html](icon3d.html), which you can just click on an icon to load.  If you like the look of the icon, hit the SAVE button.  If you want to see it in 3d, click on [three.html](three.html) to see it and rotate it around and zoom to see it.  If you want to 3d print it, click on [threejs.html](threejs.html) and then download the file data/three.stl to get a file you can send to a 3d printer.  If you do not have a 3d printer, this can be sent to some who does by email and they can print it.  
 
 ###  Make laser cut stencil icon
 
