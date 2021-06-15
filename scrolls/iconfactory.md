@@ -104,7 +104,13 @@ When these are made, you can store them in a "fire bag", a cloth bag like the on
 
 ### Step 9: Make tokens/coins
 
-Once you have made some Stamps, you are ready to make the finished product.  
+Once you have made some Stamps, you are ready to make the finished product.  Select two stamps to make the opposite sides of a token.  Create another rolled clay ball as you did for previous steps.  Very gently press the two stamps into the ball until it just barely goes to the edges. Be sure not to over-press so that the clay starts to get squeezed into a raised ring on the edges.  The edges should remain convex when you are done, with a smooth curve away from the surface on both sides so that it is easy to sand when done.  
+
+After you press as many tokens as you want, again bake them in the oven with the 20 minute 275 F bake with preheat.  When they are completed, use paint pen to fill in the pixels.  Be sure the little spaces are all filled in with paint going all the way into the pixels. This is why you need paint pen and not marker, you need paint to get inside the depressions, be sure that there is no bare clay visible at all inside the pixel depressions.  When this is done, wait for the paint to dry, and then use a sand paper block(like a sponge, with sandpaper all over it) or just sand paper to sand off the surface layer of paint along the smooth top level of the token.  After all the surface paint is removed what is left will be a token with an image of your icon with painted pixels.  These can be stored in a Water Bag, either a blue cloth bag or black bag with blue triangle sewn on.  These are carried around and used for any task where you want to either work with icons on your own or communicate with others.  This is a totally generic token of information which can represent all the possible abstract ideas as described in the beginning of this document.  They can be used like game pieces, toys, currency, markers of physical objects, art projects, and numerous applications not yet known.  
+
+The same process can be followed with larger pieces of clay with holes in them to make pendants.  Pendants look like this:
+
+
 
 ###  Make 3d printed icon
 
