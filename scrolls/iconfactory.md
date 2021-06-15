@@ -11,6 +11,9 @@
  - [icon tracer](traceicon.html)
  - [icon feed](iconfeed.html)
  - [program arduino](programarduino.html)
+ - [inject icon into a Geometron map](icon64.html)
+ - [3d print an icon](icon3d.html)
+ - [spray paint stencil pattern of icon](lasericon.html)
 
 # Icon Factory
 
@@ -32,8 +35,35 @@ Once you have the image of the symbol you want to trace in one of the image feed
 
 ### Step 4: Trace the image into an icon glyph
 
-Clicking from TRACE from the [image aligner](alignimage.html) will get you to [traceicon.html](traceicon.html), which is where you trace the icon.  
+Clicking from TRACE from the [image aligner](alignimage.html) will get you to [traceicon.html](traceicon.html), which is where you trace the icon.  If you are on a computer with a proper keyboard, which is much easier than mobile, you can use the keys a,s,d,f to control the movement of the tool with a pixel being drawn, and if you use the keys z,x,c,v you can control tool movement without drawing a pixel.  These keys are shown below:
 
+![pixel movements](https://i.imgur.com/csr4ZMb.png)
+
+These exact commands are also accessible via touch screen buttons, which can be used if a keyboard is not available.  Color is selected using the number keys or the soft keys.  The layers are as shown below:
+
+![pixel colors](https://i.imgur.com/MCA8IT3.png)
+
+A glyph is cleared with the vertical bar above the backslash as shown:
+
+![clear key](https://i.imgur.com/2GEtsfK.png)
+
+As a glyph is created, you can edit it with the forward and back arrow keys and backspace as you would text: move the cursor, and delete individual commands.  Each command(moves, pixel drawing, colors) is represented by a number beginning with zero.  These numbers are part of the [Geometron language documented in the Book of Geometron](scrolls/bookofgeometron.md), but you do not need to understand what that means to work with them.  All you need to understand is that the series of numbers which changes as you edit is the text you need to share with other people to share your icon you created.  At any time in the editing process you can copy and paste the sequence of numbers separated by commas which make up the glyph.    
+
+share the glyph manually, copy and paste and save and send
+
+### Step 5: Share and save glyphs, replicate
+
+### Step 6: Set up robot
+
+### Step 7: Print
+
+### Step 8: Make stamp
+
+### Step 9: Make tokens/coins
+
+### Step 10: Make 3d printed icon
+
+### Step 11: Make laser cut stencil icon
 
 
 
