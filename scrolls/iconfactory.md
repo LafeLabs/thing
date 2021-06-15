@@ -90,34 +90,13 @@ This is what the button looks like that you click to load the code:
 
 ### Step 7: Print
 
-With the robot programmed and the clay and tool prepared for a print, just hit the big circular green button on the controller to print.  At any time during the print, hitting the big red octagonal button will stop it.  In some cases after stopping in the middle of a print, the robot will be in a funny mode, and if it acts weird, just unplug and re-plug it.  If a print fails, just reform the clay blank and start the whole thing again, re-centering the tool as described above.
-
-After the clay has been printed, you can flip it over and print another icon on the other side.  When this is done, you are ready to bake the first clay piece in the Icon Factory, the Print.  All of the Sculpey bake processes involve baking in a conventional oven at 275 degrees F for at least 15 minutes, but more is ok, and 20 minutes is normal.  Be sure to preheat the oven to get it up to the target temperature before putting the clay in.  Put the clay on an aluminum foil sheet or baking pan when you put it in.  After the baking is done, wait for the clay to cool, as it will be both very hot and still soft for a few minutes.  It can also be placed under cold water to quickly cool.  
-
-Prints are to be stored in a Print Bag, which is a black cloth sewn bag with a green triangle symbol stitched on as shown.  This represents the Earth element in our system of mapping parts of our system to elements from ancient alchemy(this is just a sorting system and has no deeper meaning).  You can also just sew a bag from green or brown cloth with no symbol to represent this.  Bags are sewn with a draw string made from an 18 inch parachute cord with burned ends and a knot tied in it for easy carrying and hanging from hooks as described in [Action Geometry](scrolls/actiongeometry.md)
+With the robot programmed and the clay and tool prepared for a print, just hit the big circular green button on the controller to print.  At any time during the print, hitting the big red octagonal button will stop it.  In some cases after stopping in the middle of a print, the robot will be in a funny mode, and if it acts weird, just unplug and re-plug
 
 ### Step 8: Make stamp
 
-Once you have a fully hardened clay print, you want to make stamps from that. One print can make many stamps! And one two sided print can make stamps of each side, many times each.  To make a stamp, again roll a little ball of clay about 0.6 inches diameter, and then just smash it against the print gently so that it ends up about the same thickness as the print.  Do not over-press, you do not want any overhang, but a smooth round convex edge to the finished stamp.  Gently and carefully peel this stamp up from the print, make sure it is flat if it got curved, and you should have an inverse image of your print.  When this is done, repeat the oven process to get hardened stamps.  If you think this will be useful to share, make a few!  
-
-When these are made, you can store them in a "fire bag", a cloth bag like the one described above but either with black cloth and a red triangle or a red cloth bag.  
-
 ### Step 9: Make tokens/coins
 
-Once you have made some Stamps, you are ready to make the finished product.  Select two stamps to make the opposite sides of a token.  Create another rolled clay ball as you did for previous steps.  Very gently press the two stamps into the ball until it just barely goes to the edges. Be sure not to over-press so that the clay starts to get squeezed into a raised ring on the edges.  The edges should remain convex when you are done, with a smooth curve away from the surface on both sides so that it is easy to sand when done.  
-
-After you press as many tokens as you want, again bake them in the oven with the 20 minute 275 F bake with preheat.  When they are completed, use paint pen to fill in the pixels.  Be sure the little spaces are all filled in with paint going all the way into the pixels. This is why you need paint pen and not marker, you need paint to get inside the depressions, be sure that there is no bare clay visible at all inside the pixel depressions.  When this is done, wait for the paint to dry, and then use a sand paper block(like a sponge, with sandpaper all over it) or just sand paper to sand off the surface layer of paint along the smooth top level of the token.  After all the surface paint is removed what is left will be a token with an image of your icon with painted pixels.  These can be stored in a Water Bag, either a blue cloth bag or black bag with blue triangle sewn on.  These are carried around and used for any task where you want to either work with icons on your own or communicate with others.  This is a totally generic token of information which can represent all the possible abstract ideas as described in the beginning of this document.  They can be used like game pieces, toys, currency, markers of physical objects, art projects, and numerous applications not yet known.  
-
-
-![](https://i.imgur.com/BbU0bAX.jpg)
-
-The same process can be followed with larger pieces of clay with holes in them to make pendants.  Pendants look like this:
-
-![](https://i.imgur.com/K2ZoX6G.png)
-
 ###  Make 3d printed icon
-
-The icons created in this system can also be 3d printed. This is done with [icon3d.html](icon3d.html), which you can just click on an icon to load.  If you like the look of the icon, hit the SAVE button.  If you want to see it in 3d, click on [three.html](three.html) to see it and rotate it around and zoom to see it.  If you want to 3d print it, click on [threejs.html](threejs.html) and then download the file data/three.stl to get a file you can send to a 3d printer.  If you do not have a 3d printer, this can be sent to some who does by email and they can print it.  
 
 ###  Make laser cut stencil icon
 

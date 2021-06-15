@@ -24,9 +24,11 @@ by Trash Robot
  14. [Magic](scrolls/magic.md)
  15. [Full Stack Geometron](scrolls/fullstack.md)
 
-[Book Code](https://github.com/LafeLabs/bookofgeometron)
-
-[Book .pdf to print](https://github.com/LafeLabs/bookofgeometron/raw/main/main-bigpaper.pdf)
+[Book .pdf to print(8.5x11)](https://github.com/LafeLabs/bookofgeometron/raw/main/main-bigpaper.pdf)
  
 [Book .pdf 6x9 format](https://github.com/LafeLabs/bookofgeometron/raw/main/main.pdf)
+
+[buy 6x9 format printed at print-on-demand lulu press](https://www.lulu.com/en/us/shop/lafe-spietz/geometron/paperback/product-qqk98g.html)
+
+[Book Code](https://github.com/LafeLabs/bookofgeometron)
 
