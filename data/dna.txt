@@ -291,7 +291,6 @@
         "brain.md",
         "brand.md",
         "civilizations.md",
-        "clayprint.md",
         "controller.md",
         "designicon.md",
         "duality",
