@@ -1,5 +1,7 @@
 [home](index.html)
 
+![](https://i.imgur.com/NgelIKS.png)
+
 # Robot Factory
 
 # Robot Brain

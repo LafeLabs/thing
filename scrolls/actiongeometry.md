@@ -2,6 +2,8 @@
 
 [back to book of Geometron](scrolls/bookofgeometron.md)
 
+[ArtBox self-replicating purse](scrolls/box.md)
+
 [skeletron scroll](scrolls/skeletron.md)
 
 [textile scroll](scrolls/textile.md)
