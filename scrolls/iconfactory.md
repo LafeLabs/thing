@@ -125,7 +125,16 @@ The same process can be followed with larger pieces of clay with holes in them t
 
 The icons created in this system can also be 3d printed. This is done with [icon3d.html](icon3d.html), which you can just click on an icon to load.  If you like the look of the icon, hit the SAVE button.  If you want to see it in 3d, click on [three.html](three.html) to see it and rotate it around and zoom to see it.  If you want to 3d print it, click on [threejs.html](threejs.html) and then download the file data/three.stl to get a file you can send to a 3d printer.  If you do not have a 3d printer, this can be sent to some who does by email and they can print it. 
 
+3d printed icons can be used like the clay icons to stamp in to a material like clay to replicate without a printer.  
+
 ### Make stencil for spray paint replication
 
-To create a stencil for spray paint replication of an icon, you can use [lasericon.html](lasericon.html)
+To create a stencil for spray paint replication of an icon, you can use [lasericon.html](lasericon.html).  Click on the icon you wish to replicate and then when it loads, hit the SAVE button.  Now click the link from there to the [symbol feed at symbolfeed.html](symbolfeed.html) to see the saved files, and download the image file you want.  You will need an .svg file to cut out the stencil on a laser cutter.  You can also print the icon on paper, then paste or tape the paper over a stencil material and punch holes in each pixel by hand with a pin or thumb tack.  With a stencil of all the pixels, the icon can be replicated on any surface with spray paint or other paints if it is appropriate for the stencil material(like screen printing).
 
+### Use Icon in Geometron Map
+
+Icons can be incorporated into [Geoemtron Maps](scrolls/maps.md) using [icon64.html(icon64.html).  Again, select the icon you want, and click SAVE.  This will save the icon to the [text feed](textfeed.html).  Once it is in the Text Feed, you can use it in the [Map Editor](mapeditor.html) to edit any Geometron Map.
+
+You now have the tools to create self-replicating icons in several media which can represent any idea which the human mind can express in language and use them for any purpose. 
+
+[home](index.html)
