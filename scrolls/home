@@ -27,7 +27,9 @@
 
 [log onto this local Raspberry Pi server with QR code or link](ipaddress.html)
 
-[copy files with copy.html](copy.html)
+[copy files from a Geometron server with copy.html](copy.html)
+
+[copy files from a  pastebin with pastebin.html](pastebin.html)
 
 [self-replicating sets from set.html](set.html)
 
