@@ -8,9 +8,13 @@
 
 [textile scroll](scrolls/textile.md)
 
+[unified laser cut shapes scroll](scrolls/lasercutshapes)
+
 [protractor scroll](scrolls/protractor.md)
 
-[shape set scroll](scrolls/shapeset)
+[shape set scroll](scrolls/lasercutshapes)
+
+[shape set JSON scroll](scrolls/shapes)
 
 [shape set map](maps/shapes)
 

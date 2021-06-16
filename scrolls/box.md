@@ -1,5 +1,7 @@
 [home](index.html)
 
+[Action Geometry Scroll](scrolls/actiongeometry.md)
+
 [skeletron scroll](scrolls/skeletron.md)
 
 # Box:
@@ -20,7 +22,7 @@ kit:{
   trash tie,
   tape snake
 }
-<pre>
+</pre>
 # TrashTie:
 ![](https://i.imgur.com/LmjOsiJ.jpg)
 6 foot long cut clothesline, duct taped both ends
