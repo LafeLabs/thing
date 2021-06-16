@@ -9,7 +9,7 @@
 
 [Buy boards from www.pcbway.com](https://www.pcbway.com/project/shareproject/Generic_Trash_Robot_UNO_Shield__V5.html)
 
-[Digikey shopping cart with components](https://www.digikey.com/short/92z70jhr)
+[Digikey shopping cart with components for 20 kits($150)](https://www.digikey.com/short/92z70jhr)
 
 [Github repository with board files and code](https://github.com/LafeLabs/trashrobot5/tree/master/boards)
 
