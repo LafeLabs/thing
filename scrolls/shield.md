@@ -4,6 +4,15 @@
 
 # Trash Robot UNO Shield v5
 
+![](https://i.imgur.com/fzFvL7B.jpg)
+![](https://i.imgur.com/qy2o8oR.jpg)
+
+[Buy boards from www.pcbway.com](https://www.pcbway.com/project/shareproject/Generic_Trash_Robot_UNO_Shield__V5.html)
+
+[Digikey shopping cart with components](https://www.digikey.com/short/92z70jhr)
+
+[Github repository with board files and code](https://github.com/LafeLabs/trashrobot5/tree/master/boards)
+
 ## Knob, buttons, switch, motor
 
 Connect motor to output spring terminals.  Connect power supply to power spring supply terminals.
