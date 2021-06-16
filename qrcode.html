@@ -25,7 +25,7 @@
 </head>
 <body>    
 <a href = "index.html">index.html</a><p></p>
-<a href = "mainfeed.html">mainfeed.html</a>
+<a href = "textfeed.html">textfeed.html</a>
 <p></p>
 <a id = "linklink"></a>
 
@@ -110,15 +110,19 @@ qrcode = new QRCode(document.getElementById("qrcode"), {
 
 
 
-mainfeed = [];
+
+
+textfeed = {};
 var httpc11 = new XMLHttpRequest();
     httpc11.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        mainfeed = JSON.parse(this.responseText);
+        textfeed = JSON.parse(this.responseText);
     }
 };
-httpc11.open("GET", "fileloader.php?filename=data/mainfeed.txt", true);
+httpc11.open("GET", "fileloader.php?filename=data/textfeed.txt", true);
 httpc11.send();
+
+
 
 document.getElementById("savebutton").onclick = function(){
 
@@ -170,13 +174,13 @@ document.getElementById("transferimage").onload = function(){
     localfeedelement.text = globalurl;
     localfeedelement.src = canvas.toDataURL("image/png");
     localfeedelement.glyph = "";
-    mainfeed.unshift(localfeedelement);
+    textfeed.src.push(localfeedelement.src);
     
     var url = "filesaver.php";        
     var httpc3 = new XMLHttpRequest();
     httpc3.open("POST", url, true);
     httpc3.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc3.send("data="+encodeURIComponent(JSON.stringify(mainfeed,null,"    "))+"&filename=data/mainfeed.txt");//send text to filesaver.php    
+    httpc3.send("data="+encodeURIComponent(JSON.stringify(textfeed,null,"    "))+"&filename=data/textfeed.txt");//send text to filesaver.php    
 
     
 }
