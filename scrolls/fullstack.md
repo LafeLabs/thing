@@ -1,5 +1,7 @@
 [Home](index.html)
 
+[Book of Geometron](scrolls/bookofgeometron.md)
+
 # Chapter 15: Full Stack Geometron
 
 

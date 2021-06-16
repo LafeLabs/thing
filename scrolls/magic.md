@@ -1,5 +1,7 @@
 [home](index.html)
 
+[Book of Geometron](scrolls/bookofgeometron.md)
+
 # Chapter 14: Magic
 
 Magic is self-replicating desire. When we desire a thing and that thing

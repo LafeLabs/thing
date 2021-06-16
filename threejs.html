@@ -9,7 +9,11 @@ body{
     overflow: hidden;
 }
 
-
+#rawstl{
+    position:absolute;
+    right:0px;
+    top:0px;
+}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/94/three.min.js"></script>
 <script>
@@ -171,6 +175,7 @@ THREE.STLExporter.prototype = {
     <a href = "voxel.html">voxel.html</a>
     <a href = "icon3d.html">icon3d.html</a>
     <a href = "index.html">home</a>
+    <textarea id = "rawstl"></textarea>
 <script>
             
 var camera, scene, renderer;
@@ -319,6 +324,7 @@ function savestl(){
     httpc.open("POST", "filesaver.php", true);
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     httpc.send("data="+encodeURIComponent(str)+"&filename=data/three.stl");//send text to filesaver.php   
+    document.getElementById("rawstl").value = str;
 }
 
 

@@ -1,5 +1,7 @@
 [home](index.html)
 
+[Book of Geometron](scrolls/bookofgeometron.md)
+
 # Chapter 13: Geometron in 3d and Beyond
 
 [voxel.html](voxel.html)

@@ -1,7 +1,10 @@
 [home](index.html)
 
+[Book of Geometron](scrolls/bookofgeometron.md)
+
 # Chapter 12: Printers
 
+[icon factory](scrolls/iconfactory.md)
 
 1. [Build Arduino Brain](scrolls/brain.md)
 2. [Build Controller](scrolls/controller.md)
@@ -96,15 +99,6 @@ plastic trash, duct tape, an Arduino, and some custom
 electronics.
 
 ![](https://i.imgur.com/NgelIKS.png)
-
-![Block diagram of Trash Robot printer. The motion stages are salvaged
-from DVD or CD ROM drives. The motor drivers are off the shelf from
-Pololu Robotics. The Arduino is the Arduino UNO, and the whole system
-including the motors gets power from the USB connected to a computer.
-The computer can be used to interact with a Geoemtron server over the
-local network or on the global Internet to create programs which are
-copy/pasted into the Arduino IDE as described in the Trash Robot
-chapter.](figures/machines/printerblockdiagram.png)
 
 We built printers from a set of 3 DVD drives, some cardboard and
 plastic, an Arduino and some custom electronics. When a pixel is drawn,
@@ -225,3 +219,5 @@ the object itself fully self-replicating
 media.
 
 ![](https://i.imgur.com/K1w4bk8.png)
+
+[Next Chapter: Geometron in 3d and Beyond](scrolls/geometron3d.md)
