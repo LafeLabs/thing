@@ -327,6 +327,7 @@
         "signs",
         "skeletron.md",
         "srs.md",
+        "srwp",
         "streetnetwork.md",
         "symbols.md",
         "textile.md",
