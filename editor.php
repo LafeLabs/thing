@@ -68,7 +68,7 @@ EGO DEATH:
     $jsfiles = scandir(getcwd()."/jscode");
 
     foreach($jsfiles as $value){
-        if($value{0} != "."){
+        if($value[0] != "."){
             echo "<div class = \"javascript file\">jscode/";
             echo $value;
             echo "</div>\n";
@@ -79,7 +79,7 @@ EGO DEATH:
     $phpfiles = scandir(getcwd()."/php");
 
     foreach($phpfiles as $value){
-        if($value{0} != "."){
+        if($value[0] != "."){
             echo "<div class = \"php file\">php/";
             echo $value;
             echo "</div>\n";
@@ -90,7 +90,7 @@ EGO DEATH:
     $datafiles = scandir(getcwd()."/data");
 
     foreach($datafiles as $value){
-        if($value{0} != "."){
+        if($value[0] != "."){
             echo "<div class = \"javascript file\">data/";
             echo $value;
             echo "</div>\n";
@@ -100,7 +100,7 @@ EGO DEATH:
 //    $mapfiles = scandir(getcwd()."/maps");
 
  //   foreach($mapfiles as $value){
-  //      if($value{0} != "."){
+  //      if($value[0] != "."){
 //            echo "<div class = \"javascript file\">maps/";
  //           echo $value;
    //         echo "</div>\n";

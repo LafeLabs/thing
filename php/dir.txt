@@ -16,7 +16,7 @@ if(isset($_GET["type"])){
     if($_GET["type"] == "dir"){
         $dirs = [];
         foreach($files as $value){
-            if($value{0} != "." && is_dir($value) && $value != "php" && $value != "jscode" && $value != "data" && $value != "html" && $value != "symbols" && $value != "fonts" && $value != "icons" && $value != "iconsymbols" && $value != "uploadimages" && $value != "symbol" && $value != "symbolfeed" && $value != "maps" && $value != "scrolls"){
+            if($value[0] != "." && is_dir($value) && $value != "php" && $value != "jscode" && $value != "data" && $value != "html" && $value != "symbols" && $value != "fonts" && $value != "icons" && $value != "iconsymbols" && $value != "uploadimages" && $value != "symbol" && $value != "symbolfeed" && $value != "maps" && $value != "scrolls"){
                 array_push($dirs,$value);
             }
         }
@@ -36,7 +36,7 @@ if(isset($_GET["type"])){
 else{
     $dirs = [];
     foreach($files as $value){
-        if($value{0} != "."){
+        if($value[0] != "."){
         array_push($dirs,$value);
         }
     }

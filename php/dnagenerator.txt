@@ -31,14 +31,14 @@ dna.txt is a json formatted file which points to all the files in this system, w
 
     $dna->javascript = [];
     foreach($jsfiles as $value){
-        if($value{0} != "."){
+        if($value[0] != "."){
             array_push($dna->javascript,$value);
         }
     }
     
     $dna->iconsymbols = [];
     foreach($iconfiles as $value){
-        if($value{0} != "."){
+        if($value[0] != "."){
             array_push($dna->iconsymbols,$value);
         }
     }
@@ -46,7 +46,7 @@ dna.txt is a json formatted file which points to all the files in this system, w
 
     $dna->data = [];
     foreach($datafiles as $value){
-        if($value{0} != "."){
+        if($value[0] != "."){
 
             if(substr($value,-4) == ".txt"){
                 array_push($dna->data,$value);
@@ -58,21 +58,21 @@ dna.txt is a json formatted file which points to all the files in this system, w
     
     $dna->php = [];
     foreach($phpfiles as $value){
-        if($value{0} != "."){
+        if($value[0] != "."){
             array_push($dna->php,$value);
         }
     }
 
     $dna->maps = [];
     foreach($mapfiles as $value){
-        if($value{0} != "."){
+        if($value[0] != "."){
             array_push($dna->maps,$value);
         }
     }
 
     $dna->scrolls = [];
     foreach($scrollfiles as $value){
-        if($value{0} != "."){
+        if($value[0] != "."){
             array_push($dna->scrolls,$value);
         }
     }
