@@ -33,7 +33,9 @@
 
 [localhost/](http://localhost/)
 
-[log onto this local Raspberry Pi server with QR code or link](ipaddress.html)
+[log onto this local Raspberry Pi server with QR code or link(ipaddress.html)](ipaddress.html)
+
+[QR code generator for non-Raspberry Pi servers(qrcode.html)](qrcode.html)
 
 [copy files from a Geometron server with copy.html](copy.html)
 
