@@ -331,6 +331,7 @@
         "streetnetwork.md",
         "symbols.md",
         "textile.md",
-        "web2d.md"
+        "web2d.md",
+        "windows"
     ]
 }
