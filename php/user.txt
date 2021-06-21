@@ -169,8 +169,13 @@ function loadmap(mapname){
     var httpc = new XMLHttpRequest();
     httpc.onreadystatechange = function(){
         if (this.readyState == 4 && this.status == 200) {
-            mainmap.array = JSON.parse(this.responseText);
-            
+            var raw = this.responseText;
+            if(raw.charAt(0) != "["){
+                raw = raw.substring(raw.indexOf("["))
+            }
+            mainmap.array = JSON.parse(raw);
+
+
             N = mainmap.array.length;
 
             for(var index = 0;index < mainmap.array.length;index++){
