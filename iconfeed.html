@@ -60,7 +60,7 @@
 
 <div id = "footer">
     <div id = "importbutton" class=  "button">IMPORT</div>
-    
+    <div id = "replacebutton" class= "button">REPLACE</div>
     <textarea id = "textio"></textarea>
     
 </div>
@@ -173,6 +173,18 @@ function saverobotfeed(){
 document.getElementById("importbutton").onclick = function(){
     if(document.getElementById("textio").value.length > 0){
         inputfeed = JSON.parse(document.getElementById("textio").value);
+        for(var index = inputfeed.length - 1;index >= 0;index--){
+                robotfeed.unshift(inputfeed[index]);
+        }
+        loadfeed();
+    }    
+}
+
+
+document.getElementById("replacebutton").onclick = function(){
+    if(document.getElementById("textio").value.length > 0){
+        inputfeed = JSON.parse(document.getElementById("textio").value);
+        robotfeed = [];
         for(var index = inputfeed.length - 1;index >= 0;index--){
                 robotfeed.unshift(inputfeed[index]);
         }
@@ -307,6 +319,11 @@ body{
     border:solid;
     text-align:center;
 }
+#replacebutton{
+    border:solid;
+    text-align:center;
+}
+
 #arduinoinput{
     border-color:#3186a0;
 }
