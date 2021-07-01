@@ -218,6 +218,7 @@
         "controls.txt",
         "currentMap.txt",
         "currentjson.txt",
+        "cybermagic.txt",
         "darkfeed.txt",
         "dna.txt",
         "duality.txt",

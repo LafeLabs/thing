@@ -23,6 +23,77 @@
     <META NAME="robots" CONTENT="noindex,nofollow">
     <script src="jscode/geometron.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"></script>    
+<!--
+currentjson for sigil constructions:
+currentJSON = {
+    "glyph": "0210,0210,0336,0337,0321,0337,0306,0334,0201,0335,0201,0335,0201,0335,0201,0335,0201,0335,0201,0334,0335,0335,0330,0334,0334,0201,0334,0201,0334,0201,0334,0201,0331,0335,0331,0335,0335,0342,0331,0342,0335,0342,0334,0334,0342,0335,0335,0335,0335,0201,0342,0335,0342,0335,0342,0335,0342,0335,0342,0335,0342,0330,0335,0335,0350,0335,0312,0337,0342,0335,0335,0336,0333,0334,0337,0334,0342,0335,0335,0336,0333,0334,0334,0337,0342,0334,0336,0330,0334,0334,0334,0337,0342,0335,0335,0342,0330,0334,0336,0306,0336,0336,0347,0332,0332,0332,0347,0335,0331,0331,0331,0347,0334,0331,0331,0331,0347,0331,0331,0331,0347,0335,0330,0330,0330,0347,0330,0330,0330,0347,0334,0331,0331,0331,0347,0335,0331,0331,0331,0347,0334,0331,0331,0331,0347,0320,0330,0330,0330,0330,0330,0330,0330,0330,0330,0330,0330,0330,0304,0320,0220,0306,0335,0333,0333,0333,0334,0304,0221,0306,0332,0332,0332,0335,0331,0331,0331,0334,0304,0222,0306,0333,0333,0333,0335,0333,0333,0333,0334,0331,0331,0331,0304,0223,0306,0335,0331,0331,0331,0335,0331,0331,0331,0334,0334,0304,0224,0306,0334,0331,0331,0331,0335,0304,0225,0306,0335,0334,0334,0331,0331,0331,0335,0304,0226,0306,0332,0332,0332,0335,0331,0331,0331,0334,0304,0227,0306,0334,0331,0331,0331,0335,0304,0230,0331,0331,0331,0231,",
+    "x0": 200,
+    "y0": 200,
+    "unit": 50.00000000000001,
+    "width": 400,
+    "height": 400,
+    "style": {
+        "color0": "#00ff00",
+        "fill0": "#00ff00",
+        "line0": 1,
+        "color1": "#00ff00",
+        "fill1": "black",
+        "line1": 8,
+        "color2": "red",
+        "fill2": "red",
+        "line2": 1,
+        "color3": "#FF7900",
+        "fill3": "#FF7900",
+        "line3": 1,
+        "color4": "yellow",
+        "fill4": "yellow",
+        "line4": 1,
+        "color5": "#00ff00",
+        "fill5": "black",
+        "line5": 6,
+        "color6": "blue",
+        "fill6": "blue",
+        "line6": 1,
+        "color7": "purple",
+        "fill7": "purple",
+        "line7": 1
+    },
+    "shapes": [
+        "0220:0336,0332,0337,061,0365,0336,0333,0337,",
+        "0221:0336,0332,0337,062,0365,0336,0333,0337,",
+        "0222:0336,0332,0337,063,0365,0336,0333,0337,",
+        "0223:0336,0332,0337,064,0365,0336,0333,0337,",
+        "0224:0336,0332,0337,065,0365,0336,0333,0337,",
+        "0225:0336,0332,0337,066,0365,0336,0333,0337,",
+        "0226:0336,0332,0337,067,0365,0336,0333,0337,",
+        "0227:0336,0332,0337,070,0365,0336,0333,0337,",
+        "0230:0336,0332,0337,071,0365,0336,0333,0337,",
+        "0231:0336,0332,0337,061,060,0365,0336,0333,0337,",
+        "0232:0336,0332,0337,061,061,0365,0336,0333,0337,",
+        "0233:0336,0332,0337,061,062,0365,0336,0333,0337,",
+        "0234:0336,0332,0337,061,063,0365,0336,0333,0337,",
+        "0235:0336,0332,0337,061,064,0365,0336,0333,0337,",
+        "0236:0336,0332,0337,061,065,0365,0336,",
+        "0237:0332,0337,061,066,0365,0336,0333,",
+        "01220:0333,0200,0336,0330,0332,0220,0331,0333,0337,",
+        "01221:0333,0200,0336,0330,0332,0221,0331,0333,0337,",
+        "01222:0333,0200,0336,0330,0332,0222,0331,0333,0337,",
+        "01223:0333,0200,0336,0330,0332,0223,0331,0333,0337,",
+        "01224:0333,0200,0336,0330,0332,0224,0331,0333,0337,",
+        "01225:0333,0200,0336,0330,0332,0225,0331,0333,0337,",
+        "01226:0333,0200,0336,0330,0332,0226,0331,0333,0337,",
+        "01227:0333,0200,0336,0330,0332,0227,0331,0333,0337,",
+        "01230:0333,0200,0336,0330,0332,0230,0331,0333,0337,",
+        "01231:0333,0200,0336,0330,0332,0231,0331,0333,0337,",
+        "01232:0333,0200,0336,0330,0332,0232,0331,0333,0337,",
+        "01233:0333,0200,0336,0330,0332,0233,0331,0333,0337,",
+        "01234:0333,0200,0336,0330,0332,0234,0331,0333,0337,",
+        "01235:0333,0200,0336,0330,0332,0235,0331,0333,0337,",
+        "01236:0333,0200,0336,0330,0332,0236,0333,0337,0331,0333,0337,",
+        "01237:0333,0200,0336,0330,0332,0336,0237,0337,0331,0333,0337,"
+    ]
+}-->    
+    
 <script>
 
 
@@ -71,6 +142,19 @@
 
 <script>
 
+cybermagic = {
+    "spread":[0,1,2,3,4,5,6,7,8,9,10,11],
+    "sigilindex":6,
+    "image":{
+        "src":"https://upload.wikimedia.org/wikipedia/commons/6/62/Starsinthesky.jpg",
+        "x":0,
+        "y":0,
+        "w":1.5,
+        "angle":0
+    }
+};
+
+
 spread = [0,1,2,3,4,5,6,7,8,9,10,11];
 
 zero = "0211,0214,0214,0214,0321,0332,0337,0341,0333,0341,";
@@ -105,8 +189,6 @@ twelve = "0211,0211,0320,0337,0336,0336,0336,0336,0347,0337,0337,0337,0337,0211,
 sigilindex = 5;
 
 sigils = [zero,one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve];
-
-symbolsigil = sigils[sigilindex];
 
 imageurl = "https://upload.wikimedia.org/wikipedia/commons/6/62/Starsinthesky.jpg";
 
@@ -221,6 +303,8 @@ rotateGVM.drawGlyph(rotateglyph);
 document.getElementById("jsonio").onchange = function(){
 
     spread = JSON.parse(this.value);
+    cybermagic.spread = spread;
+    savecybermagic();
     drawspread();
 
 }
@@ -232,22 +316,47 @@ var httpc = new XMLHttpRequest();
 httpc.onreadystatechange = function(){
     if (this.readyState == 4 && this.status == 200) {
         symbolicons = JSON.parse(this.responseText);
-        drawspread();
-        drawtable();
+        drawtable();//this is the table of icons
+
+        var httpccyber = new XMLHttpRequest();
+        httpccyber.onreadystatechange = function(){
+            if (this.readyState == 4 && this.status == 200) {
+
+                cybermagic = JSON.parse(this.responseText);
+                sigilindex = cybermagic.sigilindex;
+                spread = cybermagic.spread;
+
+                drawspread();//this draws the sigil and also creates a table of the elements of the spread, depends on sigil index and spread
+                document.getElementById("mainimage").src = cybermagic.image.src;
+                document.getElementById("mainimage").style.width = (cybermagic.image.w*mainGVM.width).toString() + "px";
+                document.getElementById("mainimage").style.left = (cybermagic.image.x*mainGVM.width).toString() + "px";
+                document.getElementById("mainimage").style.top = (cybermagic.image.y*mainGVM.width).toString() + "px";
+                document.getElementById("mainimage").style.transform = "rotate(" + (cybermagic.image.angle).toString() + "deg)";
+                
+                
+            }
+        };
+        httpccyber.open("GET", "fileloader.php?filename=data/cybermagic.txt", true);
+        httpccyber.send();
+
+//        drawspread();//this draws the sigil and also creates a table of the elements of the spread, depends on sigil index and spread
+        
+
     }
     
 };
 httpc.open("GET", "fileloader.php?filename=data/robotfeed.txt", true);
 httpc.send();
 
-function drawspread(){
 
+
+function drawspread(){
 
     for(var index = 0;index < spread.length;index++){
         mainGVM.hypercube[0220 + index] = "0320,0336,0336," + symbolicons[spread[index]] + "0337,0337,";
     }
 
-    mainGVM.drawGlyph(symbolsigil);
+    mainGVM.drawGlyph(sigils[sigilindex]);
     
     document.getElementById("spreadtable").innerHTML = "";
     
@@ -311,7 +420,8 @@ function drawtable(){
             spread[spreadindex] = parseInt(this.parentElement.getElementsByTagName("TD")[0].innerHTML);
             document.getElementById("jsonio").value = JSON.stringify(spread);
             drawspread();
-
+            cybermagic.spread = spread;
+            savecybermagic();
         }
         
     }    
@@ -322,8 +432,8 @@ mc = new Hammer(document.getElementById("hammerxy"));
 mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
 mc.on("panleft panright panup pandown tap press rotate", function(ev) {
 
-    document.getElementById("mainimage").style.left = (ev.deltaX).toString() +  "px";
-    document.getElementById("mainimage").style.top = (ev.deltaY).toString() +  "px";
+    document.getElementById("mainimage").style.left = (mainGVM.width*cybermagic.image.x + ev.deltaX).toString() +  "px";
+    document.getElementById("mainimage").style.top = (mainGVM.width*cybermagic.image.y + ev.deltaY).toString() +  "px";
 
 }); 
 
@@ -334,7 +444,7 @@ mczoom = new Hammer(document.getElementById("zoombox"));
 mczoom.get('pan').set({ direction: Hammer.DIRECTION_ALL });
 mczoom.on("panleft panright panup pandown tap press", function(ev) {
 
-        document.getElementById("mainimage").style.width = (mainsize + 2*ev.deltaX).toString() +  "px";
+        document.getElementById("mainimage").style.width = (mainGVM.width*cybermagic.image.w + 2*ev.deltaX).toString() +  "px";
 
 
 });  
@@ -344,7 +454,7 @@ mcrotate = new Hammer(document.getElementById("rotatebox"));
 mcrotate.get('pan').set({ direction: Hammer.DIRECTION_ALL });
 mcrotate.on("panleft panright panup pandown tap press", function(ev) {
 
-    document.getElementById("mainimage").style.transform = "rotate(" + (ev.deltaX*Math.PI/5).toString() + "deg)";
+    document.getElementById("mainimage").style.transform = "rotate(" + (cybermagic.image.angle + ev.deltaX*Math.PI/5).toString() + "deg)";
 
 //mainmap.linkArray[linkindex].style.transform = "rotate(" + (mainmap.array[linkindex].angle + ev.deltaX*Math.PI/5).toString() + "deg)";
 
@@ -355,6 +465,9 @@ document.getElementById("imageurlinput").value = imageurl;
 
 document.getElementById("imageurlinput").onchange = function(){
     document.getElementById("mainimage").src = this.value;
+    cybermagic.image.src = this.value;
+    resetimagejson();
+    savecybermagic();
 }
 
 
@@ -374,8 +487,10 @@ var httpc = new XMLHttpRequest();
             newimg.onclick = function() {
                 imageurl = "uploadimages" + this.src.split("uploadimages")[1];
                 document.getElementById("mainimage").src = imageurl;
+                cybermagic.image.src = imageurl;
                 document.getElementById("imageurlinput").value = imageurl;
-    
+                resetimagejson();                
+                savecybermagic();
             }
 
         }
@@ -398,8 +513,11 @@ var httpc10 = new XMLHttpRequest();
             document.getElementById("imagescroll").appendChild(newimg);
             newimg.onclick = function() {
                 imageurl = this.src;
+                cybermagic.image.src = imageurl;
                 document.getElementById("mainimage").src = imageurl;
                 document.getElementById("imageurlinput").value = imageurl;
+                resetimagejson();
+                savecybermagic();
 
             }
             
@@ -421,8 +539,11 @@ var httpcimagefeed = new XMLHttpRequest();
             document.getElementById("imagescroll").appendChild(newimg);
             newimg.onclick = function() {
                 imageurl = this.src;
+                cybermagic.image.src = imageurl;
                 document.getElementById("mainimage").src = imageurl;
                 document.getElementById("imageurlinput").value = imageurl;
+                resetimagejson();
+                savecybermagic();
             }
             
         }
@@ -450,12 +571,44 @@ for(var index = 0;index < sigils.length;index++){
 
     newdiv.onclick = function(){
         sigilindex = parseInt(this.id.substring(1));
-        symbolsigil = sigils[sigilindex];
+        cybermagic.sigilindex = sigilindex;
+        savecybermagic();
         drawspread();
         drawtable();
-
     }
 }
+
+
+
+function savecybermagic(){
+    
+    cybermagic.image.w = parseInt(document.getElementById("mainimage").style.width.substring(0,document.getElementById("mainimage").style.width.length-2))/mainGVM.width;
+    cybermagic.image.x = parseInt(document.getElementById("mainimage").style.left.substring(0,document.getElementById("mainimage").style.left.length-2))/mainGVM.width;    
+    cybermagic.image.y = parseInt(document.getElementById("mainimage").style.top.substring(0,document.getElementById("mainimage").style.top.length-2))/mainGVM.width;        
+    
+    cybermagic.image.angle = parseInt(document.getElementById("mainimage").style.transform.substring(7,document.getElementById("mainimage").style.transform.length - 4));
+    
+    
+    var httpc = new XMLHttpRequest();
+    httpc.open("POST", "filesaver.php", true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(JSON.stringify(cybermagic,null,"  "))+"&filename=data/cybermagic.txt");//send text to filesaver.php
+
+}
+
+
+function resetimagejson(){
+    cybermagic.image.x = 0;
+    cybermagic.image.y = 0;
+    cybermagic.image.w = 1;
+    cybermagic.image.angle = 0;
+    document.getElementById("mainimage").style.width = (cybermagic.image.w*mainGVM.width).toString() + "px";
+    document.getElementById("mainimage").style.left = (cybermagic.image.x*mainGVM.width).toString() + "px";
+    document.getElementById("mainimage").style.top = (cybermagic.image.y*mainGVM.width).toString() + "px";
+    document.getElementById("mainimage").style.transform = "rotate(" + (cybermagic.image.angle).toString() + "deg)";    
+    
+}
+
 
 </script>
 <style>
