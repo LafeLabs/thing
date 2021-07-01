@@ -13,6 +13,7 @@
         "controls.html",
         "copy.html",
         "copytex.html",
+        "cybermagic.html",
         "duality.html",
         "feed.html",
         "feededitor.html",
