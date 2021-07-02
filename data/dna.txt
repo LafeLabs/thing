@@ -87,6 +87,7 @@
         "threejs.html",
         "threejsinvert.html",
         "traceicon.html",
+        "unidecoder.html",
         "urlfeed.html",
         "voxel.html",
         "wall.html"
