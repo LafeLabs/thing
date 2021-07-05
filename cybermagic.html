@@ -354,7 +354,9 @@ httpc.send();
 function drawspread(){
 
     for(var index = 0;index < spread.length;index++){
-        mainGVM.hypercube[0220 + index] = "0320,0336,0336," + symbolicons[spread[index]] + "0337,0337,";
+        if(spread[index] < symbolicons.length){
+            mainGVM.hypercube[0220 + index] = "0320,0336,0336," + symbolicons[spread[index]] + "0337,0337,";    
+        }
     }
 
     mainGVM.drawGlyph(sigils[sigilindex]);
@@ -374,7 +376,14 @@ function drawspread(){
         elementGVM.style.color0 = "#00ff00";
         elementGVM.style.fill0 = "#00ff00";
         elementGVM.style.line0 = 1;
-        elementGVM.drawGlyph(symbolicons[spread[index]]);   
+        if(spread[index] < symbolicons.length){
+            elementGVM.drawGlyph(symbolicons[spread[index]]);         
+        }
+        else{
+            elementGVM.drawGlyph(symbolicons[0]);
+        }
+
+        
         newtd.onclick = function(){
             
             elementicons[spreadindex].style.backgroundColor = "black";
