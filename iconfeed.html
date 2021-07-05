@@ -59,8 +59,13 @@
 <div id = "feed"></div>
 
 <div id = "footer">
-    <div id = "importbutton" class=  "button">IMPORT</div>
-    <div id = "replacebutton" class= "button">REPLACE</div>
+    <table id = "buttontable">
+        <tr>
+            <td class= "button" id = "importbutton">IMPORT</td>
+            <td class= "button" id  = "reversebutton">REVERSE</td>
+            <td class= "button" id = "replacebutton">REPLACE</td>
+        </tr>
+    </table>
     <textarea id = "textio"></textarea>
     
 </div>
@@ -196,6 +201,18 @@ document.getElementById("replacebutton").onclick = function(){
     }    
 }
 
+document.getElementById("reversebutton").onclick = function(){
+    
+    oldfeed = robotfeed;
+    robotfeed = [];
+    for(var index = 0;index < oldfeed.length;index++){
+        robotfeed.unshift(oldfeed[index]);
+    }
+    loadfeed();
+    saverobotfeed();
+}
+
+
 document.getElementById("textio").value = "";
 
 
@@ -319,17 +336,9 @@ body{
     border-color:#00ff00;
     border:solid;
 }
-#importbutton{
+#importbutton,#replacebutton,#reversebutton{
     border:solid;
     text-align:center;
-}
-#replacebutton{
-    border:solid;
-    text-align:center;
-}
-
-#arduinoinput{
-    border-color:#3186a0;
 }
 </style>
 </body>

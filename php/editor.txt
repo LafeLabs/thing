@@ -260,7 +260,7 @@ document.getElementById("maineditor").onkeyup = function(){
     var fileName = currentFile.split("/")[1];
 }
 
-lightmode = true;
+lightmode = false;
 document.getElementById("lightdarkbutton").onclick = function(){
     lightmode = !lightmode;
     if(lightmode){
@@ -289,6 +289,16 @@ document.getElementById("lightdarkbutton").onclick = function(){
     }
 }
 
+document.body.style.backgroundColor = "#404040";
+document.getElementById("filescroll").style.backgroundColor = "#101010";        
+document.getElementById("namediv").style.backgroundColor = "#101010";        
+document.getElementById("lightdarkbutton").innerHTML = "LIGHT MODE";        
+editor.setTheme("ace/theme/vibrant_ink");
+document.getElementById("linkscroll").style.backgroundColor = "#101010";
+var links = document.getElementById("linkscroll").getElementsByTagName("a");
+for(var index = 0;index < links.length;index++){
+    links[index].style.color = "white";
+}   
 </script>
 <style>
 #namediv{
