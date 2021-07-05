@@ -332,6 +332,7 @@ httpc.onreadystatechange = function(){
                 document.getElementById("mainimage").style.left = (cybermagic.image.x*mainGVM.width).toString() + "px";
                 document.getElementById("mainimage").style.top = (cybermagic.image.y*mainGVM.width).toString() + "px";
                 document.getElementById("mainimage").style.transform = "rotate(" + (cybermagic.image.angle).toString() + "deg)";
+                document.getElementById("jsonio").value = JSON.stringify(spread);
                 
                 
             }
