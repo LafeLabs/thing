@@ -5,28 +5,114 @@
     <script>
     
 code = [
-    {"name":"aleph","unicode":"5d0"},
-    {"name":"bet","unicode":"5d1"},
-    {"name":"gimel","unicode":"5d2"},
-    {"name":"dalet","unicode":"5d3"},
-    {"name":"he","unicode":"5d4"},
-    {"name":"vav","unicode":"5d5"},
-    {"name":"zayin","unicode":"5d6"},
-    {"name":"het","unicode":"5d7"},
-    {"name":"tet","unicode":"5d8"},
-    {"name":"yod","unicode":"5d9"},
-    {"name":"kaf","unicode":"5db"},
-    {"name":"lamed","unicode":"5dc"},
-    {"name":"mem","unicode":"5de"},
-    {"name":"nun","unicode":"5e0"},
-    {"name":"samekh","unicode":"5e1"},
-    {"name":"ayin","unicode":"5e2"},
-    {"name":"pe","unicode":"5e4"},
-    {"name":"tsadi","unicode":"5e6"},
-    {"name":"qof","unicode":"5e7"},
-    {"name":"resh","unicode":"5e8"},
-    {"name":"shin","unicode":"5e9"},
-    {"name":"tav","unicode":"5ea"}
+    {
+        "name": "aleph",
+        "unicode": "5d0"
+    },
+    {
+        "name": "bet",
+        "unicode": "5d1"
+    },
+    {
+        "name": "gimel",
+        "unicode": "5d2"
+    },
+    {
+        "name": "dalet",
+        "unicode": "5d3"
+    },
+    {
+        "name": "he",
+        "unicode": "5d4"
+    },
+    {
+        "name": "vav",
+        "unicode": "5d5"
+    },
+    {
+        "name": "zayin",
+        "unicode": "5d6"
+    },
+    {
+        "name": "het",
+        "unicode": "5d7"
+    },
+    {
+        "name": "tet",
+        "unicode": "5d8"
+    },
+    {
+        "name": "yod",
+        "unicode": "5d9"
+    },
+    {
+        "name": "kaf",
+        "unicode": "5db"
+    },
+    {
+        "name": "lamed",
+        "unicode": "5dc"
+    },
+    {
+        "name": "mem",
+        "unicode": "5de"
+    },
+    {
+        "name": "nun",
+        "unicode": "5e0"
+    },
+    {
+        "name": "samekh",
+        "unicode": "5e1"
+    },
+    {
+        "name": "ayin",
+        "unicode": "5e2"
+    },
+    {
+        "name": "pe",
+        "unicode": "5e4"
+    },
+    {
+        "name": "tsadi",
+        "unicode": "5e6"
+    },
+    {
+        "name": "qof",
+        "unicode": "5e7"
+    },
+    {
+        "name": "resh",
+        "unicode": "5e8"
+    },
+    {
+        "name": "shin",
+        "unicode": "5e9"
+    },
+    {
+        "name": "tav",
+        "unicode": "5ea"
+    },
+    {
+        "name": "final kaf",
+        "unicode": "5da"
+    },
+    {
+        "name": "final mem",
+        "unicode": "5dd"
+    },
+    {
+        "name": "final nun",
+        "unicode": "5df"
+    },
+    {
+        "name": "final pe",
+        "unicode": "5e3"
+    },
+    {
+        "name": "final tsadi",
+        "unicode": "5e5"
+    }
 ];
 
     </script>
@@ -102,7 +188,7 @@ document.getElementById("inputinput").onchange = function(){
         }
     }
     document.getElementById("hexoutput").value = hexstring;
-    document.getElementById("spreadinput").value = JSON.stringify(spread);
+    document.getElementById("spreadinput").value = JSON.stringify(spread,null,"    ");
     document.getElementById("spreadnamesinput").value = spreadnames;    
 }
 document.getElementById("hexoutput").value = "";
@@ -192,7 +278,7 @@ function drawtable(){
         newinput.onchange = function(){
             var localindex = parseInt(this.id.substring(1));
             code[localindex].name = this.value;
-            document.getElementById("textio").value = JSON.stringify(code);
+            document.getElementById("textio").value = JSON.stringify(code,null,"    ");
             drawtable();
         }
     
@@ -207,13 +293,13 @@ function drawtable(){
             var localunicode = this.value.charCodeAt(0).toString(16);
             var localindex = parseInt(this.id.substring(1));
             code[localindex].unicode = localunicode;
-            document.getElementById("textio").value = JSON.stringify(code);
+            document.getElementById("textio").value = JSON.stringify(code,null,"    ");
             drawtable();
         }
     }
 }
 
-document.getElementById("textio").value = JSON.stringify(code);
+document.getElementById("textio").value = JSON.stringify(code,null,"    ");
 
 document.getElementById("importbutton").onclick = function(){
     code = JSON.parse(document.getElementById("textio").value);
