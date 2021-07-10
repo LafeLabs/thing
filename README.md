@@ -4,7 +4,65 @@
 
 ## Geometron Replicator
 
-[www.trashrobot.org](https://www.trashrobot.org)
+[home](index.html)
+
+# Installation of Geometron System
+
+[Geometron](scrolls/bookofgeometron.md) is a self-replicating social media system for spreading free technology built from trash.   It can run on Windows, Mac, Android, iOS, pretty much any flavor of Linux, Raspberry Pi, and both free and paid remote hosting.  To replicate it one simply sets up a webs server and copies the replicator script [php/replicator.txt](php/replicator.txt) to the server and runs it.  Web servers exist for all major computer platforms.  This document gives detailed instructions for each.
+
+The entire Geometron Thing source code can be found at [https://github.com/lafelabs/thing/](https://github.com/lafelabs/thing/).
+
+1. Installation on Windows 10 and mac
+
+First, install XAMPP, a free open source web server for all platforms.  [Download from www.apachefriends.org](https://www.apachefriends.org/index.html).  Click on windows to download, and click through to install everything.
+
+![](https://i.imgur.com/G90zeyE.png)
+
+After you download and install it, run it and start Apache.  You should see a control panel like this:
+
+![](https://i.imgur.com/wgpIqfH.png)
+
+Click on "Explorer" to get access to where the files are.  From the main directory called xamp, you want the sub-directory "htdocs".  Open this, delete the index.php file, and create a new file called replicator.php which you copy and paste the replicator at [php/replicator.txt](php/replicator.txt) into, and save.  
+
+![](https://i.imgur.com/EpHYYOd.png)
+
+Point a web browser on the same computer to [http://localhost/](http://localhost), then click on replicator.php.  This should replicate the whole system into the directory.  When this is done, click the link to go to the main page.  You should see a new Geometron instance:
+
+![](https://i.imgur.com/b8iZDRF.png) 
+
+When this loads, you need to get the IP address of this machine, which you do by clicking from the main XAMPP screen(shown at the top of this scroll) to "netstat".  You will now see a bunch of processes on various IP addresses.  Look at the web browser you opened which you pointed to "localhost" and you will see the IP address of this machine.  Create a link to it by starting with "http://" and then adding the IP address.  Share this link with yourself and anyone else on the local wifi network via email or text message or link on an existing server.
+
+![](https://i.imgur.com/XqBnJIY.png)
+
+Also, to have a record of it which is easy to share, add a link to it at the top of the home scroll for the new server.  You can also add a link to qrcode.html at the top of the new home scroll so that it is easy to replicate a link from one mobile device to another when they are all on the same wifi network, all looking at the same Windows server.
+
+
+## Installation on Android
+
+
+To run a Geometron Server on an Android, we will install the commercial software ksweb pro.
+
+![](https://i.imgur.com/Q8Q7gaR.jpg)
+
+
+[link to play store to install ksweb](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiLrtjPw6fxAhUQu54KHWkyAjIQFjAAegQIBRAD&url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dru.kslabs.ksweb%26hl%3Den_US%26gl%3DUS&usg=AOvVaw2ChVP4ojXIuGxVe-JjtEV3)
+
+[https://www.kslabs.ru/](https://www.kslabs.ru/)
+
+Install KSWEB on the Android, and turn it on.  Get the paid version. It is worth it, there are lots of broken web servers out there or ones with crappy features and tons of ads.  This is critical infrastructure for Geometron and it's worth supporting the developer of this useful tool.  Be sure PHP is also turned on.  
+
+This is what it looks like when it is on:
+
+![](https://i.imgur.com/EKjyekx.png)
+
+Use the Editor built into the system to create a new file called replicator.php in the directory htdocs on the sd card as shown above, and to copy/paste into that the file in [php/replicator.txt](php/replicator.txt).  Save that, and delete index.php. Point a browser to the address [http://localhost:8080](http://localhost:8080).  Click on replicator.php and wait for the system to copy.  Sometimes it might time out, try it again.  When the system has replicated, make sure your phone is on a local wifi network, and turn the server off and on again, and you will get an IP address for the phone which is shown in the app.  The link for any other machine on the network other than the phone is the IP address followed by colon and then "8080".  E.g. http://192.168.0.19:8080/.  Share this link via email, text message, and links on other servers so that anyone on your network can see your server and edit it.  
+
+
+3. Installation on iPhone and iPad
+
+As with all other platforms, just copy replicator and run it. The server which has been found to work is [phpwin](https://app.phpwin.org).  Install it on your ios device.  Then create a new file called replicator.php.  Edit that file, and copy/paste the contents of the replicator from here to there, save it, and run [your domain]/replicator.php from any web browser. If it does not work fiddle around with permissions, making it more and more open until it works.  Since there is no private date in our system of any kind, security is not a thing that exists, and 0777 is preferable for all permissions.
+
+4. Installation on Raspberry Pi
 
 Set up a Raspberry Pi.  To learn more about Raspberry Pi see the main page at [www.raspberrypi.org](https://www.raspberrypi.org/) and also look at what is available on [Adafruit](https://www.adafruit.com/) in terms of Raspberry Pi stuff, as well as [https://www.sunfounder.com/](https://www.sunfounder.com/) and [https://www.pishop.us/](https://www.pishop.us/).  How much stuff you need to get depends on how you want to use the server.  
 
@@ -57,36 +115,19 @@ That Raspberry Pi is now set up to act as a Geometron server.  Log that Pi onto 
 
 ![](https://i.imgur.com/iH9gFJC.jpg)
 
-To evolve the system, you can make Geometron applications yourself by cloning the git repository to your local machine, editing the code, pushing it to your own git repository, and pointing the replicator code to your new repository.  Files are edited using [editor.php](editor.php).  After files have been modified, the dna file for the replicator is generated by running the script dnagenerator.php.  Then when you push your github repository to a public place, you can modify the line in replicator.php which points to the dna file and point it instead to the global link to the raw text version of your dna file.  
+5. Installation on commercial remote hosted servers
 
-For local development, we use the built in web server in PHP, running it from the command line via:
+Create a new file called replicator.php.  Edit that file, and copy/paste the contents of the replicator from here to there, save it, and run [your domain]/replicator.php from any web browser. If it does not work fiddle around with permissions, making it more and more open until it works.  Since there is no private date in our system of any kind, security is not a thing that exists, and 0777 is preferable for all permissions.
 
-<pre>
-php -S localhost:80
-</pre>
+6. Forking the code
 
-and then point a browser to [http://localhost/](http://localhost/).
+This assumes you have some idea of what Github is, and can use PHP from the command line, but it should be not hard to follow this if you get help from someone who knows it. Get a Github account, which is free.  [Download Github Desktop to use a simple graphical interface](https://desktop.github.com/).  
 
-If you have a Mac you already have a command line with PHP installed, so this is just a thing you can do.  If you have a Windows machine you'll need to install the Ubuntu extension, which [Ubuntu has instructions for how to do](https://ubuntu.com/tutorials/ubuntu-on-windows#1-overview).  And on a Linux machine you'll just install PHP.  
+Learn how to make a new repository. Get PHP working from the command line.  On Windows 10 you'll need to install the Ubuntu system from the Microsoft store and follow the instructions to get that set up and install PHP.  
 
-To replicate the system in the physical world, we will buy domain names which are not linked to any form of property.  These can be names of streets, public parks, or any other public local geography, such as bodies of water or landmarks.  We will avoid .com and use instead .net, .org and .xyz.  After a domain is purchased, we sign up for commercial web hosting, some random cheap plan.  We then create a new file in the root web directory called "replicator.php", and paste the code in [php/replicator.txt](php/replicator.txt) into the file, and save it.  We then point a web browser on any device to [your domain name]/replicator.php.  We wait for the page to load and provide  a link to the main page.  
+With PHP running at the command line, you can create a new file in your new repository called replicator.php, and copy the PHP file here into that.  That can be found in raw text form at [php/replicator.txt](php/replicator.txt).  Now modify the text so instead of the address for the file dna.txt you have http://[the IP address of your pi on your local network]/data/dna.txt.  Then run from the command line "php replicator.php" and the whole system should replicate.  You can then back that up to Github.  A subsequent instance can be created from your new github repo by redirecting a replicator to point to the data/dna.txt file found on the repo in raw form.  This will then fetch all of the files from the global git repo, but you can be updating that whole system of files locally at any time.  This can replicate a purely local network resource at a global scale which can then replicate to any other local network resource like other Pi servers.
 
-This page can then replicate any file from anywhere to be its base form, be it a map or scroll.  The page can be used to link people to a physical time and place where physical network infrastructure can be found(a Raspberry Pi Server).  
 
-Finally, we want to connect the physical space around an area which is referenced in the domain back to that domain.  To do this, we create physical media with the domain printed on it.  This can be on a cardboard sign with a marker, spray painted on a wall or street, spray stenciled with a laser cut stencil, printed on a clay icon token, 3d printed, stamped into plastic with a plastic melting robot.  One way to do it is with felt letters cut out and sewn on fabric as follows:
 
-![](https://i.imgur.com/nvWedsQ.jpg)
-
-Here is a guide for the font to use to make these:
-
-![](https://i.imgur.com/nKHSZxC.jpg)
-
-It is important to also have a bag to carry the Pi in, here is the replicator card for the bag:
-
-![](https://i.imgur.com/63OwKhz.png)
-
-![](https://i.imgur.com/gp1Dy7a.png)
-
-![](https://i.imgur.com/yvbgOm0.jpg)
 
 
