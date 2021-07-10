@@ -74,7 +74,7 @@ Note that the orientation of the rainbow matters!! red is at the same end as red
 Controller kit:
 
 - 26 inches of 9 conductor ribbon cable from red to black colors
-- 8 buttons, Panasonic part number EVQ-11L05R
+- 8 buttons, Panasonic part number EVQ-11L05R(replace with CR1102H5.0F260 from CIT Relay and Switch)
 - 9 pin female header with long pins, created by hand from 10 pin using a knife
 - push pin to punch holes in the board for the buttons
 - 7 solid wire jumpers, 3" long
