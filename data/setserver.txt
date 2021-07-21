@@ -1,5 +1,5 @@
 {
-    "server": "https://raw.githubusercontent.com/LafeLabs/trashmill/main/",
+    "server": "https://raw.githubusercontent.com/LafeLabs/thing/main/",
     "set": [
         "php/setserverreplicator.txt",
         "setserver.html",
