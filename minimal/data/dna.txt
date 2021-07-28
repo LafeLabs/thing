@@ -9,7 +9,10 @@
         "mapfactory.js"
     ],
     "iconsymbols": [
-        "edit.svg"
+        "delete.svg",
+        "edit.svg",
+        "home.svg",
+        "scroll.svg"
     ],
     "data": [
         "dna.txt",
