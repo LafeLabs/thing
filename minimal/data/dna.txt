@@ -2,7 +2,8 @@
     "html": [
         "index.html",
         "mapeditor.html",
-        "scrolleditor.html"
+        "scrolleditor.html",
+        "textfeed.html"
     ],
     "javascript": [
         "mapfactory.js"
@@ -11,7 +12,8 @@
         "edit.svg"
     ],
     "data": [
-        "dna.txt"
+        "dna.txt",
+        "textfeed.txt"
     ],
     "php": [
         "dir.txt",
