@@ -24,7 +24,8 @@
         "mapeditor.txt",
         "replicator.txt",
         "scrolleditor.txt",
-        "setreplicator.txt"
+        "setreplicator.txt",
+        "user.txt"
     ],
     "maps": [
         "home"
