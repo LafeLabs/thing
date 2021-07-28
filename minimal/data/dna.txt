@@ -21,7 +21,9 @@
         "editor.txt",
         "fileloader.txt",
         "filesaver.txt",
+        "mapeditor.txt",
         "replicator.txt",
+        "scrolleditor.txt",
         "setreplicator.txt"
     ],
     "maps": [
