@@ -1,0 +1,27 @@
+{
+    "html": [
+        "index.html"
+    ],
+    "javascript": [
+        "mapfactory.js"
+    ],
+    "iconsymbols": [],
+    "data": [
+        "dna.txt"
+    ],
+    "php": [
+        "dir.txt",
+        "dnagenerator.txt",
+        "editor.txt",
+        "fileloader.txt",
+        "filesaver.txt",
+        "replicator.txt",
+        "setreplicator.txt"
+    ],
+    "maps": [
+        "home"
+    ],
+    "scrolls": [
+        "home"
+    ]
+}
