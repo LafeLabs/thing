@@ -1,7 +1,9 @@
 {
     "html": [
         "index.html",
+        "mapdelete.html",
         "mapeditor.html",
+        "scrolldelete.html",
         "scrolleditor.html",
         "textfeed.html"
     ],
