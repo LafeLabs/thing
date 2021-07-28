@@ -1,11 +1,15 @@
 {
     "html": [
-        "index.html"
+        "index.html",
+        "mapeditor.html",
+        "scrolleditor.html"
     ],
     "javascript": [
         "mapfactory.js"
     ],
-    "iconsymbols": [],
+    "iconsymbols": [
+        "edit.svg"
+    ],
     "data": [
         "dna.txt"
     ],
