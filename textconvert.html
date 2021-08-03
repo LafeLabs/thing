@@ -52,10 +52,10 @@
 <p>blue is plain text, red is a list of hexidecimal values of each character for pasting without trivial text filters being engaged.</p>
 <table>
     <tr>
-        <td class = "button" id = "text2bytecode">from text to bytecode</td>
+        <td class = "button" id = "text2bytecode">from <span style = "background-color:#0000ff80">text</span> to <span style = "background-color:#ff000080">bytecode</span></td>
     </tr>
     <tr>
-        <td class = "button" id = "bytecode2text">from bytecode to text</td>
+        <td class = "button" id = "bytecode2text">from <span style = "background-color:#ff000080">bytecode</span> to <span style = "background-color:#0000ff80">text</span></td>
     </tr>
 </table>
 
@@ -80,8 +80,10 @@ document.getElementById("bytecode2text").onclick = function(){
     bytelist = bytestring.split(",");
     text = "";
     for(var index = 0;index < bytelist.length;index++){
-        charcode = parseInt(bytelist[index],16);
-        text += String.fromCharCode(charcode);
+        if(bytelist[index].length>0){
+            charcode = parseInt(bytelist[index],16);
+            text += String.fromCharCode(charcode);
+        }
     }
     document.getElementById("textarea").value = text;
 }
