@@ -208,30 +208,42 @@ document.getElementById("modebutton").onclick = function(){
 }
 
 modeswitch();
+modeswitch();
+
 function modeswitch(){
     if(mode == "dark"){
         mode = "light";
         document.body.style.backgroundColor = "white";
         document.getElementById("scrollscroll").style.backgroundColor = "white";
         document.getElementById("scrollscroll").style.color = "black";
-
         document.getElementById("scrollinput").style.color = "black";
         document.getElementById("scrollinput").style.backgroundColor = "white";       
-        
         document.getElementById("scrollsbox").style.backgroundColor = "#e0e0ff";
-        document.getElementById("scrollsbox").style.color = "black";        
+        document.getElementById("scrollsbox").style.color = "black"; 
+        document.getElementById("modebutton").style.color = "black"; 
+        document.getElementById("modebutton").style.borderColor = "black"; 
+        document.getElementById("modebutton").style.backgroundColor = "white"; 
+        document.getElementById("hidebutton").style.color = "black"; 
+        document.getElementById("hidebutton").style.borderColor = "black"; 
+        document.getElementById("hidebutton").style.backgroundColor = "white"; 
+
     }
     else{
         mode = "dark";
         document.body.style.backgroundColor = "black";
         document.getElementById("scrollscroll").style.backgroundColor = "black";
         document.getElementById("scrollscroll").style.color = "#00ff00";    
-
         document.getElementById("scrollinput").style.color = "#ff2cb4";
         document.getElementById("scrollinput").style.backgroundColor = "black";              
         document.getElementById("scrollsbox").style.backgroundColor = "#202060";
-        document.getElementById("scrollsbox").style.color = "#00ff00";          
-                
+        document.getElementById("scrollsbox").style.color = "#00ff00";
+        document.getElementById("modebutton").style.color = "#00ff00"; 
+        document.getElementById("modebutton").style.borderColor = "#00ff00"; 
+        document.getElementById("modebutton").style.backgroundColor = "black";          
+        document.getElementById("hidebutton").style.color = "#00ff00"; 
+        document.getElementById("hidebutton").style.borderColor = "#00ff00"; 
+        document.getElementById("hidebutton").style.backgroundColor = "black";          
+                        
 
     }
 }
