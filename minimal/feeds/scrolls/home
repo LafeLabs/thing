@@ -12,4 +12,8 @@ feeds
 
 [set.html](set.html)
 
+[copy.html](copy.html)
+
 [dnagenerator.php](dnagenerator.php)
+
+[feed set replicator](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/feeds/data/set.txt)
