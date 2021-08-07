@@ -57,6 +57,10 @@
 
 [Self-replicating Web Page](scrolls/srwp)
 
+[Copy Book of Geometron to local server](setreplicator.php?set=https://pastebin.com/raw/rmxhBs70)
+
+[Copy installation instructions to local server](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/install/data/set.txt)
+
 ### Useful Links:
 
  - [Home Map](maps/home)
