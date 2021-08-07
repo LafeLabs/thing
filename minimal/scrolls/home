@@ -1,13 +1,25 @@
 #  <span style = "color:red">Γ</span><span style = "color:orange">ε</span><span style = "color:yellow">ω</span><span style = "color:green">μ</span><span style = "color:blue">ε</span><span style = "color:purple">τ</span><span style = "color:red">ρ</span><span style = "color:orange">ο</span><span style = "color:yellow">ν</span>
 
-Geometron is self-replicating media.  We create, edit, and share text documents. This is part of a larger system which can be used for design and control of machines, complex social media structures, graphics and symbol editing, and potentially many other applications, but this minimal version is only for sharing text documents. 
+Geometron is self-replicating media.  Create, edit, and share text documents. This is part of a larger system which can be used for design and control of machines, complex social media structures, graphics and symbol editing, and potentially many other applications, but this minimal version is only for sharing text documents. 
+
+[install Geometron on a Windows or macOS computer](scrolls/desktop)
+
+[install Geometron on an Android](scrolls/android)
+
+[install Geometron on an iOS](scrolls/ios)
+
+[install Geometron on an Raspberry Pi](scrolls/pi)
+
+[fork.html](fork.html)
 
 [editor.php](editor.php)
 
-[evade censors with hexidecimal(textconvert.html)](textconvert.html)
+[evade censors with hexidecimal(textconvert.html, NOT encryption!)](textconvert.html)
 
 [copy.html](copy.html)
 
 [dnagenerator.php](dnagenerator.php)
 
 [set.html](set.html)
+
+[Copy Book of Geometron to local server](setreplicator.php?set=https://pastebin.com/raw/rmxhBs70)

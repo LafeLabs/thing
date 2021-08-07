@@ -1,0 +1,5 @@
+[home](scrolls/home)
+
+# Install Geometron on iOS
+
+As with all other platforms, just copy replicator at [replicator.txt](php/replicator.txt) and run it. The server which has been found to work is [phpwin](https://app.phpwin.org).  Install it on your ios device.  Then create a new file called replicator.php.  Edit that file, and copy/paste the contents of the replicator from here to there, save it, and run [your domain]/replicator.php from any web browser. If it does not work fiddle around with permissions, making it more and more open until it works.  Since there is no private date in our system of any kind, security is not a thing that exists, and 0777 is preferable for all permissions.

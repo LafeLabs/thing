@@ -1,7 +1,6 @@
 {
     "html": [
         "copy.html",
-        "fork.html",
         "index.html",
         "scrolldelete.html",
         "set.html",
@@ -26,8 +25,6 @@
         "editor.txt",
         "fileloader.txt",
         "filesaver.txt",
-        "mkdir.txt",
-        "rdelete.txt",
         "replicator.txt",
         "scrolleditor.txt",
         "setreplicator.txt",
@@ -36,10 +33,6 @@
     ],
     "maps": [],
     "scrolls": [
-        "android",
-        "desktop",
-        "home",
-        "ios",
-        "pi"
+        "home"
     ]
 }
