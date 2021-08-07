@@ -36,10 +36,6 @@
     ],
     "maps": [],
     "scrolls": [
-        "android",
-        "desktop",
-        "home",
-        "ios",
-        "pi"
+        "home"
     ]
 }

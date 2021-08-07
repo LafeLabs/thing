@@ -2,14 +2,6 @@
 
 Geometron is self-replicating media.  Create, edit, and share text documents. This is part of a larger system which can be used for design and control of machines, complex social media structures, graphics and symbol editing, and potentially many other applications, but this minimal version is only for sharing text documents. 
 
-[install Geometron on a Windows or macOS computer](scrolls/desktop)
-
-[install Geometron on an Android](scrolls/android)
-
-[install Geometron on an iOS](scrolls/ios)
-
-[install Geometron on an Raspberry Pi](scrolls/pi)
-
 [fork.html](fork.html)
 
 [editor.php](editor.php)
@@ -23,3 +15,6 @@ Geometron is self-replicating media.  Create, edit, and share text documents. Th
 [set.html](set.html)
 
 [Copy Book of Geometron to local server](setreplicator.php?set=https://pastebin.com/raw/rmxhBs70)
+
+[Copy installation instructions to local server](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/install/data/set.txt)
+
