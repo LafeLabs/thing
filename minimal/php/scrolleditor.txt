@@ -33,7 +33,6 @@
 <textarea id = "maintextarea"></textarea>
 <div id = "feedscroll">
     <div id = "modebutton" class = "button">DARK MODE</div>
-    <div id = "savelinkbutton" class= "button">SAVE LINK</div>
     <a id = "userlink" href = "user.php?scroll=scrolls/home">
         <img src = "iconsymbols/scroll.svg"/>
     </a>
@@ -292,36 +291,6 @@ function modeswitch(){
     }
 }
 
-feed = [];
-
-var httpc666 = new XMLHttpRequest();
-httpc666.onreadystatechange = function(){
-    if (this.readyState == 4 && this.status == 200) {
-        feed = JSON.parse(this.responseText);
-
-    }
-};
-httpc666.open("GET", "fileloader.php?filename=data/mainfeed.txt", true);
-httpc666.send();
-
-function savefeed(){
-    
-    var httpc = new XMLHttpRequest();
-    httpc.open("POST", "filesaver.php", true);
-    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc.send("data="+encodeURIComponent(JSON.stringify(feed,null,"  "))+"&filename=data/mainfeed.txt");//send text to filesaver.php   
-
-}
-
-document.getElementById("savelinkbutton").onclick = function(){
-    var element = {};
-    element.src = "";
-    element.glyph = "";
-    element.text = currentfile;
-    element.href = "user.php?scroll=" + currentfile;
-    feed.unshift(element);
-    savefeed();
-}
 
 
 function text2hex(text){
@@ -367,15 +336,6 @@ body{
     top:1em;
     border:solid;
     border-radius:5px;
-}
-#savelinkbutton{
-    position:absolute;
-    right:5px;
-    top:3em;
-    display:none;
-    border:solid;
-    border-radius:5px;
-    
 }
 #maintextarea{
     position:absolute;
