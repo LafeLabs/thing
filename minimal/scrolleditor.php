@@ -2,7 +2,8 @@
 <html lang="en">
     <head>
      <meta charset="utf-8"/>
-     <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADf+wAA3/sAAAfgAACv9QAAoAUAAK/1AACv9QAAqBUAAK/1AACoFQAAr/UAAKAFAACv9QAAB+AAAN/7AADf+wAA" rel="icon" type="image/x-icon" />
+
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADf+wAA3/sAAAfgAACv9QAAoAUAAK/1AACv9QAAqBUAAK/1AACoFQAAr/UAAKAFAACv9QAAB+AAAN/7AADf+wAA" rel="icon" type="image/x-icon" />
         
 <script src = "https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>
 
@@ -33,10 +34,10 @@
 <div id = "feedscroll">
     <div id = "modebutton" class = "button">DARK MODE</div>
     <div id = "savelinkbutton" class= "button">SAVE LINK</div>
-    <a href = "user.php">
+    <a id = "userlink" href = "user.php?scroll=scrolls/home">
         <img src = "iconsymbols/scroll.svg"/>
     </a>
-<a href = "index.html">
+    <a href = "index.html">
         <img src = "iconsymbols/home.svg"/>
     </a>
     <a href = "scrolldelete.html">
@@ -55,11 +56,25 @@
     </table>
 </div>
         
+<div class = "data" id = "scrolldiv"><?php
+    
+if(isset($_GET["scroll"])){
+    echo $_GET["scroll"];
+}
 
+?></div>
+<div class = "data" id = "fromdiv"><?php
+
+if(isset($_GET["from"])){
+    echo $_GET["from"];
+}
+
+?></div>
 
 <script>
-
-
+currentfile = "";
+scroll = "";
+rawhtml = "";
 
 document.getElementById("newscrollinput").value = "";
 
@@ -70,23 +85,85 @@ var converter = new showdown.Converter();
 converter.setOption('literalMidWordUnderscores', 'true');
 converter.setOption('tables', 'true');
 
+if(document.getElementById("scrolldiv").innerHTML.length > 0 && document.getElementById("fromdiv").innerHTML.length == 0){
+    var scrollurl = document.getElementById("scrolldiv").innerHTML;
+    if(scrollurl.substring(0,8) == "scrolls/" || scrollurl == "README.md"){
+        currentfile = scrollurl;
+        var httpc = new XMLHttpRequest();
+        httpc.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                scroll = this.responseText;
+                document.getElementById("maintextarea").value = scroll;  
+                document.getElementById("currentfilename").innerHTML = currentfile;        
+                document.getElementById("userlink").href = "user.php?scroll=" + currentfile;
+            }
+        };
+        httpc.open("GET", "fileloader.php?filename=" + currentfile, true);
+        httpc.send();
+    }
+    else{
+        currentfile = scrollurl;
+        var httpc = new XMLHttpRequest();
+        httpc.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                scroll = this.responseText;
+                document.getElementById("maintextarea").value = scroll;  
+                currentfile = "scrolls/remote";
+                document.getElementById("currentfilename").innerHTML = currentfile;
+                document.getElementById("userlink").href = "user.php?scroll=" + currentfile;
+            }
+        };
+        httpc.open("GET", "fileloader.php?filename=" + currentfile, true);
+        httpc.send();
+    }
+}
 
-currentfile = "README.md";
+if(document.getElementById("scrolldiv").innerHTML.length > 0 && document.getElementById("fromdiv").innerHTML.length > 0){
+    var scrollurl = document.getElementById("scrolldiv").innerHTML;
+    var fromurl = document.getElementById("fromdiv").innerHTML;
+    currentfile = scrollurl;
+    
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            scroll = this.responseText;
+            document.getElementById("maintextarea").value = scroll;  
+            document.getElementById("currentfilename").innerHTML = currentfile;
+            document.getElementById("userlink").href = "user.php?scroll=" + currentfile;
+            
+            data = encodeURIComponent(scroll);
+            var httpc = new XMLHttpRequest();
+            var url = "filesaver.php";        
+            httpc.open("POST", url, true);
+            httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+            httpc.send("data="+data+"&filename=" + currentfile);//send text to filesaver.php
+            
+            
+        }
+    };
+    httpc.open("GET", "fileloader.php?filename=" + fromurl, true);
+    httpc.send();
+    
+}
+
+if(document.getElementById("scrolldiv").innerHTML.length == 0 && document.getElementById("fromdiv").innerHTML.length == 0){
+    currentfile = "scrolls/home";
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            scroll = this.responseText;
+            document.getElementById("maintextarea").value = scroll;  
+            document.getElementById("currentfilename").innerHTML = currentfile;
+        }
+    };
+    httpc.open("GET", "fileloader.php?filename=" + currentfile, true);
+    httpc.send();
+}
 
 //get readme.md, convert to html and display
 
-scroll = "";
-rawhtml = "";
-var httpc = new XMLHttpRequest();
-httpc.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        scroll = this.responseText;
-        document.getElementById("maintextarea").value = scroll;  
-        document.getElementById("currentfilename").innerHTML = currentfile;        
-    }
-};
-httpc.open("GET", "fileloader.php?filename=" + currentfile, true);
-httpc.send();
+
+
 
 document.getElementById("maintextarea").onkeyup = function() {
     scroll = this.value;
@@ -115,7 +192,8 @@ var httpc7 = new XMLHttpRequest();
                     document.getElementById("newscrollinput").value = "";
                     currentfile = this.innerHTML;
                     //console.log(scrollname);
-                document.getElementById("currentfilename").innerHTML = "scrolls/" + currentfile;                
+                    document.getElementById("currentfilename").innerHTML = currentfile;       
+                    document.getElementById("userlink").href = "user.php?scroll=" + currentfile;
                     var httpc = new XMLHttpRequest();
                     httpc.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
@@ -154,6 +232,7 @@ if (this.readyState == 4 && this.status == 200) {
             document.getElementById("newscrollinput").value = "";
             currentfile = this.innerHTML;
             document.getElementById("currentfilename").innerHTML = currentfile;
+            document.getElementById("userlink").href = "user.php?scroll=" + currentfile;            
             var httpc = new XMLHttpRequest();
             httpc.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
@@ -188,22 +267,6 @@ document.getElementById("newscrollinput").onchange = function(){
     httpc.send();
 }
 
-
-outputheader = "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\"/>\n<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css\"></head>\n<body>\n";
-
-outputfooter = "\n<style>\nbody{margin-left:3em;margin-right:3em;font-size:3em}\nimg{max-width:80%;display:block;margin:auto;}\nh1,h2,h3,h4{margin:auto;text-align:center;}\n</style>\n</body>\n</html>";
-
-
-var httpcstatic = new XMLHttpRequest();
-httpcstatic.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        foo = this.responseText;
-        staticheader = foo.split("<!--<scrolldata>-->")[0];
-        staticfooter = foo.split("<!--</scrolldata>-->")[1];
-    }
-};
-httpcstatic.open("GET", "fileloader.php?filename=staticscroll.html", true);
-httpcstatic.send();
 
 mode = "dark";
 
@@ -270,21 +333,26 @@ body{
     color:blue;
     margin-bottom:0.5em;
 }
+.data{
+    display:none;
+}
 #modebutton{
+    display:none;
+    
     position:absolute;
     right:5px;
     top:1em;
     border:solid;
     border-radius:5px;
-    display:none;
 }
 #savelinkbutton{
     position:absolute;
     right:5px;
     top:3em;
+    display:none;
     border:solid;
     border-radius:5px;
-    display:none;
+    
 }
 #maintextarea{
     position:absolute;
@@ -344,6 +412,11 @@ body{
         font-size:1.5em;
     }
 
+}
+@media only screen and (orientation: portrait) {
+    #maintextarea{
+        font-size:2em;
+    }
 }
 
         </style>

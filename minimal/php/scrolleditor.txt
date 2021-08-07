@@ -147,7 +147,7 @@ if(document.getElementById("scrolldiv").innerHTML.length > 0 && document.getElem
 }
 
 if(document.getElementById("scrolldiv").innerHTML.length == 0 && document.getElementById("fromdiv").innerHTML.length == 0){
-    currentfile = "README.md";
+    currentfile = "scrolls/home";
     var httpc = new XMLHttpRequest();
     httpc.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {

@@ -1,0 +1,14 @@
+[
+    {
+        "name": "scrolls/printers.md",
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/printers.md"
+    },
+    {
+        "name": "scrolls/geometron3d.md",
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/geometron3d.md"
+    },
+    {
+        "name": "scrolls/magic.md",
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/magic.md"
+    }
+]

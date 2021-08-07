@@ -1,15 +1,11 @@
 {
     "html": [
+        "copy.html",
         "index.html",
-        "mapdelete.html",
-        "mapeditor.html",
         "scrolldelete.html",
-        "scrolleditor.html",
-        "textfeed.html"
+        "set.html"
     ],
-    "javascript": [
-        "mapfactory.js"
-    ],
+    "javascript": [],
     "iconsymbols": [
         "delete.svg",
         "edit.svg",
@@ -18,23 +14,23 @@
     ],
     "data": [
         "dna.txt",
-        "textfeed.txt"
+        "set.txt"
     ],
     "php": [
+        "copy.txt",
+        "deletefile.txt",
         "dir.txt",
         "dnagenerator.txt",
         "editor.txt",
         "fileloader.txt",
         "filesaver.txt",
-        "mapeditor.txt",
         "replicator.txt",
         "scrolleditor.txt",
         "setreplicator.txt",
+        "text2php.txt",
         "user.txt"
     ],
-    "maps": [
-        "home"
-    ],
+    "maps": [],
     "scrolls": [
         "home"
     ]

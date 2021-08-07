@@ -1,115 +1,18 @@
 #  <span style = "color:red">Γ</span><span style = "color:orange">ε</span><span style = "color:yellow">ω</span><span style = "color:green">μ</span><span style = "color:blue">ε</span><span style = "color:purple">τ</span><span style = "color:red">ρ</span><span style = "color:orange">ο</span><span style = "color:yellow">ν</span>
 
-# Geometron
+# Geometron: minimal
 
-## [Install Geometron on a computer, phone, tablet, or server](scroll(README.md))
+[scrolls/asdf](scrolls/asdf)
 
-## [Book of Geometron](scrolls/bookofgeometron.md)
+replication and scrolls.  No maps. No symbols. No robot control.  This is a self replicating platform for creating and sharing text documents, nothing more. 
 
-[![](https://i.imgur.com/ETvXBCp.png)](scrolls/bookofgeometron.md)
+[editor.php](editor.php)
 
-## [Icon Factory](scrolls/iconfactory.md)
+[copy.html](copy.html)
 
-[![](https://i.imgur.com/K2ZoX6G.png)](scrolls/iconfactory.md)
-[![](https://i.imgur.com/BbU0bAX.jpg)](scrolls/iconfactory.md)
+[dnagenerator.php](dnagenerator.php)
 
-## [Robot Factory](scrolls/robotfactory.md)
-
-[![](https://i.imgur.com/NgelIKS.png)](scrolls/robotfactory.md)
-
-## [Laser Cut Action Geometry Shapes](scrolls/lasercutshapes)
-
-[![](https://i.imgur.com/TD5Sqs6.jpg)](scrolls/lasercutshapes)
-
-## [Symbol Factory](symbol.html)
-
-[![](https://i.imgur.com/sKULd0V.png)](symbol.html)
-
-## [ArtBox: Self-replicating Geometron Purse](scrolls/box.md)
-
-[![](https://i.imgur.com/wQTEjlY.jpg)](scrolls/box.md)
-
-## [Arduino Shield Kit](scrolls/shield.md)
-
-[![](https://i.imgur.com/1RFYgKx.jpg)](scrolls/shield.md)
-
-## [Trash Magic Manifesto](https://lafelabs.github.io/Trash_Magic_Manifesto.pdf)
-
-[localhost/](http://localhost/)
-
-[Build a Geometron server on a Windows machine](scrolls/windows)
-
-[Build a Geometron server on an Android Phone](scrolls/android)
-
-[log onto this local Raspberry Pi server with QR code or link(ipaddress.html)](ipaddress.html)
-
-[QR code generator for non-Raspberry Pi servers(qrcode.html)](qrcode.html)
-
-[copy files from a Geometron server with copy.html](copy.html)
-
-[copy files from a  pastebin with pastebin.html](pastebin.html)
-
-[self-replicating sets from set.html](set.html)
-
-[Replicate Geometron Server(README file)](scroll(README.md))
-
-[fork down from top page with fork.html](fork.html)
-
-[Action Geometry Scroll](scrolls/actiongeometry.md)
-
-[Self-replicating Web Page](scrolls/srwp)
-
-### Useful Links:
-
- - [Home Map](maps/home)
- - [copy files with copy.html](copy.html)
- - [cyber magic](cybermagic.html)
- - [unidecoder.html](unidecoder.html)
- - [SET MAGIC with set.html](set.html)
- - [SET MAGIC(server, setserver.html)](setserver.html)
- - [enter pastebin of scroll to replicate and edit locally](pastescroll.html)
- - [convert text to hexidecimal to evade censors with textconvert.html](textconvert.html)
- - [copy from pastebin to main page for remote hosted domains](pastebin.html)
- - [trash robot printer](scrolls/printer.md)
- - [Build Arduino Brain](scrolls/brain.md)
- - [Build Controller](scrolls/controller.md)
- - [Build mechanicals](scrolls/mechanicals.md)
- - [build ArtBox](scrolls/box.md)
- - [ruler](maps/ruler)
- - [shapes](maps/shapes)
- - [protractor](scrolls/protractor.md)
- - [flag](maps/flag)
- - [arduino shield](maps/shield)
- - [local image feed](localimagefeed.html)
- - [global image feed](globalimagefeed.html)
- - [align image](alignimage.html)
- - [trace icon](traceicon.html)
- - [icon feed](iconfeed.html)
- - [print in clay](programarduino.html)
- - [print in plastic](programarduinoxyz.html)
- - [fork](fork.html)
- - [symbol](symbol.html)
- - [icon feed](iconfeed.html)
- - [lasericon](lasericon.html)
- - [voxel](voxel.html)
- - [icon3d](icon3d.html)
- - [three dee object](three.html)
- - [three dee print(click .stl to download)](threejs.html)
- - [icon64](icon64.html)
- - [mathuser](mathuser.php?map=maps/math)
- - [wall](wall.html)
- - [chaosfeed](chaosfeed.html)
- - [link feed](linkfeed.html)
- - [urlfeed](urlfeed.html)
- - [textfeed](textfeed.html)
- - [duality](duality.html)
- - [poetryengine](poetryengine.html)
- - [hash](hash.html)
- - [canvas2png](canvas2png.html)
- - [qrcode](qrcode.html)
- - [editor.php](editor.php)
- - [dna generator](dnagenerator.php)
-
+[set.html](set.html)
 
 
 
