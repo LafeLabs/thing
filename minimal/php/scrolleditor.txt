@@ -322,6 +322,29 @@ document.getElementById("savelinkbutton").onclick = function(){
     feed.unshift(element);
     savefeed();
 }
+
+
+function text2hex(text){
+    hex = "";
+    for(var index = 0;index < text.length;index++){
+        charcode = text.charCodeAt(index);
+        hex += "0x" + charcode.toString(16) + ",";
+    }
+    return hex;
+}
+
+function hex2text(hex){
+    bytelist = hex.split(",");
+    text = "";
+    for(var index = 0;index < bytelist.length;index++){
+        if(bytelist[index].length>0){
+            charcode = parseInt(bytelist[index],16);
+            text += String.fromCharCode(charcode);
+        }
+    }
+    return text;
+}
+
 </script>
 <style>
 

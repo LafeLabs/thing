@@ -3,7 +3,8 @@
         "copy.html",
         "index.html",
         "scrolldelete.html",
-        "set.html"
+        "set.html",
+        "textconvert.html"
     ],
     "javascript": [],
     "iconsymbols": [

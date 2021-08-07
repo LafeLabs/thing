@@ -45,7 +45,6 @@
 <div id = "modebutton" class = "button">LIGHT<br>DARK</div>
 <div id = "hidebutton" class = "button"><span id  = "hideshow">SHOW</span><br>MENU</div>
 <div id = "margin">
-    <div id = "marginbutton">⇳⇳⇳⇳⇳⇳⇳⇳⇳⇳⇳</div>
     <div id  = "scrollsbox">
         <input id = "scrollinput"/>
         <a id  = "scrolleditorlink" href = "scrolleditor.html">
@@ -242,6 +241,19 @@ document.getElementById("scrollinput").onchange = function(){
     loadscroll(this.value);
     this.value = "";
 }
+
+function hex2text(hex){
+    bytelist = hex.split(",");
+    text = "";
+    for(var index = 0;index < bytelist.length;index++){
+        if(bytelist[index].length>0){
+            charcode = parseInt(bytelist[index],16);
+            text += String.fromCharCode(charcode);
+        }
+    }
+    return text;
+}
+
 
 </script>
 <style>
