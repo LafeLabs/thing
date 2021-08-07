@@ -24,9 +24,6 @@ else{
 
 
 ?>
-<!--<p style = "font-size:5em">
-    <a href = "pageeditor.html">PAGE EDITOR</a>
-</p>-->
 
 <p style = "font-size:5em">
     <a href = "imagefeed.html">imagefeed.html</a>
