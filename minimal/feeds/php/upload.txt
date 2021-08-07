@@ -27,9 +27,12 @@ else{
 <!--<p style = "font-size:5em">
     <a href = "pageeditor.html">PAGE EDITOR</a>
 </p>-->
+<p style = "font-size:5em">
+    <a href = "localimagefeed.html">Return to Local Image Feed</a>
+</p>
 
 <p style = "font-size:5em">
-    <a href = "imagefeed.html">imagefeed.html</a>
+    <a href = "mapeditor.html">Return to map editor</a>
 </p>
 
 <p style = "font-size:5em">

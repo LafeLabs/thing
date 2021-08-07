@@ -1,0 +1,50 @@
+[
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/php/upload.txt",
+        "name": "upload.php"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/php/upload.txt",
+        "name": "php/upload.txt"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/data/linkfeed.txt",
+        "name": "data/linkfeed.txt"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/data/urlfeed.txt",
+        "name": "data/urlfeed.txt"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/data/imagefeed.txt",
+        "name": "data/imagefeed.txt"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/data/chaosfeed.txt",
+        "name": "data/chaosfeed.txt"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/data/wall.txt",
+        "name": "data/wall.txt"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/wall.html",
+        "name": "wall.html"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/chaosfeed.html",
+        "name": "chaosfeed.html"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/urlfeed.html",
+        "name": "urlfeed.html"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/linkfeed.html",
+        "name": "linkfeed.html"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/imagefeed.html",
+        "name": "imagefeed.html"
+    }
+]

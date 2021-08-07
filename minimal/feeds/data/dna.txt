@@ -1,0 +1,52 @@
+{
+    "html": [
+        "chaosfeed.html",
+        "copy.html",
+        "fork.html",
+        "imagefeed.html",
+        "index.html",
+        "linkfeed.html",
+        "scrolldelete.html",
+        "set.html",
+        "textconvert.html",
+        "urlfeed.html",
+        "wall.html"
+    ],
+    "javascript": [],
+    "iconsymbols": [
+        "delete.svg",
+        "edit.svg",
+        "home.svg",
+        "scroll.svg"
+    ],
+    "data": [
+        "chaosfeed.txt",
+        "dna.txt",
+        "imagefeed.txt",
+        "linkfeed.txt",
+        "set.txt",
+        "urlfeed.txt",
+        "wall.txt"
+    ],
+    "php": [
+        "copy.txt",
+        "deletefile.txt",
+        "dir.txt",
+        "dnagenerator.txt",
+        "editor.txt",
+        "fileloader.txt",
+        "filesaver.txt",
+        "mkdir.txt",
+        "rdelete.txt",
+        "replicator.txt",
+        "scrolleditor.txt",
+        "setreplicator.txt",
+        "text2php.txt",
+        "upload.txt",
+        "user.txt"
+    ],
+    "maps": [],
+    "scrolls": [
+        "home"
+    ]
+}
