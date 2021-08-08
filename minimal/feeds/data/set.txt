@@ -40,10 +40,6 @@
         "name": "urlfeed.html"
     },
     {
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/linkfeed.html",
-        "name": "linkfeed.html"
-    },
-    {
         "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/imagefeed.html",
         "name": "imagefeed.html"
     }

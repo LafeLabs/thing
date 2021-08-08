@@ -3,7 +3,6 @@
 feeds
 
  - [imagefeed](imagefeed.html)
- - [linkfeed](linkfeed.html)
  - [urlfeed](urlfeed.html)
  - [chaosfeed](chaosfeed.html)
  - [wall](wall.html)
