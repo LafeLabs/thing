@@ -8,10 +8,6 @@
         "name": "php/upload.txt"
     },
     {
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/data/linkfeed.txt",
-        "name": "data/linkfeed.txt"
-    },
-    {
         "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/data/urlfeed.txt",
         "name": "data/urlfeed.txt"
     },
