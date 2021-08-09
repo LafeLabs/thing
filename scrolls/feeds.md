@@ -7,7 +7,6 @@
  - [global image feed](globalimagefeed.html)
  - [text feed](textfeed.html)
  - [canvas2png.html](canvas2png.html)
- - [mainfeed.html](mainfeed.html)
  - [url feed](urlfeed.html)
  - [link feed](linkfeed.html)
  - [chaos feed](chaosfeed.html)
