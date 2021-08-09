@@ -4,6 +4,7 @@
         "fork.html",
         "index.html",
         "scrolldelete.html",
+        "scrolleditor.html",
         "set.html",
         "textconvert.html"
     ],

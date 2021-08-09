@@ -99,7 +99,6 @@
             <img src = "iconsymbols/map.svg"/>
         </a>
         
-        <div id = "savelinkbutton" class= "button" style= "text-align:center;border:solid">SAVE LINK</div>
         <table>
             <tr>
                 <td>new map:</td>
@@ -531,57 +530,6 @@ mcrotate.on("panleft panright panup pandown tap press", function(ev) {
 });    
 
 
-mainfeed = [];
-var httpcmainfeed = new XMLHttpRequest();
-    httpcmainfeed.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        mainfeed = JSON.parse(this.responseText);
-        for(var index = 0;index < mainfeed.length;index++) {
-            if(mainfeed[index].src.length > 0){
-                var newimg = document.createElement("IMG");
-                newimg.src = mainfeed[index].src;
-                newimg.classList.add("uploadimage");
-                newimg.classList.add("button");
-                document.getElementById("feedscroll").appendChild(newimg);
-                newimg.onclick = function() {
-                    mainmap.array[mainmap.linkindex].src = this.src;
-                    document.getElementById("imginput").value = this.src;
-                    mainmap.draw();
-
-                }    
-            }
-            if(mainfeed[index].text.length > 0){
-                var newbox = document.createElement("div");
-                newbox.className = "button";
-                newbox.innerHTML = mainfeed[index].text;
-                newbox.onclick = function(){
-                    //replace current text with this text and update map
-                    mainmap.array[mainmap.linkindex].text = this.innerHTML;
-                    mainmap.draw();
-                document.getElementById("textinput").value = mainmap.array[mainmap.linkindex].text;
-                }
-                document.getElementById("textscroll").appendChild(newbox);
-            }
-            if(mainfeed[index].href.length > 0){
-                var newbox = document.createElement("div");
-                newbox.className = "button";
-                newbox.innerHTML = mainfeed[index].href;
-                newbox.onclick = function(){
-                    //replace current href with this href and update map
-                    mainmap.array[mainmap.linkindex].href = this.innerHTML;
-                    mainmap.draw();
-                    document.getElementById("linkbox").innerHTML = this.innerHTML;
-                    document.getElementById("linkinput").value = mainmap.array[mainmap.linkindex].href;
-
-                }   
-                document.getElementById("linkscroll").appendChild(newbox);
-            }
-        }
-
-    }
-};
-httpcmainfeed.open("GET", "fileloader.php?filename=data/mainfeed.txt", true);
-httpcmainfeed.send();
 
 
 uploadImages = [];
@@ -862,37 +810,8 @@ document.getElementById("hmodebutton").onclick = function(){
     }
 }
 
-function savefeed(){
-    
-    var httpc = new XMLHttpRequest();
-    httpc.open("POST", "filesaver.php", true);
-    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc.send("data="+encodeURIComponent(JSON.stringify(feed,null,"  "))+"&filename=data/mainfeed.txt");//send text to filesaver.php   
-
-}
 
 
-
-document.getElementById("savelinkbutton").onclick = function(){
-    var element = {};
-    element.src = "";
-    element.glyph = "";
-    element.text = currentFile;
-    element.href = "user.php?map=" + currentFile;
-    feed.unshift(element);
-    savefeed();
-}
-
-feed = [];
-var httpc = new XMLHttpRequest();
-httpc.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        feed = JSON.parse(this.responseText);
-    }
-};
-
-httpc.open("GET", "fileloader.php?filename=data/mainfeed.txt", true);
-httpc.send();
 
 </script>
 <style>

@@ -1,22 +1,57 @@
 {
     "html": [
+        "canvas2png.html",
         "copy.html",
         "fork.html",
         "index.html",
+        "mapdelete.html",
+        "mapeditor.html",
         "scrolldelete.html",
+        "scrolleditor.html",
         "set.html",
-        "textconvert.html"
+        "textconvert.html",
+        "textfeed.html"
     ],
-    "javascript": [],
+    "javascript": [
+        "mapfactory.js"
+    ],
     "iconsymbols": [
+        "add.svg",
+        "arrow.svg",
         "delete.svg",
+        "deleteimage.svg",
+        "deletelink.svg",
+        "downelement.svg",
+        "duality.svg",
         "edit.svg",
+        "elementdown.svg",
+        "elementup.svg",
+        "expand.svg",
+        "expandsmall.svg",
+        "feed.svg",
         "home.svg",
-        "scroll.svg"
+        "image.svg",
+        "left.svg",
+        "leftsmall.svg",
+        "link.svg",
+        "map.svg",
+        "pngcode.svg",
+        "poetryengine.svg",
+        "right.svg",
+        "rightsmall.svg",
+        "rotate.svg",
+        "save.svg",
+        "scale.svg",
+        "scroll.svg",
+        "shrink.svg",
+        "shrinksmall.svg",
+        "text.svg",
+        "upelement.svg"
     ],
     "data": [
         "dna.txt",
-        "set.txt"
+        "set.txt",
+        "textfeed.txt"
     ],
     "php": [
         "copy.txt",
@@ -26,6 +61,7 @@
         "editor.txt",
         "fileloader.txt",
         "filesaver.txt",
+        "mapeditor.txt",
         "mkdir.txt",
         "rdelete.txt",
         "replicator.txt",
@@ -34,7 +70,9 @@
         "text2php.txt",
         "user.txt"
     ],
-    "maps": [],
+    "maps": [
+        "home"
+    ],
     "scrolls": [
         "home"
     ]
