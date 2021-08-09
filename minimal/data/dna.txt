@@ -37,6 +37,7 @@
     ],
     "maps": [],
     "scrolls": [
-        "home"
+        "home",
+        "sets"
     ]
 }

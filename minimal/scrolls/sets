@@ -1,0 +1,40 @@
+[home](scrolls/home)
+
+# Sets
+
+ - minimal(scrolls)
+ - [feed set replicator](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/feeds/data/set.txt)
+ - [map set replicator](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/mapreplicator/data/set.txt)
+ - math scroll set replicator
+ - math map set replicator
+ - [symbol set replicator](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/symbolreplicator/data/set.txt)
+ - icon
+ - arduino
+ - PCboards
+    - robot brain
+    - arduino shield
+ - lasercutter
+   - shapes
+   - ruler
+   - words stencil
+   - protractor 
+ - installation instructions for geometron system
+    - windows or mac
+    - Android
+    - iOS
+    - Raspberry Pi 
+    - remote server on paid hosting or free hosting
+ - book of geometron set replicator
+ - trash magic manifesto set replicator
+ - cyber magic
+ - QR Codes
+ - geometron3d
+ - artbox
+ - clay icon printer system
+    - printer robot
+    - icon creation
+    - big bags, small bags, trash ties, alchemy system
+    - pendants on a string
+ - energy calculator
+ - physical books
+ 
