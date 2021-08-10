@@ -981,6 +981,11 @@ input,table,select{
     border-radius:10px;
     margin-top:1em;
 }
+    #feedscroll img{
+        max-width:50%;
+        cursor:pointer;
+    }
+
 @media only screen and (orientation: portrait) {
     #inputbox img{
         width:100px;
@@ -1074,10 +1079,6 @@ input,table,select{
     }
     #linkscroll img{
         width:70px;
-    }
-    #feedscroll img{
-        max-width:50%;
-        cursor:pointer;
     }
 
     #textscroll{
