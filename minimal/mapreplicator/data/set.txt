@@ -1,5 +1,9 @@
 [
     {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/mapreplicator/scrolls/home",
+        "name": "scrolls/mapreplicator"
+    },
+    {
         "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/iconsymbols/arrow.svg",
         "name": "iconsymbols/arrow.svg"
     },
