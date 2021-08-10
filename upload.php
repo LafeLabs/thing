@@ -26,7 +26,7 @@ else{
 ?>
 
 <p style = "font-size:5em">
-    <a href = "imagefeed.html">imagefeed.html</a>
+    <a href = "mapeditor.php">map editor</a>
 </p>
 
 <p style = "font-size:5em">
