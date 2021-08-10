@@ -14,11 +14,13 @@
 
 <pre>
 map set = {
-   iconsymbols:{
+  iconsymbols:{
       arrow, rotate, scale, right, rightsmall, left, leftsmall, expand, expandsmall, shrinksmall, shrink, link, image, text, deletelink, deleteimage, add, elementup, elementdown, downelement, upelement, save, map, 
-   },
-   javascript: mapfactory.js,
+  },
+  javascript: mapfactory.js,
   html:{index.html, mapdelete.html},
   php: upload.php, user.php, mapeditor.php
+  scrolls: mapreplicator
+  maps: home
 }
 </pre>
