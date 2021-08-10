@@ -1,5 +1,13 @@
 [
     {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/php/upload.txt",
+        "name": "php/upload.txt"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/php/upload.txt",
+        "name": "upload.php"
+    },
+    {
         "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/mapreplicator/scrolls/home",
         "name": "scrolls/mapreplicator"
     },

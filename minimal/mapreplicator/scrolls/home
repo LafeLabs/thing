@@ -11,3 +11,14 @@
 [map set replicator](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/mapreplicator/data/set.txt)
 
 [link to raw set JSON](https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/mapreplicator/data/set.txt)
+
+<pre>
+map set = {
+   iconsymbols:{
+      arrow, rotate, scale, right, rightsmall, left, leftsmall, expand, expandsmall, shrinksmall, shrink, link, image, text, deletelink, deleteimage, add, elementup, elementdown, downelement, upelement, save, map, 
+   },
+   javascript: mapfactory.js,
+  html:{index.html, mapdelete.html},
+  php: upload.php, user.php, mapeditor.php
+}
+</pre>
