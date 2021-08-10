@@ -4,38 +4,6 @@
         "name": "iconsymbols/arrow.svg"
     },
     {
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/data/poetry.txt",
-        "name": "data/poetry.txt"
-    },
-    {
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/data/duality.txt",
-        "name": "data/duality.txt"
-    },
-    {
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/canvas2png.html",
-        "name": "canvas2png.html"
-    },
-    {
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/duality.html",
-        "name": "duality.html"
-    },
-    {
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/poetryengine.html",
-        "name": "poetryengine.html"
-    },
-    {
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/iconsymbols/poetryengine.svg",
-        "name": "iconsymbols/poetryengine.svg"
-    },
-    {
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/iconsymbols/duality.svg",
-        "name": "iconsymbols/duality.svg"
-    },
-    {
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/iconsymbols/pngcode.svg",
-        "name": "iconsymbols/pngcode.svg"
-    },
-    {
         "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/mapdelete.html",
         "name": "mapdelete.html"
     },
@@ -78,10 +46,6 @@
     {
         "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/iconsymbols/shrink.svg",
         "name": "iconsymbols/shrink.svg"
-    },
-    {
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/iconsymbols/feed.svg",
-        "name": "iconsymbols/feed.svg"
     },
     {
         "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/iconsymbols/link.svg",
@@ -136,10 +100,6 @@
         "name": "data/textfeed.txt"
     },
     {
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/textfeed.html",
-        "name": "textfeed.html"
-    },
-    {
         "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/index.html",
         "name": "index.html"
     },
@@ -158,10 +118,6 @@
     {
         "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/php/mapeditor.txt",
         "name": "php/mapeditor.txt"
-    },
-    {
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/mapeditor.html",
-        "name": "mapeditor.html"
     },
     {
         "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/maps/home",
