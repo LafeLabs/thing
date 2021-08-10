@@ -325,43 +325,54 @@ document.getElementById("modebutton").onclick = function(){
 }
 
 modeswitch();
+
 function modeswitch(){
     if(mode == "dark"){
         mode = "light";
         document.body.style.backgroundColor = "white";
-        mainmap.linkColor = "blue";
-        mainmap.textColor = "black";
         document.getElementById("scrollscroll").style.backgroundColor = "white";
         document.getElementById("scrollscroll").style.color = "black";
-        document.getElementById("mapinput").style.color = "black";
-        document.getElementById("mapinput").style.backgroundColor = "white";
         document.getElementById("scrollinput").style.color = "black";
         document.getElementById("scrollinput").style.backgroundColor = "white";       
-        
-        document.getElementById("mapsbox").style.backgroundColor = "#ffd0d0";
-        document.getElementById("mapsbox").style.color = "black";    
+        document.getElementById("mapinput").style.color = "black";
+        document.getElementById("mapinput").style.backgroundColor = "white";       
         document.getElementById("scrollsbox").style.backgroundColor = "#e0e0ff";
-        document.getElementById("scrollsbox").style.color = "black";        
+        document.getElementById("scrollsbox").style.color = "black";
+
+        document.getElementById("mapsbox").style.backgroundColor = "#ffe0e0";
+        document.getElementById("mapsbox").style.color = "black";        
+        document.getElementById("modebutton").style.color = "black"; 
+        document.getElementById("modebutton").style.borderColor = "black"; 
+        document.getElementById("modebutton").style.backgroundColor = "white"; 
+        document.getElementById("hidebutton").style.color = "black"; 
+        document.getElementById("hidebutton").style.borderColor = "black"; 
+        document.getElementById("hidebutton").style.backgroundColor = "white"; 
+
     }
     else{
         mode = "dark";
         document.body.style.backgroundColor = "black";
-        mainmap.textColor = "#00ff00";
-        mainmap.linkColor = "#ff2cb4";
         document.getElementById("scrollscroll").style.backgroundColor = "black";
         document.getElementById("scrollscroll").style.color = "#00ff00";    
-        document.getElementById("mapinput").style.color = "#ff2cb4";
-        document.getElementById("mapinput").style.backgroundColor = "black";
         document.getElementById("scrollinput").style.color = "#ff2cb4";
         document.getElementById("scrollinput").style.backgroundColor = "black";              
-        document.getElementById("mapsbox").style.backgroundColor = "#602020";
-        document.getElementById("mapsbox").style.color = "#00ff00";  
+        document.getElementById("mapinput").style.color = "#ff2cb4";
+        document.getElementById("mapinput").style.backgroundColor = "black";                      
         document.getElementById("scrollsbox").style.backgroundColor = "#202060";
-        document.getElementById("scrollsbox").style.color = "#00ff00";          
-                
+        document.getElementById("scrollsbox").style.color = "#00ff00";
+        document.getElementById("mapsbox").style.backgroundColor = "#602020";
+        document.getElementById("mapsbox").style.color = "#00ff00";
+        document.getElementById("modebutton").style.color = "#00ff00"; 
+        document.getElementById("modebutton").style.borderColor = "#00ff00"; 
+        document.getElementById("modebutton").style.backgroundColor = "black";          
+        document.getElementById("hidebutton").style.color = "#00ff00"; 
+        document.getElementById("hidebutton").style.borderColor = "#00ff00"; 
+        document.getElementById("hidebutton").style.backgroundColor = "black";          
+                        
 
     }
 }
+
 
 
 maps = [];
