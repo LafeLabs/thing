@@ -9,13 +9,17 @@ Geometron is self-replicating media.  Create, edit, and share documents.
 
 [copy.html](copy.html)
 
-[textconvert.html](textconvert.html)
+[textconvert.html(convert text to hexidecimal code to avoid censors in paste bins--this is not encryption)](textconvert.html)
 
 [scrolleditor.php](scrolleditor.php)
 
 [editor.php](editor.php)
 
 [set.html](set.html)
+
+dna JSON code: [https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/data/dna.txt](https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/data/dna.txt)
+
+replicator php code: [https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/php/replicator.txt](https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/php/replicator.txt)
 
 This document is a scroll, edit it by clicking the edit icon after you open the menu. This format is Markdown.  Fork creates and deletes sub-pages. 
 

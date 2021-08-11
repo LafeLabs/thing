@@ -1,5 +1,9 @@
 [
     {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/textfeed.html",
+        "name": "textfeed.html"
+    },
+    {
         "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/php/upload.txt",
         "name": "php/upload.txt"
     },
