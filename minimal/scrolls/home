@@ -21,6 +21,10 @@ replicator.php raw code: [https://raw.githubusercontent.com/LafeLabs/thing/maste
 
 [map set](https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/mapreplicator/data/set.txt) replicator:[setreplicator.php?set=[map set url]](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/mapreplicator/data/set.txt)
 
+[symbol set](https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/symbolreplicator/data/set.txt) replicator:[setreplicator.php?set=[symbol set url]](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/symbolreplicator/data/set.txt)
+
+[install set](https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/install/data/set.txt) replicator:[setreplicator.php?set=[install set url]](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/install/data/set.txt)
+
 
 This document is a scroll, edit it by clicking the edit icon after you open the menu. This format is Markdown.  Fork creates and deletes sub-pages. 
 
