@@ -1,5 +1,9 @@
 [
     {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/home",
+        "name": "scrolls/symbol"
+    },
+    {
         "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/jscode/trashrobotfont.js",
         "name": "jscode/trashrobotfont.js"
     },
