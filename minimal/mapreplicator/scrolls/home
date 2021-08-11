@@ -8,7 +8,7 @@
 
 [set magic](set.html)
 
-[map set replicator](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/mapreplicator/data/set.txt)
+[map set](https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/mapreplicator/data/set.txt) replicator:[setreplicator.php?set=[map set url]](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/mapreplicator/data/set.txt)
 
 [link to raw set JSON](https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/mapreplicator/data/set.txt)
 
@@ -18,9 +18,10 @@ map set = {
       arrow, rotate, scale, right, rightsmall, left, leftsmall, expand, expandsmall, shrinksmall, shrink, link, image, text, deletelink, deleteimage, add, elementup, elementdown, downelement, upelement, save, map, 
   },
   javascript: mapfactory.js,
-  html:{index.html, mapdelete.html},
+  html:{index.html, mapdelete.html,textfeed.html},
   php: upload.php, user.php, mapeditor.php
   scrolls: mapreplicator
   maps: home
+  JSON data:textfeed.txt
 }
 </pre>
