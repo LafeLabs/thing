@@ -1,0 +1,36 @@
+#  <span style = "color:red">Γ</span><span style = "color:orange">ε</span><span style = "color:yellow">ω</span><span style = "color:green">μ</span><span style = "color:blue">ε</span><span style = "color:purple">τ</span><span style = "color:red">ρ</span><span style = "color:orange">ο</span><span style = "color:yellow">ν</span>
+
+
+#  <span style = "color:red">G</span><span style = "color:orange">e</span><span style = "color:yellow">o</span><span style = "color:green">m</span><span style = "color:blue">e</span><span style = "color:purple">t</span><span style = "color:red">r</span><span style = "color:orange">o</span><span style = "color:yellow">n</span>
+
+Geometron is self-replicating media.  Create, edit, and share documents. 
+
+[fork.html](fork.html)
+
+[copy.html](copy.html)
+
+[textconvert.html(convert text to hexidecimal code to avoid censors in paste bins--this is not encryption)](textconvert.html)
+
+[scrolleditor.php](scrolleditor.php)
+
+[editor.php](editor.php)
+
+[set.html](set.html)
+
+replicator.php raw code: [https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/php/replicator.txt](https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/php/replicator.txt)
+
+[map set](https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/mapreplicator/data/set.txt) replicator:[setreplicator.php?set=[map set url]](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/mapreplicator/data/set.txt)
+
+[symbol set](https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/symbolreplicator/data/set.txt) replicator:[setreplicator.php?set=[symbol set url]](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/symbolreplicator/data/set.txt)
+
+[install set](https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/install/data/set.txt) replicator:[setreplicator.php?set=[install set url]](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/install/data/set.txt)
+
+
+This document is a scroll, edit it by clicking the edit icon after you open the menu. This format is Markdown.  Fork creates and deletes sub-pages. 
+
+- everything replicates
+- everything evolves
+- everything dies
+- everything is physical
+- everything is fractal
+- everything is recursive
