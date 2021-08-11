@@ -25,12 +25,14 @@ replicator.php raw code: [https://raw.githubusercontent.com/LafeLabs/thing/maste
 
 [install set](https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/install/data/set.txt) replicator:[setreplicator.php?set=[install set url]](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/install/data/set.txt)
 
+[math set](https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/math/data/set.txt) replicator:[setreplicator.php?set=[math set url]](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/math/data/set.txt)
+
 
 This document is a scroll, edit it by clicking the edit icon after you open the menu. This format is Markdown.  Fork creates and deletes sub-pages. 
 
 - everything replicates
 - everything evolves
 - everything dies
-- everything is physical
+- everything is physical4
 - everything is fractal
 - everything is recursive
