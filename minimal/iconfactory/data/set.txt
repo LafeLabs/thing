@@ -1,0 +1,30 @@
+[
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/threejsinvert.html",
+        "name": "threejsinvert.html"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/traceicon.html",
+        "name": "traceicon.html"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/iconfeed.html",
+        "name": "iconfeed.html"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/alignimage.html",
+        "name": "alignimage.html"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/localimagefeed.html",
+        "name": "localimagefeed.html"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/globalimagefeed.html",
+        "name": "globalimagefeed.html"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/maps/iconfactory",
+        "name": "maps/iconfactory"
+    }
+]
