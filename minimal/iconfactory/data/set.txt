@@ -1,5 +1,13 @@
 [
     {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/lasericon.html",
+        "name": "lasericon.html"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/icon64.html",
+        "name": "icon64.html"
+    },
+    {
         "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/shapes3d.html",
         "name": "shapes3d.html"
     },
