@@ -4,10 +4,7 @@
 
 [set.html](set.html)
 
-[editor.php](editor.php)
-
-
-[icon set](https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/iconfactory/data/set.txt) replicator:[setreplicator.php?set=[math set url]](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/math/data/set.txt)
+[icon set](https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/iconfactory/data/set.txt) replicator:[setreplicator.php?set=[icon set url]](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/iconfactory/data/set.txt)
 
 - everything replicates
 - everything evolves

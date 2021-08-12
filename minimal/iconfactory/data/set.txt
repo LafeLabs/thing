@@ -1,5 +1,61 @@
 [
     {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/shapes3d.html",
+        "name": "shapes3d.html"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/threejs.html",
+        "name": "threejs.html"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/threejs.html",
+        "name": "threejs.html"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/icon3d.html",
+        "name": "icon3d.html"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/voxel.html",
+        "name": "voxel.html"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/data/glyph3d.txt",
+        "name": "data/glyph3d.txt"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/data/arduinocodexyz.txt",
+        "name": "data/arduinocodexyz.txt"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/data/arduinocode.txt",
+        "name": "data/arduinocode.txt"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/programarduinoxyz.html",
+        "name": "programarduinoxyz.html"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/programarduino.html",
+        "name": "programarduino.html"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/data/robotfeed.txt",
+        "name": "data/robotfeed.txt"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/data/alignimage.txt",
+        "name": "data/alignimage.txt"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/data/coin.txt",
+        "name": "data/coin.txt"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/data/imagefeed.txt",
+        "name": "data/imagefeed.txt"
+    },
+    {
         "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/threejsinvert.html",
         "name": "threejsinvert.html"
     },
