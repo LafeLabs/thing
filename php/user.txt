@@ -56,7 +56,7 @@
     </div>
     <div id  = "mapsbox">
         <input id = "mapinput"/>
-        <a id = "mapeditorlink" href = "mapeditor.html">
+        <a id = "mapeditorlink" href = "mapeditor.php">
             <img style = "width:50px;display:block;margin:auto;padding-top:1em" src = "iconsymbols/edit.svg"/>
         </a>        
     </div>
