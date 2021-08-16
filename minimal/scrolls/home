@@ -17,6 +17,8 @@ Geometron is self-replicating media.  Create, edit, and share documents.
 
 [set.html](set.html)
 
+A Geometron Set is a collection of files which can be replicated across the Web.
+
 replicator.php raw code: [https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/php/replicator.txt](https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/php/replicator.txt)
 
 [map set](https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/mapreplicator/data/set.txt) replicator:[setreplicator.php?set=[map set url]](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/mapreplicator/data/set.txt)
