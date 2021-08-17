@@ -1,0 +1,10 @@
+[
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/data/cybermagic.txt",
+        "name": "data/cybermagic.txt"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/cybermagic.html",
+        "name": "cybermagic.html"
+    }
+]
