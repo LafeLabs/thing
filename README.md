@@ -8,7 +8,7 @@
 
 # Installation of Geometron System
 
-[Geometron](scrolls/bookofgeometron.md) is a self-replicating social media system for spreading free technology built from trash.   It can run on Windows, Mac, Android, iOS, pretty much any flavor of Linux, Raspberry Pi, and both free and paid remote hosting.  To replicate it one simply sets up a webs server and copies the replicator script [php/replicator.txt](php/replicator.txt) to the server and runs it.  Web servers exist for all major computer platforms.  This document gives detailed instructions for each.
+[Geometron](scrolls/bookofgeometron.md) is a self-replicating social media system for spreading free technology built from trash.   It can run on Windows, Mac, Android, iOS, pretty much any flavor of Linux, Raspberry Pi, and both free and paid remote hosting.  To replicate it one simply sets up a webs server and copies the replicator script [php/replicator.txt](php/replicator.txt) to the server and runs it.  Web servers exist for all major computer platforms.  The minimal replicator that just replicates scrolls and set replicators for various components of the system can be found at [github/lafelabs/thing/minimal](https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/php/replicator.txt) This document gives detailed instructions for each.
 
 The entire Geometron Thing source code can be found at [https://github.com/lafelabs/thing/](https://github.com/lafelabs/thing/).
 
