@@ -1,6 +1,6 @@
 [
     {
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/cybermagic",
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/sets/scrolls/cybermagic",
         "name": "scrolls/cybermagic"
     },
     {
