@@ -290,6 +290,7 @@
         "workflow"
     ],
     "scrolls": [
+        "FAQ",
         "actiongeometry.md",
         "android",
         "bookofgeometron.md",
