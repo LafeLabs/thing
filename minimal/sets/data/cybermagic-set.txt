@@ -1,5 +1,9 @@
 [
     {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/cybermagic",
+        "name": "scrolls/cybermagic"
+    },
+    {
         "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/data/cybermagic.txt",
         "name": "data/cybermagic.txt"
     },
