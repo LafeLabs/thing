@@ -2,4 +2,8 @@
 
 # QR code
 
-[math set](https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/sets/data/qrcode-set.txt) replicator:[setreplicator.php?set=[math set url]](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/math/data/set.txt)
+[QR Code  set](https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/sets/data/qrcode-set.txt) replicator:[setreplicator.php?set=[QR Code set url]](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/sets/data/qrcode-set.txt)
+
+[Get QR code of IP address of THIS server with ipaddress.html](ipaddress.html)
+
+[Get QR Code of any address with qrcode.html](qrcode.html)
