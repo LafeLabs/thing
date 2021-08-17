@@ -1,7 +1,7 @@
 [
     {
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/sets/scrolls/qrcode.html",
-        "name": "scrolls/qrcode.html"
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/sets/scrolls/qrcode",
+        "name": "scrolls/qrcode"
     },
     {
         "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/qrcode.html",
