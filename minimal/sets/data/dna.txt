@@ -18,6 +18,7 @@
     "data": [
         "cybermagic-set.txt",
         "dna.txt",
+        "qrcode-set.txt",
         "set.txt"
     ],
     "php": [
@@ -38,6 +39,7 @@
     ],
     "maps": [],
     "scrolls": [
+        "cybermagic",
         "home"
     ]
 }

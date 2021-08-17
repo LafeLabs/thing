@@ -1,14 +1,10 @@
 [
     {
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/cybermagic",
-        "name": "scrolls/cybermagic"
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/sets/scrolls/qrcode.html",
+        "name": "scrolls/qrcode.html"
     },
     {
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/data/cybermagic.txt",
-        "name": "data/cybermagic.txt"
-    },
-    {
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/cybermagic.html",
-        "name": "cybermagic.html"
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/qrcode.html",
+        "name": "qrcode.html"
     }
 ]

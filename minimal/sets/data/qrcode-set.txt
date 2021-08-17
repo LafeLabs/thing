@@ -1,0 +1,27 @@
+[
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/sets/scrolls/qrcode.html",
+        "name": "scrolls/qrcode.html"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/qrcode.html",
+        "name": "qrcode.html"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/ipaddress.html",
+        "name": "ipaddress.html"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/php/getipaddress.txt",
+        "name": "php/getipaddress.txt"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/php/getipaddress.txt",
+        "name": "getipaddress.php"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/jscode/qrcode.js",
+        "name": "jscode/qrcode.js"
+    }
+    
+]
