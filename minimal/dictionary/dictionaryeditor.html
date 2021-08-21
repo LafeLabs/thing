@@ -23,8 +23,6 @@ DICTIONARY
 <div id = "header">
     <a href = "index.html">HOME</a>
     <a href = "dictionary.html">MAIN</a>
-    <span id = "alphabutton" class = "button top">ALPHA</span>
-    <span id = "timebutton" class = "button top">TIME</span>
     <span id = "newbutton" class = "button top">NEW</span>
 
 </div>
@@ -123,7 +121,12 @@ document.getElementById("newbutton").onclick = function(){
     savedictionary();
 }
 
+
+
+
+
 function savedictionary(){
+    dictionary[wordindex].timestamp = Math.round((new Date().getTime())/1000).toString();
     var url = "filesaver.php";        
     var httpc2 = new XMLHttpRequest();
     httpc2.open("POST", url, true);

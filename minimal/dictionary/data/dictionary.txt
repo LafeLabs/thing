@@ -1,8 +1,8 @@
 [
     {
-        "word": "newword",
-        "def": "this is a new word it means definition",
-        "timestamp": "1629565463"
+        "word": "trash bag",
+        "def": "this is a new word \nit means definition",
+        "timestamp": "1629566233"
     },
     {
         "word": "rainbowcore",
