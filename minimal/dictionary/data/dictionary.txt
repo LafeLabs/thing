@@ -1,27 +1,22 @@
 [
     {
-        "word": "trash bag",
-        "def": "this is a new word \nit means definition",
-        "timestamp": "1629566233"
+        "word": "magic",
+        "def": "Magic is the replication of desire.",
+        "timestamp": 1629589454
     },
     {
         "word": "rainbowcore",
         "def": "rainbow duct tape everywhere, 90s retrofuturism\n",
-        "timestamp": "1629565431"
+        "timestamp": 1629589401
+    },
+    {
+        "word": "trash bag",
+        "def": "sewn cloth bag with felt sewn on\n",
+        "timestamp": 1629589091
     },
     {
         "word": "trash pole",
-        "def": "A bamboo pole wrapped in rainbow duct tape\n",
-        "timestamp": "1629565000"
-    },
-    {
-        "word": "magick",
-        "def": "Magic is the replication of desire.",
-        "timestamp": 1629555120
-    },
-    {
-        "word": "trash mill",
-        "def": "Machine built from trash which turns a wheel via the sun. Uses direct solar concentrated heat to drive a Stirling engine.",
-        "timestamp": 1629555125
+        "def": "bamboo wrapped in rainbow duct tape",
+        "timestamp": 1629589437
     }
 ]

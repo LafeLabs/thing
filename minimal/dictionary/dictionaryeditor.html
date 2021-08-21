@@ -24,6 +24,8 @@ DICTIONARY
     <a href = "index.html">HOME</a>
     <a href = "dictionary.html">MAIN</a>
     <span id = "newbutton" class = "button top">NEW</span>
+    <span id = "alphabutton" class = "button top">ALPHA</span>
+    <span id = "timebutton" class = "button top">TIME</span>
 
 </div>
 <input id = "wordinput"/>
@@ -114,7 +116,7 @@ document.getElementById("newbutton").onclick = function(){
     var newword = {};
     newword.word = "newword";
     newword.def  = "this is a new word it means definition";
-    newword.timestamp = Math.round((new Date().getTime())/1000).toString();
+    newword.timestamp = Math.round((new Date().getTime())/1000);
     dictionary.unshift(newword);
     wordindex = 0;
     redraw();
@@ -126,7 +128,7 @@ document.getElementById("newbutton").onclick = function(){
 
 
 function savedictionary(){
-    dictionary[wordindex].timestamp = Math.round((new Date().getTime())/1000).toString();
+    dictionary[wordindex].timestamp = Math.round((new Date().getTime())/1000);
     var url = "filesaver.php";        
     var httpc2 = new XMLHttpRequest();
     httpc2.open("POST", url, true);
@@ -134,6 +136,56 @@ function savedictionary(){
     httpc2.send("data="+encodeURIComponent(JSON.stringify(dictionary,null,"    "))+"&filename=data/dictionary.txt");//send text to filesaver.php
 }
 
+document.getElementById("alphabutton").onclick = function(){
+    
+    noswaps = false;
+    
+    while(!noswaps){
+        noswaps = true;
+        for(var index = 0;index < dictionary.length - 1;index++){
+            var pair = [dictionary[index].word,dictionary[index + 1].word];
+            pair.sort();
+            if(pair[0] != dictionary[index].word){
+                noswaps = false;
+                var swap1 = dictionary[index];
+                var swap2 = dictionary[index + 1];
+                dictionary[index] = swap2;
+                dictionary[index + 1] = swap1;
+            }
+        }            
+    }
+
+    wordindex = 0;
+    redraw();
+    savedictionary();
+
+}
+
+
+document.getElementById("timebutton").onclick = function(){
+    
+    noswaps = false;
+    
+    while(!noswaps){
+        noswaps = true;
+        for(var index = 0;index < dictionary.length - 1;index++){
+            var pair = [dictionary[index].timestamp,dictionary[index + 1].timestamp];
+            if(pair[1] > pair[0]){
+                //swap
+                noswaps = false;
+                var swap1 = dictionary[index];
+                var swap2 = dictionary[index + 1];
+                dictionary[index] = swap2;
+                dictionary[index + 1] = swap1;
+            }
+        }            
+    }
+
+    wordindex = 0;
+    redraw();
+    savedictionary();
+
+}
 </script>
 <style>
 body{
