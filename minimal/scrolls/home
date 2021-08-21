@@ -35,6 +35,8 @@ replicator.php raw code: [https://raw.githubusercontent.com/LafeLabs/thing/maste
 
 [QR Code  set](https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/sets/data/qrcode-set.txt) replicator:[setreplicator.php?set=[QR Code set url]](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/sets/data/qrcode-set.txt)
 
+[dictionary install set](https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/dictionary/data/set.txt) replicator:[setreplicator.php?set=[dictionary set url]](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/dictionary/data/set.txt)
+
 This document is a scroll, edit it by clicking the edit icon after you open the menu. This format is Markdown.  Fork creates and deletes sub-pages. 
 
 - everything replicates
