@@ -1,10 +1,22 @@
 [
     {
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/php/replicator.txt",
-        "name": "php/replicator.txt"
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/dictionary/data/set.txt",
+        "name": "data/set.txt"
     },
     {
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/php/replicator.txt",
-        "name": "replicator.php"
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/dictionary/data/dicionary.txt",
+        "name": "data/dictionary.txt"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/dictionary/scrolls/home",
+        "name": "scrolls/dictionary"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/dictionary/dictionaryeditor.html",
+        "name": "dictionaryeditor.html"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/dictionary/dictionary.html",
+        "name": "dictionary.html"
     }
 ]

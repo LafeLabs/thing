@@ -22,13 +22,21 @@ DICTIONARY
 <body>    
 <div id = "header">
     <a href = "index.html">HOME</a>
-    <a href = "dictionaryeditor.html">EDIT</a>
+    <a href = "dictionary.html">MAIN</a>
+    <span id = "alphabutton" class = "button top">ALPHA</span>
+    <span id = "timebutton" class = "button top">TIME</span>
+    <span id = "newbutton" class = "button top">NEW</span>
+
 </div>
+<input id = "wordinput"/>
+<textarea id = "textio"></textarea>
 <div id = "main">
 </div>
 <script>
 
 dictionary = [];
+
+wordindex = 0;
 
 var httpc = new XMLHttpRequest();
     httpc.onreadystatechange = function() {
@@ -47,8 +55,10 @@ function redraw(){
         var newdiv = document.createElement("DIV");
         newdiv.className = "element";
         var newimg = document.createElement("IMG");
+        newimg.classList.add("delete");
+        newimg.classList.add("button");
         newimg.src = "iconsymbols/delete.svg";
-
+        newdiv.appendChild(newimg);
         var wordspan = document.createElement("B");
         wordspan.className = "word";
         wordspan.innerHTML = dictionary[index].word;
@@ -80,7 +90,7 @@ a{
     top:0px;
     left:0px;
     right:0px;
-    height:100px;
+    height:5em;
     font-size:50px;
     overflow:scroll;
 }
@@ -94,17 +104,57 @@ a{
 .element{
     margin-bottom:1em;
 }
+.top{
+    border:solid;
+    border-color:#00ff00;
+    border-radius:5px;
+}
+#textio{
+    position:absolute;
+    right:0px;
+    top:5em;
+    width:50%;
+    height:10em;
+    background-color:black;
+    border:solid;
+    border-color:#00ff00;
+    color:#00ff00;
+    font-family:courier;
+    font-size:18px;
+}
+#wordinput{
+    position:absolute;
+    left:0px;
+    top:5em;
+    background-color:black;
+    border:solid;
+    border-color:#00ff00;
+    color:#00ff00;
+    font-family:courier;
+    font-size:18px;
+}
 #main{
     position:absolute;
     overflow:scroll;
     left:0px;
     right:0px;
     bottom:0px;
-    top:100px;
+    top:50%;
     padding-left:3em;
     padding-right:3em;
-
-    
+}
+.button{
+    cursor:pointer;
+}
+.button:hover{
+    background-color:#00ff0080;
+}
+.button:active{
+    background-color:#ffff0080;
+}
+.delete{
+    background-color:#404040;    
+    width:50px;
 }
 @media only screen and (orientation: landscape) {
 
