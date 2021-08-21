@@ -1,12 +1,27 @@
 [
-{
-    "word":"magic",
-    "def":"Magic is the replication of desire.",
-    "timestamp":1629555120
-},
-{
-    "word":"trash mill",
-    "def":"Machine built from trash which turns a wheel via the sun. Uses direct solar concentrated heat to drive a Stirling engine.",
-    "timestamp":1629555125
-}
+    {
+        "word": "newword",
+        "def": "this is a new word it means definition",
+        "timestamp": "1629565463"
+    },
+    {
+        "word": "rainbowcore",
+        "def": "rainbow duct tape everywhere, 90s retrofuturism\n",
+        "timestamp": "1629565431"
+    },
+    {
+        "word": "trash pole",
+        "def": "A bamboo pole wrapped in rainbow duct tape\n",
+        "timestamp": "1629565000"
+    },
+    {
+        "word": "magick",
+        "def": "Magic is the replication of desire.",
+        "timestamp": 1629555120
+    },
+    {
+        "word": "trash mill",
+        "def": "Machine built from trash which turns a wheel via the sun. Uses direct solar concentrated heat to drive a Stirling engine.",
+        "timestamp": 1629555125
+    }
 ]

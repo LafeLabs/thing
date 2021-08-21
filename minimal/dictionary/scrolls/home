@@ -11,3 +11,5 @@
 [set.html](set.html)
 
 [editor.php](editor.php)
+
+[dictionary install set](https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/dictionary/data/set.txt) replicator:[setreplicator.php?set=[dictionary set url]](setreplicator.php?set=https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/dictionary/data/set.txt)

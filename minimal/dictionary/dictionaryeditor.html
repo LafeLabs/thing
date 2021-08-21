@@ -51,27 +51,85 @@ httpc.send();
 main = document.getElementById("main");
 
 function redraw(){
+    main.innerHTML = "";
     for(var index = 0;index < dictionary.length;index++){
         var newdiv = document.createElement("DIV");
         newdiv.className = "element";
+        var newspan = document.createElement("SPAN");
+        newspan.innerHTML = index.toString();
+        newspan.className = "data";
+        newdiv.appendChild(newspan);
         var newimg = document.createElement("IMG");
         newimg.classList.add("delete");
         newimg.classList.add("button");
         newimg.src = "iconsymbols/delete.svg";
+        newimg.onclick = function(){
+            deleteindex = parseInt(this.parentElement.getElementsByClassName("data")[0].innerHTML);
+
+            var localdict = [];
+            for(var localindex = 0;localindex < dictionary.length;localindex++){
+                if(localindex != deleteindex){
+                    localdict.push(dictionary[localindex]);
+                }
+            }
+            dictionary = localdict;
+            wordindex = 0;
+            redraw();
+            savedictionary();
+
+        }
         newdiv.appendChild(newimg);
         var wordspan = document.createElement("B");
-        wordspan.className = "word";
+        wordspan.classList.add("word");
+        wordspan.classList.add("button");
         wordspan.innerHTML = dictionary[index].word;
+        wordspan.onclick = function(){
+            wordindex = parseInt(this.parentElement.getElementsByClassName("data")[0].innerHTML);
+            document.getElementById("wordinput").value = dictionary[wordindex].word;
+            document.getElementById("textio").value = dictionary[wordindex].def
+        }
         var defspan = document.createElement("SPAN");
         defspan.className = "def";
         defspan.innerHTML = dictionary[index].def;
         main.appendChild(newdiv);
         newdiv.appendChild(wordspan);
         newdiv.appendChild(defspan);
-
     }
+    document.getElementById("wordinput").value = dictionary[wordindex].word;
+    document.getElementById("textio").value = dictionary[wordindex].def    
 }
 
+document.getElementById("wordinput").value = "";
+document.getElementById("wordinput").onchange = function(){
+    dictionary[wordindex].word = this.value;
+    redraw();
+    savedictionary();
+}
+
+document.getElementById("textio").value = "";
+document.getElementById("textio").onkeyup = function(){
+    dictionary[wordindex].def = this.value;
+    savedictionary();
+}
+
+document.getElementById("newbutton").onclick = function(){
+    var newword = {};
+    newword.word = "newword";
+    newword.def  = "this is a new word it means definition";
+    newword.timestamp = Math.round((new Date().getTime())/1000).toString();
+    dictionary.unshift(newword);
+    wordindex = 0;
+    redraw();
+    savedictionary();
+}
+
+function savedictionary(){
+    var url = "filesaver.php";        
+    var httpc2 = new XMLHttpRequest();
+    httpc2.open("POST", url, true);
+    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc2.send("data="+encodeURIComponent(JSON.stringify(dictionary,null,"    "))+"&filename=data/dictionary.txt");//send text to filesaver.php
+}
 
 </script>
 <style>
@@ -108,6 +166,9 @@ a{
     border:solid;
     border-color:#00ff00;
     border-radius:5px;
+}
+.data{
+    display:none;
 }
 #textio{
     position:absolute;
