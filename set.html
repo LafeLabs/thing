@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAP//AP///wANAP8A5Dz6ABueRwAAt/8A6BonABo86AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAREREREREREREREAAAEREREREQCIgREREd3dwAAB3d3d3d3d3d3d3d3d3d3d3d3d3VVVVVVVQAFVVAAVVVQIiBRAiIBEQIAIBECAAERAgAgFgIABmYCIiBmAiIGZgIiIGYCIgZmYCIAaIAAMzMzAAiIiIiIiIiIiIiIiIiIiIiIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
+    
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAABEAERABEAAAEQABAAEQAAAAEAEAEAAAAAABAQEAAAAAEAAREAEAAAERERERERAAABAAERABAAAAAAEBAQAAAAAAEAEAEAAAABEAAQABEAAAEQABAAEQAAAAABEQAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
+
     <!--Stop Google:-->
     <META NAME="robots" CONTENT="noindex,nofollow">
 </head>
@@ -13,6 +15,10 @@
 <div class = "button" id ="importbutton">IMPORT</div>
     
 <table id = "controltable">
+    <tr>
+        <td>remote set:</td>
+        <td><input id = "remotesetinput"/></td>
+    </tr>
     <tr>
         <td>
             <a href = "index.html">HOME</a>        
@@ -129,6 +135,23 @@ document.getElementById("publishbutton").onclick = function(){
     set.unshift(element);
     redraw();
     savejson();
+}
+
+document.getElementById("remotesetinput").value = "";
+
+document.getElementById("remotesetinput").onchange = function(){
+    setfilename = this.value;
+    var httpc666 = new XMLHttpRequest();
+    httpc666.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            remotesettext = this.responseText;
+            set = JSON.parse(remotesettext);
+            document.getElementById("textio").value = remotesettext;
+            savejson();
+        }
+    };
+    httpc666.open("GET", "fileloader.php?filename=" + setfilename, true);
+    httpc666.send();
 }
 
 </script>

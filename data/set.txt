@@ -1,62 +1,26 @@
 [
     {
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/fullstack.md",
-        "name": "scrolls/fullstack.md"
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/maps/math",
+        "name": "maps/math"
     },
     {
-        "name": "scrolls/bookofgeometron.md",
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/bookofgeometron.md"
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/math.md",
+        "name": "scrolls/math.md"
     },
     {
-        "name": "scrolls/organicmedia.md",
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/organicmedia.md"
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/php/mathmapeditor.txt",
+        "name": "php/mathmapeditor.txt"
     },
     {
-        "name": "scrolls/streetnetwork.md",
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/streetnetwork.md"
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/php/mathmapeditor.txt",
+        "name": "mathmapeditor.php"
     },
     {
-        "name": "scrolls/servers.md",
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/servers.md"
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/php/mathuser.txt",
+        "name": "mathuser.php"
     },
     {
-        "name": "scrolls/scrolls.md",
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/scrolls.md"
-    },
-    {
-        "name": "scrolls/feeds.md",
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/feeds.md"
-    },
-    {
-        "name": "scrolls/maps.md",
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/maps.md"
-    },
-    {
-        "name": "scrolls/symbols.md",
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/symbols.md"
-    },
-    {
-        "name": "scrolls/web2d.md",
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/web2d.md"
-    },
-    {
-        "name": "scrolls/shapes.md",
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/shapes.md"
-    },
-    {
-        "name": "scrolls/actiongeometry.md",
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/actiongeometry.md"
-    },
-    {
-        "name": "scrolls/printers.md",
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/printers.md"
-    },
-    {
-        "name": "scrolls/geometron3d.md",
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/geometron3d.md"
-    },
-    {
-        "name": "scrolls/magic.md",
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/scrolls/magic.md"
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/php/mathuser.txt",
+        "name": "php/mathuser.txt"
     }
 ]
