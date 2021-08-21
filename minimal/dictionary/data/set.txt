@@ -1,11 +1,11 @@
 [
     {
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/dictionary/data/set.txt",
-        "name": "data/set.txt"
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/dictionary/data/dictionary.txt",
+        "name": "data/dictionary.txt"
     },
     {
-        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/dictionary/data/dicionary.txt",
-        "name": "data/dictionary.txt"
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/dictionary/data/set.txt",
+        "name": "data/set.txt"
     },
     {
         "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/dictionary/scrolls/home",
