@@ -26,6 +26,12 @@ DICTIONARY
 </div>
 <div id = "main">
 </div>
+    <table id = "pastebintable">
+        <tr>
+            <td>PASTEBIN URL:</td>
+            <td><input id = "pastebininput"/></td>
+        </tr>
+    </table>
 <script>
 
 dictionary = [];
@@ -43,6 +49,7 @@ httpc.send();
 main = document.getElementById("main");
 
 function redraw(){
+    main.innerHTML = "";
     for(var index = 0;index < dictionary.length;index++){
         var newdiv = document.createElement("DIV");
         newdiv.className = "element";
@@ -59,6 +66,30 @@ function redraw(){
     }
 }
 
+function savedictionary(){
+
+    var url = "filesaver.php";        
+    var httpc2 = new XMLHttpRequest();
+    httpc2.open("POST", url, true);
+    httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc2.send("data="+encodeURIComponent(JSON.stringify(dictionary,null,"    "))+"&filename=data/dictionary.txt");//send text to filesaver.php
+}
+
+
+document.getElementById("pastebininput").value = "";
+document.getElementById("pastebininput").onchange = function(){
+    pastebinurl = this.value;
+    var httpc666 = new XMLHttpRequest();
+    httpc666.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            dictionary = JSON.parse(this.responseText);
+            redraw();
+            savedictionary();
+        }
+    };
+    httpc666.open("GET", "fileloader.php?filename=" + pastebinurl, true);
+    httpc666.send();
+}
 
 </script>
 <style>
@@ -96,12 +127,23 @@ a{
     overflow:scroll;
     left:0px;
     right:0px;
-    bottom:0px;
+    bottom:50px;
     top:100px;
     padding-left:3em;
     padding-right:3em;
 
-    
+}
+#pastebintable{
+    position:absolute;
+    bottom:0px;
+}
+#pastebininput{
+    background-color:black;
+    color:#00ff00;
+    border:solid;
+    font-family:courier;
+    font-size:16px;
+    border-color:#ff2cb4;
 }
 @media only screen and (orientation: landscape) {
 

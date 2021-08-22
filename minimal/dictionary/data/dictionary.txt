@@ -1,22 +1,22 @@
 [
     {
+        "word": "baloo",
+        "def": "bear",
+        "timestamp": 1629662678
+    },
+    {
+        "word": "beansthecat",
+        "def": "best cat ever",
+        "timestamp": 1629662492
+    },
+    {
         "word": "magic",
         "def": "Magic is the replication of desire.",
-        "timestamp": 1629589454
+        "timestamp": 1629662469
     },
     {
-        "word": "rainbowcore",
-        "def": "rainbow duct tape everywhere, 90s retrofuturism\n",
-        "timestamp": 1629589401
-    },
-    {
-        "word": "trash bag",
-        "def": "sewn cloth bag with felt sewn on\n",
-        "timestamp": 1629589091
-    },
-    {
-        "word": "trash pole",
-        "def": "bamboo wrapped in rainbow duct tape",
-        "timestamp": 1629589437
+        "word": "trash vortex",
+        "def": "when the trash starts to actually form a physical vortex with its movement thru space",
+        "timestamp": 1629662519
     }
 ]
