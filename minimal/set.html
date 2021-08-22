@@ -148,6 +148,7 @@ document.getElementById("remotesetinput").onchange = function(){
             set = JSON.parse(remotesettext);
             document.getElementById("textio").value = remotesettext;
             savejson();
+            redraw();    
         }
     };
     httpc666.open("GET", "fileloader.php?filename=" + setfilename, true);
