@@ -313,6 +313,7 @@
         "maps.md",
         "math.md",
         "mechanicals.md",
+        "minimal",
         "ontology.md",
         "organicmedia.md",
         "pastebin",
