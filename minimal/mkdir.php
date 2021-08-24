@@ -5,8 +5,10 @@ $dirname = $_GET["dir"];//get dir
 mkdir($dirname);
 
 if(isset($_GET["replicator"])){
-    $replicator = file_get_contents($_GET["replicator"]);
-    copy($replicator,$dirname."/replicator.php");
+    
+    $replicatorurl = $_GET["replicator"];
+    copy($replicatorurl,$dirname."/replicator.php");
+
 }
 else{
     copy("php/replicator.txt",$dirname."/replicator.php");    
