@@ -3,7 +3,9 @@
 
 This is a self-replicating README file of a thing.  
 
-This is used as a template for self replicating git repositories.  The README scroll replicates, along with the tools to construct all the other replicators of Geometron. This is a Geometron seed, but also it is just infrastructure around a single self-replicating document, the README.md file.  
+[readme.html](readme.html)
+
+[home](index.html)
 
 The raw replicator code for this is found here:
 

@@ -2,6 +2,7 @@
     "html": [
         "README.md",
         "index.html",
+        "readme.html",
         "scrolleditor.html",
         "set.html"
     ],
