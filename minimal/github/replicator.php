@@ -1,6 +1,6 @@
 <?php
 
-$dnaurl = "https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/data/dna.txt";
+$dnaurl = "https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/github/data/dna.txt";
 
 if(isset($_GET["dna"])){
     $dnaurl = $_GET["dna"];
@@ -11,16 +11,11 @@ $baseurl = explode("data/",$dnaurl)[0];
 $dnaraw = file_get_contents($dnaurl);
 $dna = json_decode($dnaraw);
 
-mkdir("iconsymbols");
 mkdir("data");
 mkdir("php");
-mkdir("jscode");
-mkdir("uploadimages");
-mkdir("symbolfeed");
-mkdir("maps");
-mkdir("scrolls");
 
-copy("https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/php/replicator.txt","replicator.php");
+
+copy("https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/github/php/replicator.txt","replicator.php");
 
 foreach($dna->html as $value){
     
@@ -28,19 +23,6 @@ foreach($dna->html as $value){
 
 }
 
-foreach($dna->javascript as $value){
-    
-    copy($baseurl."jscode/".$value,"jscode/".$value);
-
-    
-}
-
-foreach($dna->iconsymbols as $value){
-    
-    copy($baseurl."iconsymbols/".$value,"iconsymbols/".$value);
-
-    
-}
 
 foreach($dna->data as $value){
     
@@ -55,14 +37,6 @@ foreach($dna->php as $value){
 
 }
 
-
-foreach($dna->maps as $value){
-    copy($baseurl."maps/".$value,"maps/".$value);
-}
-
-foreach($dna->scrolls as $value){
-    copy($baseurl."scrolls/".$value,"scrolls/".$value);
-}
 
 
 ?>
