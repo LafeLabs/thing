@@ -42,7 +42,7 @@
 </head>
 <body>    
 <div id = "scrollscroll"></div>
-<a href= "scrolleditor.html">EDIT</a>
+<a id = "editlink" href= "scrolleditor.html">EDIT</a>
 <script>
 
 
@@ -84,17 +84,14 @@ function loadscroll(scrollname){
 <style>
 body{
     overflow:hidden;
-    background-color:black
 }
 #scrollscroll{
     padding-left:1em;
     padding-right:1em;
     left:0px;
-    top:0px;
+    bottom:0px;
     position:absolute;
     overflow:scroll;
-    background-color:black;
-    color:#00ff00;
     font-size:2em;
     display:none;
     z-index:-3;
@@ -112,14 +109,24 @@ h1,h2,h3,h4{
     text-align:center;
 }
 
-
+#editlink{
+    position:absolute;
+    right:0px;
+    top:0px;
+    font-size:2em;
+}
 @media only screen and (orientation: landscape) {
-
-    
+    #scrollscroll{
+        top:0px;
+        right:100px;
+    }
 }
 
 @media only screen and (orientation: portrait) {
-    
+    #scrollscroll{
+        top:100px;
+        right:0px;
+    }
 }
 </style>
 </body>

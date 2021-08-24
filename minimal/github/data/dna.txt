@@ -2,12 +2,12 @@
     "html": [
         "README.md",
         "index.html",
-        "scrolleditor.html"
+        "scrolleditor.html",
+        "set.html"
     ],
-    "javascript": [],
-    "iconsymbols": [],
     "data": [
-        "dna.txt"
+        "dna.txt",
+        "set.txt"
     ],
     "php": [
         "dnagenerator.txt",
@@ -15,8 +15,7 @@
         "fileloader.txt",
         "filesaver.txt",
         "replicator.txt",
+        "setreplicator.txt",
         "text2php.txt"
-    ],
-    "maps": [],
-    "scrolls": []
+    ]
 }
