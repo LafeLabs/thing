@@ -5,6 +5,10 @@
 
 Geometron is self-replicating media.  Create, edit, and share documents. 
 
+To copy a clean instance of a minimalist Geometron set to this server, click the replicator link:
+
+[replicator.php](replicator.php)
+
 [fork.html](fork.html)
 
 [copy.html](copy.html)
