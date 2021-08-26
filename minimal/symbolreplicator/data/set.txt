@@ -1,5 +1,13 @@
 [
     {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/iconsymbols/abcstack.svg",
+        "name": "iconsymbols/abcstack.svg"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/iconsymbols/abcfont.svg",
+        "name": "iconsymbols/abcfont.svg"
+    },
+    {
         "url": "https://raw.githubusercontent.com/LafeLabs/thing/master/minimal/symbolreplicator/scrolls/home",
         "name": "scrolls/symbol"
     },
