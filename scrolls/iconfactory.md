@@ -1,6 +1,6 @@
 [home](index.html)
 
-[![](iconsymbols/map.svg)](maps/iconfactory)
+[icon factory map](maps/iconfactory)
 
 
  - [google images](https://images.google.com/)
