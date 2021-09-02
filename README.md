@@ -1,10 +1,12 @@
+[localhost](localhost://)
+
 [home](index.html)
+
+# [www.trashrobot.org](http://www.trashrobot.org/)
 
 #  <span style = "color:red">Γ</span><span style = "color:orange">ε</span><span style = "color:yellow">ω</span><span style = "color:green">μ</span><span style = "color:blue">ε</span><span style = "color:purple">τ</span><span style = "color:red">ρ</span><span style = "color:orange">ο</span><span style = "color:yellow">ν</span>
 
 ## Geometron Replicator
-
-[home](index.html)
 
 # Installation of Geometron System
 
